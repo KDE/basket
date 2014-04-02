@@ -566,7 +566,8 @@ protected:
     LinkDisplayItem m_linkDisplayItem;
     KIO::Integration::AccessManager*      m_access_manager;
     QNetworkReply*      m_reply;
-    QString*    m_httpBuff;
+    QByteArray m_httpBuff; ///< Accumulator for downloaded HTTP data with yet unknown encoding
+    bool m_acceptingData; ///< When false, don't accept any HTTP data
     // File Preview Management:
 protected slots:
     void httpReadyRead();
@@ -576,6 +577,9 @@ protected slots:
     void startFetchingUrlPreview();
 protected:
     KIO::PreviewJob *m_previewJob;
+private:
+    void decodeHtmlTitle(); ///< Detect encoding of \p m_httpBuff and extract the title from HTML
+    void endFetchingLinkTitle(); ///< Extract title and clear http buffer
 };
 
 /** Real implementation of cross reference notes:

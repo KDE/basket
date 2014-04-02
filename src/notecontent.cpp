@@ -37,6 +37,7 @@
 #include <QtXml/QDomDocument>
 #include <QtNetwork/QNetworkReply>
 #include <QTextBlock>
+#include <QTextCodec>
 #include <KDE/KIO/AccessManager>
 
 #include <KDE/KDebug>
@@ -45,6 +46,7 @@
 #include <KDE/KFileMetaInfo>
 #include <KDE/KFileItem>
 #include <KDE/KIO/PreviewJob>                   //For KIO::file_preview(...)
+#include <KDE/KEncodingProber>
 
 #include <phonon/AudioOutput>
 #include <phonon/MediaObject>
@@ -1660,7 +1662,7 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
  */
 
 LinkContent::LinkContent(Note *parent, const KUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
-        : NoteContent(parent), m_linkDisplayItem(parent), m_access_manager(0), m_httpBuff(0), m_previewJob(0)
+    : NoteContent(parent), m_linkDisplayItem(parent), m_access_manager(0), m_acceptingData(false), m_previewJob(0)
 {
     setLink(url, title, icon, autoTitle, autoIcon);
     if(parent)
@@ -1673,7 +1675,6 @@ LinkContent::~LinkContent()
 {
     if(note()) note()->removeFromGroup(&m_linkDisplayItem);
     delete m_access_manager;
-    delete m_httpBuff;
 }
 
 qreal LinkContent::setWidthAndGetHeight(qreal width)
@@ -1797,55 +1798,31 @@ void LinkContent::removePreview(const KFileItem& ki)
 // QHttp slots for getting link title
 void LinkContent::httpReadyRead()
 {
+    if (!m_acceptingData)
+        return;
+
     //Check for availability
-    unsigned long bytesAvailable = m_reply->bytesAvailable();
+    qint64 bytesAvailable = m_reply->bytesAvailable();
     if (bytesAvailable <= 0)
         return;
 
-    char* buf = new char[bytesAvailable+1];
+    QByteArray buf = m_reply->read(bytesAvailable);
+    m_httpBuff.append(buf);
 
-    long bytes_read = m_reply->read(buf, bytesAvailable);
-    if (bytes_read > 0) {
-
-        // m_httpBuff will keep data if title is not found in initial read
-        if (m_httpBuff == 0) {
-            m_httpBuff = new QString(buf);
-        } else {
-            (*m_httpBuff) += buf;
-        }
-
-        // todo: this should probably strip odd html tags like &nbsp; etc
-        QRegExp reg("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>", Qt::CaseInsensitive);
-        reg.setMinimal(true);
-        int offset = 0;
-        //kDebug() << *m_httpBuff << " bytes: " << bytes_read;
-
-        //FIXME: that check doesn't seem to make any sense
-        if ((offset = reg.indexIn(*m_httpBuff)) >= 0) {
-            m_title = reg.cap(2);
-            m_autoTitle = false;
-            setEdited();
-
-            // refresh the title
-            setLink(url(), title(), icon(), autoTitle(), autoIcon());
-
-            // stop the http connection
-            m_reply->abort();
-
-            delete m_httpBuff;
-            m_httpBuff = 0;
-        }
-        // Stop at 10k bytes
-        else if (m_httpBuff->length() > 10000)   {
-            m_reply->abort();
-            delete m_httpBuff;
-            m_httpBuff = 0;
-        }
+    // Stop at 10k bytes
+    if (m_httpBuff.length() > 10000)   {
+        m_acceptingData = false;
+        m_reply->abort();
+        endFetchingLinkTitle();
     }
-    delete buf;
 }
 
 void LinkContent::httpDone(QNetworkReply* reply) {
+    if (m_acceptingData) {
+        m_acceptingData = false;
+        endFetchingLinkTitle();
+    }
+
     //If all done, close and delete the reply.
     reply->deleteLater();
 }
@@ -1873,6 +1850,7 @@ void LinkContent::startFetchingLinkTitle()
 
         //Issue request
         m_reply = m_access_manager->get(QNetworkRequest(newUrl));
+        m_acceptingData = true;
         connect(m_reply, SIGNAL(readyRead()), this, SLOT(httpReadyRead()));
     }
 }
@@ -1892,6 +1870,12 @@ void LinkContent::startFetchingUrlPreview()
         connect(m_previewJob, SIGNAL(gotPreview(const KFileItem&, const QPixmap&)), this, SLOT(newPreview(const KFileItem&, const QPixmap&)));
         connect(m_previewJob, SIGNAL(failed(const KFileItem&)),                     this, SLOT(removePreview(const KFileItem&)));
     }
+}
+
+void LinkContent::endFetchingLinkTitle()
+{
+    decodeHtmlTitle();
+    m_httpBuff.clear();
 }
 
 void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
@@ -2680,3 +2664,34 @@ void NoteFactory__loadNode(const QDomElement &content, const QString &lowerTypeN
     else if (lowerTypeName == "unknown")   new UnknownContent(parent, content.text());
 }
 
+
+
+void LinkContent::decodeHtmlTitle()
+{
+    KEncodingProber prober;
+    prober.feed(m_httpBuff);
+
+    // Fallback scheme: KEncodingProber - QTextCodec::codecForHtml - UTF-8
+    QTextCodec* textCodec;
+    if (prober.confidence() > 0.5)
+        textCodec = QTextCodec::codecForName(prober.encoding()); else
+        textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
+
+    QTextCodec::setCodecForCStrings(textCodec);
+    QString httpBuff = QString::fromAscii(m_httpBuff.data(), m_httpBuff.size()); //use fromCString() for Qt5
+    QTextCodec::setCodecForCStrings(0);
+
+    // todo: this should probably strip odd html tags like &nbsp; etc
+    QRegExp reg("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>", Qt::CaseInsensitive);
+    reg.setMinimal(true);
+    //kDebug() << *m_httpBuff << " bytes: " << bytes_read;
+
+    if (reg.indexIn(httpBuff) >= 0) {
+        m_title = reg.cap(2);
+        m_autoTitle = false;
+        setEdited();
+
+        // refresh the title
+        setLink(url(), title(), icon(), autoTitle(), autoIcon());
+    }
+}
