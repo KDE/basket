@@ -12,3 +12,4 @@ endmacro(basket_standalone_unit_test)
 
 basket_standalone_unit_test(notetest)
 basket_standalone_unit_test(basketviewtest)
+basket_standalone_unit_test(toolstest)

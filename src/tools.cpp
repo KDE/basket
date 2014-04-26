@@ -97,7 +97,7 @@ static const char* ITALIC = "italic";
 static const char* UNDERLINE = "underline";
 static const char* LINE_THROUGH = "line-through";
 
-static const char* FONT_WEIGHT = "font-weight: %1; ";
+//static const char* FONT_WEIGHT = "font-weight: %1; ";
 static const char* FONT_SIZE = "font-size: %1pt; ";
 static const char* COLOR = "color: %1; ";
 }
@@ -143,7 +143,7 @@ QString Tools::htmlToParagraph(const QString &html)
     if (startedBySpan)
         result += "</span>";
 
-    return result.replace("</p>", "<br><br>").replace("<p>", "");
+    return result;
 }
 
 // The following is adapted from KStringHanlder::tagURLs
@@ -349,6 +349,7 @@ QString Tools::htmlToText(const QString &html)
     text.replace("</td>", "  ");
     text.replace("<br>",  "\n");
     text.replace("<br />", "\n");
+    text.replace("</p>", "\n");
     // FIXME: Format <table> tags better, if possible
     // TODO: Replace &eacute; and co. by theire equivalent!
 
@@ -424,7 +425,7 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
     QString result =
             "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
             "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style type=\"text/css\">\n"
-            "p, li { white-space: pre-wrap; }\n"
+            "p, li { white-space: pre-wrap; margin: 0px; }\n"
             "</style></head><body>\n";
     QFont defaultFont;
 
@@ -444,6 +445,12 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                     continue;
                 }
 
+                //If we use charFmt.fontWeight, setting a tag overrides it and all characters become non-bold.
+                //So we use <b> </b> instead
+                bool bold = (charFmt.fontWeight() >= QFont::Bold);
+                if (bold)
+                    result += "<b>";
+
                 //Compose style string (font and color)
                 result += "<span style=\"";
 
@@ -459,10 +466,10 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                     result += QString(HTM::TEXT_DECORATION).arg(HTM::LINE_THROUGH);
 
 
-                if (charFmt.fontWeight() != defaultFont.weight()) {
+                /*if (charFmt.fontWeight() != defaultFont.weight()) {
                     QFont::Weight weight = (charFmt.fontWeight() >= QFont::Bold) ? QFont::Bold : QFont::Normal;
                     result += QString(HTM::FONT_WEIGHT).arg(weight);
-                }
+                }*/
 
                 if (charFmt.fontPointSize() != defaultFont.pointSize() && charFmt.fontPointSize() != 0)
                     result += QString(HTM::FONT_SIZE).arg(charFmt.fontPointSize());
@@ -472,6 +479,9 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
 
 
                 result += "\">" + Qt::escape(currentFragment.text()) + "</span>";
+
+                if (bold)
+                    result += "</b>";
             }
         }
         result += HTM::_PAR;
