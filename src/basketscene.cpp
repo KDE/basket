@@ -3775,7 +3775,9 @@ bool BasketScene::closeEditor()
     m_inactivityAutoSaveTimer.stop();
 
     // Delete the note if it is now empty:
-    if (isEmpty) {
+    if (isEmpty && theSelectedNote() == note) {
+        // ... and if it has really been edited (and selected) now
+        // (temporary fix for bugs.launchpad.net/basket/+bug/1318188)
         focusANonSelectedNoteAboveOrThenBelow();
         note->setSelected(true);
         note->deleteSelectedNotes();

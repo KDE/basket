@@ -1292,6 +1292,8 @@ void drawGradient(QPainter *p, const QColor &colorTop, const QColor & colorBotto
                   qreal x, qreal y, qreal w, qreal h,
                   bool sunken, bool horz, bool flat)   /*const*/
 {
+    w++; //proper width in kde4 version
+
     QColor highlight(colorBottom);
     QColor subh1(colorTop);
     QColor subh2(colorTop);
