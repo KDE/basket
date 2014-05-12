@@ -727,7 +727,11 @@ void TextContent::fontChanged()
 }
 void HtmlContent::fontChanged()
 {
-    setHtml(Tools::textDocumentToMinimalHTML(m_graphicsTextItem.document()));
+    QTextDocument* richDoc = m_graphicsTextItem.document();
+    //This check is important when applying style to a note which is not loaded yet. Example:
+    //Filter all -> open some basket for the first time -> close filter: if a note was tagged as TODO, then it would display no text
+    if (!richDoc->isEmpty())
+        setHtml(Tools::textDocumentToMinimalHTML(richDoc));
 }
 void ImageContent::fontChanged()
 {

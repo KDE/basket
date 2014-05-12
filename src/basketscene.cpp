@@ -3342,10 +3342,6 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
         act->setData(4);
         menu.addAction(act);
     }
-    if (sequenceOnDelete && tag->countStates() != 1) {
-        // Not sure if this is equivalent to menu.setAccel(sequence, 1);
-        menu.actionAt(QPoint(0, 1))->setShortcut(sequence);
-    }
 
     connect(&menu, SIGNAL(triggered(QAction *)), this, SLOT(toggledStateInMenu(QAction *)));
     connect(&menu, SIGNAL(aboutToHide()),  this, SLOT(unlockHovering()));
