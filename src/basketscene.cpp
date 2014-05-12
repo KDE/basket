@@ -52,6 +52,7 @@
 #include <QtGui/QClipboard>
 #include <QtGui/QInputDialog>
 #include <QtGui/QGraphicsProxyWidget>
+#include <QtGui/QScrollBar>
 #include <QtXml/QDomDocument>
 
 #include <KDE/KTextEdit>
