@@ -52,6 +52,7 @@
 #include <QtGui/QClipboard>
 #include <QtGui/QInputDialog>
 #include <QtGui/QGraphicsProxyWidget>
+#include <QtGui/QScrollBar>
 #include <QtXml/QDomDocument>
 
 #include <KDE/KTextEdit>
@@ -1319,7 +1320,8 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if( m_editor && !shiftPressed && !controlPressed )
     {
 	//if the mouse is over the editor
-	QGraphicsWidget *widget = dynamic_cast<QGraphicsWidget*>(m_view->itemAt(event->scenePos().toPoint()));
+    QPoint view_shift(m_view->horizontalScrollBar()->value(), m_view->verticalScrollBar()->value());
+    QGraphicsWidget *widget = dynamic_cast<QGraphicsWidget*>(m_view->itemAt((event->scenePos() - view_shift).toPoint()));
 	if(widget && m_editor->graphicsWidget() == widget)
 	{
 	    if(event->button() == Qt::LeftButton)
@@ -1821,6 +1823,8 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
     // Then noteAt() is called for the mouse pointer position, because the basket is now smaller, the cursor is out of boundaries!!!
     // Should, of course, not return 0:
     Note *clicked = noteAt(pos);
+    if(clicked && clicked->allSelected())
+        clicked = 0;
 
     if (NoteFactory::movingNotesInTheSameBasket(event->mimeData(), this, event->dropAction()) && event->dropAction() == Qt::MoveAction) {
         m_doNotCloseEditor = true;
