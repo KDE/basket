@@ -203,7 +203,6 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
     QDir dir;
     // Save basket data:
     tar->addLocalDirectory(basket->fullPath(), "baskets/" + basket->folderName());
-    tar->addLocalFile(basket->fullPath() + ".basket", "baskets/" + basket->folderName() + ".basket"); // The hidden files were not added
     // Save basket icon:
     QString tempIconFile = tempFolder + "icon.png";
     if (!basket->icon().isEmpty() && basket->icon() != "basket") {

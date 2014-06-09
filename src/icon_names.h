@@ -8,7 +8,7 @@
  *  @brief Icon names for KIconLoader used by BasKet */
 namespace IconNames
 {
-#define StrRes static const char*
+#define StrRes static const char* const
 
 StrRes  LOADING = "process-idle";
 StrRes  LOCKED = "object-locked";

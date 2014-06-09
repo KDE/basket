@@ -1012,26 +1012,16 @@ void BNPView::save()
 void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QDomDocument &document, QDomElement &parentElement)
 {
     if (item == 0) {
+        if (listView == NULL) {
+            //This should not happen: we call either save(listView, 0) or save(0, item)
+            DEBUG_WIN << "BNPView::save error: listView=NULL and item=NULL";
+            return;
+        }
+
         // For each basket:
         for (int i = 0; i < listView->topLevelItemCount(); i++) {
             item = listView->topLevelItem(i);
-            BasketScene* basket = ((BasketListViewItem *)item)->basket();
-
-            QDomElement basketElement = document.createElement("basket");
-            parentElement.appendChild(basketElement);
-
-            // Save Attributes:
-            basketElement.setAttribute("folderName", basket->folderName());
-            if (item->childCount() >= 0) // If it can be expanded/folded:
-                basketElement.setAttribute("folded", XMLWork::trueOrFalse(!item->isExpanded()));
-
-            if (((BasketListViewItem*)item)->isCurrentBasket())
-                basketElement.setAttribute("lastOpened", "true");
-
-            // Save Properties:
-            QDomElement properties = document.createElement("properties");
-            basketElement.appendChild(properties);
-            basket->saveProperties(document, properties);
+            QDomElement basketElement = createBasketElement(item, document, parentElement);
 
             // Save Child Basket:
             if (item->childCount() >= 0) {
@@ -1040,23 +1030,7 @@ void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QDomDocument &d
             }
         }
     } else {
-        BasketScene* basket = ((BasketListViewItem *)item)->basket();
-
-        QDomElement basketElement = document.createElement("basket");
-        parentElement.appendChild(basketElement);
-
-        // Save Attributes:
-        basketElement.setAttribute("folderName", basket->folderName());
-        if (item->childCount() >= 0) // If it can be expanded/folded:
-            basketElement.setAttribute("folded", XMLWork::trueOrFalse(!item->isExpanded()));
-
-        if (((BasketListViewItem*)item)->isCurrentBasket())
-            basketElement.setAttribute("lastOpened", "true");
-
-        // Save Properties:
-        QDomElement properties = document.createElement("properties");
-        basketElement.appendChild(properties);
-        basket->saveProperties(document, properties);
+        QDomElement basketElement = createBasketElement(item, document, parentElement);
 
         // Save Child Basket:
         if (item->childCount() >= 0) {
@@ -1066,29 +1040,36 @@ void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QDomDocument &d
     }
 }
 
-QDomElement BNPView::basketElement(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement)
+QDomElement BNPView::createBasketElement(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement)
 {
-    BasketScene *basket = ((BasketListViewItem*)item)->basket();
+    BasketScene* basket = ((BasketListViewItem*)item)->basket();
+
     QDomElement basketElement = document.createElement("basket");
     parentElement.appendChild(basketElement);
+
     // Save Attributes:
     basketElement.setAttribute("folderName", basket->folderName());
-    if (item->child(0)) // If it can be expanded/folded:
+    if (item->childCount() >= 0) // If it can be expanded/folded:
         basketElement.setAttribute("folded", XMLWork::trueOrFalse(!item->isExpanded()));
+
     if (((BasketListViewItem*)item)->isCurrentBasket())
         basketElement.setAttribute("lastOpened", "true");
+
     // Save Properties:
     QDomElement properties = document.createElement("properties");
     basketElement.appendChild(properties);
     basket->saveProperties(document, properties);
+
     return basketElement;
 }
 
 void BNPView::saveSubHierarchy(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement, bool recursive)
 {
-    QDomElement element = basketElement(item, document, parentElement);
-    if (recursive && item->child(0))
-        save(0, item->child(0), document, element);
+    QDomElement element = createBasketElement(item, document, parentElement); //create root <basket>
+    if (recursive) {
+        for (int i = 0; i < item->childCount(); i++)
+            save(0, item->child(i), document, element);
+    }
 }
 
 void BNPView::load()

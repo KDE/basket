@@ -1,5 +1,4 @@
 include_directories(${KDE4_INCLUDES} ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${QIMAGEBLITZ_INCLUDES} ${GPGME_INCLUDES})
-add_subdirectory(tests)
 
 ########### next target ###############
 
@@ -51,12 +50,19 @@ set(basketcommon_LIB_SRCS
     xmlwork.cpp
 )
 
+set(PIMO_CPP "") # One of the generated files
+
 IF(HAVE_NEPOMUK)
   include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src" ${NEPOMUK_INCLUDES} ${SOPRANO_INCLUDE_DIR})
   include(SopranoAddOntology)
   soprano_add_ontology(basketcommon_LIB_SRCS ${SHAREDDESKTOPONTOLOGIES_ROOT_DIR}/nie/nie.trig "NIE" "Soprano::Vocabulary" "trig")
   soprano_add_ontology(basketcommon_LIB_SRCS ${SHAREDDESKTOPONTOLOGIES_ROOT_DIR}/nie/nfo.trig "NFO" "Soprano::Vocabulary" "trig")
   soprano_add_ontology(basketcommon_LIB_SRCS ${SHAREDDESKTOPONTOLOGIES_ROOT_DIR}/pimo/pimo.trig "PIMO" "Soprano::Vocabulary" "trig")
+  
+  list(LENGTH basketcommon_LIB_SRCS SRCS_LENGTH)
+  math(EXPR SRCS_LENGTH "${SRCS_LENGTH} - 1")
+  list(GET basketcommon_LIB_SRCS ${SRCS_LENGTH} PIMO_CPP) # PIMO_CPP = last element
+  
   list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
 ENDIF(HAVE_NEPOMUK)
 
@@ -89,6 +95,15 @@ ENDIF(HAVE_NEPOMUK)
 set_target_properties(basketcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 
 install(TARGETS basketcommon DESTINATION ${LIB_INSTALL_DIR})
+
+# Add unit tests after all variables have been set.
+# If we save target_link_libraries to a variable, we can reuse it too
+
+# Soprano files must exist, otherwise tests won't build
+set(FILES_GENERATED (EXISTS ${PIMO_CPP}))
+if(${FILES_GENERATED})
+  add_subdirectory(tests)
+endif(${FILES_GENERATED})
 
 ########### next target ###############
 

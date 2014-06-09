@@ -97,7 +97,8 @@ public:
     void enableActions();
 
 private:
-    QDomElement basketElement(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement);
+    //! Create <basket> element with <properties>
+    QDomElement createBasketElement(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement);
 public slots:
     void countsChanged(BasketScene *basket);
     void notesStateChanged();
