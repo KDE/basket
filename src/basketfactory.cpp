@@ -24,6 +24,7 @@
 #include <QtCore/QTextStream>
 #include <QtGui/QGraphicsView>
 #include <QtXml/QDomElement>
+#include <QtCore/QUuid>
 
 #include <KDE/KLocale>
 #include <KDE/KMessageBox>
@@ -36,33 +37,10 @@
 
 /** BasketFactory */
 
-// TODO: Don't create a basket with a name that already exists!
 
-QString BasketFactory::newFolderName()
-{
-    QString folderName;
-    QString fullPath;
-    QDir    dir;
-
-
-    int i = QDir(Global::basketsFolder()).count();
-    QString time = QTime::currentTime().toString("hhmmss");
-
-    for (; ; ++i) {
-        folderName = QString("basket%1-%2/").arg(i).arg(time);
-        fullPath   = Global::basketsFolder() + folderName;
-        dir        = QDir(fullPath);
-        if (! dir.exists())   // OK : The folder do not yet exists :
-            break;            //  We've found one !
-    }
-
-    return folderName;
-}
-
-QString BasketFactory::unpackTemplate(const QString &templateName)
+QString BasketFactory::unpackTemplate(const QString &templateName, const QString &folderName)
 {
     // Find a name for a new folder and create it:
-    QString folderName = newFolderName();
     QString fullPath   = Global::basketsFolder() + folderName;
     QDir dir;
     if (!dir.mkdir(fullPath)) {
@@ -101,6 +79,13 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
     }
 }
 
+QString BasketFactory::basketName(const QString &name)
+{
+    QUuid id = QUuid::createUuid();
+    const QString folderName = name.left(20) + "-" + id.toString();
+    return folderName;
+}
+
 void BasketFactory::newBasket(const QString &icon,
                               const QString &name,
                               const QString &backgroundImage,
@@ -109,10 +94,8 @@ void BasketFactory::newBasket(const QString &icon,
                               const QString &templateName,
                               BasketScene *parent)
 {
-    // Unpack the templateName file to a new basket folder:
-    QString folderName = unpackTemplate(templateName);
-    if (folderName.isEmpty())
-        return;
+    const QString folderName = basketName(name);
+    unpackTemplate(templateName, folderName);
 
     // Read the properties, change those that should be customized and save the result:
     QDomDocument *document  = XMLWork::openFile("basket", Global::basketsFolder() + folderName + "/.basket");

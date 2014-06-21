@@ -235,7 +235,9 @@ private:
     KGpgMe* m_gpg;
 #endif
     QTimer      m_inactivityAutoLockTimer;
+    QTimer      m_commitdelay;
     void enableActions();
+
 
 private slots:
     void loadNotes(const QDomElement &notes, Note *parent);
@@ -248,6 +250,7 @@ public slots:
     void loadProperties(const QDomElement &properties);
     void saveProperties(QDomDocument &document, QDomElement &properties);
     bool save();
+    void commitEdit();
     void reload();
 public:
     bool isEncrypted();
@@ -475,6 +478,10 @@ public:
     QString folderName() {
         return m_folderName;
     }
+    void setFolderName(QString foldername) {
+        m_folderName = foldername;
+    }
+
     QString fullPath();
     QString fullPathForFileName(const QString &fileName); // Full path of an [existing or not] note in this basket
     static QString fullPathForFolderName(const QString &folderName);

@@ -31,13 +31,25 @@
 #include "global.h"
 #include "bnpview.h"
 
+#ifdef WITH_LIBGIT2
+extern "C" {
+#include <git2.h>
+}
+#endif
+
 Application::Application()
         : KUniqueApplication()
 {
+    #ifdef WITH_LIBGIT2
+        git_threads_init();
+    #endif
 }
 
 Application::~Application()
 {
+    #ifdef WITH_LIBGIT2
+        git_threads_shutdown();
+    #endif
 }
 
 int Application::newInstance()

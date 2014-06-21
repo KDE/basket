@@ -9,6 +9,16 @@ find_package(Soprano)
 find_package(Nepomuk)
 find_package(SharedDesktopOntologies)
 
+# libgit2
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+find_package(Libgit2)
+IF(LIBGIT2_FOUND)
+  include_directories(${LIBGIT2_INCLUDE_DIR})
+  add_definitions(-DWITH_LIBGIT2)
+ENDIF(LIBGIT2_FOUND)
+
+
+
 if (BUILD_KPARTS)
 find_package(KdepimLibs REQUIRED)
 include_directories(${KDEPIMLIBS_INCLUDE_DIRS})
@@ -33,6 +43,7 @@ IF(SHAREDDESKTOPONTOLOGIES_FOUND AND SOPRANO_FOUND AND NEPOMUK_FOUND)
 ELSE(SHAREDDESKTOPONTOLOGIES_FOUND AND SOPRANO_FOUND AND NEPOMUK_FOUND)
   MESSAGE("Soprano and/or Nepomuk not found, configuring without")
 ENDIF(SHAREDDESKTOPONTOLOGIES_FOUND AND SOPRANO_FOUND AND NEPOMUK_FOUND)
+
 
 #TODO: find meinproc
 

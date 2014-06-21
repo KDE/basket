@@ -40,8 +40,9 @@ void newBasket(const QString &icon,
                const QString &templateName,
                BasketScene *parent);
 /** Internal tool methods to process the method above: */
-QString newFolderName();
-QString unpackTemplate(const QString &templateName);
+QString unpackTemplate(const QString &templateName, const QString &folderName);
+
+QString basketName(const QString &name);
 }
 
 #endif // BASKETFACTORY_H
