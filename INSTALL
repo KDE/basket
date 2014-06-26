@@ -5,7 +5,7 @@ To install BasKet Note Pads, just run the installer executable in a terminal and
 follow the on screen instructions.
 
 Dependencies
-============
+------------
 
 To build BasKet, the following development packages are required:
 
@@ -18,4 +18,13 @@ GnuPG 1.x (optional)
 If you get an error message about FindGPGMe.cmake not found, you are probably
 missing kdepimlibs.
 
-I have not tested with KDE libraries versions 4.0.x and below.
+In addition, handbook generation requires DocBook stylesheets, which are typically found in docbook-xsl package.
+
+Building on Windows from source
+-------------------------------
+. install cmake (http://cmake.org), automoc (git://anongit.kde.org/automoc.git)
+. download and run KDE for Windows installer (http://download.kde.org/stable/kdewin/installer/kdewin-installer-gui-latest.exe)
+  .. choose Install Mode: Package Manager, Compiler Mode: (for example) MSVC 2010 32bit
+  .. install essential packages as described on http://techbase.kde.org/Projects/KDE_on_Windows/Compiling_Applications
+  .. besides, install oxygen-icons-* package
+. use CMake to configure and build Basket

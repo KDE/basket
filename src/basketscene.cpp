@@ -4686,11 +4686,6 @@ Note* BasketScene::lastNoteShownInStack()
     return last;
 }
 
-inline int abs(int n)
-{
-    return (n < 0 ? -n : n);
-}
-
 Note* BasketScene::noteOn(NoteOn side)
 {
     Note *bestNote = 0;

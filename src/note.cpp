@@ -395,10 +395,7 @@ void Note::selectIn(const QRectF &rect, bool invertSelection, bool unselectOther
 
     bool toSelect = intersects || (!unselectOthers && isSelected());
     if (invertSelection) {
-        if (m_wasInLastSelectionRect == intersects)
-            toSelect = isSelected();
-        else if (intersects xor m_wasInLastSelectionRect)
-            toSelect = !isSelected();// xor intersects;
+        toSelect = (m_wasInLastSelectionRect == intersects) ? isSelected() : !isSelected();
     }
     setSelected(toSelect);
     m_wasInLastSelectionRect = intersects;
@@ -764,7 +761,7 @@ Note::Zone Note::zoneAt(const QPointF &pos, bool toAdd)
     if (!linkAt(pos).isEmpty())
         return Link;
 
-    qreal customZone = content()->zoneAt(pos - QPointF(contentX(), NOTE_MARGIN));
+    int customZone = content()->zoneAt(pos - QPointF(contentX(), NOTE_MARGIN));
     if (customZone)
         return (Note::Zone)customZone;
 
