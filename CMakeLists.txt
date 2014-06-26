@@ -15,6 +15,8 @@ find_package(Libgit2)
 IF(LIBGIT2_FOUND)
   include_directories(${LIBGIT2_INCLUDE_DIR})
   add_definitions(-DWITH_LIBGIT2)
+ELSE(LIBGIT2_FOUND)
+  message("libgit2 not found, configuring without")
 ENDIF(LIBGIT2_FOUND)
 
 
