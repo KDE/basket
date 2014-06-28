@@ -2949,6 +2949,7 @@ Note* BasketScene::noteAt(QPointF pos)
 
 BasketScene::~BasketScene()
 {
+    m_commitdelay.stop();	//we don't know how long deleteNotes() last so we want to make extra sure that nobody will commit in between
     if (m_decryptBox)
         delete m_decryptBox;
 #ifdef HAVE_LIBGPGME
