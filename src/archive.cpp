@@ -521,7 +521,7 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
             QString folderName = element.attribute("folderName");
             if (!folderName.isEmpty()) {
                 // Find a folder name:
-                QString newFolderName = BasketFactory::basketName(folderName);
+                QString newFolderName = BasketFactory::newFolderName();
                 folderMap[folderName] = newFolderName;
                 // Reserve the folder name:
                 QDir dir;

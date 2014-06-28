@@ -21,7 +21,6 @@
 #include "basketproperties.h"
 
 #include <QtCore/QStringList>
-#include <QtCore/QDir>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QGridLayout>
@@ -42,7 +41,6 @@
 #include <kshortcutwidget.h>
 
 #include "backgroundmanager.h"
-#include "basketfactory.h"
 #include "basketscene.h"
 #include "gitwrapper.h"
 #include "global.h"
@@ -202,24 +200,10 @@ void BasketPropertiesDialog::applyChanges()
     }
 
     Ui::BasketPropertiesUi* propsUi = dynamic_cast<Ui::BasketPropertiesUi*>(this);
-
-    //rename the basket
-    const QString oldname = m_basket->basketName();
-    const QString oldpath = m_basket->fullPath();
-    const QString newname = BasketFactory::basketName(propsUi->name->text()) + "/";
-    const QString newpath = Global::basketsFolder() + newname;
-    if(oldname!=newname)
-    {
-        QDir basketdir(oldpath);
-        basketdir.rename(oldpath,newpath);
-        GitWrapper::commitBasket(m_basket); //delete will be made automatically by removeDeletedFromIndex
-        m_basket->setFolderName(newname);
-    }
-    m_basket->save();
-
     // Should be called LAST, because it will emit the propertiesChanged() signal and the tree will be able to show the newly set Alt+Letter shortcut:
-    m_basket->setAppearance(propsUi->icon->icon(), propsUi->name->text(), m_backgroundImagesMap[backgroundImage->currentIndex()],
-            m_backgroundColor->color(), m_textColor->color());
+    m_basket->setAppearance(propsUi->icon->icon(), propsUi->name->text(), m_backgroundImagesMap[backgroundImage->currentIndex()], m_backgroundColor->color(), m_textColor->color());
+    GitWrapper::commitBasket(m_basket);
+    m_basket->save();
 }
 
 void BasketPropertiesDialog::capturedShortcut(const KShortcut &sc)
