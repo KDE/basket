@@ -23,7 +23,7 @@ void GitWrapper::initializeGitRepository(QString folder)
     QMutexLocker l(&gitMutex);
     // this is not thread safe, we use locking elsewhere
     git_repository *repo = NULL;
-    QByteArray ba = folder.toLocal8Bit();
+    QByteArray ba = folder.toUtf8();
 
     const char *cString = ba.data();
 
@@ -110,7 +110,7 @@ void GitWrapper::commitCreateBasket()
         //this is kind of hacky because somebody could come in between and we still have stuff open
         //change basket.xml
         const QString basketxml("baskets/baskets.xml");
-        QByteArray basketxmlba = basketxml.toLocal8Bit();
+        QByteArray basketxmlba = basketxml.toUtf8();
         char *basketxmlCString = basketxmlba.data();
         error = git_index_add_bypath(index, basketxmlCString);
         if(error < 0)
@@ -142,7 +142,7 @@ void GitWrapper::commitTagsXml()
     }
 
     const QString tagsxml("tags.xml");
-    QByteArray tagsxmlba = tagsxml.toLocal8Bit();
+    QByteArray tagsxmlba = tagsxml.toUtf8();
     char *tagsxmlCString = tagsxmlba.data();
     error = git_index_add_bypath(index, tagsxmlCString);
 
@@ -170,7 +170,7 @@ void GitWrapper::commitDeleteBasket(BasketScene *basket)
 
     //remove the directory
     const QString dir("baskets/" + basket->folderName());
-    const QByteArray dirba = dir.toLocal8Bit();
+    const QByteArray dirba = dir.toUtf8();
     const char *dirCString = dirba.data();
     error = git_index_remove_directory(index, dirCString, 0);
     if(error < 0)
@@ -181,7 +181,7 @@ void GitWrapper::commitDeleteBasket(BasketScene *basket)
 
     //change basket.xml
     const QString basketxml("baskets/baskets.xml");
-    QByteArray basketxmlba = basketxml.toLocal8Bit();
+    QByteArray basketxmlba = basketxml.toUtf8();
     char *basketxmlCString = basketxmlba.data();
     error = git_index_add_bypath(index, basketxmlCString);
     if(error < 0)
@@ -233,7 +233,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
 
         const QString pattern("baskets/" + basket->folderName() + "*");
 
-        QByteArray patternba = pattern.toLocal8Bit();
+        QByteArray patternba = pattern.toUtf8();
         char *patternCString = patternba.data();
         git_strarray arr = { &patternCString, 1};
         error = git_index_add_all(index, &arr, 0, 0, 0);
@@ -243,7 +243,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
             return;
         }
         const QString basketxml("baskets/baskets.xml");
-        QByteArray basketxmlba = basketxml.toLocal8Bit();
+        QByteArray basketxmlba = basketxml.toUtf8();
         char *basketxmlCString = basketxmlba.data();
         error = git_index_add_bypath(index, basketxmlCString);
         if(error < 0)
@@ -273,7 +273,7 @@ bool GitWrapper::commitPattern(git_repository* repo, QString pattern, QString me
     }
 
 
-    QByteArray patternba = pattern.toLocal8Bit();
+    QByteArray patternba = pattern.toUtf8();
     char *patternCString = patternba.data();
     git_strarray arr = { &patternCString, 1};
     error = git_index_add_all(index, &arr, 0, 0, 0);
@@ -351,7 +351,7 @@ bool GitWrapper::commitIndex(git_repository* repo, git_index* index, QString mes
     }
 
     const git_commit* parentarray[] = {commit};
-    QByteArray commitmessageba = message.toLocal8Bit();
+    QByteArray commitmessageba = message.toUtf8();
     const char *commitmessageCString = commitmessageba.data();
     error = git_commit_create(&commit_id, repo, "HEAD", sig, sig, NULL, commitmessageCString, tree, 1, parentarray);
     if(error < 0)
@@ -382,7 +382,7 @@ void GitWrapper::removeDeletedFromIndex(git_repository *repo, git_index* index)
 git_repository* GitWrapper::openRepository()
 {
     QString pathtosave = Global::savesFolder();
-    QByteArray pathba = pathtosave.toLocal8Bit();
+    QByteArray pathba = pathtosave.toUtf8();
     const char *pathCString = pathba.data();
     git_repository *repo = NULL;
 
