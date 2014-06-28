@@ -105,7 +105,7 @@ public slots:
     bool convertTexts();
 
     void updateBasketListViewItem(BasketScene *basket);
-    void save();    //I think this only gets called when we add a new basket
+    void save();
     void save(QTreeWidget* listView, QTreeWidgetItem *firstItem, QDomDocument &document, QDomElement &parentElement);
 
     void saveSubHierarchy(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement, bool recursive);
