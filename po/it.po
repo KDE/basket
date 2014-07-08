@@ -1,20 +1,20 @@
 # translation of it.po to italian
 #
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007, 2014.
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-09 00:20+0200\n"
-"PO-Revision-Date: 2011-01-25 17:12+0100\n"
-"Last-Translator: Nicola Ruggero <nicola@nxnt.org>\n"
+"PO-Revision-Date: 2014-07-09 00:27+0200\n"
+"Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: file: src/basket_part.rc:6
@@ -67,7 +67,7 @@ msgstr "&Esporta"
 #. i18n: ectx: Menu
 #: rc.cpp:9 rc.cpp:45 rc.cpp:99 rc.cpp:135
 msgid "&Sort"
-msgstr ""
+msgstr "&Ordina"
 
 #. i18n: file: src/basket_part.rc:28
 #. i18n: ectx: Menu (fileimport)
@@ -209,7 +209,7 @@ msgstr "Barra degli strumenti di formattazione del testo"
 #. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
 #: rc.cpp:54
 msgid "Form"
-msgstr ""
+msgstr "Modulo"
 
 #. i18n: file: src/basketproperties.ui:30
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
@@ -262,9 +262,8 @@ msgstr "&Mappa mentale"
 #. i18n: file: src/basketproperties.ui:118
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
 #: rc.cpp:81
-#, fuzzy
 msgid "Keyboard Shortcut"
-msgstr "&Scorciatoia"
+msgstr "Scorciatoia di tastiera"
 
 #. i18n: file: src/basketproperties.ui:136
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
@@ -334,9 +333,8 @@ msgid "BasKet Note Pads"
 msgstr "Blocco appunti BasKet"
 
 #: src/aboutdata.cpp:34
-#, fuzzy
 msgid "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
-msgstr "(c) 2003-2007, Sébastien Laoût"
+msgstr "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
 
 #: src/aboutdata.cpp:42
 msgid "Kelvie Wong"
@@ -379,9 +377,8 @@ msgid "Marco Martin"
 msgstr "Marco Martin"
 
 #: src/aboutdata.cpp:59
-#, fuzzy
 msgid "Original icon"
-msgstr "Autore originale"
+msgstr "Icona originale"
 
 #: src/archive.cpp:59 src/bnpview.cpp:2284
 msgid "Save as Basket Archive"
@@ -534,10 +531,9 @@ msgstr ""
 "cambiamento."
 
 #: src/backup.cpp:194
-#, fuzzy
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
-msgstr "Cesti"
+msgstr "Cesti_%1"
 
 #: src/backup.cpp:198 src/backup.cpp:254
 msgid "Tar Archives Compressed by Gzip"
@@ -939,8 +935,7 @@ msgstr "Etichette"
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Vuoi veramente eliminare questa nota?</qt>"
-msgstr[1] ""
-"<qt>Vuoi veramente rimuovere il canestro <b>%1</b> ed il suo contenuto?</qt>"
+msgstr[1] "<qt>Vuoi veramente eliminare queste <b>%1</b> note?</qt>"
 
 #: src/basketscene.cpp:4003
 msgid "Delete Note"
@@ -1238,9 +1233,8 @@ msgid "&Tomboy"
 msgstr "&Tomboy"
 
 #: src/bnpview.cpp:564
-#, fuzzy
 msgid "J&reepad XML File..."
-msgstr "&Salva su file..."
+msgstr "File XML J&reepad..."
 
 #: src/bnpview.cpp:569
 msgid "Text &File..."
@@ -1252,7 +1246,7 @@ msgstr "&Salva e ripristina..."
 
 #: src/bnpview.cpp:578
 msgid "&Check && Cleanup..."
-msgstr ""
+msgstr "&Verifica e pulisci..."
 
 #: src/bnpview.cpp:589
 msgid "D&elete"
@@ -1332,9 +1326,8 @@ msgid "&Link"
 msgstr "Co&llegamento"
 
 #: src/bnpview.cpp:705
-#, fuzzy
 msgid "Cross &Reference"
-msgstr "Parere"
+msgstr "&Riferimento incrociato"
 
 #: src/bnpview.cpp:710
 msgid "&Image"
@@ -1390,19 +1383,19 @@ msgstr "&Proprietà..."
 
 #: src/bnpview.cpp:839
 msgid "Sort Children Ascending"
-msgstr ""
+msgstr "Ordina i figli in ordine ascendente"
 
 #: src/bnpview.cpp:844
 msgid "Sort Children Descending"
-msgstr ""
+msgstr "Ordina i figli in ordine discendente"
 
 #: src/bnpview.cpp:849
 msgid "Sort Siblings Ascending"
-msgstr ""
+msgstr "Ordina i fratelli in ordine ascendente"
 
 #: src/bnpview.cpp:854
 msgid "Sort Siblings Descending"
-msgstr ""
+msgstr "Ordina i fratelli in ordine discendente"
 
 #: src/bnpview.cpp:859
 msgctxt "Remove Basket"
@@ -1481,7 +1474,7 @@ msgstr[1] "Nessuna nota"
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 selezionato"
-msgstr[1] ""
+msgstr[1] "%1 selezionati"
 
 #: src/bnpview.cpp:1824
 msgid "all matches"
@@ -1565,12 +1558,12 @@ msgid "&Remove Basket"
 msgstr "&Rimuovi cesto"
 
 #: src/bnpview.cpp:2208
-#, fuzzy
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
 msgstr ""
-"<qt><b>%1</b> contiene i seguenti cesti.<br>Vuoi rimuovere anche questi?</qt>"
+"<qt><b>%1</b> contiene i seguenti sottocesti.<br>Vuoi rimuovere anche questi?"
+"</qt>"
 
 #: src/bnpview.cpp:2211
 msgid "Remove Children Baskets"
@@ -1732,9 +1725,8 @@ msgid "Folder Mirror Import"
 msgstr "Importa mirror di cartella"
 
 #: src/history.cpp:32
-#, fuzzy
 msgid "Set current basket to %1"
-msgstr "Mostra il nome del cesto corrente"
+msgstr "Imposta il cesto corrente a %1"
 
 #: src/htmlexporter.cpp:62
 msgid "HTML Documents"
@@ -1791,12 +1783,10 @@ msgid "Other..."
 msgstr "Altro..."
 
 #: src/kcolorcombo2.cpp:631
-#, fuzzy
 msgid "R:%1, G:%2, B:%3"
-msgstr "%1, %2, %3"
+msgstr "R:%1, V:%2, B:%3"
 
 #: src/kcolorcombo2.cpp:632
-#, fuzzy
 msgctxt "color"
 msgid "(Default)"
 msgstr "(predefinito)"
@@ -2297,9 +2287,8 @@ msgid "Link"
 msgstr "Collegamento"
 
 #: src/notecontent.cpp:248
-#, fuzzy
 msgid "Cross Reference"
-msgstr "Parere"
+msgstr "Riferimento incrociato"
 
 #: src/notecontent.cpp:252
 msgid "Launcher"
@@ -2342,9 +2331,8 @@ msgid "Edit this link"
 msgstr "Modifica collegamento"
 
 #: src/notecontent.cpp:664
-#, fuzzy
 msgid "Edit this cross reference"
-msgstr "Modifica colore"
+msgstr "Modifica questo riferimento incrociato"
 
 #: src/notecontent.cpp:668
 msgid "Edit this launcher"
@@ -2564,17 +2552,15 @@ msgstr "Apri collegamenti con:"
 
 #: src/notecontent.cpp:1991
 msgid "Link to %1"
-msgstr ""
+msgstr "Collegamento a %1"
 
 #: src/notecontent.cpp:2004
-#, fuzzy
 msgid "Link has no basket to open."
-msgstr "Al collegamento non è associato alcun URL."
+msgstr "Al collegamento non è associato alcun cesto."
 
 #: src/notecontent.cpp:2007
-#, fuzzy
 msgid "Opening basket..."
-msgstr "Apertura testo..."
+msgstr "Apertura cesto..."
 
 #: src/notecontent.cpp:2113
 msgid "%1 <i>(run in terminal)</i>"
@@ -2707,9 +2693,8 @@ msgid "&Title:"
 msgstr "&Titolo:"
 
 #: src/noteedit.cpp:876
-#, fuzzy
 msgid "Edit Cross Reference"
-msgstr "Parere"
+msgstr "Modifica riferimento incrociato"
 
 #: src/noteedit.cpp:983
 msgid "Edit Launcher Note"
@@ -3032,9 +3017,8 @@ msgid "Paste clipboard"
 msgstr "Incolla dagli appunti"
 
 #: src/settings.cpp:593
-#, fuzzy
 msgid "Insert cross reference"
-msgstr "Inserisci colore dallo schermo"
+msgstr "Inserisci riferimento incrociato"
 
 #: src/settings.cpp:594
 msgid "Insert launcher note"
@@ -3137,9 +3121,8 @@ msgid "Launch %1"
 msgstr "Esegui %1"
 
 #: src/settings.cpp:844
-#, fuzzy
 msgid "Another basket"
-msgstr "M&ostra questo cesto"
+msgstr "Un altro cesto"
 
 #: src/settings.cpp:846
 msgid "&Sounds"
@@ -3162,9 +3145,8 @@ msgid "Launc&hers"
 msgstr "A&vviatori"
 
 #: src/settings.cpp:851
-#, fuzzy
 msgid "&Cross References"
-msgstr "Parere"
+msgstr "Riferimenti in&crociati"
 
 #: src/settings.cpp:890
 msgid "Open &text notes with a custom application:"
@@ -3590,43 +3572,44 @@ msgstr "Ered&itato dalla nuove note di pari livello"
 
 #: src/tagsedit.cpp:395
 msgid "Allow Cross Reference Links"
-msgstr ""
+msgstr "Permetti collegamenti di riferimenti incrociati"
 
 #: src/tagsedit.cpp:398
-#, fuzzy
 msgid "What does this do?"
-msgstr "Cosa significa?"
+msgstr "Che cosa fa?"
 
 #: src/tagsedit.cpp:399
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following sytax:"
 msgstr ""
+"Questa opzione ti permette di scrivere un collegamento di tipo riferimento "
+"incrociato direttamente in una nota di testo. I collegamenti di tipo "
+"riferimento incrociato possono avere la seguente sintassi:"
 
 #: src/tagsedit.cpp:400
 msgid "From the top of the tree (Absolute path):"
-msgstr ""
+msgstr "Dalla radice dell'albero (percorso assoluto):"
 
 #: src/tagsedit.cpp:400
 msgid "[[/top level item/child|optional title]]"
-msgstr ""
+msgstr "[[/elemento di livello superiore/elemento figlio|titolo opzionale]]"
 
 #: src/tagsedit.cpp:401
-#, fuzzy
 msgid "Relative to the current basket:"
-msgstr "Incolla la selezione nel cesto corrente"
+msgstr "Relativo al cesto corrente:"
 
 #: src/tagsedit.cpp:401
 msgid "[[../sibling|optional title]]"
-msgstr ""
+msgstr "[[../elemento fratello|titolo opzionale]]"
 
 #: src/tagsedit.cpp:402
 msgid "[[child|optional title]]"
-msgstr ""
+msgstr "[[elemento figlio|titolo opzionale]]"
 
 #: src/tagsedit.cpp:402
 msgid "[[./child|optional title]]"
-msgstr ""
+msgstr "[[../elemento figlio|titolo opzionale]]"
 
 #: src/tagsedit.cpp:416 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
 msgid "State"
