@@ -96,6 +96,7 @@
 #include "debugwindow.h"
 #include "exporterdialog.h"
 #include "focusedwidgets.h"
+#include "gitwrapper.h"
 
 #include "config.h"
 
@@ -942,7 +943,16 @@ bool BasketScene::save()
     }
 
     Global::bnpView->setUnsavedStatus(false);
+
+
+    m_commitdelay.start(10000); //delay is 10 seconds
+
     return true;
+}
+
+void BasketScene::commitEdit()
+{
+    GitWrapper::commitBasket(this);
 }
 
 void BasketScene::aboutToBeActivated()
@@ -1252,6 +1262,10 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     m_gpg = new KGpgMe();
 #endif
     m_locked = isFileEncrypted();
+
+    //setup the delayed commit timer
+    m_commitdelay.setSingleShot(true);
+    connect(&m_commitdelay, SIGNAL(timeout()), this, SLOT(commitEdit()));
 }
 
 void BasketScene::enterEvent(QEvent *)
@@ -2935,6 +2949,7 @@ Note* BasketScene::noteAt(QPointF pos)
 
 BasketScene::~BasketScene()
 {
+    m_commitdelay.stop();	//we don't know how long deleteNotes() last so we want to make extra sure that nobody will commit in between
     if (m_decryptBox)
         delete m_decryptBox;
 #ifdef HAVE_LIBGPGME

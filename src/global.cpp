@@ -30,6 +30,7 @@
 #include <QtCore/QString>
 #include <QtCore/QDir>
 
+#include "gitwrapper.h"
 #include "aboutdata.h"
 #include "bnpview.h"
 #include "settings.h"
@@ -60,14 +61,14 @@ QString Global::savesFolder()
             dir.mkdir(s_customSavesFolder);
             folder = new QString(s_customSavesFolder.endsWith("/") ? s_customSavesFolder : s_customSavesFolder + "/");
         } else if (!Settings::dataFolder().isEmpty()) { // Set by config option (in Basket -> Backup & Restore)
-            QDir dir;
-            dir.mkdir(Settings::dataFolder());
             folder = new QString(Settings::dataFolder().endsWith("/") ? Settings::dataFolder() : Settings::dataFolder() + "/");
         } else { // The default path (should be that for most computers)
             folder = new QString(KGlobal::dirs()->saveLocation("data", "basket/"));
+            if(!QDir(*folder + ".git/").exists()) {
+                GitWrapper::initializeGitRepository(*folder);
+            }
         }
     }
-
     return *folder;
 }
 

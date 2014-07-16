@@ -24,6 +24,7 @@ set(basketcommon_LIB_SRCS
     focusedwidgets.cpp
     formatimporter.cpp
     global.cpp
+    gitwrapper.cpp
     htmlexporter.cpp
     history.cpp
     kcolorcombo2.cpp
@@ -115,6 +116,11 @@ target_link_libraries(basket
   ${KDE4_KFILE_LIBS}
   ${KDE4_PHONON_LIBRARY}
   basketcommon)
+
+IF(LIBGIT2_FOUND)
+  target_link_libraries(basketcommon ${LIBGIT2_LIBRARIES})
+  target_link_libraries(basket ${LIBGIT2_LIBRARIES})
+ENDIF(LIBGIT2_FOUND)
 
 install(TARGETS basket DESTINATION ${BIN_INSTALL_DIR})
 

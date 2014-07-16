@@ -40,11 +40,14 @@
 #include <KDE/KIconDialog>
 #include <kshortcutwidget.h>
 
+#include "backgroundmanager.h"
 #include "basketscene.h"
+#include "gitwrapper.h"
+#include "global.h"
 #include "kcolorcombo2.h"
 #include "variouswidgets.h"
-#include "global.h"
-#include "backgroundmanager.h"
+
+
 
 #include "ui_basketproperties.h"
 
@@ -199,6 +202,7 @@ void BasketPropertiesDialog::applyChanges()
     Ui::BasketPropertiesUi* propsUi = dynamic_cast<Ui::BasketPropertiesUi*>(this);
     // Should be called LAST, because it will emit the propertiesChanged() signal and the tree will be able to show the newly set Alt+Letter shortcut:
     m_basket->setAppearance(propsUi->icon->icon(), propsUi->name->text(), m_backgroundImagesMap[backgroundImage->currentIndex()], m_backgroundColor->color(), m_textColor->color());
+    GitWrapper::commitBasket(m_basket);
     m_basket->save();
 }
 

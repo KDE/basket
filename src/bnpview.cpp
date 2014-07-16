@@ -63,6 +63,7 @@
 #include <cstdlib>
 #include <unistd.h> // usleep
 
+#include "gitwrapper.h"
 #include "basketscene.h"
 #include "decoratedbasket.h"
 #include "tools.h"
@@ -219,6 +220,8 @@ void BNPView::lateInit()
         if (topLevelItemCount() <= 0) {
             // Create first basket:
             BasketFactory::newBasket(/*icon=*/"", /*name=*/i18n("General"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+            GitWrapper::commitBasket(currentBasket());
+            GitWrapper::commitTagsXml();
         }
     }
 
@@ -984,6 +987,8 @@ void BNPView::slotContextMenu(const QPoint &pos)
     menu->exec(m_tree->mapToGlobal(pos));
 }
 
+/* this happens everytime we switch the basket (but not if we tell the user we save the stuff
+ */
 void BNPView::save()
 {
     DEBUG_WIN << "Basket Tree: Saving...";
@@ -998,15 +1003,8 @@ void BNPView::save()
 
     // Write to Disk:
     BasketScene::safelySaveToFile(Global::basketsFolder() + "baskets.xml", "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + document.toString());
-//  QFile file(Global::basketsFolder() + "baskets.xml");
-//  if (file.open(QIODevice::WriteOnly)) {
-//      QTextStream stream(&file);
-//      stream.setEncoding(QTextStream::UnicodeUTF8);
-//      QString xml = document.toString();
-//      stream << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
-//      stream << xml;
-//      file.close();
-//  }
+
+    GitWrapper::commitBasketView();
 }
 
 void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QDomDocument &document, QDomElement &parentElement)
@@ -1449,7 +1447,6 @@ void BNPView::removeBasket(BasketScene *basket)
         BasketFactory::newBasket(/*icon=*/"", /*name=*/i18n("General"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
     else // No need to save two times if we add a basket
         save();
-
 }
 
 void BNPView::setTreePlacement(bool onLeft)
@@ -2221,7 +2218,7 @@ void BNPView::delBasket()
 
     doBasketDeletion(basket);
 
-//  rebuildBasketsMenu();
+    GitWrapper::commitDeleteBasket(basket);
 }
 
 void BNPView::doBasketDeletion(BasketScene *basket)
@@ -2373,6 +2370,8 @@ void BNPView::isLockedChanged()
 void BNPView::askNewBasket()
 {
     askNewBasket(0, 0);
+
+    GitWrapper::commitCreateBasket();
 }
 
 void BNPView::askNewBasket(BasketScene *parent, BasketScene *pickProperties)

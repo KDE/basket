@@ -61,9 +61,6 @@ protected slots:
 
 private:
     BasketScene   *m_basket;
-    KIconButton   *m_icon;
-    KLineEdit     *m_name;
-    KComboBox     *m_backgroundImage;
     KColorCombo2  *m_backgroundColor;
     KColorCombo2  *m_textColor;
 

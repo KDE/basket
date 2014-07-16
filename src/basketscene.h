@@ -235,7 +235,9 @@ private:
     KGpgMe* m_gpg;
 #endif
     QTimer      m_inactivityAutoLockTimer;
+    QTimer      m_commitdelay;
     void enableActions();
+
 
 private slots:
     void loadNotes(const QDomElement &notes, Note *parent);
@@ -248,6 +250,7 @@ public slots:
     void loadProperties(const QDomElement &properties);
     void saveProperties(QDomDocument &document, QDomElement &properties);
     bool save();
+    void commitEdit();
     void reload();
 public:
     bool isEncrypted();

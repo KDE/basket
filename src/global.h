@@ -46,6 +46,8 @@ class BASKET_EXPORT Global
 {
 private:
     static QString s_customSavesFolder;
+
+    static void initializeGitRepository(QString folder);
 public:
     // Global Variables:
     static LikeBack          *likeBack;
@@ -55,6 +57,8 @@ public:
     static BNPView           *bnpView;
     static KSharedConfig::Ptr basketConfig;
     static AboutData          basketAbout;
+
+
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
