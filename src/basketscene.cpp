@@ -1349,12 +1349,17 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	      m_editor->paste(event->scenePos());
 	      return;
 	    }
-	}
+    }
     }
 		
     // Figure out what is the clicked note and zone:
     Note *clicked = noteAt(event->scenePos());
+    if( m_editor && (!clicked || ( clicked && !(editedNote() == clicked) )) )
+    {
+        closeEditor();
+    }
     Note::Zone zone = (clicked ? clicked->zoneAt(event->scenePos() - QPointF(clicked->x(), clicked->y())) : Note::None);
+
     // Popup Tags menu:
     if (zone == Note::TagsArrow && !controlPressed && !shiftPressed && event->button() != Qt::MidButton) {
         if (!clicked->allSelected())
@@ -1397,7 +1402,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         // Select note(s):
         if (zone == Note::Handle || zone == Note::Group || (zone == Note::GroupExpander && (controlPressed || shiftPressed))) {
-	    closeEditor();
+        //closeEditor();
             Note *end = clicked;
             if (clicked->isGroup() && shiftPressed) {
                 if (clicked->containsNote(m_startOfShiftSelectionNote)) {
@@ -1505,7 +1510,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             unselectAllBut(clicked);
         setFocusedNote(clicked); /// /// ///
         if (editedNote() == clicked) {
-            closeEditor();
+            closeEditor(false);
             clicked->setSelected(true);
         }
         m_startOfShiftSelectionNote = (clicked->isGroup() ? clicked->firstRealChild() : clicked);
@@ -1525,7 +1530,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             m_clickedToInsert = clicked;
             m_zoneToInsert    = zone;
             m_posToInsert     = event->scenePos();
-            closeEditor();
+            //closeEditor();
             removeInserter();                     // If clicked at an insertion line and the new note shows a dialog for editing,
             NoteType::Id type = (NoteType::Id)0;  //  hide that inserter before the note edition instead of after the dialog is closed
             switch (Settings::middleAction()) {
@@ -1547,7 +1552,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         } else {
             if (clicked)
                 zone = clicked->zoneAt(event->scenePos() - QPoint(clicked->x(), clicked->y()), true);
-            closeEditor();
+            //closeEditor();
             clickedToInsert(event, clicked, zone);
             save();
         }
@@ -3753,7 +3758,7 @@ void BasketScene::closeEditorDelayed()
     QTimer::singleShot(0, this, SLOT(closeEditor()));
 }
 
-bool BasketScene::closeEditor()
+bool BasketScene::closeEditor(bool deleteEmptyNote /* =true*/)
 {
     if (!isDuringEdit())
         return true;
@@ -3790,9 +3795,7 @@ bool BasketScene::closeEditor()
     m_inactivityAutoSaveTimer.stop();
 
     // Delete the note if it is now empty:
-    if (isEmpty && theSelectedNote() == note) {
-        // ... and if it has really been edited (and selected) now
-        // (temporary fix for bugs.launchpad.net/basket/+bug/1318188)
+    if (isEmpty && deleteEmptyNote) {
         focusANonSelectedNoteAboveOrThenBelow();
         note->setSelected(true);
         note->deleteSelectedNotes();
