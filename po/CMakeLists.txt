@@ -11,9 +11,8 @@ ELSE(NOT GETTEXT_MSGFMT_EXECUTABLE)
 
         SET(catalogname basket)
 
-        ADD_CUSTOM_TARGET(translations ALL)
-
         FILE(GLOB PO_FILES *.po)
+        SET(GMO_FILES)
 
         FOREACH(_poFile ${PO_FILES})
                 GET_FILENAME_COMPONENT(_poFileName ${_poFile} NAME)
@@ -24,12 +23,15 @@ ELSE(NOT GETTEXT_MSGFMT_EXECUTABLE)
                         GET_FILENAME_COMPONENT(_lang ${_poFile} NAME_WE)
                         SET(_gmoFile ${CMAKE_CURRENT_BINARY_DIR}/${_lang}.gmo)
 
-                        ADD_CUSTOM_COMMAND(TARGET translations
+                        ADD_CUSTOM_COMMAND(OUTPUT ${_gmoFile}
                                 COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --check -o ${_gmoFile} ${_poFile}
                                 DEPENDS ${_poFile})
                         INSTALL(FILES ${_gmoFile} DESTINATION ${LOCALE_INSTALL_DIR}/${_langCode}/LC_MESSAGES/ RENAME ${catalogname}.mo)
+                        LIST(APPEND GMO_FILES ${_gmoFile})
                 ENDIF( _langCode )
 
         ENDFOREACH(_poFile ${PO_FILES})
+
+        ADD_CUSTOM_TARGET(translations ALL DEPENDS ${GMO_FILES})
 
 ENDIF(NOT GETTEXT_MSGFMT_EXECUTABLE)
