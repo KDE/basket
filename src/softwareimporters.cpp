@@ -24,18 +24,23 @@
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
 #include <QtCore/QStack>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QRadioButton>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QRadioButton>
 #include <QtXml/QDomDocument>
 #include <QRegExp>
 
-#include <KDE/KStandardDirs>
-#include <KDE/KLocale>
-#include <KDE/KFileDialog>
-#include <KDE/KMessageBox>
-#include <KDE/KTextEdit>
+#include <QLocale>
+#include <KMessageBox>
+#include <KTextEdit>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QStandardPaths>
+#include <QFileDialog>
+#include <KLocalizedString>
 
 #include "basketscene.h"
 #include "basketfactory.h"
@@ -50,18 +55,28 @@
 /** class TreeImportDialog: */
 
 TreeImportDialog::TreeImportDialog(QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
 {
     QWidget *page = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(page);
 
-    // KDialog options
-    setCaption(i18n("Import Hierarchy"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(i18n("Import Hierarchy"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("ImportHeirachy");
     setModal(true);
-    showButtonSeparator(false);
 
     m_choices = new QGroupBox(i18n("How to Import the Notes?"), page);
     m_choiceLayout = new QVBoxLayout();
@@ -79,7 +94,7 @@ TreeImportDialog::TreeImportDialog(QWidget *parent)
     topLayout->addWidget(m_choices);
     topLayout->addStretch(10);
 
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 }
 
 TreeImportDialog::~TreeImportDialog()
@@ -99,21 +114,30 @@ int TreeImportDialog::choice()
 /** class TextFileImportDialog: */
 
 TextFileImportDialog::TextFileImportDialog(QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
 {
     QWidget *page = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(page);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
 
-    // KDialog options
-    setCaption(i18n("Import Text File"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(i18n("Import Text File"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("ImportTextFile");
     setModal(true);
-    showButtonSeparator(false);
 
 
     m_choices = new QGroupBox(i18n("Format of the Text File"), page);
+    mainLayout->addWidget(m_choices);
     m_choiceLayout = new QVBoxLayout;
     m_choices->setLayout(m_choiceLayout);
 
@@ -145,7 +169,7 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
 
     connect(m_customSeparator, SIGNAL(textChanged()), this, SLOT(customSeparatorChanged()));
 
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 }
 
 TextFileImportDialog::~TextFileImportDialog()
@@ -310,7 +334,7 @@ void SoftwareImporters::finishImport(BasketScene *basket)
 
 void SoftwareImporters::importKJots()
 {
-    QString dirPath = KStandardDirs::locateLocal("appdata", "") + "/../kjots/"; // I think the assumption is good
+    QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "" + "/../kjots/"; // I think the assumption is good
     QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
@@ -330,7 +354,7 @@ void SoftwareImporters::importKJots()
             if (!buf.isNull() && buf.left(9) == "\\NewEntry") {
 
                 // First create a basket for it:
-                BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/KUrl(file.fileName()).fileName(), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
+                BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/QUrl::fromLocalFile(file.fileName()).fileName(), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
                 BasketScene *basket = Global::bnpView->currentBasket();
                 basket->load();
 
@@ -391,7 +415,7 @@ void SoftwareImporters::importKJots()
 
 void SoftwareImporters::importKNotes()
 {
-    QString dirPath = KStandardDirs::locateLocal("appdata", "") + "/../knotes/"; // I thing the assumption is good
+    QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "" + "/../knotes/"; // I thing the assumption is good
     QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
@@ -584,7 +608,7 @@ void SoftwareImporters::importTomboy()
 void SoftwareImporters::importJreepadFile(){
     typedef QPair<BasketScene *, QDomElement> basketAndElementPair;
 
-    QString fileName = KFileDialog::getOpenFileName(KUrl("kfiledialog:///:ImportJreepadFile"),
+    QString fileName = QFileDialog::getOpenFileName(0, QString(), "kfiledialog:///:ImportJreepadFile",
                                                     "*.xml|XML files");
     if (fileName.isEmpty()) {
         return;
@@ -639,7 +663,7 @@ void SoftwareImporters::importJreepadFile(){
 
 void SoftwareImporters::importTextFile()
 {
-    QString fileName = KFileDialog::getOpenFileName(KUrl("kfiledialog:///:ImportTextFile"),  "*|All files");
+    QString fileName = QFileDialog::getOpenFileName(0, QString(), "kfiledialog:///:ImportTextFile", "*|All files");
     if (fileName.isEmpty())
         return;
 
@@ -659,7 +683,7 @@ void SoftwareImporters::importTextFile()
                            );
 
         // First create a basket for it:
-        QString title = i18nc("From TextFile.txt", "From %1", KUrl(fileName).fileName());
+        QString title = i18nc("From TextFile.txt", "From %1", QUrl::fromLocalFile(fileName).fileName());
         BasketFactory::newBasket(/*icon=*/"txt", title, /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
         BasketScene *basket = Global::bnpView->currentBasket();
         basket->load();
@@ -679,7 +703,7 @@ void SoftwareImporters::importTextFile()
   */
 void SoftwareImporters::importKnowIt()
 {
-    KUrl url = KFileDialog::getOpenUrl(KUrl("kfiledialog:///:ImportKnowIt"),
+    QUrl url = QFileDialog::getOpenFileUrl(NULL, "", QUrl("kfiledialog:///:ImportKnowIt"),
                                        "*.kno|KnowIt files\n*|All files");
     if (!url.isEmpty()) {
         QFile file(url.path());
@@ -782,7 +806,7 @@ void SoftwareImporters::importKnowIt()
 
 void SoftwareImporters::importTuxCards()
 {
-    QString fileName = KFileDialog::getOpenFileName(KUrl("kfiledialog:///:ImportTuxCards"),  "*|All files");
+    QString fileName = QFileDialog::getOpenFileName(0, QString(), "kfiledialog:///:ImportTuxCards", "*|All files");
     if (fileName.isEmpty())
         return;
 

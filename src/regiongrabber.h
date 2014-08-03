@@ -21,7 +21,7 @@
 
 #include <QtCore/QVector>
 #include <QtCore/QTimer>
-#include <QtGui/QWidget>
+#include <QWidget>
 
 class QPoint;
 class QRect;

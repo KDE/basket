@@ -21,25 +21,38 @@
 #ifndef BASKET_OPTIONS_H
 #define BASKET_OPTIONS_H
 
-#include <KDE/KCmdLineArgs>
+#include <QCommandLineParser>
+#include <QApplication>
 
-void setupCmdLineOptions(KCmdLineOptions *opts)
+#include <KLocalizedString>
+
+#include "global.h"
+#include "aboutdata.h"
+
+
+
+void setupCmdLineOptions(QCommandLineParser *opts, QApplication& app)
 {
-    opts->add("d");
-    opts->add("debug", ki18n("Show the debug window"));
-    opts->add("f");
-    opts->add("data-folder \\<folder>",
-              ki18n("Custom folder to load and save baskets and other "
-                    "application data."));
-    opts->add("h");
-    opts->add("start-hidden",
-              ki18n("Automatically hide the main window in the system tray on "
-                    "startup."));
-    opts->add("k");
-    opts->add("use-drkonqi",
-              ki18n("On crash, use the standard KDE crash handler rather than "
-                    "send an email."));
-    opts->add("+[file]", ki18n("Open a basket archive or template."));
+    opts->addVersionOption();
+    //PORTING SCRIPT: adapt aboutdata variable if necessary
+    Global::basketAbout.setupCommandLine(opts);
+    opts->process(app);
+    Global::basketAbout.processCommandLine(opts);
+
+    opts->addOption(QCommandLineOption(QStringList() << "d" << "debug", i18n("Show the debug window")));
+    opts->addOption(QCommandLineOption("f"));
+    opts->addOption(QCommandLineOption("data-folder \\<folder>",
+              i18n("Custom folder to load and save baskets and other "
+                    "application data.")));
+    opts->addHelpOption();
+    opts->addOption(QCommandLineOption("start-hidden",
+              i18n("Automatically hide the main window in the system tray on "
+                    "startup.")));
+    opts->addOption(QCommandLineOption("k"));
+    opts->addOption(QCommandLineOption("use-drkonqi",
+              i18n("On crash, use the standard KDE crash handler rather than "
+                    "send an email.")));
+    opts->addOption(QCommandLineOption("+[file]", i18n("Open a basket archive or template.")));
 }
 
 #endif // BASKET_OPTIONS_H

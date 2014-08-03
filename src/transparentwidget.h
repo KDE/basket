@@ -21,7 +21,7 @@
 #ifndef TRANSPARENTWIDGET_H
 #define TRANSPARENTWIDGET_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 class BasketScene;
 class QPaintEvent;

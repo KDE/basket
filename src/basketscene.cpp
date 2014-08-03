@@ -55,24 +55,24 @@
 #include <QtGui/QScrollBar>
 #include <QtXml/QDomDocument>
 
-#include <KDE/KTextEdit>
-#include <KDE/KStyle>
-#include <KDE/KApplication>
-#include <KDE/KColorScheme> // for KStatefulBrush
-#include <KDE/KOpenWithDialog>
-#include <KDE/KService>
-#include <KDE/KLocale>
-#include <KDE/KFileDialog>
-#include <KDE/KAboutData>
-#include <KDE/KLineEdit>
-#include <KDE/KSaveFile>
-#include <KDE/KDebug>
-#include <KDE/KAuthorized>
-#include <KDE/KMenu>
-#include <KDE/KIconLoader>
-#include <KDE/KRun>
-#include <KDE/KMessageBox>
-#include <KDE/KDirWatch>
+#include <KTextEdit>
+#include <KStyle>
+#include <QApplication>
+#include <KColorScheme> // for KStatefulBrush
+#include <KOpenWithDialog>
+#include <KService>
+#include <QLocale>
+//#include <KFileDialog>
+#include <KAboutData>
+#include <QLineEdit>
+#include <KSaveFile>
+//#include <KDebug>
+#include <KAuthorized>
+#include <QMenu>
+#include <KIconLoader>
+#include <KRun>
+#include <KMessageBox>
+#include <KDirWatch>
 
 #include <KIO/CopyJob>
 
@@ -134,7 +134,7 @@ void debugZone(int zone)
             s = "Emblem0+" + QString::number(zone - Note::Emblem0);
         break;
     }
-    kDebug() << s;
+    qDebug() << s;
 }
 
 #define FOR_EACH_NOTE(noteVar) \
@@ -577,7 +577,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
                 }
             }
         }
-      kapp->processEvents();
+      qApp->processEvents();
     }
 }
 
@@ -649,9 +649,9 @@ void BasketScene::loadProperties(const QDomElement &properties)
 
     QDomElement shortcut = XMLWork::getElement(properties, "shortcut");
     QString actionStrings[] = { "show", "globalShow", "globalSwitch" };
-    KShortcut combination  = KShortcut(shortcut.attribute(
+    QKeySequence combination  = QKeySequence(shortcut.attribute(
                                            "combination",
-                                           m_action->shortcut().primary().toString()));
+                                           m_action->shortcut().toString()));
     QString   actionString =            shortcut.attribute("action");
     int action = shortcutAction();
     if (actionString == actionStrings[0]) action = 0;
@@ -688,7 +688,7 @@ void BasketScene::saveProperties(QDomDocument &document, QDomElement &properties
     QDomElement shortcut = document.createElement("shortcut");
     properties.appendChild(shortcut);
     QString actionStrings[] = { "show", "globalShow", "globalSwitch" };
-    shortcut.setAttribute("combination", m_action->shortcut().primary().toString());
+    shortcut.setAttribute("combination", m_action->shortcut().toString());
     shortcut.setAttribute("action",      actionStrings[shortcutAction()]);
 
     QDomElement protection = document.createElement("protection");
@@ -1120,13 +1120,13 @@ QString BasketScene::fullPathForFileName(const QString &fileName)
 }
 
 
-void BasketScene::setShortcut(KShortcut shortcut, int action)
+void BasketScene::setShortcut(QKeySequence shortcut, int action)
 {
     if (action > 0) {
         m_action->setGlobalShortcut(
             shortcut,
-            KAction::ActiveShortcut | KAction::DefaultShortcut,
-            KAction::NoAutoloading
+            QAction::ActiveShortcut | QAction::DefaultShortcut,
+            QAction::NoAutoloading
         );
     }
     m_shortcutAction = action;
@@ -1223,10 +1223,10 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     m_view->setFocusPolicy(Qt::StrongFocus);
     m_view->setAlignment(Qt::AlignLeft|Qt::AlignTop);
 
-    m_action = new KAction(this);
+    m_action = new QAction(this);
     connect(m_action, SIGNAL(triggered()), this, SLOT(activatedShortcut()));
     m_action->setObjectName(folderName);
-    m_action->setGlobalShortcut(KShortcut());
+    m_action->setGlobalShortcut(QKeySequence());
     // We do this in the basket properties dialog (and keep it in sync with the
     // global one)
     m_action->setShortcutConfigurable(false);
@@ -1293,7 +1293,7 @@ void BasketScene::leaveEvent(QEvent *)
 
 void BasketScene::setFocusIfNotInPopupMenu()
 {
-    if (!kapp->activePopupWidget()) {
+    if (!qApp->activePopupWidget()) {
         if (isDuringEdit())
             m_editor->graphicsWidget()->setFocus();
         else
@@ -1316,7 +1316,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
     // Do nothing if we disabled the click some milliseconds sooner.
     // For instance when a popup menu has been closed with click, we should not do action:
-    if (event->button() == Qt::LeftButton && (kapp->activePopupWidget() || m_lastDisableClick.msecsTo(QTime::currentTime()) <= 80)) {
+    if (event->button() == Qt::LeftButton && (qApp->activePopupWidget() || m_lastDisableClick.msecsTo(QTime::currentTime()) <= 80)) {
         doHoverEffects();
         m_noActionOnMouseRelease = true;
         // But we allow to select:
@@ -1440,7 +1440,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	    
 	    if( /*m_animationTimeLine == 0 && */Settings::playAnimations())
 	    {
- 		kWarning()<<"Folding animation to be done";
+        qWarning()<<"Folding animation to be done";
 	    }
 	    
 	    relayoutNotes(true);
@@ -1476,7 +1476,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         m_zoneToInsert    = zone;
         m_posToInsert     = event->scenePos();
 
-        KMenu menu(m_view);
+        QMenu menu(m_view);
         menu.addActions(Global::bnpView->popupMenu("insert_popup")->actions());
 
         // If we already added a title, remove it because it would be kept and
@@ -1488,9 +1488,9 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         // i18n: Verbs (for the "insert" menu)
         if (zone == Note::TopGroup || zone == Note::BottomGroup)
-            m_insertMenuTitle = menu.addTitle(i18n("Group"), first);
+            m_insertMenuTitle = menu.addSection(i18n("Group"), first);
         else
-            m_insertMenuTitle = menu.addTitle(i18n("Insert"), first);
+            m_insertMenuTitle = menu.addSection(i18n("Insert"), first);
 
         setInsertPopupMenu();
         connect(&menu, SIGNAL(aboutToHide()),  this, SLOT(delayedCancelInsertPopupMenu()));
@@ -1514,7 +1514,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             clicked->setSelected(true);
         }
         m_startOfShiftSelectionNote = (clicked->isGroup() ? clicked->firstRealChild() : clicked);
-        KMenu* menu = Global::bnpView->popupMenu("note_popup");
+        QMenu* menu = Global::bnpView->popupMenu("note_popup");
         connect(menu, SIGNAL(aboutToHide()),  this, SLOT(unlockHovering()));
         connect(menu, SIGNAL(aboutToHide()),  this, SLOT(disableNextClick()));
         doHoverEffects(clicked, zone); // In the case where another popup menu was open, we should do that manually!
@@ -1587,7 +1587,7 @@ void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 {
     if (event->reason() == QGraphicsSceneContextMenuEvent::Keyboard) {
         if (countFounds/*countShown*/() == 0) { // TODO: Count shown!!
-            KMenu *menu = Global::bnpView->popupMenu("insert_popup");
+            QMenu *menu = Global::bnpView->popupMenu("insert_popup");
             setInsertPopupMenu();
             connect(menu, SIGNAL(aboutToHide()),  this, SLOT(delayedCancelInsertPopupMenu()));
             connect(menu, SIGNAL(aboutToHide()),  this, SLOT(unlockHovering()));
@@ -1601,7 +1601,7 @@ void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
             setFocusedNote(m_focusedNote); /// /// ///
             m_startOfShiftSelectionNote = (m_focusedNote->isGroup() ? m_focusedNote->firstRealChild() : m_focusedNote);
             // Popup at bottom (or top) of the focused note, if visible :
-            KMenu *menu = Global::bnpView->popupMenu("note_popup");
+            QMenu *menu = Global::bnpView->popupMenu("note_popup");
             connect(menu, SIGNAL(aboutToHide()),  this, SLOT(unlockHovering()));
             connect(menu, SIGNAL(aboutToHide()),  this, SLOT(disableNextClick()));
             doHoverEffects(m_focusedNote, Note::Content); // In the case where another popup menu was open, we should do that manually!
@@ -1672,7 +1672,7 @@ void BasketScene::removedStates(const QList<State*> &deletedStates)
 void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF &pos, bool animateNewPosition)
 {
     if (!note) {
-        kDebug() << "Wanted to insert NO note";
+        qDebug() << "Wanted to insert NO note";
        return;
     }
 
@@ -1754,7 +1754,7 @@ void BasketScene::clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked
 {
     Note *note;
     if (event->button() == Qt::MidButton)
-        note = NoteFactory::dropNote(KApplication::clipboard()->mimeData(QClipboard::Selection), this);
+        note = NoteFactory::dropNote(QApplication::clipboard()->mimeData(QClipboard::Selection), this);
     else
         note = NoteFactory::createNoteText("", this);
 
@@ -1828,7 +1828,7 @@ void BasketScene::dragLeaveEvent(QGraphicsSceneDragDropEvent *)
 void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
 {
     QPointF pos = event->scenePos();
-    kDebug() << "Drop Event at position " << pos.x() << ":" << pos.y();
+    qDebug() << "Drop Event at position " << pos.x() << ":" << pos.y();
 
     m_isDuringDrag = false;
     emit resetStatusBarText();
@@ -2003,7 +2003,7 @@ void BasketScene::pasteNote(QClipboard::Mode mode)
         }
         closeEditor();
         unselectAll();
-        Note *note = NoteFactory::dropNote(KApplication::clipboard()->mimeData(mode), this);
+        Note *note = NoteFactory::dropNote(QApplication::clipboard()->mimeData(mode), this);
         if (note) {
             insertCreatedNote(note);
             //unselectAllBut(note);
@@ -2270,7 +2270,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         // We select note on mousePress if it was unselected or Ctrl is pressed.
         // But the user can want to drag select_s_ notes, so it the note is selected, we only select it alone on mouseRelease:
         if (event->buttons() == 0) {
-            kDebug() << "EXEC";
+            qDebug() << "EXEC";
             if (!(event->modifiers() & Qt::ControlModifier) && clicked->allSelected())
                 unselectAllBut(clicked);
             if (zone == Note::Handle && isDuringEdit() && editedNote() == clicked) {
@@ -2297,12 +2297,12 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
                 // TODO: ask confirmation: "Do you really want to delete the welcome baskets?\n You can re-add them at any time in the Help menu."
                 Global::bnpView->doBasketDeletion(this);
             } else if (link == "basket-internal-import") {
-                KMenu *menu = Global::bnpView->popupMenu("fileimport");
+                QMenu *menu = Global::bnpView->popupMenu("fileimport");
                 menu->exec(event->screenPos());
             } else if (link.startsWith("basket://")) {
                 emit crossReference(link);
             } else {
-                KRun *run = new KRun(KUrl(link), m_view->window()); //  open the URL.
+                KRun *run = new KRun(QUrl::fromUserInput(link), m_view->window()); //  open the URL.
                 run->setAutoDelete(true);
             }
             break;
@@ -2355,13 +2355,13 @@ void BasketScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 void BasketScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     // redirect this event to the editor if track mouse event is active
-    if (m_editorTrackMouseEvent && (m_pressPos - event->scenePos()).manhattanLength() > KApplication::startDragDistance()) {
+    if (m_editorTrackMouseEvent && (m_pressPos - event->scenePos()).manhattanLength() > QApplication::startDragDistance()) {
 	m_editor->updateSelection(event->scenePos());	
 	return;
     }
     
     // Drag the notes:
-    if (m_canDrag && (m_pressPos - event->scenePos()).manhattanLength() > KApplication::startDragDistance()) {
+    if (m_canDrag && (m_pressPos - event->scenePos()).manhattanLength() > QApplication::startDragDistance()) {
         m_canDrag          = false;
         m_isSelecting      = false; // Don't draw selection rectangle ater drag!
         m_selectionStarted = false;
@@ -2497,7 +2497,7 @@ void BasketScene::doAutoScrollSelection()
 //        dx = pos.x() - visibleWidth() + AUTO_SCROLL_MARGIN;
 
     if (dx || dy) {
-        kapp->sendPostedEvents(); // Do the repaints, because the scrolling will make the area to repaint to be wrong
+        qApp->sendPostedEvents(); // Do the repaints, because the scrolling will make the area to repaint to be wrong
 //        scrollBy(dx, dy);
         if (!m_autoScrollSelectionTimer.isActive())
             m_autoScrollSelectionTimer.start(AUTO_SCROLL_DELAY);
@@ -2663,8 +2663,8 @@ void BasketScene::doHoverEffects(const QPointF &pos)
     // Don't do hover effects when a popup menu is opened.
     // Primarily because the basket area will only receive mouseEnterEvent and mouveLeaveEvent.
     // It willn't be noticed of mouseMoveEvent, which would result in a apparently broken application state:
-    bool underMouse = !kapp->activePopupWidget();
-    //if (kapp->activePopupWidget())
+    bool underMouse = !qApp->activePopupWidget();
+    //if (qApp->activePopupWidget())
     //    underMouse = false;
 
     // Compute which note is hovered:
@@ -2677,7 +2677,7 @@ void BasketScene::doHoverEffects(const QPointF &pos)
 
 void BasketScene::mouseEnteredEditorWidget()
 {
-    if (!m_lockedHovering && !kapp->activePopupWidget())
+    if (!m_lockedHovering && !qApp->activePopupWidget())
         doHoverEffects(editedNote(), Note::Content, QPoint());
 }
 
@@ -3103,7 +3103,7 @@ void BasketScene::drawForeground ( QPainter * painter, const QRectF & rect )
 #ifdef HAVE_LIBGPGME
             label->setText(text + i18n("Press Unlock to access it."));
 #else
-            label->setText(text + i18n("Encryption is not supported by<br/>this version of %1.", KGlobal::mainComponent().aboutData()->programName()));
+            label->setText(text + i18n("Encryption is not supported by<br/>this version of %1.", QGuiApplication::applicationDisplayName()));
 #endif
             label->setAlignment(Qt::AlignTop);
             layout->addWidget(label, 0, 1, 1, 2);
@@ -3291,27 +3291,27 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
     Tag *tag = state->parentTag();
     m_tagPopup = tag;
 
-    QKeySequence sequence = tag->shortcut().primary();
+    QKeySequence sequence = tag->shortcut();
     bool sequenceOnDelete = (nextState == 0 && !tag->shortcut().isEmpty());
 
-    KMenu menu(m_view);
+    QMenu menu(m_view);
     if (tag->countStates() == 1) {
-        menu.addTitle(/*SmallIcon(state->icon()), */tag->name());
-        KAction* act;
-        act = new KAction(KIcon("edit-delete"), i18n("&Remove"), &menu);
+        menu.addSection(/*SmallIcon(state->icon()), */tag->name());
+        QAction * act;
+        act = new QAction(QIcon::fromTheme("edit-delete"), i18n("&Remove"), &menu);
         act->setData(1);
         menu.addAction(act);
-        act = new KAction(KIcon("configure"),  i18n("&Customize..."), &menu);
+        act = new QAction(QIcon::fromTheme("configure"),  i18n("&Customize..."), &menu);
         act->setData(2);
         menu.addAction(act);
 
         menu.addSeparator();
 
-        act = new KAction(KIcon("search-filter"),     i18n("&Filter by this Tag"), &menu);
+        act = new QAction(QIcon::fromTheme("search-filter"),     i18n("&Filter by this Tag"), &menu);
         act->setData(3);
         menu.addAction(act);
     } else {
-        menu.addTitle(tag->name());
+        menu.addSection(tag->name());
         QList<State*>::iterator it;
         State *currentState;
 
@@ -3323,9 +3323,9 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
             currentState = *it;
             QKeySequence sequence;
             if (currentState == nextState && !tag->shortcut().isEmpty())
-                sequence = tag->shortcut().primary();
+                sequence = tag->shortcut();
 
-            StateAction *sa = new StateAction(currentState, KShortcut(sequence), 0, false);
+            StateAction *sa = new StateAction(currentState, QKeySequence(sequence), 0, false);
             sa->setChecked(state == currentState);
             sa->setActionGroup(emblemGroup);
             sa->setData(i);
@@ -3338,14 +3338,14 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
 
         menu.addSeparator();
 
-        KAction *act = new KAction(&menu);
-        act->setIcon(KIcon("edit-delete"));
+        QAction *act = new QAction(&menu);
+        act->setIcon(QIcon::fromTheme("edit-delete"));
         act->setText(i18n("&Remove"));
         act->setShortcut(sequenceOnDelete ? sequence : QKeySequence());
         act->setData(1);
         menu.addAction(act);
-        act = new KAction(
-            KIcon("configure"),
+        act = new QAction(
+            QIcon::fromTheme("configure"),
             i18n("&Customize..."),
             &menu
         );
@@ -3354,13 +3354,13 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
 
         menu.addSeparator();
 
-        act = new KAction(KIcon("search-filter"),
+        act = new QAction(QIcon::fromTheme("search-filter"),
                           i18n("&Filter by this Tag"),
                           &menu);
         act->setData(3);
         menu.addAction(act);
-        act = new KAction(
-            KIcon("search-filter"),
+        act = new QAction(
+            QIcon::fromTheme("search-filter"),
             i18n("Filter by this &State"),
             &menu);
         act->setData(4);
@@ -3442,8 +3442,8 @@ void BasketScene::popupTagsMenu(Note *note)
 {
     m_tagPopupNote = note;
 
-    KMenu menu(m_view);
-    menu.addTitle(i18n("Tags"));
+    QMenu menu(m_view);
+    menu.addSection(i18n("Tags"));
 
     Global::bnpView->populateTagsMenu(menu, note);
 
@@ -3822,7 +3822,7 @@ bool BasketScene::closeEditor(bool deleteEmptyNote /* =true*/)
 
     emit resetStatusBarText(); // Remove the "Editing. ... to validate." text.
 
-    //if (kapp->activeWindow() == Global::mainContainer)
+    //if (qApp->activeWindow() == Global::mainContainer)
 
     // Set focus to the basket, unless the user pressed a letter key in the filter bar and the currently edited note came hidden, then editing closed:
     if (!decoration()->filterBar()->lineEdit()->hasFocus())
@@ -3854,7 +3854,7 @@ void BasketScene::openBasket()
 Note* BasketScene::theSelectedNote()
 {
     if (countSelecteds() != 1) {
-        kDebug() << "NO SELECTED NOTE !!!!";
+        qDebug() << "NO SELECTED NOTE !!!!";
         return 0;
     }
 
@@ -3865,7 +3865,7 @@ Note* BasketScene::theSelectedNote()
             return selectedOne;
     }
 
-    kDebug() << "One selected note, BUT NOT FOUND !!!!";
+    qDebug() << "One selected note, BUT NOT FOUND !!!!";
 
     return 0;
 }
@@ -3933,7 +3933,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
         return;
 
     if (isDuringEdit()) {
-        closeEditor(); // Validate the noteeditors in KLineEdit that does not intercept Enter key press (and edit is triggered with Enter too... Can conflict)
+        closeEditor(); // Validate the noteeditors in QLineEdit that does not intercept Enter key press (and edit is triggered with Enter too... Can conflict)
         return;
     }
 
@@ -3973,9 +3973,9 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
           updateEditorAppearance();
 	}
 	
-//      kapp->processEvents();     // Show the editor toolbar before ensuring the note is visible
+//      qApp->processEvents();     // Show the editor toolbar before ensuring the note is visible
         ensureNoteVisible(note);   //  because toolbar can create a new line and then partially hide the note
-        m_editor->graphicsWidget()->setFocus(); // When clicking in the basket, a QTimer::singleShot(0, ...) focus the basket! So we focus the the widget after kapp->processEvents()
+        m_editor->graphicsWidget()->setFocus(); // When clicking in the basket, a QTimer::singleShot(0, ...) focus the basket! So we focus the the widget after qApp->processEvents()
         emit resetStatusBarText(); // Display "Editing. ... to validate."
     } else {
         // Delete the note user have canceled the addition:
@@ -4099,7 +4099,7 @@ void BasketScene::noteDeleteWithoutConfirmation(bool deleteFilesToo)
 
 void BasketScene::doCopy(CopyMode copyMode)
 {
-    QClipboard *cb = KApplication::clipboard();
+    QClipboard *cb = QApplication::clipboard();
     QClipboard::Mode mode = ((copyMode == CopyToSelection) ? QClipboard::Selection : QClipboard::Clipboard);
 
     NoteSelection *selection = selectedNotes();
@@ -4164,7 +4164,7 @@ void BasketScene::noteOpen(Note *note)
     if (!note)
         return;
 
-    KUrl    url     = note->content()->urlToOpen(/*with=*/false);
+    QUrl    url     = note->content()->urlToOpen(/*with=*/false);
     QString message = note->content()->messageWhenOpening(NoteContent::OpenOne /*NoteContent::OpenSeveral*/);
     if (url.isEmpty()) {
         if (message.isEmpty())
@@ -4192,9 +4192,9 @@ void BasketScene::noteOpen(Note *note)
 /** Code from bool KRun::displayOpenWithDialog(const KUrl::List& lst, bool tempFiles)
   * It does not allow to set a text, so I ripped it to do that:
   */
-bool KRun__displayOpenWithDialog(const KUrl::List& lst, QWidget *window, bool tempFiles, const QString &text)
+bool KRun__displayOpenWithDialog(const QList<QUrl>& lst, QWidget *window, bool tempFiles, const QString &text)
 {
-    if (kapp && !KAuthorized::authorizeKAction("openwith")) {
+    if (qApp && !KAuthorized::authorizeKAction("openwith")) {
         KMessageBox::sorry(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
         return false;
     }
@@ -4203,7 +4203,7 @@ bool KRun__displayOpenWithDialog(const KUrl::List& lst, QWidget *window, bool te
         KService::Ptr service = l.service();
         if (!!service)
             return KRun::run(*service, lst, window, tempFiles);
-        //kDebug(250) << "No service set, running " << l.text() << endl;
+        //qDebug(250) << "No service set, running " << l.text() << endl;
         return KRun::run(l.text(), lst, window); // TODO handle tempFiles
     }
     return false;
@@ -4216,7 +4216,7 @@ void BasketScene::noteOpenWith(Note *note)
     if (!note)
         return;
 
-    KUrl    url     = note->content()->urlToOpen(/*with=*/true);
+    QUrl    url     = note->content()->urlToOpen(/*with=*/true);
     QString message = note->content()->messageWhenOpening(NoteContent::OpenOneWith /*NoteContent::OpenSeveralWith*/);
     QString text    = note->content()->messageWhenOpening(NoteContent::OpenOneWithDialog /*NoteContent::OpenSeveralWithDialog*/);
     if (url.isEmpty())
@@ -4233,17 +4233,17 @@ void BasketScene::noteSaveAs()
     if (!note)
         return;
 
-    KUrl url = note->content()->urlToOpen(/*with=*/false);
+    QUrl url = note->content()->urlToOpen(/*with=*/false);
     if (url.isEmpty())
         return;
 
-    QString fileName = KFileDialog::getSaveFileName(url.fileName(), note->content()->saveAsFilters(), m_view, i18n("Save to File"));
+    QString fileName = QFileDialog::getSaveFileName(m_view, i18n("Save to File"), url.fileName(), note->content()->saveAsFilters());
     // TODO: Ask to overwrite !
     if (fileName.isEmpty())
         return;
 
     // TODO: Convert format, etc. (use NoteContent::saveAs(fileName))
-    KIO::copy(url, KUrl(fileName));
+    KIO::copy(url, QUrl::fromLocalFile(fileName));
 }
 
 Note* BasketScene::selectedGroup()
@@ -4527,8 +4527,8 @@ void BasketScene::linkLookChanged()
 }
 
 void BasketScene::slotCopyingDone2(KIO::Job *job,
-                              const KUrl &/*from*/,
-                              const KUrl &to)
+                              const QUrl &/*from*/,
+                              const QUrl &to)
 {
     if (job->error()) {
         DEBUG_WIN << "Copy finished, ERROR";
@@ -5297,7 +5297,7 @@ bool BasketScene::saveToFile(const QString& fullPath, const QString& string)
             if (!dialog) {
                 dialog = new DiskErrorDialog(i18n("Error while saving"),
                                              saveFile.errorString(),
-                                             kapp->activeWindow());
+                                             qApp->activeWindow());
             }
 
             if (!dialog->isVisible())
@@ -5305,7 +5305,7 @@ bool BasketScene::saveToFile(const QString& fullPath, const QString& string)
 
             static const uint sleepDelay = 50; // ms
             for (uint i = 0; i < retryDelay / sleepDelay; ++i) {
-                kapp->processEvents();
+                qApp->processEvents();
             }
             // Double the retry delay, but don't go over the max.
             retryDelay = qMin(maxDelay, retryDelay * 2); // ms

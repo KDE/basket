@@ -35,10 +35,10 @@
 #include <QtGui/QPixmapCache>
 #include <QtGui/QToolTip>
 
-#include <KDE/KIconLoader>
-#include <KDE/KLocale>
-#include <KDE/KStringHandler>
-#include <KDE/KDebug>
+#include <KIconLoader>
+#include <QLocale>
+#include <KStringHandler>
+//#include <KDebug>
 
 #include "global.h"
 #include "bnpview.h"
@@ -91,7 +91,7 @@ QString BasketListViewItem::escapedName(const QString &string)
     QString letter;
     QRegExp letterExp("^Alt\\+(?:Shift\\+)?(.)$");
 
-    QString basketShortcut = m_basket->shortcut().primary().toString();
+    QString basketShortcut = m_basket->shortcut().toString();
     if (letterExp.indexIn(basketShortcut) != -1) {
         int index;
         letter = letterExp.cap(1);
@@ -117,7 +117,7 @@ void BasketListViewItem::setup()
 
         bool withIcon = m_stateCopy || (m_tagCopy && !m_tagCopy->isMultiState());
         State* state = (m_tagCopy ? m_tagCopy->stateCopies[0]->newState : m_stateCopy->newState);
-        brush.setColor(isSelected() ? kapp->palette().color(QPalette::Highlight)  : (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() : viewport->palette().color(viewwport->backgroundRole())));
+        brush.setColor(isSelected() ? qApp->palette().color(QPalette::Highlight)  : (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() : viewport->palette().color(viewwport->backgroundRole())));
         setBackground(brush);
         */
 }
@@ -366,7 +366,7 @@ void BasketTreeListView::mouseMoveEvent(QMouseEvent *event)
 
 void BasketTreeListView::dragEnterEvent(QDragEnterEvent *event)
 {
-    kDebug() << event->format();
+    qDebug() << event->format();
     event->acceptProposedAction();
     QTreeWidget::dragEnterEvent(event);
     if (event->mimeData()->hasFormat("application/x-basket-note")) {
@@ -389,7 +389,7 @@ void BasketTreeListView::removeExpands()
 
 void BasketTreeListView::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    kDebug() << "BasketTreeListView::dragLeaveEvent";
+    qDebug() << "BasketTreeListView::dragLeaveEvent";
     m_autoOpenItem = 0;
     m_autoOpenTimer.stop();
     setItemUnderDrag(0);
@@ -403,14 +403,14 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
         event->setDropAction(Qt::MoveAction);
         QTreeWidget::dropEvent(event);
     } else { // this handels application/x-basket-note drag events.
-        kDebug() << "Forwarding dropped data to the basket";
+        qDebug() << "Forwarding dropped data to the basket";
         event->setDropAction(Qt::MoveAction);
         QTreeWidgetItem *item = itemAt(event->pos());
         BasketListViewItem* bitem = dynamic_cast<BasketListViewItem*>(item);
         if (bitem) {
             bitem->basket()->blindDrop(event->mimeData(),event->dropAction(),event->source());
         } else {
-            kDebug() << "Forwarding failed: no bitem found";
+            qDebug() << "Forwarding failed: no bitem found";
         }
     }
 
@@ -424,7 +424,7 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
 
 void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
 {
-    kDebug() << "BasketTreeListView::dragMoveEvent";
+    qDebug() << "BasketTreeListView::dragMoveEvent";
     if (event->provides("application/x-qabstractitemmodeldatalist"))
         QTreeWidget::dragMoveEvent(event);
     else {

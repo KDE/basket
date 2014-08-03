@@ -30,18 +30,22 @@
 #include <QtGui/QPixmap>
 #include <QtGui/QVBoxLayout>
 
-#include <KDE/KApplication>
-#include <KDE/KLocale>
-#include <KDE/KMessageBox>
-#include <KDE/KPasswordDialog>
+#include <QApplication>
+#include <QLocale>
+#include <KMessageBox>
+#include <KPasswordDialog>
 
 #include <locale.h>         //For LC_ALL, etc.
 #include <errno.h>          //For errno
 #include <unistd.h>         //For write
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 // KGpgSelKey class based on class in KGpg with the same name
 
-class KGpgSelKey : public KDialog
+class KGpgSelKey : public QDialog
 {
 private:
     QTreeWidget* keysListpr;
@@ -50,19 +54,30 @@ public:
 
     KGpgSelKey(QWidget *parent, const char *name, QString preselected,
                const KGpgMe& gpg):
-            KDialog(parent) {
+            QDialog(parent) {
 
         // Dialog options
         setObjectName(name);
         setModal(true);
-        setCaption(i18n("Private Key List"));
-        setButtons(Ok | Cancel);
+        setWindowTitle(i18n("Private Key List"));
+        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+        QWidget *mainWidget = new QWidget(this);
+        QVBoxLayout *mainLayout = new QVBoxLayout;
+        setLayout(mainLayout);
+        mainLayout->addWidget(mainWidget);
+        QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+        okButton->setDefault(true);
+        okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+        connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+        connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+        //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+        mainLayout->addWidget(buttonBox);
 
         QString keyname;
         QVBoxLayout* vbox;
         QWidget* page = new QWidget(this);
         QLabel* labeltxt;
-        QPixmap keyPair = KIcon("kgpg_key2").pixmap(20, 20);
+        QPixmap keyPair = QIcon::fromTheme("kgpg_key2").pixmap(20, 20);
 
         setMinimumSize(350, 100);
         keysListpr = new QTreeWidget(page);
@@ -96,7 +111,7 @@ public:
         }
         vbox->addWidget(labeltxt);
         vbox->addWidget(keysListpr);
-        setMainWidget(page);
+        mainLayout->addWidget(page);
     };
 
     QString key() {
@@ -146,7 +161,7 @@ void KGpgMe::init(gpgme_protocol_t proto)
 #endif
     err = gpgme_engine_check_version(proto);
     if (err) {
-        KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
+        KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                            .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
     }
 }
@@ -186,7 +201,7 @@ QString KGpgMe::checkForUtf8(QString txt)
 
 QString KGpgMe::selectKey(QString previous)
 {
-    QPointer<KGpgSelKey> dlg = new KGpgSelKey(kapp->activeWindow(), "", previous, *this);
+    QPointer<KGpgSelKey> dlg = new KGpgSelKey(qApp->activeWindow(), "", previous, *this);
 
     if (dlg->exec())
         return dlg->key();
@@ -228,12 +243,12 @@ KGpgKeyList KGpgMe::keys(bool privateKeys /* = false */) const
     }
 
     if (err) {
-        KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
+        KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                            .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
     } else {
         result = gpgme_op_keylist_result(m_ctx);
         if (result->truncated) {
-            KMessageBox::error(kapp->activeWindow(),
+            KMessageBox::error(qApp->activeWindow(),
                                i18n("Key listing unexpectedly truncated."));
         }
     }
@@ -268,7 +283,7 @@ bool KGpgMe::encrypt(const QByteArray& inBuffer, unsigned long length,
                     if (!err) {
                         result = gpgme_op_encrypt_result(m_ctx);
                         if (result->invalid_recipients) {
-                            KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
+                            KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                                                .arg(i18n("That public key is not meant for encryption"))
                                                .arg(result->invalid_recipients->fpr));
                         } else {
@@ -280,7 +295,7 @@ bool KGpgMe::encrypt(const QByteArray& inBuffer, unsigned long length,
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
+        KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                            .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
     }
     if (err != GPG_ERR_NO_ERROR)
@@ -310,7 +325,7 @@ bool KGpgMe::decrypt(const QByteArray& inBuffer, QByteArray* outBuffer)
                 if (!err) {
                     result = gpgme_op_decrypt_result(m_ctx);
                     if (result->unsupported_algorithm) {
-                        KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
+                        KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                                            .arg(i18n("Unsupported algorithm"))
                                            .arg(result->unsupported_algorithm));
                     } else {
@@ -321,7 +336,7 @@ bool KGpgMe::decrypt(const QByteArray& inBuffer, QByteArray* outBuffer)
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
+        KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                            .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
     }
     if (err != GPG_ERR_NO_ERROR)

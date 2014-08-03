@@ -29,18 +29,18 @@
 #include "linklabel.h"
 #include "notecontent.h"
 
-#include <KDE/KApplication>
-#include <KDE/KAboutData>
-#include <KDE/KDebug>
-#include <KDE/KLocale>
-#include <KDE/KGlobal>
-#include <KDE/KConfig>
-#include <KDE/KFileDialog>
-#include <KDE/KMessageBox>
-#include <KDE/KProgressDialog>
+#include <QApplication>
+#include <KAboutData>
+//#include <KDebug>
+#include <QLocale>
+#include <KGlobal>
+#include <KConfig>
+//#include <KFileDialog>
+#include <KMessageBox>
+#include <KProgressDialog>
 
-#include <KDE/KIO/Job>      //For KIO::file_copy
-#include <KDE/KIO/CopyJob>  //For KIO::copy
+#include <KIO/Job>      //For KIO::file_copy
+#include <KIO/CopyJob>  //For KIO::copy
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -63,7 +63,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
     QString destination = url;
     for (bool askAgain = true; askAgain;) {
         // Ask:
-        destination = KFileDialog::getSaveFileName(destination, filter, 0, i18n("Export to HTML"));
+        destination = QFileDialog::getSaveFileName(NULL, i18n("Export to HTML"), destination, filter);
         // User canceled?
         if (destination.isEmpty())
             return;
@@ -72,7 +72,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
             int result = KMessageBox::questionYesNoCancel(
                              0,
                              "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?",
-                                           KUrl(destination).fileName()),
+                                           QUrl::fromLocalFile(destination).fileName()),
                              i18n("Override File?"),
                              KGuiItem(i18n("&Override"), "document-save")
                          );
@@ -92,7 +92,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
     progress = dialog.progressBar();
 
     // Remember the last folder used for HTML exporation:
-    config.writeEntry("lastFolder", KUrl(destination).directory());
+    config.writeEntry("lastFolder", QUrl::fromLocalFile(destination).directory());
     config.sync();
 
     prepareExport(basket, destination);
@@ -109,11 +109,11 @@ void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
 {
     progress->setRange(0,/*Preparation:*/1 + /*Finishing:*/1 + /*Basket:*/1 + /*SubBaskets:*/Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)));
     progress->setValue(0);
-    kapp->processEvents();
+    qApp->processEvents();
 
     // Remember the file path chozen by the user:
     filePath = fullPath;
-    fileName = KUrl(fullPath).fileName();
+    fileName = QUrl::fromLocalFile(fullPath).fileName();
     exportedBasket = basket;
     currentBasket = 0;
 
@@ -155,7 +155,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         basketsFolderName = "";
     } else {
         basketFilePath    = filePath;
-        filesFolderName   = i18nc("HTML export folder (files)", "%1_files", KUrl(filePath).fileName()) + "/";
+        filesFolderName   = i18nc("HTML export folder (files)", "%1_files", QUrl::fromLocalFile(filePath).fileName()) + "/";
         dataFolderName    = filesFolderName + i18nc("HTML export folder (data)",    "data")  + "/";
         dataFolderPath    = filesFolderPath + i18nc("HTML export folder (data)",    "data")  + "/";
         basketsFolderName = filesFolderName + i18nc("HTML export folder (baskets)", "baskets")  + "/";
@@ -163,19 +163,19 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     iconsFolderName   = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (icons)",   "icons")   + "/"; // eg.: "foo.html_files/icons/"   or "../icons/"
     imagesFolderName  = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (images)",  "images")  + "/"; // eg.: "foo.html_files/images/"  or "../images/"
 
-    kDebug() << "Exporting ================================================";
-    kDebug() << "  filePath:" << filePath;
-    kDebug() << "  basketFilePath:" << basketFilePath;
-    kDebug() << "  filesFolderPath:" << filesFolderPath;
-    kDebug() << "  filesFolderName:" << filesFolderName;
-    kDebug() << "  iconsFolderPath:" << iconsFolderPath;
-    kDebug() << "  iconsFolderName:" << iconsFolderName;
-    kDebug() << "  imagesFolderPath:" << imagesFolderPath;
-    kDebug() << "  imagesFolderName:" << imagesFolderName;
-    kDebug() << "  dataFolderPath:" << dataFolderPath;
-    kDebug() << "  dataFolderName:" << dataFolderName;
-    kDebug() << "  basketsFolderPath:" << basketsFolderPath;
-    kDebug() << "  basketsFolderName:" << basketsFolderName;
+    qDebug() << "Exporting ================================================";
+    qDebug() << "  filePath:" << filePath;
+    qDebug() << "  basketFilePath:" << basketFilePath;
+    qDebug() << "  filesFolderPath:" << filesFolderPath;
+    qDebug() << "  filesFolderName:" << filesFolderName;
+    qDebug() << "  iconsFolderPath:" << iconsFolderPath;
+    qDebug() << "  iconsFolderName:" << iconsFolderName;
+    qDebug() << "  imagesFolderPath:" << imagesFolderPath;
+    qDebug() << "  imagesFolderName:" << imagesFolderName;
+    qDebug() << "  dataFolderPath:" << dataFolderPath;
+    qDebug() << "  dataFolderName:" << dataFolderName;
+    qDebug() << "  basketsFolderPath:" << basketsFolderPath;
+    qDebug() << "  basketsFolderName:" << basketsFolderName;
 
     // Create the data folder for this basket:
     QDir dir;
@@ -224,7 +224,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     "<html>\n"
     " <head>\n"
     "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n"
-    "  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"Generator\" content=\"" << KGlobal::mainComponent().aboutData()->programName() << " " << VERSION << " http://basket.kde.org/\">\n"
+    "  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"Generator\" content=\"" << QGuiApplication::applicationDisplayName() << " " << VERSION << " http://basket.kde.org/\">\n"
     "  <style type=\"text/css\">\n"
 //      "   @media print {\n"
 //      "    span.printable { display: inline; }\n"
@@ -242,8 +242,8 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         "   .tree span { -moz-border-radius: 6px; display: block; float: left;\n"
         "                line-height: 16px; height: 16px; vertical-align: middle; padding: 0 1px; }\n"
         "   .tree img { vertical-align: top; padding-right: 1px; }\n"
-        "   .tree .current { background-color: " << kapp->palette().color(QPalette::Highlight).name() << "; "
-        "-moz-border-radius: 3px 0 0 3px; border-radius: 3px 0 0 3px; color: " << kapp->palette().color(QPalette::Highlight).name() << "; }\n"
+        "   .tree .current { background-color: " << qApp->palette().color(QPalette::Highlight).name() << "; "
+        "-moz-border-radius: 3px 0 0 3px; border-radius: 3px 0 0 3px; color: " << qApp->palette().color(QPalette::Highlight).name() << "; }\n"
         "   .basketSurrounder { margin-left: 152px; _margin: 0; _float: right; }\n";
     }
     stream <<
@@ -328,7 +328,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         "  </div>\n"
         "  <p class=\"credits\">%1</p>\n").arg(
             i18n("Made with <a href=\"http://basket.kde.org/\">%1</a> %2, a KDE tool to take notes and keep information at hand.",
-                 KGlobal::mainComponent().aboutData()->programName(), VERSION));
+                 QGuiApplication::applicationDisplayName(), VERSION));
 
     // Copy a transparent GIF image in the folder, needed for the JavaScript hack:
     QString gifFileName = "spacer.gif";
@@ -552,18 +552,18 @@ QString HTMLExporter::copyIcon(const QString &iconName, int size)
   */
 QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
 {
-    QString fileName = Tools::fileNameForNewFile(KUrl(srcPath).fileName(), dataFolderPath);
+    QString fileName = Tools::fileNameForNewFile(QUrl::fromLocalFile(srcPath).fileName(), dataFolderPath);
     QString fullPath = dataFolderPath + fileName;
 
     if (createIt) {
         // We create the file to be sure another very near call to copyFile() willn't choose the same name:
-        QFile file(KUrl(fullPath).path());
+        QFile file(QUrl::fromLocalFile(fullPath).path());
         if (file.open(QIODevice::WriteOnly))
             file.close();
         // And then we copy the file AND overwriting the file we juste created:
-        KIO::file_copy(KUrl(srcPath), KUrl(fullPath), 0666, KIO::HideProgressInfo | KIO::Resume | KIO::Overwrite);
+        KIO::file_copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), 0666, KIO::HideProgressInfo | KIO::Resume | KIO::Overwrite);
     } else
-        /*KIO::CopyJob *copyJob = */KIO::copy(KUrl(srcPath), KUrl(fullPath), KIO::DefaultFlags); // Do it as before
+        /*KIO::CopyJob *copyJob = */KIO::copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), KIO::DefaultFlags); // Do it as before
 
     return fileName;
 }

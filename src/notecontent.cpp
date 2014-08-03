@@ -33,20 +33,23 @@
 #include <QtGui/QMovie>
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <QtXml/QDomDocument>
 #include <QtNetwork/QNetworkReply>
 #include <QTextBlock>
 #include <QTextCodec>
-#include <KDE/KIO/AccessManager>
+#include <QMimeDatabase>
+#include <QMimeData>
+#include <KIO/AccessManager>
 
-#include <KDE/KDebug>
-#include <KDE/KService>
-#include <KDE/KLocale>
-#include <KDE/KFileMetaInfo>
-#include <KDE/KFileItem>
-#include <KDE/KIO/PreviewJob>                   //For KIO::file_preview(...)
-#include <KDE/KEncodingProber>
+//#include <KDebug>
+#include <KService>
+#include <QLocale>
+#include <KDELibs4Support/KDE/KFileMetaInfo>
+#include <KFileItem>
+#include <KIO/PreviewJob>                   //For KIO::file_preview(...)
+#include <KEncodingProber>
+#include <KLocalizedString>
 
 #include <phonon/AudioOutput>
 #include <phonon/MediaObject>
@@ -114,9 +117,9 @@ QRectF NoteContent::zoneRect(int zone, const QPointF &/*pos*/)
         return QRectF();
 }
 
-KUrl NoteContent::urlToOpen(bool /*with*/)
+QUrl NoteContent::urlToOpen(bool /*with*/)
 {
-    return (useFile() ? KUrl(fullPath()) : KUrl());
+    return (useFile() ? QUrl::fromLocalFile(fullPath()) : QUrl());
 }
 
 void NoteContent::setFileName(const QString &fileName)
@@ -321,15 +324,15 @@ QString HtmlContent::toText(const QString &/*cuttedFullPath*/)
 QString LinkContent::toText(const QString &/*cuttedFullPath*/)
 {
     if (autoTitle())
-        return url().prettyUrl();
+        return url().toDisplayString();
     else if (title().isEmpty() && url().isEmpty())
         return "";
     else if (url().isEmpty())
         return title();
     else if (title().isEmpty())
-        return url().prettyUrl();
+        return url().toDisplayString();
     else
-        return QString("%1 <%2>").arg(title(), url().prettyUrl());
+        return QString("%1 <%2>").arg(title(), url().toDisplayString());
 }
 QString CrossReferenceContent::toText(const QString &/*cuttedFullPath*/)
 {
@@ -338,9 +341,9 @@ QString CrossReferenceContent::toText(const QString &/*cuttedFullPath*/)
     else if (url().isEmpty())
         return title();
     else if (title().isEmpty())
-        return url().prettyUrl();
+        return url().toDisplayString();
     else
-        return QString("%1 <%2>").arg(title(), url().prettyUrl());
+        return QString("%1 <%2>").arg(title(), url().toDisplayString());
 }
 QString ColorContent::toText(const QString &/*cuttedFullPath*/)
 {
@@ -387,12 +390,12 @@ QString FileContent::toHtml(const QString &/*imageName*/, const QString &cuttedF
 
 QString LinkContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
 {
-    return QString("<a href=\"%1\">%2</a>").arg(url().prettyUrl(), title());
+    return QString("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
 } // With the icon?
 
 QString CrossReferenceContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
 {
-    return QString("<a href=\"%1\">%2</a>").arg(url().prettyUrl(), title());
+    return QString("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
 } // With the icon?
 
 QString LauncherContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
@@ -419,35 +422,35 @@ QPixmap AnimationContent::toPixmap()
     return m_movie->currentPixmap();
 }
 
-void NoteContent::toLink(KUrl *url, QString *title, const QString &cuttedFullPath)
+void NoteContent::toLink(QUrl *url, QString *title, const QString &cuttedFullPath)
 {
     if (useFile()) {
-        *url   = KUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
+        *url   = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
         *title = (cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
     } else {
-        *url   = KUrl();
+        *url   = QUrl();
         title->clear();
     }
 }
-void LinkContent::toLink(KUrl *url, QString *title, const QString &/*cuttedFullPath*/)
+void LinkContent::toLink(QUrl *url, QString *title, const QString &/*cuttedFullPath*/)
 {
     *url   = this->url();
     *title = this->title();
 }
-void CrossReferenceContent::toLink(KUrl *url, QString *title, const QString &/*cuttedFullPath*/)
+void CrossReferenceContent::toLink(QUrl *url, QString *title, const QString &/*cuttedFullPath*/)
 {
     *url   = this->url();
     *title = this->title();
 }
 
-void LauncherContent::toLink(KUrl *url, QString *title, const QString &cuttedFullPath)
+void LauncherContent::toLink(QUrl *url, QString *title, const QString &cuttedFullPath)
 {
-    *url   = KUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
+    *url   = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
     *title = name();
 }
-void UnknownContent::toLink(KUrl *url, QString *title, const QString &/*cuttedFullPath*/)
+void UnknownContent::toLink(QUrl *url, QString *title, const QString &/*cuttedFullPath*/)
 {
-    *url   = KUrl();
+    *url   = QUrl();
     *title = QString();
 }
 
@@ -612,11 +615,11 @@ bool FileContent::match(const FilterData &data)
 }
 bool LinkContent::match(const FilterData &data)
 {
-    return title().contains(data.string) || url().prettyUrl().contains(data.string);
+    return title().contains(data.string) || url().toDisplayString().contains(data.string);
 }
 bool CrossReferenceContent::match(const FilterData &data)
 {
-    return title().contains(data.string) || url().prettyUrl().contains(data.string);
+    return title().contains(data.string) || url().toDisplayString().contains(data.string);
 }
 bool LauncherContent::match(const FilterData &data)
 {
@@ -991,7 +994,7 @@ bool TextContent::loadFromFile(bool lazyLoad)
     if (success)
         setText(content, lazyLoad);
     else {
-        kDebug() << "FAILED TO LOAD TextContent: " << fullPath();
+        qDebug() << "FAILED TO LOAD TextContent: " << fullPath();
         setText("", lazyLoad);
         if (!QFile::exists(fullPath()))
             saveToFile(); // Reserve the fileName so no new note will have the same name!
@@ -1238,7 +1241,7 @@ bool ImageContent::finishLazyLoad()
         }
     }
 
-    kDebug() << "FAILED TO LOAD ImageContent: " << fullPath();
+    qDebug() << "FAILED TO LOAD ImageContent: " << fullPath();
     m_format = "PNG"; // If the image is set later, it should be saved without destruction, so we use PNG by default.
     pixmap = QPixmap(1, 1); // Create a 1x1 pixels image instead of an undefined one.
     pixmap.fill();
@@ -1473,13 +1476,14 @@ void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
     keys->append(i18n("Size"));
     values->append(humanFileSize);
 
-    KMimeType::Ptr mime = KMimeType::findByUrl(KUrl(fullPath()));
-    if (mime) {
+    QMimeDatabase db;
+    QMimeType mime = db.mimeTypeForUrl(QUrl::fromLocalFile(fullPath()));
+    if (mime.isValid()) {
         keys->append(i18n("Type"));
-        values->append(mime->comment());
+        values->append(mime.comment());
     }
 
-    KFileMetaInfo info = KFileMetaInfo(KUrl(fullPath()));
+    KFileMetaInfo info = KFileMetaInfo(fullPath());
     if (info.isValid()) {
         QStringList groups = info.preferredKeys();
         int i = 0;
@@ -1551,7 +1555,7 @@ QString FileContent::messageWhenOpening(OpenMessage where)
 void FileContent::setFileName(const QString &fileName)
 {
     NoteContent::setFileName(fileName);
-    KUrl url = KUrl(fullPath());
+    QUrl url = QUrl::fromLocalFile(fullPath());
     if (linkLook()->previewEnabled())
         m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url),            linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
     else
@@ -1570,7 +1574,7 @@ void FileContent::linkLookChanged()
 void FileContent::newPreview(const KFileItem&, const QPixmap &preview)
 {
     LinkLook *linkLook = this->linkLook();
-    m_linkDisplayItem.linkDisplay().setLink(fileName(), NoteFactory::iconForURL(KUrl(fullPath())), (linkLook->previewEnabled() ? preview : QPixmap()), linkLook, note()->font());
+    m_linkDisplayItem.linkDisplay().setLink(fileName(), NoteFactory::iconForURL(QUrl::fromLocalFile(fullPath())), (linkLook->previewEnabled() ? preview : QPixmap()), linkLook, note()->font());
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
 
@@ -1587,7 +1591,7 @@ void FileContent::startFetchingUrlPreview()
 
 //  delete m_previewJob;
     if (!url.isEmpty() && linkLook->previewSize() > 0) {
-        KUrl filteredUrl = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
+        QUrl filteredUrl = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
         KUrl::List urlList;
         urlList.append(filteredUrl);
         m_previewJob = KIO::filePreview(urlList, linkLook->previewSize(), linkLook->previewSize(), linkLook->iconSize());
@@ -1601,7 +1605,7 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, KUrl(exporter->dataFolderName + fileName), "").replace("\n", "\n" + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", "\n" + spaces.fill(' ', indent + 1));
 }
 
 /** class SoundContent:
@@ -1620,7 +1624,7 @@ SoundContent::SoundContent(Note *parent, const QString &fileName)
 
 void SoundContent::stateChanged(Phonon::State newState, Phonon::State oldState)
 {
-    kDebug() << "stateChanged " << oldState << " to " << newState;
+    qDebug() << "stateChanged " << oldState << " to " << newState;
 }
 
 QString SoundContent::zoneTip(int zone)
@@ -1665,7 +1669,7 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
 /** class LinkContent:
  */
 
-LinkContent::LinkContent(Note *parent, const KUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
+LinkContent::LinkContent(Note *parent, const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
     : NoteContent(parent), m_linkDisplayItem(parent), m_access_manager(0), m_acceptingData(false), m_previewJob(0)
 {
     setLink(url, title, icon, autoTitle, autoIcon);
@@ -1693,7 +1697,7 @@ void LinkContent::saveToNode(QDomDocument &doc, QDomElement &content)
     content.setAttribute("icon",       icon());
     content.setAttribute("autoTitle", (autoTitle() ? "true" : "false"));
     content.setAttribute("autoIcon", (autoIcon()  ? "true" : "false"));
-    QDomText textNode = doc.createTextNode(url().prettyUrl());
+    QDomText textNode = doc.createTextNode(url().toDisplayString());
     content.appendChild(textNode);
 }
 
@@ -1701,7 +1705,7 @@ void LinkContent::saveToNode(QDomDocument &doc, QDomElement &content)
 void LinkContent::toolTipInfos(QStringList *keys, QStringList *values)
 {
     keys->append(i18n("Target"));
-    values->append(m_url.prettyUrl());
+    values->append(m_url.toDisplayString());
 }
 
 int LinkContent::zoneAt(const QPointF &pos)
@@ -1736,13 +1740,13 @@ Qt::CursorShape LinkContent::cursorFromZone(int zone) const
 QString LinkContent::statusBarMessage(int zone)
 {
     if (zone == Note::Custom0 || zone == Note::Content)
-        return m_url.prettyUrl();
+        return m_url.toDisplayString();
     else
         return "";
 }
 
 
-KUrl LinkContent::urlToOpen(bool /*with*/)
+QUrl LinkContent::urlToOpen(bool /*with*/)
 {
     return NoteFactory::filteredURL(url());//KURIFilter::self()->filteredURI(url());
 }
@@ -1763,11 +1767,11 @@ QString LinkContent::messageWhenOpening(OpenMessage where)
     }
 }
 
-void LinkContent::setLink(const KUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
+void LinkContent::setLink(const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
 {
     m_autoTitle = autoTitle;
     m_autoIcon  = autoIcon;
-    m_url       = NoteFactory::filteredURL(KUrl(url));//KURIFilter::self()->filteredURI(url);
+    m_url       = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
     m_title     = (autoTitle ? NoteFactory::titleForURL(m_url) : title);
     m_icon      = (autoIcon  ? NoteFactory::iconForURL(m_url)  : icon);
 
@@ -1833,10 +1837,10 @@ void LinkContent::httpDone(QNetworkReply* reply) {
 
 void LinkContent::startFetchingLinkTitle()
 {
-    KUrl newUrl = this->url();
+    QUrl newUrl = this->url();
 
     //If this is not an HTTP request, just ignore it.
-    if (newUrl.protocol() == "http") {
+    if (newUrl.scheme() == "http") {
 
         //If we have no access_manager, create one.
         if (m_access_manager == 0) {
@@ -1849,8 +1853,8 @@ void LinkContent::startFetchingLinkTitle()
             newUrl.setPort(80);
 
         //If no path or query part, default to /
-        if (newUrl.encodedPathAndQuery(KUrl::AddTrailingSlash).isEmpty())
-            newUrl.setPath("/");
+        if ((newUrl.path() + newUrl.query()).isEmpty())
+            newUrl = QUrl::fromLocalFile("/");
 
         //Issue request
         m_reply = m_access_manager->get(QNetworkRequest(newUrl));
@@ -1862,13 +1866,13 @@ void LinkContent::startFetchingLinkTitle()
 // Code dupicated from FileContent::startFetchingUrlPreview()
 void LinkContent::startFetchingUrlPreview()
 {
-    KUrl url = this->url();
+    QUrl url = this->url();
     LinkLook *linkLook = LinkLook::lookForURL(this->url());
 
 //  delete m_previewJob;
     if (!url.isEmpty() && linkLook->previewSize() > 0) {
-        KUrl filteredUrl = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
-        KUrl::List urlList;
+        QUrl filteredUrl = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
+        QList<QUrl> urlList;
         urlList.append(filteredUrl);
         m_previewJob = KIO::filePreview(urlList, linkLook->previewSize(), linkLook->previewSize(), linkLook->iconSize());
         connect(m_previewJob, SIGNAL(gotPreview(const KFileItem&, const QPixmap&)), this, SLOT(newPreview(const KFileItem&, const QPixmap&)));
@@ -1888,16 +1892,16 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
 
 // TODO:
 //  // Append address (useful for print version of the page/basket):
-//  if (exportData.formatForImpression && (!autoTitle() && title() != NoteFactory::titleForURL(url().prettyUrl()))) {
+//  if (exportData.formatForImpression && (!autoTitle() && title() != NoteFactory::titleForURL(url().toDisplayString()))) {
 //      // The address is on a new line, unless title is empty (empty lines was replaced by &nbsp;):
 //      if (linkTitle == " "/*"&nbsp;"*/)
-//          linkTitle = url().prettyUrl()/*""*/;
+//          linkTitle = url().toDisplayString()/*""*/;
 //      else
-//          linkTitle = linkTitle + " <" + url().prettyUrl() + ">"/*+ "<br>"*/;
-//      //linkTitle += "<i>" + url().prettyUrl() + "</i>";
+//          linkTitle = linkTitle + " <" + url().toDisplayString() + ">"/*+ "<br>"*/;
+//      //linkTitle += "<i>" + url().toDisplayString() + "</i>";
 //  }
 
-    KUrl linkURL;
+    QUrl linkURL;
     /*
         QFileInfo fInfo(url().path());
     //  DEBUG_WIN << url().path()
@@ -1924,7 +1928,7 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
 /** class CrossReferenceContent:
  */
 
-CrossReferenceContent::CrossReferenceContent(Note *parent, const KUrl &url, const QString &title, const QString &icon)
+CrossReferenceContent::CrossReferenceContent(Note *parent, const QUrl &url, const QString &title, const QString &icon)
         : NoteContent(parent), m_linkDisplayItem(parent)
 {
     this->setCrossReference(url, title, icon);
@@ -1946,14 +1950,14 @@ void CrossReferenceContent::saveToNode(QDomDocument &doc, QDomElement &content)
 {
     content.setAttribute("title",      title());
     content.setAttribute("icon",       icon());
-    QDomText textNode = doc.createTextNode(url().prettyUrl());
+    QDomText textNode = doc.createTextNode(url().toDisplayString());
     content.appendChild(textNode);
 }
 
 void CrossReferenceContent::toolTipInfos(QStringList *keys, QStringList *values)
 {
     keys->append(i18n("Target"));
-    values->append(m_url.prettyUrl());
+    values->append(m_url.toDisplayString());
 }
 
 int CrossReferenceContent::zoneAt(const QPointF &pos)
@@ -1993,7 +1997,7 @@ QString CrossReferenceContent::statusBarMessage(int zone)
         return "";
 }
 
-KUrl CrossReferenceContent::urlToOpen(bool /*with*/)
+QUrl CrossReferenceContent::urlToOpen(bool /*with*/)
 {
     return m_url;
 }
@@ -2009,12 +2013,12 @@ QString CrossReferenceContent::messageWhenOpening(OpenMessage where)
     }
 }
 
-void CrossReferenceContent::setLink(const KUrl &url, const QString &title, const QString &icon)
+void CrossReferenceContent::setLink(const QUrl &url, const QString &title, const QString &icon)
 {
     this->setCrossReference(url, title, icon);
 }
 
-void CrossReferenceContent::setCrossReference(const KUrl &url, const QString &title, const QString &icon)
+void CrossReferenceContent::setCrossReference(const QUrl &url, const QString &title, const QString &icon)
 {
     m_url = url;
     m_title = (title.isEmpty() ? url.url() : title);
@@ -2150,12 +2154,12 @@ Qt::CursorShape LauncherContent::cursorFromZone(int zone) const
     return Qt::ArrowCursor;
 }
 
-KUrl LauncherContent::urlToOpen(bool with)
+QUrl LauncherContent::urlToOpen(bool with)
 {
     if (KService(fullPath()).exec().isEmpty())
-        return KUrl();
+        return QUrl();
 
-    return (with ? KUrl() : KUrl(fullPath())); // Can open the appliation, but not with another application :-)
+    return (with ? QUrl() : QUrl::fromLocalFile(fullPath())); // Can open the appliation, but not with another application :-)
 }
 
 QString LauncherContent::messageWhenOpening(OpenMessage where)
@@ -2188,7 +2192,7 @@ void LauncherContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), /*createIt=*/true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, KUrl(exporter->dataFolderName + fileName), "").replace("\n", "\n" + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", "\n" + spaces.fill(' ', indent + 1));
 }
 
 /** class ColorItem:
@@ -2631,7 +2635,7 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
             array->resize(size);
             stream.readRawData(array->data(), size);
             // Creata and add the QDragObject:
-            dragObject->setData(mimes.at(i).toAscii(), *array);
+            dragObject->setData(mimes.at(i).toLatin1(), *array);
             delete array; // FIXME: Should we?
         }
         file.close();
@@ -2657,12 +2661,12 @@ void NoteFactory__loadNode(const QDomElement &content, const QString &lowerTypeN
     else if (lowerTypeName == "file")      new FileContent(parent, content.text());
     else if (lowerTypeName == "link") {
         bool autoTitle = content.attribute("title") == content.text();
-        bool autoIcon  = content.attribute("icon")  == NoteFactory::iconForURL(KUrl(content.text()));
+        bool autoIcon  = content.attribute("icon")  == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
         autoTitle = XMLWork::trueOrFalse(content.attribute("autoTitle"), autoTitle);
         autoIcon  = XMLWork::trueOrFalse(content.attribute("autoIcon"),  autoIcon);
-        new LinkContent(parent, KUrl(content.text()), content.attribute("title"), content.attribute("icon"), autoTitle, autoIcon);
+        new LinkContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"), autoTitle, autoIcon);
     } else if (lowerTypeName == "cross_reference") {
-        new CrossReferenceContent(parent, KUrl(content.text()), content.attribute("title"), content.attribute("icon"));
+        new CrossReferenceContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"));
     } else if (lowerTypeName == "launcher")  new LauncherContent(parent, content.text());
     else if (lowerTypeName == "color")     new ColorContent(parent, QColor(content.text()));
     else if (lowerTypeName == "unknown")   new UnknownContent(parent, content.text());
@@ -2681,14 +2685,14 @@ void LinkContent::decodeHtmlTitle()
         textCodec = QTextCodec::codecForName(prober.encoding()); else
         textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
 
-    QTextCodec::setCodecForCStrings(textCodec);
-    QString httpBuff = QString::fromAscii(m_httpBuff.data(), m_httpBuff.size()); //use fromCString() for Qt5
-    QTextCodec::setCodecForCStrings(0);
+    QTextCodec::setCodecForLocale(textCodec);
+    QString httpBuff = QString::fromLatin1(m_httpBuff.data(), m_httpBuff.size()); //use fromCString() for Qt5
+    QTextCodec::setCodecForLocale(0);
 
     // todo: this should probably strip odd html tags like &nbsp; etc
     QRegExp reg("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>", Qt::CaseInsensitive);
     reg.setMinimal(true);
-    //kDebug() << *m_httpBuff << " bytes: " << bytes_read;
+    //qDebug() << *m_httpBuff << " bytes: " << bytes_read;
 
     if (reg.indexIn(httpBuff) >= 0) {
         m_title = reg.cap(2);

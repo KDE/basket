@@ -21,11 +21,11 @@
 #ifndef LINKLABEL_H
 #define LINKLABEL_H
 
-#include <QtGui/QFrame>
+#include <QFrame>
 
 class QPixmap;
 class QString;
-class KUrl;
+class QUrl;
 class QColor;
 class QLabel;
 class QBoxLayout;
@@ -117,7 +117,7 @@ public:
     static LinkLook *launcherLook;
     static LinkLook *crossReferenceLook;
     /* Static method to get a LinkLook from an URL */
-    static LinkLook* lookForURL(const KUrl &url);
+    static LinkLook* lookForURL(const QUrl &url);
 };
 
 /** Used to represent links with icon and specific look
@@ -128,9 +128,9 @@ class LinkLabel : public QFrame
 {
     Q_OBJECT
 public:
-    LinkLabel(int hAlign, int vAlign, QWidget *parent = 0, Qt::WFlags f = 0);
+    LinkLabel(int hAlign, int vAlign, QWidget *parent = 0, Qt::WindowFlags f = 0);
     LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign,
-              QWidget *parent = 0, Qt::WFlags f = 0);
+              QWidget *parent = 0, Qt::WindowFlags f = 0);
     ~LinkLabel();
 public:
     void setLink(const QString &title, const QString &icon, LinkLook *look = 0);
@@ -194,7 +194,7 @@ public:
     QFont   labelFont(QFont font, bool isIconButtonHovered) const;               /// << @return the font for this link, according to parent font AND LinkLook!
     qreal     heightForWidth(qreal width) const;                                     /// << @return the needed height to display the link in function of a width.
     QString toHtml(const QString &imageName) const;                              /// << Convert the link to HTML code, using the LinkLook to style it.
-    QString toHtml(HTMLExporter *exporter, const KUrl &url, const QString &title = "");
+    QString toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title = "");
 private:
     QString   m_title;
     QString   m_icon;
@@ -215,7 +215,7 @@ class LinkLookEditWidget : public QWidget
     Q_OBJECT
 public:
     LinkLookEditWidget(KCModule* module, const QString exTitle, const QString exIcon,
-                       QWidget *parent = 0, Qt::WFlags fl = 0);
+                       QWidget *parent = 0, Qt::WindowFlags fl = 0);
     ~LinkLookEditWidget();
     void saveChanges();
     void saveToLook(LinkLook *look);

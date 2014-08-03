@@ -25,11 +25,11 @@
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QPixmap>
 
-#include <KDE/KDialog>
-#include <KDE/KComboBox>
-#include <KDE/KIconLoader>
-#include <KDE/KLocale>
-#include <KDE/KLineEdit>
+#include <QDialog>
+#include <KComboBox>
+#include <KIconLoader>
+#include <QLocale>
+#include <QLineEdit>
 
 #include "global.h"
 #include "tools.h"
@@ -48,15 +48,15 @@ FilterBar::FilterBar(QWidget *parent)
     // (Aaron Seigo says we don't need to worry about the
     //  "Toolbar group" stuff anymore.)
 
-    QIcon resetIcon = KIcon("dialog-close", KIconLoader::global());
-    QIcon inAllIcon = KIcon("edit-find", KIconLoader::global());
+    QIcon resetIcon = QIcon::fromTheme("dialog-close", KIconLoader::global());
+    QIcon inAllIcon = QIcon::fromTheme("edit-find", KIconLoader::global());
 
     m_resetButton        = new QToolButton(this);
     m_resetButton->setIcon(resetIcon);
     m_resetButton->setText(i18n("Reset Filter"));//, /*groupText=*/"", this, SLOT(reset()), 0);
     m_resetButton->setAutoRaise(true);
     //new KToolBarButton("locationbar_erase", /*id=*/1230, this, /*name=*/0, i18n("Reset Filter"));
-    m_lineEdit = new KLineEdit(this);
+    m_lineEdit = new QLineEdit(this);
     QLabel *label = new QLabel(this);
     label->setText(i18n("&Filter: "));
     label->setBuddy(m_lineEdit);
@@ -78,18 +78,18 @@ FilterBar::FilterBar(QWidget *parent)
 //  Global::bnpView->toggleFilterAllBaskets(true);
 
 //  m_lineEdit->setMaximumWidth(150);
-    m_lineEdit->setClearButtonShown(true);
+    m_lineEdit->setClearButtonEnabled(true);
 
     // Layout all those widgets:
 //  hBox->addStretch();
     hBox->addWidget(m_resetButton);
-    hBox->addSpacing(KDialog::spacingHint());
+//TODO PORT QT5     hBox->addSpacing(QDialog::spacingHint());
     hBox->addWidget(label);
     hBox->addWidget(m_lineEdit);
-    hBox->addSpacing(KDialog::spacingHint());
+//TODO PORT QT5     hBox->addSpacing(QDialog::spacingHint());
     hBox->addWidget(label2);
     hBox->addWidget(m_tagsBox);
-    hBox->addSpacing(KDialog::spacingHint());
+//TODO PORT QT5     hBox->addSpacing(QDialog::spacingHint());
     hBox->addWidget(m_inAllBasketsButton);
 
 //  connect( &m_blinkTimer,         SIGNAL(timeout()),                   this, SLOT(blinkBar())                  );

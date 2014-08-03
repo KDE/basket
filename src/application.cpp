@@ -20,8 +20,8 @@
 
 #include "application.h"
 
-#include <KDE/KCmdLineArgs>
-#include <KDE/KDebug>
+#include <KCmdLineArgs>
+//#include <KDebug>
 
 #include <QtCore/QString>
 #include <QtCore/QFile>
@@ -37,9 +37,19 @@ extern "C" {
 }
 #endif
 
-Application::Application()
-        : KUniqueApplication()
+Application::Application(int &argc, char **argv)
+        : QApplication(argc, argv)
 {
+    QCoreApplication::setApplicationName(i18n("Basket"));
+    QCoreApplication::setApplicationVersion(VERSION);
+    QCoreApplication::setOrganizationDomain("kde.org");
+    QApplication::setApplicationDisplayName(i18n("BasKet Note Pads"));
+    //BasketPart::createAboutData();
+    KDBusService service(KDBusService::Unique); //make global
+
+    newInstance();
+
+
     #ifdef WITH_LIBGIT2
         git_threads_init();
     #endif
@@ -54,12 +64,11 @@ Application::~Application()
 
 int Application::newInstance()
 {
-    KUniqueApplication::newInstance();
+    //KUniqueApplication::newInstance();
 
     // Open the basket archive or template file supplied as argument:
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args && args->count() >= 1) {
-        QString fileName = args->arg(args->count() - 1);
+    if (args && parser.positionalArguments().count() >= 1) {
+        QString fileName = args->arg(parser.positionalArguments().count() - 1);
 
         if (QFile::exists(fileName)) {
             QFileInfo fileInfo(fileName);
@@ -74,7 +83,7 @@ int Application::newInstance()
                 BNPView::s_fileToOpen = fileName;
                 QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenArchive()));
 //              Global::bnpView->openArchive(fileName);
-                args->clear();
+                
             }
         }
     }

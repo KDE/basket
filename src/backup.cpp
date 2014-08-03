@@ -35,17 +35,17 @@
 #include <QtGui/QGroupBox>
 #include <QtGui/QProgressBar>
 
-#include <KDE/KLocale>
-#include <KDE/KApplication>
-#include <KDE/KAboutData>
-#include <KDE/KDirSelectDialog>
-#include <KDE/KRun>
-#include <KDE/KConfig>
-#include <KDE/KTar>
-#include <KDE/KFileDialog>
-#include <KDE/KProgressDialog>
-#include <KDE/KMessageBox>
-#include <KDE/KVBox>
+#include <QLocale>
+#include <QApplication>
+#include <KAboutData>
+#include <KDirSelectDialog>
+#include <KRun>
+#include <KConfig>
+#include <KTar>
+//#include <KFileDialog>
+#include <KProgressDialog>
+#include <KMessageBox>
+#include <KVBox>
 
 #include <unistd.h> // usleep()
 
@@ -59,17 +59,24 @@ const QString backupMagicFolder = "BasKet-Note-Pads_Backup";
 /** class BackupDialog: */
 
 BackupDialog::BackupDialog(QWidget *parent, const char *name)
-        : KDialog(parent)
+        : QDialog(parent)
 {
     setObjectName(name);
     setModal(true);
-    setCaption(i18n("Backup & Restore"));
-    setButtons(KDialog::Close);
-    setDefaultButton(KDialog::Close);
-    showButtonSeparator(false);
+    setWindowTitle(i18n("Backup & Restore"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
     KVBox *page  = new KVBox(this);
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 
 //  page->setSpacing(spacingHint());
 
@@ -77,6 +84,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     savesFolder = savesFolder.left(savesFolder.length() - 1); // savesFolder ends with "/"
 
     QGroupBox *folderGroup = new QGroupBox(i18n("Save Folder"), page);
+    mainLayout->addWidget(folderGroup);
     QVBoxLayout* folderGroupLayout = new QVBoxLayout;
     folderGroup->setLayout(folderGroupLayout);
     folderGroupLayout->addWidget(new QLabel("<qt><nobr>" + i18n("Your baskets are currently stored in that folder:<br><b>%1</b>", savesFolder), folderGroup));
@@ -95,7 +103,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
                                              "In this case, mount the shared-folder to the local file system and ask %1 to use that mount point.<br>"
                                              "Warning: you should not run %1 at the same time on both computers, or you risk to loss data while the two applications are desynced.</li>"
                                              "</ul><p>Please remember that you should not change the content of that folder manually (eg. adding a file in a basket folder will not add that file to the basket).</p>",
-                                             KGlobal::mainComponent().aboutData()->programName()),
+                                             QGuiApplication::applicationDisplayName()),
                                          folderWidget);
     folderLayout->addWidget(moveFolder);
     folderLayout->addWidget(useFolder);
@@ -105,6 +113,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     connect(useFolder,  SIGNAL(clicked()), this, SLOT(useAnotherExistingFolder()));
 
     QGroupBox *backupGroup = new QGroupBox(i18n("Backups"), page);
+    mainLayout->addWidget(backupGroup);
     QVBoxLayout* backupGroupLayout = new QVBoxLayout;
     backupGroup->setLayout(backupGroupLayout);
     QWidget *backupWidget = new QWidget;
@@ -143,7 +152,7 @@ void BackupDialog::populateLastBackup()
 
 void BackupDialog::moveToAnotherFolder()
 {
-    KUrl selectedURL = KDirSelectDialog::selectDirectory(
+    QUrl selectedURL = KDirSelectDialog::selectDirectory(
                            /*startDir=*/Global::savesFolder(), /*localOnly=*/true, /*parent=*/0,
                            /*caption=*/i18n("Choose a Folder Where to Move Baskets"));
 
@@ -174,7 +183,7 @@ void BackupDialog::moveToAnotherFolder()
 
 void BackupDialog::useAnotherExistingFolder()
 {
-    KUrl selectedURL = KDirSelectDialog::selectDirectory(
+    QUrl selectedURL = KDirSelectDialog::selectDirectory(
                            /*startDir=*/Global::savesFolder(), /*localOnly=*/true, /*parent=*/0,
                            /*caption=*/i18n("Choose an Existing Folder to Store Baskets"));
 
@@ -188,7 +197,7 @@ void BackupDialog::backup()
     QDir dir;
 
     // Compute a default file name & path (eg. "Baskets_2007-01-31.tar.gz"):
-    KConfig *config = KGlobal::config().data();
+    KConfig *config = KSharedConfig::openConfig().data();
     KConfigGroup configGroup(config, "Backups");
     QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + "/";
     QString fileName = i18nc("Backup filename (without extension), %1 is the date", "Baskets_%1", QDate::currentDate().toString(Qt::ISODate));
@@ -199,7 +208,7 @@ void BackupDialog::backup()
     QString destination = url;
     for (bool askAgain = true; askAgain;) {
         // Ask:
-        destination = KFileDialog::getSaveFileName(destination, filter, 0, i18n("Backup Baskets"));
+        destination = QFileDialog::getSaveFileName(NULL, i18n("Backup Baskets"), destination, filter);
         // User canceled?
         if (destination.isEmpty())
             return;
@@ -208,7 +217,7 @@ void BackupDialog::backup()
             int result = KMessageBox::questionYesNoCancel(
                              0,
                              "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?",
-                                           KUrl(destination).fileName()),
+                                           QUrl::fromLocalFile(destination).fileName()),
                              i18n("Override File?"),
                              KGuiItem(i18n("&Override"), "document-save")
                          );
@@ -234,7 +243,7 @@ void BackupDialog::backup()
     thread.start();
     while (thread.isRunning()) {
         progress->setValue(progress->value() + 1); // Or else, the animation is not played!
-        kapp->processEvents();
+        qApp->processEvents();
         usleep(300); // Not too long because if the backup process is finished, we wait for nothing
     }
 
@@ -246,13 +255,13 @@ void BackupDialog::backup()
 void BackupDialog::restore()
 {
     // Get last backup folder:
-    KConfig *config = KGlobal::config().data();
+    KConfig *config = KSharedConfig::openConfig().data();
     KConfigGroup configGroup(config, "Backups");
     QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + "/";
 
     // Ask a file name to the user:
     QString filter = "*.tar.gz|" + i18n("Tar Archives Compressed by Gzip") + "\n*|" + i18n("All Files");
-    QString path = KFileDialog::getOpenFileName(folder, filter, this, i18n("Open Basket Archive"));
+    QString path = QFileDialog::getOpenFileName(this, i18n("Open Basket Archive"), folder, filter);
     if (path.isEmpty()) // User has canceled
         return;
 
@@ -267,7 +276,7 @@ void BackupDialog::restore()
     QFile file(readmePath);
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream << i18n("This is a safety copy of your baskets like they were before you started to restore the backup %1.", KUrl(path).fileName()) + "\n\n"
+        stream << i18n("This is a safety copy of your baskets like they were before you started to restore the backup %1.", QUrl::fromLocalFile(path).fileName()) + "\n\n"
         << i18n("If the restoration was a success and you restored what you wanted to restore, you can remove this folder.") + "\n\n"
         << i18n("If something went wrong during the restoration process, you can re-use this folder to store your baskets and nothing will be lost.") + "\n\n"
         << i18n("Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing Folder...\" and select that folder.") + "\n";
@@ -275,7 +284,7 @@ void BackupDialog::restore()
     }
 
     QString message =
-        "<p><nobr>" + i18n("Restoring <b>%1</b>. Please wait...", KUrl(path).fileName()) + "</nobr></p><p>" +
+        "<p><nobr>" + i18n("Restoring <b>%1</b>. Please wait...", QUrl::fromLocalFile(path).fileName()) + "</nobr></p><p>" +
         i18n("If something goes wrong during the restoration process, read the file <b>%1</b>.", readmePath);
 
     KProgressDialog *dialog = new KProgressDialog(0, i18n("Restore Baskets"), message);
@@ -293,14 +302,14 @@ void BackupDialog::restore()
     thread.start();
     while (thread.isRunning()) {
         progress->setValue(progress->value() + 1); // Or else, the animation is not played!
-        kapp->processEvents();
+        qApp->processEvents();
         usleep(300); // Not too long because if the restore process is finished, we wait for nothing
     }
 
     dialog->hide(); // The restore is finished, do not continue to show it while telling the user the application is going to be restarted
     delete dialog; // If we only hidden it, it reappeared just after having restored a small backup... Very strange.
     dialog = 0;    // This was annoying since it is modal and the "BasKet Note Pads is going to be restarted" message was not reachable.
-    //kapp->processEvents();
+    //qApp->processEvents();
 
     // Check for errors:
     if (!thread.success()) {
@@ -325,6 +334,11 @@ void BackupDialog::restore()
 QString Backup::binaryPath = "";
 
 #include <kiconloader.h>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QFileDialog>
 
 void Backup::figureOutBinaryPath(const char *argv0, QApplication &app)
 {
@@ -357,12 +371,12 @@ void Backup::setFolderAndRestart(const QString &folder, const QString &message)
         0,
         "<qt>" + message.arg(
             (folder.endsWith('/') ? folder.left(folder.length() - 1) : folder),
-            KGlobal::mainComponent().aboutData()->programName()),
+            QGuiApplication::applicationDisplayName()),
         i18n("Restart")
     );
 
     // Restart the application:
-    KRun::runCommand(binaryPath, KGlobal::mainComponent().aboutData()->programName(), KGlobal::mainComponent().aboutData()->programName(), 0);
+    KRun::runCommand(binaryPath, QCoreApplication::applicationName(), QCoreApplication::applicationName(), 0);
     exit(0);
 }
 

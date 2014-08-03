@@ -24,25 +24,39 @@
 
 #include <QtGui/QHBoxLayout>
 
-#include <KDE/KLocale>
-#include <KDE/KMessageBox>
+#include <QLocale>
+#include <KMessageBox>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "basketscene.h"
 #include "kgpgme.h"
 
 PasswordDlg::PasswordDlg(QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
         , w(0)
 {
-    // KDialog options
+    // QDialog options
     setWindowTitle(i18n("Password Protection"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setModal(true);
-    showButtonSeparator(true);
 
-    setMainWidget(new QWidget(this));
-    QHBoxLayout* toplayout = new QHBoxLayout(mainWidget());
+//PORTING: Verify that widget was added to mainLayout     setMainWidget(new QWidget(this));
+    QHBoxLayout* toplayout = new QHBoxLayout(mainWidget);
     w = new Password;
     toplayout->addWidget(w, 1);
 }
@@ -58,7 +72,7 @@ void PasswordDlg::accept()
     if (n == BasketScene::PrivateKeyEncryption && key().isEmpty())
         KMessageBox::error(w, i18n("No private key selected."));
     else
-        KDialog::accept();
+        QDialog::accept();
 }
 
 QString PasswordDlg::key() const

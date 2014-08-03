@@ -21,22 +21,21 @@
 #ifndef BASKETPROPERTIES_H
 #define BASKETPROPERTIES_H
 
-#include <KDE/KDialog>
+#include <QDialog>
 #include <QtCore/QMap>
 
 #include "ui_basketproperties.h"
 
 class KIconButton;
-class KLineEdit;
+class QLineEdit;
 class QGroupBox;
 class QVBoxLayout;
 class QRadioButton;
 class QString;
 
 class KComboBox;
-class KIntNumInput;
 class KShortcutWidget;
-class KShortcut;
+class QKeySequence;
 class KColorCombo2;
 
 class BasketScene;
@@ -44,7 +43,7 @@ class BasketScene;
 /** The dialog that hold basket settings.
   * @author Sébastien Laoût
   */
-class BasketPropertiesDialog : public KDialog, private Ui::BasketPropertiesUi
+class BasketPropertiesDialog : public QDialog, private Ui::BasketPropertiesUi
 {
     Q_OBJECT
 public:
@@ -56,7 +55,7 @@ public slots:
     void applyChanges();
 
 protected slots:
-    void capturedShortcut(const KShortcut &shortcut);
+    void capturedShortcut(const QKeySequence &shortcut);
     void selectColumnsLayout();
 
 private:

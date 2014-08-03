@@ -21,11 +21,11 @@
 #ifndef TAGEDIT_H
 #define TAGEDIT_H
 
-#include <KDE/KDialog>
+#include <QDialog>
 
 #include <QtCore/QList>
-#include <QtGui/QItemDelegate>
-#include <QtGui/QTreeWidgetItem>
+#include <QItemDelegate>
+#include <QTreeWidgetItem>
 
 #include "tag.h"
 
@@ -34,15 +34,15 @@ class QFontComboBox;
 class QGroupBox;
 class QHBoxLayout;
 class QLabel;
-class KLineEdit;
+class QLineEdit;
 class QTreeWidget;
 
 class QKeyEvent;
 class QMouseEvent;
 
 class KIconButton;
-class KPushButton;
-class KShortcut;
+class QPushButton;
+class QKeySequence;
 class KShortcutWidget;
 
 class FontSizeCombo;
@@ -127,7 +127,7 @@ signals:
 /**
   * @author Sébastien Laoût
   */
-class TagsEditDialog : public KDialog
+class TagsEditDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -148,7 +148,7 @@ private slots:
     void moveDown();
     void deleteTag();
     void renameIt();
-    void capturedShortcut(const KShortcut &shortcut);
+    void capturedShortcut(const QKeySequence &shortcut);
     void removeShortcut();
     void removeEmblem();
     void modified();
@@ -168,10 +168,10 @@ private:
     void saveTagTo(Tag *tag);
     void ensureCurrentItemVisible();
     TagListView   *m_tags;
-    KPushButton   *m_moveUp;
-    KPushButton   *m_moveDown;
-    KPushButton   *m_deleteTag;
-    KLineEdit     *m_tagName;
+    QPushButton   *m_moveUp;
+    QPushButton   *m_moveDown;
+    QPushButton   *m_deleteTag;
+    QLineEdit     *m_tagName;
     KShortcutWidget *m_shortcut;
     QPushButton   *m_removeShortcut;
     QCheckBox     *m_inherit;
@@ -180,7 +180,7 @@ private:
     QGroupBox     *m_stateBox;
     QHBoxLayout   *m_stateBoxLayout;
     QLabel        *m_stateNameLabel;
-    KLineEdit     *m_stateName;
+    QLineEdit     *m_stateName;
     KIconButton   *m_emblem;
     QPushButton   *m_removeEmblem;
     QPushButton   *m_bold;
@@ -191,7 +191,7 @@ private:
     QFontComboBox *m_font;
     FontSizeCombo *m_fontSize;
     KColorCombo2  *m_backgroundColor;
-    KLineEdit     *m_textEquivalent;
+    QLineEdit     *m_textEquivalent;
     QCheckBox     *m_onEveryLines;
     QCheckBox     *m_allowCrossRefernce;
 

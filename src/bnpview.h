@@ -23,9 +23,9 @@
 
 #include <QtCore/QList>
 #include <QtGui/QClipboard>
-#include <QtGui/QSplitter>
+#include <QSplitter>
 
-#include <KDE/KXMLGUIClient>
+#include <KXMLGUIClient>
 
 #include "global.h"
 #include "basket_export.h"
@@ -44,9 +44,9 @@ class QEvent;
 class QHideEvent;
 class QShowEvent;
 
-class KAction;
+class QAction;
 class KToggleAction;
-class KMenu;
+class QMenu;
 class KTar;
 
 class DesktopColorPicker;
@@ -237,69 +237,69 @@ private slots:
     void onFirstShow();
 
 public:
-    KAction       *m_actEditNote;
-    KAction       *m_actOpenNote;
-    KAction       *m_actPaste;
-    KAction       *m_actGrabScreenshot;
-    KAction       *m_actColorPicker;
-    KAction       *m_actLockBasket;
-    KAction       *m_actPassBasket;
-    KAction       *actNewBasket;
-    KAction       *actNewSubBasket;
-    KAction       *actNewSiblingBasket;
-    KAction       *m_actHideWindow;
-    KAction       *m_actExportToHtml;
-    KAction       *m_actPropBasket;
-    KAction       *m_actSortChildrenAsc;
-    KAction       *m_actSortChildrenDesc;
-    KAction       *m_actSortSiblingsAsc;
-    KAction       *m_actSortSiblingsDesc;
-    KAction       *m_actDelBasket;
+    QAction *m_actEditNote;
+    QAction *m_actOpenNote;
+    QAction *m_actPaste;
+    QAction *m_actGrabScreenshot;
+    QAction *m_actColorPicker;
+    QAction *m_actLockBasket;
+    QAction *m_actPassBasket;
+    QAction *actNewBasket;
+    QAction *actNewSubBasket;
+    QAction *actNewSiblingBasket;
+    QAction *m_actHideWindow;
+    QAction *m_actExportToHtml;
+    QAction *m_actPropBasket;
+    QAction *m_actSortChildrenAsc;
+    QAction *m_actSortChildrenDesc;
+    QAction *m_actSortSiblingsAsc;
+    QAction *m_actSortSiblingsDesc;
+    QAction *m_actDelBasket;
     KToggleAction *m_actFilterAllBaskets;
 
 private:
     // Basket actions:
-    KAction       *m_actSaveAsArchive;
-    KAction       *m_actOpenArchive;
+    QAction *m_actSaveAsArchive;
+    QAction *m_actOpenArchive;
     // Notes actions :
-    KAction       *m_actOpenNoteWith;
-    KAction       *m_actSaveNoteAs;
-    KAction       *m_actGroup;
-    KAction       *m_actUngroup;
-    KAction       *m_actMoveOnTop;
-    KAction       *m_actMoveNoteUp;
-    KAction       *m_actMoveNoteDown;
-    KAction       *m_actMoveOnBottom;
+    QAction *m_actOpenNoteWith;
+    QAction *m_actSaveNoteAs;
+    QAction *m_actGroup;
+    QAction *m_actUngroup;
+    QAction *m_actMoveOnTop;
+    QAction *m_actMoveNoteUp;
+    QAction *m_actMoveNoteDown;
+    QAction *m_actMoveOnBottom;
     // Edit actions :
-    KAction       *m_actUndo;
-    KAction       *m_actRedo;
-    KAction       *m_actCutNote;
-    KAction       *m_actCopyNote;
-    KAction       *m_actDelNote;
-    KAction       *m_actSelectAll;
-    KAction       *m_actUnselectAll;
-    KAction       *m_actInvertSelection;
+    QAction *m_actUndo;
+    QAction *m_actRedo;
+    QAction *m_actCutNote;
+    QAction *m_actCopyNote;
+    QAction *m_actDelNote;
+    QAction *m_actSelectAll;
+    QAction *m_actUnselectAll;
+    QAction *m_actInvertSelection;
     // Insert actions :
-//      KAction       *m_actInsertText;
-    KAction       *m_actInsertHtml;
-    KAction       *m_actInsertLink;
-    KAction       *m_actInsertCrossReference;
-    KAction       *m_actInsertImage;
-    KAction       *m_actInsertColor;
-    KAction       *m_actImportKMenu;
-    KAction       *m_actInsertLauncher;
-    KAction       *m_actImportIcon;
-    KAction       *m_actLoadFile;
-    QList<KAction*> m_insertActions;
+//      QAction *m_actInsertText;
+    QAction *m_actInsertHtml;
+    QAction *m_actInsertLink;
+    QAction *m_actInsertCrossReference;
+    QAction *m_actInsertImage;
+    QAction *m_actInsertColor;
+    QAction *m_actImportKMenu;
+    QAction *m_actInsertLauncher;
+    QAction *m_actImportIcon;
+    QAction *m_actLoadFile;
+    QList<QAction *> m_insertActions;
     // Basket actions :
     KToggleAction *m_actShowFilter;
-    KAction       *m_actResetFilter;
+    QAction *m_actResetFilter;
     // Go actions :
-    KAction       *m_actPreviousBasket;
-    KAction       *m_actNextBasket;
-    KAction       *m_actFoldBasket;
-    KAction       *m_actExpandBasket;
-//      KAction       *m_convertTexts; // FOR_BETA_PURPOSE
+    QAction *m_actPreviousBasket;
+    QAction *m_actNextBasket;
+    QAction *m_actFoldBasket;
+    QAction *m_actExpandBasket;
+//      QAction *m_convertTexts; // FOR_BETA_PURPOSE
 
     void setupActions();
     void setupGlobalShortcuts();
@@ -311,7 +311,7 @@ public:
 
     BasketScene* basketForFolderName(const QString &folderName);
     Note* noteForFileName(const QString &fileName, BasketScene &basket, Note* note = 0);
-    KMenu* popupMenu(const QString &menuName);
+    QMenu* popupMenu(const QString &menuName);
     bool isPart();
     bool isMainWindowActive();
     void showMainWindow();
@@ -327,7 +327,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool changeNoteHtml(const QString content, const QString basket, const QString noteName);
 
 public slots:
-    void setCaption(QString s);
+    void setWindowTitle(QString s);
     void updateStatusBarHint();
     void setSelectionStatus(QString s);
     void setLockStatus(bool isLocked);
@@ -340,7 +340,7 @@ public slots:
     };
 
     void populateTagsMenu();
-    void populateTagsMenu(KMenu &menu, Note *referenceNote);
+    void populateTagsMenu(QMenu &menu, Note *referenceNote);
     void connectTagsMenu();
     void disconnectTagsMenu();
     void disconnectTagsMenuDelayed();
@@ -348,7 +348,7 @@ protected:
     void showEvent(QShowEvent*);
     void hideEvent(QHideEvent*);
 private:
-    KMenu *m_lastOpenedTagsMenu;
+    QMenu *m_lastOpenedTagsMenu;
 
 private slots:
     void slotPressed(QTreeWidgetItem *item, int column);

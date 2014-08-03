@@ -23,28 +23,28 @@
 #include <QtCore/QEvent>
 #include <QtCore/QList>
 #include <QtCore/QTimer>
-#include <QtGui/QAction>
-#include <QtGui/QCheckBox>
-#include <QtGui/QFontComboBox>
-#include <QtGui/QGridLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QHeaderView>    //For m_tags->header()
-#include <QtGui/QHBoxLayout>
+#include <QAction>
+#include <QCheckBox>
+#include <QFontComboBox>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QHeaderView>    //For m_tags->header()
+#include <QHBoxLayout>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QLabel>
+#include <QLabel>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPainter>
-#include <QtGui/QVBoxLayout>
+#include <QVBoxLayout>
 
-#include <KDE/KApplication>
-#include <KDE/KLineEdit>
-#include <KDE/KIconButton>
-#include <KDE/KIconLoader>
-#include <KDE/KLocale>
-#include <KDE/KMessageBox>
-#include <KDE/KPushButton>
-#include <KDE/KSeparator>
-#include <kshortcutwidget.h>
+#include <QApplication>
+#include <QLineEdit>
+#include <KIconButton>
+#include <KIconLoader>
+#include <QLocale>
+#include <KMessageBox>
+#include <QPushButton>
+#include <KSeparator>
+#include <KShortcutWidget>
 
 #include "tag.h"
 #include "kcolorcombo2.h"
@@ -52,7 +52,11 @@
 #include "global.h"
 #include "bnpview.h"
 
-#include <KDE/KDebug>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <KLocalizedString>
 
 /** class StateCopy: */
 
@@ -237,7 +241,7 @@ void TagListViewItem::setup()
     QBrush brush;
 
     bool withIcon = m_stateCopy || (m_tagCopy && !m_tagCopy->isMultiState());
-    brush.setColor(isSelected() ? kapp->palette().color(QPalette::Highlight)  :
+    brush.setColor(isSelected() ? qApp->palette().color(QPalette::Highlight)  :
                    (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() :
                     treeWidget()->viewport()->palette().color(treeWidget()->viewport()->backgroundRole())));
     setBackground(1, brush);
@@ -309,32 +313,42 @@ TagListViewItem* TagListView::lastItem() const
 /** class TagsEditDialog: */
 
 TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewTag)
-        : KDialog(parent)
+        : QDialog(parent)
         ,  m_loading(false)
 {
-    // KDialog options
-    setCaption(i18n("Customize Tags"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(i18n("Customize Tags"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("CustomizeTags");
     setModal(true);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
-    connect(this, SIGNAL(cancelClicked()), SLOT(slotCancel()));
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
+    connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(slotCancel()));
 
-    setMainWidget(new QWidget(this));
+//PORTING: Verify that widget was added to mainLayout     setMainWidget(new QWidget(this));
 
-    QHBoxLayout *layout = new QHBoxLayout(mainWidget());
+    QHBoxLayout *layout = new QHBoxLayout(mainWidget);
 
     /* Left part: */
 
-    QPushButton *newTag     = new QPushButton(i18n("Ne&w Tag"),   mainWidget());
-    QPushButton *newState   = new QPushButton(i18n("New St&ate"), mainWidget());
+    QPushButton *newTag     = new QPushButton(i18n("Ne&w Tag"),   mainWidget);
+    QPushButton *newState   = new QPushButton(i18n("New St&ate"), mainWidget);
 
     connect(newTag,   SIGNAL(clicked()), this, SLOT(newTag()));
     connect(newState, SIGNAL(clicked()), this, SLOT(newState()));
 
-    m_tags = new TagListView(mainWidget());
+    m_tags = new TagListView(mainWidget);
     m_tags->header()->hide();
     m_tags->setRootIsDecorated(false);
     //m_tags->addColumn("");
@@ -343,9 +357,12 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     m_tags->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_moveUp    = new KPushButton(KGuiItem("", "arrow-up"),   mainWidget());
-    m_moveDown  = new KPushButton(KGuiItem("", "arrow-down"), mainWidget());
-    m_deleteTag = new KPushButton(KGuiItem("", "edit-delete"), mainWidget());
+    m_moveUp    = new QPushButton(mainWidget);
+    KGuiItem::assign(m_moveUp, KGuiItem("", "arrow-up"));
+    m_moveDown  = new QPushButton( mainWidget);
+    KGuiItem::assign(m_moveDown, KGuiItem("", "arrow-down"));
+    m_deleteTag = new QPushButton(mainWidget);
+    KGuiItem::assign(m_deleteTag, KGuiItem("", "edit-delete"));
 
     m_moveUp->setToolTip(i18n("Move Up (Ctrl+Shift+Up)"));
     m_moveDown->setToolTip(i18n("Move Down (Ctrl+Shift+Down)"));
@@ -370,7 +387,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     /* Right part: */
 
-    QWidget *rightWidget = new QWidget(mainWidget());
+    QWidget *rightWidget = new QWidget(mainWidget);
 
     m_tagBox             = new QGroupBox(i18n("Tag"), rightWidget);
     m_tagBoxLayout       = new QHBoxLayout;
@@ -379,7 +396,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QWidget   *tagWidget = new QWidget;
     m_tagBoxLayout->addWidget(tagWidget);
 
-    m_tagName = new KLineEdit(tagWidget);
+    m_tagName = new QLineEdit(tagWidget);
     QLabel *tagNameLabel = new QLabel(i18n("&Name:"), tagWidget);
     tagNameLabel->setBuddy(m_tagName);
 
@@ -387,7 +404,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_removeShortcut = new QPushButton(i18nc("Remove tag shortcut", "&Remove"), tagWidget);
     QLabel *shortcutLabel = new QLabel(i18n("S&hortcut:"), tagWidget);
     shortcutLabel->setBuddy(m_shortcut);
-    //connect( m_shortcut,       SIGNAL(shortcutChanged(const KShortcut&)), this, SLOT(capturedShortcut(const KShortcut&)) );
+    //connect( m_shortcut,       SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(capturedShortcut(const QKeySequence&)) );
     connect(m_removeShortcut, SIGNAL(clicked()),                          this, SLOT(removeShortcut()));
 
     m_inherit = new QCheckBox(i18n("&Inherited by new sibling notes"), tagWidget);
@@ -420,7 +437,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QWidget *stateWidget = new QWidget;
     m_stateBoxLayout->addWidget(stateWidget);
 
-    m_stateName = new KLineEdit(stateWidget);
+    m_stateName = new QLineEdit(stateWidget);
     m_stateNameLabel = new QLabel(i18n("Na&me:"), stateWidget);
     m_stateNameLabel->setBuddy(m_stateName);
 
@@ -454,29 +471,26 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     backgroundColorLayout->addWidget(m_backgroundColor);
     backgroundColorLayout->addStretch();
 
-    //QIcon boldIconSet = KIconLoader::global()->loadIconSet("format-text-bold", KIconLoader::Small);
-    KIcon boldIconSet("format-text-bold", KIconLoader::global());
+    QIcon boldIconSet = QIcon::fromTheme("format-text-bold");
     m_bold = new QPushButton(boldIconSet, "", stateWidget);
     m_bold->setCheckable(true);
     int size = qMax(m_bold->sizeHint().width(), m_bold->sizeHint().height());
     m_bold->setFixedSize(size, size); // Make it square!
     m_bold->setToolTip(i18n("Bold"));
 
-    //QIcon underlineIconSet = KIconLoader::global()->loadIconSet("format-text-underline", KIconLoader::Small);
-    KIcon underlineIconSet("format-text-underline", KIconLoader::global());
+    QIcon underlineIconSet = QIcon::fromTheme("format-text-underline");
     m_underline = new QPushButton(underlineIconSet, "", stateWidget);
     m_underline->setCheckable(true);
     m_underline->setFixedSize(size, size); // Make it square!
     m_underline->setToolTip(i18n("Underline"));
 
-    //QIcon italicIconSet = KIconLoader::global()->loadIconSet("format-text-italic", KIconLoader::Small);
-    KIcon italicIconSet("format-text-italic", KIconLoader::global());
+    QIcon italicIconSet = QIcon::fromTheme("format-text-italic");
     m_italic = new QPushButton(italicIconSet, "", stateWidget);
     m_italic->setCheckable(true);
     m_italic->setFixedSize(size, size); // Make it square!
     m_italic->setToolTip(i18n("Italic"));
 
-    KIcon strikeIconSet("format-text-strikethrough", KIconLoader::global());
+    QIcon strikeIconSet = QIcon::fromTheme("format-text-strikethrough");
     m_strike = new QPushButton(strikeIconSet, "", stateWidget);
     m_strike->setCheckable(true);
     m_strike->setFixedSize(size, size); // Make it square!
@@ -505,7 +519,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QLabel *fontSizeLabel = new QLabel(i18n("&Size:"), stateWidget);
     fontSizeLabel->setBuddy(m_fontSize);
 
-    m_textEquivalent = new KLineEdit(stateWidget);
+    m_textEquivalent = new QLineEdit(stateWidget);
     QLabel *textEquivalentLabel = new QLabel(i18n("Te&xt equivalent:"), stateWidget);
     textEquivalentLabel->setBuddy(m_textEquivalent);
     QFont font = m_textEquivalent->font();
@@ -618,7 +632,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     // Connect Signals:
     connect(m_tagName,         SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_shortcut,        SIGNAL(shortcutChanged(const KShortcut&)), this, SLOT(modified()));
+    connect(m_shortcut,        SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(modified()));
     connect(m_inherit,         SIGNAL(stateChanged(int)),                  this, SLOT(modified()));
     connect(m_allowCrossRefernce, SIGNAL(clicked(bool)),                   this, SLOT(modified()));
     connect(m_stateName,       SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
@@ -1038,7 +1052,7 @@ void TagsEditDialog::renameIt()
         m_stateName->setFocus();
 }
 
-void TagsEditDialog::capturedShortcut(const KShortcut &shortcut)
+void TagsEditDialog::capturedShortcut(const QKeySequence &shortcut)
 {
     Q_UNUSED(shortcut);
     // TODO: Validate it!
@@ -1047,7 +1061,7 @@ void TagsEditDialog::capturedShortcut(const KShortcut &shortcut)
 
 void TagsEditDialog::removeShortcut()
 {
-    //m_shortcut->setShortcut(KShortcut());
+    //m_shortcut->setShortcut(QKeySequence());
     modified();
 }
 
@@ -1201,7 +1215,8 @@ void TagsEditDialog::loadStateFrom(State *state)
 void TagsEditDialog::loadTagFrom(Tag *tag)
 {
     m_tagName->setText(tag->name());
-    m_shortcut->setShortcut(tag->shortcut());
+    QList<QKeySequence> shortcuts{tag->shortcut()};
+    m_shortcut->setShortcut(shortcuts);
     m_removeShortcut->setEnabled(!tag->shortcut().isEmpty());
     m_inherit->setChecked(tag->inheritedBySiblings());
 }
@@ -1236,7 +1251,12 @@ void TagsEditDialog::saveStateTo(State *state)
 void TagsEditDialog::saveTagTo(Tag *tag)
 {
     tag->setName(m_tagName->text());
-    tag->setShortcut(m_shortcut->shortcut());
+
+    QKeySequence shortcut;
+    if (m_shortcut->shortcut().count() > 0)
+        shortcut = m_shortcut->shortcut()[0];
+    tag->setShortcut(shortcut);
+
     tag->setInheritedBySiblings(m_inherit->isChecked());
 }
 
@@ -1291,6 +1311,6 @@ void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
                             const QModelIndex &index) const
 {
     TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
-//    kDebug() << "Pointer is: " << thisItem << endl;
+//    qDebug() << "Pointer is: " << thisItem << endl;
     QItemDelegate::paint(painter, option, index);
 }

@@ -21,13 +21,13 @@
 #ifndef CONTAINER_H
 #define CONTAINER_H
 
-#include <KDE/KXmlGuiWindow>
+#include <KXmlGuiWindow>
 
 class QResizeEvent;
 class QVBoxLayout;
 class QMoveEvent;
 class QWidget;
-class KAction;
+class QAction;
 class KToggleAction;
 class BNPView;
 
@@ -75,8 +75,8 @@ private:
     // Settings actions :
 //  KToggleAction *m_actShowToolbar;
     KToggleAction *m_actShowStatusbar;
-    KAction       *actQuit;
-    KAction       *actAppConfig;
+    QAction *actQuit;
+    QAction *actAppConfig;
     QList<QAction *> actBasketsList;
 
 private:

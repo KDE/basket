@@ -21,13 +21,15 @@
 #ifndef SYSTEMTRAY_H
 #define SYSTEMTRAY_H
 
-#include <KDE/KSystemTrayIcon>
+#include <QSize>
+#include <QIcon>
+#include <KStatusNotifierItem>
 
 /** A thin wrapper around KSystemTrayIcon until the old SystemTray is ported.
  * As things are ported, items should
  * @author Kelvie Wong
  */
-class SystemTray : public KSystemTrayIcon
+class SystemTray : public KStatusNotifierItem
 {
     Q_OBJECT
     Q_DISABLE_COPY(SystemTray);
@@ -41,11 +43,6 @@ public slots:
 
 signals:
     void showPart();
-
-private:
-    QSize m_iconSize;
-    QIcon m_icon;
-    QIcon m_lockedIcon;
 };
 
 #ifdef USE_OLD_SYSTRAY

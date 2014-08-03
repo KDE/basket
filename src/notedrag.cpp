@@ -28,11 +28,11 @@
 #include <QtCore/QMimeData>
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
-#include <QtGui/QDesktopWidget>       //For kapp->desktop()
+#include <QDesktopWidget>       //For qApp->desktop()
 #include <QtGui/QDragEnterEvent>
 
 #include <kdeversion.h>
-#include <KDE/KApplication>
+#include <QApplication>
 
 #include <KIO/CopyJob>
 
@@ -117,7 +117,7 @@ void NoteDrag::serializeNotes(NoteSelection *noteList, QDataStream &stream, bool
                 if (cutting) {
                     // Move file in a temporary place:
                     QString fullPath = Global::tempCutFolder() + Tools::fileNameForNewFile(content->fileName(), Global::tempCutFolder());
-                    KIO::move(KUrl(content->fullPath()), KUrl(fullPath), KIO::HideProgressInfo);
+                    KIO::move(QUrl::fromLocalFile(content->fullPath()), QUrl::fromLocalFile(fullPath), KIO::HideProgressInfo);
                     node->fullPath = fullPath;
                     stream << fullPath;
                 } else
@@ -211,9 +211,9 @@ void NoteDrag::serializeImage(NoteSelection *noteList, QDrag *multipleDrag)
 
 void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool cutting)
 {
-    KUrl::List  urls;
+    QList<QUrl>  urls;
     QStringList titles;
-    KUrl    url;
+    QUrl    url;
     QString title;
     for (NoteSelection *node = noteList->firstStacked(); node; node = node->nextStacked()) {
         node->note->content()->toLink(&url, &title, node->fullPath);
@@ -225,7 +225,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
     if (!urls.isEmpty()) {
         // First, the standard text/uri-list MIME format:
         QMimeData* mimeData = new QMimeData;
-        urls.populateMimeData(mimeData);
+        mimeData->setUrls(urls);
 
         // Then, also provide it in the Mozilla proprietary format (that also allow to add titles to URLs):
         // A version for Mozilla applications (convert to "theUrl\ntheTitle", into UTF-16):
@@ -233,9 +233,9 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
         // FIXME: If no, only provide that if theire is only ONE URL.
         QString xMozUrl;
         for (int i = 0; i < urls.count(); ++i)
-            xMozUrl += (xMozUrl.isEmpty() ? "" : "\n") + urls[i].prettyUrl() + "\n" + titles[i];
+            xMozUrl += (xMozUrl.isEmpty() ? "" : "\n") + urls[i].toDisplayString() + "\n" + titles[i];
         /*      Code for only one: ===============
-                xMozUrl = note->title() + "\n" + note->url().prettyUrl();*/
+                xMozUrl = note->title() + "\n" + note->url().toDisplayString();*/
         QByteArray baMozUrl;
         QTextStream stream(baMozUrl, QIODevice::WriteOnly);
 
@@ -302,7 +302,7 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
             bgColor   = node->note->basket()->backgroundColor();
             needSpace = false;
         } else {
-            pixmap    = node->note->content()->feedbackPixmap(/*maxWidth=*/kapp->desktop()->width() / 2, /*maxHeight=*/96);
+            pixmap    = node->note->content()->feedbackPixmap(/*maxWidth=*/qApp->desktop()->width() / 2, /*maxHeight=*/96);
             bgColor   = node->note->backgroundColor();
             needSpace = node->note->content()->needSpaceForFeedbackPixmap();
         }
@@ -315,7 +315,7 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
             height += (i > 0 && needSpace ? 1 : 0) + pixmap.height() + SPACING + (needSpace ? 1 : 0);
             if (elipsisImage)
                 break;
-            if (height > kapp->desktop()->height() / 2)
+            if (height > qApp->desktop()->height() / 2)
                 elipsisImage = true;
         }
     }
@@ -481,10 +481,10 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                     QString newFileName = Tools::fileNameForNewFile(fileName, parent->fullPath());
                     note->content()->setFileName(newFileName);
 
-                    KIO::CopyJob *copyJob = KIO::move(KUrl(fullPath), KUrl(parent->fullPath() + newFileName),
+                    KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
 				    KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
-                    parent->connect(copyJob, SIGNAL(copyingDone(KIO::Job *, KUrl, KUrl, time_t, bool, bool)),
-                                    parent, SLOT(slotCopyingDone2(KIO::Job *, const KUrl&, const KUrl&)));
+                    parent->connect(copyJob, SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
+                                    parent, SLOT(slotCopyingDone2(KIO::Job *, const QUrl&, const QUrl&)));
                 }
                 note->setGroupWidth(groupWidth);
                 note->setParentNote(0);
@@ -504,14 +504,14 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                         //NoteFactory::createFileForNewNote(parent, "", fileName);
                 KIO::CopyJob *copyJob;
                 if (moveFiles) {
-                    copyJob = KIO::move(KUrl(fullPath), KUrl(parent->fullPath() + newFileName),
+                    copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
                         KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 } else {
-                    copyJob = KIO::copy(KUrl(fullPath), KUrl(parent->fullPath() + newFileName),
+                    copyJob = KIO::copy(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
                         KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 }
-                parent->connect(copyJob, SIGNAL(copyingDone(KIO::Job *, KUrl, KUrl, time_t, bool, bool)),
-                                parent, SLOT(slotCopyingDone2(KIO::Job *, const KUrl&, const KUrl&)));
+                parent->connect(copyJob, SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
+                                parent, SLOT(slotCopyingDone2(KIO::Job *, const QUrl&, const QUrl&)));
 		
 		note = NoteFactory::loadFile(newFileName, (NoteType::Id)type, parent);
                 note->setGroupWidth(groupWidth);

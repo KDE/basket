@@ -22,7 +22,7 @@
 #define BASKETLISTVIEW_H
 
 #include <QtCore/QTimer>
-#include <QtGui/QTreeWidget>
+#include <QTreeWidget>
 #include <QStyledItemDelegate>
 
 class QPixmap;

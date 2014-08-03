@@ -22,10 +22,10 @@
 #define NOTECONTENT_H
 
 #include <QtCore/QObject>
-#include <QtGui/QGraphicsItem>
+#include <QGraphicsItem>
 
-#include <KDE/KUrl>
-#include <KDE/KIO/AccessManager>
+#include <QUrl>
+#include <KIO/AccessManager>
 
 #include <phonon/phononnamespace.h>
 
@@ -48,7 +48,7 @@ class QTextDocument;
 class QWidget;
 
 class KFileItem;
-class KUrl;
+class QUrl;
 
 namespace KIO
 {
@@ -109,7 +109,7 @@ public:
     virtual QPixmap toPixmap()                      {
         return QPixmap();
     } /// << @return an image equivalent of the content.
-    virtual void    toLink(KUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
+    virtual void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
     virtual bool    useFile() const                                  = 0; /// << @return true if it use a file to store the content.
     virtual bool    canBeSavedAs() const                             = 0; /// << @return true if the content can be saved as a file by the user.
     virtual QString saveAsFilters() const                            = 0; /// << @return the filters for the user to choose a file destination to save the note as.
@@ -163,7 +163,7 @@ public:
         return 0;
     } /// << If the editor should be indented (eg. to not cover an icon), return the number of pixels.
     // Open Content or File:
-    virtual KUrl urlToOpen(bool /*with*/); /// << @return the URL to open the note, or an invalid KUrl if it's not openable. If @p with if false, it's a normal "Open". If it's true, it's for an "Open with..." action. The default implementation return the fullPath() if the note useFile() and nothing if not.
+    virtual QUrl urlToOpen(bool /*with*/); /// << @return the URL to open the note, or an invalid QUrl if it's not openable. If @p with if false, it's a normal "Open". If it's true, it's for an "Open with..." action. The default implementation return the fullPath() if the note useFile() and nothing if not.
     enum OpenMessage {
         OpenOne,              /// << Message to send to the statusbar when opening this note.
         OpenSeveral,          /// << Message to send to the statusbar when opening several notes of this type.
@@ -504,7 +504,7 @@ class LinkContent : public QObject, public NoteContent
     Q_OBJECT
 public:
     // Constructor and destructor:
-    LinkContent(Note *parent, const KUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon);
+    LinkContent(Note *parent, const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon);
     ~LinkContent();
     // Simple Generic Methods:
     NoteType::Id type() const;
@@ -512,7 +512,7 @@ public:
     QString lowerTypeName() const;
     QString toText(const QString &/*cuttedFullPath*/);
     QString toHtml(const QString &imageName, const QString &cuttedFullPath);
-    void    toLink(KUrl *url, QString *title, const QString &cuttedFullPath);
+    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath);
     bool    useFile() const;
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
@@ -536,11 +536,11 @@ public:
     Qt::CursorShape cursorFromZone(int zone) const;
     QString statusBarMessage(int zone);
     // Open Content or File:
-    KUrl urlToOpen(bool /*with*/);
+    QUrl urlToOpen(bool /*with*/);
     QString messageWhenOpening(OpenMessage where);
     // Content-Specific Methods:
-    void    setLink(const KUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon); /// << Change the link and relayout the note.
-    KUrl    url()       {
+    void    setLink(const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon); /// << Change the link and relayout the note.
+    QUrl    url()       {
         return m_url;
     } /// << @return the URL of the link note-content.
     QString title()     {
@@ -558,7 +558,7 @@ public:
     void startFetchingLinkTitle();
     QGraphicsItem *graphicsItem() { return &m_linkDisplayItem; }
 protected:
-    KUrl        m_url;
+    QUrl        m_url;
     QString     m_title;
     QString     m_icon;
     bool        m_autoTitle;
@@ -591,7 +591,7 @@ class CrossReferenceContent : public QObject, public NoteContent
     Q_OBJECT
 public:
     // Constructor and destructor:
-    CrossReferenceContent(Note *parent, const KUrl &url, const QString &title, const QString &icon);
+    CrossReferenceContent(Note *parent, const QUrl &url, const QString &title, const QString &icon);
     ~CrossReferenceContent();
     // Simple Generic Methods:
     NoteType::Id type() const;
@@ -599,7 +599,7 @@ public:
     QString lowerTypeName() const;
     QString toText(const QString &/*cuttedFullPath*/);
     QString toHtml(const QString &imageName, const QString &cuttedFullPath);
-    void    toLink(KUrl *url, QString *title, const QString &cuttedFullPath);
+    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath);
     bool    useFile() const;
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
@@ -623,12 +623,12 @@ public:
     Qt::CursorShape cursorFromZone(int zone) const;
     QString statusBarMessage(int zone);
     // Open Content or File:
-    KUrl urlToOpen(bool /*with*/);
+    QUrl urlToOpen(bool /*with*/);
     QString messageWhenOpening(OpenMessage where);
     // Content-Specific Methods:
-    void    setLink(const KUrl &url, const QString &title, const QString &icon); /// << Change the link and relayout the note.
-    void    setCrossReference(const KUrl &url, const QString &title, const QString &icon);
-    KUrl    url()       {
+    void    setLink(const QUrl &url, const QString &title, const QString &icon); /// << Change the link and relayout the note.
+    void    setCrossReference(const QUrl &url, const QString &title, const QString &icon);
+    QUrl    url()       {
         return m_url;
     } /// << @return the URL of the link note-content.
     QString title()     {
@@ -641,7 +641,7 @@ public:
     QGraphicsItem *graphicsItem() { return &m_linkDisplayItem; }
 
 protected:
-    KUrl        m_url;
+    QUrl        m_url;
     QString     m_title;
     QString     m_icon;
     LinkDisplayItem m_linkDisplayItem;
@@ -661,7 +661,7 @@ public:
     QString typeName() const;
     QString lowerTypeName() const;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath);
-    void    toLink(KUrl *url, QString *title, const QString &cuttedFullPath);
+    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath);
     bool    useFile() const;
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
@@ -682,7 +682,7 @@ public:
     QString zoneTip(int zone);
     Qt::CursorShape cursorFromZone(int zone) const;
     // Open Content or File:
-    KUrl urlToOpen(bool with);
+    QUrl urlToOpen(bool with);
     QString messageWhenOpening(OpenMessage where);
     // Content-Specific Methods:
     void    setLauncher(const QString &name, const QString &icon, const QString &exec); /// << Change the launcher note-content and relayout the note. Normally called by loadFromFile (no save done).
@@ -812,7 +812,7 @@ public:
     QString lowerTypeName() const;
     QString toText(const QString &/*cuttedFullPath*/);
     QString toHtml(const QString &imageName, const QString &cuttedFullPath);
-    void    toLink(KUrl *url, QString *title, const QString &cuttedFullPath);
+    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath);
     bool    useFile() const;
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
@@ -834,8 +834,8 @@ public:
         return true;
     }
     // Open Content or File:
-    KUrl urlToOpen(bool /*with*/) {
-        return KUrl();
+    QUrl urlToOpen(bool /*with*/) {
+        return QUrl();
     }
     
     QGraphicsItem *graphicsItem() { return &m_unknownItem; }

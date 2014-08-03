@@ -27,29 +27,34 @@
 #include <QtGui/QPixmap>
 #include <QtGui/QHBoxLayout>
 
-#include <KDE/KLocale>
+#include <QLocale>
+#include <QVBoxLayout>
 
 DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
 {
     setObjectName("DiskError");
-    setCaption(i18n("Save Error"));
-    setMainWidget(new QWidget(this));
+    setWindowTitle(i18n("Save Error"));
+//PORTING: Verify that widget was added to mainLayout     setMainWidget(new QWidget(this));
     //enableButtonCancel(false);
     //enableButtonClose(false);
     //enableButton(Close, false);
-    //enableButtonOk(false);
+    //okButton->setEnabled(false);
     setModal(true);
     //QHBoxLayout *layout = new QHBoxLayout(mainWidget(), /*margin=*/0, spacingHint());
-    QHBoxLayout *layout = new QHBoxLayout(mainWidget());
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QHBoxLayout *layout = new QHBoxLayout(mainWidget);
     QPixmap icon = KIconLoader::global()->loadIcon(
                        "hdd_unmount", KIconLoader::NoGroup, 64, KIconLoader::DefaultState,
                        QStringList(), /*path_store=*/0L, /*canReturnNull=*/true
                    );
-    QLabel *iconLabel  = new QLabel(mainWidget());
+    QLabel *iconLabel  = new QLabel(mainWidget);
     iconLabel->setPixmap(icon);
     iconLabel->setFixedSize(iconLabel->sizeHint());
-    QLabel *label = new QLabel("<p><nobr><b><font size='+1'>" + titleMessage + "</font></b></nobr></p><p>" + message + "</p>", mainWidget());
+    QLabel *label = new QLabel("<p><nobr><b><font size='+1'>" + titleMessage + "</font></b></nobr></p><p>" + message + "</p>", mainWidget);
     if (!icon.isNull())
         layout->addWidget(iconLabel);
     layout->addWidget(label);

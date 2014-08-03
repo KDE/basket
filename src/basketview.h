@@ -21,7 +21,7 @@
 #ifndef BASKET_VIEW_H
 #define BASKET_VIEW_H
 
-#include <QtGui/QGraphicsView>
+#include <QGraphicsView>
 
 class BasketScene;
 

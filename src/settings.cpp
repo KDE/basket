@@ -20,29 +20,34 @@
 
 #include "settings.h"
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QGroupBox>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QGridLayout>
-#include <QtGui/QVBoxLayout>
-#include <QtCore/QDate>
+#include <QCheckBox>
+#include <QGroupBox>
+#include <QLabel>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QDate>
+#include <QGuiApplication>
+#include <QSpinBox>
+#include <QUrl>
 
-#include <KDE/KLineEdit>
-#include <KDE/KNumInput>
-#include <KDE/KConfig>
-#include <KDE/KGlobal>
-#include <KDE/KLocale>
-#include <KDE/KAboutData>
-#include <KDE/KMimeType>
-#include <KDE/KComponentData>
-#include <KDE/KTabWidget>
+#include <QLineEdit>
+#include <KConfig>
+#include <QLocale>
+//#include <KAboutData>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KIO/Global>
+#include <QMimeType>
+#include <QMimeDatabase>
+#include <QTabWidget>
 
 #include "kgpgme.h"
 #include "basketscene.h"
 #include "linklabel.h"
 #include "variouswidgets.h"
+#include "aboutdata.h"
 
 /** Settings */
 
@@ -349,8 +354,12 @@ void Settings::setAutoBullet(bool yes)
 /** GeneralPage */
 
 GeneralPage::GeneralPage(QWidget * parent, const char * name)
-        : KCModule(KComponentData(name), parent)
+        : KCModule(parent)
 {
+    KAboutData* about = new AboutData();
+    about->setComponentName(name);
+    setAboutData(about);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     QHBoxLayout *hLay;
     QLabel      *label;
@@ -395,7 +404,7 @@ GeneralPage::GeneralPage(QWidget * parent, const char * name)
         ("<p>" + i18n("You can configure global shortcuts to do some actions without having to show the main window. For instance, you can paste the clipboard content, take a color from "
                       "a point of the screen, etc. You can also use the mouse scroll wheel over the system tray icon to change the current basket. Or use the middle mouse button "
                       "on that icon to paste the current selection.") + "</p>" +
-         "<p>" + i18n("When doing so, %1 pops up a little balloon message to inform you the action has been successfully done. You can disable that balloon.", KGlobal::mainComponent().aboutData()->programName()) + "</p>" +
+         "<p>" + i18n("When doing so, %1 pops up a little balloon message to inform you the action has been successfully done. You can disable that balloon.", QGuiApplication::applicationDisplayName()) + "</p>" +
          "<p>" + i18n("Note that those messages are smart enough to not appear if the main window is visible. This is because you already see the result of your actions in the main window.") + "</p>"),
         this);
     hLay->addWidget(m_usePassivePopup);
@@ -427,10 +436,9 @@ GeneralPage::GeneralPage(QWidget * parent, const char * name)
     gs->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding), 0, 2);
 
     // Hide Main Window when Mouse Goes out of it for Some Time:
-    m_timeToHideOnMouseOut = new KIntNumInput(0, m_systray);
+    m_timeToHideOnMouseOut = new QSpinBox();
     m_hideOnMouseOut = new QCheckBox(i18n("&Hide main window when mouse leaves it for"), m_systray);
-    m_timeToHideOnMouseOut->setRange(0, 600, 1);
-    m_timeToHideOnMouseOut->setSliderEnabled(false);
+    m_timeToHideOnMouseOut->setRange(0, 600);
     m_timeToHideOnMouseOut->setSuffix(i18n(" tenths of seconds"));
     gs->addWidget(m_hideOnMouseOut,       0, 0);
     gs->addWidget(m_timeToHideOnMouseOut, 0, 1);
@@ -439,10 +447,9 @@ GeneralPage::GeneralPage(QWidget * parent, const char * name)
 //  subSysLay->addWidget(
 
     // Show Main Window when Mouse Hovers over the System Tray Icon for Some Time:
-    m_timeToShowOnMouseIn = new KIntNumInput(0, m_systray);
+    m_timeToShowOnMouseIn = new QSpinBox();
     m_showOnMouseIn  = new QCheckBox(i18n("Show &main window when mouse hovers over the system tray icon for"), m_systray);
-    m_timeToShowOnMouseIn->setRange(0, 600, 1);
-    m_timeToShowOnMouseIn->setSliderEnabled(false);
+    m_timeToShowOnMouseIn->setRange(0, 600);
     m_timeToShowOnMouseIn->setSuffix(i18n(" tenths of seconds"));
     gs->addWidget(m_showOnMouseIn,       1, 0);
     gs->addWidget(m_timeToShowOnMouseIn, 1, 1);
@@ -504,8 +511,12 @@ void GeneralPage::defaults()
 /** BasketsPage */
 
 BasketsPage::BasketsPage(QWidget * parent, const char * name)
-        : KCModule(KComponentData(name), parent)
+        : KCModule(parent)
 {
+    KAboutData* about = new AboutData();
+    about->setComponentName(name);
+    setAboutData(about);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     QHBoxLayout *hLay;
     HelpLabel   *hLabel;
@@ -621,7 +632,7 @@ BasketsPage::BasketsPage(QWidget * parent, const char * name)
     hLay = new QHBoxLayout(widget);
     m_enableReLockTimeoutMinutes = new QCheckBox(i18n("A&utomatically lock protected baskets when closed for"), widget);
     hLay->addWidget(m_enableReLockTimeoutMinutes);
-    m_reLockTimeoutMinutes = new KIntNumInput(widget);
+    m_reLockTimeoutMinutes = new QSpinBox(widget);
     m_reLockTimeoutMinutes->setMinimum(0);
     m_reLockTimeoutMinutes->setSuffix(i18n(" minutes"));
     hLay->addWidget(m_reLockTimeoutMinutes);
@@ -701,8 +712,12 @@ void BasketsPage::defaults()
 /** class NewNotesPage: */
 
 NewNotesPage::NewNotesPage(QWidget * parent, const char * name)
-        : KCModule(KComponentData(name), parent)
+        : KCModule(parent)
 {
+    KAboutData* about = new AboutData();
+    about->setComponentName(name);
+    setAboutData(about);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     QHBoxLayout *hLay;
     QLabel      *label;
@@ -730,10 +745,10 @@ NewNotesPage::NewNotesPage(QWidget * parent, const char * name)
     // New Images Size:
 
     hLay = new QHBoxLayout;
-    m_imgSizeX = new KIntNumInput(this);
+    m_imgSizeX = new QSpinBox(this);
     m_imgSizeX->setMinimum(1);
     m_imgSizeX->setMaximum(4096);
-    m_imgSizeX->setReferencePoint(100);
+    //m_imgSizeX->setReferencePoint(100); //from KIntNumInput
     connect(m_imgSizeX, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 
     label = new QLabel(this);
@@ -743,10 +758,10 @@ NewNotesPage::NewNotesPage(QWidget * parent, const char * name)
     hLay->addWidget(label);
     hLay->addWidget(m_imgSizeX);
 
-    m_imgSizeY = new KIntNumInput(this);
+    m_imgSizeY = new QSpinBox(this);
     m_imgSizeY->setMinimum(1);
     m_imgSizeY->setMaximum(4096);
-    m_imgSizeY->setReferencePoint(100);
+    //m_imgSizeY->setReferencePoint(100);
     connect(m_imgSizeY, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 
     label = new QLabel(this);
@@ -830,17 +845,21 @@ void NewNotesPage::visualize()
 /** class NotesAppearancePage: */
 
 NotesAppearancePage::NotesAppearancePage(QWidget * parent, const char * name)
-        : KCModule(KComponentData(name), parent)
+        : KCModule(parent)
 {
+    KAboutData* about = new AboutData();
+    about->setComponentName(name);
+    setAboutData(about);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
-    KTabWidget *tabs = new KTabWidget(this);
+    QTabWidget *tabs = new QTabWidget(this);
     layout->addWidget(tabs);
 
     m_soundLook       = new LinkLookEditWidget(this, i18n("Conference audio record"),                         "folder-sound",       tabs);
     m_fileLook        = new LinkLookEditWidget(this, i18n("Annual report"),                                   "folder-documents",    tabs);
     m_localLinkLook   = new LinkLookEditWidget(this, i18n("Home folder"),                                     "user-home", tabs);
-    m_networkLinkLook = new LinkLookEditWidget(this, "www.kde.org",             KMimeType::iconNameForUrl(KUrl("http://www.kde.org")), tabs);
-    m_launcherLook    = new LinkLookEditWidget(this, i18n("Launch %1").arg(KGlobal::mainComponent().aboutData()->programName()), "basket",      tabs);
+    m_networkLinkLook = new LinkLookEditWidget(this, "www.kde.org",             KIO::iconNameForUrl(QUrl("http://www.kde.org")), tabs);
+    m_launcherLook    = new LinkLookEditWidget(this, i18n("Launch %1").arg(QGuiApplication::applicationDisplayName()), "basket",      tabs);
     m_crossReferenceLook=new LinkLookEditWidget(this, i18n("Another basket"), "basket", tabs);
 
     tabs->addTab(m_soundLook,       i18n("&Sounds"));
@@ -882,8 +901,12 @@ void NotesAppearancePage::defaults()
 /** class ApplicationsPage: */
 
 ApplicationsPage::ApplicationsPage(QWidget * parent, const char * name)
-        : KCModule(KComponentData(name), parent)
+        : KCModule(parent)
 {
+    KAboutData* about = new AboutData();
+    about->setComponentName(name);
+    setAboutData(about);
+
     /* Applications page */
     QVBoxLayout *layout = new QVBoxLayout(this);
 
@@ -946,7 +969,7 @@ ApplicationsPage::ApplicationsPage(QWidget * parent, const char * name)
     layout->addWidget(m_soundUseProg);
     layout->addItem(hLayS);
 
-    layout->addSpacing(KDialog::spacingHint());
+//TODO PORT QT5     layout->addSpacing(QDialog::spacingHint());
 
     QHBoxLayout *hLay = new QHBoxLayout;
     HelpLabel *hl1 = new HelpLabel(

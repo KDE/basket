@@ -26,7 +26,7 @@
 #include <QtCore/QTimer>
 #include <QtGui/QTextCursor>
 #include <QtGui/QClipboard>
-#include <QtGui/QGraphicsScene>
+#include <QGraphicsScene>
 
 #include "note.h" // For Note::Zone
 #include "config.h"
@@ -51,10 +51,10 @@ class QMouseEvent;
 class QResizeEvent;
 class QWheelEvent;
 
-class KAction;
+class QAction;
 class KDirWatch;
-class KShortcut;
-class KUrl;
+class QKeySequence;
+class QUrl;
 
 namespace KIO { 
     class Job; 
@@ -318,19 +318,19 @@ public:
 
 /// KEYBOARD SHORTCUT:
 public:
-    KAction *m_action;
+    QAction *m_action;
 private:
     int      m_shortcutAction;
 private slots:
     void activatedShortcut();
 public:
-    KShortcut shortcut() {
+    QKeySequence shortcut() {
         return m_action->shortcut();
     }
     int shortcutAction() {
         return m_shortcutAction;
     }
-    void setShortcut(KShortcut shortcut, int action);
+    void setShortcut(QKeySequence shortcut, int action);
 
 /// USER INTERACTION:
 private:
@@ -582,7 +582,7 @@ protected:
     void dragMoveEvent(QGraphicsSceneDragDropEvent *event);
     void dragLeaveEvent(QGraphicsSceneDragDropEvent *);
 public slots:
-    void slotCopyingDone2(KIO::Job *job, const KUrl &from, const KUrl &to);
+    void slotCopyingDone2(KIO::Job *job, const QUrl &from, const QUrl &to);
 public:
     Note* noteForFullPath(const QString &path);
 

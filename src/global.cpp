@@ -20,15 +20,16 @@
 
 #include "global.h"
 
-#include <KDE/KGlobal>
-#include <KDE/KStandardDirs>
+#include <KGlobal>
+#include <KStandardDirs>
 
-#include <KDE/KApplication>
-#include <KDE/KMainWindow>
-#include <KDE/KConfig>
+#include <QApplication>
+#include <KMainWindow>
+#include <KConfig>
 
 #include <QtCore/QString>
 #include <QtCore/QDir>
+#include <QStandardPaths>
 
 #include "gitwrapper.h"
 #include "aboutdata.h"
@@ -63,7 +64,7 @@ QString Global::savesFolder()
         } else if (!Settings::dataFolder().isEmpty()) { // Set by config option (in Basket -> Backup & Restore)
             folder = new QString(Settings::dataFolder().endsWith("/") ? Settings::dataFolder() : Settings::dataFolder() + "/");
         } else { // The default path (should be that for most computers)
-            folder = new QString(KGlobal::dirs()->saveLocation("data", "basket/"));
+            folder = new QString(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/");
             if(!QDir(*folder + ".git/").exists()) {
                 GitWrapper::initializeGitRepository(*folder);
             }
@@ -96,7 +97,7 @@ QString Global::openNoteIcon() // FIXME: Now an edit icon
 
 KMainWindow* Global::mainWindow()
 {
-    QWidget* res = kapp->activeWindow();
+    QWidget* res = qApp->activeWindow();
 
     if (res && res->inherits("KMainWindow")) {
         return static_cast<KMainWindow*>(res);

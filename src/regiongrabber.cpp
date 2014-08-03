@@ -20,12 +20,13 @@
 
 #include <QtGui/QPainter>
 #include <QtGui/QMouseEvent>
-#include <QtGui/QApplication>
-#include <QtGui/QDesktopWidget>
-#include <QtGui/QToolTip>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QToolTip>
 
-#include <KDE/KLocale>
-#include <KDE/KWindowSystem>
+#include <QLocale>
+#include <KWindowSystem>
+#include <KLocalizedString>
 
 RegionGrabber::RegionGrabber() :
         QWidget(0), selection(), mouseDown(false), newSelection(false),

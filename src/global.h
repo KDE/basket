@@ -22,7 +22,7 @@
 #define GLOBAL_H
 
 #include "basket_export.h"
-#include <KDE/KSharedConfig>
+#include <KSharedConfig>
 
 class QString;
 

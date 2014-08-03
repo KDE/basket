@@ -24,7 +24,7 @@
 #include <QtCore/QList>
 #include <QtCore/QSet>
 #include <QtCore/QDateTime>
-#include <QtGui/QGraphicsItemGroup>
+#include <QGraphicsItemGroup>
 
 #include "basket_export.h"
 #include "tag.h"

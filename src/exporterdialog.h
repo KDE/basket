@@ -21,7 +21,7 @@
 #ifndef EXPORTERDIALOG_H
 #define EXPORTERDIALOG_H
 
-#include <KDE/KDialog>
+#include <QDialog>
 
 class KUrlRequester;
 class QCheckBox;
@@ -32,7 +32,7 @@ class BasketScene;
 /**
   * @author Sébastien Laoût
   */
-class ExporterDialog : public KDialog
+class ExporterDialog : public QDialog
 {
     Q_OBJECT
 public:

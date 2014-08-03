@@ -20,8 +20,8 @@
 
 #include "basket_part.h"
 
-#include <KDE/KParts/Factory>
-#include <KDE/KParts/StatusBarExtension>
+#include <KParts/Factory>
+#include <KParts/StatusBarExtension>
 #include <kdemacros.h>
 
 #include "aboutdata.h"
@@ -43,7 +43,7 @@ BasketPart::BasketPart(QWidget *parentWidget, QObject *parent, const QList<QVari
     BasketStatusBar* bar = new BasketStatusBar(new KParts::StatusBarExtension(this));
     // this should be your custom internal widget
     m_view = new BNPView(parentWidget, "BNPViewPart", this, actionCollection(), bar);
-    connect(m_view, SIGNAL(setWindowCaption(const QString &)), this, SLOT(setCaption(const QString &)));
+    connect(m_view, SIGNAL(setWindowCaption(const QString &)), this, SLOT(setWindowTitle(const QString &)));
     connect(m_view, SIGNAL(showPart()), this, SIGNAL(showPart()));
     m_view->setFocusPolicy(Qt::ClickFocus);
 
@@ -94,7 +94,7 @@ KAboutData *BasketPart::createAboutData()
     return new AboutData();
 }
 
-void BasketPart::setCaption(const QString &caption)
+void BasketPart::setWindowTitle(const QString &caption)
 {
     emit setWindowCaption(caption);
 }

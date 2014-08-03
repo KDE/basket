@@ -20,7 +20,7 @@
 
 #include "noteselection.h"
 
-#include <KDE/KDebug>
+#include <QDebug>
 
 #include "note.h"
 #include "notecontent.h"
@@ -123,8 +123,8 @@ void debugSel(NoteSelection* sel, int n = 0)
 {
     for (NoteSelection *node = sel; node; node = node->next) {
         for (int i = 0; i < n; i++)
-            kDebug() << "-";
-        kDebug() << (node->firstChild ? "Group" : node->note->content()->toText(""));
+            qDebug() << "-";
+        qDebug() << (node->firstChild ? "Group" : node->note->content()->toText(""));
         if (node->firstChild)
             debugSel(node->firstChild, n + 1);
     }

@@ -21,21 +21,20 @@
 #include "note.h"
 
 #include <QtCore/QList>
-#include <QtGui/QGraphicsItemAnimation>
-#include <QtGui/QGraphicsView>
+#include <QGraphicsItemAnimation>
+#include <QGraphicsView>
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
-#include <QtGui/QStyle>
-#include <QtGui/QStyleOption>
+#include <QStyle>
+#include <QStyleOption>
 #include <QtGui/QImage>
 
 #include <qimageblitz/qimageblitz.h>        //For Blitz::fade(...)
 
-#include <KDE/KDebug>
-#include <KDE/KApplication>
-#include <KDE/KIconLoader>
-#include <KDE/KGlobal>
-#include <KDE/KLocale>  //For KGLobal::locale(
+//#include <KDebug>
+#include <QApplication>
+#include <KIconLoader>
+#include <QLocale>  //For KGLobal::locale(
 
 #include <stdlib.h> // rand() function
 #include <math.h> // sqrt() and pow() functions
@@ -156,12 +155,12 @@ void Note::setParentBasket(BasketScene *basket)
     
 QString Note::addedStringDate()
 {
-    return KGlobal::locale()->formatDateTime(m_addedDate);
+    return m_addedDate.toString();
 }
 
 QString Note::lastModificationStringDate()
 {
-    return KGlobal::locale()->formatDateTime(m_lastModificationDate);
+    return m_lastModificationDate.toString();
 }
 
 QString Note::toText(const QString &cuttedFullPath)
@@ -775,7 +774,7 @@ QString Note::linkAt(const QPointF &pos)
     if (link.isEmpty() || link.startsWith(QLatin1String("basket://")))
         return link;
     else
-        return NoteFactory::filteredURL(KUrl(link)).prettyUrl();//KURIFilter::self()->filteredURI(link);
+        return NoteFactory::filteredURL(QUrl::fromUserInput(link)).toDisplayString();//KURIFilter::self()->filteredURI(link);
 }
 
 qreal Note::contentX() const
@@ -822,7 +821,7 @@ QRectF Note::zoneRect(Note::Zone zone, const QPointF &pos)
     case Note::Content:
         rect = content()->zoneRect(zone, pos - QPointF(contentX(), NOTE_MARGIN));
         rect.translate(contentX(), NOTE_MARGIN);
-        return rect.intersect(QRectF(contentX(), INSERTION_HEIGHT, d->width - contentX(), d->height - 2*INSERTION_HEIGHT));     // Only IN contentRect
+        return rect.intersected(QRectF(contentX(), INSERTION_HEIGHT, d->width - contentX(), d->height - 2*INSERTION_HEIGHT));     // Only IN contentRect
     case Note::GroupExpander:
         return QRectF(NOTE_MARGIN, yExpander(), EXPANDER_WIDTH, EXPANDER_HEIGHT);
     case Note::Resizer:
@@ -1572,7 +1571,7 @@ void Note::drawInactiveResizer(QPainter *painter, qreal x, qreal y, qreal height
 
 QPalette Note::palette() const
 {
-    return (m_basket ? m_basket->palette() : kapp->palette());
+    return (m_basket ? m_basket->palette() : qApp->palette());
 }
 
 /* type: 1: topLeft
@@ -1987,7 +1986,7 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
         QStyleOptionFocusRect opt;
         opt.initFrom(m_basket->graphicsView());
         opt.rect = focusRect;
-        kapp->style()->drawPrimitive(QStyle::PE_FrameFocusRect, &opt,
+        qApp->style()->drawPrimitive(QStyle::PE_FrameFocusRect, &opt,
                                      &painter2);
     }
 
@@ -2557,19 +2556,19 @@ bool Note::isShown()
 
 void Note::debug()
 {
-    kDebug() << "Note@" << (quint64)this;
+    qDebug() << "Note@" << (quint64)this;
     if (!this) {
-        kDebug();
+        qDebug();
         return;
     }
 
     if (isColumn())
-        kDebug() << ": Column";
+        qDebug() << ": Column";
     else if (isGroup())
-        kDebug() << ": Group";
+        qDebug() << ": Group";
     else
-        kDebug() << ": Content[" << content()->lowerTypeName() << "]: " << toText("");
-    kDebug();
+        qDebug() << ": Content[" << content()->lowerTypeName() << "]: " << toText("");
+    qDebug();
 }
 
 Note* Note::firstSelected()

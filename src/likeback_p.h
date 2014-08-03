@@ -23,7 +23,7 @@
 
 #include "likeback.h"
 
-#include <KDE/KDialog>
+#include <QDialog>
 
 #include <QtCore/QTimer>
 
@@ -57,7 +57,7 @@ public:
     bool                     showBar;
     int                      disabledCount;
     QString                  fetchedEmail;
-    KAction                 *action;
+    QAction *action;
 };
 
 class LikeBackBar : public QWidget
@@ -84,7 +84,7 @@ private:
     QToolButton *m_featureButton;
 };
 
-class LikeBackDialog : public KDialog
+class LikeBackDialog : public QDialog
 {
     Q_OBJECT
 public:

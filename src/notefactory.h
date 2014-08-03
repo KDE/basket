@@ -28,7 +28,7 @@ class QPixmap;
 class QString;
 class QStringList;
 
-class KUrl;
+class QUrl;
 
 class BasketScene;
 class Note;
@@ -46,45 +46,45 @@ namespace NoteFactory
   */
 Note* createNoteText(const QString &text,     BasketScene *parent, bool reallyPlainText = false);
 Note* createNoteHtml(const QString &html,     BasketScene *parent);
-Note* createNoteLink(const KUrl    &url,      BasketScene *parent);
-Note* createNoteLink(const KUrl    &url,      const QString &title, BasketScene *parent);
-Note* createNoteCrossReference(const KUrl &url, BasketScene *parent);
-Note* createNoteCrossReference(const KUrl &url, const QString &title, BasketScene *parent);
-Note* createNoteCrossReference(const KUrl &url, const QString &title, const QString &icon, BasketScene *parent);
+Note* createNoteLink(const QUrl &url,      BasketScene *parent);
+Note* createNoteLink(const QUrl &url,      const QString &title, BasketScene *parent);
+Note* createNoteCrossReference(const QUrl &url, BasketScene *parent);
+Note* createNoteCrossReference(const QUrl &url, const QString &title, BasketScene *parent);
+Note* createNoteCrossReference(const QUrl &url, const QString &title, const QString &icon, BasketScene *parent);
 Note* createNoteImage(const QPixmap &image,    BasketScene *parent);
 Note* createNoteColor(const QColor  &color,    BasketScene *parent);
 Note* createNoteFromText(const QString &content,  BasketScene *parent);  // Find automatically the type from the text meaning  // TODO: Return Note::List?
-Note* createNoteLauncher(const KUrl    &url,      BasketScene *parent);
+Note* createNoteLauncher(const QUrl &url,      BasketScene *parent);
 Note* createNoteLauncher(const QString &command,  const QString &name, const QString &icon, BasketScene *parent);
 Note* createNoteUnknown(const QMimeData *source,     BasketScene *parent);
 /** Functions to create derived notes from a content */
-Note* createNoteLinkOrLauncher(const KUrl &url,   BasketScene *parent);
-Note* copyFileAndLoad(const KUrl &url,         BasketScene *parent);
-Note* moveFileAndLoad(const KUrl &url,         BasketScene *parent);
+Note* createNoteLinkOrLauncher(const QUrl &url,   BasketScene *parent);
+Note* copyFileAndLoad(const QUrl &url,         BasketScene *parent);
+Note* moveFileAndLoad(const QUrl &url,         BasketScene *parent);
 Note* loadFile(const QString &fileName, BasketScene *parent);            /// << Determine the content of the file (the file SHOULD exists) and return a note of the good type.
 Note* loadFile(const QString &fileName, NoteType::Id type, BasketScene *parent);             /// <<  Create a note of type @p type. The file is not obliged to exist.
 /** Functions to create a new note from a drop or paste event */
 Note* dropNote(const QMimeData *source, BasketScene *parent,
                bool fromDrop = false, Qt::DropAction action = Qt::CopyAction, Note *noteSource = 0);
 bool movingNotesInTheSameBasket(const QMimeData *source, BasketScene *parent, Qt::DropAction action);
-Note* dropURLs(KUrl::List urls, BasketScene *parent, Qt::DropAction action, bool fromDrop);
+Note* dropURLs( QList<QUrl> urls, BasketScene *parent, Qt::DropAction action, bool fromDrop);
 Note* decodeContent(QDataStream &stream, NoteType::Id type, BasketScene *parent); /// << Decode the @p stream to a note or return 0 if a general loadFile() is sufficient.
 void consumeContent(QDataStream &stream, NoteType::Id type); /// << Decode the @p stream to a note or return 0 if a general loadFile() is sufficient.
 /** Functions to create a note file but not load it in a note object */
 QString createNoteLauncherFile(const QString &command, const QString &name, const QString &icon, BasketScene *parent);
 /** Other useful functions */
-NoteType::Id typeForURL(const KUrl &url, BasketScene *parent);
-bool         maybeText(const KUrl &url);
-bool         maybeHtml(const KUrl &url);
-bool         maybeImageOrAnimation(const KUrl &url);
-bool         maybeAnimation(const KUrl &url);
-bool         maybeSound(const KUrl &url);
-bool         maybeLauncher(const KUrl &url);
+NoteType::Id typeForURL(const QUrl &url, BasketScene *parent);
+bool         maybeText(const QUrl &url);
+bool         maybeHtml(const QUrl &url);
+bool         maybeImageOrAnimation(const QUrl &url);
+bool         maybeAnimation(const QUrl &url);
+bool         maybeSound(const QUrl &url);
+bool         maybeLauncher(const QUrl &url);
 QString      fileNameForNewNote(BasketScene *parent, const QString &wantedName);
 QString      createFileForNewNote(BasketScene *parent, const QString &extension, const QString &wantedName = "");
-KUrl         filteredURL(const KUrl &url);
-QString      titleForURL(const KUrl &url);
-QString      iconForURL(const KUrl &url);
+QUrl         filteredURL(const QUrl &url);
+QString      titleForURL(const QUrl &url);
+QString      iconForURL(const QUrl &url);
 QString      iconForCommand(const QString &command);
 bool         isIconExist(const QString &icon);
 QStringList  textToURLList(const QString &text); // @Return { url1, title1, url2, title2, url3, title3... }

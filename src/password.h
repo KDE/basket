@@ -25,7 +25,7 @@
 #ifdef HAVE_LIBGPGME
 
 #include "ui_passwordlayout.h"
-#include <KDE/KDialog>
+#include <QDialog>
 
 /**
     @author Petri Damsten <damu@iki.fi>
@@ -38,7 +38,7 @@ public:
     ~Password();
 };
 
-class PasswordDlg : public KDialog
+class PasswordDlg : public QDialog
 {
     Q_OBJECT
 public:

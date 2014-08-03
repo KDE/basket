@@ -21,25 +21,25 @@
 #include "likeback.h"
 #include "likeback_p.h"
 
-#include <KDE/KApplication>
-#include <KDE/KAboutData>
-#include <KDE/KConfig>
-#include <KDE/KAction>
-#include <KDE/KActionCollection>
-#include <KDE/KIcon>
-#include <KDE/KLocale>
-#include <KDE/KDebug>
-#include <KDE/KMessageBox>
-#include <KDE/KTextEdit>
+#include <QApplication>
+#include <KAboutData>
+#include <KConfig>
+#include <QAction>
+#include <KActionCollection>
+#include <KIcon>
+#include <QLocale>
+//#include <KDebug>
+#include <KMessageBox>
+#include <KTextEdit>
 
-#include <KDE/KPushButton>
-#include <KDE/KGuiItem>
-#include <KDE/KDialog>
-#include <KDE/KInputDialog>
-#include <KDE/KGlobal>
-#include <KDE/KUser>
+#include <QPushButton>
+#include <KGuiItem>
+#include <QDialog>
+#include <KInputDialog>
+#include <KGlobal>
+#include <KUser>
 
-#include <KDE/KIO/AccessManager>
+#include <KIO/AccessManager>
 
 #include <QtCore/QBuffer>
 #include <QtCore/QPointer>
@@ -57,6 +57,11 @@
 #include <QtGui/QAction>
 #include <QtGui/QValidator>
 #include <QtGui/QDesktopWidget>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <KGuiItem>
+#include <QVBoxLayout>
 
 /****************************************/
 /********** class LikeBackBar: **********/
@@ -68,10 +73,10 @@ LikeBackBar::LikeBackBar(LikeBack *likeBack)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
 
-    QIcon likeIconSet    = KIcon(":images/hi16-action-likeback_like.png");
-    QIcon dislikeIconSet = KIcon(":images/hi16-action-likeback_dislike.png");
-    QIcon bugIconSet     = KIcon(":images/hi16-action-likeback_bug.png");
-    QIcon featureIconSet = KIcon(":images/hi16-action-likeback_feature.png");
+    QIcon likeIconSet    = QIcon::fromTheme(":images/hi16-action-likeback_like.png");
+    QIcon dislikeIconSet = QIcon::fromTheme(":images/hi16-action-likeback_dislike.png");
+    QIcon bugIconSet     = QIcon::fromTheme(":images/hi16-action-likeback_bug.png");
+    QIcon featureIconSet = QIcon::fromTheme(":images/hi16-action-likeback_feature.png");
 
     m_likeButton = new QToolButton(this);
     m_likeButton->setIcon(likeIconSet);
@@ -128,7 +133,7 @@ void LikeBackBar::autoMove()
 {
     static QWidget *lastWindow = 0;
 
-    QWidget *window = kapp->activeWindow();
+    QWidget *window = qApp->activeWindow();
     // When a Kicker applet has the focus, like the Commandline QLineEdit,
     // the systemtray icon indicates to be the current window and the LikeBack is shown next to the system tray icon.
     // It's obviously bad ;-) :
@@ -140,9 +145,9 @@ void LikeBackBar::autoMove()
 
         if (window != lastWindow && m_likeBack->windowNamesListing() != LikeBack::NoListing) {
             if (window->objectName().isEmpty() || window->objectName() == "unnamed") {
-                kDebug() << "===== LikeBack ===== UNNAMED ACTIVE WINDOW OF TYPE " << window->metaObject()->className() << " ======" << LikeBack::activeWindowPath();
+                qDebug() << "===== LikeBack ===== UNNAMED ACTIVE WINDOW OF TYPE " << window->metaObject()->className() << " ======" << LikeBack::activeWindowPath();
             } else if (m_likeBack->windowNamesListing() == LikeBack::AllWindows) {
-                kDebug() << "LikeBack: Active Window: " << LikeBack::activeWindowPath();
+                qDebug() << "LikeBack: Active Window: " << LikeBack::activeWindowPath();
             }
         }
         lastWindow = window;
@@ -223,7 +228,7 @@ LikeBack::LikeBack(Button buttons, bool showBarByDefault, KConfig *config, const
 
     // Use default KApplication config and aboutData if not provided:
     if (d->config == 0)
-        d->config = KGlobal::config().data();
+        d->config = KSharedConfig::openConfig().data();
     if (d->aboutData == 0)
         d->aboutData = KGlobal::mainComponent().aboutData();
 
@@ -338,7 +343,7 @@ void LikeBack::enableBar()
 {
     d->disabledCount--;
     if (d->disabledCount < 0)
-        kDebug() << "===== LikeBack ===== Enabled more times than it was disabled. Please refer to the disableBar() documentation for more information and hints.";
+        qDebug() << "===== LikeBack ===== Enabled more times than it was disabled. Please refer to the disableBar() documentation for more information and hints.";
     if (d->bar && d->disabledCount <= 0) {
         d->bar->startTimer();
     }
@@ -377,13 +382,13 @@ KConfig* LikeBack::config()
     return d->config;
 }
 
-KAction* LikeBack::sendACommentAction(KActionCollection *parent)
+QAction * LikeBack::sendACommentAction(KActionCollection *parent)
 {
     if (d->action == 0) {
         d->action = parent->addAction("likeback_send_a_comment", this,
                                       SLOT(execCommentDialog()));
         d->action->setText(i18n("&Send a Comment to Developers"));
-        d->action->setIcon(KIcon("mail-message-new"));
+        d->action->setIcon(QIcon::fromTheme("mail-message-new"));
     }
 
     return d->action;
@@ -392,7 +397,7 @@ KAction* LikeBack::sendACommentAction(KActionCollection *parent)
 bool LikeBack::userWantsToShowBar()
 {
     // Store the button-bar per version, so it can be disabled by the developer for the final version:
-    KConfigGroup configGroup = KGlobal::config()->group("LikeBack");
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
     return configGroup.readEntry("userWantToShowBarForVersion_" + d->aboutData->version(), d->showBarByDefault);
 }
 
@@ -404,7 +409,7 @@ void LikeBack::setUserWantsToShowBar(bool showBar)
     d->showBar = showBar;
 
     // Store the button-bar per version, so it can be disabled by the developer for the final version:
-    KConfigGroup configGroup = KGlobal::config()->group("LikeBack");
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
     configGroup.writeEntry("userWantToShowBarForVersion_" + d->aboutData->version(), showBar);
     configGroup.sync(); // Make sure the option is saved, even if the application crashes after that.
 
@@ -479,7 +484,7 @@ QString LikeBack::activeWindowPath()
 {
     // Compute the window hierarchy (from the latest to the oldest):
     QStringList windowNames;
-    QWidget *window = kapp->activeWindow();
+    QWidget *window = qApp->activeWindow();
     while (window) {
         QString name = window->objectName();
         // Append the class name to the window name if it is unnamed:
@@ -504,7 +509,7 @@ QString LikeBack::activeWindowPath()
 
 bool LikeBack::emailAddressAlreadyProvided()
 {
-    KConfigGroup configGroup = KGlobal::config()->group("LikeBack");
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
     return configGroup.readEntry("emailAlreadyAsked", false);
 }
 
@@ -513,13 +518,13 @@ QString LikeBack::emailAddress()
     if (!emailAddressAlreadyProvided())
         askEmailAddress();
 
-    KConfigGroup configGroup = KGlobal::config()->group("LikeBack");
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
     return configGroup.readEntry("emailAddress", "");
 }
 
 void LikeBack::setEmailAddress(const QString &address, bool userProvided)
 {
-    KConfigGroup configGroup = KGlobal::config()->group("LikeBack");
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
     configGroup.writeEntry("emailAddress",      address);
     configGroup.writeEntry("emailAlreadyAsked", userProvided || emailAddressAlreadyProvided());
     configGroup.sync(); // Make sure the option is saved, even if the application crashes after that.
@@ -527,7 +532,7 @@ void LikeBack::setEmailAddress(const QString &address, bool userProvided)
 
 void LikeBack::askEmailAddress()
 {
-    KConfigGroup configGroup = KGlobal::config()->group("LikeBack");
+    KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
 
     QString currentEmailAddress = configGroup.readEntry("emailAddress", "");
     if (!emailAddressAlreadyProvided() && !d->fetchedEmail.isEmpty())
@@ -547,7 +552,7 @@ void LikeBack::askEmailAddress()
                         "<p><b>" + i18n("Please provide your email address.") + "</b></p>" +
                         "<p>" + i18n("It will only be used to contact you back if more information is needed about your comments, ask you how to reproduce the bugs you report, send bug corrections for you to test, etc.") + "</p>" +
                         "<p>" + i18n("The email address is optional. If you do not provide any, your comments will be sent anonymously.") + "</p>",
-                        currentEmailAddress, &ok, kapp->activeWindow(), &emailValidator);
+                        currentEmailAddress, &ok, qApp->activeWindow(), &emailValidator);
     enableBar();
 
     if (ok)
@@ -595,21 +600,31 @@ void LikeBack::fetchUserEmail()
 /*******************************************/
 
 LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialComment, const QString &windowPath, const QString &context, LikeBack *likeBack)
-        : KDialog(kapp->activeWindow())
+        : QDialog(qApp->activeWindow())
         , m_likeBack(likeBack)
         , m_windowPath(windowPath)
         , m_context(context)
 {
-    // KDialog Options
-    setCaption(i18n("Send a Comment to Developers"));
-    setButtons(Ok | Cancel | Default);
-    setDefaultButton(Ok);
-    setParent(kapp->activeWindow());
+    // QDialog Options
+    setWindowTitle(i18n("Send a Comment to Developers"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::RestoreDefaults);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
+    setParent(qApp->activeWindow());
     setObjectName("_likeback_feedback_window_");
     setModal(true);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
-    connect(this, SIGNAL(defaultClicked()), SLOT(slotDefault()));
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
+    connect(buttonBox->button(QDialogButtonBox::RestoreDefaults), SIGNAL(clicked()), SLOT(slotDefault()));
 
     // If no specific "reason" is provided, choose the first one:
     if (reason == LikeBack::AllButtons) {
@@ -704,19 +719,19 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     pageLayout->addWidget(m_showButtons);
     connect(m_showButtons, SIGNAL(stateChanged(int)), this, SLOT(changeButtonBarVisible()));
 
-    setButtonGuiItem(Ok, KGuiItem(i18n("&Send Comment")));
-    enableButtonOk(false);
+    KGuiItem::assign(okButton, KGuiItem(i18n("&SendComment"));
+    okButton->setEnabled(false);
     connect(m_comment, SIGNAL(textChanged()), this, SLOT(commentChanged()));
 
-    setButtonGuiItem(Default, KGuiItem(i18n("&Email Address..."), "mail"));
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::RestoreDefaults), KGuiItem(i18n("&EmailAddress..."));
 
-    resize(QSize(kapp->desktop()->width() * 1 / 2, kapp->desktop()->height() * 3 / 5).expandedTo(sizeHint()));
+    resize(QSize(qApp->desktop()->width() * 1 / 2, kapp->desktop()->height() * 3 / 5).expandedTo(sizeHint()));
 
     QAction *sendShortcut = new QAction(this);
     sendShortcut->setShortcut(Qt::CTRL + Qt::Key_Return);
     connect(sendShortcut, SIGNAL(triggered()), button(Ok), SLOT(animateClick()));
 
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 }
 
 LikeBackDialog::~LikeBackDialog()
@@ -733,11 +748,11 @@ QString LikeBackDialog::introductionText()
         QStringList locales = m_likeBack->acceptedLocales();
         for (QStringList::Iterator it = locales.begin(); it != locales.end(); ++it) {
             QString locale = *it;
-            if (KGlobal::locale()->language().startsWith(locale))
+            if (QLocale()()->language().startsWith(locale))
                 languagesMessage = "";
         }
     } else {
-        if (!KGlobal::locale()->language().startsWith(QLatin1String("en")))
+        if (!QLocale()()->language().startsWith(QLatin1String("en")))
             languagesMessage = i18n("Please write in English.");
     }
 
@@ -745,7 +760,7 @@ QString LikeBackDialog::introductionText()
         // TODO: Replace the URL with a localized one:
         text += languagesMessage + " " +
                 i18n("You may be able to use an <a href=\"%1\">online translation tool</a>."
-                     , "http://www.google.com/language_tools?hl=" + KGlobal::locale()->language()) + " ";
+                     , "http://www.google.com/language_tools?hl=" + QLocale()()->language()) + " ";
 
     // If both "I Like" and "I Dislike" buttons are shown and one is clicked:
     if ((m_likeBack->buttons() & LikeBack::Like) && (m_likeBack->buttons() & LikeBack::Dislike))
@@ -759,7 +774,7 @@ QString LikeBackDialog::introductionText()
 
 void LikeBackDialog::ensurePolished()
 {
-    KDialog::ensurePolished();
+    QDialog::ensurePolished();
     m_comment->setFocus();
 }
 
@@ -793,7 +808,7 @@ void LikeBackDialog::send()
         "protocol=" + QUrl::toPercentEncoding("1.0")                              + '&' +
         "type="     + QUrl::toPercentEncoding(type)                               + '&' +
         "version="  + QUrl::toPercentEncoding(m_likeBack->aboutData()->version()) + '&' +
-        "locale="   + QUrl::toPercentEncoding(KGlobal::locale()->language())      + '&' +
+        "locale="   + QUrl::toPercentEncoding(QLocale()()->language())      + '&' +
         "window="   + QUrl::toPercentEncoding(m_windowPath)                       + '&' +
         "context="  + QUrl::toPercentEncoding(m_context)                          + '&' +
         "comment="  + QUrl::toPercentEncoding(m_comment->toPlainText())           + '&' +
@@ -805,12 +820,12 @@ void LikeBackDialog::send()
     KIO::Integration::AccessManager *http = new KIO::Integration::AccessManager(this);
     QString urlString;
     urlString = "http://" + m_likeBack->hostName() + ":" + m_likeBack->hostPort() + m_likeBack->remotePath();
-    KUrl url(urlString);
+    QUrl url(urlString);
     QNetworkRequest request(url);
     request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    kDebug() << "http://" << m_likeBack->hostName() << ":" << m_likeBack->hostPort() << m_likeBack->remotePath();
-    kDebug() << data;
+    qDebug() << "http://" << m_likeBack->hostName() << ":" << m_likeBack->hostPort() << m_likeBack->remotePath();
+    qDebug() << data;
 
     connect(http, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
 
@@ -836,6 +851,6 @@ void LikeBackDialog::requestFinished(QNetworkReply *reply)
     }
     m_likeBack->enableBar();
 
-    KDialog::accept();
+    QDialog::accept();
     reply->deleteLater();
 }

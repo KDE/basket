@@ -26,15 +26,17 @@
 #include <QtGui/QPixmap>
 
 // KDE
-#include <KDE/KLocale>
-#include <KDE/KIconEffect>  //Port to Blitz/Quasar?
-#include <KDE/KDialog>
+#include <QLocale>
+#include <KIconEffect>  //Port to Blitz/Quasar?
+#include <QDialog>
+#include <KLocalizedString>
 
 // Local
 #include "basketscene.h"
 #include "settings.h"
 #include "global.h"
 #include "tools.h"
+#include "icon_names.h"
 
 
 /* This function comes directly from JuK: */
@@ -87,16 +89,8 @@ static bool copyImage(QImage &dest, QImage &src, int x, int y)
 
 /** Constructor */
 SystemTray::SystemTray(QWidget *parent)
-        : KSystemTrayIcon(parent)
+        : KStatusNotifierItem(parent)
 {
-    // Create pixmaps for the icon:
-    m_iconSize = QSize(geometry().width(), geometry().height());
-    m_icon = loadIcon("basket");
-    QImage lockedIconImage = m_icon.pixmap(m_iconSize).toImage();
-    QImage lockOverlay = loadIcon("object-locked").pixmap(m_iconSize).toImage();
-    KIconEffect::overlay(lockedIconImage, lockOverlay);
-    m_lockedIcon = QIcon(QPixmap::fromImage(lockedIconImage));
-
     updateDisplay();
 }
 
@@ -117,11 +111,14 @@ void SystemTray::updateDisplay()
     if (basket->icon().isEmpty()
             || basket->icon() == "basket"
             || !Settings::showIconInSystray())
-        setIcon(basket->isLocked() ? m_lockedIcon : m_icon);
+        setIconByName("basket");
     else {
+        // What pixmap size to use? For example, see how overlay icon is applied:
+        // http://api.kde.org/frameworks-api/frameworks5-apidocs/knotifications/html/kstatusnotifieritem_8cpp_source.html
+
         // Code that comes from JuK:
-        QPixmap bgPix = loadIcon("basket").pixmap(22);
-        QPixmap fgPix = loadIcon(basket->icon()).pixmap(16);
+        QPixmap bgPix = QIcon::fromTheme("basket").pixmap(22);
+        QPixmap fgPix = QIcon::fromTheme(basket->icon()).pixmap(16);
 
         QImage bgImage = bgPix.toImage(); // Probably 22x22
         QImage fgImage = fgPix.toImage(); // Should be 16x16
@@ -130,21 +127,18 @@ void SystemTray::updateDisplay()
         copyImage(bgImage, fgImage, (bgImage.width() - fgImage.width()) / 2,
                   (bgImage.height() - fgImage.height()) / 2);
 
-        if (basket->isLocked()) {
-            QImage lockOverlay = loadIcon("object-locked").pixmap(m_iconSize).toImage();
-            KIconEffect::overlay(bgImage, lockOverlay);
-        }
-
-        setIcon(QPixmap::fromImage(bgImage));
+        setIconByPixmap(QPixmap::fromImage(bgImage));
     }
+    setOverlayIconByName(basket->isLocked() ? IconNames::LOCKED : "");
+
     // update the tooltip
     QString tip = "<p><nobr>";
     QString basketName = "%1";
     if (basket->isLocked())
         basketName += i18n(" (Locked)");
-    tip += KDialog::makeStandardCaption(basketName);
+    tip += Tools::makeStandardCaption(basketName);
     tip = tip.arg(Tools::textToHTMLWithoutP(basket->basketName()));
-    setToolTip(tip);
+    setToolTipTitle(tip);
 }
 
 #ifdef USE_OLD_SYSTRAY
@@ -192,8 +186,8 @@ void SystemTray::mousePressEvent(QMouseEvent *event)
             Global::bnpView->showPassiveDropped(i18n("Pasted selection to basket <i>%1</i>"));
         event->accept();
     } else if (event->button() & Qt::RightButton) { // Popup menu
-        KMenu menu(this);
-        menu.addTitle(SmallIcon("basket"), KGlobal::mainComponent().aboutData()->programName());
+        QMenu menu(this);
+        menu.addSection(SmallIcon("basket"), QGuiApplication::applicationDisplayName());
 
         Global::bnpView->actNewBasket->plug(&menu);
         Global::bnpView->actNewSubBasket->plug(&menu);
@@ -204,7 +198,7 @@ void SystemTray::mousePressEvent(QMouseEvent *event)
         Global::bnpView->m_actColorPicker->plug(&menu);
 
         if (!Global::bnpView->isPart()) {
-            KAction* action;
+            QAction * action;
 
             menu.insertSeparator();
 
@@ -293,7 +287,7 @@ void SystemTray::dropEvent(QDropEvent *event)
             basket->load();
         }
         basket->contentsDropEvent(event);
-        kDebug() << (long) basket->selectedNotes();
+        qDebug() << (long) basket->selectedNotes();
 
         if (Settings::usePassivePopup())
             Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>"));*/
@@ -337,8 +331,8 @@ void SystemTray::updateToolTipDelayed()
 {
     BasketScene *basket = Global::bnpView->currentBasket();
 
-    QString tip = "<p><nobr>" + (basket->isLocked() ? KDialog::makeStandardCaption(i18n("%1 (Locked)"))
-                                 : KDialog::makeStandardCaption("%1"))
+    QString tip = "<p><nobr>" + (basket->isLocked() ? Tools::makeStandardCaption(i18n("%1 (Locked)"))
+                                 : Tools::makeStandardCaption("%1"))
                   .arg(Tools::textToHTMLWithoutP(basket->basketName()));
 
     QToolTip::add(this, tip);

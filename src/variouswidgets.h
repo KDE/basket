@@ -21,21 +21,21 @@
 #ifndef VARIOUSWIDGETS_H
 #define VARIOUSWIDGETS_H
 
-#include <QtGui/QWidget>
-#include <QtGui/QDialog>
+#include <QWidget>
+#include <QDialog>
 
-#include <KDE/KDialog>
-#include <KDE/KComboBox>
-#include <KDE/KUrlLabel>
+#include <QDialog>
+#include <KComboBox>
+#include <KUrlLabel>
 
-class KLineEdit;
+class QLineEdit;
 class QListWidgetItem;
 class QResizeEvent;
 class QString;
 class QKeyEvent;
 
 /** A widget to select a command to run,
-  * with a KLineEdit and a QPushButton.
+  * with a QLineEdit and a QPushButton.
   * @author Sébastien Laoût
   */
 class RunCommandRequester : public QWidget
@@ -46,13 +46,13 @@ public:
     ~RunCommandRequester();
     QString runCommand();
     void setRunCommand(const QString &runCommand);
-    KLineEdit *lineEdit() {
+    QLineEdit *lineEdit() {
         return m_runCommand;
     }
 private slots:
     void slotSelCommand();
 private:
-    KLineEdit *m_runCommand;
+    QLineEdit *m_runCommand;
     QString    m_message;
 };
 
@@ -108,7 +108,7 @@ private:
 /** A dialog to choose the size of an icon.
   * @author Sébastien Laoût
   */
-class IconSizeDialog : public KDialog
+class IconSizeDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -129,6 +129,7 @@ private:
     QListWidgetItem *m_size64;
     QListWidgetItem *m_size128;
     int m_iconSize;
+    QPushButton* okButton;
 };
 
 /**

@@ -22,11 +22,11 @@
 #define FILTER_H
 
 #include <QtCore/QMap>
-#include <QtGui/QWidget>
+#include <QWidget>
 
 class QToolButton;
 
-class KLineEdit;
+class QLineEdit;
 class KComboBox;
 
 class Tag;
@@ -75,7 +75,7 @@ public slots:
     void setFilterData(const FilterData &data);
 public:
     bool hasEditFocus();
-    KLineEdit* lineEdit() {
+    QLineEdit* lineEdit() {
         return m_lineEdit;
     }
 private slots:
@@ -83,7 +83,7 @@ private slots:
     void tagChanged(int index);
 private:
     FilterData  m_data;
-    KLineEdit *m_lineEdit;
+    QLineEdit *m_lineEdit;
     QToolButton     *m_resetButton;
     KComboBox *m_tagsBox;
     QToolButton     *m_inAllBasketsButton;

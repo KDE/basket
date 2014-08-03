@@ -10,7 +10,7 @@
 #include "debugwindow.h"
 
 class QString;
-class KUrl;
+class QUrl;
 class BasketScene;
 
 class nepomukIntegration : public QObject

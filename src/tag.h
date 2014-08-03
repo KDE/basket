@@ -23,14 +23,14 @@
 
 #include <QtCore/QList>
 
-#include <KDE/KAction>
+#include <KToggleAction>
 
 class QColor;
 class QFont;
 class QPainter;
 class QString;
 
-class KShortcut;
+class QKeySequence;
 
 class Tag;
 
@@ -177,7 +177,7 @@ public:
     typedef QList<Tag*> List;
     static Tag::List all;
     static State* stateForId(const QString &id);
-    static Tag* tagForKAction(KAction *action);
+    static Tag* tagForKAction(QAction *action);
     static Tag* tagSimilarTo(Tag *tagToTest);
     static QMap<QString, QString> loadTags(const QString &path = QString()/*, bool merge = false*/); /// << Load the tags contained in the XML file @p path or those in the application settings if @p path isEmpty(). If @p merge is true and a tag with the id of a tag that should be loaded already exist, the tag will get a new id. Otherwise, the tag will be dismissed.
     static void saveTags();
@@ -193,7 +193,7 @@ public:
     ~Tag();
     /// SET PROPERTIES:
     void setName(const QString &name);
-    void setShortcut(const KShortcut &shortcut) {
+    void setShortcut(const QKeySequence &shortcut) {
         m_action->setShortcut(shortcut);
     }
     void setInheritedBySiblings(bool inherited) {
@@ -209,7 +209,7 @@ public:
     QString      name()                const {
         return m_name;
     }
-    KShortcut    shortcut()            const {
+    QKeySequence    shortcut()            const {
         return m_action->shortcut();
     }
     bool         inheritedBySiblings() const {
@@ -225,16 +225,15 @@ public:
 private:
     /// PROPERTIES:
     QString      m_name;
-    KAction     *m_action;
+    QAction *m_action;
     bool         m_inheritedBySiblings;
     State::List  m_states;
 };
 
 #include <qicon.h>
-#include <qmenudata.h>
 #include <qstring.h>
 
-#include <KToggleAction>
+//#include <KToggleAction>
 
 /** An action that represents a State or a Tag
  * @author Kelvie Wong
@@ -246,7 +245,7 @@ class StateAction : public KToggleAction
     Q_DISABLE_COPY(StateAction);
 public:
     StateAction(State *state,
-                const KShortcut &shortcut,
+                const QKeySequence &shortcut,
                 QWidget * parent,
                 bool withTagName = false);
 

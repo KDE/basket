@@ -31,14 +31,17 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QStyle>
 
-#include <KDE/KComboBox>
-#include <KDE/KLineEdit>
-#include <KDE/KLocale>
-#include <KDE/KNumInput>
-#include <KDE/KApplication>
-#include <KDE/KIconLoader>
-#include <KDE/KIconDialog>
-#include <kshortcutwidget.h>
+#include <KComboBox>
+#include <QLineEdit>
+#include <QLocale>
+#include <QApplication>
+#include <KIconLoader>
+#include <KIconDialog>
+#include <KShortcutWidget>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "backgroundmanager.h"
 #include "basketscene.h"
@@ -52,21 +55,33 @@
 #include "ui_basketproperties.h"
 
 BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
         , Ui::BasketPropertiesUi()
         , m_basket(basket)
 {
     QWidget *mainWidget = new QWidget(this);
     setupUi(mainWidget);
-    setMainWidget(mainWidget);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
   
     // Set up dialog options
-    setCaption(i18n("Basket Properties"));
-    setButtons(Ok | Apply | Cancel);
-    setDefaultButton(Ok);
+    setWindowTitle(i18n("Basket Properties"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("BasketProperties");
     setModal(true);
-    showButtonSeparator(false);
 
     Ui::BasketPropertiesUi* propsUi = dynamic_cast<Ui::BasketPropertiesUi*>(this); // cast to remove name ambiguity
     propsUi->icon->setIconType(KIconLoader::NoGroup, KIconLoader::Action);
@@ -111,15 +126,14 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
         }
     }
 //  m_backgroundImage->insertItem(i18n("Other..."), -1);
-    int BUTTON_MARGIN = kapp->style()->pixelMetric(QStyle::PM_ButtonMargin);
+    int BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     backgroundImage->setMaxVisibleItems(50/*75 * 6 / m_backgroundImage->sizeHint().height()*/);
     backgroundImage->setMinimumHeight(75 + 2 * BUTTON_MARGIN);
 
     // Disposition:
 
     columnCount->setValue(m_basket->columnsCount());
-    columnCount->setRange(1, 20, /*step=*/1);
-    columnCount->setSliderEnabled(false);
+    columnCount->setRange(1, 20);
     columnCount->setValue(m_basket->columnsCount());
     connect(columnCount, SIGNAL(valueChanged(int)), this, SLOT(selectColumnsLayout()));
 
@@ -151,7 +165,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
                                              "It is useful in addition to the configurable global shortcuts, eg. to paste the clipboard or the selection into the current basket from anywhere.</p>"), 0);
 
     shortcutLayout->addWidget(helpLabel);
-    connect(shortcut, SIGNAL(shortcutChanged(const KShortcut&)), this, SLOT(capturedShortcut(const KShortcut&)));
+    connect(shortcut, SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(capturedShortcut(const QKeySequence&)));
 
     setTabOrder(columnCount, shortcut);
     setTabOrder(shortcut, helpLabel);
@@ -166,7 +180,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 
 
     // Connect the Ok and Apply buttons to actually apply the changes
-    connect(this, SIGNAL(okClicked()), SLOT(applyChanges()));
+    connect(okButton, SIGNAL(clicked()), SLOT(applyChanges()));
     connect(this, SIGNAL(applyClicked()), SLOT(applyChanges()));
 }
 
@@ -206,7 +220,7 @@ void BasketPropertiesDialog::applyChanges()
     m_basket->save();
 }
 
-void BasketPropertiesDialog::capturedShortcut(const KShortcut &sc)
+void BasketPropertiesDialog::capturedShortcut(const QKeySequence &sc)
 {
     // TODO: Validate it!
     shortcut->setShortcut(sc);

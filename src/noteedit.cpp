@@ -20,31 +20,38 @@
 
 #include "noteedit.h"
 
-#include <QtGui/QLabel>
-#include <QtGui/QHBoxLayout>
+#include <QLabel>
+#include <QHBoxLayout>
 #include <QtGui/QTextCharFormat>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QGraphicsProxyWidget>
-#include <QtGui/QGridLayout>
-#include <QtGui/QScrollBar>
-#include <QtGui/QFontComboBox>
+#include <QGraphicsProxyWidget>
+#include <QGridLayout>
+#include <QScrollBar>
+#include <QFontComboBox>
 
-#include <KDE/KApplication>
-#include <KDE/KLineEdit>
-#include <KDE/KUrlRequester>
-#include <KDE/KColorDialog>
-#include <KDE/KColorCombo>
-#include <KDE/KService>
-#include <KDE/KConfig>
-#include <KDE/KMessageBox>
-#include <KDE/KLocale>
-#include <KDE/KToolBar>
-#include <KDE/KAction>
-#include <KDE/KActionCollection>
-#include <KDE/KIconButton>
-#include <KDE/KToggleAction>
-#include <KDE/KDesktopFile>
-#include <KDE/KDebug>
+#include <QApplication>
+#include <QLineEdit>
+#include <KUrlRequester>
+#include <QColorDialog>
+#include <KColorCombo>
+#include <KService>
+#include <KConfig>
+#include <KMessageBox>
+#include <QLocale>
+#include <KToolBar>
+#include <QAction>
+#include <QWidgetAction>
+#include <KActionCollection>
+#include <KIconButton>
+#include <KToggleAction>
+#include <KDesktopFile>
+//#include <KDebug>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KLineEdit>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "notecontent.h"
 #include "notefactory.h"
@@ -212,7 +219,7 @@ void NoteEditor::setInlineEditor(QWidget *inlineEditor)
     }
     else 
     {
-        KLineEdit *lineEdit = dynamic_cast<KLineEdit*>(inlineEditor);
+        QLineEdit *lineEdit = dynamic_cast<QLineEdit*>(inlineEditor);
         if (lineEdit)
 	{
 	  m_lineEdit = lineEdit;
@@ -242,7 +249,7 @@ TextEditor::TextEditor(TextContent *textContent, QWidget *parent)
     textEdit->setPlainText(m_textContent->text());
 
     // Not sure if the following comment is still true
-    // FIXME: Sometimes, the cursor flicker at ends before being positionned where clicked (because kapp->processEvents() I think)
+    // FIXME: Sometimes, the cursor flicker at ends before being positionned where clicked (because qApp->processEvents() I think)
     textEdit->moveCursor(QTextCursor::End);
     textEdit->verticalScrollBar()->setCursor(Qt::ArrowCursor);
     setInlineEditor(textEdit);
@@ -455,7 +462,7 @@ void HtmlEditor::onFontSelectionChanged(const QFont& font)
 
 void HtmlEditor::setBold(bool isChecked)
 {
-    kWarning()<<"setBold "<<isChecked;
+    qWarning()<<"setBold "<<isChecked;
     textEdit()->setFontWeight(isChecked ? QFont::Bold : QFont::Normal);
 }
 
@@ -538,7 +545,7 @@ AnimationEditor::AnimationEditor(AnimationContent *animationContent, QWidget *pa
 FileEditor::FileEditor(FileContent *fileContent, QWidget *parent)
         : NoteEditor(fileContent), m_fileContent(fileContent)
 {
-    KLineEdit *lineEdit = new KLineEdit(parent);
+    QLineEdit *lineEdit = new QLineEdit(parent);
     FocusWidgetFilter *filter = new FocusWidgetFilter(lineEdit);
 
     QPalette palette;
@@ -618,13 +625,13 @@ LauncherEditor::LauncherEditor(LauncherContent *launcherContent, QWidget *parent
 ColorEditor::ColorEditor(ColorContent *colorContent, QWidget *parent)
         : NoteEditor(colorContent)
 {
-    QPointer<KColorDialog> dialog = new KColorDialog(parent);
-    dialog->setColor(colorContent->color());
-    dialog->setCaption(i18n("Edit Color Note"));
-    dialog->setButtons(KDialog::Ok | KDialog::Cancel);
+    QPointer<QColorDialog> dialog = new QColorDialog(parent);
+    dialog->setCurrentColor(colorContent->color());
+    dialog->setWindowTitle(i18n("Edit Color Note"));
+    //dialog->setButtons(QDialog::Ok | QDialog::Cancel);
     if (dialog->exec() == QDialog::Accepted) {
-        if (dialog->color() != colorContent->color()) {
-            colorContent->setColor(dialog->color());
+        if (dialog->currentColor() != colorContent->color()) {
+            colorContent->setColor(dialog->currentColor());
             colorContent->setEdited();
         }
     } else
@@ -632,7 +639,8 @@ ColorEditor::ColorEditor(ColorContent *colorContent, QWidget *parent)
 
     /* This code don't allow to set a caption to the dialog:
     QColor color = colorContent()->color();
-    if (KColorDialog::getColor(color, parent) == QDialog::Accepted && color != m_color) {
+    color = QColorDialog::getColor(parent)==QDialog::Accepted&&color!=m_color);
+    if ( color.isValid() ) {
         colorContent()->setColor(color);
         setEdited();
     }*/
@@ -655,7 +663,7 @@ UnknownEditor::UnknownEditor(UnknownContent *unknownContent, QWidget *parent)
 /** class DebuggedLineEdit: */
 
 DebuggedLineEdit::DebuggedLineEdit(const QString &text, QWidget *parent)
-        : KLineEdit(text, parent)
+        : QLineEdit(text, parent)
 {
 }
 
@@ -666,7 +674,7 @@ DebuggedLineEdit::~DebuggedLineEdit()
 void DebuggedLineEdit::keyPressEvent(QKeyEvent *event)
 {
     QString oldText = text();
-    KLineEdit::keyPressEvent(event);
+    QLineEdit::keyPressEvent(event);
     if (oldText != text())
         emit textChanged(text());
 }
@@ -675,24 +683,36 @@ void DebuggedLineEdit::keyPressEvent(QKeyEvent *event)
 /** class LinkEditDialog: */
 
 LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKeyEvent *ke*/)
-        : KDialog(parent)
+        : QDialog(parent)
         , m_noteContent(contentNote)
 {
-    // KDialog options
-    setCaption(i18n("Edit Link Note"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(i18n("Edit Link Note"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("EditLink");
     setModal(true);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget     *page   = new QWidget(this);
-    setMainWidget(page);
+    mainLayout->addWidget(page);
     //QGridLayout *layout = new QGridLayout(page, /*nRows=*/4, /*nCols=*/2, /*margin=*/0, spacingHint());
     QGridLayout *layout = new QGridLayout(page);
+    mainLayout->addLayout(layout);
 
     QWidget *wid1 = new QWidget(page);
+    mainLayout->addWidget(wid1);
     QHBoxLayout *titleLay = new QHBoxLayout(wid1);
     m_title = new DebuggedLineEdit(m_noteContent->title(), wid1);
     m_autoTitle = new QPushButton(i18n("Auto"), wid1);
@@ -702,17 +722,19 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     titleLay->addWidget(m_autoTitle);
 
     QWidget *wid = new QWidget(page);
+    mainLayout->addWidget(wid);
     QHBoxLayout *hLay = new QHBoxLayout(wid);
     m_icon = new KIconButton(wid);
     QLabel *label3 = new QLabel(page);
+    mainLayout->addWidget(label3);
     label3->setText(i18n("&Icon:"));
     label3->setBuddy(m_icon);
 
     if(m_noteContent->url().isEmpty()){
-      m_url = new  KUrlRequester(KUrl(""), wid);
+      m_url = new  KUrlRequester(QUrl(""), wid);
       m_url->setMode(KFile::File | KFile::ExistingOnly);
     }else{ 
-      m_url = new KUrlRequester(m_noteContent->url().prettyUrl(), wid);
+      m_url = new KUrlRequester(m_noteContent->url().toDisplayString(), wid);
       m_url->setMode(KFile::File | KFile::ExistingOnly);
     }
     
@@ -722,7 +744,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
       m_title->setText(m_noteContent->title());
     }
     
-    KUrl filteredURL = NoteFactory::filteredURL(KUrl(m_url->lineEdit()->text()));//KURIFilter::self()->filteredURI(KUrl(m_url->lineEdit()->text()));
+    QUrl filteredURL = NoteFactory::filteredURL(QUrl::fromUserInput(m_url->lineEdit()->text()));//KURIFilter::self()->filteredURI(KUrl(m_url->lineEdit()->text()));
     m_icon->setIconType(KIconLoader::NoGroup, KIconLoader::MimeType);
     m_icon->setIconSize(LinkLook::lookForURL(filteredURL)->iconSize());
     m_autoIcon = new QPushButton(i18n("Auto"), wid); // Create before to know size here:
@@ -746,10 +768,12 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
 
     //m_url->setShowLocalProtocol(true);
     QLabel *label1 = new QLabel(page);
+    mainLayout->addWidget(label1);
     label1->setText(i18n("Ta&rget:"));
     label1->setBuddy(m_url);
 
     QLabel *label2 = new QLabel(page);
+    mainLayout->addWidget(label2);
     label2->setText(i18n("&Title:"));
     label2->setBuddy(m_title);
 
@@ -768,6 +792,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     connect(m_autoIcon,  SIGNAL(clicked()), this, SLOT(guessIcon()));
 
     QWidget *stretchWidget = new QWidget(page);
+    mainLayout->addWidget(stretchWidget);
     QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     policy.setHorizontalStretch(1);
     policy.setVerticalStretch(255);
@@ -780,7 +805,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
    // urlChanged("");
 
 //  if (ke)
-//      kapp->postEvent(m_url->lineEdit(), ke);
+//      qApp->postEvent(m_url->lineEdit(), ke);
 }
 
 LinkEditDialog::~LinkEditDialog()
@@ -789,7 +814,7 @@ LinkEditDialog::~LinkEditDialog()
 
 void LinkEditDialog::ensurePolished()
 {
-    KDialog::ensurePolished();
+    QDialog::ensurePolished();
     if (m_url->lineEdit()->text().isEmpty()) {
         m_url->setFocus();
         m_url->lineEdit()->end(false);
@@ -806,7 +831,7 @@ void LinkEditDialog::urlChanged(const QString&)
 //  guessTitle();
 //  guessIcon();
     // Optimization (filter only once):
-    KUrl filteredURL = NoteFactory::filteredURL(KUrl(m_url->url()));//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
+    QUrl filteredURL = NoteFactory::filteredURL(m_url->url());//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
     if (m_autoIcon->isChecked())
         m_icon->setIcon(NoteFactory::iconForURL(filteredURL));
     if (m_autoTitle->isChecked()) {
@@ -831,7 +856,7 @@ void LinkEditDialog::doNotAutoIcon(QString)
 void LinkEditDialog::guessIcon()
 {
     if (m_autoIcon->isChecked()) {
-        KUrl filteredURL = NoteFactory::filteredURL(KUrl(m_url->url()));//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
+        QUrl filteredURL = NoteFactory::filteredURL(m_url->url());//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
         m_icon->setIcon(NoteFactory::iconForURL(filteredURL));
     }
 }
@@ -839,7 +864,7 @@ void LinkEditDialog::guessIcon()
 void LinkEditDialog::guessTitle()
 {
     if (m_autoTitle->isChecked()) {
-        KUrl filteredURL = NoteFactory::filteredURL(KUrl(m_url->url()));//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
+        QUrl filteredURL = NoteFactory::filteredURL(m_url->url());//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
         m_title->setText(NoteFactory::titleForURL(filteredURL));
         m_autoTitle->setChecked(true); // Because the setText() will disable it!
     }
@@ -847,7 +872,7 @@ void LinkEditDialog::guessTitle()
 
 void LinkEditDialog::slotOk()
 {
-    KUrl filteredURL = NoteFactory::filteredURL(KUrl(m_url->url()));//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
+    QUrl filteredURL = NoteFactory::filteredURL(m_url->url());//KURIFilter::self()->filteredURI(KUrl(m_url->url()));
     m_noteContent->setLink(filteredURL, m_title->text(), m_icon->icon(), m_autoTitle->isChecked(), m_autoIcon->isChecked());
     m_noteContent->setEdited();
 
@@ -868,31 +893,41 @@ void LinkEditDialog::slotOk()
 /** class CrossReferenceEditDialog: */
 
 CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *contentNote, QWidget *parent/*, QKeyEvent *ke*/)
-        : KDialog(parent)
+        : QDialog(parent)
         , m_noteContent(contentNote)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
 
-    // KDialog options
-    setCaption(i18n("Edit Cross Reference"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(i18n("Edit Cross Reference"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("EditCrossReference");
     setModal(true);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget     *page   = new QWidget(this);
-    setMainWidget(page);
+    mainLayout->addWidget(page);
     QWidget *wid = new QWidget(page);
+    mainLayout->addWidget(wid);
 
     QGridLayout *layout = new QGridLayout(page);
+    mainLayout->addLayout(layout);
 
     m_targetBasket = new KComboBox(wid);
     this->generateBasketList(m_targetBasket);
 
     if(m_noteContent->url().isEmpty()){
         BasketListViewItem *item = Global::bnpView->topLevelItem(0);
-        m_noteContent->setCrossReference(KUrl(item->data(0, Qt::UserRole).toString()), m_targetBasket->currentText(), "edit-copy");
+        m_noteContent->setCrossReference(QUrl::fromUserInput(item->data(0, Qt::UserRole).toString()), m_targetBasket->currentText(), "edit-copy");
         this->urlChanged(0);
     } else {
         QString url = m_noteContent->url().url();
@@ -907,6 +942,7 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     }
 
     QLabel *label1 = new QLabel(page);
+    mainLayout->addWidget(label1);
     label1->setText(i18n("Ta&rget:"));
     label1->setBuddy(m_targetBasket);
 
@@ -916,6 +952,7 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     connect(m_targetBasket,   SIGNAL(activated(int)), this, SLOT(urlChanged(int)));
 
     QWidget *stretchWidget = new QWidget(page);
+    mainLayout->addWidget(stretchWidget);
     QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     policy.setHorizontalStretch(1);
     policy.setVerticalStretch(255);
@@ -930,7 +967,7 @@ CrossReferenceEditDialog::~CrossReferenceEditDialog()
 void CrossReferenceEditDialog::urlChanged(const int index)
 {
     if(m_targetBasket)
-        m_noteContent->setCrossReference(KUrl(m_targetBasket->itemData(index, Qt::UserRole).toStringList().first()),
+        m_noteContent->setCrossReference(QUrl::fromUserInput(m_targetBasket->itemData(index, Qt::UserRole).toStringList().first()),
                                          m_targetBasket->currentText().trimmed(),
                                          m_targetBasket->itemData(index, Qt::UserRole).toStringList().last());
 }
@@ -976,34 +1013,48 @@ void CrossReferenceEditDialog::generateBasketList(KComboBox *targetList, BasketL
 /** class LauncherEditDialog: */
 
 LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
         , m_noteContent(contentNote)
 {
-    // KDialog options
-    setCaption(i18n("Edit Launcher Note"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+
+    // QDialog options
+    setWindowTitle(i18n("Edit Launcher Note"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("EditLauncher");
     setModal(true);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget     *page   = new QWidget(this);
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 
     //QGridLayout *layout = new QGridLayout(page, /*nRows=*/4, /*nCols=*/2, /*margin=*/0, spacingHint());
     QGridLayout *layout = new QGridLayout(page);
+    mainLayout->addLayout(layout);
 
     KService service(contentNote->fullPath());
 
     m_command = new RunCommandRequester(service.exec(), i18n("Choose a command to run:"), page);
-    m_name    = new KLineEdit(service.name(), page);
+    mainLayout->addWidget(m_command);
+    m_name    = new QLineEdit(service.name(), page);
+    mainLayout->addWidget(m_name);
 
     QWidget *wid = new QWidget(page);
+    mainLayout->addWidget(wid);
     QHBoxLayout *hLay = new QHBoxLayout(wid);
     m_icon = new KIconButton(wid);
 
     QLabel *label = new QLabel(page);
+    mainLayout->addWidget(label);
     label->setText(i18n("&Icon:"));
     label->setBuddy(m_icon);
 
@@ -1026,10 +1077,12 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     m_command->lineEdit()->setMinimumWidth(m_command->lineEdit()->fontMetrics().maxWidth()*20);
 
     QLabel *label1 = new QLabel(page);
+    mainLayout->addWidget(label1);
     label1->setText(i18n("Comman&d:"));
     label1->setBuddy(m_command->lineEdit());
 
     QLabel *label2 = new QLabel(page);
+    mainLayout->addWidget(label2);
     label2->setText(i18n("&Name:"));
     label2->setBuddy(m_name);
 
@@ -1041,6 +1094,7 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     layout->addWidget(wid,       2, 1, Qt::AlignVCenter);
 
     QWidget *stretchWidget = new QWidget(page);
+    mainLayout->addWidget(stretchWidget);
 
     QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     policy.setHorizontalStretch(1);
@@ -1058,7 +1112,7 @@ LauncherEditDialog::~LauncherEditDialog()
 
 void LauncherEditDialog::ensurePolished()
 {
-    KDialog::ensurePolished();
+    QDialog::ensurePolished();
     if (m_command->runCommand().isEmpty()) {
         m_command->lineEdit()->setFocus();
         m_command->lineEdit()->end(false);
@@ -1122,15 +1176,16 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     richTextFont->setFixedWidth(richTextFont->sizeHint().width() * 2 / 3);
     richTextFont->setCurrentFont(defaultFont.family());
 
-    KAction *action = ac->addAction("richtext_font");
-    action->setDefaultWidget(richTextFont);
+    QAction *action = ac->addAction("richtext_font");
+    //action->setDefaultWidget(richTextFont); //applicable to QWidgetAction
+    ac->addAssociatedWidget(richTextFont);
     action->setText(i18n("Font"));
     action->setShortcut(Qt::Key_F6);
 
     richTextFontSize = new FontSizeCombo(/*rw=*/true, Global::mainWindow());
     richTextFontSize->setFontSize(defaultFont.pointSize());
     action = ac->addAction("richtext_font_size");
-    action->setDefaultWidget(richTextFontSize);
+    ac->addAssociatedWidget(richTextFontSize);
     action->setText(i18n("Font Size"));
     action->setShortcut(Qt::Key_F7);
 
@@ -1139,67 +1194,67 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     richTextColor->setFixedWidth(richTextColor->sizeHint().height() * 2);
     richTextColor->setColor(textColor);
     action = ac->addAction("richtext_color");
-    action->setDefaultWidget(richTextColor);
+    ac->addAssociatedWidget(richTextColor);
     action->setText(i18n("Color"));
 
     KToggleAction *ta = NULL;
     ta = new KToggleAction(ac);
     ac->addAction("richtext_bold", ta);
     ta->setText(i18n("Bold"));
-    ta->setIcon(KIcon("format-text-bold"));
-    ta->setShortcut(KShortcut("Ctrl+B"));
+    ta->setIcon(QIcon::fromTheme("format-text-bold"));
+    ta->setShortcut(QKeySequence("Ctrl+B"));
     richTextBold = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_italic", ta);
     ta->setText(i18n("Italic"));
-    ta->setIcon(KIcon("format-text-italic"));
-    ta->setShortcut(KShortcut("Ctrl+I"));
+    ta->setIcon(QIcon::fromTheme("format-text-italic"));
+    ta->setShortcut(QKeySequence("Ctrl+I"));
     richTextItalic = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_underline", ta);
     ta->setText(i18n("Underline"));
-    ta->setIcon(KIcon("format-text-underline"));
-    ta->setShortcut(KShortcut("Ctrl+U"));
+    ta->setIcon(QIcon::fromTheme("format-text-underline"));
+    ta->setShortcut(QKeySequence("Ctrl+U"));
     richTextUnderline = ta;
 
 #if 0
     ta = new KToggleAction(ac);
     ac->addAction("richtext_super", ta);
     ta->setText(i18n("Superscript"));
-    ta->setIcon(KIcon("text_super"));
+    ta->setIcon(QIcon::fromTheme("text_super"));
     richTextSuper = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_sub", ta);
     ta->setText(i18n("Subscript"));
-    ta->setIcon(KIcon("text_sub"));
+    ta->setIcon(QIcon::fromTheme("text_sub"));
     richTextSub = ta;
 #endif
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_left", ta);
     ta->setText(i18n("Align Left"));
-    ta->setIcon(KIcon("format-justify-left"));
+    ta->setIcon(QIcon::fromTheme("format-justify-left"));
     richTextLeft = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_center", ta);
     ta->setText(i18n("Centered"));
-    ta->setIcon(KIcon("format-justify-center"));
+    ta->setIcon(QIcon::fromTheme("format-justify-center"));
     richTextCenter = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_right", ta);
     ta->setText(i18n("Align Right"));
-    ta->setIcon(KIcon("format-justify-right"));
+    ta->setIcon(QIcon::fromTheme("format-justify-right"));
     richTextRight = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_block", ta);
     ta->setText(i18n("Justified"));
-    ta->setIcon(KIcon("format-justify-fill"));
+    ta->setIcon(QIcon::fromTheme("format-justify-fill"));
     richTextJustified = ta;
 
     QActionGroup *alignmentGroup = new QActionGroup(this);
@@ -1211,13 +1266,13 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     ta = new KToggleAction(ac);
     ac->addAction("richtext_undo", ta);
     ta->setText(i18n("Undo"));
-    ta->setIcon(KIcon("edit-undo"));
+    ta->setIcon(QIcon::fromTheme("edit-undo"));
     richTextUndo = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_redo", ta);
     ta->setText(i18n("Redo"));
-    ta->setIcon(KIcon("edit-redo"));
+    ta->setIcon(QIcon::fromTheme("edit-redo"));
     richTextRedo = ta;
 
     disableRichTextToolBar();
@@ -1295,6 +1350,6 @@ void InlineEditors::disableRichTextToolBar()
 
 QPalette InlineEditors::palette() const
 {
-    return kapp->palette();
+    return qApp->palette();
 }
 

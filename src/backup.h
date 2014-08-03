@@ -21,7 +21,7 @@
 #ifndef BACKUP_H
 #define BACKUP_H
 
-#include <KDE/KDialog>
+#include <QDialog>
 
 #include <QtCore/QThread>
 
@@ -33,7 +33,7 @@ class QLabel;
 /**
  * @author Sébastien Laoût
  */
-class BackupDialog : public KDialog
+class BackupDialog : public QDialog
 {
     Q_OBJECT
 public:

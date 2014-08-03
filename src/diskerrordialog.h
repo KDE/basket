@@ -21,7 +21,7 @@
 #ifndef DISKERRORDIALOG_H
 #define DISKERRORDIALOG_H
 
-#include <KDE/KDialog>
+#include <QDialog>
 
 class QCloseEvent;
 class QKeyEvent;
@@ -30,7 +30,7 @@ class QKeyEvent;
   * This dialog is modal and is shown until the user has made space on the disk.
   * @author Sébastien Laoût
   */
-class DiskErrorDialog : public KDialog
+class DiskErrorDialog : public QDialog
 {
     Q_OBJECT
 public:

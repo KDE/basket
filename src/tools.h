@@ -70,6 +70,7 @@ QString crossReferenceForConversion(QStringList linkParts);
 
 // String Manipulations:
 QString stripEndWhiteSpaces(const QString &string);
+QString makeStandardCaption(const QString& userCaption); //!< Replacement for KDialog::makeStandardCaption
 
 // Pixmap Manipulations:
 /** @Return true if it is a Web color
@@ -107,7 +108,7 @@ void deleteMetadataRecursively(const QString &folderOrFile);
 QString fileNameForNewFile(const QString &wantedName, const QString &destFolder);
 
 // Other:
-//void iconForURL(const KUrl &url);
+//void iconForURL(const QUrl &url);
 /** @Return true if the source is from a file cutting in Konqueror.
   * @Return false if it was just a copy or if it was a drag.
   */

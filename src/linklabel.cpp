@@ -21,27 +21,28 @@
 #include "linklabel.h"
 
 #include <QtCore/QEvent>
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QBoxLayout>
-#include <QtGui/QGridLayout>
-#include <QtGui/QPixmap>
-#include <QtGui/QFrame>
-#include <QtGui/QCursor>
-#include <QtGui/QCheckBox>
-#include <QtGui/QPainter>
-#include <QtGui/QStyle>
-#include <QtGui/QGroupBox>
+#include <QLabel>
+#include <QLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QBoxLayout>
+#include <QGridLayout>
+#include <QPixmap>
+#include <QFrame>
+#include <QCursor>
+#include <QCheckBox>
+#include <QPainter>
+#include <QStyle>
+#include <QGroupBox>
 
-#include <KDE/KApplication>
-#include <KDE/KAboutData>
-#include <KDE/KComboBox>
-#include <KDE/KLocale>
-#include <KDE/KIconLoader>
-#include <KDE/KUrl>
-#include <KDE/KCModule>
+#include <QApplication>
+#include <KAboutData>
+#include <KComboBox>
+#include <QLocale>
+#include <KIconLoader>
+#include <QUrl>
+#include <KCModule>
+#include <KLocalizedString>
 
 #include "variouswidgets.h"
 #include "tools.h"
@@ -120,9 +121,9 @@ QColor LinkLook::effectiveHoverColor() const
 QColor LinkLook::defaultColor() const
 {
     if (m_useLinkColor)
-        return kapp->palette().color(QPalette::Link);
+        return qApp->palette().color(QPalette::Link);
     else
-        return kapp->palette().color(QPalette::Text);
+        return qApp->palette().color(QPalette::Text);
 }
 
 QColor LinkLook::defaultHoverColor() const
@@ -130,7 +131,7 @@ QColor LinkLook::defaultHoverColor() const
     return Qt::red;
 }
 
-LinkLook* LinkLook::lookForURL(const KUrl &url)
+LinkLook* LinkLook::lookForURL(const QUrl &url)
 {
     return url.isLocalFile() ? localLinkLook : networkLinkLook;
 }
@@ -176,14 +177,14 @@ QString LinkLook::toCSS(const QString &cssClass, const QColor &defaultTextColor)
 
 /** LinkLabel */
 
-LinkLabel::LinkLabel(int hAlign, int vAlign, QWidget *parent, Qt::WFlags f)
+LinkLabel::LinkLabel(int hAlign, int vAlign, QWidget *parent, Qt::WindowFlags f)
         : QFrame(parent, f), m_isSelected(false), m_isHovered(false), m_look(0)
 {
     initLabel(hAlign, vAlign);
 }
 
 LinkLabel::LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign,
-                     QWidget *parent, Qt::WFlags f)
+                     QWidget *parent, Qt::WindowFlags f)
         : QFrame(parent, f), m_isSelected(false), m_isHovered(false), m_look(0)
 {
     initLabel(hAlign, vAlign);
@@ -218,7 +219,7 @@ void LinkLabel::setLink(const QString &title, const QString &icon, LinkLook *loo
         m_look = look; // Needed for icon size
 
     m_title->setText(title);
-    m_title->setShown(! title.isEmpty());
+    m_title->setVisible(! title.isEmpty());
 
     if (icon.isEmpty())
         m_icon->clear();
@@ -227,7 +228,7 @@ void LinkLabel::setLink(const QString &title, const QString &icon, LinkLook *loo
         if (!pixmap.isNull())
             m_icon->setPixmap(pixmap);
     }
-    m_icon->setShown(! icon.isEmpty());
+    m_icon->setVisible(! icon.isEmpty());
 
     if (look)
         setLook(look);
@@ -244,7 +245,7 @@ void LinkLabel::setLook(LinkLook *look) // FIXME: called externaly (so, without 
     m_title->setFont(font);
     QPalette palette;
     if (m_isSelected)
-        palette.setColor(m_title->foregroundRole(), KApplication::palette().color(QPalette::Text));
+        palette.setColor(m_title->foregroundRole(), QApplication::palette().color(QPalette::Text));
     else
         palette.setColor(m_title->foregroundRole(), look->effectiveColor());
 
@@ -352,7 +353,7 @@ void LinkLabel::setSelected(bool selected)
     QPalette palette;
 
     if (selected)
-        palette.setColor(m_title->foregroundRole(), KApplication::palette().color(QPalette::HighlightedText));
+        palette.setColor(m_title->foregroundRole(), QApplication::palette().color(QPalette::HighlightedText));
     else if (m_isHovered)
         palette.setColor(m_title->foregroundRole(), m_look->effectiveHoverColor());
     else
@@ -403,7 +404,7 @@ void LinkDisplay::setLink(const QString &title, const QString &icon, const QPixm
     m_font    = font;
 
     // "Constants":
-    int BUTTON_MARGIN = kapp->style()->pixelMetric(QStyle::PM_ButtonMargin);
+    int BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     int LINK_MARGIN   = BUTTON_MARGIN + 2;
 
     // Recompute m_minWidth:
@@ -441,7 +442,7 @@ void LinkDisplay::setWidth(qreal width)
 void LinkDisplay::paint(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QPalette &palette,
                         bool isDefaultColor, bool isSelected, bool isHovered, bool isIconButtonHovered) const
 {
-    qreal BUTTON_MARGIN = kapp->style()->pixelMetric(QStyle::PM_ButtonMargin);
+    qreal BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     qreal LINK_MARGIN   = BUTTON_MARGIN + 2;
 
     QPixmap pixmap;
@@ -466,13 +467,13 @@ void LinkDisplay::paint(QPainter *painter, qreal x, qreal y, qreal width, qreal 
         QStyleOption opt;
         opt.rect = QRect(-1, -1, iconPreviewWidth + 2 * BUTTON_MARGIN, height + 2);
         opt.state = isIconButtonHovered ? (QStyle::State_MouseOver | QStyle::State_Enabled)  : QStyle::State_Enabled;
-        kapp->style()->drawPrimitive(QStyle::PE_PanelButtonCommand, &opt, painter);
+        qApp->style()->drawPrimitive(QStyle::PE_PanelButtonCommand, &opt, painter);
     }
     painter->drawPixmap(x + BUTTON_MARGIN - 1 + pixmapX, y + pixmapY, pixmap);
 
     // Figure out the text color:
     if (isSelected) {
-        painter->setPen(kapp->palette().color(QPalette::HighlightedText));
+        painter->setPen(qApp->palette().color(QPalette::HighlightedText));
     } else if (isIconButtonHovered)
         painter->setPen(m_look->effectiveHoverColor());
     else if (!isDefaultColor || (!m_look->color().isValid() && !m_look->useLinkColor())) // If the color is FORCED or if the link color default to the text color:
@@ -500,7 +501,7 @@ QPixmap LinkDisplay::feedbackPixmap(qreal width, qreal height, const QPalette &p
 
 bool LinkDisplay::iconButtonAt(const QPointF &pos) const
 {
-    qreal BUTTON_MARGIN    = kapp->style()->pixelMetric(QStyle::PM_ButtonMargin);
+    qreal BUTTON_MARGIN    = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
 //  int LINK_MARGIN      = BUTTON_MARGIN + 2;
     qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width()  : 0));
 
@@ -509,7 +510,7 @@ bool LinkDisplay::iconButtonAt(const QPointF &pos) const
 
 QRectF LinkDisplay::iconButtonRect() const
 {
-    qreal BUTTON_MARGIN    = kapp->style()->pixelMetric(QStyle::PM_ButtonMargin);
+    qreal BUTTON_MARGIN    = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
 //  int LINK_MARGIN      = BUTTON_MARGIN + 2;
     qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width()  : 0));
 
@@ -534,7 +535,7 @@ QFont LinkDisplay::labelFont(QFont font, bool isIconButtonHovered) const
 
 qreal LinkDisplay::heightForWidth(qreal width) const
 {
-    qreal BUTTON_MARGIN     = kapp->style()->pixelMetric(QStyle::PM_ButtonMargin);
+    qreal BUTTON_MARGIN     = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     qreal LINK_MARGIN       = BUTTON_MARGIN + 2;
     qreal iconPreviewWidth  = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width()  : 0));
     qreal iconPreviewHeight = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.height() : 0));
@@ -549,7 +550,7 @@ QString LinkDisplay::toHtml(const QString &/*imageName*/) const
     return "";
 }
 
-QString LinkDisplay::toHtml(HTMLExporter *exporter, const KUrl &url, const QString &title)
+QString LinkDisplay::toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title)
 {
     QString linkIcon;
     if (m_look->previewEnabled() && !m_preview.isNull()) {
@@ -566,13 +567,13 @@ QString LinkDisplay::toHtml(HTMLExporter *exporter, const KUrl &url, const QStri
 
     QString linkTitle = Tools::textToHTMLWithoutP(title.isEmpty() ? m_title : title);
 
-    return QString("<a href=\"%1\">%2 %3</a>").arg(url.prettyUrl(), linkIcon, linkTitle);
+    return QString("<a href=\"%1\">%2 %3</a>").arg(url.toDisplayString(), linkIcon, linkTitle);
 }
 
 /** LinkLookEditWidget **/
 
 LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, const QString exIcon,
-                                       QWidget *parent, Qt::WFlags fl)
+                                       QWidget *parent, Qt::WindowFlags fl)
         : QWidget(parent, fl)
 {
     QLabel      *label;
@@ -642,7 +643,7 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
              "<p>If you do not want the application to create notes depending on the content of the files you drop, "
              "go to the \"General\" page and uncheck \"Image or animation\" in the \"View Content of Added Files for the Following Types\" group.</p>",
              // TODO: Note: you can resize down maximum size of images...
-             KGlobal::mainComponent().aboutData()->programName(), KGlobal::mainComponent().aboutData()->programName()),
+             QGuiApplication::applicationDisplayName(), QGuiApplication::applicationDisplayName()),
         this);
     gl->addWidget(m_label,   4, 0);
     gl->addWidget(m_preview, 4, 1);

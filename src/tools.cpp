@@ -32,13 +32,14 @@
 #include <QtGui/QImage>
 #include <QtGui/QFont>
 #include <QtGui/QFontInfo>
+#include <QGuiApplication>
 
 #include <QtGui/QTextDocument>
 #include <QTextBlock>
 
-#include <KDE/KDebug>
-#include <KDE/KIO/CopyJob>      //For KIO::trash
-#include <KDE/KUrl>
+#include <QDebug>
+#include <KLocalizedString>
+#include <KIO/CopyJob>      //For KIO::trash
 
 #include "debugwindow.h"
 #include "config.h"
@@ -78,7 +79,7 @@ void StopWatch::check(int id)
     double time = starts[id].msecsTo(QTime::currentTime()) / 1000.0;
     totals[id] += time;
     counts[id]++;
-    kDebug() << k_funcinfo << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" <<  endl;
+    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" <<  endl;
 }
 
 
@@ -441,7 +442,7 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                 bool isTextBlack = (textColor == QColor() || textColor == QColor(Qt::black));
 
                 if (charFmt.font() == defaultFont && isTextBlack) {
-                    result += Qt::escape(currentFragment.text());
+                    result += currentFragment.text().toHtmlEscaped();
                     continue;
                 }
 
@@ -478,7 +479,7 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                     result += QString(HTM::COLOR).arg(textColor.name());
 
 
-                result += "\">" + Qt::escape(currentFragment.text()) + "</span>";
+                result += "\">" + currentFragment.text().toHtmlEscaped() + "</span>";
 
                 if (bold)
                     result += "</b>";
@@ -590,7 +591,7 @@ QPixmap Tools::indentPixmap(const QPixmap &source, int depth, int deltaX)
 
     // Create the images:
     QImage resultImage(indent + source.width(), source.height(), QImage::Format_ARGB32);
-    resultImage.setNumColors(32);
+    resultImage.setColorCount(32);
 
     QImage sourceImage = source.toImage();
 
@@ -670,7 +671,7 @@ void Tools::trashRecursively(const QString &folderOrFile)
     deleteMetadataRecursively(folderOrFile);
 #endif
 
-    KIO::trash( KUrl(folderOrFile), KIO::HideProgressInfo );
+    KIO::trash( QUrl::fromLocalFile(folderOrFile), KIO::HideProgressInfo );
 }
 
 
@@ -721,10 +722,10 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
 
 
 // TODO: Move it from NoteFactory
-/*QString NoteFactory::iconForURL(const KUrl &url)
+/*QString NoteFactory::iconForURL(const QUrl &url)
 {
     QString icon = KMimeType::iconNameForUrl(url.url());
-    if ( url.protocol() == "mailto" )
+    if ( url.scheme() == "mailto" )
         icon = "message";
     return icon;
 }*/
@@ -744,7 +745,16 @@ void Tools::printChildren(QObject* parent)
     QObject * obj;
     for (int i = 0 ; i < objs.size() ; i++) {
         obj = objs.at(i);
-        kDebug() << k_funcinfo << obj->metaObject()->className() << ": " << obj->objectName() << endl;
+        qDebug() << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << endl;
     }
 
+}
+
+QString Tools::makeStandardCaption(const QString& userCaption)
+{
+    QString caption = QGuiApplication::applicationDisplayName();
+
+    if (!userCaption.isEmpty())
+        return userCaption + i18nc("Document/application separator in titlebar", " – ") + caption; else
+        return caption;
 }

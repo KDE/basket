@@ -25,7 +25,7 @@
 
 #include "basket_export.h"
 
-class KStatusBar;
+class QStatusBar;
 namespace KParts
 {
     class StatusBarExtension;
@@ -41,7 +41,7 @@ class BASKET_EXPORT BasketStatusBar : public QObject
 {
     Q_OBJECT
 public:
-    BasketStatusBar(KStatusBar *bar);
+    BasketStatusBar(QStatusBar *bar);
     BasketStatusBar(KParts::StatusBarExtension *extension);
     ~BasketStatusBar();
 
@@ -56,12 +56,12 @@ public slots:
     void setUnsavedStatus(bool isUnsaved);
 
 protected:
-    KStatusBar *statusBar() const;
+    QStatusBar *statusBar() const;
     void addWidget(QWidget * widget, int stretch = 0, bool permanent = false);
     void setStatusText(const QString &txt);
     bool eventFilter(QObject * obj, QEvent * event);
 private:
-    KStatusBar                 *m_bar;
+    QStatusBar                 *m_bar;
     KParts::StatusBarExtension *m_extension;
     QLabel                     *m_selectionStatus;
     QLabel                     *m_lockStatus;

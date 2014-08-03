@@ -20,21 +20,26 @@
 
 #include "newbasketdialog.h"
 
-#include <QtGui/QHBoxLayout>
+#include <QHBoxLayout>
 #include <QtGui/QPixmap>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QLabel>
+#include <QVBoxLayout>
+#include <QLabel>
 #include <QtGui/QPainter>
 
-#include <KDE/KComboBox>
-#include <KDE/KLocale>
-#include <KDE/KPushButton>
-#include <KDE/KLineEdit>
-#include <KDE/KGuiItem>
-#include <KDE/KMessageBox>
-#include <KDE/KIconLoader>
-#include <KDE/KIconButton>
-#include <KDE/KMainWindow>      //For Global::mainWindow()
+#include <KComboBox>
+#include <QLocale>
+#include <QPushButton>
+#include <QLineEdit>
+#include <KGuiItem>
+#include <KMessageBox>
+#include <KIconLoader>
+#include <KIconButton>
+#include <KMainWindow>      //For Global::mainWindow()
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "basketfactory.h"
 #include "basketscene.h"
@@ -80,17 +85,27 @@ NewBasketDefaultProperties::NewBasketDefaultProperties()
 /** class NewBasketDialog: */
 
 NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefaultProperties &defaultProperties, QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
         , m_defaultProperties(defaultProperties)
 {
-    // KDialog options
-    setCaption(i18n("New Basket"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(i18n("New Basket"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setObjectName("NewBasket");
     setModal(true);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(slotOk()));
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget *page = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(page);
@@ -107,10 +122,10 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     m_icon->setFixedSize(size, size); // Make it square!
 
     m_icon->setToolTip(i18n("Icon"));
-    m_name = new KLineEdit(/*i18n("Basket"), */page);
+    m_name = new QLineEdit(/*i18n("Basket"), */page);
     m_name->setMinimumWidth(m_name->fontMetrics().maxWidth()*20);
     connect(m_name, SIGNAL(textChanged(const QString&)), this, SLOT(nameChanged(const QString&)));
-    enableButtonOk(false);
+    okButton->setEnabled(false);
     m_name->setToolTip(i18n("Name"));
     m_backgroundColor = new KColorCombo2(QColor(), palette().color(QPalette::Base), page);
     m_backgroundColor->setColor(QColor());
@@ -123,7 +138,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     topLayout->addLayout(nameLayout);
 
     QHBoxLayout *layout = new QHBoxLayout;
-    KPushButton *button = new KPushButton(KGuiItem(i18n("&Manage Templates..."), "configure"), page);
+    QPushButton *button = new QPushButton(page);
+    KGuiItem::assign(button, KGuiItem(i18n("&Manage Templates..."), "configure"));
     connect(button, SIGNAL(clicked()), this, SLOT(manageTemplates()));
     button->hide();
 
@@ -236,7 +252,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     connect(m_templates, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotOk()));
     connect(m_templates, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(returnPressed()));
 
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 
     if (parentBasket) {
         int index = 0;
@@ -260,7 +276,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
 
 void NewBasketDialog::returnPressed()
 {
-    button(Ok)->animateClick();
+    okButton->animateClick();
 }
 
 int NewBasketDialog::populateBasketsList(QTreeWidgetItem *item, int indent, int index)
@@ -292,13 +308,13 @@ NewBasketDialog::~NewBasketDialog()
 
 void NewBasketDialog::ensurePolished()
 {
-    KDialog::ensurePolished();
+    QDialog::ensurePolished();
     m_name->setFocus();
 }
 
 void NewBasketDialog::nameChanged(const QString &newName)
 {
-    enableButtonOk(!newName.isEmpty());
+    okButton->setEnabled(!newName.isEmpty());
 }
 
 void NewBasketDialog::slotOk()

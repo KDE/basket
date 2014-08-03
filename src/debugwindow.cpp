@@ -24,8 +24,8 @@
 #include <QtGui/QCloseEvent>
 #include <QtGui/QVBoxLayout>
 
-#include <KDE/KLocale>
-#include <KDE/KTextBrowser>
+#include <QLocale>
+#include <KTextBrowser>
 
 #include "global.h"
 

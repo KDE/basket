@@ -18,10 +18,12 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <KDE/KCmdLineArgs>
+
 
 #include <kconfig.h> // TMP IN ALPHA 1
 #include <config.h>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 #include "basket_options.h"
 
 #include "application.h"
@@ -32,17 +34,15 @@
 
 int main(int argc, char *argv[])
 {
-    // KCmdLineArgs::init will modify argv[0] so we remember it:
     const char *argv0 = (argc >= 1 ? argv[0] : "");
 
-    KCmdLineOptions opts;
-    setupCmdLineOptions(&opts);
+    Application app(argc, argv);
 
-    KCmdLineArgs::init(argc, argv, Global::about());
-    KCmdLineArgs::addCmdLineOptions(opts);
+    QCommandLineParser opts;
+    setupCmdLineOptions(&opts, app);
 
-    KUniqueApplication::addCmdLineOptions();
-    Application app;
+
+
 
     // Initialize the config file
     Global::basketConfig = KSharedConfig::openConfig("basketrc");
@@ -56,14 +56,14 @@ int main(int argc, char *argv[])
 
     if (Settings::useSystray()) {
         // The user wanted to not show the window (but it is already hidden by default, so we do nothing):
-        if (KCmdLineArgs::parsedArgs() && KCmdLineArgs::parsedArgs()->isSet("start-hidden"))
+        if (opts.isSet(QCommandLineOption("start-hidden")))
             ;
         // When the application is restored by KDE session, restore its state:
         else if (app.isSessionRestored()){
                 if (!Settings::startDocked())
                         win->show();
         }
-        // Else, the application has been launched explicitly by the user (KMenu, keyboard shortcut...), so he need it, we show it:
+        // Else, the application has been launched explicitly by the user (QMenu, keyboard shortcut...), so he need it, we show it:
         else
             win->show();
     } else

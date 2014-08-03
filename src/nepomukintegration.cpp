@@ -12,7 +12,7 @@
 #include <QtDBus/QDBusReply>
 #include <QtXml/QDomDocument>
 
-#include <KDE/KUrl>
+#include <QUrl>
 
 #include "global.h"
 #include "tag.h"
@@ -180,7 +180,7 @@ void nepomukIntegration::queueIndexRequest(KUrl file) {
         isCleaningupRequestedIndexes = false;
     }
     //If there is another one of this file in the queue, do not add it again
-    KUrl indexedFile;
+    QUrl indexedFile;
     foreach (indexedFile, requestedIndexList) {
         if ( indexedFile == file ) {
             DEBUG_WIN << "queueIndexRequest: (duplicate) Done";
@@ -222,7 +222,7 @@ void nepomukIntegration::cleanupRequestedIndexes() {
         return;
     }
     isCleaningupRequestedIndexes = true;
-    KUrl indexedFile = requestedIndexList.takeFirst();
+    QUrl indexedFile = requestedIndexList.takeFirst();
     mutex.unlock();
     DEBUG_WIN << "cleanupRequestedIndexes: unlocked";
 
@@ -280,7 +280,7 @@ void nepomukIntegration::doUpdate() {
     DEBUG_WIN << "Indexing (" << basketFolderName << "): " << basketName ;
     if ( Nepomuk::ResourceManager::instance()->initialized() || Nepomuk::ResourceManager::instance()->init() ) {
         DEBUG_WIN << "\tNepomuk::ResourceManager::instance initialized";
-        KUrl basketUri = KUrl( basketFolderAbsolutePath + ".basket" );
+        QUrl basketUri = KUrl( basketFolderAbsolutePath + ".basket" );
         /* Nepomuk::File basketRes(basketUri); */
         Nepomuk::Resource basketRes(basketUri);
         /*addType works better: basketRes.setProperty( Soprano::Vocabulary::RDF::type(), Soprano::Vocabulary::PIMO::Note() ); */
@@ -316,7 +316,7 @@ void nepomukIntegration::doUpdate() {
         }
         basketFileList << basketFolderAbsolutePath + ".basket";
         QString noteContentFile;
-        KUrl noteUrl;
+        QUrl noteUrl;
         foreach (noteContentFile, basketFileList) {
             DEBUG_WIN << "doUpdate: \t  noteContentFile: " << noteContentFile;
             noteUrl = KUrl( noteContentFile );
@@ -397,7 +397,7 @@ bool nepomukIntegration::doDelete(const QString &fullPath) {
 
     if ( Nepomuk::ResourceManager::instance()->initialized() || Nepomuk::ResourceManager::instance()->init() ) {
         DEBUG_WIN << "\tNepomuk::ResourceManager::instance initialized";
-        KUrl basketUri = KUrl( fullPath );
+        QUrl basketUri = KUrl( fullPath );
         Nepomuk::Resource basketRes(basketUri);
         basketRes.remove();
     } else {

@@ -21,7 +21,7 @@
 #ifndef SOFTWAREIMPORTERS_H
 #define SOFTWAREIMPORTERS_H
 
-#include <KDE/KDialog>
+#include <QDialog>
 
 class QString;
 class QGroupBox;
@@ -36,7 +36,7 @@ class Note;
 /** The dialog to ask how to import hierarchical data.
   * @author Sébastien Laoût
   */
-class TreeImportDialog : public KDialog
+class TreeImportDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -54,7 +54,7 @@ private:
 /** The dialog to ask how to import text files.
   * @author Sébastien Laoût
   */
-class TextFileImportDialog : public KDialog
+class TextFileImportDialog : public QDialog
 {
     Q_OBJECT
 public:

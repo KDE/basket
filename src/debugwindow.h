@@ -21,7 +21,7 @@
 #ifndef DEBUGWINDOW_H
 #define DEBUGWINDOW_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 class QVBoxLayout;
 class KTextBrowser;

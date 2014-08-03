@@ -2,7 +2,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QMutexLocker>
-#include <KDebug>
+//#include <KDebug>
 
 #include "gitwrapper.h"
 #include "basketscene.h"
@@ -30,7 +30,7 @@ void GitWrapper::initializeGitRepository(QString folder)
     int error = git_repository_init(&repo, cString, false);
     if (error < 0) {
         const git_error *e = giterr_last();
-        kDebug() << e->message;
+        qDebug() << e->message;
     }
 
     git_signature *sig = NULL;
@@ -420,7 +420,7 @@ QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
 void GitWrapper::gitErrorHandling()
 {
     const git_error *e = giterr_last();
-    kDebug() << "Error in git (error,class,message)" << e->klass << e->message;
+    qDebug() << "Error in git (error,class,message)" << e->klass << e->message;
 }
 
 #else

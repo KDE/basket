@@ -20,8 +20,8 @@
 
 #include "basketstatusbar.h"
 
-#include <KDE/KLocale>
-#include <KDE/KStatusBar>
+#include <QLocale>
+#include <QStatusBar>
 #include <KParts/StatusBarExtension>
 
 #include <QtCore/QObject>
@@ -34,7 +34,7 @@
 #include "basketscene.h"
 #include "tools.h"
 
-BasketStatusBar::BasketStatusBar(KStatusBar *bar)
+BasketStatusBar::BasketStatusBar(QStatusBar *bar)
         : m_bar(bar), m_extension(0), m_selectionStatus(0), m_lockStatus(0), m_basketStatus(0), m_savedStatus(0)
 {
 }
@@ -49,7 +49,7 @@ BasketStatusBar::~BasketStatusBar()
     //delete m_extension;
 }
 
-KStatusBar *BasketStatusBar::statusBar() const
+QStatusBar *BasketStatusBar::statusBar() const
 {
     if (m_extension)
         return m_extension->statusBar();

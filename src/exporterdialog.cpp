@@ -20,44 +20,61 @@
 
 #include "exporterdialog.h"
 
-#include <KDE/KUrlRequester>
-#include <KDE/KFileDialog>
-#include <KDE/KLineEdit>
-#include <KDE/KLocale>
-#include <KDE/KConfig>
-#include <KDE/KVBox>
+#include <KUrlRequester>
+//#include <KFileDialog>
+#include <QLineEdit>
+#include <QLocale>
+#include <KConfig>
+#include <KVBox>
 
 #include <QtCore/QDir>
 #include <QtGui/QCheckBox>
 #include <QtGui/QLabel>
 #include <QtGui/QHBoxLayout>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "basketscene.h"
 #include "global.h"
 
 ExporterDialog::ExporterDialog(BasketScene *basket, QWidget *parent, const char *name)
-        : KDialog(parent)
+        : QDialog(parent)
         , m_basket(basket)
 {
     // Dialog options
     setObjectName(name);
     setModal(true);
-    setCaption(i18n("Export Basket to HTML"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
-    showButtonSeparator(true);
-    connect(this, SIGNAL(okClicked()), SLOT(save()));
+    setWindowTitle(i18n("Export Basket to HTML"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
+    connect(okButton, SIGNAL(clicked()), SLOT(save()));
 
     KVBox *page  = new KVBox(this);
     QWidget     *wid  = new QWidget(page);
-    setMainWidget(wid);
+    mainLayout->addWidget(wid);
     //QHBoxLayout *hLay = new QHBoxLayout(wid, /*margin=*/0, spacingHint());
     QHBoxLayout *hLay = new QHBoxLayout(wid);
-    m_url = new KUrlRequester(KUrl(""), wid);
+    mainLayout->addWidget(hLay);
+    m_url = new KUrlRequester(QUrl(""), wid);
+    mainLayout->addWidget(m_url);
     m_url->setWindowTitle(i18n("HTML Page Filename"));
     m_url->setFilter("text/html");
-    m_url->fileDialog()->setOperationMode(KFileDialog::Saving);
+    m_url->fileDialog()->setAcceptMode(QFileDialog::AcceptSave);
     QLabel *fileLabel = new QLabel(wid);
+    mainLayout->addWidget(fileLabel);
     fileLabel->setText(i18n("&Filename:"));
     fileLabel->setBuddy(m_url);
     hLay->addWidget(fileLabel);
@@ -93,7 +110,7 @@ ExporterDialog::~ExporterDialog()
 
 void ExporterDialog::show()
 {
-    KDialog::show();
+    QDialog::show();
 
     QString lineEditText = m_url->lineEdit()->text();
     int selectionStart = lineEditText.lastIndexOf("/") + 1;
@@ -106,7 +123,7 @@ void ExporterDialog::load()
 
     QString folder = config.readEntry("lastFolder", QDir::homePath()) + "/";
     QString url = folder + QString(m_basket->basketName()).replace("/", "_") + ".html";
-    m_url->setUrl(KUrl(url));
+    m_url->setUrl(QUrl::fromLocalFile(url));
 
     m_embedLinkedFiles->setChecked(config.readEntry("embedLinkedFiles",    true));
     m_embedLinkedFolders->setChecked(config.readEntry("embedLinkedFolders",  false));
@@ -118,7 +135,7 @@ void ExporterDialog::save()
 {
     KConfigGroup config = Global::config()->group("HTML Export");
 
-    QString folder = KUrl(m_url->url()).directory();
+    QString folder = QUrl::fromLocalFile(m_url->url()).directory();
     config.writeEntry("lastFolder",          folder);
     config.writeEntry("embedLinkedFiles",    m_embedLinkedFiles->isChecked());
     config.writeEntry("embedLinkedFolders",  m_embedLinkedFolders->isChecked());

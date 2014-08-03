@@ -21,15 +21,16 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <KDE/KUniqueApplication>
+#include <QApplication>
+#include <KDBusService>
 
 /**
  * @author Sébastien Laoût <slaout@linux62.org>
  */
-class Application : public KUniqueApplication
+class Application : public QApplication
 {
 public:
-    Application();
+    Application(int &argc, char **argv);
     ~Application();
     int newInstance();
 };

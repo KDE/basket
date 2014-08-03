@@ -25,8 +25,8 @@
 #include <QtGui/QGraphicsView>
 #include <QtXml/QDomElement>
 
-#include <KDE/KLocale>
-#include <KDE/KMessageBox>
+#include <QLocale>
+#include <KMessageBox>
 
 #include "global.h"
 #include "basketscene.h"

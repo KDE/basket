@@ -13,12 +13,12 @@
 #include "crashhandler.h"
 #include "config.h"
 
-#include <KDE/KAboutData>
-#include <KDE/KCmdLineArgs>
-#include <KDE/KComponentData>
-#include <KDE/KTemporaryFile>
-#include <KDE/KToolInvocation>
-#include <KDE/KDebug>
+#include <KAboutData>
+#include <KCmdLineArgs>
+#include <KComponentData>
+#include <KTemporaryFile>
+#include <KToolInvocation>
+//#include <KDebug>
 
 #include <kdeversion.h>
 
@@ -64,7 +64,7 @@ Crash::crashHandler(int /*signal*/)
                            "But, all is not lost! You could potentially help us fix the crash. "
                            "Information describing the crash is below, so just click send, "
                            "or if you have time, write a brief description of how the crash happened first.\n\n"
-                           "Many thanks.", KGlobal::mainComponent().aboutData()->programName()) + "\n\n";
+                           "Many thanks.", QGuiApplication::applicationDisplayName()) + "\n\n";
         body += "\n\n\n\n\n\n" + i18n(
                     "The information below is to help the developers identify the problem, "
                     "please do not modify it.") + "\n\n\n\n";
@@ -96,7 +96,7 @@ Crash::crashHandler(int /*signal*/)
         const int handle = temp.handle();
 
 //             QCString gdb_command_string =
-//                     "file amarokapp\n"
+//                     "file amaroqApp\n"
 //                     "attach " + QCString().setNum( ::getppid() ) + "\n"
 //                     "bt\n" "echo \\n\n"
 //                     "thread apply all bt\n";
@@ -119,7 +119,7 @@ Crash::crashHandler(int /*signal*/)
         gdb  = "gdb --nw -n --batch -x ";
         gdb += temp.fileName().toLatin1();
         gdb += " ";
-	gdb += KCmdLineArgs::qtArgv()[0];
+	gdb += argv[0];
 	gdb += " ";
         gdb += QByteArray().setNum(::getppid());
 
@@ -185,10 +185,10 @@ Crash::crashHandler(int /*signal*/)
                 /*attachURLs*/  QStringList(),
                 /*startup_id*/  "");
         } else {
-            kDebug() << "\n" + i18n("%1 has crashed! We're sorry about this.\n\n"
+            qDebug() << "\n" + i18n("%1 has crashed! We're sorry about this.\n\n"
                                     "But, all is not lost! Perhaps an upgrade is already available "
                                     "which fixes the problem. Please check your distribution's software repository.",
-                                    KGlobal::mainComponent().aboutData()->programName());
+                                    QGuiApplication::applicationDisplayName());
         }
 
         //_exit() exits immediately, otherwise this

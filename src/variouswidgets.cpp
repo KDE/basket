@@ -23,23 +23,27 @@
 #include <QtCore/QList>
 #include <QtCore/QPointer>
 #include <QtCore/QString>
-#include <QtGui/QLabel>
-#include <QtGui/QSizeGrip>
-#include <QtGui/QPushButton>
-#include <QtGui/QSizePolicy>
-#include <QtGui/QHBoxLayout>
+#include <QLabel>
+#include <QSizeGrip>
+#include <QPushButton>
+#include <QSizePolicy>
+#include <QHBoxLayout>
 #include <QtGui/QResizeEvent>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWhatsThis>
+#include <QVBoxLayout>
+#include <QWhatsThis>
 #include <QtGui/QDrag>
 #include <QtGui/QFontDatabase>
 
-#include <KDE/KLineEdit>
-#include <KDE/KListWidget>
-#include <KDE/KLocale>
-#include <KDE/KOpenWithDialog>
-#include <KDE/KPushButton>
+#include <QLineEdit>
+#include <QListWidget>
+#include <QLocale>
+#include <KOpenWithDialog>
+#include <QPushButton>
+#include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <KIconLoader>
+#include <KLocalizedString>
 
 /** class RunCommandRequester: */
 
@@ -49,7 +53,7 @@ RunCommandRequester::RunCommandRequester(const QString &runCommand, const QStrin
     m_message = message;
 
     QHBoxLayout *layout = new QHBoxLayout(this);
-    m_runCommand        = new KLineEdit(runCommand, this);
+    m_runCommand        = new QLineEdit(runCommand, this);
     QPushButton *pb     = new QPushButton(/*"C&hoose..."*/i18n("..."), this);
 
     pb->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -66,7 +70,7 @@ RunCommandRequester::~RunCommandRequester()
 
 void RunCommandRequester::slotSelCommand()
 {
-    QPointer<KOpenWithDialog> dlg =  new KOpenWithDialog(KUrl::List(), m_message, m_runCommand->text(), this);
+    QPointer<KOpenWithDialog> dlg =  new KOpenWithDialog(QList<QUrl>(), m_message, m_runCommand->text(), this);
     dlg->exec();
     if (! dlg->text().isEmpty())
         m_runCommand->setText(dlg->text());
@@ -175,10 +179,10 @@ void HelpLabel::display()
 
 /** class IconSizeDialog: */
 
-class UndraggableKIconView : public KListWidget
+class UndraggableKIconView : public QListWidget
 {
 public:
-    UndraggableKIconView(QWidget * parent = 0) : KListWidget(parent) {
+    UndraggableKIconView(QWidget * parent = 0) : QListWidget(parent) {
         this->setViewMode(QListView::IconMode);
         this->setMovement(QListView::Static);
         this->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -190,15 +194,25 @@ public:
 };
 
 IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, const QString &icon, int iconSize, QWidget *parent)
-        : KDialog(parent)
+        : QDialog(parent)
 {
-    // KDialog options
-    setCaption(caption);
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    // QDialog options
+    setWindowTitle(caption);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(mainWidget);
+    okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
+    mainLayout->addWidget(buttonBox);
+    okButton->setDefault(true);
     setModal(true);
-    showButtonSeparator(false);
-    connect(this, SIGNAL(cancelClicked()), SLOT(slotCancel()));
+    connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(slotCancel()));
 
     QWidget *page = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(page);
@@ -206,7 +220,7 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     QLabel *label = new QLabel(message, page);
     topLayout->addWidget(label);
 
-    KListWidget *iconView = new UndraggableKIconView(page);
+    QListWidget *iconView = new UndraggableKIconView(page);
 
     m_size16  = new QListWidgetItem(DesktopIcon(icon, 16), i18n("16 by 16 pixels"), iconView);
     m_size22  = new QListWidgetItem(DesktopIcon(icon, 22), i18n("22 by 22 pixels"), iconView);
@@ -231,7 +245,7 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     connect(iconView, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(choose(QListWidgetItem*)));
     connect(iconView, SIGNAL(itemSelectionChanged()),          this, SLOT(slotSelectionChanged()));
 
-    setMainWidget(page);
+    mainLayout->addWidget(page);
 }
 
 IconSizeDialog::~IconSizeDialog()
@@ -274,7 +288,7 @@ void IconSizeDialog::slotSelectionChanged()
 
 void IconSizeDialog::choose(QListWidgetItem *)
 {
-    button(Ok)->animateClick();
+    okButton->animateClick();
 }
 
 void IconSizeDialog::slotCancel()

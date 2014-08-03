@@ -21,9 +21,9 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include <KDE/KCModule>
-#include <KDE/KAction>          //For UseSysTray
-#include <KDE/KMainWindow>      //For Global::mainWindow()
+#include <KCModule>
+#include <QAction>          //For UseSysTray
+#include <KMainWindow>      //For Global::mainWindow()
 
 #include <QtCore/QDate>
 
@@ -31,7 +31,6 @@
 #include "bnpview.h"
 #include "systemtray.h"
 
-class KIntNumInput;
 class KComboBox;
 
 class QString;
@@ -39,6 +38,7 @@ class QCheckBox;
 class QPushButton;
 class QPoint;
 class QSize;
+class QSpinBox;
 
 class LinkLook;
 class LinkLookEditWidget;
@@ -66,9 +66,9 @@ private:
     QWidget             *m_systray;
     QCheckBox           *m_showIconInSystray;
     QCheckBox           *m_hideOnMouseOut;
-    KIntNumInput        *m_timeToHideOnMouseOut;
+    QSpinBox        *m_timeToHideOnMouseOut;
     QCheckBox           *m_showOnMouseIn;
-    KIntNumInput        *m_timeToShowOnMouseIn;
+    QSpinBox        *m_timeToShowOnMouseIn;
 };
 
 class BASKET_EXPORT BasketsPage : public KCModule
@@ -98,7 +98,7 @@ private:
     // Protection
     QCheckBox           *m_useGnuPGAgent;
     QCheckBox           *m_enableReLockTimeoutMinutes;
-    KIntNumInput        *m_reLockTimeoutMinutes;
+    QSpinBox        *m_reLockTimeoutMinutes;
 };
 
 class BASKET_EXPORT NewNotesPage : public KCModule
@@ -116,8 +116,8 @@ private slots:
 
 private:
     // Notes Image Size
-    KIntNumInput        *m_imgSizeX;
-    KIntNumInput        *m_imgSizeY;
+    QSpinBox        *m_imgSizeX;
+    QSpinBox        *m_imgSizeY;
     QPushButton         *m_pushVisualize;
 
     // Note Addition
@@ -395,9 +395,9 @@ public:  /* And the following methods are just getter / setters */
             s_useSystray = useSystray;
             if (Global::systemTray != 0L) {
                 if (Settings::useSystray())
-                    Global::systemTray->show();
+                    Global::systemTray->setStatus(KStatusNotifierItem::Active);
                 else {
-                    Global::systemTray->hide();
+                    Global::systemTray->setStatus(KStatusNotifierItem::Passive);
                     if (Global::mainWindow()) Global::mainWindow()->show();
                 }
             }

@@ -24,7 +24,7 @@
 #include "bnpview.h"
 #include "basketscene.h"
 
-#include <KDE/KLocale>
+#include <QLocale>
 
 HistorySetBasket::HistorySetBasket(BasketScene *basket, QUndoCommand *parent)
         :QUndoCommand(parent)

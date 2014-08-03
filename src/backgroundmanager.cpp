@@ -20,23 +20,23 @@
 
 #include "backgroundmanager.h"
 
-#include <KDE/KUrl>
-#include <KDE/KGlobal>
-#include <KDE/KStandardDirs>
-#include <KDE/KConfig>
-#include <KDE/KConfigGroup>
+#include <QUrl>
+#include <KStandardDirs>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include <QtCore/QDir>
 #include <QtGui/QPainter>
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
+#include <QStandardPaths>
 
 /** class BackgroundEntry: */
 
 BackgroundEntry::BackgroundEntry(const QString &location)
 {
     this->location = location;
-    name           = KUrl(location).fileName();
+    name           = QUrl::fromLocalFile(location).fileName();
     tiled          = false;
     pixmap         = 0;
     preview        = 0;
@@ -68,21 +68,21 @@ OpaqueBackgroundEntry::~OpaqueBackgroundEntry()
 
 BackgroundManager::BackgroundManager()
 {
-/// kDebug() << "BackgroundManager: Found the following background images in  ";
-    QStringList directories = KGlobal::dirs()->resourceDirs("data"); // eg. { "/home/seb/.kde/share/apps/", "/usr/share/apps/" }
+/// qDebug() << "BackgroundManager: Found the following background images in  ";
+    QStringList directories = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation) /* WARNING: no more trailing slashes */; // eg. { "/home/seb/.kde/share/apps/", "/usr/share/apps/" }
     // For each folder:
     for (QStringList::Iterator it = directories.begin(); it != directories.end(); ++it) {
         // For each file in those directories:
         QDir dir(*it + "basket/backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
-///     kDebug() << *it + "basket/backgrounds/  ";
+///     qDebug() << *it + "basket/backgrounds/  ";
         QStringList files = dir.entryList();
         for (QStringList::Iterator it2 = files.begin(); it2 != files.end(); ++it2) // TODO: If an image name is present in two folders?
             addImage(*it + "basket/backgrounds/" + *it2);
     }
 
-/// kDebug() << ":";
+/// qDebug() << ":";
 /// for (BackgroundsList::Iterator it = m_backgroundsList.begin(); it != m_backgroundsList.end(); ++it)
-///     kDebug() << "* " << (*it)->location << "  [ref: " << (*it)->name << "]";
+///     qDebug() << "* " << (*it)->location << "  [ref: " << (*it)->name << "]";
 
     connect(&m_garbageTimer, SIGNAL(timeout()), this, SLOT(doGarbage()));
 }
@@ -127,7 +127,7 @@ bool BackgroundManager::subscribe(const QString &image)
         }
         // Return if the image loading has failed:
         if (entry->pixmap->isNull()) {
-///         kDebug() << "BackgroundManager: Failed to load " << entry->location;
+///         qDebug() << "BackgroundManager: Failed to load " << entry->location;
             return false;
         }
         // Success: effectively subscribe:
@@ -135,7 +135,7 @@ bool BackgroundManager::subscribe(const QString &image)
         return true;
     } else {
         // Don't exist: subscription failed:
-///     kDebug() << "BackgroundManager: Requested unexisting image: " << image;
+///     qDebug() << "BackgroundManager: Requested unexisting image: " << image;
         return false;
     }
 }
@@ -146,7 +146,7 @@ bool BackgroundManager::subscribe(const QString &image, const QColor &color)
 
     // First, if the image doesn't exist, isn't subscribed, or failed to load then we don't go further:
     if (!backgroundEntry || !backgroundEntry->pixmap || backgroundEntry->pixmap->isNull()) {
-///     kDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: (" << image << "," << color.name() << ")...";
+///     qDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: (" << image << "," << color.name() << ")...";
         return false;
     }
 
@@ -154,7 +154,7 @@ bool BackgroundManager::subscribe(const QString &image, const QColor &color)
 
     // If this couple is requested for the first time or it haven't been subscribed for a long time enough, create it:
     if (!opaqueBackgroundEntry) {
-///     kDebug() << "BackgroundManager: Computing (" << image << "," << color.name() << ")...";
+///     qDebug() << "BackgroundManager: Computing (" << image << "," << color.name() << ")...";
         opaqueBackgroundEntry = new OpaqueBackgroundEntry(image, color);
         opaqueBackgroundEntry->pixmap = new QPixmap(backgroundEntry->pixmap->size());
         opaqueBackgroundEntry->pixmap->fill(color);
@@ -174,7 +174,7 @@ void BackgroundManager::unsubscribe(const QString &image)
     BackgroundEntry *entry = backgroundEntryFor(image);
 
     if (!entry) {
-///     kDebug() << "BackgroundManager: Wanted to unsuscribe a not subscribed image: " << image;
+///     qDebug() << "BackgroundManager: Wanted to unsuscribe a not subscribed image: " << image;
         return;
     }
 
@@ -188,7 +188,7 @@ void BackgroundManager::unsubscribe(const QString &image, const QColor &color)
     OpaqueBackgroundEntry *entry = opaqueBackgroundEntryFor(image, color);
 
     if (!entry) {
-///     kDebug() << "BackgroundManager: Wanted to unsuscribe a not subscribed colored image: (" << image << "," << color.name() << ")";
+///     qDebug() << "BackgroundManager: Wanted to unsuscribe a not subscribed colored image: (" << image << "," << color.name() << ")";
         return;
     }
 
@@ -202,7 +202,7 @@ QPixmap* BackgroundManager::pixmap(const QString &image)
     BackgroundEntry *entry = backgroundEntryFor(image);
 
     if (!entry || !entry->pixmap || entry->pixmap->isNull()) {
-///     kDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: " << image;
+///     qDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: " << image;
         return 0;
     }
 
@@ -214,7 +214,7 @@ QPixmap* BackgroundManager::opaquePixmap(const QString &image, const QColor &col
     OpaqueBackgroundEntry *entry = opaqueBackgroundEntryFor(image, color);
 
     if (!entry || !entry->pixmap || entry->pixmap->isNull()) {
-///     kDebug() << "BackgroundManager: Requested an unexisting or unsubscribed colored image: (" << image << "," << color.name() << ")";
+///     qDebug() << "BackgroundManager: Requested an unexisting or unsubscribed colored image: (" << image << "," << color.name() << ")";
         return 0;
     }
 
@@ -226,7 +226,7 @@ bool BackgroundManager::tiled(const QString &image)
     BackgroundEntry *entry = backgroundEntryFor(image);
 
     if (!entry || !entry->pixmap || entry->pixmap->isNull()) {
-///     kDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: " << image;
+///     qDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: " << image;
         return false;
     }
 
@@ -258,7 +258,7 @@ QPixmap* BackgroundManager::preview(const QString &image)
     BackgroundEntry *entry = backgroundEntryFor(image);
 
     if (!entry) {
-///     kDebug() << "BackgroundManager: Requested the preview of an unexisting image: " << image;
+///     qDebug() << "BackgroundManager: Requested the preview of an unexisting image: " << image;
         return false;
     }
 
@@ -267,11 +267,11 @@ QPixmap* BackgroundManager::preview(const QString &image)
         return entry->preview;
 
     // Then, try to load the preview from file:
-    QString previewPath = KGlobal::dirs()->findResource("data", "basket/backgrounds/previews/" + entry->name);
+    QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/backgrounds/previews/" + entry->name);
     QPixmap *previewPixmap = new QPixmap(previewPath);
     // Success:
     if (!previewPixmap->isNull()) {
-///     kDebug() << "BackgroundManager: Loaded image preview for " << entry->location << " from file " << previewPath;
+///     qDebug() << "BackgroundManager: Loaded image preview for " << entry->location << " from file " << previewPath;
         entry->preview = previewPixmap;
         return entry->preview;
     }
@@ -319,7 +319,7 @@ QPixmap* BackgroundManager::preview(const QString &image)
     painter.end();
 
     // Saving it to file for later:
-    QString folder = KGlobal::dirs()->saveLocation("data", "basket/backgrounds/previews/");
+    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/previews/");
     result->save(folder + entry->name, "PNG");
 
     // Ouf! That's done:
@@ -343,7 +343,7 @@ QString BackgroundManager::previewPathForImageName(const QString &image)
     if (entry == 0)
         return "";
     else {
-        QString previewPath = KGlobal::dirs()->findResource("data", "basket/backgrounds/previews/" + entry->name);
+        QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/backgrounds/previews/" + entry->name);
         QDir dir;
         if (!dir.exists(previewPath))
             return "";
@@ -364,32 +364,32 @@ void BackgroundManager::requestDelayedGarbage()
 
 void BackgroundManager::doGarbage()
 {
-/// kDebug() << "BackgroundManager: Doing garbage...";
+/// qDebug() << "BackgroundManager: Doing garbage...";
 
-/// kDebug() << "BackgroundManager: Images:";
+/// qDebug() << "BackgroundManager: Images:";
     for (BackgroundsList::Iterator it = m_backgroundsList.begin(); it != m_backgroundsList.end(); ++it) {
         BackgroundEntry *entry = *it;
-///     kDebug() << "* " << entry->name << ": used " << entry->customersCount << " times";
+///     qDebug() << "* " << entry->name << ": used " << entry->customersCount << " times";
         if (entry->customersCount <= 0 && entry->pixmap) {
-///         kDebug() << " [Deleted cached pixmap]";
+///         qDebug() << " [Deleted cached pixmap]";
             delete entry->pixmap;
             entry->pixmap = 0;
         }
-///     kDebug();
+///     qDebug();
     }
 
-/// kDebug() << "BackgroundManager: Opaque Cached Images:";
+/// qDebug() << "BackgroundManager: Opaque Cached Images:";
     for (OpaqueBackgroundsList::Iterator it = m_opaqueBackgroundsList.begin(); it != m_opaqueBackgroundsList.end();) {
         OpaqueBackgroundEntry *entry = *it;
-///     kDebug() << "* " << entry->name << "," << entry->color.name() << ": used " << entry->customersCount << " times";
+///     qDebug() << "* " << entry->name << "," << entry->color.name() << ": used " << entry->customersCount << " times";
         if (entry->customersCount <= 0) {
-///         kDebug() << " [Deleted entry]";
+///         qDebug() << " [Deleted entry]";
             delete entry->pixmap;
             entry->pixmap = 0;
             it = m_opaqueBackgroundsList.erase(it);
         } else
             ++it;
-///     kDebug();
+///     qDebug();
     }
 }
 

@@ -30,17 +30,19 @@
 #include <QtGui/QPainter>
 #include <QtGui/QProgressBar>
 #include <QtXml/QDomDocument>
+#include <QGuiApplication>
 
-#include <KDE/KDebug>
-#include <KDE/KLocale>
-#include <KDE/KAboutData>
-#include <KDE/KStandardDirs>        //For KGlobal::dirs()
-#include <KDE/KMainWindow>          //For Global::MainWindow()
-#include <KDE/KComponentData>       //For KGlobal::mainComponent aboutData
-#include <KDE/KIconLoader>
-#include <KDE/KProgressDialog>
-#include <KDE/KMessageBox>
-#include <KDE/KTar>
+//#include <KDebug>
+#include <QLocale>
+#include <KAboutData>
+#include <KStandardDirs>        //For KGlobal::dirs()
+#include <KMainWindow>          //For Global::MainWindow()
+#include <KComponentData>       //For KGlobal::mainComponent aboutData
+#include <KIconLoader>
+#include <KProgressDialog>
+#include <KMessageBox>
+#include <KTar>
+#include <QStandardPaths>
 
 #include "global.h"
 #include "bnpview.h"
@@ -77,7 +79,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
 
     progress->setValue(progress->value() + 1);      // Preparation finished
 
-    kDebug() << "Preparation finished out of " << progress->maximum();
+    qDebug() << "Preparation finished out of " << progress->maximum();
 
     // Copy the baskets data into the archive:
     QStringList backgrounds;
@@ -184,7 +186,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     }
 
     progress->setValue(progress->value() + 1); // Finishing finished
-    kDebug() << "Finishing finished";
+    qDebug() << "Finishing finished";
 
     // Clean Up Everything:
     dir.remove(tempFolder + "preview.png");
@@ -234,7 +236,7 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
     }
 
     progress->setValue(progress->value() + 1); // Basket exportation finished
-    kDebug() << basket->basketName() << " finished";
+    qDebug() << basket->basketName() << " finished";
 
     // Recursively save child baskets:
     BasketListViewItem *item = Global::bnpView->listViewItemForBasket(basket);
@@ -319,7 +321,7 @@ void Archive::open(const QString &path)
                              "It can be opened but not every information will be available to you. "
                              "For instance, some notes may be missing because they are of a type only available in new versions. "
                              "When saving the file back, consider to save it to another file, to preserve the original one.",
-                             KGlobal::mainComponent().aboutData()->programName()),
+                             QGuiApplication::applicationDisplayName()),
                         i18n("Basket Archive Error")
                     );
                 }
@@ -327,7 +329,7 @@ void Archive::open(const QString &path)
                     KMessageBox::error(
                         0,
                         i18n("This file was created with a recent version of %1. Please upgrade to a newer version to be able to open that file.",
-                             KGlobal::mainComponent().aboutData()->programName()),
+                             QGuiApplication::applicationDisplayName()),
                         i18n("Basket Archive Error")
                     );
                     file.close();
@@ -471,7 +473,7 @@ void Archive::importTagEmblems(const QString &extractionFolder)
 void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 {
     FormatImporter copier; // Only used to copy files synchronously
-    QString destFolder = KGlobal::dirs()->saveLocation("data", "basket/backgrounds/");
+    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/");
 
     QDir dir(extractionFolder + "backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
     QStringList files = dir.entryList();

@@ -25,7 +25,7 @@
 
 class KConfig;
 class KAboutData;
-class KAction;
+class QAction;
 class KActionCollection;
 
 class LikeBackPrivate;
@@ -46,7 +46,7 @@ class LikeBackPrivate;
  *
  * The LikeBack system has 5 components:
  * @li In the application: The comment dialog, where the user write a comment, select a type of comment, etc.
- * @li In the application: The KAction to plug in the Help menu. This action displays the comment dialog.
+ * @li In the application: The QAction to plug in the Help menu. This action displays the comment dialog.
  * @li In the application: The button-bar, that floats bellow titlebar of every windows of the application, and let the user to quickly show the comment dialog.
  *                         The button-bar can be hidden.
  * @li On the server: A PHP script that collects every comments that users send. The LikeBack object should be configured to contact that server.
@@ -126,7 +126,7 @@ public:
     /**
      * Destructor.
      * Also hide the button-bar, if it was shown.
-     * Be careful, the KAction is deleted. Do not use it afterward, and take care to unplug it before destroying this LikeBack instance.
+     * Be careful, the QAction is deleted. Do not use it afterward, and take care to unplug it before destroying this LikeBack instance.
      */
     ~LikeBack();
 
@@ -207,7 +207,7 @@ public:
     quint16 hostPort();
 
     /**
-     * Get the KAction letting user to show the comment dialog.
+     * Get the QAction letting user to show the comment dialog.
      * You should plug it in your Help menu, just bellow the "Report a Bug" action, or replace it.
      * Adding the action below "Report a Bug" or replacing "Report a Bug" depends on your application and if you have a Bugzilla account.
      * If you do not have a Bugzilla account, LikeBack is a good way for your small application to get bug reports: remove "Report a Bug".
@@ -217,7 +217,7 @@ public:
      *       <Action name="likeback_send_a_comment" />
      * @endcode
      */
-    KAction* sendACommentAction(KActionCollection *parent = 0);
+    QAction * sendACommentAction(KActionCollection *parent = 0);
 
     /**
      * @Returns The path of the currently active window. Each windows are separated with "~~".
@@ -278,7 +278,7 @@ public slots:
      * @param windowPath     The window path to send with the comment. If empty (the default), the current window path is took.
      *                       Separate window names with "~~". For instance "MainWindow~~NewFile~~FileOpen".
      *                       If you popup the dialog after an error occurred, you can put the error name in that field (if the window path has no sense in that context).
-     *                       When the dialog is popuped up from the sendACommentAction() KAction, this value is "HelpMenu", because there is no way to know if the user
+     *                       When the dialog is popuped up from the sendACommentAction() QAction, this value is "HelpMenu", because there is no way to know if the user
      *                       is commenting a thing he found/thinked about in a sub-dialog.
      * @param context        Not used for the moment. Will allow more fine-grained application status report.
      */
@@ -300,7 +300,7 @@ private:
 
 private slots:
     /**
-     * Slot triggered by the "Help -> Send a Comment to Developers" KAction.
+     * Slot triggered by the "Help -> Send a Comment to Developers" QAction.
      * It popups the comment dialog, and set the window path to "HelpMenuAction",
      * because current window path has no meaning in that case.
      */

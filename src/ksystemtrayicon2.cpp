@@ -27,9 +27,9 @@
 
 #include <kdeversion.h>
 
-#include <KDE/KApplication>
-#include <KDE/KGlobal>          // To know the program name:
-#include <KDE/KMessageBox>
+#include <QApplication>
+#include <KGlobal>          // To know the program name:
+#include <KMessageBox>
 
 #include <KLocalizedString>
 #include <qdesktopwidget.h>
@@ -69,8 +69,8 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
 
     // Some values we need:
     QPoint g = mapToGlobal(pos());
-    int desktopWidth  = kapp->desktop()->width();
-    int desktopHeight = kapp->desktop()->height();
+    int desktopWidth  = qApp->desktop()->width();
+    int desktopHeight = qApp->desktop()->height();
     int tw = width();
     int th = height();
 
@@ -103,29 +103,29 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
     /*  if (useSystray) {
             // We are testing if one of the corners is hidden, and if yes, we would enter
             // a time consuming process (raise kicker and wait some time):
-    //      if (kapp->widgetAt(g) != this ||
-    //          kapp->widgetAt(g + QPoint(tw-1, 0)) != this ||
-    //          kapp->widgetAt(g + QPoint(0, th-1)) != this ||
-    //          kapp->widgetAt(g + QPoint(tw-1, th-1)) != this) {
+    //      if (qApp->widgetAt(g) != this ||
+    //          qApp->widgetAt(g + QPoint(tw-1, 0)) != this ||
+    //          qApp->widgetAt(g + QPoint(0, th-1)) != this ||
+    //          qApp->widgetAt(g + QPoint(tw-1, th-1)) != this) {
                 int systrayManagerWinId = topLevelWidget()->winId();
                 KWindowSystem::forceActiveWindow(systrayManagerWinId);
-                kapp->processEvents(); // Because without it the systrayManager is raised only after the messageBox is displayed
+                qApp->processEvents(); // Because without it the systrayManager is raised only after the messageBox is displayed
     //          KWindowSystem::activateWindow(systrayManagerWinId);
-    //          kapp->processEvents(); // Because without it the systrayManager is raised only after the messageBox is displayed
+    //          qApp->processEvents(); // Because without it the systrayManager is raised only after the messageBox is displayed
     //              KWindowSystem::raiseWindow(systrayManagerWinId);
-    //          kapp->processEvents(); // Because without it the systrayManager is raised only after the messageBox is displayed
+    //          qApp->processEvents(); // Because without it the systrayManager is raised only after the messageBox is displayed
                 sleep(1);
                 // TODO: Re-verify that at least one corner is now visible
     //      }
         }*/
 
 //  KMessageBox::information(this, QString::number(g.x()) + ":" + QString::number(g.y()) + ":" +
-//                           QString::number((int)(kapp->widgetAt(g+QPoint(1,1)))));
+//                           QString::number((int)(qApp->widgetAt(g+QPoint(1,1)))));
 
     QString message = i18n(
                           "<p>Closing the main window will keep %1 running in the system tray. "
                           "Use <b>Quit</b> from the <b>Basket</b> menu to quit the application.</p>"
-                          , KGlobal::mainComponent().aboutData()->programName());
+                          , QGuiApplication::applicationDisplayName());
     // We are sure the systray icon is visible: ouf!
     if (useSystray) {
         // Compute size and position of the pixmap to be grabbed:
@@ -147,10 +147,10 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
         const int IMAGE_BORDER   = 1;
         int ax = g.x() - x - CIRCLE_MARGINS - 1;
         int ay = g.y() - y - CIRCLE_MARGINS - 1;
-        painter.setPen(QPen(KApplication::palette().dark(), CIRCLE_WIDTH));
+        painter.setPen(QPen(QApplication::palette().dark(), CIRCLE_WIDTH));
         painter.drawArc(ax + SHADOW_OFFSET, ay + SHADOW_OFFSET,
                         tw + 2*CIRCLE_MARGINS, th + 2*CIRCLE_MARGINS, 0, 16*360);
-        painter.setPen(QPen(Qt::red/*KApplication::palette().active().highlight()*/, CIRCLE_WIDTH));
+        painter.setPen(QPen(Qt::red/*QApplication::palette().active().highlight()*/, CIRCLE_WIDTH));
         painter.drawArc(ax, ay, tw + 2*CIRCLE_MARGINS, th + 2*CIRCLE_MARGINS, 0, 16*360);
 #if 1
         // Draw the pixmap over the screenshot in case a window hide the icon:
@@ -160,19 +160,19 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
 
         // Then, we add a border around the image to make it more visible:
         QPixmap finalShot(w + 2*IMAGE_BORDER, h + 2*IMAGE_BORDER);
-        finalShot.fill(KApplication::palette().foreground().color());
+        finalShot.fill(QApplication::palette().foreground().color());
         painter.begin(&finalShot);
         painter.drawPixmap(IMAGE_BORDER, IMAGE_BORDER, shot);
         painter.end();
 
         // Associate source to image and show the dialog:
         QResource::registerResource(finalShot.toImage().bits(), "systray_shot");
-        KMessageBox::information(kapp->activeWindow(),
+        KMessageBox::information(qApp->activeWindow(),
                                  message + "<p><center><img source=\":/systray_shot\"></center></p>",
                                  i18n("Docking in System Tray"), "hideOnCloseInfo");
         QResource::unregisterResource(finalShot.toImage().bits(), "systray_shot");
     } else {
-        KMessageBox::information(kapp->activeWindow(),
+        KMessageBox::information(qApp->activeWindow(),
                                  message,
                                  i18n("Docking in System Tray"), "hideOnCloseInfo");
     }

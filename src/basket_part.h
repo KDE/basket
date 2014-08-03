@@ -21,13 +21,13 @@
 #ifndef _BASKETPART_H_
 #define _BASKETPART_H_
 
-#include <KDE/KParts/Part>
+#include <KParts/Part>
 
 class QWidget;
 class QPainter;
 
 class KAboutData;
-class KUrl;
+class QUrl;
 
 class BNPView;
 
@@ -82,7 +82,7 @@ protected:
     virtual bool saveFile();
 
 protected slots:
-    void setCaption(const QString &caption);
+    void setWindowTitle(const QString &caption);
 
 private:
     BNPView *m_view;

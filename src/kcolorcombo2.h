@@ -21,7 +21,7 @@
 #ifndef KCOLORCOMBO2_H
 #define KCOLORCOMBO2_H
 
-#include <KDE/KComboBox>
+#include <KComboBox>
 
 class QColor;
 class QPixmap;
@@ -61,7 +61,7 @@ class KColorPopup;
  *     QWidget::paletteChange(oldPalette);
  * }
  * @endcode
- * or connect the signal KApplication::kdisplayPaletteChanged() to a slot that will set the default color of this widget.
+ * or connect the signal QApplication::kdisplayPaletteChanged() to a slot that will set the default color of this widget.
  *
  * @par Advanced usage:
  * By default, the combobox show a well balanced rainbow, OK for most usages, and you don't need to do anything for it to work.\n
@@ -75,7 +75,7 @@ class KColorPopup;
  *
  * @see KGlobalSettings Use one of the static functions to get KDE standard colors for default values.
  * @see KColorButton    The same, but without the rainbow popup or the choice of a default color.
- * @see KColorDialog    The dialog that is shown when the user click the "Other..." entry.
+ * @see QColorDialog    The dialog that is shown when the user click the "Other..." entry.
  * @author Sébastien Laoût <slaout@linux62.org>
  *
  * @image html commoncolorselector.png "Common Color Selector ComboBox"

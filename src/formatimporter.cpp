@@ -26,11 +26,11 @@
 #include <QtCore/QTextStream>
 #include <QtXml/QDomDocument>
 
-#include <KDE/KMessageBox>
-#include <KDE/KLocale>
+#include <KMessageBox>
+#include <QLocale>
 #include <KIO/CopyJob>
-#include <KDE/KApplication>
-#include "KDE/KDebug"
+#include <QApplication>
+//#include "KDebug"
 
 #include "notecontent.h"
 #include "notefactory.h"
@@ -61,32 +61,32 @@ bool FormatImporter::shouldImportBaskets()
 void FormatImporter::copyFolder(const QString &folder, const QString &newFolder)
 {
     copyFinished = false;
-    KIO::CopyJob *copyJob = KIO::copyAs(KUrl(folder), KUrl(newFolder), KIO::HideProgressInfo);
-    connect(copyJob,  SIGNAL(copyingDone(KIO::Job *, KUrl, KUrl, time_t, bool, bool)),
+    KIO::CopyJob *copyJob = KIO::copyAs(QUrl::fromLocalFile(folder), QUrl::fromLocalFile(newFolder), KIO::HideProgressInfo);
+    connect(copyJob,  SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
             this, SLOT(slotCopyingDone(KIO::Job*)));
     while (!copyFinished)
-        kapp->processEvents();
+        qApp->processEvents();
 }
 
 void FormatImporter::moveFolder(const QString &folder, const QString &newFolder)
 {
     copyFinished = false;
-    KIO::CopyJob *copyJob = KIO::moveAs(KUrl(folder), KUrl(newFolder), KIO::HideProgressInfo);
-    connect(copyJob,  SIGNAL(copyingDone(KIO::Job *, KUrl, KUrl, time_t, bool, bool)),
+    KIO::CopyJob *copyJob = KIO::moveAs(QUrl::fromLocalFile(folder), QUrl::fromLocalFile(newFolder), KIO::HideProgressInfo);
+    connect(copyJob,  SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
             this, SLOT(slotCopyingDone(KIO::Job*)));
     while (!copyFinished)
-        kapp->processEvents();
+        qApp->processEvents();
 }
 
 void FormatImporter::slotCopyingDone(KIO::Job *)
 {
-//  kDebug() << "Copy finished of " + from.path() + " to " + to.path();
+//  qDebug() << "Copy finished of " + from.path() + " to " + to.path();
     copyFinished = true;
 }
 
 void FormatImporter::importBaskets()
 {
-    kDebug() << "Import Baskets: Preparing...";
+    qDebug() << "Import Baskets: Preparing...";
 
     // Some preliminary preparations (create the destination folders and the basket tree file):
     QDir dirPrep;
@@ -122,13 +122,13 @@ void FormatImporter::importBaskets()
                 if (!(baskets.contains((*it) + "/")) && baskets.contains(*it))   // And if it is not already in the imported baskets list
                     baskets.append(*it);
 
-    kDebug() << "Import Baskets: Found " << baskets.count() << " baskets to import.";
+    qDebug() << "Import Baskets: Found " << baskets.count() << " baskets to import.";
 
     // Import every baskets:
     int i = 0;
     for (QStringList::iterator it = baskets.begin(); it != baskets.end(); ++it) {
         ++i;
-        kDebug() << "Import Baskets: Importing basket " << i << " of " << baskets.count() << "...";
+        qDebug() << "Import Baskets: Importing basket " << i << " of " << baskets.count() << "...";
 
         // Move the folder to the new repository (normal basket) or copy the folder (mirorred folder):
         QString folderName = *it;
@@ -160,7 +160,7 @@ void FormatImporter::importBaskets()
     }
 
     // Finalize (write to disk and delete now useless files):
-    kDebug() << "Import Baskets: Finalizing...";
+    qDebug() << "Import Baskets: Finalizing...";
 
     QFile file(Global::basketsFolder() + "baskets.xml");
     if (file.open(QIODevice::WriteOnly)) {
@@ -175,7 +175,7 @@ void FormatImporter::importBaskets()
     Tools::deleteRecursively(Global::savesFolder() + ".tmp");
     dir.remove(Global::savesFolder() + "container.baskets");
 
-    kDebug() << "Import Baskets: Finished.";
+    qDebug() << "Import Baskets: Finished.";
 }
 
 QDomElement FormatImporter::importBasket(const QString &folderName)
@@ -183,7 +183,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     // Load the XML file:
     QDomDocument *document = XMLWork::openFile("basket", Global::basketsFolder() + folderName + "/.basket");
     if (!document) {
-        kDebug() << "Import Baskets: Failed to read the basket file!";
+        qDebug() << "Import Baskets: Failed to read the basket file!";
         return QDomElement();
     }
     QDomElement docElem = document->documentElement();
@@ -192,7 +192,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     QDomElement properties = XMLWork::getElement(docElem, "properties");
     QDomElement background = XMLWork::getElement(properties, "background");
     QColor backgroundColor = QColor(background.attribute("color"));
-    if (backgroundColor.isValid() && (backgroundColor != kapp->palette().color(QPalette::Base))) { // Use the default color if it was already that color:
+    if (backgroundColor.isValid() && (backgroundColor != qApp->palette().color(QPalette::Base))) { // Use the default color if it was already that color:
         QDomElement appearance = document->createElement("appearance");
         appearance.setAttribute("backgroundColor", backgroundColor.name());
         properties.appendChild(appearance);
@@ -302,7 +302,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
         stream << document->toString(); // Document is ALREADY using UTF-8
         file.close();
     } else
-        kDebug() << "Import Baskets: Failed to save the basket file!";
+        qDebug() << "Import Baskets: Failed to save the basket file!";
 
     // Return the newly created properties (to put in the basket tree):
     return properties;
