@@ -50,6 +50,5 @@
         <match type="string" offset="39" value="!DOCTYPE basket>"/>
       </match>
     </magic>
-    <root-XML localName="basket" />
   </mime-type>
 </mime-info>
