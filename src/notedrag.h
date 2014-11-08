@@ -68,9 +68,12 @@ public:
     static Note* decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes);
     static BasketScene* basketOf(const QMimeData *source);
     static QList<Note*> notesOf(QGraphicsSceneDragDropEvent *source);
+    static void saveNoteSelectionToList(NoteSelection *selection); ///< Traverse @p selection and save all note pointers to @p selectedNotes
     static void createAndEmptyCuttingTmpFolder();
 
     static const char *NOTE_MIME_STRING;
+
+    static QList<Note*> selectedNotes; ///< The notes being selected and dragged
 };
 
 /** QTextDrag with capabilities to drop GNOME and Mozilla texts

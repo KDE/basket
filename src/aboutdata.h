@@ -21,7 +21,7 @@
 #define ABOUTDATA_H
 
 #include <KDE/KAboutData>
-#include <basket_export.h>
+#include "basket_export.h"
 
 /**
     @author Sébastien Laoût <slaout@linux62.org>
