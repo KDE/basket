@@ -21,7 +21,6 @@
 #include "tag.h"
 
 #include <KIconLoader>
-#include <QLocale>
 #include <KActionCollection>
 #include <KLocalizedString>
 
@@ -30,6 +29,7 @@
 #include <QtCore/QTextStream>
 #include <QtGui/QFont>
 #include <QtXml/QDomDocument>
+#include <QLocale>
 
 #include "xmlwork.h"
 #include "global.h"

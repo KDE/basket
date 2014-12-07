@@ -21,27 +21,28 @@
 #include "basketproperties.h"
 
 #include <QtCore/QStringList>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QGridLayout>
 #include <QtGui/QPixmap>
-#include <QtGui/QLabel>
-#include <QtGui/QRadioButton>
-#include <QtGui/QGroupBox>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QStyle>
-
-#include <KComboBox>
+#include <QLabel>
+#include <QRadioButton>
+#include <QGroupBox>
+#include <QButtonGroup>
+#include <QStyle>
 #include <QLineEdit>
 #include <QLocale>
 #include <QApplication>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KComboBox>
 #include <KIconLoader>
 #include <KIconDialog>
 #include <KShortcutWidget>
-#include <QDialogButtonBox>
 #include <KConfigGroup>
-#include <QPushButton>
-#include <QVBoxLayout>
+#include <KLocalizedString>
 
 #include "backgroundmanager.h"
 #include "basketscene.h"
@@ -59,16 +60,11 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
         , Ui::BasketPropertiesUi()
         , m_basket(basket)
 {
-    QWidget *mainWidget = new QWidget(this);
-    setupUi(mainWidget);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-    mainLayout->addWidget(mainWidget);
-  
     // Set up dialog options
     setWindowTitle(i18n("Basket Properties"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
     QWidget *mainWidget = new QWidget(this);
+    setupUi(mainWidget);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
@@ -150,7 +146,8 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     mindMap->hide();
 
     // Keyboard Shortcut:
-    shortcut->setShortcut(m_basket->shortcut());
+    QList<QKeySequence> shortcuts{m_basket->shortcut()};
+    shortcut->setShortcut(shortcuts);
 
     HelpLabel *helpLabel = new HelpLabel(i18n("Learn some tips..."), i18n(
                                              "<p><strong>Easily Remember your Shortcuts</strong>:<br>"
@@ -206,11 +203,11 @@ void BasketPropertiesDialog::applyChanges()
     }
 
     if (showBasket->isChecked()) {
-        m_basket->setShortcut(shortcut->shortcut(), 0);
+        m_basket->setShortcut(shortcut->shortcut()[0], 0);
     } else if (globalButton->isChecked()) {
-        m_basket->setShortcut(shortcut->shortcut(), 1);
+        m_basket->setShortcut(shortcut->shortcut()[0], 1);
     } else if (switchButton->isChecked()) {
-        m_basket->setShortcut(shortcut->shortcut(), 2);
+        m_basket->setShortcut(shortcut->shortcut()[0], 2);
     }
 
     Ui::BasketPropertiesUi* propsUi = dynamic_cast<Ui::BasketPropertiesUi*>(this);
@@ -223,7 +220,8 @@ void BasketPropertiesDialog::applyChanges()
 void BasketPropertiesDialog::capturedShortcut(const QKeySequence &sc)
 {
     // TODO: Validate it!
-    shortcut->setShortcut(sc);
+    QList<QKeySequence> shortcuts{sc};
+    shortcut->setShortcut(shortcuts);
 }
 
 void BasketPropertiesDialog::selectColumnsLayout()

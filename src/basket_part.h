@@ -21,7 +21,8 @@
 #ifndef _BASKETPART_H_
 #define _BASKETPART_H_
 
-#include <KParts/Part>
+#include <KParts/ReadWritePart>
+#include <KPluginFactory>
 
 class QWidget;
 class QPainter;
@@ -87,5 +88,7 @@ protected slots:
 private:
     BNPView *m_view;
 };
+
+K_PLUGIN_FACTORY_DECLARATION(BasketFactory)
 
 #endif // _BASKETPART_H_

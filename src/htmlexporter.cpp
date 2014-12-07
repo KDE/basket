@@ -29,15 +29,12 @@
 #include "linklabel.h"
 #include "notecontent.h"
 
-#include <QApplication>
 #include <KAboutData>
-//#include <KDebug>
-#include <QLocale>
-#include <KGlobal>
 #include <KConfig>
-//#include <KFileDialog>
+#include <KConfigGroup>
 #include <KMessageBox>
-#include <KProgressDialog>
+#include <KLocalizedString>
+#include <KIconLoader>
 
 #include <KIO/Job>      //For KIO::file_copy
 #include <KIO/CopyJob>  //For KIO::copy
@@ -48,6 +45,10 @@
 #include <QtCore/QList>
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
+#include <QApplication>
+#include <QFileDialog>
+#include <QLocale>
+#include <QProgressDialog>
 
 HTMLExporter::HTMLExporter(BasketScene *basket)
 {
@@ -85,20 +86,20 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
     }
 
     // Create the progress dialog that will always be shown during the export:
-    KProgressDialog dialog(0, i18n("Export to HTML"), i18n("Exporting to HTML. Please wait..."));
-    dialog.showCancelButton(false);
-    dialog.setAutoClose(true);
-    dialog.show();
-    progress = dialog.progressBar();
+    dialog->setWindowTitle(i18n("Export to HTML"));
+    dialog->setLabelText(i18n("Exporting to HTML. Please wait..."));
+    dialog->setCancelButton(NULL);
+    dialog->setAutoClose(true);
+    dialog->show();
 
     // Remember the last folder used for HTML exporation:
-    config.writeEntry("lastFolder", QUrl::fromLocalFile(destination).directory());
+    config.writeEntry("lastFolder", QUrl::fromLocalFile(destination).adjusted(QUrl::RemoveFilename).path());
     config.sync();
 
     prepareExport(basket, destination);
     exportBasket(basket, /*isSubBasketScene*/false);
 
-    progress->setValue(progress->value() + 1); // Finishing finished
+    dialog->setValue(dialog->value() + 1); // Finishing finished
 }
 
 HTMLExporter::~HTMLExporter()
@@ -107,8 +108,8 @@ HTMLExporter::~HTMLExporter()
 
 void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
 {
-    progress->setRange(0,/*Preparation:*/1 + /*Finishing:*/1 + /*Basket:*/1 + /*SubBaskets:*/Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)));
-    progress->setValue(0);
+    dialog->setRange(0,/*Preparation:*/1 + /*Finishing:*/1 + /*Basket:*/1 + /*SubBaskets:*/Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)));
+    dialog->setValue(0);
     qApp->processEvents();
 
     // Remember the file path chozen by the user:
@@ -134,7 +135,7 @@ void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
     dir.mkdir(imagesFolderPath);
     dir.mkdir(basketsFolderPath);
 
-    progress->setValue(progress->value() + 1); // Preparation finished
+    dialog->setValue(dialog->value() + 1); // Preparation finished
 }
 
 void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
@@ -373,7 +374,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
 
     file.close();
     stream.setDevice(0);
-    progress->setValue(progress->value() + 1); // Basket exportation finished
+    dialog->setValue(dialog->value() + 1); // Basket exportation finished
 
     // Recursively export child baskets:
     BasketListViewItem *item = Global::bnpView->listViewItemForBasket(basket);

@@ -100,6 +100,7 @@ private:
     QRadioButton *bugButton;
     QRadioButton *featureButton;
     QCheckBox    *m_showButtons;
+    QDialogButtonBox *buttonBox;
     QString introductionText();
 private slots:
     void ensurePolished();

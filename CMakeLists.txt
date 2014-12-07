@@ -1,17 +1,20 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.12)
 set(BASKET_DISABLE_GPG "0" CACHE BOOL "Disables GPG Support")
 
 find_package(X11 REQUIRED)
-find_package(KDE4 REQUIRED)
-find_package(QImageBlitz REQUIRED)
+
+# KDE
+find_package(ECM REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 IF(NOT BASKET_DISABLE_GPG)
-  find_package(Gpgme REQUIRED)
+  find_package(KF5Wallet)
   find_package(Gpgmepp REQUIRED)
 ENDIF(NOT BASKET_DISABLE_GPG)
 
-find_package(Soprano)
-find_package(Nepomuk)
+#Port these
+# find_package(Soprano)
+# find_package(Nepomuk)
 find_package(SharedDesktopOntologies)
 
 # libgit2
@@ -31,11 +34,41 @@ find_package(KdepimLibs REQUIRED)
 include_directories(${KDEPIMLIBS_INCLUDE_DIRS})
 endif (BUILD_KPARTS)
 
-add_definitions(${QT_DEFINITIONS} ${KDE4_DEFINITIONS})
+find_package(Qt5 REQUIRED COMPONENTS
+  Core
+  Gui
+  DBus
+)
 
-include(KDE4Defaults)
+include(KDECompilerSettings)
+include(KDEInstallDirs)
+include(ECMInstallIcons)
+include(KDECMakeSettings)
 
-include(MacroLibrary)
+find_package(KF5 REQUIRED COMPONENTS
+  Archive
+  Config
+  ConfigWidgets #KCM
+  CoreAddons
+  Crash
+  DBusAddons
+  DocTools
+  FrameworkIntegration
+  GlobalAccel
+  GuiAddons
+  I18n
+  IconThemes
+  KCMUtils
+  KIO
+  Notifications
+  Parts
+  TextWidgets
+  WindowSystem
+  XmlGui
+)
+
+find_package(Phonon4Qt5 REQUIRED)
+
 
 IF(GPGME_FOUND)
   SET(HAVE_LIBGPGME 1)
@@ -60,9 +93,6 @@ ENDIF(SHAREDDESKTOPONTOLOGIES_FOUND AND SOPRANO_FOUND AND NEPOMUK_FOUND)
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 
-
-include_directories(${KDE4_INCLUDES} ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${X11_INCLUDES} )
-
 add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(po)
@@ -71,3 +101,5 @@ add_subdirectory(welcome)
 add_subdirectory(backgrounds)
 add_subdirectory(images)
 add_subdirectory(file-integration)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

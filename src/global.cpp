@@ -20,16 +20,13 @@
 
 #include "global.h"
 
-#include <KGlobal>
-#include <KStandardDirs>
-
-#include <QApplication>
 #include <KMainWindow>
 #include <KConfig>
 
 #include <QtCore/QString>
 #include <QtCore/QDir>
 #include <QStandardPaths>
+#include <QApplication>
 
 #include "gitwrapper.h"
 #include "aboutdata.h"
@@ -46,6 +43,7 @@ SystemTray        *Global::systemTray          = 0L;
 BNPView           *Global::bnpView             = 0L;
 KSharedConfig::Ptr Global::basketConfig;
 AboutData          Global::basketAbout;
+QCommandLineParser* Global::commandLineOpts    = NULL;
 
 void Global::setCustomSavesFolder(const QString &folder)
 {

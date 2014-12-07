@@ -570,7 +570,7 @@ public:
     static void acceptDropEvent(QGraphicsSceneDragDropEvent *event, bool preCond = true);
     void dropEvent(QGraphicsSceneDragDropEvent *event);
     void blindDrop(QGraphicsSceneDragDropEvent * event);
-    void blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction, QWidget *source);
+    void blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction, QObject *source);
     bool isDuringDrag() {
         return m_isDuringDrag;
     }

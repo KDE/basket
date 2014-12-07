@@ -20,7 +20,6 @@
 
 #include "basket_part.h"
 
-#include <KParts/Factory>
 #include <KParts/StatusBarExtension>
 #include <kdemacros.h>
 
@@ -28,11 +27,9 @@
 #include "basketstatusbar.h"
 #include "bnpview.h"
 
-K_PLUGIN_FACTORY(BasketFactory, 
+K_PLUGIN_FACTORY_DEFINITION(BasketFactory,
                  registerPlugin<BasketPart>();
                 )
-
-K_EXPORT_PLUGIN(BasketFactory("basket", "basket"))
 
 BasketPart::BasketPart(QWidget *parentWidget, QObject *parent, const QList<QVariant> &)
         : KParts::ReadWritePart(parent)
@@ -50,7 +47,8 @@ BasketPart::BasketPart(QWidget *parentWidget, QObject *parent, const QList<QVari
     // notify the part that this is our internal widget
     setWidget(m_view);
 
-    setComponentData(BasketFactory::componentData());
+    //setComponentData(BasketFactory::componentData());
+    setComponentName(Global::basketAbout.componentName(), Global::basketAbout.displayName());
 
     // set our XML-UI resource file
     setXMLFile("basket_part.rc", true);
@@ -98,4 +96,3 @@ void BasketPart::setWindowTitle(const QString &caption)
 {
     emit setWindowCaption(caption);
 }
-

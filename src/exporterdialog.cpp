@@ -21,20 +21,20 @@
 #include "exporterdialog.h"
 
 #include <KUrlRequester>
-//#include <KFileDialog>
-#include <QLineEdit>
-#include <QLocale>
 #include <KConfig>
-#include <KVBox>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KLineEdit>
 
 #include <QtCore/QDir>
-#include <QtGui/QCheckBox>
-#include <QtGui/QLabel>
-#include <QtGui/QHBoxLayout>
+#include <QCheckBox>
+#include <QLabel>
+#include <QHBoxLayout>
 #include <QDialogButtonBox>
-#include <KConfigGroup>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QLineEdit>
+#include <QLocale>
 
 #include "basketscene.h"
 #include "global.h"
@@ -62,12 +62,15 @@ ExporterDialog::ExporterDialog(BasketScene *basket, QWidget *parent, const char 
     okButton->setDefault(true);
     connect(okButton, SIGNAL(clicked()), SLOT(save()));
 
-    KVBox *page  = new KVBox(this);
+    QWidget *page  = new QWidget(this);
+    QVBoxLayout *pageVBoxLayout = new QVBoxLayout(page);
+    pageVBoxLayout->setMargin(0);
     QWidget     *wid  = new QWidget(page);
+    pageVBoxLayout->addWidget(wid);
     mainLayout->addWidget(wid);
     //QHBoxLayout *hLay = new QHBoxLayout(wid, /*margin=*/0, spacingHint());
     QHBoxLayout *hLay = new QHBoxLayout(wid);
-    mainLayout->addWidget(hLay);
+    mainLayout->addLayout(hLay);
     m_url = new KUrlRequester(QUrl(""), wid);
     mainLayout->addWidget(m_url);
     m_url->setWindowTitle(i18n("HTML Page Filename"));
@@ -81,9 +84,13 @@ ExporterDialog::ExporterDialog(BasketScene *basket, QWidget *parent, const char 
     hLay->addWidget(m_url);
 
     m_embedLinkedFiles    = new QCheckBox(i18n("&Embed linked local files"),              page);
+    pageVBoxLayout->addWidget(m_embedLinkedFiles);
     m_embedLinkedFolders  = new QCheckBox(i18n("Embed &linked local folders"),            page);
+    pageVBoxLayout->addWidget(m_embedLinkedFolders);
     m_erasePreviousFiles  = new QCheckBox(i18n("Erase &previous files in target folder"), page);
+    pageVBoxLayout->addWidget(m_erasePreviousFiles);
     m_formatForImpression = new QCheckBox(i18n("For&mat for impression"),                 page);
+    pageVBoxLayout->addWidget(m_formatForImpression);
     m_formatForImpression->hide();
 
     load();
@@ -135,7 +142,7 @@ void ExporterDialog::save()
 {
     KConfigGroup config = Global::config()->group("HTML Export");
 
-    QString folder = QUrl::fromLocalFile(m_url->url()).directory();
+    QString folder = QUrl::fromLocalFile(m_url->url().toString()).adjusted(QUrl::RemoveFilename).path();
     config.writeEntry("lastFolder",          folder);
     config.writeEntry("embedLinkedFiles",    m_embedLinkedFiles->isChecked());
     config.writeEntry("embedLinkedFolders",  m_embedLinkedFolders->isChecked());

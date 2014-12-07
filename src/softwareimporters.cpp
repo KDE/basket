@@ -30,16 +30,16 @@
 #include <QRadioButton>
 #include <QtXml/QDomDocument>
 #include <QRegExp>
-
 #include <QLocale>
-#include <KMessageBox>
-#include <KTextEdit>
 #include <QDialogButtonBox>
-#include <KConfigGroup>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QStandardPaths>
 #include <QFileDialog>
+
+#include <KMessageBox>
+#include <KTextEdit>
+#include <KConfigGroup>
 #include <KLocalizedString>
 
 #include "basketscene.h"

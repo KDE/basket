@@ -28,13 +28,10 @@
 #include <QStyle>
 #include <QStyleOption>
 #include <QtGui/QImage>
-
-#include <qimageblitz/qimageblitz.h>        //For Blitz::fade(...)
-
-//#include <KDebug>
 #include <QApplication>
-#include <KIconLoader>
 #include <QLocale>  //For KGLobal::locale(
+
+#include <KIconLoader>
 
 #include <stdlib.h> // rand() function
 #include <math.h> // sqrt() and pow() functions
@@ -2356,16 +2353,6 @@ void Note::unbufferizeAll()
             child->unbufferizeAll();
             child = child->next();
         }
-    }
-}
-
-void Note::bufferizeSelectionPixmap()
-{
-    if (m_bufferedSelectionPixmap.isNull()) {
-        QColor insideColor = palette().color(QPalette::Highlight);
-        QImage image = m_bufferedPixmap.toImage();
-        image = Blitz::fade(image, 0.25, insideColor);
-        m_bufferedSelectionPixmap = QPixmap::fromImage(image);
     }
 }
 

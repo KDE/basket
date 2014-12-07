@@ -40,12 +40,11 @@
 #include <QTextCodec>
 #include <QMimeDatabase>
 #include <QMimeData>
-#include <KIO/AccessManager>
-
-//#include <KDebug>
-#include <KService>
 #include <QLocale>
-#include <KDELibs4Support/KDE/KFileMetaInfo>
+
+#include <KIO/AccessManager>
+#include <KService>
+//#include <KDELibs4Support/KDE/KFileMetaInfo>
 #include <KFileItem>
 #include <KIO/PreviewJob>                   //For KIO::file_preview(...)
 #include <KEncodingProber>
@@ -1483,6 +1482,7 @@ void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
         values->append(mime.comment());
     }
 
+    /* PORTING: try KFileMetaData/Extractor
     KFileMetaInfo info = KFileMetaInfo(fullPath());
     if (info.isValid()) {
         QStringList groups = info.preferredKeys();
@@ -1500,7 +1500,7 @@ void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
                 ++i;
             }
         }
-    }
+    }*/
 }
 
 int FileContent::zoneAt(const QPointF &pos)

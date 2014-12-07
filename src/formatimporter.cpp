@@ -25,12 +25,12 @@
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
 #include <QtXml/QDomDocument>
+#include <QLocale>
+#include <QApplication>
 
 #include <KMessageBox>
-#include <QLocale>
 #include <KIO/CopyJob>
-#include <QApplication>
-//#include "KDebug"
+#include <KLocalizedString>
 
 #include "notecontent.h"
 #include "notefactory.h"

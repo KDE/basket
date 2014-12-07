@@ -28,7 +28,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QDateTime>  // seed for rand()
 #include <QtCore/QTimeLine>
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QtGui/QDrag>
 #include <QtGui/QDragMoveEvent>
 #include <QtGui/QDragEnterEvent>
@@ -41,38 +41,41 @@
 #include <QtGui/QFocusEvent>
 #include <QtGui/QResizeEvent>
 #include <QtGui/QPainter>
-#include <QtGui/QFrame>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
+#include <QFrame>
+#include <QLabel>
+#include <QPushButton>
 #include <QtGui/QTextDocument>
 #include <QtGui/QAbstractTextDocumentLayout>
-#include <QtGui/QGridLayout>
-#include <QtGui/QToolTip>
+#include <QGridLayout>
+#include <QToolTip>
 #include <QtGui/QCursor>
 #include <QtGui/QClipboard>
-#include <QtGui/QInputDialog>
-#include <QtGui/QGraphicsProxyWidget>
-#include <QtGui/QScrollBar>
+#include <QInputDialog>
+#include <QGraphicsProxyWidget>
+#include <QScrollBar>
 #include <QtXml/QDomDocument>
+#include <QFileDialog>
+#include <QApplication>
+#include <QLocale>
+#include <QLineEdit>
+#include <QSaveFile>
+#include <QMenu>
 
 #include <KTextEdit>
 #include <KStyle>
-#include <QApplication>
+
 #include <KColorScheme> // for KStatefulBrush
 #include <KOpenWithDialog>
 #include <KService>
-#include <QLocale>
-//#include <KFileDialog>
 #include <KAboutData>
-#include <QLineEdit>
-#include <KSaveFile>
-//#include <KDebug>
 #include <KAuthorized>
-#include <QMenu>
 #include <KIconLoader>
 #include <KRun>
 #include <KMessageBox>
 #include <KDirWatch>
+#include <KGlobalAccel>
+#include <KLocalizedString>
+#include <KActionCollection>
 
 #include <KIO/CopyJob>
 
@@ -1122,12 +1125,10 @@ QString BasketScene::fullPathForFileName(const QString &fileName)
 
 void BasketScene::setShortcut(QKeySequence shortcut, int action)
 {
+    QList<QKeySequence> shortcuts{shortcut};
     if (action > 0) {
-        m_action->setGlobalShortcut(
-            shortcut,
-            QAction::ActiveShortcut | QAction::DefaultShortcut,
-            QAction::NoAutoloading
-        );
+        KGlobalAccel::self()->setShortcut(m_action, shortcuts, KGlobalAccel::Autoloading);
+        KGlobalAccel::self()->setDefaultShortcut(m_action, shortcuts, KGlobalAccel::Autoloading);
     }
     m_shortcutAction = action;
 }
@@ -1226,10 +1227,11 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     m_action = new QAction(this);
     connect(m_action, SIGNAL(triggered()), this, SLOT(activatedShortcut()));
     m_action->setObjectName(folderName);
-    m_action->setGlobalShortcut(QKeySequence());
+    KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
     // We do this in the basket properties dialog (and keep it in sync with the
     // global one)
-    m_action->setShortcutConfigurable(false);
+    KActionCollection* ac = Global::bnpView->actionCollection();
+    ac->setShortcutsConfigurable(m_action, false);
 
     if (!m_folderName.endsWith("/"))
         m_folderName += "/";
@@ -1488,9 +1490,9 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         // i18n: Verbs (for the "insert" menu)
         if (zone == Note::TopGroup || zone == Note::BottomGroup)
-            m_insertMenuTitle = menu.addSection(i18n("Group"), first);
+            m_insertMenuTitle = menu.insertSection(first, i18n("Group"));
         else
-            m_insertMenuTitle = menu.addSection(i18n("Insert"), first);
+            m_insertMenuTitle = menu.insertSection(first, i18n("Insert"));
 
         setInsertPopupMenu();
         connect(&menu, SIGNAL(aboutToHide()),  this, SLOT(delayedCancelInsertPopupMenu()));
@@ -1916,7 +1918,7 @@ void BasketScene::blindDrop(QGraphicsSceneDragDropEvent* event)
     save();
 }
 
-void BasketScene::blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction, QWidget *source)
+void BasketScene::blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction, QObject *source)
 {
     if (!m_isInsertPopupMenu && redirectEditActions()) {
         if (m_editor->textEdit())
@@ -2784,7 +2786,7 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent* event)
         message = i18n("Insert note here\nRight click for more options");
         QRectF itRect;
         for (QList<QRectF>::iterator it = m_blankAreas.begin(); it != m_blankAreas.end(); ++it) {
-            itRect = QRectF(0, 0, m_view->viewport()->width(), m_view->viewport()->height()).intersect(*it);
+            itRect = QRectF(0, 0, m_view->viewport()->width(), m_view->viewport()->height()).intersected(*it);
             if (itRect.contains(contentPos)) {
                 rect = itRect;
                 rect.moveLeft(rect.left() - sceneRect().x());
@@ -4184,8 +4186,10 @@ void BasketScene::noteOpen(Note *note)
         } else if (customCommand.isEmpty()) {
             KRun *run = new KRun(url, m_view->window());
             run->setAutoDelete(true);
-        } else
-            KRun::run(customCommand, url, m_view->window());
+        } else {
+            QList<QUrl> urls{url};
+            KRun::run(customCommand, urls, m_view->window());
+        }
     }
 }
 
@@ -4219,10 +4223,13 @@ void BasketScene::noteOpenWith(Note *note)
     QUrl    url     = note->content()->urlToOpen(/*with=*/true);
     QString message = note->content()->messageWhenOpening(NoteContent::OpenOneWith /*NoteContent::OpenSeveralWith*/);
     QString text    = note->content()->messageWhenOpening(NoteContent::OpenOneWithDialog /*NoteContent::OpenSeveralWithDialog*/);
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         emit postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
-    else if (KRun__displayOpenWithDialog(url, m_view->window(), false, text))
-        emit postMessage(message); // "Opening link target with..." / "Opening note file with..."
+    } else {
+        QList<QUrl> urls{url};
+        if (KRun__displayOpenWithDialog(urls, m_view->window(), false, text))
+            emit postMessage(message); // "Opening link target with..." / "Opening note file with..."
+    }
 }
 
 void BasketScene::noteSaveAs()
@@ -4979,7 +4986,7 @@ void BasketScene::selectRange(Note *start, Note *end, bool unselectOthers /*= tr
     if (isFreeLayout()) {
         QRectF startRect(start->x(), start->y(), start->width(), start->height());
         QRectF endRect(end->x(),   end->y(),   end->width(),   end->height());
-        QRectF toSelect = startRect.unite(endRect);
+        QRectF toSelect = startRect.united(endRect);
         selectNotesIn(toSelect, /*invertSelection=*/false, unselectOthers);
         return;
     }
@@ -5275,7 +5282,7 @@ bool BasketScene::saveToFile(const QString& fullPath, const QString& string)
         unsigned long length)
 {
     // Modulus operandi:
-    // 1. Use KSaveFile to try and save the file
+    // 1. Use QSaveFile to try and save the file
     // 2. Show a modal dialog (with the error) when bad things happen
     // 3. We keep trying (at increasing intervals, up until every minute)
     //    until we finally save the file.
@@ -5286,10 +5293,10 @@ bool BasketScene::saveToFile(const QString& fullPath, const QString& string)
     uint retryDelay = 1000; // ms
     bool success = false;
     do {
-        KSaveFile saveFile(fullPath);
-        if (saveFile.open()) {
+        QSaveFile saveFile(fullPath);
+        if (saveFile.open(QIODevice::WriteOnly)) {
             saveFile.write(array, length);
-            if (saveFile.finalize())
+            if (saveFile.commit())
                 success = true;
         }
 

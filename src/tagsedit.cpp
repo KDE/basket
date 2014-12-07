@@ -30,21 +30,26 @@
 #include <QGroupBox>
 #include <QHeaderView>    //For m_tags->header()
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QtGui/QKeyEvent>
 #include <QLabel>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPainter>
 #include <QVBoxLayout>
-
 #include <QApplication>
 #include <QLineEdit>
+#include <QLocale>
+#include <QPushButton>
+#include <QDialogButtonBox>
+#include <QPushButton>
+
 #include <KIconButton>
 #include <KIconLoader>
-#include <QLocale>
 #include <KMessageBox>
-#include <QPushButton>
 #include <KSeparator>
 #include <KShortcutWidget>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 #include "tag.h"
 #include "kcolorcombo2.h"
@@ -52,11 +57,6 @@
 #include "global.h"
 #include "bnpview.h"
 
-#include <QDialogButtonBox>
-#include <KConfigGroup>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <KLocalizedString>
 
 /** class StateCopy: */
 

@@ -20,16 +20,17 @@
 
 #include "filter.h"
 
-#include <QtGui/QToolButton>
-#include <QtGui/QLabel>
-#include <QtGui/QHBoxLayout>
+#include <QToolButton>
+#include <QLabel>
+#include <QHBoxLayout>
 #include <QtGui/QPixmap>
-
 #include <QDialog>
-#include <KComboBox>
-#include <KIconLoader>
 #include <QLocale>
 #include <QLineEdit>
+
+#include <KComboBox>
+#include <KIconLoader>
+#include <KLocalizedString>
 
 #include "global.h"
 #include "tools.h"
@@ -48,8 +49,8 @@ FilterBar::FilterBar(QWidget *parent)
     // (Aaron Seigo says we don't need to worry about the
     //  "Toolbar group" stuff anymore.)
 
-    QIcon resetIcon = QIcon::fromTheme("dialog-close", KIconLoader::global());
-    QIcon inAllIcon = QIcon::fromTheme("edit-find", KIconLoader::global());
+    QIcon resetIcon = QIcon::fromTheme("dialog-close");
+    QIcon inAllIcon = QIcon::fromTheme("edit-find");
 
     m_resetButton        = new QToolButton(this);
     m_resetButton->setIcon(resetIcon);

@@ -28,30 +28,29 @@
 #include <QGridLayout>
 #include <QScrollBar>
 #include <QFontComboBox>
-
 #include <QApplication>
 #include <QLineEdit>
-#include <KUrlRequester>
 #include <QColorDialog>
+#include <QLocale>
+#include <QAction>
+#include <QWidgetAction>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KUrlRequester>
 #include <KColorCombo>
 #include <KService>
 #include <KConfig>
 #include <KMessageBox>
-#include <QLocale>
 #include <KToolBar>
-#include <QAction>
-#include <QWidgetAction>
 #include <KActionCollection>
 #include <KIconButton>
 #include <KToggleAction>
 #include <KDesktopFile>
-//#include <KDebug>
-#include <QDialogButtonBox>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KLineEdit>
-#include <QPushButton>
-#include <QVBoxLayout>
 
 #include "notecontent.h"
 #include "notefactory.h"
@@ -1180,14 +1179,14 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     //action->setDefaultWidget(richTextFont); //applicable to QWidgetAction
     ac->addAssociatedWidget(richTextFont);
     action->setText(i18n("Font"));
-    action->setShortcut(Qt::Key_F6);
+    ac->setDefaultShortcut(action, Qt::Key_F6);
 
     richTextFontSize = new FontSizeCombo(/*rw=*/true, Global::mainWindow());
     richTextFontSize->setFontSize(defaultFont.pointSize());
     action = ac->addAction("richtext_font_size");
     ac->addAssociatedWidget(richTextFontSize);
     action->setText(i18n("Font Size"));
-    action->setShortcut(Qt::Key_F7);
+    ac->setDefaultShortcut(action, Qt::Key_F7);
 
     richTextColor = new KColorCombo(Global::mainWindow());
     richTextColor->installEventFilter(focusWidgetFilter);
@@ -1202,21 +1201,21 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     ac->addAction("richtext_bold", ta);
     ta->setText(i18n("Bold"));
     ta->setIcon(QIcon::fromTheme("format-text-bold"));
-    ta->setShortcut(QKeySequence("Ctrl+B"));
+    ac->setDefaultShortcut(ta, QKeySequence("Ctrl+B"));
     richTextBold = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_italic", ta);
     ta->setText(i18n("Italic"));
     ta->setIcon(QIcon::fromTheme("format-text-italic"));
-    ta->setShortcut(QKeySequence("Ctrl+I"));
+    ac->setDefaultShortcut(ta, QKeySequence("Ctrl+I"));
     richTextItalic = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_underline", ta);
     ta->setText(i18n("Underline"));
     ta->setIcon(QIcon::fromTheme("format-text-underline"));
-    ta->setShortcut(QKeySequence("Ctrl+U"));
+    ac->setDefaultShortcut(ta, QKeySequence("Ctrl+U"));
     richTextUnderline = ta;
 
 #if 0

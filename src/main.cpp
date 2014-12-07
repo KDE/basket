@@ -19,7 +19,6 @@
  ***************************************************************************/
 
 
-
 #include <kconfig.h> // TMP IN ALPHA 1
 #include <config.h>
 #include <QCommandLineParser>
@@ -36,10 +35,12 @@ int main(int argc, char *argv[])
 {
     const char *argv0 = (argc >= 1 ? argv[0] : "");
 
+    Global::commandLineOpts = new QCommandLineParser();
     Application app(argc, argv);
 
-    QCommandLineParser opts;
-    setupCmdLineOptions(&opts, app);
+    QCommandLineParser* opts = Global::commandLineOpts;
+    setupCmdLineOptions(opts/*, app*/);
+    opts->process(app);
 
 
 
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
 
     if (Settings::useSystray()) {
         // The user wanted to not show the window (but it is already hidden by default, so we do nothing):
-        if (opts.isSet(QCommandLineOption("start-hidden")))
+        if (opts->isSet(QCommandLineOption("start-hidden")))
             ;
         // When the application is restored by KDE session, restore its state:
         else if (app.isSessionRestored()){

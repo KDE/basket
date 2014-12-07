@@ -25,6 +25,7 @@
 #include "basketscene.h"
 
 #include <QLocale>
+#include <KLocalizedString>
 
 HistorySetBasket::HistorySetBasket(BasketScene *basket, QUndoCommand *parent)
         :QUndoCommand(parent)

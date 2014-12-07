@@ -22,10 +22,12 @@
 
 #include <QtCore/QString>
 #include <QtGui/QCloseEvent>
-#include <QtGui/QVBoxLayout>
+#include <QVBoxLayout>
 
 #include <QLocale>
-#include <KTextBrowser>
+#include <QTextBrowser>
+
+#include <KLocalizedString>
 
 #include "global.h"
 
@@ -36,7 +38,7 @@ DebugWindow::DebugWindow(QWidget *parent)
     setWindowTitle(i18n("Debug Window"));
 
     layout      = new QVBoxLayout(this);
-    textBrowser = new KTextBrowser(this);
+    textBrowser = new QTextBrowser(this);
 
     textBrowser->setWordWrapMode(QTextOption::NoWrap);
 

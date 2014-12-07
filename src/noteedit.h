@@ -32,13 +32,13 @@ class QPushButton;
 class QKeyEvent;
 class QFontComboBox;
 class QTextCharFormat;
+class QAction;
 
 class KIconButton;
 class KUrlRequester;
 class KTextEdit;
 class KToggleAction;
 class KToolBar;
-class QAction;
 class KActionCollection;
 class KComboBox;
 class KColorCombo;

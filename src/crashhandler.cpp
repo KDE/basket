@@ -14,11 +14,11 @@
 #include "config.h"
 
 #include <KAboutData>
-#include <KCmdLineArgs>
-#include <KComponentData>
-#include <KTemporaryFile>
+#include <QTemporaryFile>
+#include <QGuiApplication>
+#include <QDebug>
 #include <KToolInvocation>
-//#include <KDebug>
+#include <KLocalizedString>
 
 #include <kdeversion.h>
 
@@ -89,7 +89,7 @@ Crash::crashHandler(int /*signal*/)
 
         /// obtain the backtrace with gdb
 
-	KTemporaryFile temp;
+    QTemporaryFile temp;
 	temp.open();	
         temp.setAutoRemove(true);
 
@@ -119,7 +119,7 @@ Crash::crashHandler(int /*signal*/)
         gdb  = "gdb --nw -n --batch -x ";
         gdb += temp.fileName().toLatin1();
         gdb += " ";
-	gdb += argv[0];
+    gdb += QGuiApplication::applicationFilePath();
 	gdb += " ";
         gdb += QByteArray().setNum(::getppid());
 

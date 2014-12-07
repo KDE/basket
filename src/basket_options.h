@@ -31,12 +31,11 @@
 
 
 
-void setupCmdLineOptions(QCommandLineParser *opts, QApplication& app)
+void setupCmdLineOptions(QCommandLineParser *opts/*, QApplication& app*/)
 {
     opts->addVersionOption();
     //PORTING SCRIPT: adapt aboutdata variable if necessary
     Global::basketAbout.setupCommandLine(opts);
-    opts->process(app);
     Global::basketAbout.processCommandLine(opts);
 
     opts->addOption(QCommandLineOption(QStringList() << "d" << "debug", i18n("Show the debug window")));
@@ -52,7 +51,8 @@ void setupCmdLineOptions(QCommandLineParser *opts, QApplication& app)
     opts->addOption(QCommandLineOption("use-drkonqi",
               i18n("On crash, use the standard KDE crash handler rather than "
                     "send an email.")));
-    opts->addOption(QCommandLineOption("+[file]", i18n("Open a basket archive or template.")));
+    //opts->addOption(QCommandLineOption("+[file]", i18n("Open a basket archive or template.")));
+    opts->addPositionalArgument("file", i18n("Basket archive or template file"));
 }
 
 #endif // BASKET_OPTIONS_H

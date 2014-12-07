@@ -199,7 +199,6 @@ public:
     void drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, bool rounded);
     void drawRoundings(QPainter *painter, qreal x, qreal y, int type, qreal width = 0, qreal height = 0);
     void unbufferizeAll();
-    void bufferizeSelectionPixmap();
     inline void unbufferize()  {
         m_bufferedPixmap = QPixmap(); m_bufferedSelectionPixmap = QPixmap();
     }

@@ -34,13 +34,13 @@
 #include <QWhatsThis>
 #include <QtGui/QDrag>
 #include <QtGui/QFontDatabase>
-
 #include <QLineEdit>
 #include <QListWidget>
 #include <QLocale>
-#include <KOpenWithDialog>
 #include <QPushButton>
 #include <QDialogButtonBox>
+
+#include <KOpenWithDialog>
 #include <KConfigGroup>
 #include <KIconLoader>
 #include <KLocalizedString>

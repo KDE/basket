@@ -26,7 +26,7 @@ class BasketScene;
 class QVBoxLayout;
 class QGraphicsView;
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 #include "filter.h"
 
@@ -37,7 +37,7 @@ class DecoratedBasket : public QWidget
 {
     Q_OBJECT
 public:
-    DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WFlags fl = 0);
+    DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl = 0);
     ~DecoratedBasket();
     void setFilterBarPosition(bool onTop);
     void resetFilter();

@@ -23,12 +23,14 @@
 #include <QtCore/QString>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QCloseEvent>
-#include <QtGui/QLabel>
+#include <QLabel>
 #include <QtGui/QPixmap>
-#include <QtGui/QHBoxLayout>
-
+#include <QHBoxLayout>
 #include <QLocale>
 #include <QVBoxLayout>
+
+#include <KLocalizedString>
+#include <KIconLoader>
 
 DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent)
         : QDialog(parent)

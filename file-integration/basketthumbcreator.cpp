@@ -24,16 +24,17 @@
 #include <qfileinfo.h>
 #include <QTextStream>
 #include <QTextCodec>
-#include <ktempdir.h>
+#include <QTemporaryDir>
+#include <KCModule>
 
 #include "basketthumbcreator.h"
 
 bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height*/, QImage &image)
 {
 	// Create the temporar folder:
-	KTempDir tempDir;
+    QTemporaryDir tempDir;
 	tempDir.setAutoRemove(true);
-	QString tempFolder = tempDir.name();
+    QString tempFolder = tempDir.path();
 	QDir dir;
 	dir.mkdir(tempFolder);
 	const unsigned long int BUFFER_SIZE = 1024;
@@ -111,7 +112,7 @@ ThumbCreator::Flags BasketThumbCreator::flags() const
 
 extern "C"
 {
-	KDE_EXPORT ThumbCreator *new_creator()
+    Q_DECL_EXPORT ThumbCreator *new_creator()
 	{
 		return new BasketThumbCreator();
 	}

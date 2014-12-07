@@ -22,7 +22,7 @@
 
 #ifndef USE_OLD_KCOLORCOMBO
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QtGui/QPixmap>
 #include <QtGui/QBitmap>
 #include <QtGui/QPainter>
@@ -33,12 +33,14 @@
 #include <QtGui/QKeyEvent>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QClipboard>
-
-//#include <KDebug>
+#include <QDesktopWidget>
+#include <QMimeData>
+#include <QDrag>
 #include <QLocale>
 #include <QColorDialog>
+
 #include <KStandardShortcut>
-#include <KGlobalSettings>
+#include <KLocalizedString>
 
 //#define DEBUG_COLOR_ARRAY
 //#define OUTPUT_GIMP_PALETTE
@@ -198,7 +200,7 @@ void KColorPopup::validate()
         m_selector->setColor(QColor());
     else { // The user want to choose one:
         QColor color = m_selector->effectiveColor();
-        color = QColorDialog::getColor(this)==QDialog::Accepted);
+        color = QColorDialog::getColor(color, this);
         if ( color.isValid() )
             m_selector->setColor(color);
     }
@@ -639,7 +641,7 @@ void KColorCombo2::showPopup()
         setRainbowPreset();
 
     // Compute where to show the popup:
-    QRect desk = KGlobalSettings::desktopGeometry(this);
+    QRect desk = qApp->desktop()->screenGeometry(this);
 
     QPoint popupPoint = mapToGlobal(QPoint(0, 0));
 
@@ -689,7 +691,7 @@ void KColorCombo2::showPopup()
 void KColorCombo2::mouseMoveEvent(QMouseEvent *event)
 {
     if ((event->buttons() & Qt::LeftButton) &&
-            (event->pos() - m_dragStartPos).manhattanLength() > KGlobalSettings::dndEventDelay()) {
+            (event->pos() - m_dragStartPos).manhattanLength() > qApp->startDragDistance()) {
         // Drag color object:
         QMimeData* mimeData = new QMimeData;
         QDrag* colorDrag = new QDrag(this);
@@ -738,7 +740,6 @@ void KColorCombo2::fontChange(const QFont &oldFont)
 {
     // Since the color-rectangle is the same height of the text, we should resize it if the font change:
     updateComboBox();
-    KComboBox::fontChange(oldFont); // To update geometry.
 }
 
 void KColorCombo2::virtual_hook(int /*id*/, void */*data*/)

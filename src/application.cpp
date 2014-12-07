@@ -20,16 +20,18 @@
 
 #include "application.h"
 
-#include <KCmdLineArgs>
-//#include <KDebug>
-
 #include <QtCore/QString>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QTimer>
+#include <QCommandLineParser>
+
+#include <KLocalizedString>
 
 #include "global.h"
 #include "bnpview.h"
+#include "config.h"
+#include "aboutdata.h"
 
 #ifdef WITH_LIBGIT2
 extern "C" {
@@ -40,10 +42,8 @@ extern "C" {
 Application::Application(int &argc, char **argv)
         : QApplication(argc, argv)
 {
-    QCoreApplication::setApplicationName(i18n("Basket"));
-    QCoreApplication::setApplicationVersion(VERSION);
-    QCoreApplication::setOrganizationDomain("kde.org");
-    QApplication::setApplicationDisplayName(i18n("BasKet Note Pads"));
+    //AboutData is initialized before this
+    KAboutData::setApplicationData(Global::basketAbout);
     //BasketPart::createAboutData();
     KDBusService service(KDBusService::Unique); //make global
 
@@ -67,24 +67,22 @@ int Application::newInstance()
     //KUniqueApplication::newInstance();
 
     // Open the basket archive or template file supplied as argument:
-    if (args && parser.positionalArguments().count() >= 1) {
-        QString fileName = args->arg(parser.positionalArguments().count() - 1);
+    QString fileName = Global::commandLineOpts->value("file");
 
-        if (QFile::exists(fileName)) {
-            QFileInfo fileInfo(fileName);
-            if (fileInfo.absoluteFilePath().contains(Global::basketsFolder())) {
-                QString folder = fileInfo.absolutePath().split("/").last();
-                folder.append("/");
-                BNPView::s_basketToOpen = folder;
-                QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenBasket()));
-            } else if (!fileInfo.isDir()) { // Do not mis-interpret data-folder param!
-                // Tags are not loaded until Global::bnpView::lateInit() is called.
-                // It is called 0ms after the application start.
-                BNPView::s_fileToOpen = fileName;
-                QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenArchive()));
-//              Global::bnpView->openArchive(fileName);
-                
-            }
+    if (QFile::exists(fileName)) {
+        QFileInfo fileInfo(fileName);
+        if (fileInfo.absoluteFilePath().contains(Global::basketsFolder())) {
+            QString folder = fileInfo.absolutePath().split("/").last();
+            folder.append("/");
+            BNPView::s_basketToOpen = folder;
+            QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenBasket()));
+        } else if (!fileInfo.isDir()) { // Do not mis-interpret data-folder param!
+            // Tags are not loaded until Global::bnpView::lateInit() is called.
+            // It is called 0ms after the application start.
+            BNPView::s_fileToOpen = fileName;
+            QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenArchive()));
+            //              Global::bnpView->openArchive(fileName);
+
         }
     }
     return 0;

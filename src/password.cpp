@@ -23,13 +23,14 @@
 #ifdef HAVE_LIBGPGME
 
 #include <QtGui/QHBoxLayout>
-
 #include <QLocale>
-#include <KMessageBox>
 #include <QDialogButtonBox>
-#include <KConfigGroup>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+#include <KMessageBox>
+#include <KConfigGroup>
+
 
 #include "basketscene.h"
 #include "kgpgme.h"

@@ -35,6 +35,7 @@ class DebugWindow;
 class BackgroundManager;
 class SystemTray;
 class BNPView;
+class QCommandLineParser;
 
 
 /** Handle all global variables of the application.
@@ -57,6 +58,7 @@ public:
     static BNPView           *bnpView;
     static KSharedConfig::Ptr basketConfig;
     static AboutData          basketAbout;
+    static QCommandLineParser* commandLineOpts;
 
 
 

@@ -23,8 +23,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QToolTip>
-
 #include <QLocale>
+
 #include <KWindowSystem>
 #include <KLocalizedString>
 

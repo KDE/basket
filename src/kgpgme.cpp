@@ -28,20 +28,19 @@
 #include <QtGui/QTreeWidget>
 #include <QtGui/QLabel>
 #include <QtGui/QPixmap>
-#include <QtGui/QVBoxLayout>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include <QApplication>
 #include <QLocale>
 #include <KMessageBox>
 #include <KPasswordDialog>
+#include <KConfigGroup>
 
 #include <locale.h>         //For LC_ALL, etc.
 #include <errno.h>          //For errno
 #include <unistd.h>         //For write
-#include <QDialogButtonBox>
-#include <KConfigGroup>
-#include <QPushButton>
-#include <QVBoxLayout>
 
 // KGpgSelKey class based on class in KGpg with the same name
 

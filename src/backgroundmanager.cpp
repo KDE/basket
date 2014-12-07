@@ -20,11 +20,10 @@
 
 #include "backgroundmanager.h"
 
-#include <QUrl>
-#include <KStandardDirs>
 #include <KConfig>
 #include <KConfigGroup>
 
+#include <QUrl>
 #include <QtCore/QDir>
 #include <QtGui/QPainter>
 #include <QtGui/QImage>
@@ -319,7 +318,7 @@ QPixmap* BackgroundManager::preview(const QString &image)
     painter.end();
 
     // Saving it to file for later:
-    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/previews/");
+    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/previews/";
     result->save(folder + entry->name, "PNG");
 
     // Ouf! That's done:

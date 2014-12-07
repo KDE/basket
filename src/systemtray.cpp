@@ -24,11 +24,11 @@
 // Qt
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
+#include <QLocale>
+#include <QDialog>
 
 // KDE
-#include <QLocale>
 #include <KIconEffect>  //Port to Blitz/Quasar?
-#include <QDialog>
 #include <KLocalizedString>
 
 // Local

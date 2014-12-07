@@ -23,8 +23,8 @@
 
 #include <QtCore/QObject>
 #include <QGraphicsItem>
-
 #include <QUrl>
+
 #include <KIO/AccessManager>
 
 #include <phonon/phononnamespace.h>

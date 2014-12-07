@@ -22,11 +22,12 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
-#include <QtGui/QGraphicsView>
+#include <QGraphicsView>
 #include <QtXml/QDomElement>
-
 #include <QLocale>
+
 #include <KMessageBox>
+#include <KLocalizedString>
 
 #include "global.h"
 #include "basketscene.h"
@@ -65,7 +66,7 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
     QString folderName = newFolderName();
     QString fullPath   = Global::basketsFolder() + folderName;
     QDir dir;
-    if (!dir.mkdir(fullPath)) {
+    if (!dir.mkpath(fullPath)) {
         KMessageBox::error(/*parent=*/0, i18n("Sorry, but the folder creation for this new basket has failed."), i18n("Basket Creation Failed"));
         return "";
     }

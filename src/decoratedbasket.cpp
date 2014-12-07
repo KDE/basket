@@ -20,8 +20,8 @@
 
 #include "decoratedbasket.h"
 
-#include <QtGui/QGraphicsView>
-#include <QtGui/QVBoxLayout>
+#include <QGraphicsView>
+#include <QVBoxLayout>
 
 #include "basketscene.h"
 #include "filter.h"
@@ -29,7 +29,7 @@
 
 /** Class DecoratedBasket: */
 
-DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WFlags fl)
+DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl)
         : QWidget(parent, fl)
 {
     m_layout = new QVBoxLayout(this);

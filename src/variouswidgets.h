@@ -23,8 +23,8 @@
 
 #include <QWidget>
 #include <QDialog>
-
 #include <QDialog>
+
 #include <KComboBox>
 #include <KUrlLabel>
 

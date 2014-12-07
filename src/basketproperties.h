@@ -23,6 +23,7 @@
 
 #include <QDialog>
 #include <QtCore/QMap>
+#include <KIconButton>
 
 #include "ui_basketproperties.h"
 

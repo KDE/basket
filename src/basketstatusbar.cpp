@@ -22,12 +22,15 @@
 
 #include <QLocale>
 #include <QStatusBar>
-#include <KParts/StatusBarExtension>
 
 #include <QtCore/QObject>
-#include <QtGui/QLabel>
+#include <QLabel>
 #include <QtGui/QPixmap>
 #include <QtGui/QMouseEvent>
+
+#include <KParts/StatusBarExtension>
+#include <KLocalizedString>
+#include <KIconLoader>
 
 #include "global.h"
 #include "bnpview.h"

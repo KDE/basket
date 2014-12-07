@@ -20,48 +20,50 @@
 
 #include "likeback.h"
 #include "likeback_p.h"
+#include "aboutdata.h"
+#include "global.h"
 
-#include <QApplication>
 #include <KAboutData>
 #include <KConfig>
-#include <QAction>
 #include <KActionCollection>
-#include <KIcon>
-#include <QLocale>
-//#include <KDebug>
 #include <KMessageBox>
 #include <KTextEdit>
 
-#include <QPushButton>
 #include <KGuiItem>
-#include <QDialog>
-#include <KInputDialog>
-#include <KGlobal>
 #include <KUser>
+#include <KLocalizedString>
+#include <KSharedConfig>
+#include <KIconLoader>
+#include <KConfigGroup>
+#include <KGuiItem>
 
 #include <KIO/AccessManager>
 
 #include <QtCore/QBuffer>
 #include <QtCore/QPointer>
-#include <QtGui/QToolButton>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QGridLayout>
+#include <QToolButton>
+#include <QHBoxLayout>
+#include <QGridLayout>
 #include <QtGui/QPixmap>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QCheckBox>
-#include <QtGui/QRadioButton>
-#include <QtGui/QGroupBox>
-#include <QtGui/QLabel>
+#include <QVBoxLayout>
+#include <QCheckBox>
+#include <QRadioButton>
+#include <QGroupBox>
+#include <QLabel>
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkRequest>
-#include <QtGui/QAction>
+#include <QAction>
 #include <QtGui/QValidator>
-#include <QtGui/QDesktopWidget>
+#include <QDesktopWidget>
 #include <QDialogButtonBox>
-#include <KConfigGroup>
 #include <QPushButton>
-#include <KGuiItem>
 #include <QVBoxLayout>
+#include <QApplication>
+#include <QAction>
+#include <QLocale>
+#include <QPushButton>
+#include <QDialog>
+#include <QInputDialog>
 
 /****************************************/
 /********** class LikeBackBar: **********/
@@ -109,10 +111,10 @@ LikeBackBar::LikeBackBar(LikeBack *likeBack)
     connect(&m_timer, SIGNAL(timeout()), this, SLOT(autoMove()));
 
     LikeBack::Button buttons = likeBack->buttons();
-    m_likeButton->setShown(buttons & LikeBack::Like);
-    m_dislikeButton->setShown(buttons & LikeBack::Dislike);
-    m_bugButton->setShown(buttons & LikeBack::Bug);
-    m_featureButton->setShown(buttons & LikeBack::Feature);
+    m_likeButton->setVisible(buttons & LikeBack::Like);
+    m_dislikeButton->setVisible(buttons & LikeBack::Dislike);
+    m_bugButton->setVisible(buttons & LikeBack::Bug);
+    m_featureButton->setVisible(buttons & LikeBack::Feature);
 }
 
 LikeBackBar::~LikeBackBar()
@@ -230,7 +232,7 @@ LikeBack::LikeBack(Button buttons, bool showBarByDefault, KConfig *config, const
     if (d->config == 0)
         d->config = KSharedConfig::openConfig().data();
     if (d->aboutData == 0)
-        d->aboutData = KGlobal::mainComponent().aboutData();
+        d->aboutData = Global::about();
 
     // Initialize properties (2/2) [Needs aboutData to be set]:
     d->showBar          = userWantsToShowBar();
@@ -427,8 +429,8 @@ void LikeBack::showInformationMessage()
                     (buttons & Feature ? 1 : 0);
     KMessageBox::information(0,
                              "<p><b>" + (isDevelopmentVersion(d->aboutData->version()) ?
-                                         i18n("Welcome to this testing version of %1.", d->aboutData->programName()) :
-                                         i18n("Welcome to %1.", d->aboutData->programName())
+                                         i18n("Welcome to this testing version of %1.", QGuiApplication::applicationDisplayName()) :
+                                         i18n("Welcome to %1.", QGuiApplication::applicationDisplayName())
                                         ) + "</b></p>"
                              "<p>" + i18n("To help us improve it, your comments are important.") + "</p>"
                              "<p>" +
@@ -540,19 +542,21 @@ void LikeBack::askEmailAddress()
 
     bool ok;
 
-    QString emailExpString = "[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+";
+    /*QString emailExpString = "[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+";
     //QString namedEmailExpString = "[.]*[ \\t]+<" + emailExpString + '>';
     //QRegExp emailExp("^(|" + emailExpString + '|' + namedEmailExpString + ")$");
     QRegExp emailExp("^(|" + emailExpString + ")$");
-    QRegExpValidator emailValidator(emailExp, this);
+    QRegExpValidator emailValidator(emailExp, this);*/
 
     disableBar();
-    QString email = KInputDialog::getText(
+    QString email = QInputDialog::getText(
+                        qApp->activeWindow(),
                         i18n("Email Address"),
                         "<p><b>" + i18n("Please provide your email address.") + "</b></p>" +
                         "<p>" + i18n("It will only be used to contact you back if more information is needed about your comments, ask you how to reproduce the bugs you report, send bug corrections for you to test, etc.") + "</p>" +
                         "<p>" + i18n("The email address is optional. If you do not provide any, your comments will be sent anonymously.") + "</p>",
-                        currentEmailAddress, &ok, qApp->activeWindow(), &emailValidator);
+                        QLineEdit::Normal,
+                        currentEmailAddress, &ok/*, &emailValidator*/);
     enableBar();
 
     if (ok)
@@ -607,7 +611,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
 {
     // QDialog Options
     setWindowTitle(i18n("Send a Comment to Developers"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::RestoreDefaults);
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::RestoreDefaults);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -719,17 +723,17 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     pageLayout->addWidget(m_showButtons);
     connect(m_showButtons, SIGNAL(stateChanged(int)), this, SLOT(changeButtonBarVisible()));
 
-    KGuiItem::assign(okButton, KGuiItem(i18n("&SendComment"));
+    KGuiItem::assign(okButton, KGuiItem(i18n("&SendComment")));
     okButton->setEnabled(false);
     connect(m_comment, SIGNAL(textChanged()), this, SLOT(commentChanged()));
 
-    KGuiItem::assign(buttonBox->button(QDialogButtonBox::RestoreDefaults), KGuiItem(i18n("&EmailAddress..."));
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::RestoreDefaults), KGuiItem(i18n("&EmailAddress...")));
 
-    resize(QSize(qApp->desktop()->width() * 1 / 2, kapp->desktop()->height() * 3 / 5).expandedTo(sizeHint()));
+    resize(QSize(qApp->desktop()->width() * 1 / 2, qApp->desktop()->height() * 3 / 5).expandedTo(sizeHint()));
 
     QAction *sendShortcut = new QAction(this);
     sendShortcut->setShortcut(Qt::CTRL + Qt::Key_Return);
-    connect(sendShortcut, SIGNAL(triggered()), button(Ok), SLOT(animateClick()));
+    connect(sendShortcut, SIGNAL(triggered()), buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 
     mainLayout->addWidget(page);
 }
@@ -740,7 +744,7 @@ LikeBackDialog::~LikeBackDialog()
 
 QString LikeBackDialog::introductionText()
 {
-    QString text = "<p>" + i18n("Please provide a brief description of your opinion of %1.", m_likeBack->aboutData()->programName()) + " ";
+    QString text = "<p>" + i18n("Please provide a brief description of your opinion of %1.", QGuiApplication::applicationDisplayName()) + " ";
 
     QString languagesMessage = "";
     if (!m_likeBack->acceptedLocales().isEmpty() && !m_likeBack->acceptedLanguagesMessage().isEmpty()) {
@@ -748,11 +752,11 @@ QString LikeBackDialog::introductionText()
         QStringList locales = m_likeBack->acceptedLocales();
         for (QStringList::Iterator it = locales.begin(); it != locales.end(); ++it) {
             QString locale = *it;
-            if (QLocale()()->language().startsWith(locale))
+            if (QLocale().language() == QLocale(locale).language())
                 languagesMessage = "";
         }
     } else {
-        if (!QLocale()()->language().startsWith(QLatin1String("en")))
+        if (!QLocale().language() == QLocale::English)
             languagesMessage = i18n("Please write in English.");
     }
 
@@ -760,7 +764,7 @@ QString LikeBackDialog::introductionText()
         // TODO: Replace the URL with a localized one:
         text += languagesMessage + " " +
                 i18n("You may be able to use an <a href=\"%1\">online translation tool</a>."
-                     , "http://www.google.com/language_tools?hl=" + QLocale()()->language()) + " ";
+                     , "http://www.google.com/language_tools?hl=" + QLocale().language()) + " ";
 
     // If both "I Like" and "I Dislike" buttons are shown and one is clicked:
     if ((m_likeBack->buttons() & LikeBack::Like) && (m_likeBack->buttons() & LikeBack::Dislike))
@@ -795,7 +799,7 @@ void LikeBackDialog::changeButtonBarVisible()
 
 void LikeBackDialog::commentChanged()
 {
-    QPushButton *sendButton = button(Ok);
+    QPushButton *sendButton = buttonBox->button(QDialogButtonBox::Ok);
     sendButton->setEnabled(!m_comment->document()->isEmpty());
 }
 
@@ -808,7 +812,7 @@ void LikeBackDialog::send()
         "protocol=" + QUrl::toPercentEncoding("1.0")                              + '&' +
         "type="     + QUrl::toPercentEncoding(type)                               + '&' +
         "version="  + QUrl::toPercentEncoding(m_likeBack->aboutData()->version()) + '&' +
-        "locale="   + QUrl::toPercentEncoding(QLocale()()->language())      + '&' +
+        "locale="   + QUrl::toPercentEncoding(QLocale().languageToString(QLocale().language()))      + '&' +
         "window="   + QUrl::toPercentEncoding(m_windowPath)                       + '&' +
         "context="  + QUrl::toPercentEncoding(m_context)                          + '&' +
         "comment="  + QUrl::toPercentEncoding(m_comment->toPlainText())           + '&' +

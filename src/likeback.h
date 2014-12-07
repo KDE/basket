@@ -25,8 +25,9 @@
 
 class KConfig;
 class KAboutData;
-class QAction;
 class KActionCollection;
+class QAction;
+class QDialogButtonBox;
 
 class LikeBackPrivate;
 

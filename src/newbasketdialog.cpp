@@ -25,21 +25,21 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QtGui/QPainter>
-
-#include <KComboBox>
 #include <QLocale>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KComboBox>
 #include <KGuiItem>
 #include <KMessageBox>
 #include <KIconLoader>
 #include <KIconButton>
 #include <KMainWindow>      //For Global::mainWindow()
-#include <QDialogButtonBox>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <QPushButton>
-#include <QVBoxLayout>
 
 #include "basketfactory.h"
 #include "basketscene.h"

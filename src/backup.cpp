@@ -28,24 +28,25 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
-#include <QtGui/QLayout>
-#include <QtGui/QLabel>
-#include <QtGui/QPushButton>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QProgressBar>
-
+#include <QLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QGroupBox>
+#include <QProgressBar>
+#include <QFileDialog>
 #include <QLocale>
 #include <QApplication>
+#include <QProgressDialog>
+#include <QVBoxLayout>
+
 #include <KAboutData>
-#include <KDirSelectDialog>
 #include <KRun>
 #include <KConfig>
 #include <KTar>
-//#include <KFileDialog>
-#include <KProgressDialog>
 #include <KMessageBox>
-#include <KVBox>
+#include <KLocalizedString>
+#include <KConfigGroup>
 
 #include <unistd.h> // usleep()
 
@@ -75,15 +76,18 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     mainLayout->addWidget(buttonBox);
     buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
-    KVBox *page  = new KVBox(this);
+    QWidget *page  = new QWidget(this);
+    QVBoxLayout *pageVBoxLayout = new QVBoxLayout(page);
+    pageVBoxLayout->setMargin(0);
     mainLayout->addWidget(page);
 
-//  page->setSpacing(spacingHint());
+//  pageVBoxLayout->setSpacing(spacingHint());
 
     QString savesFolder = Global::savesFolder();
     savesFolder = savesFolder.left(savesFolder.length() - 1); // savesFolder ends with "/"
 
     QGroupBox *folderGroup = new QGroupBox(i18n("Save Folder"), page);
+    pageVBoxLayout->addWidget(folderGroup);
     mainLayout->addWidget(folderGroup);
     QVBoxLayout* folderGroupLayout = new QVBoxLayout;
     folderGroup->setLayout(folderGroupLayout);
@@ -113,6 +117,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     connect(useFolder,  SIGNAL(clicked()), this, SLOT(useAnotherExistingFolder()));
 
     QGroupBox *backupGroup = new QGroupBox(i18n("Backups"), page);
+    pageVBoxLayout->addWidget(backupGroup);
     mainLayout->addWidget(backupGroup);
     QVBoxLayout* backupGroupLayout = new QVBoxLayout;
     backupGroup->setLayout(backupGroupLayout);
@@ -152,9 +157,8 @@ void BackupDialog::populateLastBackup()
 
 void BackupDialog::moveToAnotherFolder()
 {
-    QUrl selectedURL = KDirSelectDialog::selectDirectory(
-                           /*startDir=*/Global::savesFolder(), /*localOnly=*/true, /*parent=*/0,
-                           /*caption=*/i18n("Choose a Folder Where to Move Baskets"));
+    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/0, /*caption=*/i18n("Choose a Folder Where to Move Baskets"),
+                                                            /*startDir=*/Global::savesFolder());
 
     if (!selectedURL.isEmpty()) {
         QString folder = selectedURL.path();
@@ -183,9 +187,8 @@ void BackupDialog::moveToAnotherFolder()
 
 void BackupDialog::useAnotherExistingFolder()
 {
-    QUrl selectedURL = KDirSelectDialog::selectDirectory(
-                           /*startDir=*/Global::savesFolder(), /*localOnly=*/true, /*parent=*/0,
-                           /*caption=*/i18n("Choose an Existing Folder to Store Baskets"));
+    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/0, /*caption=*/i18n("Choose an Existing Folder to Store Baskets"),
+                                                            /*startDir=*/Global::savesFolder());
 
     if (!selectedURL.isEmpty()) {
         Backup::setFolderAndRestart(selectedURL.path(), i18n("Your basket save folder has been successfuly changed to <b>%1</b>. %2 is going to be restarted to take this change into account."));
@@ -229,20 +232,27 @@ void BackupDialog::backup()
             askAgain = false;
     }
 
-    KProgressDialog dialog(0, i18n("Backup Baskets"), i18n("Backing up baskets. Please wait..."));
+    QProgressDialog dialog;
+    dialog.setWindowTitle(i18n("Backup Baskets"));
+    dialog.setLabelText(i18n("Backing up baskets. Please wait..."));
     dialog.setModal(true);
-    dialog.setAllowCancel(false);
+    dialog.setCancelButton(NULL);
     dialog.setAutoClose(true);
+
+    dialog.setRange(0, 0/*Busy/Undefined*/);
+    dialog.setValue(0);
     dialog.show();
-    QProgressBar *progress = dialog.progressBar();
-    progress->setRange(0, 0/*Busy/Undefined*/);
-    progress->setValue(0);
+
+    /* If needed, uncomment this and call similar code in other places below
+    QProgressBar* progress = new QProgressBar(dialog);
     progress->setTextVisible(false);
+    dialog.setBar(progress);*/
+
 
     BackupThread thread(destination, Global::savesFolder());
     thread.start();
     while (thread.isRunning()) {
-        progress->setValue(progress->value() + 1); // Or else, the animation is not played!
+        dialog.setValue(dialog.value() + 1); // Or else, the animation is not played!
         qApp->processEvents();
         usleep(300); // Not too long because if the backup process is finished, we wait for nothing
     }
@@ -287,21 +297,22 @@ void BackupDialog::restore()
         "<p><nobr>" + i18n("Restoring <b>%1</b>. Please wait...", QUrl::fromLocalFile(path).fileName()) + "</nobr></p><p>" +
         i18n("If something goes wrong during the restoration process, read the file <b>%1</b>.", readmePath);
 
-    KProgressDialog *dialog = new KProgressDialog(0, i18n("Restore Baskets"), message);
+    QProgressDialog *dialog = new QProgressDialog();
+    dialog->setWindowTitle(i18n("Restore Baskets"));
+    dialog->setLabelText(message);
     dialog->setModal(/*modal=*/true);
-    dialog->setAllowCancel(false);
+    dialog->setCancelButton(NULL);
     dialog->setAutoClose(true);
+
+    dialog->setRange(0, 0/*Busy/Undefined*/);
+    dialog->setValue(0);
     dialog->show();
-    QProgressBar *progress = dialog->progressBar();
-    progress->setRange(0, 0/*Busy/Undefined*/);
-    progress->setValue(0);
-    progress->setTextVisible(false);
 
     // Uncompress:
     RestoreThread thread(path, Global::savesFolder());
     thread.start();
     while (thread.isRunning()) {
-        progress->setValue(progress->value() + 1); // Or else, the animation is not played!
+        dialog->setValue(dialog->value() + 1); // Or else, the animation is not played!
         qApp->processEvents();
         usleep(300); // Not too long because if the restore process is finished, we wait for nothing
     }

@@ -22,13 +22,13 @@
 
 #include <QtGui/QMoveEvent>
 #include <QtGui/QResizeEvent>
-
 #include <QAction>
 #include <QApplication>
 #include <QLocale>
-#include <KEditToolBar>
 #include <QStatusBar>
-//#include <KDebug>
+#include <QDesktopWidget>
+
+#include <KEditToolBar>
 #include <KMessageBox>
 #include <KConfig>
 #include <KAboutData>
@@ -36,12 +36,10 @@
 #include <KActionCollection>
 #include <KToggleAction>
 #include <KLocalizedString>
-
+#include <KConfigGroup>
 #include <ksettings/dialog.h>
 
 #include <kdeversion.h>
-
-#include <QDesktopWidget>
 
 #include "settings.h"
 #include "global.h"
@@ -164,7 +162,8 @@ void MainWindow::showSettingsDialog()
     if (m_settings == 0)
         m_settings = new KSettings::Dialog(qApp->activeWindow());
     if (Global::mainWindow()) {
-        m_settings->setStandardButtons(QDialogButtonBox::Help | QDialogButtonBox::RestoreDefaults); // Not implemented!
+        //Help, RestoreDefaults buttons not implemented!
+        m_settings->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
         m_settings->exec();
     } else
         m_settings->show();
@@ -252,7 +251,7 @@ bool MainWindow::queryClose()
     /*  if (m_shuttingDown) // Set in askForQuit(): we don't have to ask again
         return true;*/
 
-    if (qApp->sessionSaving()) {
+    if (qApp->isSavingSession()) {
         Settings::setStartDocked(false); // If queryClose() is called it's because the window is shown
         Settings::saveConfig();
         return true;
@@ -260,7 +259,7 @@ bool MainWindow::queryClose()
 
     if (Settings::useSystray()
             && !m_quit
-            && Global::systemTray->parentWidgetTrayClose()) {
+            /*&& Global::systemTray->parentWidgetTrayClose()*/) {
         hide();
         return false;
     } else

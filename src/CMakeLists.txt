@@ -1,4 +1,4 @@
-include_directories(${KDE4_INCLUDES} ${KDE4_INCLUDE_DIR} ${QT_INCLUDES} ${QIMAGEBLITZ_INCLUDES} ${GPGME_INCLUDES})
+include_directories(${GPGME_INCLUDES})
 
 ########### next target ###############
 
@@ -67,23 +67,35 @@ IF(HAVE_NEPOMUK)
   list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
 ENDIF(HAVE_NEPOMUK)
 
-kde4_add_ui_files(basketcommon_LIB_SRCS passwordlayout.ui basketproperties.ui)
+qt5_wrap_ui(basketcommon_LIB_SRCS passwordlayout.ui basketproperties.ui)
 
-QT4_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
+QT5_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
 
-QT4_ADD_RESOURCES(basketcommon_LIB_SRCS ../basket.qrc)
+QT5_ADD_RESOURCES(basketcommon_LIB_SRCS ../basket.qrc)
 
-kde4_add_library(basketcommon SHARED ${basketcommon_LIB_SRCS})
+add_library(basketcommon SHARED ${basketcommon_LIB_SRCS})
 
 target_link_libraries(basketcommon
-  ${KDE4_KIO_LIBS}
-  ${KDE4_KDEUI_LIBS}
-  ${KDE4_KPARTS_LIBS}
-  ${KDE4_KFILE_LIBS}
-  ${KDE4_PHONON_LIBRARY}
-  ${QIMAGEBLITZ_LIBRARIES}
-  ${X11_LIBRARIES}
-  ${GPGME_VANILLA_LIBRARIES})
+  ${PHONON_LIBRARY}
+  ${GPGME_VANILLA_LIBRARIES}
+  KF5::Archive
+  KF5::ConfigWidgets
+  KF5::CoreAddons
+  KF5::Crash
+  KF5::DBusAddons
+  KF5::GlobalAccel
+  KF5::GuiAddons
+  KF5::I18n
+  KF5::IconThemes
+  KF5::KCMUtils
+  KF5::KIOWidgets
+  KF5::Notifications
+  KF5::Parts
+  KF5::Style
+  KF5::TextWidgets
+  KF5::WindowSystem
+  KF5::XmlGui
+)
 
 if(Q_WS_X11)
     target_link_libraries(basketcommon ${X11_X11_LIB})
@@ -110,11 +122,8 @@ endif(${FILES_GENERATED})
 
 set(basket_SRCS main.cpp mainwindow.cpp application.cpp)
 
-kde4_add_executable(basket ${basket_SRCS})
+add_executable(basket ${basket_SRCS})
 target_link_libraries(basket
-  ${KDE4_KUTILS_LIBS}
-  ${KDE4_KFILE_LIBS}
-  ${KDE4_PHONON_LIBRARY}
   basketcommon)
 
 IF(LIBGIT2_FOUND)
@@ -128,9 +137,9 @@ install(TARGETS basket DESTINATION ${BIN_INSTALL_DIR})
 
 set(kcm_basket_PART_SRCS kcm_basket.cpp)
 
-kde4_add_plugin(kcm_basket ${kcm_basket_PART_SRCS})
+add_library(kcm_basket MODULE ${kcm_basket_PART_SRCS})
 
-target_link_libraries(kcm_basket ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} basketcommon)
+target_link_libraries(kcm_basket basketcommon)
 
 install(TARGETS kcm_basket DESTINATION ${PLUGIN_INSTALL_DIR})
 
@@ -140,36 +149,37 @@ if(BUILD_KPARTS)
 
 set(basketpart_PART_SRCS basket_part.cpp)
 
-kde4_add_plugin(basketpart WITH_PREFIX ${basketpart_PART_SRCS})
+set_target_properties(basketpart PROPERTIES PREFIX "${CMAKE_SHARED_LIBRARY_PREFIX}")
+add_library(basketpart MODULE ${basketpart_PART_SRCS})
 
-target_link_libraries(basketpart ${KDE4_KPARTS_LIBS} basketcommon kparts kdeui)
+target_link_libraries(basketpart basketcommon kparts kdeui)
 
 install(TARGETS basketpart DESTINATION ${PLUGIN_INSTALL_DIR})
 
 set(kontact_basket_PLUGIN_SRCS basket_plugin.cpp)
 
-kde4_add_plugin(kontact_basketplugin ${kontact_basket_PLUGIN_SRCS})
+add_library(kontact_basketplugin MODULE ${kontact_basket_PLUGIN_SRCS})
 
-qt4_add_dbus_interfaces(kontact_basket_PLUGIN_SRCS org.kde.basket.basket.xml)
+qt5_add_dbus_interfaces(kontact_basket_PLUGIN_SRCS org.kde.basket.basket.xml)
 
 add_dependencies(kontact_basketplugin basket)
 
-target_link_libraries(kontact_basketplugin ${KDE4_CORE_LIBS} ${KDEPIMLIBS_KONTACTINTERFACE_LIBS} basketcommon kparts kdeui ${KDE4_KPARTS_LIBS})
+target_link_libraries(kontact_basketplugin basketcommon)
 
 install(TARGETS kontact_basketplugin DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES basket_plugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
 
 ########### install files ###############
 
-install(FILES  basket_part.rc DESTINATION ${DATA_INSTALL_DIR}/basket)
+install(FILES  basket_part.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/basket)
 install(FILES  basket_part.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 endif(BUILD_KPARTS)
 
 install(FILES  basket.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES  basket_config_general.desktop  	basket_config_baskets.desktop  	basket_config_new_notes.desktop  	basket_config_notes_appearance.desktop  	basket_config_apps.desktop  	DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES  basketui.rc DESTINATION ${DATA_INSTALL_DIR}/basket)
+install(FILES  basketui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/basket)
 
-kde4_install_icons(${ICON_INSTALL_DIR})
+ecm_install_icons(${ICON_INSTALL_DIR})
 
 

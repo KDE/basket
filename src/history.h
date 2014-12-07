@@ -21,7 +21,7 @@
 #ifndef HISTORY_H
 #define HISTORY_H
 
-#include <QtGui/QUndoCommand>
+#include <QUndoCommand>
 
 class BasketScene;
 

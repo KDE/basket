@@ -28,21 +28,20 @@
 #include <QtCore/QTextStream>
 #include <QtGui/QPixmap>
 #include <QtGui/QPainter>
-#include <QtGui/QProgressBar>
+#include <QProgressBar>
 #include <QtXml/QDomDocument>
 #include <QGuiApplication>
-
-//#include <KDebug>
+#include <QDebug>
 #include <QLocale>
+#include <QProgressDialog>
+#include <QStandardPaths>
+
 #include <KAboutData>
-#include <KStandardDirs>        //For KGlobal::dirs()
 #include <KMainWindow>          //For Global::MainWindow()
-#include <KComponentData>       //For KGlobal::mainComponent aboutData
 #include <KIconLoader>
-#include <KProgressDialog>
 #include <KMessageBox>
 #include <KTar>
-#include <QStandardPaths>
+#include <KLocalizedString>
 
 #include "global.h"
 #include "bnpview.h"
@@ -58,14 +57,15 @@
 void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &destination)
 {
     QDir dir;
-    KProgressDialog dialog(0, i18n("Save as Basket Archive"), i18n("Saving as basket archive. Please wait..."));
-    dialog.showCancelButton(false);
+    QProgressDialog dialog;
+    dialog.setWindowTitle(i18n("Save as Basket Archive"));
+    dialog.setLabelText(i18n("Saving as basket archive. Please wait..."));
+    dialog.setCancelButton(NULL);
     dialog.setAutoClose(true);
-    dialog.show();
-    QProgressBar *progress = dialog.progressBar();
 
-    progress->setRange(0,/*Preparation:*/1 + /*Finishing:*/1 + /*Basket:*/1 + /*SubBaskets:*/(withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
-    progress->setValue(0);
+    dialog.setRange(0,/*Preparation:*/1 + /*Finishing:*/1 + /*Basket:*/1 + /*SubBaskets:*/(withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
+    dialog.setValue(0);
+    dialog.show();
 
     // Create the temporary folder:
     QString tempFolder = Global::savesFolder() + "temp-archive/";
@@ -77,13 +77,13 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     tar.open(QIODevice::WriteOnly);
     tar.writeDir("baskets", "", "");
 
-    progress->setValue(progress->value() + 1);      // Preparation finished
+    dialog.setValue(dialog.value() + 1);      // Preparation finished
 
-    qDebug() << "Preparation finished out of " << progress->maximum();
+    qDebug() << "Preparation finished out of " << dialog.maximum();
 
     // Copy the baskets data into the archive:
     QStringList backgrounds;
-    Archive::saveBasketToArchive(basket, withSubBaskets, &tar, backgrounds, tempFolder, progress);
+    Archive::saveBasketToArchive(basket, withSubBaskets, &tar, backgrounds, tempFolder, &dialog);
 
     // Create a Small baskets.xml Document:
     QDomDocument document("basketTree");
@@ -185,7 +185,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         file.close();
     }
 
-    progress->setValue(progress->value() + 1); // Finishing finished
+    dialog.setValue(dialog.value() + 1); // Finishing finished
     qDebug() << "Finishing finished";
 
     // Clean Up Everything:
@@ -194,7 +194,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     dir.rmdir(tempFolder);
 }
 
-void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressBar *progress)
+void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress)
 {
     // Basket need to be loaded for tags exportation.
     // We load it NOW so that the progress bar really reflect the state of the exportation:
@@ -473,7 +473,7 @@ void Archive::importTagEmblems(const QString &extractionFolder)
 void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 {
     FormatImporter copier; // Only used to copy files synchronously
-    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/");
+    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/";
 
     QDir dir(extractionFolder + "backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
     QStringList files = dir.entryList();

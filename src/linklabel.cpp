@@ -34,13 +34,13 @@
 #include <QPainter>
 #include <QStyle>
 #include <QGroupBox>
-
 #include <QApplication>
+#include <QLocale>
+#include <QUrl>
+
 #include <KAboutData>
 #include <KComboBox>
-#include <QLocale>
 #include <KIconLoader>
-#include <QUrl>
 #include <KCModule>
 #include <KLocalizedString>
 

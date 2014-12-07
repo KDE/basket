@@ -31,17 +31,17 @@
 #include <QGuiApplication>
 #include <QSpinBox>
 #include <QUrl>
-
 #include <QLineEdit>
-#include <KConfig>
 #include <QLocale>
+#include <QMimeType>
+#include <QMimeDatabase>
+#include <QTabWidget>
+
+#include <KConfig>
 //#include <KAboutData>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KIO/Global>
-#include <QMimeType>
-#include <QMimeDatabase>
-#include <QTabWidget>
 
 #include "kgpgme.h"
 #include "basketscene.h"

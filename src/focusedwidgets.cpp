@@ -23,7 +23,7 @@
 #include <QtCore/QEvent>
 #include <QtGui/QWheelEvent>
 #include <QtGui/QKeyEvent>
-#include <QtGui/QScrollBar>
+#include <QScrollBar>
 
 #include "bnpview.h"
 #include "basketscene.h"

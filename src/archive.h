@@ -30,7 +30,7 @@ class Tag;
 class QString;
 class QStringList;
 class QDomNode;
-class QProgressBar;
+class QProgressDialog;
 class QDomElement;
 
 class KTar;
@@ -46,7 +46,7 @@ public:
     static void open(const QString &path);
 private:
     // Convenient Methods for Saving:
-    static void saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressBar *progress);
+    static void saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress);
     static void listUsedTags(BasketScene *basket, bool recursive, QList<Tag*> &list);
     // Convenient Methods for Loading:
     static void renameBasketFolders(const QString &extractionFolder, QMap<QString, QString> &mergedStates);

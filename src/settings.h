@@ -22,10 +22,10 @@
 #define SETTINGS_H
 
 #include <KCModule>
-#include <QAction>          //For UseSysTray
 #include <KMainWindow>      //For Global::mainWindow()
 
 #include <QtCore/QDate>
+#include <QAction>          //For UseSysTray
 
 #include "basket_export.h"
 #include "bnpview.h"

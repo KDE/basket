@@ -23,8 +23,8 @@
 #include <QtCore/QTimer>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QMouseEvent>
-
 #include <QColorDialog>
+#include <QApplication>
 
 /// ///
 
@@ -77,7 +77,12 @@ void DesktopColorPicker::mouseReleaseEvent(QMouseEvent *event)
         m_gettingColorFromScreen = false;
         releaseMouse();
         releaseKeyboard();
-        QColor color = QColorDialog::grabColor(event->globalPos());
+
+        //Grab color of pixel
+        QPoint p = event->globalPos();
+        QPixmap pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), p.x(), p.y(), 1, 1);
+        QColor color(pixmap.toImage().pixel(0, 0));
+
         emit pickedColor(color);
     } else
         QDesktopWidget::mouseReleaseEvent(event);

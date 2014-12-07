@@ -39,17 +39,16 @@
 #include <QtCore/qnamespace.h>
 #include <QGuiApplication>
 #include <QFileDialog>
-
 #include <QUrl>
 #include <QMimeType>
 #include <QMimeDatabase>
-#include <KMessageBox>
 #include <QLocale>
-#include <KDELibs4Support/KDE/KFileMetaInfo>
-#include <KOpenWithDialog>
-//#include <KFileDialog>
-#include <KIconLoader>
 #include <QMenu>
+
+#include <KMessageBox>
+//#include <KDELibs4Support/KDE/KFileMetaInfo>
+#include <KOpenWithDialog>
+#include <KIconLoader>
 #include <KUriFilter>
 #include <KIconDialog>
 #include <KModifierKeyInfo>
@@ -832,10 +831,11 @@ NoteType::Id NoteFactory::typeForURL(const QUrl &url, BasketScene */*parent*/)
     bool viewImage = Settings::viewImageFileContent();
     bool viewSound = Settings::viewSoundFileContent();
 
+    /* PORTING: try KFileMetaData/Extractor
     KFileMetaInfo metaInfo(url.toLocalFile());
     if (Global::debugWindow && !metaInfo.isValid())
         *Global::debugWindow << "typeForURL: metaInfo is empty for " + url.toDisplayString();
-    if (metaInfo.isValid()) { // metaInfo is empty for GIF files on my machine !
+    if (metaInfo.isValid())*/ { // metaInfo is empty for GIF files on my machine !
         if (viewText  && maybeText(url))             return NoteType::Text;
         else if (viewHTML  && (maybeHtml(url)))           return NoteType::Html;
         else if (viewImage && maybeAnimation(url))        return NoteType::Animation; // See Note::movieStatus(int)

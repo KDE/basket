@@ -22,7 +22,6 @@
 #define TAGEDIT_H
 
 #include <QDialog>
-
 #include <QtCore/QList>
 #include <QItemDelegate>
 #include <QTreeWidgetItem>

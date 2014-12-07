@@ -114,6 +114,9 @@ QString fileNameForNewFile(const QString &wantedName, const QString &destFolder)
   */
 bool isAFileCut(const QMimeData *source);
 
+/// Implementation of system encoding detection from KDE 4
+QByteArray systemCodeset();
+
 // Debug
 void printChildren(QObject* parent);
 }

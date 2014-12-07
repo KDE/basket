@@ -30,9 +30,9 @@
 #include <QtGui/QPixmap>
 #include <QDesktopWidget>       //For qApp->desktop()
 #include <QtGui/QDragEnterEvent>
+#include <QApplication>
 
 #include <kdeversion.h>
-#include <QApplication>
 
 #include <KIO/CopyJob>
 

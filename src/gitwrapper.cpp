@@ -2,7 +2,6 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QMutexLocker>
-//#include <KDebug>
 
 #include "gitwrapper.h"
 #include "basketscene.h"

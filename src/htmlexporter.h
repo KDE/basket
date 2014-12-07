@@ -24,7 +24,7 @@
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
-class QProgressBar;
+class QProgressDialog;
 
 class BasketScene;
 class Note;
@@ -48,7 +48,7 @@ public:
     QString copyIcon(const QString &iconName, int size);
     QString copyFile(const QString &srcPath, bool createIt);
 
-public:
+public: //TODO: make private?
     // Absolute path of the file name the user chozen:
     QString filePath;          // eg.: "/home/seb/foo.html"
     QString fileName;          // eg.: "foo.html"
@@ -74,7 +74,7 @@ public:
     BasketScene *exportedBasket;
     BasketScene *currentBasket;
     bool withBasketTree;
-    QProgressBar *progress;
+    QProgressDialog* dialog;
 };
 
 #endif // HTMLEXPORTER_H

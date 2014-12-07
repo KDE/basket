@@ -21,7 +21,7 @@
 #include "basketlistview.h"
 
 #include <QtCore/QRegExp>
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <QtGui/QStandardItemModel>
 #include <QtGui/QDragLeaveEvent>
 #include <QtGui/QPixmap>
@@ -33,12 +33,14 @@
 #include <QtGui/QPainter>
 #include <QtGui/QBitmap>
 #include <QtGui/QPixmapCache>
-#include <QtGui/QToolTip>
+#include <QToolTip>
+#include <QMimeData>
+#include <QDebug>
+#include <QLocale>
 
 #include <KIconLoader>
-#include <QLocale>
 #include <KStringHandler>
-//#include <KDebug>
+#include <KLocalizedString>
 
 #include "global.h"
 #include "bnpview.h"
@@ -366,7 +368,7 @@ void BasketTreeListView::mouseMoveEvent(QMouseEvent *event)
 
 void BasketTreeListView::dragEnterEvent(QDragEnterEvent *event)
 {
-    qDebug() << event->format();
+    //qDebug() << event->mimeData()->text();
     event->acceptProposedAction();
     QTreeWidget::dragEnterEvent(event);
     if (event->mimeData()->hasFormat("application/x-basket-note")) {
@@ -425,9 +427,9 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
 void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
 {
     qDebug() << "BasketTreeListView::dragMoveEvent";
-    if (event->provides("application/x-qabstractitemmodeldatalist"))
+    /*if (event->provides("application/x-qabstractitemmodeldatalist"))
         QTreeWidget::dragMoveEvent(event);
-    else {
+    else*/ {
         QTreeWidgetItem *item = itemAt(event->pos());
         BasketListViewItem* bitem = dynamic_cast<BasketListViewItem*>(item);
         if (m_autoOpenItem != item) {
