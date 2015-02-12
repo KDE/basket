@@ -46,7 +46,6 @@
 #include <QMenu>
 
 #include <KMessageBox>
-//#include <KDELibs4Support/KDE/KFileMetaInfo>
 #include <KOpenWithDialog>
 #include <KIconLoader>
 #include <KUriFilter>
@@ -65,6 +64,7 @@
 #include "settings.h"
 #include "variouswidgets.h" //For IconSizeDialog
 #include "tools.h"
+#include "file_mimetypes.h"
 
 #include "debugwindow.h"
 
@@ -684,60 +684,34 @@ Note* NoteFactory::decodeContent(QDataStream &stream, NoteType::Id type, BasketS
         return 0; // NoteFactory::loadFile() is sufficient
 }
 
-// mayBeLauncher: url.url().endsWith(".desktop");
-
-bool NoteFactory::maybeText(const QUrl &url)
+bool NoteFactory::maybeText(const QMimeType &mimeType)
 {
-    QString path = url.url().toLower();
-    return path.endsWith(QLatin1String(".txt"));
+    return mimeType.inherits(MimeTypes::TEXT);
 }
 
-bool NoteFactory::maybeHtml(const QUrl &url)
+bool NoteFactory::maybeHtml(const QMimeType &mimeType)
 {
-    QString path = url.url().toLower();
-    return path.endsWith(QLatin1String(".html")) || path.endsWith(QLatin1String(".htm"));
+    return mimeType.inherits(MimeTypes::HTML);
 }
 
-bool NoteFactory::maybeImageOrAnimation(const QUrl &url)
+bool NoteFactory::maybeImage(const QMimeType &mimeType)
 {
-    /* Examples on my machine:
-    QImageDrag can understands
-    {"image/png", "image/bmp", "image/jpeg", "image/pgm", "image/ppm", "image/xbm", "image/xpm"}
-    QImageIO::inputFormats() returns
-    {"BMP", "GIF", "JPEG", "MNG", "PBM", "PGM", "PNG", "PPM", "XBM", "XPM"}
-        QImageDecoder::inputFormats():
-    {"GIF", "MNG", "PNG"} */
-    QList<QByteArray> formats = QImageReader::supportedImageFormats();
-    formats << QMovie::supportedFormats();
-
-    // Since QImageDrag return only "JPEG" and extensions can be "JPG";
-    // preprend for heuristic optim.
-    formats.prepend("jpg");
-
-    QString path = url.url().toLower();
-    foreach(QByteArray format, formats)
-    if (path.endsWith(QString(".") + QString(format).toLower()))
-        return true;
-    // TODO: Search real MIME type for local files?
-    return false;
+    return mimeType.name().startsWith(MimeTypes::IMAGE);
 }
 
-bool NoteFactory::maybeAnimation(const QUrl &url)
+bool NoteFactory::maybeAnimation(const QMimeType &mimeType)
 {
-    QString path = url.url().toLower();
-    return path.endsWith(QLatin1String(".mng")) || path.endsWith(QLatin1String(".gif"));
+    return mimeType.inherits(MimeTypes::ANIMATION) || mimeType.name() == MimeTypes::ANIMATION_MNG;
 }
 
-bool NoteFactory::maybeSound(const QUrl &url)
+bool NoteFactory::maybeSound(const QMimeType &mimeType)
 {
-    QString path = url.url().toLower();
-    return path.endsWith(QLatin1String(".mp3")) || path.endsWith(QLatin1String(".ogg"));
+    return mimeType.name().startsWith(MimeTypes::AUDIO);
 }
 
-bool NoteFactory::maybeLauncher(const QUrl &url)
+bool NoteFactory::maybeLauncher(const QMimeType &mimeType)
 {
-    QString path = url.url().toLower();
-    return path.endsWith(QLatin1String(".desktop"));
+    return mimeType.inherits(MimeTypes::LAUNCHER);
 }
 
 ////////////// NEW:
@@ -822,41 +796,29 @@ Note* NoteFactory::loadFile(const QString &fileName, NoteType::Id type, BasketSc
 
 NoteType::Id NoteFactory::typeForURL(const QUrl &url, BasketScene */*parent*/)
 {
-    QMimeDatabase db;
-    /*  QMimeType kMimeType = db.mimeTypeForUrl(url);
-        if (Global::debugWindow)
-            *Global::debugWindow << "typeForURL: " + kMimeType->parentMimeType();//property("MimeType").toString();*/
     bool viewText  = Settings::viewTextFileContent();
     bool viewHTML  = Settings::viewHtmlFileContent();
     bool viewImage = Settings::viewImageFileContent();
     bool viewSound = Settings::viewSoundFileContent();
 
-    /* PORTING: try KFileMetaData/Extractor
-    KFileMetaInfo metaInfo(url.toLocalFile());
-    if (Global::debugWindow && !metaInfo.isValid())
-        *Global::debugWindow << "typeForURL: metaInfo is empty for " + url.toDisplayString();
-    if (metaInfo.isValid())*/ { // metaInfo is empty for GIF files on my machine !
-        if (viewText  && maybeText(url))             return NoteType::Text;
-        else if (viewHTML  && (maybeHtml(url)))           return NoteType::Html;
-        else if (viewImage && maybeAnimation(url))        return NoteType::Animation; // See Note::movieStatus(int)
-        else if (viewImage && maybeImageOrAnimation(url)) return NoteType::Image;     //  for more explanations
-        else if (viewSound && maybeSound(url))            return NoteType::Sound;
-        else if (maybeLauncher(url))                      return NoteType::Launcher;
-        else                                              return NoteType::File;
+    QMimeDatabase db;
+    QMimeType mimeType = db.mimeTypeForUrl(url);
+
+    if (Global::debugWindow) {
+        if (mimeType.isValid())
+            *Global::debugWindow << "typeForURL: " + url.toDisplayString() + " ; MIME type = " + mimeType.name();
+        else
+            *Global::debugWindow << "typeForURL: mimeType is empty for " + url.toDisplayString();
     }
-    QString mimeType = db.mimeTypeForUrl(url).name();
 
-    if (Global::debugWindow)
-        *Global::debugWindow << "typeForURL: " + url.toDisplayString() + " ; MIME type = " + mimeType;
-
-    if (mimeType == "application/x-desktop")            return NoteType::Launcher;
-    else if (viewText  && mimeType.startsWith(QLatin1String("text/plain"))) return NoteType::Text;
-    else if (viewHTML  && mimeType.startsWith(QLatin1String("text/html")))  return NoteType::Html;
-    else if (viewImage && mimeType == "movie/x-mng")         return NoteType::Animation;
-    else if (viewImage && mimeType == "image/gif")           return NoteType::Animation;
-    else if (viewImage && mimeType.startsWith(QLatin1String("image/")))     return NoteType::Image;
-    else if (viewSound && mimeType.startsWith(QLatin1String("audio/")))     return NoteType::Sound;
-    else                                                     return NoteType::File;
+    //Go from specific to more generic
+    if (maybeLauncher(mimeType))                           return NoteType::Launcher;
+    else if (viewHTML  && (maybeHtml(mimeType)))           return NoteType::Html;
+    else if (viewText  && maybeText(mimeType))             return NoteType::Text;
+    else if (viewImage && maybeAnimation(mimeType))        return NoteType::Animation; // See Note::movieStatus(int)
+    else if (viewImage && maybeImage(mimeType))            return NoteType::Image;     //  for more explanations
+    else if (viewSound && maybeSound(mimeType))            return NoteType::Sound;
+    else                                                   return NoteType::File;
 }
 
 QString NoteFactory::fileNameForNewNote(BasketScene *parent, const QString &wantedName)

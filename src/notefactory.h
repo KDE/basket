@@ -29,6 +29,7 @@ class QString;
 class QStringList;
 
 class QUrl;
+class QMimeType;
 
 class BasketScene;
 class Note;
@@ -74,12 +75,12 @@ void consumeContent(QDataStream &stream, NoteType::Id type); /// << Decode the @
 QString createNoteLauncherFile(const QString &command, const QString &name, const QString &icon, BasketScene *parent);
 /** Other useful functions */
 NoteType::Id typeForURL(const QUrl &url, BasketScene *parent);
-bool         maybeText(const QUrl &url);
-bool         maybeHtml(const QUrl &url);
-bool         maybeImageOrAnimation(const QUrl &url);
-bool         maybeAnimation(const QUrl &url);
-bool         maybeSound(const QUrl &url);
-bool         maybeLauncher(const QUrl &url);
+bool         maybeText(const QMimeType &mimeType);
+bool         maybeHtml(const QMimeType &mimeType);
+bool         maybeImage(const QMimeType &mimeType);
+bool         maybeAnimation(const QMimeType &mimeType);
+bool         maybeSound(const QMimeType &mimeType);
+bool         maybeLauncher(const QMimeType &mimeType);
 QString      fileNameForNewNote(BasketScene *parent, const QString &wantedName);
 QString      createFileForNewNote(BasketScene *parent, const QString &extension, const QString &wantedName = "");
 QUrl         filteredURL(const QUrl &url);

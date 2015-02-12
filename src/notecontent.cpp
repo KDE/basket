@@ -44,7 +44,7 @@
 
 #include <KIO/AccessManager>
 #include <KService>
-//#include <KDELibs4Support/KDE/KFileMetaInfo>
+#include <KFileMetaData/KFileMetaData/Extractor>
 #include <KFileItem>
 #include <KIO/PreviewJob>                   //For KIO::file_preview(...)
 #include <KEncodingProber>
@@ -64,6 +64,7 @@
 #include "debugwindow.h"
 #include "htmlexporter.h"
 #include "config.h"
+#include "file_metadata.h"
 
 /**
  * LinkDisplayItem definition
@@ -1482,25 +1483,27 @@ void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
         values->append(mime.comment());
     }
 
-    /* PORTING: try KFileMetaData/Extractor
-    KFileMetaInfo info = KFileMetaInfo(fullPath());
-    if (info.isValid()) {
-        QStringList groups = info.preferredKeys();
+
+    MetaDataExtractionResult result(fullPath(), mime.name());
+    KFileMetaData::ExtractorCollection extractorCollection;
+
+    for (KFileMetaData::Extractor* ex : extractorCollection.fetchExtractors(mime.name()))
+    {
+        ex->extract(&result);
+        auto groups = result.preferredGroups();
+        DEBUG_WIN << "Metadata Extractor result has " << QString::number(groups.count()) << " groups";
+
         int i = 0;
-        for (QStringList::Iterator it = groups.begin();
+        for (auto it = groups.begin();
                 i < 6 && it != groups.end();
                 ++it) {
-            KFileMetaInfoItem item = info.item(*it);
-            QString value = item.value().toString();
-            if (!value.isEmpty()) {
-                keys->append(item.name());
-                value = QString("%1%2%3").arg(item.prefix(), value,
-                                              item.suffix());
-                values->append(value);
-                ++i;
+            if (!it->second.isEmpty()) {
+                keys->append(it->first);
+                values->append(it->second);
+                i++;
             }
         }
-    }*/
+    }
 }
 
 int FileContent::zoneAt(const QPointF &pos)

@@ -53,6 +53,7 @@ find_package(KF5 REQUIRED COMPONENTS
   Crash
   DBusAddons
   DocTools
+  FileMetaData
   FrameworkIntegration
   GlobalAccel
   GuiAddons

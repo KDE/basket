@@ -20,6 +20,7 @@ set(basketcommon_LIB_SRCS
     decoratedbasket.cpp
     diskerrordialog.cpp
     exporterdialog.cpp
+    file_metadata.cpp
     filter.cpp
     focusedwidgets.cpp
     formatimporter.cpp
@@ -83,6 +84,7 @@ target_link_libraries(basketcommon
   KF5::CoreAddons
   KF5::Crash
   KF5::DBusAddons
+  KF5::FileMetaData
   KF5::GlobalAccel
   KF5::GuiAddons
   KF5::I18n
