@@ -859,7 +859,7 @@ NotesAppearancePage::NotesAppearancePage(QWidget * parent, const char * name)
     m_fileLook        = new LinkLookEditWidget(this, i18n("Annual report"),                                   "folder-documents",    tabs);
     m_localLinkLook   = new LinkLookEditWidget(this, i18n("Home folder"),                                     "user-home", tabs);
     m_networkLinkLook = new LinkLookEditWidget(this, "www.kde.org",             KIO::iconNameForUrl(QUrl("http://www.kde.org")), tabs);
-    m_launcherLook    = new LinkLookEditWidget(this, i18n("Launch %1").arg(QGuiApplication::applicationDisplayName()), "basket",      tabs);
+    m_launcherLook    = new LinkLookEditWidget(this, i18n("Launch %1", QGuiApplication::applicationDisplayName()), "basket",      tabs);
     m_crossReferenceLook=new LinkLookEditWidget(this, i18n("Another basket"), "basket", tabs);
 
     tabs->addTab(m_soundLook,       i18n("&Sounds"));

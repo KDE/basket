@@ -65,16 +65,11 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     setObjectName(name);
     setModal(true);
     setWindowTitle(i18n("Backup & Restore"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
-    mainLayout->addWidget(buttonBox);
-    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 
     QWidget *page  = new QWidget(this);
     QVBoxLayout *pageVBoxLayout = new QVBoxLayout(page);
@@ -140,6 +135,12 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     populateLastBackup();
 
     (new QWidget(page))->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    mainLayout->addWidget(buttonBox);
+    buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+
 }
 
 BackupDialog::~BackupDialog()

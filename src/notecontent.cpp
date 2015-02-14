@@ -1995,7 +1995,7 @@ Qt::CursorShape CrossReferenceContent::cursorFromZone(int zone) const
 QString CrossReferenceContent::statusBarMessage(int zone)
 {
     if (zone == Note::Custom0 || zone == Note::Content)
-        return i18n("Link to %1").arg(this->title());
+        return i18n("Link to %1", this->title());
     else
         return "";
 }

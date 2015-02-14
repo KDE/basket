@@ -621,8 +621,6 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
-    mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setParent(qApp->activeWindow());
     setObjectName("_likeback_feedback_window_");
@@ -736,6 +734,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     connect(sendShortcut, SIGNAL(triggered()), buttonBox->button(QDialogButtonBox::Ok), SLOT(animateClick()));
 
     mainLayout->addWidget(page);
+    mainLayout->addWidget(buttonBox);
 }
 
 LikeBackDialog::~LikeBackDialog()

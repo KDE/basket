@@ -687,22 +687,14 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
 {
     // QDialog options
     setWindowTitle(i18n("Edit Link Note"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
-    mainLayout->addWidget(buttonBox);
-    okButton->setDefault(true);
+
     setObjectName("EditLink");
     setModal(true);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget     *page   = new QWidget(this);
     mainLayout->addWidget(page);
@@ -798,7 +790,14 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
     layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
 
-    
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    mainLayout->addWidget(buttonBox);
    
 
    // urlChanged("");
@@ -900,18 +899,6 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
 
     // QDialog options
     setWindowTitle(i18n("Edit Cross Reference"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
-    mainLayout->addWidget(buttonBox);
-    okButton->setDefault(true);
-    setObjectName("EditCrossReference");
-    setModal(true);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget     *page   = new QWidget(this);
     mainLayout->addWidget(page);
@@ -957,6 +944,17 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     policy.setVerticalStretch(255);
     stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
     layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    mainLayout->addWidget(buttonBox);
+    setObjectName("EditCrossReference");
+    setModal(true);
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 }
 
 CrossReferenceEditDialog::~CrossReferenceEditDialog()
@@ -1020,18 +1018,9 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
 
     // QDialog options
     setWindowTitle(i18n("Edit Launcher Note"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
-    mainLayout->addWidget(buttonBox);
-    okButton->setDefault(true);
+
     setObjectName("EditLauncher");
     setModal(true);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
 
     QWidget     *page   = new QWidget(this);
     mainLayout->addWidget(page);
@@ -1094,6 +1083,15 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
 
     QWidget *stretchWidget = new QWidget(page);
     mainLayout->addWidget(stretchWidget);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    mainLayout->addWidget(buttonBox);
 
     QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     policy.setHorizontalStretch(1);

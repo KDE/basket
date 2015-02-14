@@ -328,15 +328,12 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    //PORTING SCRIPT: WARNING mainLayout->addWidget(buttonBox) must be last item in layout. Please move it.
     mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setObjectName("CustomizeTags");
     setModal(true);
     connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
     connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(slotCancel()));
-
-//PORTING: Verify that widget was added to mainLayout     setMainWidget(new QWidget(this));
 
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
 

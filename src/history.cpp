@@ -30,7 +30,7 @@
 HistorySetBasket::HistorySetBasket(BasketScene *basket, QUndoCommand *parent)
         :QUndoCommand(parent)
 {
-    setText(i18n("Set current basket to %1").arg(basket->basketName()));
+    setText(i18n("Set current basket to %1", basket->basketName()));
     m_folderNameOld = Global::bnpView->currentBasket()->folderName();
     m_folderNameNew = basket->folderName();
 }

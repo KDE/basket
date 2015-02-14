@@ -301,7 +301,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     // TODO: Make sure only filtered notes are exported!
 //  if (decoration()->filterData().isFiltering)
 //      stream <<
-//          "  <p>" << i18n("Notes matching the filter &quot;%1&quot;:").arg(Tools::textToHTMLWithoutP(decoration()->filterData().string)) << "</p>\n";
+//          "  <p>" << i18n("Notes matching the filter &quot;%1&quot;:", Tools::textToHTMLWithoutP(decoration()->filterData().string)) << "</p>\n";
 
     stream <<
     "  <div class=\"basketSurrounder\">\n";

@@ -724,7 +724,7 @@ Note* NoteFactory::copyFileAndLoad(const QUrl &url, BasketScene *parent)
     if (Global::debugWindow)
         *Global::debugWindow << "copyFileAndLoad: " + url.toDisplayString() + " to " + fullPath;
 
-//  QString annotations = i18n("Original file: %1").arg(url.toDisplayString());
+//  QString annotations = i18n("Original file: %1", url.toDisplayString());
 //  parent->dontCareOfCreation(fullPath);
 
     KIO::CopyJob *copyJob = KIO::copy(url, QUrl::fromLocalFile(fullPath),
@@ -745,7 +745,7 @@ Note* NoteFactory::moveFileAndLoad(const QUrl &url, BasketScene *parent)
     if (Global::debugWindow)
         *Global::debugWindow << "moveFileAndLoad: " + url.toDisplayString() + " to " + fullPath;
 
-//  QString annotations = i18n("Original file: %1").arg(url.toDisplayString());
+//  QString annotations = i18n("Original file: %1", url.toDisplayString());
 //  parent->dontCareOfCreation(fullPath);
 
     KIO::CopyJob *copyJob = KIO::move(url, QUrl::fromLocalFile(fullPath),

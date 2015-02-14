@@ -97,7 +97,6 @@
 #include "settings.h"
 #include "tools.h"
 #include "debugwindow.h"
-#include "exporterdialog.h"
 #include "focusedwidgets.h"
 #include "gitwrapper.h"
 
