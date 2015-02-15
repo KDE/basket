@@ -37,7 +37,6 @@ DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &mes
 {
     setObjectName("DiskError");
     setWindowTitle(i18n("Save Error"));
-//PORTING: Verify that widget was added to mainLayout     setMainWidget(new QWidget(this));
     //enableButtonCancel(false);
     //enableButtonClose(false);
     //enableButton(Close, false);
@@ -50,7 +49,7 @@ DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &mes
     mainLayout->addWidget(mainWidget);
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
     QPixmap icon = KIconLoader::global()->loadIcon(
-                       "hdd_unmount", KIconLoader::NoGroup, 64, KIconLoader::DefaultState,
+                       "drive-harddisk", KIconLoader::NoGroup, 64, KIconLoader::DefaultState,
                        QStringList(), /*path_store=*/0L, /*canReturnNull=*/true
                    );
     QLabel *iconLabel  = new QLabel(mainWidget);

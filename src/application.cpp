@@ -66,24 +66,31 @@ int Application::newInstance()
 {
     //KUniqueApplication::newInstance();
 
+    return 0;
+}
+
+void Application::tryLoadFile()
+{
     // Open the basket archive or template file supplied as argument:
-    QString fileName = Global::commandLineOpts->value("file");
+    QStringList args = Global::commandLineOpts->positionalArguments();
+    if (args.count() >= 1) {
+        QString fileName = args.last();
 
-    if (QFile::exists(fileName)) {
-        QFileInfo fileInfo(fileName);
-        if (fileInfo.absoluteFilePath().contains(Global::basketsFolder())) {
-            QString folder = fileInfo.absolutePath().split("/").last();
-            folder.append("/");
-            BNPView::s_basketToOpen = folder;
-            QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenBasket()));
-        } else if (!fileInfo.isDir()) { // Do not mis-interpret data-folder param!
-            // Tags are not loaded until Global::bnpView::lateInit() is called.
-            // It is called 0ms after the application start.
-            BNPView::s_fileToOpen = fileName;
-            QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenArchive()));
-            //              Global::bnpView->openArchive(fileName);
+        if (QFile::exists(fileName)) {
+            QFileInfo fileInfo(fileName);
+            if (fileInfo.absoluteFilePath().contains(Global::basketsFolder())) {
+                QString folder = fileInfo.absolutePath().split("/").last();
+                folder.append("/");
+                BNPView::s_basketToOpen = folder;
+                QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenBasket()));
+            } else if (!fileInfo.isDir()) { // Do not mis-interpret data-folder param!
+                // Tags are not loaded until Global::bnpView::lateInit() is called.
+                // It is called 0ms after the application start.
+                BNPView::s_fileToOpen = fileName;
+                QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenArchive()));
+                //              Global::bnpView->openArchive(fileName);
 
+            }
         }
     }
-    return 0;
 }

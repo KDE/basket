@@ -55,7 +55,6 @@ PasswordDlg::PasswordDlg(QWidget *parent)
     okButton->setDefault(true);
     setModal(true);
 
-//PORTING: Verify that widget was added to mainLayout     setMainWidget(new QWidget(this));
     QHBoxLayout* toplayout = new QHBoxLayout(mainWidget);
     w = new Password;
     toplayout->addWidget(w, 1);

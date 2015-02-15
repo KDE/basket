@@ -39,10 +39,10 @@ int main(int argc, char *argv[])
     Application app(argc, argv);
 
     QCommandLineParser* opts = Global::commandLineOpts;
-    setupCmdLineOptions(opts/*, app*/);
+    setupCmdLineOptions(opts);
     opts->process(app);
-
-
+    Global::basketAbout.processCommandLine(opts); //show author, license information and exit
+    app.tryLoadFile();
 
 
     // Initialize the config file

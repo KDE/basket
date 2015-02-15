@@ -969,8 +969,6 @@ ApplicationsPage::ApplicationsPage(QWidget * parent, const char * name)
     layout->addWidget(m_soundUseProg);
     layout->addItem(hLayS);
 
-//TODO PORT QT5     layout->addSpacing(QDialog::spacingHint());
-
     QHBoxLayout *hLay = new QHBoxLayout;
     HelpLabel *hl1 = new HelpLabel(
         i18n("How to change the application used to open Web links?"),

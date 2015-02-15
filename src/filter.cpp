@@ -82,15 +82,11 @@ FilterBar::FilterBar(QWidget *parent)
     m_lineEdit->setClearButtonEnabled(true);
 
     // Layout all those widgets:
-//  hBox->addStretch();
     hBox->addWidget(m_resetButton);
-//TODO PORT QT5     hBox->addSpacing(QDialog::spacingHint());
     hBox->addWidget(label);
     hBox->addWidget(m_lineEdit);
-//TODO PORT QT5     hBox->addSpacing(QDialog::spacingHint());
     hBox->addWidget(label2);
     hBox->addWidget(m_tagsBox);
-//TODO PORT QT5     hBox->addSpacing(QDialog::spacingHint());
     hBox->addWidget(m_inAllBasketsButton);
 
 //  connect( &m_blinkTimer,         SIGNAL(timeout()),                   this, SLOT(blinkBar())                  );

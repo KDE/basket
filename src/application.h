@@ -33,6 +33,7 @@ public:
     Application(int &argc, char **argv);
     ~Application();
     int newInstance();
+    void tryLoadFile(); //!< Open a file passed as command line argument
 };
 
 #endif // APPLICATION_H
