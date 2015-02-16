@@ -94,6 +94,7 @@ private:
     QWidget             *m_groupOnInsertionLineWidget;
     QCheckBox           *m_groupOnInsertionLine;
     KComboBox           *m_middleAction;
+    QCheckBox           *m_pasteAsPlainText;
 
     // Protection
     QCheckBox           *m_useGnuPGAgent;
@@ -184,6 +185,7 @@ protected:
     static bool    s_confirmNoteDeletion;
     static bool    s_bigNotes;
     static bool    s_autoBullet;
+    static bool    s_pasteAsPlainText;
     static bool    s_exportTextTags;
     static bool    s_useGnuPGAgent;
     static bool    s_usePassivePopup;
@@ -249,6 +251,9 @@ public:  /* And the following methods are just getter / setters */
     }
     static inline bool    autoBullet()           {
         return s_autoBullet;
+    }
+    static inline bool    pasteAsPlainText()     {
+        return s_pasteAsPlainText;
     }
     static inline bool    exportTextTags()       {
         return s_exportTextTags;
@@ -411,6 +416,9 @@ public:  /* And the following methods are just getter / setters */
     }
     static inline void setConfirmNoteDeletion(bool confirm)     {
         s_confirmNoteDeletion  = confirm;
+    }
+    static inline void setPasteAsPlainText(bool yes)            {
+        s_pasteAsPlainText     = yes;
     }
     static void setBigNotes(bool big);
     static void setAutoBullet(bool yes);

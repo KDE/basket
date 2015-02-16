@@ -28,6 +28,7 @@
 #include "bnpview.h"
 #include "basketscene.h"
 #include "global.h"
+#include "settings.h"
 
 #ifdef KeyPress
 #undef KeyPress
@@ -91,6 +92,20 @@ void FocusedTextEdit::enterEvent(QEvent *event)
 {
     emit mouseEntered();
     KTextEdit::enterEvent(event);
+}
+
+void FocusedTextEdit::insertFromMimeData(const QMimeData *source)
+{
+    // When user always wants plaintext pasting, if both HTML and text data is
+    // present, only send plain text data (the provided source is readonly and I
+    // also can't just pass it to QMimeData constructor as the latter is 'private')
+    if (Settings::pasteAsPlainText() && source->hasHtml() && source->hasText())
+    {
+        QMimeData alteredSource;
+        alteredSource.setData("text/plain", source->data("text/plain"));
+        KTextEdit::insertFromMimeData(&alteredSource);
+    }
+    else KTextEdit::insertFromMimeData(source);
 }
 
 /** class FocusWidgetFilter */
