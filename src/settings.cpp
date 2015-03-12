@@ -54,6 +54,7 @@ bool    Settings::s_showNotesToolTip     = true; // TODO: RENAME: useBasketToolt
 bool    Settings::s_confirmNoteDeletion  = true;
 bool    Settings::s_bigNotes             = false;
 bool    Settings::s_autoBullet           = true;
+bool    Settings::s_pasteAsPlainText     = false;
 bool    Settings::s_exportTextTags       = true;
 bool    Settings::s_useGnuPGAgent        = false;
 bool    Settings::s_treeOnLeft           = true;
@@ -127,6 +128,7 @@ void Settings::loadConfig()
     setShowNotesToolTip(config.readEntry("showNotesToolTip",     true));
     setBigNotes(config.readEntry("bigNotes",             false));
     setConfirmNoteDeletion(config.readEntry("confirmNoteDeletion",  true));
+    setPasteAsPlainText(config.readEntry("pasteAsPlainText",  false));
     setAutoBullet(config.readEntry("autoBullet",           true));
     setExportTextTags(config.readEntry("exportTextTags",       true));
     setUseGnuPGAgent(config.readEntry("useGnuPGAgent",        false));
@@ -210,6 +212,7 @@ void Settings::saveConfig()
     config.writeEntry("playAnimations",       playAnimations());
     config.writeEntry("showNotesToolTip",     showNotesToolTip());
     config.writeEntry("confirmNoteDeletion",  confirmNoteDeletion());
+    config.writeEntry("pasteAsPlainText",     pasteAsPlainText());
     config.writeEntry("bigNotes",             bigNotes());
     config.writeEntry("autoBullet",           autoBullet());
     config.writeEntry("exportTextTags",       exportTextTags());
@@ -544,6 +547,10 @@ BasketsPage::BasketsPage(QWidget * parent, const char * name)
     behaviorLayout->addWidget(m_confirmNoteDeletion);
     connect(m_confirmNoteDeletion, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
+    m_pasteAsPlainText = new QCheckBox(i18n("Do not keep text formatting when pasting"), behaviorBox);
+    behaviorLayout->addWidget(m_pasteAsPlainText);
+    connect(m_pasteAsPlainText, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+
     QWidget *widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
     hLay = new QHBoxLayout(widget);
@@ -652,6 +659,7 @@ void BasketsPage::load()
 
     m_autoBullet->setChecked(Settings::autoBullet());
     m_confirmNoteDeletion->setChecked(Settings::confirmNoteDeletion());
+    m_pasteAsPlainText->setChecked(Settings::pasteAsPlainText());
     m_exportTextTags->setChecked(Settings::exportTextTags());
 
     m_groupOnInsertionLine->setChecked(Settings::groupOnInsertionLine());
@@ -681,6 +689,7 @@ void BasketsPage::save()
 
     Settings::setAutoBullet(m_autoBullet->isChecked());
     Settings::setConfirmNoteDeletion(m_confirmNoteDeletion->isChecked());
+    Settings::setPasteAsPlainText(m_pasteAsPlainText->isChecked());
     Settings::setExportTextTags(m_exportTextTags->isChecked());
 
     Settings::setGroupOnInsertionLine(m_groupOnInsertionLine->isChecked());

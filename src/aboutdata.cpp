@@ -39,6 +39,10 @@ AboutData::AboutData()
     //Pass basket.kde.org to constructor to be used as D-Bus domain name, but set the displayed address below
     setHomepage("https://launchpad.net/basket");
 
+    addAuthor(ki18n("OmegaPhil"),
+              ki18n("Paste as plaintext option"),
+              "OmegaPhil@startmail.com");
+
     addAuthor(ki18n("Kelvie Wong"),
               ki18n("Maintainer"),
               "kelvie@ieee.org");
