@@ -368,13 +368,10 @@ void BasketTreeListView::mouseMoveEvent(QMouseEvent *event)
 
 void BasketTreeListView::dragEnterEvent(QDragEnterEvent *event)
 {
-    //qDebug() << event->mimeData()->text();
-    event->acceptProposedAction();
-    QTreeWidget::dragEnterEvent(event);
-    if (event->mimeData()->hasFormat("application/x-basket-note")) {
-	    event->acceptProposedAction();
-    }
+    //TODO: accept everything? (forwarding dropped basket-notes and arbitrary data to the basket)
+    //files: MoveAction vs. CopyAction, or acceptProposedAction()
 
+    QTreeWidget::dragEnterEvent(event);
 }
 
 void BasketTreeListView::removeExpands()
@@ -426,10 +423,9 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
 
 void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
 {
-    qDebug() << "BasketTreeListView::dragMoveEvent";
-    /*if (event->provides("application/x-qabstractitemmodeldatalist"))
-        QTreeWidget::dragMoveEvent(event);
-    else*/ {
+    //qDebug() << "BasketTreeListView::dragMoveEvent";
+
+    if (!event->mimeData()->hasFormat(TREE_ITEM_MIME_STRING)) {
         QTreeWidgetItem *item = itemAt(event->pos());
         BasketListViewItem* bitem = dynamic_cast<BasketListViewItem*>(item);
         if (m_autoOpenItem != item) {
@@ -437,17 +433,13 @@ void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
             m_autoOpenTimer.setSingleShot(true);
             m_autoOpenTimer.start(1700);
         }
-        QTreeWidget::dragMoveEvent(event); // FIXME: ADDED
-        if (item) {
-            event->accept();
-        }
-        setItemUnderDrag(bitem);
 
         if (item) {
             event->accept();
         }
         setItemUnderDrag(bitem);
     }
+
     QTreeWidget::dragMoveEvent(event);
 }
 

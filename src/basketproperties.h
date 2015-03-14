@@ -56,7 +56,7 @@ public slots:
     void applyChanges();
 
 protected slots:
-    void capturedShortcut(const QKeySequence &shortcut);
+    void capturedShortcut(const QList<QKeySequence>& shortcut);
     void selectColumnsLayout();
 
 private:

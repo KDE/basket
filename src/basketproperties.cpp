@@ -161,7 +161,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
                                              "It is useful in addition to the configurable global shortcuts, eg. to paste the clipboard or the selection into the current basket from anywhere.</p>"), 0);
 
     shortcutLayout->addWidget(helpLabel);
-    connect(shortcut, SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(capturedShortcut(const QKeySequence&)));
+    connect(shortcut, SIGNAL(shortcutChanged(const QList<QKeySequence>&)), this, SLOT(capturedShortcut(const QList<QKeySequence>&)));
 
     setTabOrder(columnCount, shortcut);
     setTabOrder(shortcut, helpLabel);
@@ -177,7 +177,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 
     // Connect the Ok and Apply buttons to actually apply the changes
     connect(okButton, SIGNAL(clicked()), SLOT(applyChanges()));
-    connect(this, SIGNAL(applyClicked()), SLOT(applyChanges()));
+    connect(buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), SLOT(applyChanges()));
 }
 
 BasketPropertiesDialog::~BasketPropertiesDialog()
@@ -216,11 +216,10 @@ void BasketPropertiesDialog::applyChanges()
     m_basket->save();
 }
 
-void BasketPropertiesDialog::capturedShortcut(const QKeySequence &sc)
+void BasketPropertiesDialog::capturedShortcut(const QList<QKeySequence>& sc)
 {
     // TODO: Validate it!
-    QList<QKeySequence> shortcuts{sc};
-    shortcut->setShortcut(shortcuts);
+    shortcut->setShortcut(sc);
 }
 
 void BasketPropertiesDialog::selectColumnsLayout()

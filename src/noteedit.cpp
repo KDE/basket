@@ -659,26 +659,6 @@ UnknownEditor::UnknownEditor(UnknownContent *unknownContent, QWidget *parent)
 /*********************************************************************/
 
 
-/** class DebuggedLineEdit: */
-
-DebuggedLineEdit::DebuggedLineEdit(const QString &text, QWidget *parent)
-        : QLineEdit(text, parent)
-{
-}
-
-DebuggedLineEdit::~DebuggedLineEdit()
-{
-}
-
-void DebuggedLineEdit::keyPressEvent(QKeyEvent *event)
-{
-    QString oldText = text();
-    QLineEdit::keyPressEvent(event);
-    if (oldText != text())
-        emit textChanged(text());
-}
-
-
 /** class LinkEditDialog: */
 
 LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKeyEvent *ke*/)
@@ -705,7 +685,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     QWidget *wid1 = new QWidget(page);
     mainLayout->addWidget(wid1);
     QHBoxLayout *titleLay = new QHBoxLayout(wid1);
-    m_title = new DebuggedLineEdit(m_noteContent->title(), wid1);
+    m_title = new QLineEdit(m_noteContent->title(), wid1);
     m_autoTitle = new QPushButton(i18n("Auto"), wid1);
     m_autoTitle->setCheckable(true);
     m_autoTitle->setChecked(m_noteContent->autoTitle());
@@ -776,8 +756,8 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     layout->addWidget(wid,     2, 1, Qt::AlignVCenter);
 
     m_isAutoModified = false;
-    connect(m_url,   SIGNAL(editTextChanged(const QString&)), this, SLOT(urlChanged(const QString&)));
-    connect(m_title, SIGNAL(editTextChanged(const QString&)), this, SLOT(doNotAutoTitle(const QString&)));
+    connect(m_url,   SIGNAL(textChanged(const QString&)), this, SLOT(urlChanged(const QString&)));
+    connect(m_title, SIGNAL(textChanged(const QString&)), this, SLOT(doNotAutoTitle(const QString&)));
     connect(m_icon,  SIGNAL(iconChanged(QString))       , this, SLOT(doNotAutoIcon(QString)));
     connect(m_autoTitle, SIGNAL(clicked()), this, SLOT(guessTitle()));
     connect(m_autoIcon,  SIGNAL(clicked()), this, SLOT(guessIcon()));

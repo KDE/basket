@@ -1885,8 +1885,11 @@ void LinkContent::startFetchingUrlPreview()
 
 void LinkContent::endFetchingLinkTitle()
 {
-    decodeHtmlTitle();
-    m_httpBuff.clear();
+    if (m_httpBuff.length() > 0) {
+        decodeHtmlTitle();
+        m_httpBuff.clear();
+    } else
+        DEBUG_WIN << "LinkContent: empty buffer on endFetchingLinkTitle for " + m_url.toString();
 }
 
 void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
@@ -2688,9 +2691,7 @@ void LinkContent::decodeHtmlTitle()
         textCodec = QTextCodec::codecForName(prober.encoding()); else
         textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
 
-    QTextCodec::setCodecForLocale(textCodec);
-    QString httpBuff = QString::fromLatin1(m_httpBuff.data(), m_httpBuff.size()); //use fromCString() for Qt5
-    QTextCodec::setCodecForLocale(0);
+    QString httpBuff = textCodec->toUnicode(m_httpBuff.data(), m_httpBuff.size());
 
     // todo: this should probably strip odd html tags like &nbsp; etc
     QRegExp reg("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>", Qt::CaseInsensitive);

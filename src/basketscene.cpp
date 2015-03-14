@@ -2809,7 +2809,6 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent* event)
         case Note::Group:         message = i18n("Select or move this group");          break;
         case Note::TagsArrow:     message = i18n("Assign or remove tags from this note");
             if (note->states().count() > 0) {
-                message = "<qt><nobr>" + message + "</nobr><br>" + i18n("<b>Assigned Tags</b>: %1");
                 QString tagsString = "";
                 for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it) {
                     QString tagName = "<nobr>" + Tools::textToHTMLWithoutP((*it)->fullName()) + "</nobr>";
@@ -2818,7 +2817,7 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent* event)
                     else
                         tagsString = i18n("%1, %2", tagsString, tagName);
                 }
-                message = message.arg(tagsString);
+                message = "<qt><nobr>" + message + "</nobr><br>" + i18n("<b>Assigned Tags</b>: %1", tagsString);
             }
             break;
         case Note::Custom0:       message = note->content()->zoneTip(zone);             break; //"Open this link/Open this file/Open this sound file/Launch this application"

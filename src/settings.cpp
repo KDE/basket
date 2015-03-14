@@ -740,7 +740,7 @@ NewNotesPage::NewNotesPage(QWidget * parent, const char * name)
     //layout->addLayout(hLay);
     label->hide();
     m_newNotesPlace->hide();
-    connect(m_newNotesPlace, SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
+    connect(m_newNotesPlace, SIGNAL(editTextChanged(const QString &)), this, SLOT(changed()));
 
     // New Images Size:
 

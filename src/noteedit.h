@@ -225,20 +225,6 @@ public:
     UnknownEditor(UnknownContent *unknownContent, QWidget *parent);
 };
 
-/** QLineEdit behavior:
-  * Create a new QLineEdit with a text, then the user select a part of it and press ONE letter key.
-  * The signal editTextChanged() is not emitted!
-  * This class correct that!
-  */
-class DebuggedLineEdit : public QLineEdit
-{
-    Q_OBJECT
-public:
-    explicit DebuggedLineEdit(const QString &text, QWidget *parent = 0);
-    ~DebuggedLineEdit();
-protected:
-    void keyPressEvent(QKeyEvent *event);
-};
 
 /** The dialog to edit Link Note content.
   * @author Sébastien Laoût

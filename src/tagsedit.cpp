@@ -628,21 +628,21 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     }
 
     // Connect Signals:
-    connect(m_tagName,         SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_shortcut,        SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(modified()));
+    connect(m_tagName,         SIGNAL(textChanged(const QString&)),        this, SLOT(modified()));
+    connect(m_shortcut,        SIGNAL(shortcutChanged(const QList<QKeySequence>&)), this, SLOT(modified()));
     connect(m_inherit,         SIGNAL(stateChanged(int)),                  this, SLOT(modified()));
     connect(m_allowCrossRefernce, SIGNAL(clicked(bool)),                   this, SLOT(modified()));
-    connect(m_stateName,       SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
+    connect(m_stateName,       SIGNAL(textChanged(const QString&)),        this, SLOT(modified()));
     connect(m_emblem,          SIGNAL(iconChanged(QString)),               this, SLOT(modified()));
     connect(m_backgroundColor, SIGNAL(changed(const QColor&)),             this, SLOT(modified()));
     connect(m_bold,            SIGNAL(toggled(bool)),                      this, SLOT(modified()));
     connect(m_underline,       SIGNAL(toggled(bool)),                      this, SLOT(modified()));
     connect(m_italic,          SIGNAL(toggled(bool)),                      this, SLOT(modified()));
     connect(m_strike,          SIGNAL(toggled(bool)),                      this, SLOT(modified()));
-    connect(m_textColor,       SIGNAL(activated(int)),             this, SLOT(modified()));
-    connect(m_font,            SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_fontSize,        SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_textEquivalent,  SIGNAL(editTextChanged(const QString&)),        this, SLOT(modified()));
+    connect(m_textColor,       SIGNAL(activated(int)),                     this, SLOT(modified()));
+    connect(m_font,            SIGNAL(editTextChanged(const QString&)),    this, SLOT(modified()));
+    connect(m_fontSize,        SIGNAL(editTextChanged(const QString&)),    this, SLOT(modified()));
+    connect(m_textEquivalent,  SIGNAL(textChanged(const QString&)),        this, SLOT(modified()));
     connect(m_onEveryLines,    SIGNAL(stateChanged(int)),                  this, SLOT(modified()));
 
     connect(m_tags,            SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)),     this,
