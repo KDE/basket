@@ -1147,22 +1147,26 @@ void InlineEditors::initToolBars(KActionCollection *ac)
                         Global::bnpView->currentBasket()->textColor() :
                         palette().color(QPalette::Text));
 
+    //NOTE: currently it is NULL since initToolBars is called early. Could use different way to get MainWindow pointer from main
+    KMainWindow* parent = Global::mainWindow();
+
     // Init the RichTextEditor Toolbar:
     richTextFont = new QFontComboBox(Global::mainWindow());
     focusWidgetFilter = new FocusWidgetFilter(richTextFont);
     richTextFont->setFixedWidth(richTextFont->sizeHint().width() * 2 / 3);
     richTextFont->setCurrentFont(defaultFont.family());
 
-    QAction *action = ac->addAction("richtext_font");
-    //action->setDefaultWidget(richTextFont); //applicable to QWidgetAction
-    ac->addAssociatedWidget(richTextFont);
+    QWidgetAction* action = new QWidgetAction(parent);
+    ac->addAction("richtext_font", action);
+    action->setDefaultWidget(richTextFont);
     action->setText(i18n("Font"));
     ac->setDefaultShortcut(action, Qt::Key_F6);
 
     richTextFontSize = new FontSizeCombo(/*rw=*/true, Global::mainWindow());
     richTextFontSize->setFontSize(defaultFont.pointSize());
-    action = ac->addAction("richtext_font_size");
-    ac->addAssociatedWidget(richTextFontSize);
+    action = new QWidgetAction(parent);
+    ac->addAction("richtext_font_size", action);
+    action->setDefaultWidget(richTextFontSize);
     action->setText(i18n("Font Size"));
     ac->setDefaultShortcut(action, Qt::Key_F7);
 
@@ -1170,8 +1174,9 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     richTextColor->installEventFilter(focusWidgetFilter);
     richTextColor->setFixedWidth(richTextColor->sizeHint().height() * 2);
     richTextColor->setColor(textColor);
-    action = ac->addAction("richtext_color");
-    ac->addAssociatedWidget(richTextColor);
+    action = new QWidgetAction(parent);
+    ac->addAction("richtext_color", action);
+    action->setDefaultWidget(richTextColor);
     action->setText(i18n("Color"));
 
     KToggleAction *ta = NULL;
