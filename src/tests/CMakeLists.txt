@@ -1,4 +1,8 @@
+include(ECMMarkAsTest)
+
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR})
+
+find_package(Qt5Test REQUIRED)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/src 
                     ${CMAKE_BINARY_DIR}/src)
@@ -7,8 +11,9 @@ link_directories(${CMAKE_BINARY_DIR}/lib)
 
 
 macro(basket_standalone_unit_test _testname)
-    kde4_add_unit_test(${_testname} ${_testname}.cpp ${_extra_sources} ${ARGN})
-    target_link_libraries(${_testname} basketcommon ${KDE4_KDEUI_LIBS} ${QT_QTTEST_LIBRARY})
+    add_executable(${_testname} ${_testname}.cpp ${_extra_sources} ${ARGN})
+    ecm_mark_as_test(${_testname})
+    target_link_libraries(${_testname} basketcommon Qt5::Test)
 endmacro(basket_standalone_unit_test)
 
 
@@ -25,11 +30,10 @@ macro(basket_full_unit_test _testname)
       endif(${IS_GENERATED})
     endforeach ()
 
-    kde4_add_unit_test(${_testname} ${_testname}.cpp ${baskettest_SRCS})
+    add_executable(${_testname} ${_testname}.cpp ${baskettest_SRCS})
+    ecm_mark_as_test(${_testname})
     
-    target_link_libraries(${_testname} basketcommon ${GPGME_VANILLA_LIBRARIES}
-      ${NEPOMUK_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_KFILE_LIBS} ${KDE4_PHONON_LIBS}
-      ${QIMAGEBLITZ_LIBRARIES} ${QT_QTTEST_LIBRARY})
+    target_link_libraries(${_testname} basketcommon ${GPGME_VANILLA_LIBRARIES} ${NEPOMUK_LIBRARIES} Qt5::Test)
 endmacro(basket_full_unit_test)
 
 

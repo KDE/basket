@@ -19,7 +19,6 @@
 
 #include <QObject>
 #include <QtTest/QtTest>
-#include <qtest_kde.h>
 
 #include "note.h"
 #include "basketview.h"
@@ -31,7 +30,7 @@ private Q_SLOTS:
     void testCreation();
 };
 
-QTEST_KDEMAIN(BasketViewTest, GUI)
+QTEST_MAIN(BasketViewTest)
 
 void BasketViewTest::testCreation()
 {

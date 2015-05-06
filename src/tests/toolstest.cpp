@@ -19,7 +19,6 @@
 
 #include <QObject>
 #include <QtTest/QtTest>
-#include <qtest_kde.h>
 
 #include "tools.h"
 
@@ -38,13 +37,11 @@ QTEST_MAIN(ToolsTest)
 void ToolsTest::testHtmlToText()
 {
     //Test the function on files from htmltotext/
-    QString dataPath = QString(KDESRCDIR) + "htmltotext/";
-
-    QVERIFY2(QDir(dataPath).exists(), "Test data directory not found");
 
     for (int i = 1; i <= 5; i++) {
         QString html, text;
-        QString basename = dataPath + QString::number(i);
+        QString basename = QFINDTESTDATA("htmltotext/" + QString::number(i));
+        QVERIFY2(QFile(basename).exists(), "Test data file not found");
 
         if (readAll(basename + ".html", html) && readAll(basename + ".txt", text))
             QCOMPARE(Tools::htmlToText(html), text);

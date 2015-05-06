@@ -22,12 +22,13 @@
 
 #ifdef HAVE_LIBGPGME
 
-#include <QtGui/QHBoxLayout>
+#include <QHBoxLayout>
 #include <QLocale>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KConfigGroup>
 

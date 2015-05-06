@@ -25,15 +25,15 @@
 #include "kgpgme.h"
 
 #include <QtCore/QPointer>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QLabel>
+#include <QTreeWidget>
+#include <QLabel>
 #include <QtGui/QPixmap>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
 #include <QApplication>
-#include <QLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KPasswordDialog>
 #include <KConfigGroup>
@@ -176,25 +176,25 @@ QString KGpgMe::checkForUtf8(QString txt)
     if (txt.isEmpty())
         return QString::null;
 
-    for (s = txt.toAscii(); *s && !(*s & 0x80); s++)
+    for (s = txt.toLatin1(); *s && !(*s & 0x80); s++)
         ;
-    if (*s && !strchr(txt.toAscii(), 0xc3) && (txt.indexOf("\\x") == -1))
+    if (*s && !strchr(txt.toLatin1(), 0xc3) && (txt.indexOf("\\x") == -1))
         return txt;
 
     // The string is not in UTF-8
-    //if (strchr (txt.toAscii(), 0xc3)) return (txt+" +++");
+    //if (strchr (txt.toLatin1(), 0xc3)) return (txt+" +++");
     if (txt.indexOf("\\x") == -1)
-        return QString::fromUtf8(txt.toAscii());
-    //        if (!strchr (txt.toAscii(), 0xc3) || (txt.indexOf("\\x")!=-1)) {
+        return QString::fromUtf8(txt.toLatin1());
+    //        if (!strchr (txt.toLatin1(), 0xc3) || (txt.indexOf("\\x")!=-1)) {
     for (int idx = 0 ; (idx = txt.indexOf("\\x", idx)) >= 0 ; ++idx) {
         char str[2] = "x";
         str[0] = (char)QString(txt.mid(idx + 2, 2)).toShort(0, 16);
         txt.replace(idx, 4, str);
     }
-    if (!strchr(txt.toAscii(), 0xc3))
-        return QString::fromUtf8(txt.toAscii());
+    if (!strchr(txt.toLatin1(), 0xc3))
+        return QString::fromUtf8(txt.toLatin1());
     else
-        return QString::fromUtf8(QString::fromUtf8(txt.toAscii()).toAscii());
+        return QString::fromUtf8(QString::fromUtf8(txt.toLatin1()).toLatin1());
     // perform Utf8 twice, or some keys display badly
     return txt;
 }
@@ -273,7 +273,7 @@ bool KGpgMe::encrypt(const QByteArray& inBuffer, unsigned long length,
                 if (keyid.isNull()) {
                     key = NULL;
                 } else {
-                    err = gpgme_get_key(m_ctx, keyid.toAscii(), &keys[0], 0);
+                    err = gpgme_get_key(m_ctx, keyid.toLatin1(), &keys[0], 0);
                     key = keys;
                 }
 
@@ -395,10 +395,10 @@ void KGpgMe::setPassphraseCb()
         if (agent_info.indexOf(':'))
             agent = true;
         if (agent_info.startsWith(QLatin1String("disable:")))
-            setenv("GPG_AGENT_INFO", agent_info.mid(8).toAscii(), 1);
+            setenv("GPG_AGENT_INFO", agent_info.mid(8).toLatin1(), 1);
     } else {
         if (!agent_info.startsWith(QLatin1String("disable:")))
-            setenv("GPG_AGENT_INFO", "disable:" + agent_info.toAscii(), 1);
+            setenv("GPG_AGENT_INFO", "disable:" + agent_info.toLatin1(), 1);
     }
     if (agent)
         gpgme_set_passphrase_cb(m_ctx, 0, 0);

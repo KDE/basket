@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.8.12)
 set(BASKET_DISABLE_GPG "0" CACHE BOOL "Disables GPG Support")
 
+include(FeatureSummary)
+
 find_package(X11 REQUIRED)
 
 # KDE
@@ -8,8 +10,7 @@ find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 IF(NOT BASKET_DISABLE_GPG)
-  find_package(KF5Wallet)
-  find_package(Gpgmepp REQUIRED)
+  find_package(Gpgme REQUIRED)
 ENDIF(NOT BASKET_DISABLE_GPG)
 
 #Port these
