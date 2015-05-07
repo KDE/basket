@@ -41,14 +41,22 @@ Application::Application()
         : KUniqueApplication()
 {
     #ifdef WITH_LIBGIT2
-        git_threads_init();
+        #if LIBGIT2_SOVERSION >= 22
+            git_libgit2_init();
+        #else
+            git_threads_init();
+        #endif
     #endif
 }
 
 Application::~Application()
 {
     #ifdef WITH_LIBGIT2
-        git_threads_shutdown();
+        #if LIBGIT2_SOVERSION >= 22
+            git_libgit2_shutdown();
+        #else
+            git_threads_shutdown();
+        #endif
     #endif
 }
 
