@@ -39,8 +39,6 @@
 #include <KConfigGroup>
 #include <ksettings/dialog.h>
 
-#include <kdeversion.h>
-
 #include "settings.h"
 #include "global.h"
 #include "bnpview.h"

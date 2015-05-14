@@ -28,6 +28,13 @@ function prefix_cmd
 	fi
 }
 
+function qtplugin_prefix_cmd
+{
+	if test -n "$1"; then
+		echo '-DQT_PLUGIN_INSTALL_DIR='$1''
+	fi
+}
+
 function do_warning
 {
 	warn_backup=yes
@@ -83,9 +90,9 @@ else
 fi
 
 if [ $SYS_WIDE == 0 ]; then
-  prefix=`kde4-config --localprefix --expandvars`
+  prefix=$HOME/basket
 else
-  prefix=`kde4-config --prefix --expandvars`
+  prefix=`kf5-config --prefix --expandvars`
 fi
 
 isDevel=alpha
@@ -129,7 +136,7 @@ cd build
 if [ "_$isDevel" == "_" ]; then
   cmake .. $(prefix_cmd $prefix) || error
 else
-  cmake .. -DCMAKE_BUILD_TYPE=debugfull $(prefix_cmd $prefix) || error
+  cmake .. -DCMAKE_BUILD_TYPE=debugfull $(qtplugin_prefix_cmd `qtpaths --plugin-dir`) $(prefix_cmd $prefix) || error
 fi
 
 clear
@@ -212,7 +219,7 @@ echo "Restart applicatoin"
     echo "$prefix/bin/basket"
     $prefix/bin/basket
   else
-    base=`kde-config --localprefix`
+    base=$HOME/basket
     if test -d $base ; then
       echo "${base}bin/basket"  
       ${base}bin/basket

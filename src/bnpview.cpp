@@ -55,8 +55,6 @@
 #include <KGlobalAccel>
 #include <KConfigGroup>
 
-#include <kdeversion.h>
-
 #ifndef BASKET_USE_DRKONQI
 #include <KCrash>
 #endif //BASKET_USE_DRKONQI
@@ -2191,11 +2189,7 @@ void BNPView::delBasket()
                                             i18n("<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>",
                                                  Tools::textToHTMLWithoutP(basket->basketName())),
                                             i18n("Remove Basket")
-#if KDE_IS_VERSION( 3, 2, 90 ) // KDE 3.3.x
                                             , KGuiItem(i18n("&Remove Basket"), "edit-delete"), KStandardGuiItem::cancel());
-#else
-                                           );
-#endif
 
     if (really == KMessageBox::No)
         return;
@@ -2207,11 +2201,7 @@ void BNPView::delBasket()
                                 Tools::textToHTMLWithoutP(basket->basketName())),
                            basketsList,
                            i18n("Remove Children Baskets")
-#if KDE_IS_VERSION( 3, 2, 90 ) // KDE 3.3.x
                            , KGuiItem(i18n("&Remove Children Baskets"), "edit-delete"));
-#else
-                                                         );
-#endif
 
         if (deleteChilds == KMessageBox::No)
             return;

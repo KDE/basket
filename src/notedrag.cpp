@@ -32,8 +32,6 @@
 #include <QtGui/QDragEnterEvent>
 #include <QApplication>
 
-#include <kdeversion.h>
-
 #include <KIO/CopyJob>
 
 #include "basketscene.h"

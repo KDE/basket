@@ -20,7 +20,7 @@
 #include <KToolInvocation>
 #include <KLocalizedString>
 
-#include <kdeversion.h>
+#include <kcoreaddons_version.h>
 
 #include <QtCore/QRegExp>
 
@@ -74,7 +74,7 @@ Crash::crashHandler(int /*signal*/)
                 "Version:    " VERSION "\n"
                 "Build date: " __DATE__ "\n"
                 "CC version: " __VERSION__ "\n" //assuming we're using GCC
-                "KDElibs:    " KDE_VERSION_STRING "\n"
+                "KDElibs:    " KCOREADDONS_VERSION_STRING "\n"
                 ;//                    "TagLib:     %2.%3.%4\n";
 
         /*            body = body

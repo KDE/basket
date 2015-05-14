@@ -53,19 +53,10 @@ set(basketcommon_LIB_SRCS
 
 set(PIMO_CPP "") # One of the generated files
 
-IF(HAVE_NEPOMUK)
-  include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src" ${NEPOMUK_INCLUDES} ${SOPRANO_INCLUDE_DIR})
-  include(SopranoAddOntology)
-  soprano_add_ontology(basketcommon_LIB_SRCS ${SHAREDDESKTOPONTOLOGIES_ROOT_DIR}/nie/nie.trig "NIE" "Soprano::Vocabulary" "trig")
-  soprano_add_ontology(basketcommon_LIB_SRCS ${SHAREDDESKTOPONTOLOGIES_ROOT_DIR}/nie/nfo.trig "NFO" "Soprano::Vocabulary" "trig")
-  soprano_add_ontology(basketcommon_LIB_SRCS ${SHAREDDESKTOPONTOLOGIES_ROOT_DIR}/pimo/pimo.trig "PIMO" "Soprano::Vocabulary" "trig")
-  
-  list(LENGTH basketcommon_LIB_SRCS SRCS_LENGTH)
-  math(EXPR SRCS_LENGTH "${SRCS_LENGTH} - 1")
-  list(GET basketcommon_LIB_SRCS ${SRCS_LENGTH} PIMO_CPP) # PIMO_CPP = last element
-  
+IF(HAVE_BALOO)
+  include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src" ${BALOO_INCLUDES})
   list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
-ENDIF(HAVE_NEPOMUK)
+ENDIF(HAVE_BALOO)
 
 qt5_wrap_ui(basketcommon_LIB_SRCS passwordlayout.ui basketproperties.ui)
 
@@ -102,9 +93,9 @@ if(Q_WS_X11)
     target_link_libraries(basketcommon ${X11_X11_LIB})
 endif(Q_WS_X11)
 
-IF(HAVE_NEPOMUK)
-  target_link_libraries(basketcommon ${NEPOMUK_LIBRARIES} ${SOPRANO_LIBRARIES})
-ENDIF(HAVE_NEPOMUK)
+IF(HAVE_BALOO)
+  target_link_libraries(basketcommon KF5::BalooFiles)
+ENDIF(HAVE_BALOO)
 
 set_target_properties(basketcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
 
@@ -114,10 +105,10 @@ install(TARGETS basketcommon DESTINATION ${LIB_INSTALL_DIR})
 # If we save target_link_libraries to a variable, we can reuse it too
 
 # Soprano files must exist, otherwise tests won't build
-set(FILES_GENERATED (EXISTS ${PIMO_CPP}))
-if(${FILES_GENERATED})
-  add_subdirectory(tests)
-endif(${FILES_GENERATED})
+#set(FILES_GENERATED (EXISTS ${PIMO_CPP}))
+#if(${FILES_GENERATED})
+  add_subdirectory(tests EXCLUDE_FROM_ALL)
+#endif(${FILES_GENERATED})
 
 ########### next target ###############
 

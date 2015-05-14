@@ -21,7 +21,6 @@
 #include "basket_part.h"
 
 #include <KParts/StatusBarExtension>
-#include <kdemacros.h>
 
 #include "aboutdata.h"
 #include "basketstatusbar.h"
