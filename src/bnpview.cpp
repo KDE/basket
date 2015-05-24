@@ -198,7 +198,7 @@ void BNPView::lateInit()
 
     /* System tray icon */
     Global::systemTray = new SystemTray(Global::mainWindow());
-    Global::systemTray->setIconByName(":/images/hi22-app-basket");
+    Global::systemTray->setIconByName(":/images/hi22-apps-basket");
     connect(Global::systemTray, SIGNAL(showPart()), this, SIGNAL(showPart()));
     /*if (Settings::useSystray())
         Global::systemTray->show();*/
@@ -1074,10 +1074,10 @@ void BNPView::saveSubHierarchy(QTreeWidgetItem *item, QDomDocument &document, QD
 
 void BNPView::load()
 {
-    QDomDocument *doc = XMLWork::openFile("basketTree", Global::basketsFolder() + "baskets.xml");
+    QScopedPointer<QDomDocument> doc(XMLWork::openFile("basketTree", Global::basketsFolder() + "baskets.xml"));
     //BEGIN Compatibility with 0.6.0 Pre-Alpha versions:
     if (!doc)
-        doc = XMLWork::openFile("basketsTree", Global::basketsFolder() + "baskets.xml");
+        doc.reset(XMLWork::openFile("basketsTree", Global::basketsFolder() + "baskets.xml"));
     //END
     if (doc != 0) {
         QDomElement docElem = doc->documentElement();

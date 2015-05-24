@@ -23,5 +23,3 @@ execute_process(COMMAND ${XDG-DESKTOP-MENU_EXECUTABLE} install
 execute_process(COMMAND ${XDG-MIME_EXECUTABLE} default
   ${CMAKE_SOURCE_DIR}/src/basket.desktop application/x-basket-item)
 ")
-
-ecm_install_icons(${ICON_INSTALL_DIR})

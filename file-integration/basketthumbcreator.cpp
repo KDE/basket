@@ -78,7 +78,7 @@ bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height
 						size -= sizeRead;
 					}
 					previewFile.close();
-					delete buffer;
+					delete[] buffer;
 					image = QImage(tempFolder + "preview.png");
 					file.close();
 					return true;
@@ -97,7 +97,7 @@ bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height
 				while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
 					size -= sizeRead;
 				}
-				delete buffer;
+				delete[] buffer;
 			}
 		}
 		file.close();

@@ -3,30 +3,30 @@
 	<file>images/tag_export_help.png</file>
 	<file>images/tag_export_on_every_lines_help.png</file>
 	<file>images/insertion_help.png</file>
-	<file>images/hi16-action-likeback_bug.png</file>
-	<file>images/hi16-action-likeback_dislike.png</file>
-	<file>images/hi16-action-likeback_like.png</file>
-	<file>images/hi16-action-likeback_feature.png</file>
-	<file>images/hi16-app-basket.png</file>
-	<file>images/hi22-app-basket.png</file>
-	<file>images/hi32-app-basket.png</file>
-	<file>images/hi48-app-basket.png</file>
-	<file>images/hi64-app-basket.png</file>
-	<file>images/hi128-app-basket.png</file>
-	<file>tags/hi16-action-tag_checkbox.png</file>
-	<file>tags/hi16-action-tag_checkbox_checked.png</file>
-	<file>tags/hi16-action-tag_for_later.png</file>
-	<file>tags/hi16-action-tag_fun.png</file>
-	<file>tags/hi16-action-tag_important.png</file>
-	<file>tags/hi16-action-tag_preference_bad.png</file>
-	<file>tags/hi16-action-tag_preference_excellent.png</file>
-	<file>tags/hi16-action-tag_preference_good.png</file>
-	<file>tags/hi16-action-tag_priority_high.png</file>
-	<file>tags/hi16-action-tag_priority_low.png</file>
-	<file>tags/hi16-action-tag_priority_medium.png</file>
-	<file>tags/hi16-action-tag_progress_000.png</file>
-	<file>tags/hi16-action-tag_progress_025.png</file>
-	<file>tags/hi16-action-tag_progress_075.png</file>
-	<file>tags/hi16-action-tag_progress_100.png</file>
+	<file>images/hi16-actions-likeback_bug.png</file>
+	<file>images/hi16-actions-likeback_dislike.png</file>
+	<file>images/hi16-actions-likeback_like.png</file>
+	<file>images/hi16-actions-likeback_feature.png</file>
+	<file>images/hi16-apps-basket.png</file>
+	<file>images/hi22-apps-basket.png</file>
+	<file>images/hi32-apps-basket.png</file>
+	<file>images/hi48-apps-basket.png</file>
+	<file>images/hi64-apps-basket.png</file>
+	<file>images/hi128-apps-basket.png</file>
+	<file>tags/hi16-actions-tag_checkbox.png</file>
+	<file>tags/hi16-actions-tag_checkbox_checked.png</file>
+	<file>tags/hi16-actions-tag_for_later.png</file>
+	<file>tags/hi16-actions-tag_fun.png</file>
+	<file>tags/hi16-actions-tag_important.png</file>
+	<file>tags/hi16-actions-tag_preference_bad.png</file>
+	<file>tags/hi16-actions-tag_preference_excellent.png</file>
+	<file>tags/hi16-actions-tag_preference_good.png</file>
+	<file>tags/hi16-actions-tag_priority_high.png</file>
+	<file>tags/hi16-actions-tag_priority_low.png</file>
+	<file>tags/hi16-actions-tag_priority_medium.png</file>
+	<file>tags/hi16-actions-tag_progress_000.png</file>
+	<file>tags/hi16-actions-tag_progress_025.png</file>
+	<file>tags/hi16-actions-tag_progress_075.png</file>
+	<file>tags/hi16-actions-tag_progress_100.png</file>
 </qresource>
 </RCC>

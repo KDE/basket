@@ -284,7 +284,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
         createDefaultTagsSet(fullPath);
     }
 
-    QDomDocument *document = XMLWork::openFile(doctype, fullPath);
+    QScopedPointer<QDomDocument> document(XMLWork::openFile(doctype, fullPath));
     if (!document) {
         DEBUG_WIN << "<font color=red>FAILED to read the tags file</font>";
         return mergedStates;
