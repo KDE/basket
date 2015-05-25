@@ -320,7 +320,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 {
     // QDialog options
     setWindowTitle(i18n("Customize Tags"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);

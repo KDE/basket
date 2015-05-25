@@ -721,11 +721,11 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     pageLayout->addWidget(m_showButtons);
     connect(m_showButtons, SIGNAL(stateChanged(int)), this, SLOT(changeButtonBarVisible()));
 
-    KGuiItem::assign(okButton, KGuiItem(i18n("&SendComment")));
+    KGuiItem::assign(okButton, KGuiItem(i18n("&Send Comment")));
     okButton->setEnabled(false);
     connect(m_comment, SIGNAL(textChanged()), this, SLOT(commentChanged()));
 
-    KGuiItem::assign(buttonBox->button(QDialogButtonBox::RestoreDefaults), KGuiItem(i18n("&EmailAddress...")));
+    KGuiItem::assign(buttonBox->button(QDialogButtonBox::RestoreDefaults), KGuiItem(i18n("&Email Address...")));
 
     resize(QSize(qApp->desktop()->width() * 1 / 2, qApp->desktop()->height() * 3 / 5).expandedTo(sizeHint()));
 

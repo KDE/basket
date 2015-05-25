@@ -770,7 +770,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
     layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -925,7 +925,7 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
     layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -1064,7 +1064,7 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     QWidget *stretchWidget = new QWidget(page);
     mainLayout->addWidget(stretchWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);

@@ -62,7 +62,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 {
     // Set up dialog options
     setWindowTitle(i18n("Basket Properties"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply, this);
     QWidget *mainWidget = new QWidget(this);
     setupUi(mainWidget);
     QVBoxLayout *mainLayout = new QVBoxLayout;
