@@ -62,8 +62,7 @@ void FormatImporter::copyFolder(const QString &folder, const QString &newFolder)
 {
     copyFinished = false;
     KIO::CopyJob *copyJob = KIO::copyAs(QUrl::fromLocalFile(folder), QUrl::fromLocalFile(newFolder), KIO::HideProgressInfo);
-    connect(copyJob,  SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
-            this, SLOT(slotCopyingDone(KIO::Job*)));
+    connect(copyJob, &KIO::CopyJob::copyingDone, this, &FormatImporter::slotCopyingDone);
     while (!copyFinished)
         qApp->processEvents();
 }
@@ -72,8 +71,7 @@ void FormatImporter::moveFolder(const QString &folder, const QString &newFolder)
 {
     copyFinished = false;
     KIO::CopyJob *copyJob = KIO::moveAs(QUrl::fromLocalFile(folder), QUrl::fromLocalFile(newFolder), KIO::HideProgressInfo);
-    connect(copyJob,  SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
-            this, SLOT(slotCopyingDone(KIO::Job*)));
+    connect(copyJob, &KIO::CopyJob::copyingDone, this, &FormatImporter::slotCopyingDone);
     while (!copyFinished)
         qApp->processEvents();
 }

@@ -481,8 +481,7 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
 
                     KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
 				    KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
-                    parent->connect(copyJob, SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
-                                    parent, SLOT(slotCopyingDone2(KIO::Job *, const QUrl&, const QUrl&)));
+                    parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
                 }
                 note->setGroupWidth(groupWidth);
                 note->setParentNote(0);
@@ -508,8 +507,7 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                     copyJob = KIO::copy(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
                         KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 }
-                parent->connect(copyJob, SIGNAL(copyingDone(KIO::Job *, QUrl, QUrl, time_t, bool, bool)),
-                                parent, SLOT(slotCopyingDone2(KIO::Job *, const QUrl&, const QUrl&)));
+                parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
 		
 		note = NoteFactory::loadFile(newFileName, (NoteType::Id)type, parent);
                 note->setGroupWidth(groupWidth);

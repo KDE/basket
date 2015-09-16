@@ -58,13 +58,13 @@ IF(HAVE_BALOO)
   list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
 ENDIF(HAVE_BALOO)
 
-qt5_wrap_ui(basketcommon_LIB_SRCS passwordlayout.ui basketproperties.ui)
+qt5_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui)
 
 QT5_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
 
-QT5_ADD_RESOURCES(basketcommon_LIB_SRCS ../basket.qrc)
+QT5_ADD_RESOURCES(basket_RESOURCES ../basket.qrc)
 
-add_library(basketcommon SHARED ${basketcommon_LIB_SRCS})
+add_library(basketcommon SHARED ${basketcommon_LIB_SRCS} ${basket_FORM_HDRS} ${basket_RESOURCES})
 
 target_link_libraries(basketcommon
   ${PHONON_LIBRARY}

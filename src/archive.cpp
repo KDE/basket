@@ -473,7 +473,8 @@ void Archive::importTagEmblems(const QString &extractionFolder)
 void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 {
     FormatImporter copier; // Only used to copy files synchronously
-    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/";
+    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/backgrounds/";
+    QDir().mkpath(destFolder); //does not exist at the first run when addWelcomeBaskets is called
 
     QDir dir(extractionFolder + "backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
     QStringList files = dir.entryList();

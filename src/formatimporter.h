@@ -33,7 +33,7 @@ class Job;
 /**
   * @author Sébastien Laoût
   */
-class FormatImporter : QObject
+class FormatImporter : public QObject
 {
     Q_OBJECT
 public:

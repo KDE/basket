@@ -320,7 +320,7 @@ QPixmap* BackgroundManager::preview(const QString &image)
     painter.end();
 
     // Saving it to file for later:
-    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/backgrounds/previews/";
+    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/backgrounds/previews/";
     result->save(folder + entry->name, "PNG");
 
     // Ouf! That's done:
