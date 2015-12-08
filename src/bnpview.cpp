@@ -2923,19 +2923,18 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
     // to do this, so I will have to leave it for now
     QAction *act =  new QAction(i18n("&Assign new Tag..."), &menu);
     act->setData(1);
+    act->setEnabled(enable);
     menu.addAction(act);
 
     act = new QAction(QIcon::fromTheme("edit-delete"), i18n("&Remove All"), &menu);
     act->setData(2);
+    if (!currentBasket()->selectedNotesHaveTags())
+        act->setEnabled(false);
     menu.addAction(act);
 
     act = new QAction(QIcon::fromTheme("configure"), i18n("&Customize..."), &menu);
     act->setData(3);
     menu.addAction(act);
-
-    act->setEnabled(enable);
-    if (!currentBasket()->selectedNotesHaveTags())
-        act->setEnabled(false);
 
     connect(&menu, SIGNAL(triggered(QAction *)), currentBasket(), SLOT(toggledTagInMenu(QAction *)));
     connect(&menu, SIGNAL(aboutToHide()),  currentBasket(), SLOT(unlockHovering()));

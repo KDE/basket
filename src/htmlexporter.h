@@ -74,7 +74,7 @@ public: //TODO: make private?
     BasketScene *exportedBasket;
     BasketScene *currentBasket;
     bool withBasketTree;
-    QProgressDialog* dialog;
+    QScopedPointer<QProgressDialog> dialog;
 };
 
 #endif // HTMLEXPORTER_H

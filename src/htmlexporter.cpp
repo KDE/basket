@@ -50,7 +50,7 @@
 #include <QLocale>
 #include <QProgressDialog>
 
-HTMLExporter::HTMLExporter(BasketScene *basket)
+HTMLExporter::HTMLExporter(BasketScene *basket) : dialog(new QProgressDialog())
 {
     QDir dir;
 
