@@ -30,6 +30,7 @@
 #include "settings.h"
 #include "global.h"
 #include "backup.h"
+#include "kde4_migration.h"
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +43,13 @@ int main(int argc, char *argv[])
     setupCmdLineOptions(opts);
     opts->process(app);
     Global::basketAbout.processCommandLine(opts); //show author, license information and exit
+
+    {
+        Kde4Migrator migrator;
+        if (migrator.migrateKde4Data())
+            migrator.showPostMigrationDialog();
+    }
+
     app.tryLoadFile();
 
 
