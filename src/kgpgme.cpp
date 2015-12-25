@@ -146,8 +146,13 @@ void KGpgMe::init(gpgme_protocol_t proto)
 #endif
     err = gpgme_engine_check_version(proto);
     if (err) {
-        KMessageBox::error(kapp->activeWindow(), QString("%1: %2")
-                           .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
+        static QString lastErrorText;
+
+        QString text = QString("%1: %2").arg(gpgme_strsource(err), gpgme_strerror(err));
+        if (text != lastErrorText) {
+            KMessageBox::error(kapp->activeWindow(), text);
+            lastErrorText = text;
+        }
     }
 }
 
