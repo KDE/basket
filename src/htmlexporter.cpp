@@ -337,7 +337,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     if (!transGIF.exists() && transGIF.open(QIODevice::WriteOnly)) {
         QDataStream streamGIF(&transGIF);
         // This is a 1px*1px transparent GIF image:
-        const char blankGIF[] = {
+        const uchar blankGIF[] = {
             0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x0a, 0x00, 0x0a, 0x00,
             0x80, 0x00, 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x21,
             0xfe, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x20,
@@ -347,7 +347,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
             0x00, 0x00, 0x02, 0x08, 0x8c, 0x8f, 0xa9, 0xcb, 0xed, 0x0f,
             0x63, 0x2b, 0x00, 0x3b
         };
-        streamGIF.writeRawData(blankGIF, 74);
+        streamGIF.writeRawData(reinterpret_cast<const char*>(blankGIF), 74);
         transGIF.close();
     }
     stream <<
