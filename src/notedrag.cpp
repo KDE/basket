@@ -43,6 +43,7 @@
 /** NoteDrag */
 
 const char * NoteDrag::NOTE_MIME_STRING = "application/x-basket-note";
+QList<Note*> NoteDrag::selectedNotes;
 
 void NoteDrag::createAndEmptyCuttingTmpFolder()
 {
@@ -387,6 +388,10 @@ BasketScene* NoteDrag::basketOf(const QMimeData *source)
 
 QList<Note*> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
 {
+    /* FIXME: this code does not parse the stream properly (see NoteDrag::decode).
+       Thus m_draggedNotes will contain many invalid pointer values.
+       As a workaround, we use NoteDrag::selectedNotes now. */
+
     QByteArray srcData = source->mimeData()->data(NOTE_MIME_STRING);
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
@@ -406,6 +411,16 @@ QList<Note*> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
         return notes;
     } else
         return QList<Note*>();
+}
+
+void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
+{
+    for (NoteSelection *sel = selection->firstStacked(); sel != NULL; sel = sel->nextStacked()) {
+        if (sel->note->isGroup())
+            saveNoteSelectionToList(sel);
+        else
+            selectedNotes.append(sel->note);
+    }
 }
 
 Note* NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes)

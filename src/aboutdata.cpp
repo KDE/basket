@@ -42,6 +42,10 @@ AboutData::AboutData()
     setHomepage("https://launchpad.net/basket");
     setBugAddress("https://bugs.launchpad.net/basket");
 
+    addAuthor(i18n("OmegaPhil"),
+              i18n("Paste as plaintext option"),
+              "OmegaPhil@startmail.com");
+
     addAuthor(i18n("Kelvie Wong"),
               i18n("Maintainer"),
               "kelvie@ieee.org");

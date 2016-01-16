@@ -88,6 +88,7 @@ void StopWatch::check(int id)
 /** @namespace HTM
  *  @brief HTML tags constants */
 namespace HTM {
+static const char* BR = "<br/>";
 static const char* PAR = "<p>";
 static const char* _PAR = "</p>";
 
@@ -431,14 +432,29 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
             "p, li { white-space: pre-wrap; margin: 0px; }\n"
             "</style></head><body>\n";
     QFont defaultFont;
+    int fragCount, blockCount = 0;
+    bool leadingBrNeeded = false;
 
-    for (QTextBlock blockIt = document->begin(); blockIt != document->end(); blockIt = blockIt.next()) {
+    for (QTextBlock blockIt = document->begin(); blockIt != document->end(); blockIt = blockIt.next(), ++blockCount) {
 
         result += HTM::PAR;
 
-        for (QTextBlock::iterator subIt = blockIt.begin(); !(subIt.atEnd()); ++subIt) {
+        // Prepare to detect empty blocks
+        fragCount = 0;
+
+        for (QTextBlock::iterator subIt = blockIt.begin(); !(subIt.atEnd()); ++subIt, ++fragCount) {
             QTextFragment currentFragment = subIt.fragment();
+
             if (currentFragment.isValid()) {
+
+                // Dealing with need to add leading linebreak (see later for
+                // further notes)
+                if (leadingBrNeeded)
+                {
+                    result += HTM::BR;
+                    leadingBrNeeded = false;
+                }
+
                 QTextCharFormat charFmt = currentFragment.charFormat();
                 const QColor& textColor = charFmt.foreground().color();
                 bool isTextBlack = (textColor == QColor() || textColor == QColor(Qt::black));
@@ -487,6 +503,25 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                     result += "</b>";
             }
         }
+
+        // Detecting empty blocks (Qt4 fails to generate a fragment from an empty line)
+        // Inserting a linebreak directly here seems to cause the renderer to render
+        // two breaks, so have to append it to the contents of the previous paragraph...
+        if (!fragCount)
+        {
+            // If the first fragment is an empty fragment, the linebreak must be
+            // added to the next fragment otherwise you get the above double breaks
+            if(!blockCount) leadingBrNeeded = true;
+
+            // Deal with the problem only when the last block is not affected,
+            // otherwise you get double breaks again... Blocks counted from 0
+            else if (blockCount != (document->blockCount() - 1))
+            {
+                result.chop(7);
+                result = result + HTM::BR + HTM::_PAR + HTM::PAR;
+            }
+        }
+
         result += HTM::_PAR;
     }
 

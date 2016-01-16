@@ -1778,8 +1778,10 @@ void BasketScene::dragEnterEvent(QGraphicsSceneDragDropEvent *event)
 {
     m_isDuringDrag = true;
     Global::bnpView->updateStatusBarHint();
-    if (NoteDrag::basketOf(event->mimeData()) == this)
+    if (NoteDrag::basketOf(event->mimeData()) == this) {
         m_draggedNotes = NoteDrag::notesOf(event);
+        NoteDrag::saveNoteSelectionToList(selectedNotes());
+    }
     event->accept();
 }
 
@@ -1822,6 +1824,7 @@ void BasketScene::dragLeaveEvent(QGraphicsSceneDragDropEvent *)
 //  resetInsertTo();
     m_isDuringDrag = false;
     m_draggedNotes.clear();
+    NoteDrag::selectedNotes.clear();
     m_noActionOnMouseRelease = true;
     emit resetStatusBarText();
     doHoverEffects();
@@ -1844,8 +1847,6 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
     // Then noteAt() is called for the mouse pointer position, because the basket is now smaller, the cursor is out of boundaries!!!
     // Should, of course, not return 0:
     Note *clicked = noteAt(pos);
-    if(clicked && clicked->allSelected())
-        clicked = 0;
 
     if (NoteFactory::movingNotesInTheSameBasket(event->mimeData(), this, event->dropAction()) && event->dropAction() == Qt::MoveAction) {
         m_doNotCloseEditor = true;
@@ -1879,6 +1880,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
     }
 
     m_draggedNotes.clear();
+    NoteDrag::selectedNotes.clear();
 
     m_doNotCloseEditor = false;
     // When starting the drag, we saved where we were editing.
@@ -2931,10 +2933,10 @@ Note* BasketScene::noteAt(QPointF pos)
     while (note) {
         possibleNote = note->noteAt(pos);
         if (possibleNote) {
-	  if (draggedNotes().contains(possibleNote))
-	    return 0;
-	  else
-	    return possibleNote;
+            if (NoteDrag::selectedNotes.contains(possibleNote) || draggedNotes().contains(possibleNote))
+                return 0;
+            else
+                return possibleNote;
         }
         note = note->next();
     }

@@ -39,6 +39,7 @@ protected:
     void keyPressEvent(QKeyEvent *event);
     void wheelEvent(QWheelEvent *event);
     void enterEvent(QEvent *event);
+    void insertFromMimeData (const QMimeData *source);
 signals:
     void escapePressed();
     void mouseEntered();
