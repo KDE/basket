@@ -2269,7 +2269,7 @@ void BNPView::saveAsArchive()
     QString filter = "*.baskets|" + i18n("Basket Archives") + "\n*|" + i18n("All Files");
     QString destination = url;
     for (bool askAgain = true; askAgain;) {
-        destination = QFileDialog::getSaveFileName(this, i18n("Save as Basket Archive"), destination, filter);
+        destination = QFileDialog::getSaveFileName(NULL, i18n("Save as Basket Archive"), destination, filter);
         if (destination.isEmpty()) // User canceled
             return;
         if (dir.exists(destination)) {

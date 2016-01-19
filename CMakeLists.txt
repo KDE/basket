@@ -9,10 +9,6 @@ find_package(X11 REQUIRED)
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
-IF(NOT BASKET_DISABLE_GPG)
-  find_package(Gpgme)
-ENDIF(NOT BASKET_DISABLE_GPG)
-
 # libgit2
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 find_package(Libgit2)
@@ -69,6 +65,10 @@ find_package(Phonon4Qt5 REQUIRED)
 
 #find_package(KF5 COMPONENTS Baloo)
 
+
+IF(NOT BASKET_DISABLE_GPG)
+  find_package(KF5 COMPONENTS Gpgmepp)
+ENDIF(NOT BASKET_DISABLE_GPG)
 
 IF(GPGME_FOUND)
   SET(HAVE_LIBGPGME 1)

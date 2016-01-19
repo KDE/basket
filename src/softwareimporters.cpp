@@ -334,7 +334,8 @@ void SoftwareImporters::finishImport(BasketScene *basket)
 
 void SoftwareImporters::importKJots()
 {
-    QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "" + "/../kjots/"; // I think the assumption is good
+    //This code is out-of-date. KJots (KDE4) and KNotes (KDE4, 5) now store data in Akonadi and MIME files in .local/share/notes
+    QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/../kjots/"; // I think the assumption is good
     QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
@@ -415,7 +416,7 @@ void SoftwareImporters::importKJots()
 
 void SoftwareImporters::importKNotes()
 {
-    QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "" + "/../knotes/"; // I thing the assumption is good
+    QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/../knotes/"; // I think the assumption is good
     QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
