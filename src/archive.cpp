@@ -346,8 +346,8 @@ void Archive::open(const QString &path)
                     return;
                 }
 
-                if (Global::mainWindow()) {
-                    Global::mainWindow()->raise();
+                if (Global::activeMainWindow()) {
+                    Global::activeMainWindow()->raise();
                 }
 
                 // Get the archive file:

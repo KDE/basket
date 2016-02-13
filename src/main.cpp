@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
             migrator.showPostMigrationDialog();
     }
 
-    app.tryLoadFile();
+    app.tryLoadFile(opts->positionalArguments(), QDir::currentPath());
 
 
     // Initialize the config file
@@ -60,6 +60,7 @@ int main(int argc, char *argv[])
 
     /* Main Window */
     MainWindow* win = new MainWindow();
+    Global::mainWnd = win;
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);
 

@@ -33,7 +33,12 @@ public:
     Application(int &argc, char **argv);
     ~Application();
     int newInstance();
-    void tryLoadFile(); //!< Open a file passed as command line argument
+    void tryLoadFile(const QStringList &args, const QString& workingDir); //!< Open a file passed as command line argument
+private slots:
+    /// Activate program window if duplicate instance is started, load file from args
+    void onActivateRequested(const QStringList& args, const QString& workingDir);
+private:
+    KDBusService m_service;
 };
 
 #endif // APPLICATION_H

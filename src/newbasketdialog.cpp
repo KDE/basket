@@ -347,7 +347,7 @@ void NewBasketDialog::slotOk()
 
     BasketFactory::newBasket(m_icon->icon(), m_name->text(), backgroundImage, m_backgroundColor->color(), textColor, templateName, m_basketsMap[m_createIn->currentIndex()]);
 
-    if (Global::mainWindow()) Global::mainWindow()->show();
+    if (Global::activeMainWindow()) Global::activeMainWindow()->show();
 
 }
 

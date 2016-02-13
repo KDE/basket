@@ -44,6 +44,7 @@ BNPView           *Global::bnpView             = 0L;
 KSharedConfig::Ptr Global::basketConfig;
 AboutData          Global::basketAbout;
 QCommandLineParser* Global::commandLineOpts    = NULL;
+MainWindow*        Global::mainWnd             = NULL;
 
 void Global::setCustomSavesFolder(const QString &folder)
 {
@@ -93,7 +94,7 @@ QString Global::openNoteIcon() // FIXME: Now an edit icon
     return QVariant(Global::bnpView->m_actEditNote->icon()).toString();
 }
 
-KMainWindow* Global::mainWindow()
+KMainWindow* Global::activeMainWindow()
 {
     QWidget* res = qApp->activeWindow();
 
@@ -101,6 +102,11 @@ KMainWindow* Global::mainWindow()
         return static_cast<KMainWindow*>(res);
     }
     return 0;
+}
+
+MainWindow *Global::mainWindow()
+{
+    return mainWnd;
 }
 
 KConfig* Global::config()

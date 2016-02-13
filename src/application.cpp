@@ -25,6 +25,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QTimer>
 #include <QCommandLineParser>
+#include <QDir>
 
 #include <KLocalizedString>
 
@@ -32,6 +33,7 @@
 #include "bnpview.h"
 #include "config.h"
 #include "aboutdata.h"
+#include "mainwindow.h"
 
 #ifdef WITH_LIBGIT2
 extern "C" {
@@ -41,11 +43,13 @@ extern "C" {
 
 Application::Application(int &argc, char **argv)
         : QApplication(argc, argv)
+        , m_service(KDBusService::Unique)
 {
     //AboutData is initialized before this
     KAboutData::setApplicationData(Global::basketAbout);
     //BasketPart::createAboutData();
-    KDBusService service(KDBusService::Unique); //make global
+
+    connect(&m_service, &KDBusService::activateRequested, this, &Application::onActivateRequested);
 
     newInstance();
 
@@ -77,12 +81,11 @@ int Application::newInstance()
     return 0;
 }
 
-void Application::tryLoadFile()
+void Application::tryLoadFile(const QStringList& args, const QString& workingDir)
 {
     // Open the basket archive or template file supplied as argument:
-    QStringList args = Global::commandLineOpts->positionalArguments();
     if (args.count() >= 1) {
-        QString fileName = args.last();
+        QString fileName = QDir(workingDir).filePath(args.last());
 
         if (QFile::exists(fileName)) {
             QFileInfo fileInfo(fileName);
@@ -101,4 +104,16 @@ void Application::tryLoadFile()
             }
         }
     }
+}
+
+void Application::onActivateRequested(const QStringList& args, const QString& workingDir)
+{
+  if (MainWindow* wnd = Global::mainWindow()) {
+      //Restore window:
+      wnd->show(); //from tray
+      wnd->setWindowState(Qt::WindowActive); //from minimized
+      //Raise to the top
+      wnd->raise();
+  }
+  tryLoadFile(args, workingDir);
 }

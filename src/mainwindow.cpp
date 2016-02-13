@@ -159,7 +159,7 @@ void MainWindow::showSettingsDialog()
 {
     if (m_settings == 0)
         m_settings = new KSettings::Dialog(qApp->activeWindow());
-    if (Global::mainWindow()) {
+    if (Global::activeMainWindow()) {
         //Help, RestoreDefaults buttons not implemented!
         m_settings->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
         m_settings->exec();

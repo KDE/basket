@@ -197,7 +197,7 @@ void BNPView::lateInit()
     Settings::saveConfig();
 
     /* System tray icon */
-    Global::systemTray = new SystemTray(Global::mainWindow());
+    Global::systemTray = new SystemTray(Global::activeMainWindow());
     Global::systemTray->setIconByName(":/images/hi22-apps-basket");
     connect(Global::systemTray, SIGNAL(showPart()), this, SIGNAL(showPart()));
     /*if (Settings::useSystray())
@@ -2069,8 +2069,8 @@ void BNPView::grabScreenshot(bool global)
 void BNPView::hideMainWindow() 
 {
     if (isMainWindowActive()) {
-        if (Global::mainWindow()) {
-            m_HiddenMainWindow = Global::mainWindow();
+        if (Global::activeMainWindow()) {
+            m_HiddenMainWindow = Global::activeMainWindow();
             m_HiddenMainWindow->hide();
         }
         m_colorPickWasShown = true;
@@ -2637,7 +2637,7 @@ void BNPView::setUnsavedStatus(bool isUnsaved)
 
 void BNPView::setActive(bool active)
 {
-    KMainWindow* win = Global::mainWindow();
+    KMainWindow* win = Global::activeMainWindow();
     if (!win)
         return;
 
@@ -2660,7 +2660,7 @@ bool BNPView::isPart()
 
 bool BNPView::isMainWindowActive()
 {
-    KMainWindow* main = Global::mainWindow();
+    KMainWindow* main = Global::activeMainWindow();
     if (main && main->isActiveWindow())
         return true;
     return false;
@@ -2803,7 +2803,7 @@ void BNPView::timeoutTryHide()
     }
 
     // If a sub-dialog is oppened, we musn't hide the main window:
-    if (qApp->activeWindow() != 0L && qApp->activeWindow() != Global::mainWindow())
+    if (qApp->activeWindow() != 0L && qApp->activeWindow() != Global::activeMainWindow())
         m_hideTimer->stop();
 }
 
@@ -2849,7 +2849,7 @@ void BNPView::showMainWindow()
         m_HiddenMainWindow->show();
         m_HiddenMainWindow = NULL;
     } else {  
-        KMainWindow *win = Global::mainWindow();
+        KMainWindow *win = Global::activeMainWindow();
 
         if (win) {
             win->show();

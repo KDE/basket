@@ -403,7 +403,7 @@ public:  /* And the following methods are just getter / setters */
                     Global::systemTray->setStatus(KStatusNotifierItem::Active);
                 else {
                     Global::systemTray->setStatus(KStatusNotifierItem::Passive);
-                    if (Global::mainWindow()) Global::mainWindow()->show();
+                    if (Global::activeMainWindow()) Global::activeMainWindow()->show();
                 }
             }
             if (Global::bnpView)
