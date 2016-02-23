@@ -117,7 +117,6 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 
     // Disposition:
 
-    columnCount->setValue(m_basket->columnsCount());
     columnCount->setRange(1, 20, /*step=*/1);
     columnCount->setSliderEnabled(false);
     columnCount->setValue(m_basket->columnsCount());
