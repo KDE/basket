@@ -290,7 +290,7 @@ void SystemTray::dropEvent(QDropEvent *event)
         qDebug() << (long) basket->selectedNotes();
 
         if (Settings::usePassivePopup())
-            Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>"));*/
+            Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>", m_basketName));*/
 }
 
 void SystemTray::updateToolTip()

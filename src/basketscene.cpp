@@ -1914,7 +1914,7 @@ void BasketScene::blindDrop(QGraphicsSceneDragDropEvent* event)
             insertCreatedNote(note);
             //unselectAllBut(note);
             if (Settings::usePassivePopup())
-                Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>"));
+                Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>", m_basketName));
         }
     }
     save();
@@ -1940,7 +1940,7 @@ void BasketScene::blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction
             insertCreatedNote(note);
             //unselectAllBut(note);
             if (Settings::usePassivePopup())
-                Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>"));
+                Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>", m_basketName));
         }
     }
     save();
