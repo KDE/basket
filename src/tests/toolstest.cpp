@@ -40,8 +40,9 @@ void ToolsTest::testHtmlToText()
 
     for (int i = 1; i <= 5; i++) {
         QString html, text;
-        QString basename = QFINDTESTDATA("htmltotext/" + QString::number(i));
-        QVERIFY2(QFile(basename).exists(), "Test data file not found");
+        QString basename = QFINDTESTDATA("htmltotext/");
+        QVERIFY2(QDir(basename).exists(), "Test data file not found");
+        basename += QString::number(i);
 
         if (readAll(basename + ".html", html) && readAll(basename + ".txt", text))
             QCOMPARE(Tools::htmlToText(html), text);
