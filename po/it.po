@@ -1,13 +1,13 @@
-# translation of it.po to italian
+# translation of BasKet to Italian
 #
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007, 2014.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007, 2014, 2016.
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-06 22:46+0100\n"
-"PO-Revision-Date: 2014-07-09 00:27+0200\n"
+"PO-Revision-Date: 2016-03-06 22:51+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -340,12 +340,11 @@ msgstr "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
 
 #: src/aboutdata.cpp:42
 msgid "OmegaPhil"
-msgstr ""
+msgstr "OmegaPhil"
 
 #: src/aboutdata.cpp:43
-#, fuzzy
 msgid "Paste as plaintext option"
-msgstr "Inserisci nota di testo semplice"
+msgstr "Opzione per incollare come testo semplice"
 
 #: src/aboutdata.cpp:46
 msgid "Kelvie Wong"
@@ -533,7 +532,6 @@ msgid "Choose an Existing Folder to Store Baskets"
 msgstr "Scegli una cartella esistente per memorizzare i cesti"
 
 #: src/backup.cpp:182
-#, fuzzy
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
 "going to be restarted to take this change into account."
@@ -641,7 +639,6 @@ msgid "Restore Error"
 msgstr "Errore di ripristino"
 
 #: src/backup.cpp:320
-#, fuzzy
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
@@ -743,7 +740,6 @@ msgid "Learn some tips..."
 msgstr "Alcuni suggerimenti..."
 
 #: src/basketproperties.cpp:142
-#, fuzzy
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
 "option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> "
@@ -2959,7 +2955,7 @@ msgstr "Chiedi conferma prima &di eliminare le note"
 
 #: src/settings.cpp:550
 msgid "Do not keep text formatting when pasting"
-msgstr ""
+msgstr "Non mantenere la formattazione del testo quando viene incollato"
 
 #: src/settings.cpp:557
 msgid "&Export tags in texts"
