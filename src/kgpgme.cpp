@@ -23,6 +23,8 @@
 #ifdef HAVE_LIBGPGME
 
 #include "kgpgme.h"
+#include "global.h"
+#include "debugwindow.h"
 
 #include <QtCore/QPointer>
 #include <QTreeWidget>
@@ -126,11 +128,25 @@ public:
 KGpgMe::KGpgMe() : m_ctx(0), m_useGnuPGAgent(true)
 {
     init(GPGME_PROTOCOL_OpenPGP);
-    if (gpgme_new(&m_ctx)) {
-        m_ctx = 0;
-    } else {
+    if (gpgme_new(&m_ctx) == GPG_ERR_NO_ERROR) {
         gpgme_set_armor(m_ctx, 1);
         setPassphraseCb();
+
+        //Set gpg version
+        gpgme_engine_info_t info;
+        gpgme_get_engine_info (&info);
+        while (info != NULL && info->protocol != gpgme_get_protocol(m_ctx)) {
+            info = info->next;
+        }
+
+        if (info != NULL) {
+            QByteArray gpgPath = info->file_name;
+            gpgPath.replace("gpg2", "gpg"); //require GnuPG v1
+            gpgme_ctx_set_engine_info(m_ctx, GPGME_PROTOCOL_OpenPGP, gpgPath.data(), NULL);
+        }
+
+    } else {
+        m_ctx = 0;
     }
 }
 
@@ -153,7 +169,7 @@ void KGpgMe::init(gpgme_protocol_t proto)
 {
     gpgme_error_t err;
 
-    gpgme_check_version(NULL);
+    gpgme_check_version("1.0.0"); //require GnuPG v1
     setlocale(LC_ALL, "");
     gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
 #ifndef Q_WS_WIN 
@@ -303,8 +319,10 @@ bool KGpgMe::encrypt(const QByteArray& inBuffer, unsigned long length,
         KMessageBox::error(qApp->activeWindow(), QString("%1: %2")
                            .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
     }
-    if (err != GPG_ERR_NO_ERROR)
+    if (err != GPG_ERR_NO_ERROR) {
+        DEBUG_WIN << "KGpgMe::encrypt error: " << ((err == GPG_ERR_CANCELED) ? "GPG_ERR_CANCELED" : QString::number(err));
         clearCache();
+    }
     if (keys[0])
         gpgme_key_unref(keys[0]);
     if (in)
