@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 00:20+0200\n"
+"POT-Creation-Date: 2016-03-06 22:46+0100\n"
 "PO-Revision-Date: 2013-01-05 15:54+0400\n"
 "Last-Translator: Gleb Baryshev <gleb.baryshev@gmail.com>\n"
 "Language-Team:  <ru@li.org>\n"
@@ -20,6 +20,110 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Language: ru_RU\n"
 "X-Source-Language: C\n"
+
+#. i18n: file: src/basketproperties.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
+#: build/src/ui_basketproperties.h:204 rc.cpp:54
+msgid "Form"
+msgstr "Форма"
+
+#. i18n: file: src/basketproperties.ui:30
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: build/src/ui_basketproperties.h:205 rc.cpp:57 src/settings.cpp:518
+#: src/tagsedit.cpp:1111
+msgid "Appearance"
+msgstr "Внешний вид"
+
+#. i18n: file: src/basketproperties.ui:42
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: build/src/ui_basketproperties.h:206 rc.cpp:60
+msgid "Background &image:"
+msgstr "&Рисунок фона:"
+
+#. i18n: file: src/basketproperties.ui:52
+#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
+#: build/src/ui_basketproperties.h:207 rc.cpp:63
+msgid "&Background color:"
+msgstr "Цвет фона:"
+
+#. i18n: file: src/basketproperties.ui:59
+#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
+#: build/src/ui_basketproperties.h:208 rc.cpp:66
+msgid "&Text color:"
+msgstr "Цвет &текста"
+
+#. i18n: file: src/basketproperties.ui:69
+#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
+#: build/src/ui_basketproperties.h:209 rc.cpp:69
+msgid "Disposition"
+msgstr "Позиционирование содержимого"
+
+#. i18n: file: src/basketproperties.ui:75
+#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
+#: build/src/ui_basketproperties.h:210 rc.cpp:72
+msgid "Col&umns:"
+msgstr "Столбцы:"
+
+#. i18n: file: src/basketproperties.ui:82
+#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
+#: build/src/ui_basketproperties.h:211 rc.cpp:75
+msgid "&Free-form"
+msgstr "Свободное размещение"
+
+#. i18n: file: src/basketproperties.ui:108
+#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
+#: build/src/ui_basketproperties.h:212 rc.cpp:78
+msgid "&Mind map"
+msgstr "Свободное размещение"
+
+#. i18n: file: src/basketproperties.ui:118
+#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
+#: build/src/ui_basketproperties.h:213 rc.cpp:81
+msgid "Keyboard Shortcut"
+msgstr "Комбинация клавиш"
+
+#. i18n: file: src/basketproperties.ui:136
+#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
+#: build/src/ui_basketproperties.h:214 rc.cpp:84
+msgid "S&how this basket"
+msgstr "Показать корзину"
+
+#. i18n: file: src/basketproperties.ui:143
+#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
+#: build/src/ui_basketproperties.h:215 rc.cpp:87
+msgid "Show this basket (&global shortcut)"
+msgstr "Показать корзину (Глобальная комбинация клавиш)"
+
+#. i18n: file: src/basketproperties.ui:150
+#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
+#: build/src/ui_basketproperties.h:216 rc.cpp:90
+msgid "S&witch to this basket (global shortcut)"
+msgstr "Переключиться на эту корзину (глобальная комбинация)"
+
+#. i18n: file: src/passwordlayout.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
+#: build/src/ui_passwordlayout.h:105 rc.cpp:144 src/password.cpp:38
+#: src/settings.cpp:620
+msgid "Password Protection"
+msgstr "Защита поролем"
+
+#. i18n: file: src/passwordlayout.ui:29
+#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
+#: build/src/ui_passwordlayout.h:107 rc.cpp:147
+msgid "&No protection"
+msgstr "Нет защиты поролем"
+
+#. i18n: file: src/passwordlayout.ui:36
+#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
+#: build/src/ui_passwordlayout.h:108 rc.cpp:150
+msgid "Protect basket with a &password"
+msgstr "Защитить паролем"
+
+#. i18n: file: src/passwordlayout.ui:51
+#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
+#: build/src/ui_passwordlayout.h:109 rc.cpp:153
+msgid "Protect basket with private &key:"
+msgstr "Защитить личным ключём"
 
 #. i18n: file: src/basket_part.rc:6
 #. i18n: ectx: Menu (file)
@@ -109,7 +213,7 @@ msgstr "&Импорт"
 #. i18n: ectx: Menu (edit)
 #. i18n: file: src/basketui.rc:50
 #. i18n: ectx: Menu (edit)
-#: rc.cpp:15 rc.cpp:105 src/basketscene.cpp:4155
+#: rc.cpp:15 rc.cpp:105 src/basketscene.cpp:4175
 msgid "&Edit"
 msgstr "&Правка"
 
@@ -209,108 +313,6 @@ msgstr "Основная панель инструментов"
 msgid "Text Formating Toolbar"
 msgstr "Панель инструментов Формат"
 
-#. i18n: file: src/basketproperties.ui:14
-#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
-#: rc.cpp:54
-msgid "Form"
-msgstr "Форма"
-
-#. i18n: file: src/basketproperties.ui:30
-#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: rc.cpp:57 src/settings.cpp:515 src/tagsedit.cpp:1111
-msgid "Appearance"
-msgstr "Внешний вид"
-
-#. i18n: file: src/basketproperties.ui:42
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:60
-msgid "Background &image:"
-msgstr "&Рисунок фона:"
-
-#. i18n: file: src/basketproperties.ui:52
-#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
-#: rc.cpp:63
-msgid "&Background color:"
-msgstr "Цвет фона:"
-
-#. i18n: file: src/basketproperties.ui:59
-#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: rc.cpp:66
-msgid "&Text color:"
-msgstr "Цвет &текста"
-
-#. i18n: file: src/basketproperties.ui:69
-#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
-#: rc.cpp:69
-msgid "Disposition"
-msgstr "Позиционирование содержимого"
-
-#. i18n: file: src/basketproperties.ui:75
-#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
-#: rc.cpp:72
-msgid "Col&umns:"
-msgstr "Столбцы:"
-
-#. i18n: file: src/basketproperties.ui:82
-#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
-#: rc.cpp:75
-msgid "&Free-form"
-msgstr "Свободное размещение"
-
-#. i18n: file: src/basketproperties.ui:108
-#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
-#: rc.cpp:78
-msgid "&Mind map"
-msgstr "Свободное размещение"
-
-#. i18n: file: src/basketproperties.ui:118
-#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: rc.cpp:81
-msgid "Keyboard Shortcut"
-msgstr "Комбинация клавиш"
-
-#. i18n: file: src/basketproperties.ui:136
-#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: rc.cpp:84
-msgid "S&how this basket"
-msgstr "Показать корзину"
-
-#. i18n: file: src/basketproperties.ui:143
-#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: rc.cpp:87
-msgid "Show this basket (&global shortcut)"
-msgstr "Показать корзину (Глобальная комбинация клавиш)"
-
-#. i18n: file: src/basketproperties.ui:150
-#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: rc.cpp:90
-msgid "S&witch to this basket (global shortcut)"
-msgstr "Переключиться на эту корзину (глобальная комбинация)"
-
-#. i18n: file: src/passwordlayout.ui:14
-#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: rc.cpp:144 src/password.cpp:38 src/settings.cpp:613
-msgid "Password Protection"
-msgstr "Защита поролем"
-
-#. i18n: file: src/passwordlayout.ui:29
-#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
-#: rc.cpp:147
-msgid "&No protection"
-msgstr "Нет защиты поролем"
-
-#. i18n: file: src/passwordlayout.ui:36
-#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
-#: rc.cpp:150
-msgid "Protect basket with a &password"
-msgstr "Защитить паролем"
-
-#. i18n: file: src/passwordlayout.ui:51
-#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
-#: rc.cpp:153
-msgid "Protect basket with private &key:"
-msgstr "Защитить личным ключём"
-
 #: rc.cpp:154
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -340,34 +342,43 @@ msgid "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
 msgstr ""
 
 #: src/aboutdata.cpp:42
-msgid "Kelvie Wong"
+msgid "OmegaPhil"
 msgstr ""
 
 #: src/aboutdata.cpp:43
-msgid "Maintainer"
-msgstr "Сопровождение"
+#, fuzzy
+msgid "Paste as plaintext option"
+msgstr "Вставить заметку из простого текста"
 
 #: src/aboutdata.cpp:46
-msgid "Sébastien Laoût"
+msgid "Kelvie Wong"
 msgstr ""
 
 #: src/aboutdata.cpp:47
-msgid "Original Author"
-msgstr "Первоначальный автор"
+msgid "Maintainer"
+msgstr "Сопровождение"
 
 #: src/aboutdata.cpp:50
-msgid "Petri Damstén"
+msgid "Sébastien Laoût"
 msgstr ""
 
 #: src/aboutdata.cpp:51
-msgid "Basket encryption, Kontact integration, KnowIt importer"
-msgstr "Шифрование корзин, Интеграция с Kontact, Импорт заметок KnowIt"
+msgid "Original Author"
+msgstr "Первоначальный автор"
 
 #: src/aboutdata.cpp:54
-msgid "Alex Gontmakher"
+msgid "Petri Damstén"
 msgstr ""
 
 #: src/aboutdata.cpp:55
+msgid "Basket encryption, Kontact integration, KnowIt importer"
+msgstr "Шифрование корзин, Интеграция с Kontact, Импорт заметок KnowIt"
+
+#: src/aboutdata.cpp:58
+msgid "Alex Gontmakher"
+msgstr ""
+
+#: src/aboutdata.cpp:59
 msgid ""
 "Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, "
 "drop to basket name"
@@ -375,16 +386,16 @@ msgstr ""
 "Авто-замыкание Корзин, значок изменения не сохранены, копирование и вставка "
 "в формате HTML, всплывающие подсказки, кинуть на имя корзины"
 
-#: src/aboutdata.cpp:58
+#: src/aboutdata.cpp:62
 msgid "Marco Martin"
 msgstr ""
 
-#: src/aboutdata.cpp:59
+#: src/aboutdata.cpp:63
 #, fuzzy
 msgid "Original icon"
 msgstr "Первоначальный автор"
 
-#: src/archive.cpp:59 src/bnpview.cpp:2284
+#: src/archive.cpp:59 src/bnpview.cpp:2281
 msgid "Save as Basket Archive"
 msgstr "Сохранить как контейнер"
 
@@ -505,7 +516,7 @@ msgstr "Папка <b>%1</b> не пуста. Стереть содержимо�
 msgid "Override Folder?"
 msgstr "Заменить содержимое папки?"
 
-#: src/backup.cpp:162 src/backup.cpp:213 src/bnpview.cpp:2293
+#: src/backup.cpp:162 src/backup.cpp:213 src/bnpview.cpp:2290
 #: src/htmlexporter.cpp:77
 msgid "&Override"
 msgstr "За&менить"
@@ -521,8 +532,9 @@ msgid "Choose an Existing Folder to Store Baskets"
 msgstr "Выберите папку"
 
 #: src/backup.cpp:182
+#, fuzzy
 msgid ""
-"Your basket save folder has been successfuly changed to <b>%1</b>. %2 is "
+"Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
 "going to be restarted to take this change into account."
 msgstr "Корзины переключены на папку <b>%1</b>. Перезапускаем %2."
 
@@ -535,8 +547,8 @@ msgstr "Корзины_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Архив tar.gz"
 
-#: src/backup.cpp:198 src/backup.cpp:254 src/bnpview.cpp:2281
-#: src/bnpview.cpp:2327 src/htmlexporter.cpp:62
+#: src/backup.cpp:198 src/backup.cpp:254 src/bnpview.cpp:2278
+#: src/bnpview.cpp:2324 src/htmlexporter.cpp:62
 msgid "All Files"
 msgstr "Все файлы"
 
@@ -544,11 +556,11 @@ msgstr "Все файлы"
 msgid "Backup Baskets"
 msgstr "Резервная копия"
 
-#: src/backup.cpp:210 src/bnpview.cpp:2290 src/htmlexporter.cpp:74
+#: src/backup.cpp:210 src/bnpview.cpp:2287 src/htmlexporter.cpp:74
 msgid "The file <b>%1</b> already exists. Do you really want to override it?"
 msgstr "Файл <b>%1</b> уже существует. Переписать поверх?"
 
-#: src/backup.cpp:212 src/bnpview.cpp:2292 src/htmlexporter.cpp:76
+#: src/backup.cpp:212 src/bnpview.cpp:2289 src/htmlexporter.cpp:76
 msgid "Override File?"
 msgstr "Переписать поверх файла?"
 
@@ -556,7 +568,7 @@ msgstr "Переписать поверх файла?"
 msgid "Backing up baskets. Please wait..."
 msgstr "Пакуем ..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2328
+#: src/backup.cpp:255 src/bnpview.cpp:2325
 msgid "Open Basket Archive"
 msgstr "Открыть контейнер"
 
@@ -619,8 +631,9 @@ msgid "Restore Error"
 msgstr "Ошибка восстановления"
 
 #: src/backup.cpp:320
+#, fuzzy
 msgid ""
-"Your backup has been successfuly restored to <b>%1</b>. %2 is going to be "
+"Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
 msgstr "Успешное восстановление резервной копии в <b>%1</b>. Перезапускаем %2."
 
@@ -688,27 +701,28 @@ msgstr ""
 msgid "Open a basket archive or template."
 msgstr "Открыть архив корзин или шаблон"
 
-#: src/basketproperties.cpp:61
+#: src/basketproperties.cpp:64
 msgid "Basket Properties"
 msgstr "Свойства корзины"
 
-#: src/basketproperties.cpp:75 src/newbasketdialog.cpp:109
+#: src/basketproperties.cpp:78 src/newbasketdialog.cpp:109
 msgid "Icon"
 msgstr "Значок"
 
-#: src/basketproperties.cpp:78 src/kgpgme.cpp:72 src/newbasketdialog.cpp:114
+#: src/basketproperties.cpp:81 src/kgpgme.cpp:72 src/newbasketdialog.cpp:114
 msgid "Name"
 msgstr "Имя"
 
-#: src/basketproperties.cpp:94
+#: src/basketproperties.cpp:97
 msgid "(None)"
 msgstr "(нет)"
 
-#: src/basketproperties.cpp:138
+#: src/basketproperties.cpp:141
 msgid "Learn some tips..."
 msgstr "Несколько подсказок..."
 
-#: src/basketproperties.cpp:139
+#: src/basketproperties.cpp:142
+#, fuzzy
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
 "option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> "
@@ -716,11 +730,11 @@ msgid ""
 "assigning the shortcut <i>Alt+T</i> to a basket named <i>Tips</i>, the "
 "basket will be displayed as <i><u>T</u>ips</i> in the tree. It helps you "
 "visualize the shortcuts to remember them more quickly.</p><p><strong>Local "
-"vs Global</strong>:<br>The first option allows to show the basket while the "
-"main window is active. Global shortcuts are valid from anywhere, even if the "
-"window is hidden.</p><p><strong>Show vs Switch</strong>:<br>The last option "
-"makes this basket the current one without opening the main window. It is "
-"useful in addition to the configurable global shortcuts, eg. to paste the "
+"vs Global</strong>:<br>The first option allows you to show the basket while "
+"the main window is active. Global shortcuts are valid from anywhere, even if "
+"the window is hidden.</p><p><strong>Show vs Switch</strong>:<br>The last "
+"option makes this basket the current one without opening the main window. It "
+"is useful in addition to the configurable global shortcuts, eg. to paste the "
 "clipboard or the selection into the current basket from anywhere.</p>"
 msgstr ""
 "<p><strong>Ключ к запоминанию комбинаций</strong>:<br>Предписание корзине "
@@ -734,36 +748,36 @@ msgstr ""
 "полезно в тандеме с глобальными комбинациями Вставить в активную корзину и "
 "Вставить выбор в активную корзину.</p>"
 
-#: src/basketscene.cpp:319
+#: src/basketscene.cpp:320
 msgid "The new note does not match the filter and is hidden."
 msgstr "Новая заметка не подходит под категории фильтра и была спрятана."
 
-#: src/basketscene.cpp:320
+#: src/basketscene.cpp:321
 msgid "A new note does not match the filter and is hidden."
 msgstr "Новая заметка не подходит под категории фильтра и была спрятана."
 
-#: src/basketscene.cpp:321
+#: src/basketscene.cpp:322
 msgid "Some new notes do not match the filter and are hidden."
 msgstr ""
 "Некоторые из новых заметок не подходят под категории фильтра и были спрятаны."
 
-#: src/basketscene.cpp:322
+#: src/basketscene.cpp:323
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Новые заметки не подходят под категории фильтра и были спрятаны."
 
-#: src/basketscene.cpp:1472
+#: src/basketscene.cpp:1491
 msgid "Group"
 msgstr "Сгруппировать"
 
-#: src/basketscene.cpp:1474
+#: src/basketscene.cpp:1493
 msgid "Insert"
 msgstr "Вставить"
 
-#: src/basketscene.cpp:1894 src/basketscene.cpp:1920
+#: src/basketscene.cpp:1915 src/basketscene.cpp:1941
 msgid "Dropped to basket <i>%1</i>"
 msgstr "Помещено в корзину <i>%1</i>"
 
-#: src/basketscene.cpp:2318
+#: src/basketscene.cpp:2339
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
@@ -771,7 +785,7 @@ msgstr ""
 "Если вы видите это сообщение - в программе случилась ошибка. Пожалуйста, "
 "сообщите об этой проблеме производителю этой программы."
 
-#: src/basketscene.cpp:2765 src/basketscene.cpp:2811 src/basketscene.cpp:2814
+#: src/basketscene.cpp:2786 src/basketscene.cpp:2832 src/basketscene.cpp:2835
 msgid ""
 "Insert note here\n"
 "Right click for more options"
@@ -779,47 +793,47 @@ msgstr ""
 " Вставить сюда\n"
 "Щёкните правой клавишей мыши для других вариантов"
 
-#: src/basketscene.cpp:2784
+#: src/basketscene.cpp:2805
 msgid "Resize those columns"
 msgstr "Поменять размер колонок"
 
-#: src/basketscene.cpp:2786
+#: src/basketscene.cpp:2807
 msgid "Resize this group"
 msgstr "Поменять размер группы"
 
-#: src/basketscene.cpp:2787
+#: src/basketscene.cpp:2808
 msgid "Resize this note"
 msgstr "Изменить размер заметки"
 
-#: src/basketscene.cpp:2788
+#: src/basketscene.cpp:2809
 msgid "Select or move this note"
 msgstr "Выделить или переместить заметку"
 
-#: src/basketscene.cpp:2789
+#: src/basketscene.cpp:2810
 msgid "Select or move this group"
 msgstr "Выделить или переместить группу"
 
-#: src/basketscene.cpp:2790
+#: src/basketscene.cpp:2811
 msgid "Assign or remove tags from this note"
 msgstr "Манипуляция метками"
 
-#: src/basketscene.cpp:2792
+#: src/basketscene.cpp:2813
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Предписанная метка</b>: %1"
 
-#: src/basketscene.cpp:2799
+#: src/basketscene.cpp:2820
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2806
+#: src/basketscene.cpp:2827
 msgid "Expand this group"
 msgstr "Раскрыть группу"
 
-#: src/basketscene.cpp:2807
+#: src/basketscene.cpp:2828
 msgid "Collapse this group"
 msgstr "Свернуть группу"
 
-#: src/basketscene.cpp:2812
+#: src/basketscene.cpp:2833
 msgid ""
 "Group note with the one below\n"
 "Right click for more options"
@@ -827,7 +841,7 @@ msgstr ""
 "Сгруппировать заметку с нижней\n"
 "Щёкните правой клавишей мыши для других вариантов"
 
-#: src/basketscene.cpp:2813
+#: src/basketscene.cpp:2834
 msgid ""
 "Group note with the one above\n"
 "Right click for more options"
@@ -835,44 +849,44 @@ msgstr ""
 "Сгруппировать заметку с верхней\n"
 "Щёкните правой клавишей мыши для других вариантов"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2850
 msgid "Added"
 msgstr "Добавлен"
 
-#: src/basketscene.cpp:2830
+#: src/basketscene.cpp:2851
 msgid "Last Modification"
 msgstr "Последняя модификация"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2859
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2841
+#: src/basketscene.cpp:2862
 msgid "Click on the right to group instead of insert"
 msgstr "Щёлкните справа что бы сгруппировать вместо вставки"
 
-#: src/basketscene.cpp:2843
+#: src/basketscene.cpp:2864
 msgid "Click on the left to insert instead of group"
 msgstr "Щёлкните слева что бы вставить вместо группировки"
 
-#: src/basketscene.cpp:3077
+#: src/basketscene.cpp:3099
 msgid "&Unlock"
 msgstr "Раз&блокировать"
 
-#: src/basketscene.cpp:3082
+#: src/basketscene.cpp:3104
 msgid "Password protected basket."
 msgstr "Защищено паролем."
 
-#: src/basketscene.cpp:3084
+#: src/basketscene.cpp:3106
 msgid "Press Unlock to access it."
 msgstr "Разблокируйте перед просмотром."
 
-#: src/basketscene.cpp:3086
+#: src/basketscene.cpp:3108
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "Шифрование не поддерживается<br/>этой версией %1."
 
-#: src/basketscene.cpp:3098
+#: src/basketscene.cpp:3120
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
@@ -880,91 +894,91 @@ msgstr ""
 "Для предотвращения автоматического замыкания корзины,<br>измените период "
 "автоматического замыкания корзин в настройках приложения."
 
-#: src/basketscene.cpp:3129 src/basketstatusbar.cpp:88 src/bnpview.cpp:1818
-#: src/bnpview.cpp:2552 src/bnpview.cpp:2562
+#: src/basketscene.cpp:3151 src/basketstatusbar.cpp:88 src/bnpview.cpp:1815
+#: src/bnpview.cpp:2551 src/bnpview.cpp:2561
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: src/basketscene.cpp:3281 src/basketscene.cpp:3323
+#: src/basketscene.cpp:3303 src/basketscene.cpp:3345
 msgid "&Remove"
 msgstr "&Удалить"
 
-#: src/basketscene.cpp:3284 src/basketscene.cpp:3329 src/bnpview.cpp:2940
+#: src/basketscene.cpp:3306 src/basketscene.cpp:3351 src/bnpview.cpp:2939
 msgid "&Customize..."
 msgstr "&Настроить..."
 
-#: src/basketscene.cpp:3290 src/basketscene.cpp:3338
+#: src/basketscene.cpp:3312 src/basketscene.cpp:3360
 msgid "&Filter by this Tag"
 msgstr "Фильтровать по метке"
 
-#: src/basketscene.cpp:3344
+#: src/basketscene.cpp:3366
 msgid "Filter by this &State"
 msgstr "Фильтровать по &состоянию метки"
 
-#: src/basketscene.cpp:3426
+#: src/basketscene.cpp:3448
 msgid "Tags"
 msgstr "Метки"
 
-#: src/basketscene.cpp:4000
+#: src/basketscene.cpp:4020
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Удалить корзину и её содержимое?</qt>"
 msgstr[1] "<qt>Удалить <b>%1</b> корзины и их содержимое?</qt>"
 msgstr[2] "<qt>Удалить <b>%1</b> корзин и их содержимое?</qt>"
 
-#: src/basketscene.cpp:4003
+#: src/basketscene.cpp:4023
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Удалить заметку"
 msgstr[1] "Удалить заметки"
 msgstr[2] "Удалить заметки"
 
-#: src/basketscene.cpp:4105
+#: src/basketscene.cpp:4125
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Заметка скопирована в буфер."
 msgstr[1] "Заметки скопированы в буфер."
 msgstr[2] "Заметки скопированы в буфер."
 
-#: src/basketscene.cpp:4106
+#: src/basketscene.cpp:4126
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Вырезать заметку в буфер обмена"
 msgstr[1] "Вырезать заметки в буфер обмена"
 msgstr[2] "Вырезать заметки в буфер обмена"
 
-#: src/basketscene.cpp:4107
+#: src/basketscene.cpp:4127
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Заметка скопирована в выделение."
 msgstr[1] "Заметки скопированы в выделение."
 msgstr[2] "Заметки скопированы в выделение."
 
-#: src/basketscene.cpp:4153 src/basketscene.cpp:4205
+#: src/basketscene.cpp:4173 src/basketscene.cpp:4225
 msgid "Unable to open this note."
 msgstr "Невозможно открыть заметку."
 
-#: src/basketscene.cpp:4180
+#: src/basketscene.cpp:4200
 msgid "You are not authorized to open this file."
 msgstr "У вас нет прав для открытия этого файла."
 
-#: src/basketscene.cpp:4222
+#: src/basketscene.cpp:4242
 msgid "Save to File"
 msgstr "Сохранить в файл"
 
-#: src/basketscene.cpp:5190
+#: src/basketscene.cpp:5210
 msgid "Please enter the password for the following private key:"
 msgstr "Введите пароль для личного ключа:"
 
-#: src/basketscene.cpp:5192
+#: src/basketscene.cpp:5212
 msgid "Please enter the password for the basket <b>%1</b>:"
 msgstr "Введите пароль для корзины '%1':"
 
-#: src/basketscene.cpp:5225
+#: src/basketscene.cpp:5245
 msgid "Please assign a password to the basket <b>%1</b>:"
 msgstr "Введите пароль для корзины '%1':"
 
-#: src/basketscene.cpp:5280
+#: src/basketscene.cpp:5300
 msgid "Error while saving"
 msgstr "Ошибка сохранения"
 
@@ -990,15 +1004,15 @@ msgstr ""
 "<p>Эта корзина <b>разблокирована</b>.<br>Щёлкните мышью для заблокирования</"
 "p>"
 
-#: src/bnpview.cpp:221 src/bnpview.cpp:1449
+#: src/bnpview.cpp:222 src/bnpview.cpp:1447
 msgid "General"
 msgstr "Общие"
 
-#: src/bnpview.cpp:324
+#: src/bnpview.cpp:327
 msgid "Show/hide main window"
 msgstr "Показать / спрятать главное окно"
 
-#: src/bnpview.cpp:326
+#: src/bnpview.cpp:329
 msgid ""
 "Allows you to show main Window if it is hidden, and to hide it if it is "
 "shown."
@@ -1006,11 +1020,11 @@ msgstr ""
 "Позволяет показать главное окно если оно спрятано и спрятать если оно на "
 "виду."
 
-#: src/bnpview.cpp:333
+#: src/bnpview.cpp:336
 msgid "Paste clipboard contents in current basket"
 msgstr "Вставить содержимое буфера обмена в выбранную корзину"
 
-#: src/bnpview.cpp:335
+#: src/bnpview.cpp:338
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
 "to open the main window."
@@ -1018,21 +1032,21 @@ msgstr ""
 "Позволяет вставить содержимое буфера обмена в выбранную корзину без "
 "необходимости открытия главного окна."
 
-#: src/bnpview.cpp:343
+#: src/bnpview.cpp:346
 msgid "Show current basket name"
 msgstr "Показать имя выбранной корзины"
 
-#: src/bnpview.cpp:344
+#: src/bnpview.cpp:347
 msgid "Allows you to know basket is current without opening the main window."
 msgstr ""
 "Позволяет узнать которая корзина выбрана.без необходимости открытия главного "
 "окна."
 
-#: src/bnpview.cpp:350
+#: src/bnpview.cpp:353
 msgid "Paste selection in current basket"
 msgstr "Вставить выделенное в выбранную корзину"
 
-#: src/bnpview.cpp:352
+#: src/bnpview.cpp:355
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
 "to open the main window."
@@ -1040,22 +1054,22 @@ msgstr ""
 "Позволяет вставить содержимое буфера обмена в выбранную корзину без "
 "необходимости открытия главного окна."
 
-#: src/bnpview.cpp:358
+#: src/bnpview.cpp:361
 msgid "Create a new basket"
 msgstr "Создать новую корзину"
 
-#: src/bnpview.cpp:360
+#: src/bnpview.cpp:363
 msgid ""
 "Allows you to create a new basket without having to open the main window "
 "(you then can use the other global shortcuts to add a note, paste clipboard "
 "or paste selection in this new basket)."
 msgstr "Позволяет создать корзину без необходимости открытия главного окна."
 
-#: src/bnpview.cpp:367
+#: src/bnpview.cpp:370
 msgid "Go to previous basket"
 msgstr "Перейти к предыдущей корзине"
 
-#: src/bnpview.cpp:369
+#: src/bnpview.cpp:372
 msgid ""
 "Allows you to change current basket to the previous one without having to "
 "open the main window."
@@ -1063,11 +1077,11 @@ msgstr ""
 "Позволяет перейти к предыдущей корзине без необходимости открытия главного "
 "окна."
 
-#: src/bnpview.cpp:374
+#: src/bnpview.cpp:377
 msgid "Go to next basket"
 msgstr "Перейти к следующей корзине"
 
-#: src/bnpview.cpp:375
+#: src/bnpview.cpp:378
 msgid ""
 "Allows you to change current basket to the next one without having to open "
 "the main window."
@@ -1075,43 +1089,43 @@ msgstr ""
 "Позволяет перейти к следующей корзине без необходимости открытия главного "
 "окна."
 
-#: src/bnpview.cpp:380
+#: src/bnpview.cpp:383
 msgid "Insert text note"
 msgstr "Вставить заметку из простого текста"
 
-#: src/bnpview.cpp:382
+#: src/bnpview.cpp:385
 msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr ""
 "Вставить заметку из простого текста в выбраную корзину без необходимости "
 "открытия главного окна."
 
-#: src/bnpview.cpp:388 src/settings.cpp:591
+#: src/bnpview.cpp:391 src/settings.cpp:598
 msgid "Insert image note"
 msgstr "Вставить рисунок"
 
-#: src/bnpview.cpp:390
+#: src/bnpview.cpp:393
 msgid ""
 "Add an image note to the current basket without having to open the main "
 "window."
 msgstr ""
 "Вставить рисунок в выбраную корзину без необходимости открытия главного окна."
 
-#: src/bnpview.cpp:395 src/settings.cpp:592
+#: src/bnpview.cpp:398 src/settings.cpp:599
 msgid "Insert link note"
 msgstr "Вставить ссылку"
 
-#: src/bnpview.cpp:397
+#: src/bnpview.cpp:400
 msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr ""
 "Вставить ссылку в выбраную корзину без необходимости открытия главного окна."
 
-#: src/bnpview.cpp:402 src/settings.cpp:595
+#: src/bnpview.cpp:405 src/settings.cpp:602
 msgid "Insert color note"
 msgstr "Вставить цветную заметку"
 
-#: src/bnpview.cpp:404
+#: src/bnpview.cpp:407
 msgid ""
 "Add a color note to the current basket without having to open the main "
 "window."
@@ -1119,11 +1133,11 @@ msgstr ""
 "Вставить цветную заметку в выбраную корзину без необходимости открытия "
 "главного окна."
 
-#: src/bnpview.cpp:409
+#: src/bnpview.cpp:412
 msgid "Pick color from screen"
 msgstr "Выбрать цвет с точки экрана"
 
-#: src/bnpview.cpp:411
+#: src/bnpview.cpp:414
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
 "without having to open the main window."
@@ -1131,11 +1145,11 @@ msgstr ""
 "Выбрать цвет с любой точки экрана в выбраную корзину без необходимости "
 "открытия главного окна."
 
-#: src/bnpview.cpp:416 src/settings.cpp:596
+#: src/bnpview.cpp:419 src/settings.cpp:603
 msgid "Grab screen zone"
 msgstr "Сделать снимок зоны экрана"
 
-#: src/bnpview.cpp:418
+#: src/bnpview.cpp:421
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
 "the main window."
@@ -1143,11 +1157,11 @@ msgstr ""
 "Вставить снимок зоны экрана в выбраную корзину без необходимости открытия "
 "главного окна."
 
-#: src/bnpview.cpp:424
+#: src/bnpview.cpp:427
 msgid "Insert plain text note"
 msgstr "Вставить заметку из простого текста"
 
-#: src/bnpview.cpp:426
+#: src/bnpview.cpp:429
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
 "window."
@@ -1155,11 +1169,11 @@ msgstr ""
 "Вставить заметку из простого текста в выбраную корзину без необходимости "
 "открытия главного окна."
 
-#: src/bnpview.cpp:435
+#: src/bnpview.cpp:438
 msgid "Baskets"
 msgstr "Корзины"
 
-#: src/bnpview.cpp:491
+#: src/bnpview.cpp:494
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
 "data by putting them in different baskets. You can group baskets by subject "
@@ -1170,326 +1184,326 @@ msgstr ""
 "корзин в группы по темам. Пользуйтесь мышью для перетаскивания корзин из "
 "одной группы в другую."
 
-#: src/bnpview.cpp:507 src/bnpview.cpp:514
+#: src/bnpview.cpp:510 src/bnpview.cpp:517
 msgid "&Basket Archive..."
 msgstr "Контейнер BasKet..."
 
-#: src/bnpview.cpp:520
+#: src/bnpview.cpp:523
 msgid "&Hide Window"
 msgstr "Скрыть Окно"
 
-#: src/bnpview.cpp:527
+#: src/bnpview.cpp:530
 msgid "&HTML Web Page..."
 msgstr "Страница HTML"
 
-#: src/bnpview.cpp:533
+#: src/bnpview.cpp:536
 msgid "K&Notes"
 msgstr "Заметки KDE"
 
-#: src/bnpview.cpp:538
+#: src/bnpview.cpp:541
 msgid "K&Jots"
 msgstr "K&Jots"
 
-#: src/bnpview.cpp:543
+#: src/bnpview.cpp:546
 msgid "&KnowIt..."
 msgstr "&KnowIt..."
 
-#: src/bnpview.cpp:548
+#: src/bnpview.cpp:551
 msgid "Tux&Cards..."
 msgstr "Tux&Cards..."
 
-#: src/bnpview.cpp:554
+#: src/bnpview.cpp:557
 msgid "&Sticky Notes"
 msgstr "&Sticky Notes"
 
-#: src/bnpview.cpp:559
+#: src/bnpview.cpp:562
 msgid "&Tomboy"
 msgstr "&Tomboy"
 
-#: src/bnpview.cpp:564
+#: src/bnpview.cpp:567
 msgid "J&reepad XML File..."
 msgstr "Сохранить в файл J&reepad..."
 
-#: src/bnpview.cpp:569
+#: src/bnpview.cpp:572
 msgid "Text &File..."
 msgstr "Текстовый файл..."
 
-#: src/bnpview.cpp:574
+#: src/bnpview.cpp:577
 msgid "&Backup && Restore..."
 msgstr "Резервное копирование..."
 
-#: src/bnpview.cpp:578
+#: src/bnpview.cpp:581
 msgid "&Check && Cleanup..."
 msgstr "&Проверить и очистить..."
 
-#: src/bnpview.cpp:589
+#: src/bnpview.cpp:592
 msgid "D&elete"
 msgstr "&Удалить"
 
-#: src/bnpview.cpp:599
+#: src/bnpview.cpp:602
 msgid "Selects all notes"
 msgstr "Выделить все"
 
-#: src/bnpview.cpp:602
+#: src/bnpview.cpp:605
 msgid "U&nselect All"
 msgstr "Убрать выделение со всех"
 
-#: src/bnpview.cpp:604
+#: src/bnpview.cpp:607
 msgid "Unselects all selected notes"
 msgstr "Убрать выделение со всех"
 
-#: src/bnpview.cpp:608
+#: src/bnpview.cpp:611
 msgid "&Invert Selection"
 msgstr "&Инвертировать выделение"
 
-#: src/bnpview.cpp:613
+#: src/bnpview.cpp:616
 msgid "Inverts the current selection of notes"
 msgstr "Уберает выделение с выделенных заметок, выделяет невыделенные заметки"
 
-#: src/bnpview.cpp:617
+#: src/bnpview.cpp:620
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "&Править..."
 
-#: src/bnpview.cpp:625
+#: src/bnpview.cpp:628
 msgid "&Open"
 msgstr "&Открыть"
 
-#: src/bnpview.cpp:629
+#: src/bnpview.cpp:632
 msgid "Open &With..."
 msgstr "Открыть в..."
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:639
 msgid "&Save to File..."
 msgstr "Сохранить в файл..."
 
-#: src/bnpview.cpp:640
+#: src/bnpview.cpp:643
 msgid "&Group"
 msgstr "Сгруппировать"
 
-#: src/bnpview.cpp:646
+#: src/bnpview.cpp:649
 msgid "U&ngroup"
 msgstr "Разбить группу"
 
-#: src/bnpview.cpp:651
+#: src/bnpview.cpp:654
 msgid "Move on &Top"
 msgstr "Вверх"
 
-#: src/bnpview.cpp:657
+#: src/bnpview.cpp:660
 msgid "Move &Up"
 msgstr "&Выше"
 
-#: src/bnpview.cpp:663
+#: src/bnpview.cpp:666
 msgid "Move &Down"
 msgstr "&Ниже"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:672
 msgid "Move on &Bottom"
 msgstr "Вниз"
 
-#: src/bnpview.cpp:686
+#: src/bnpview.cpp:689
 msgid "Plai&n Text"
 msgstr "Просто&й текст"
 
-#: src/bnpview.cpp:693
+#: src/bnpview.cpp:696
 msgid "&Text"
 msgstr "&Текст"
 
-#: src/bnpview.cpp:699
+#: src/bnpview.cpp:702
 msgid "&Link"
 msgstr "Ссы&лка на ресурс"
 
-#: src/bnpview.cpp:705
+#: src/bnpview.cpp:708
 msgid "Cross &Reference"
 msgstr "Перекрёстная &ссылка"
 
-#: src/bnpview.cpp:710
+#: src/bnpview.cpp:713
 msgid "&Image"
 msgstr "&Рисунок"
 
-#: src/bnpview.cpp:715
+#: src/bnpview.cpp:718
 msgid "&Color"
 msgstr "Цвет"
 
-#: src/bnpview.cpp:720
+#: src/bnpview.cpp:723
 msgid "L&auncher"
 msgstr "Ссылка на &приложение"
 
-#: src/bnpview.cpp:725
+#: src/bnpview.cpp:728
 msgid "Import Launcher from &KDE Menu..."
 msgstr "Вставить сылку приложения из меню KDE..."
 
-#: src/bnpview.cpp:730
+#: src/bnpview.cpp:733
 msgid "Im&port Icon..."
 msgstr "Вставить &значок..."
 
-#: src/bnpview.cpp:735
+#: src/bnpview.cpp:738
 msgid "Load From &File..."
 msgstr "Загрузить из файла..."
 
-#: src/bnpview.cpp:764
+#: src/bnpview.cpp:767
 msgid "C&olor from Screen"
 msgstr "Взять цвет c точки экрана"
 
-#: src/bnpview.cpp:774
+#: src/bnpview.cpp:777
 msgid "Grab Screen &Zone"
 msgstr "Сделать &снимок зоны экрана"
 
-#: src/bnpview.cpp:809
+#: src/bnpview.cpp:812
 msgid "&New Basket..."
 msgstr "Новая головная корзина..."
 
-#: src/bnpview.cpp:815
+#: src/bnpview.cpp:818
 msgid "New &Sub-Basket..."
 msgstr "Новая дочерняя корзина..."
 
-#: src/bnpview.cpp:820
+#: src/bnpview.cpp:823
 msgid "New Si&bling Basket..."
 msgstr "Новая родственная корзина..."
 
-#: src/bnpview.cpp:823
+#: src/bnpview.cpp:826
 msgid "&New"
 msgstr "&Создать"
 
-#: src/bnpview.cpp:833
+#: src/bnpview.cpp:836
 msgid "&Properties..."
 msgstr "&Свойства корзины..."
 
-#: src/bnpview.cpp:839
+#: src/bnpview.cpp:842
 msgid "Sort Children Ascending"
 msgstr "&Сортировка дочерних"
 
-#: src/bnpview.cpp:844
+#: src/bnpview.cpp:847
 msgid "Sort Children Descending"
 msgstr "Сортировка дочерних по убыванию"
 
-#: src/bnpview.cpp:849
+#: src/bnpview.cpp:852
 msgid "Sort Siblings Ascending"
 msgstr "Сортировка соседей"
 
-#: src/bnpview.cpp:854
+#: src/bnpview.cpp:857
 msgid "Sort Siblings Descending"
 msgstr "Сортировка соседей по убыванию"
 
-#: src/bnpview.cpp:859
+#: src/bnpview.cpp:862
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&Удалить"
 
-#: src/bnpview.cpp:865
+#: src/bnpview.cpp:868
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "&Пароль..."
 
-#: src/bnpview.cpp:870
+#: src/bnpview.cpp:873
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&Заблокировать"
 
-#: src/bnpview.cpp:883
+#: src/bnpview.cpp:886
 msgid "&Filter"
 msgstr "&Фильтр"
 
-#: src/bnpview.cpp:894
+#: src/bnpview.cpp:897
 msgid "&Search All"
 msgstr "Найти &все"
 
-#: src/bnpview.cpp:903
+#: src/bnpview.cpp:906
 msgid "&Reset Filter"
 msgstr "Очистить фильтр"
 
-#: src/bnpview.cpp:911
+#: src/bnpview.cpp:914
 msgid "&Previous Basket"
 msgstr "Предыдущая корзина"
 
-#: src/bnpview.cpp:917
+#: src/bnpview.cpp:920
 msgid "&Next Basket"
 msgstr "Следующая корзина"
 
-#: src/bnpview.cpp:923
+#: src/bnpview.cpp:926
 msgid "&Fold Basket"
 msgstr "Свернуть вид корзины"
 
-#: src/bnpview.cpp:929
+#: src/bnpview.cpp:932
 msgid "&Expand Basket"
 msgstr "Развернуть вид корзины"
 
-#: src/bnpview.cpp:937
+#: src/bnpview.cpp:940
 msgid "Convert text notes to rich text notes"
 msgstr "Сконвертировать простой текст в текст с форматированием"
 
-#: src/bnpview.cpp:946
+#: src/bnpview.cpp:949
 msgid "&Welcome Baskets"
 msgstr "Удалить"
 
-#: src/bnpview.cpp:1228
+#: src/bnpview.cpp:1226
 msgid "Plain Text Notes Conversion"
 msgstr "Конвертирование текста"
 
-#: src/bnpview.cpp:1229
+#: src/bnpview.cpp:1227
 msgid "Converting plain text notes to rich text ones..."
 msgstr ""
 "Производится конвертирование простого текста в текст с форматированием..."
 
-#: src/bnpview.cpp:1816
+#: src/bnpview.cpp:1813
 msgid "Locked"
 msgstr "Заблокированный"
 
-#: src/bnpview.cpp:1820
+#: src/bnpview.cpp:1817
 msgid "No notes"
 msgstr "Пусто"
 
-#: src/bnpview.cpp:1822
+#: src/bnpview.cpp:1819
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 заметка"
 msgstr[1] "%1 заметки"
 msgstr[2] "%1 заметок"
 
-#: src/bnpview.cpp:1823
+#: src/bnpview.cpp:1820
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 выбрана"
 msgstr[1] "%1 выбрано"
 msgstr[2] "%1 выбрано"
 
-#: src/bnpview.cpp:1824
+#: src/bnpview.cpp:1821
 msgid "all matches"
 msgstr "все варианты подходящие под условия фильтров"
 
-#: src/bnpview.cpp:1824
+#: src/bnpview.cpp:1821
 msgid "no filter"
 msgstr "фильтр не установлен"
 
-#: src/bnpview.cpp:1826
+#: src/bnpview.cpp:1823
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 совпадение"
 msgstr[1] "%1 совпадения"
 msgstr[2] "%1 совпадений"
 
-#: src/bnpview.cpp:1828
+#: src/bnpview.cpp:1825
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1937
+#: src/bnpview.cpp:1934
 msgid "Picked color to basket <i>%1</i>"
 msgstr "Корзина <i>%1</i> оцвечена"
 
-#: src/bnpview.cpp:1974
+#: src/bnpview.cpp:1971
 msgid "The plain text notes have been converted to rich text."
 msgstr "Заметки с обычным текстом конвертированны в текст с форматированием."
 
-#: src/bnpview.cpp:1974 src/bnpview.cpp:1976
+#: src/bnpview.cpp:1971 src/bnpview.cpp:1973
 msgid "Conversion Finished"
 msgstr "Конвертирование окончено"
 
-#: src/bnpview.cpp:1976
+#: src/bnpview.cpp:1973
 msgid "There are no plain text notes to convert."
 msgstr "Заметки с обычным текстом отсутствуют."
 
-#: src/bnpview.cpp:1998
+#: src/bnpview.cpp:1995
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
 "run without it and will stop.</b></p><p>Please check your installation of %2."
@@ -1506,75 +1520,75 @@ msgstr ""
 "инсталяционного пакета в папку <a href='file://%3'>%4</a>.</p><p>В крайнем "
 "случае, можно попробовать удалить файл %5basketui.rc</p>"
 
-#: src/bnpview.cpp:2009
+#: src/bnpview.cpp:2006
 msgid "Resource not Found"
 msgstr "Не найден"
 
-#: src/bnpview.cpp:2033 src/bnpview.cpp:2042
+#: src/bnpview.cpp:2030 src/bnpview.cpp:2039
 msgid "Cannot add note."
 msgstr "Заметку невозможно добавить."
 
-#: src/bnpview.cpp:2112
+#: src/bnpview.cpp:2109
 msgid "Grabbed screen zone to basket <i>%1</i>"
 msgstr "Cнимок зоны экрана вставлен в корзину <i>\"%1\"</i>"
 
-#: src/bnpview.cpp:2193
+#: src/bnpview.cpp:2190
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt>Удалить корзину <b>%1</b> и её содержимое?</qt>"
 
-#: src/bnpview.cpp:2195
+#: src/bnpview.cpp:2192
 msgid "Remove Basket"
 msgstr "Удалить"
 
-#: src/bnpview.cpp:2197
+#: src/bnpview.cpp:2194
 msgid "&Remove Basket"
 msgstr "Удалить"
 
-#: src/bnpview.cpp:2208
+#: src/bnpview.cpp:2205
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
 msgstr ""
 "<qt><b>%1</b> содержит следующие дочерние корзины.<br>Их тоже удалить?</qt>"
 
-#: src/bnpview.cpp:2211
+#: src/bnpview.cpp:2208
 msgid "Remove Children Baskets"
 msgstr "Удалить дочерние корзины"
 
-#: src/bnpview.cpp:2213
+#: src/bnpview.cpp:2210
 msgid "&Remove Children Baskets"
 msgstr "Удалить дочерние корзины"
 
-#: src/bnpview.cpp:2281 src/bnpview.cpp:2327
+#: src/bnpview.cpp:2278 src/bnpview.cpp:2324
 msgid "Basket Archives"
 msgstr "Свойства корзины"
 
-#: src/bnpview.cpp:2415
+#: src/bnpview.cpp:2414
 msgid "Clipboard content pasted to basket <i>%1</i>"
 msgstr "Содержимое буфера обмена вставлено в <i>%1</i>"
 
-#: src/bnpview.cpp:2423
+#: src/bnpview.cpp:2422
 msgid "Selection pasted to basket <i>%1</i>"
 msgstr "Выделенное вставлено в <i>%1</i>"
 
-#: src/bnpview.cpp:2435
+#: src/bnpview.cpp:2434
 msgid "No note was added."
 msgstr "Заметка не была добавлена."
 
-#: src/bnpview.cpp:2476 src/bnpview.cpp:2488
+#: src/bnpview.cpp:2475 src/bnpview.cpp:2487
 msgid "Basket <i>%1</i> is locked"
 msgstr "Корзина <i>%1</i> заблокирована"
 
-#: src/bnpview.cpp:2517 src/bnpview.cpp:2531
+#: src/bnpview.cpp:2516 src/bnpview.cpp:2530
 msgid "(Locked)"
 msgstr "(Заблокированно)"
 
-#: src/bnpview.cpp:2932
+#: src/bnpview.cpp:2931
 msgid "&Assign new Tag..."
 msgstr "Предписать новую &метку..."
 
-#: src/bnpview.cpp:2936
+#: src/bnpview.cpp:2935
 msgid "&Remove All"
 msgstr "&Удалить все"
 
@@ -1773,23 +1787,23 @@ msgstr "Идентификатор"
 msgid "Choose a secret key:"
 msgstr "Выберите ключь шифровки:"
 
-#: src/kgpgme.cpp:237
+#: src/kgpgme.cpp:242
 msgid "Key listing unexpectedly truncated."
 msgstr "Лист ключей неожиданно оборвался."
 
-#: src/kgpgme.cpp:272
+#: src/kgpgme.cpp:277
 msgid "That public key is not meant for encryption"
 msgstr "Этот публичный ключ не может быть использован для шифрации"
 
-#: src/kgpgme.cpp:314
+#: src/kgpgme.cpp:319
 msgid "Unsupported algorithm"
 msgstr "Стандарт не поддерживается"
 
-#: src/kgpgme.cpp:412
+#: src/kgpgme.cpp:417
 msgid "Wrong password."
 msgstr "Неправильный пароль."
 
-#: src/kgpgme.cpp:427
+#: src/kgpgme.cpp:432
 msgid "Please enter a new password:"
 msgstr "Введите новый пароль:"
 
@@ -2772,39 +2786,39 @@ msgstr ""
 "Выберите область при помощи мыши. Нажмите Enter, чтобы сделать снимок, или "
 "Esc для отмены."
 
-#: src/settings.cpp:365
+#: src/settings.cpp:368
 msgid "On left"
 msgstr "Слева"
 
-#: src/settings.cpp:366
+#: src/settings.cpp:369
 msgid "On right"
 msgstr "Справа"
 
-#: src/settings.cpp:369
+#: src/settings.cpp:372
 msgid "&Basket tree position:"
 msgstr "Позиция вида дерева корзин:"
 
-#: src/settings.cpp:378 src/settings.cpp:719
+#: src/settings.cpp:381 src/settings.cpp:728
 msgid "On top"
 msgstr "Сверху"
 
-#: src/settings.cpp:379 src/settings.cpp:720
+#: src/settings.cpp:382 src/settings.cpp:729
 msgid "On bottom"
 msgstr "Снизу"
 
-#: src/settings.cpp:382
+#: src/settings.cpp:385
 msgid "&Filter bar position:"
 msgstr "Позиция панели фильтрования:"
 
-#: src/settings.cpp:391
+#: src/settings.cpp:394
 msgid "&Use balloons to report results of global actions"
 msgstr "Результат глобальной комманды во всплывающем уведомлении"
 
-#: src/settings.cpp:394
+#: src/settings.cpp:397
 msgid "What are global actions?"
 msgstr "Что это значит?"
 
-#: src/settings.cpp:395
+#: src/settings.cpp:398
 msgid ""
 "You can configure global shortcuts to do some actions without having to show "
 "the main window. For instance, you can paste the clipboard content, take a "
@@ -2818,7 +2832,7 @@ msgstr ""
 "мыши над значком вставляет в активную корзину заметку с содержимым буфера "
 "обмена."
 
-#: src/settings.cpp:398
+#: src/settings.cpp:401
 msgid ""
 "When doing so, %1 pops up a little balloon message to inform you the action "
 "has been successfully done. You can disable that balloon."
@@ -2826,7 +2840,7 @@ msgstr ""
 "В процессе использования, %1 показывает всплывающую подсказку с информацией "
 "о том что было сделано."
 
-#: src/settings.cpp:399
+#: src/settings.cpp:402
 msgid ""
 "Note that those messages are smart enough to not appear if the main window "
 "is visible. This is because you already see the result of your actions in "
@@ -2835,75 +2849,80 @@ msgstr ""
 "Если главное окно показано, всплывающие подсказки не показываются так как "
 "результат манипуляции показан в главном окне?"
 
-#: src/settings.cpp:407
+#: src/settings.cpp:410
 msgid "System Tray Icon"
 msgstr "Значок системного лотка"
 
-#: src/settings.cpp:412
+#: src/settings.cpp:415
 msgid "&Dock in system tray"
 msgstr "Пристыковать в системный лоток"
 
-#: src/settings.cpp:421
+#: src/settings.cpp:424
 msgid "&Show current basket icon in system tray icon"
 msgstr "Значок выбранной корзины замещает стандартный"
 
-#: src/settings.cpp:431
+#: src/settings.cpp:434
 msgid "&Hide main window when mouse leaves it for"
 msgstr "Скрыть главное окно если мышь выведена вне на"
 
-#: src/settings.cpp:434 src/settings.cpp:446
+#: src/settings.cpp:437 src/settings.cpp:449
 msgid " tenths of seconds"
 msgstr "/10 секунды"
 
-#: src/settings.cpp:443
+#: src/settings.cpp:446
 msgid "Show &main window when mouse hovers over the system tray icon for"
 msgstr "Курсор мыши показывает главное окно после"
 
-#: src/settings.cpp:520
+#: src/settings.cpp:523
 msgid "Ani&mate changes in baskets"
 msgstr "Анимация действий в корзинах"
 
-#: src/settings.cpp:524
+#: src/settings.cpp:527
 msgid "&Show tooltips in baskets"
 msgstr "Показывать подсказки"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:531
 msgid "&Big notes"
 msgstr "Увеличить размер заметок"
 
-#: src/settings.cpp:534
+#: src/settings.cpp:537
 msgid "Behavior"
 msgstr "Поведение"
 
-#: src/settings.cpp:539
+#: src/settings.cpp:542
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr "Превращать * и - в маркер списка"
 
-#: src/settings.cpp:543
+#: src/settings.cpp:546
 msgid "Ask confirmation before &deleting notes"
 msgstr "Спрашивать разрешение перед удалением заметки"
 
 #: src/settings.cpp:550
+msgid "Do not keep text formatting when pasting"
+msgstr ""
+
+#: src/settings.cpp:557
 msgid "&Export tags in texts"
 msgstr "Экспортировать метки в текст"
 
-#: src/settings.cpp:554
+#: src/settings.cpp:561
 msgid "When does this apply?"
 msgstr "Когда это применимо?"
 
-#: src/settings.cpp:555
+#: src/settings.cpp:562
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
 msgstr ""
 "Относится к переносу или копированию заметок во внешний текстовый редактор."
 
-#: src/settings.cpp:556
+#: src/settings.cpp:563
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr "Если включено, позволяет вставлять статус меток в текстовом формате."
 
-#: src/settings.cpp:557 src/tagsedit.cpp:519
+#. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
+#: src/settings.cpp:564 src/tagsedit.cpp:519
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
@@ -2912,15 +2931,15 @@ msgstr ""
 "К примеру, лист заметок помеченный как <b>Сделать</b> и <b>Сделано</b>  "
 "экспортируется как <b>[ ]</b> or <b>[x]</b>."
 
-#: src/settings.cpp:568
+#: src/settings.cpp:575
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "Группировка новой заметки с близ-лежащими"
 
-#: src/settings.cpp:570
+#: src/settings.cpp:577
 msgid "How to group a new note?"
 msgstr "Как группировать новые заметки?"
 
-#: src/settings.cpp:571
+#: src/settings.cpp:578
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
 "insert notes at the cursor position, but also allows you to group a new note "
@@ -2929,7 +2948,7 @@ msgstr ""
 "<p>При установке этой настройки, вы можете сгруппировать новую заметку с той "
 "что под курсором.</p>"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:580
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
 "on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note."
@@ -2943,179 +2962,179 @@ msgstr ""
 "разделительной полосы) расположене курсора мыши определяет с которой из "
 "заметок произойдёт группировка.</p>"
 
-#: src/settings.cpp:589
+#: src/settings.cpp:596
 msgid "Do nothing"
 msgstr "Ничего не делать"
 
-#: src/settings.cpp:590
+#: src/settings.cpp:597
 msgid "Paste clipboard"
 msgstr "Вставить заметку отражающую буфер обмена"
 
-#: src/settings.cpp:593
+#: src/settings.cpp:600
 msgid "Insert cross reference"
 msgstr "Вставить перекрёстную ссылку"
 
-#: src/settings.cpp:594
+#: src/settings.cpp:601
 msgid "Insert launcher note"
 msgstr "Вставить заметку с ссылками на приложения"
 
-#: src/settings.cpp:597
+#: src/settings.cpp:604
 msgid "Insert color from screen"
 msgstr "Выбрать цвет с точки экрана"
 
-#: src/settings.cpp:598
+#: src/settings.cpp:605
 msgid "Load note from file"
 msgstr "Загрузить из файла..."
 
-#: src/settings.cpp:599
+#: src/settings.cpp:606
 msgid "Import Launcher from KDE Menu"
 msgstr "Вставить сылку приложения из меню KDE..."
 
-#: src/settings.cpp:600
+#: src/settings.cpp:607
 msgid "Import icon"
 msgstr "Вставить &значок..."
 
-#: src/settings.cpp:603
+#: src/settings.cpp:610
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+средняя клавиша мыши:"
 
-#: src/settings.cpp:608
+#: src/settings.cpp:615
 msgid "at cursor position"
 msgstr "."
 
-#: src/settings.cpp:622
+#: src/settings.cpp:629
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "Автоматически замыкать защищённые корзины после"
 
-#: src/settings.cpp:626
+#: src/settings.cpp:633
 msgid " minutes"
 msgstr " минут"
 
-#: src/settings.cpp:637
+#: src/settings.cpp:644
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Использовать агент GnuPG для личного/публичного "
 
-#: src/settings.cpp:716
+#: src/settings.cpp:725
 msgid "&Place of new notes:"
 msgstr "Расположение новых заметок:"
 
-#: src/settings.cpp:721
+#: src/settings.cpp:730
 msgid "At current note"
 msgstr "На место выделенной заметки"
 
-#: src/settings.cpp:740
+#: src/settings.cpp:749
 msgid "&New images size:"
 msgstr "Размер новых рисунков:"
 
-#: src/settings.cpp:753
+#: src/settings.cpp:762
 msgid "&by"
 msgstr "на"
 
-#: src/settings.cpp:758
+#: src/settings.cpp:767
 msgid "pixels"
 msgstr "пикселов"
 
-#: src/settings.cpp:760
+#: src/settings.cpp:769
 msgid "&Visualize..."
 msgstr "Макет..."
 
-#: src/settings.cpp:768
+#: src/settings.cpp:777
 msgid "View Content of Added Files for the Following Types"
 msgstr "Показывать содержимое добавленных файлов относящихся к следующему типу"
 
-#: src/settings.cpp:770
+#: src/settings.cpp:779
 msgid "&Plain text"
 msgstr "Простой текст"
 
-#: src/settings.cpp:771
+#: src/settings.cpp:780
 msgid "&HTML page"
 msgstr "страница формата HTML"
 
-#: src/settings.cpp:772
+#: src/settings.cpp:781
 msgid "&Image or animation"
 msgstr "Рисунок или анимация"
 
-#: src/settings.cpp:773
+#: src/settings.cpp:782
 msgid "&Sound"
 msgstr "Звуки"
 
-#: src/settings.cpp:839
+#: src/settings.cpp:848
 msgid "Conference audio record"
 msgstr "Аудио запись конференции"
 
-#: src/settings.cpp:840
+#: src/settings.cpp:849
 msgid "Annual report"
 msgstr "Годовой отчёт"
 
-#: src/settings.cpp:841
+#: src/settings.cpp:850
 msgid "Home folder"
 msgstr "Папка \"Домой\""
 
-#: src/settings.cpp:843
+#: src/settings.cpp:852
 msgid "Launch %1"
 msgstr "Запустить %1"
 
-#: src/settings.cpp:844
+#: src/settings.cpp:853
 msgid "Another basket"
 msgstr "Другая корзина"
 
-#: src/settings.cpp:846
+#: src/settings.cpp:855
 msgid "&Sounds"
 msgstr "Звук"
 
-#: src/settings.cpp:847
+#: src/settings.cpp:856
 msgid "&Files"
 msgstr "&Файл"
 
-#: src/settings.cpp:848
+#: src/settings.cpp:857
 msgid "&Local Links"
 msgstr "Локальная ссылка"
 
-#: src/settings.cpp:849
+#: src/settings.cpp:858
 msgid "&Network Links"
 msgstr "Сетевой ресурс"
 
-#: src/settings.cpp:850
+#: src/settings.cpp:859
 msgid "Launc&hers"
 msgstr "Приложение"
 
-#: src/settings.cpp:851
+#: src/settings.cpp:860
 msgid "&Cross References"
 msgstr "Перекрёстные ссылки"
 
-#: src/settings.cpp:890
+#: src/settings.cpp:899
 msgid "Open &text notes with a custom application:"
 msgstr "Открыть заметки с текстом во внешнем приложении:"
 
-#: src/settings.cpp:891
+#: src/settings.cpp:900
 msgid "Open text notes with:"
 msgstr "Открыть текст:"
 
-#: src/settings.cpp:898
+#: src/settings.cpp:907
 msgid "Open &image notes with a custom application:"
 msgstr "Открыть заметки с рисунками во внешнем приложении:"
 
-#: src/settings.cpp:899
+#: src/settings.cpp:908
 msgid "Open image notes with:"
 msgstr "Открываем в:"
 
-#: src/settings.cpp:906
+#: src/settings.cpp:915
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Открыть заметки с анимацией во внешнем приложении:"
 
-#: src/settings.cpp:907
+#: src/settings.cpp:916
 msgid "Open animation notes with:"
 msgstr "Открываем в:"
 
-#: src/settings.cpp:914
+#: src/settings.cpp:923
 msgid "Open so&und notes with a custom application:"
 msgstr "Открыть заметки со звуками во внешнем приложении:"
 
-#: src/settings.cpp:915
+#: src/settings.cpp:924
 msgid "Open sound notes with:"
 msgstr "Открыть заметки со звуками в:"
 
-#: src/settings.cpp:923
+#: src/settings.cpp:932
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
 "type of note.</p><p>Otherwise, the application you've configured in "
@@ -3125,17 +3144,17 @@ msgstr ""
 "этого типа заметок</p><p>В противном случае приложение прописанное в "
 "Konqueror будет использовано по-умолчанию.</p>"
 
-#: src/settings.cpp:932
+#: src/settings.cpp:941
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr "<p>Выберите приложение для открытия заметки.</p>"
 
-#: src/settings.cpp:953
+#: src/settings.cpp:962
 msgid "How to change the application used to open Web links?"
 msgstr "Как изменить приложение используемое для открытия Web ссылок?"
 
-#: src/settings.cpp:954
+#: src/settings.cpp:963
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3163,11 +3182,11 @@ msgstr ""
 "<i>все</i> линки начинающиеся с \"http://...\", будут открываться там где "
 "вам надо.</p>"
 
-#: src/settings.cpp:972
+#: src/settings.cpp:981
 msgid "How to change the applications used to open files and links?"
 msgstr "Как изменить приложение используемое для файлов и местных ссылок?"
 
-#: src/settings.cpp:973
+#: src/settings.cpp:982
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
 "also applies to Web links if you choose not to open them systematically in a "
@@ -3319,130 +3338,130 @@ msgstr "&Восстановить"
 msgid "%1 (Locked)"
 msgstr "%1 Заблокированный"
 
-#: src/tag.cpp:81
+#: src/tag.cpp:83
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/tag.cpp:577
+#: src/tag.cpp:581
 msgid "To Do"
 msgstr "В работе"
 
-#: src/tag.cpp:577
+#: src/tag.cpp:581
 msgid "Unchecked"
 msgstr "Флажок отсутствует"
 
-#: src/tag.cpp:577
+#: src/tag.cpp:581
 msgid "Done"
 msgstr "Готово"
 
-#: src/tag.cpp:578
+#: src/tag.cpp:582
 msgid "Progress"
 msgstr "Выполнение"
 
-#: src/tag.cpp:578
+#: src/tag.cpp:582
 msgid "0 %"
 msgstr "0 %"
 
-#: src/tag.cpp:578
+#: src/tag.cpp:582
 msgid "25 %"
 msgstr "25 %"
 
-#: src/tag.cpp:579
+#: src/tag.cpp:583
 msgid "50 %"
 msgstr "50 %"
 
-#: src/tag.cpp:579
+#: src/tag.cpp:583
 msgid "75 %"
 msgstr "75 %"
 
-#: src/tag.cpp:579
+#: src/tag.cpp:583
 msgid "100 %"
 msgstr "100 %"
 
-#: src/tag.cpp:632
+#: src/tag.cpp:636
 msgid "Priority"
 msgstr "Приоритет"
 
-#: src/tag.cpp:632
+#: src/tag.cpp:636
 msgid "Low"
 msgstr "Низкий"
 
-#: src/tag.cpp:632
+#: src/tag.cpp:636
 msgid "Medium"
 msgstr "Средний"
 
-#: src/tag.cpp:633
+#: src/tag.cpp:637
 msgid "High"
 msgstr "Высокий"
 
-#: src/tag.cpp:633
+#: src/tag.cpp:637
 msgid "Preference"
 msgstr "Предпочтение"
 
-#: src/tag.cpp:633
+#: src/tag.cpp:637
 msgid "Bad"
 msgstr "Плохой"
 
-#: src/tag.cpp:634
+#: src/tag.cpp:638
 msgid "Good"
 msgstr "Хороший"
 
-#: src/tag.cpp:634
+#: src/tag.cpp:638
 msgid "Excellent"
 msgstr "Великолепный"
 
-#: src/tag.cpp:634
+#: src/tag.cpp:638
 msgid "Highlight"
 msgstr "Выделение"
 
-#: src/tag.cpp:701
+#: src/tag.cpp:705
 msgid "Important"
 msgstr "Важное"
 
-#: src/tag.cpp:701
+#: src/tag.cpp:705
 msgid "Very Important"
 msgstr "Очень важное"
 
-#: src/tag.cpp:701
+#: src/tag.cpp:705
 msgid "Information"
 msgstr "Информация"
 
-#: src/tag.cpp:702
+#: src/tag.cpp:706
 msgid "Idea"
 msgstr "Идея"
 
-#: src/tag.cpp:702
+#: src/tag.cpp:706
 msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr "И."
 
-#: src/tag.cpp:702
+#: src/tag.cpp:706
 msgid "Title"
 msgstr "Заголовок"
 
-#: src/tag.cpp:703
+#: src/tag.cpp:707
 msgid "Code"
 msgstr "Код"
 
-#: src/tag.cpp:703
+#: src/tag.cpp:707
 msgid "Work"
 msgstr "Работа"
 
-#: src/tag.cpp:703
+#: src/tag.cpp:707
 msgctxt "The initial of 'Work'"
 msgid "W."
 msgstr "Р."
 
-#: src/tag.cpp:721
+#: src/tag.cpp:725
 msgid "Personal"
 msgstr "Персональные"
 
-#: src/tag.cpp:721
+#: src/tag.cpp:725
 msgctxt "The initial of 'Personal'"
 msgid "P."
 msgstr "П."
 
-#: src/tag.cpp:721
+#: src/tag.cpp:725
 msgid "Funny"
 msgstr "Задорное"
 

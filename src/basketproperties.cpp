@@ -144,7 +144,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
                                              "For instance, if you are assigning the shortcut <i>Alt+T</i> to a basket named <i>Tips</i>, the basket will be displayed as <i><u>T</u>ips</i> in the tree. "
                                              "It helps you visualize the shortcuts to remember them more quickly.</p>"
                                              "<p><strong>Local vs Global</strong>:<br>"
-                                             "The first option allows to show the basket while the main window is active. "
+                                             "The first option allows you to show the basket while the main window is active. "
                                              "Global shortcuts are valid from anywhere, even if the window is hidden.</p>"
                                              "<p><strong>Show vs Switch</strong>:<br>"
                                              "The last option makes this basket the current one without opening the main window. "
