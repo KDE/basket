@@ -31,7 +31,7 @@ static const char description[] = I18N_NOOP(
 AboutData::AboutData()
         : KAboutData("basket", "", ki18n("BasKet Note Pads"),
                      VERSION, ki18n(description), KAboutData::License_GPL_V2,
-                     ki18n("(c) 2003-2007, S\303\251bastien Lao\303\273t, (c) 2013-2014, Gleb Baryshev"),
+                     ki18n("(c) 2003-2007, S\303\251bastien Lao\303\273t, (c) 2013-2016, Gleb Baryshev"),
                      KLocalizedString(),
                      "http://basket.kde.org/",
                      "https://bugs.launchpad.net/basket")

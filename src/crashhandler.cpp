@@ -176,7 +176,7 @@ Crash::crashHandler(int /*signal*/)
 
             //TODO startup notification
             KToolInvocation::invokeMailer(
-                /*to*/          "kelvie@ieee.org",
+                /*to*/          "kde.basket@gmx.com",
                 /*cc*/          QString(),
                 /*bcc*/         QString(),
                 /*subject*/     subject,
