@@ -34,7 +34,7 @@ static const char description[] = I18N_NOOP(
 AboutData::AboutData()
         : KAboutData("basket", i18n("BasKet Note Pads"),
                      VERSION, i18n(description), KAboutLicense::GPL_V2,
-                     i18n("(c) 2003-2007, S\303\251bastien Lao\303\273t, (c) 2013-2014, Gleb Baryshev"),
+                     i18n("(c) 2003-2007, S\303\251bastien Lao\303\273t, (c) 2013-2016, Gleb Baryshev"),
                      QString(),
                      "http://basket.kde.org/")
 {

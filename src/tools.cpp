@@ -291,7 +291,7 @@ QString Tools::crossReferenceForHtml(QStringList linkParts, HTMLExporter *export
             " a:hover.xref_empty { color: #A55858; }"
             : "");
 
-    QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toLatin1()); + "</a>";
+    QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toLatin1()) + "</a>";
     return anchor;
 }
 

@@ -260,7 +260,7 @@ QPixmap* BackgroundManager::preview(const QString &image)
 
     if (!entry) {
 ///     qDebug() << "BackgroundManager: Requested the preview of an unexisting image: " << image;
-        return false;
+        return 0;
     }
 
     // The easiest way: already computed:

@@ -192,7 +192,7 @@ void BackupDialog::useAnotherExistingFolder()
                                                             /*startDir=*/Global::savesFolder());
 
     if (!selectedURL.isEmpty()) {
-        Backup::setFolderAndRestart(selectedURL.path(), i18n("Your basket save folder has been successfuly changed to <b>%1</b>. %2 is going to be restarted to take this change into account."));
+        Backup::setFolderAndRestart(selectedURL.path(), i18n("Your basket save folder has been successfully changed to <b>%1</b>. %2 is going to be restarted to take this change into account."));
     }
 }
 
@@ -338,7 +338,7 @@ void BackupDialog::restore()
     //       The restore process will not be called very often (it is possible it will only be called once or twice around the world during the next years).
     //       So it is rare enough to force the user to remove the safety folder, but keep him in control and let him safely recover from restoration errors.
 
-    Backup::setFolderAndRestart(Global::savesFolder()/*No change*/, i18n("Your backup has been successfuly restored to <b>%1</b>. %2 is going to be restarted to take this change into account."));
+    Backup::setFolderAndRestart(Global::savesFolder()/*No change*/, i18n("Your backup has been successfully restored to <b>%1</b>. %2 is going to be restarted to take this change into account."));
 }
 
 /** class Backup: */
