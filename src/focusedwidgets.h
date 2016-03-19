@@ -21,6 +21,7 @@
 #ifndef FOCUSEDWIDGETS_H
 #define FOCUSEDWIDGETS_H
 
+#include <QClipboard>
 #include <KDE/KTextEdit>
 
 class QEvent;
@@ -35,6 +36,9 @@ class FocusedTextEdit : public KTextEdit
 public:
     explicit FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent = 0);
     ~FocusedTextEdit();
+    void paste(QClipboard::Mode mode);
+public slots:
+    void onSelectionChanged(); //!< Put selected text into the global mouse selection
 protected:
     void keyPressEvent(QKeyEvent *event);
     void wheelEvent(QWheelEvent *event);

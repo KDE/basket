@@ -1345,8 +1345,8 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	      return;
 	    }
 	    else if(event->button() == Qt::MiddleButton)
-	    {
-	      m_editor->paste(event->scenePos());
+        {
+          m_editor->paste(event->scenePos(), QClipboard::Selection);
 	      return;
 	    }
     }

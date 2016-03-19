@@ -112,23 +112,23 @@ void NoteEditor::updateSelection(const QPointF &pos)
     currentCursor.setPosition(cursor.position(), QTextCursor::KeepAnchor);
     //update the cursor
     m_textEdit->setTextCursor(currentCursor);
-    //copy to clipboard
-    m_textEdit->copy();    
   }
 }
 
 void NoteEditor::endSelection(const QPointF &/*pos*/)
 {
-    // nothing to do yet
-    // we could copy the selected text to the QClipboard with QClipboard::Selection mode
+    //For TextEdit inside GraphicsScene selectionChanged() is only generated for the first selected char -
+    //thus we need to call it manually after selection is finished
+    if (FocusedTextEdit* textEdit = dynamic_cast<FocusedTextEdit*>(m_textEdit))
+        textEdit->onSelectionChanged();
 }
 
-void NoteEditor::paste(const QPointF &pos)
+void NoteEditor::paste(const QPointF &pos, QClipboard::Mode mode)
 {
-  if(m_textEdit)
+  if (FocusedTextEdit* textEdit = dynamic_cast<FocusedTextEdit*>(m_textEdit))
   {
     setCursorTo(pos);
-    m_textEdit->paste();
+    textEdit->paste(mode);
   }
 }
 
