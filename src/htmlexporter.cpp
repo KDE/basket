@@ -330,44 +330,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
             i18n("Made with <a href=\"http://basket.kde.org/\">%1</a> %2, a KDE tool to take notes and keep information at hand.",
                  KGlobal::mainComponent().aboutData()->programName(), VERSION));
 
-    // Copy a transparent GIF image in the folder, needed for the JavaScript hack:
-    QString gifFileName = "spacer.gif";
-    QFile transGIF(imagesFolderPath + gifFileName);
-    if (!transGIF.exists() && transGIF.open(QIODevice::WriteOnly)) {
-        QDataStream streamGIF(&transGIF);
-        // This is a 1px*1px transparent GIF image:
-        const char blankGIF[] = {
-            0x47, 0x49, 0x46, 0x38, 0x39, 0x61, 0x0a, 0x00, 0x0a, 0x00,
-            0x80, 0x00, 0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x21,
-            0xfe, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x64, 0x20,
-            0x77, 0x69, 0x74, 0x68, 0x20, 0x54, 0x68, 0x65, 0x20, 0x47,
-            0x49, 0x4d, 0x50, 0x00, 0x21, 0xf9, 0x04, 0x01, 0x0a, 0x00,
-            0x01, 0x00, 0x2c, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x00, 0x0a,
-            0x00, 0x00, 0x02, 0x08, 0x8c, 0x8f, 0xa9, 0xcb, 0xed, 0x0f,
-            0x63, 0x2b, 0x00, 0x3b
-        };
-        streamGIF.writeRawData(blankGIF, 74);
-        transGIF.close();
-    }
     stream <<
-    "  <!--[if lt IE 7]>\n"
-    "   <script>\n"
-    "    function fixPng(img) {\n"
-    "     if (!img.style.filter) {\n"
-    "      img.style.filter = \"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='\" + img.src + \"')\";\n"
-    "      img.src = \"" << imagesFolderName << gifFileName << "\";\n"
-    "     }\n"
-    "    }\n"
-    "    for (i = document.images.length - 1; i >= 0; i -= 1) {\n"
-    "     var img = document.images[i];\n"
-    "     if (img.src.substr(img.src.length - 4) == \".png\")\n"
-    "      if (img.complete)\n"
-    "       fixPng(img);\n"
-    "      else\n"
-    "       img.attachEvent(\"onload\", function() { fixPng(window.event.srcElement); });\n"
-    "    }\n"
-    "   </script>\n"
-    "  <![endif]-->\n"
     " </body>\n"
     "</html>\n";
 
