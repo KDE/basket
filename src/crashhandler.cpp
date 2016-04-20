@@ -72,7 +72,6 @@ Crash::crashHandler(int /*signal*/)
 
         body += "======== DEBUG INFORMATION  =======\n"
                 "Version:    " VERSION "\n"
-                "Build date: " __DATE__ "\n"
                 "CC version: " __VERSION__ "\n" //assuming we're using GCC
                 "KDElibs:    " KDE_VERSION_STRING "\n"
                 ;//                    "TagLib:     %2.%3.%4\n";
