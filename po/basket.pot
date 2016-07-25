@@ -1576,8 +1576,8 @@ msgstr ""
 
 #: src/formatimporter.cpp:136
 msgid ""
-"<p>Folder mirroring is not possible anymore (see <a href='http://basket.kde."
-"org/'>basket.kde.org</a> for more information).</p><p>The folder <b>%1</b> "
+"<p>Folder mirroring is not possible anymore (see <a href='http://basket-notepads.github.io'>"
+"basket-notepads.github.io</a> for more information).</p><p>The folder <b>%1</b> "
 "has been copied for the basket needs. You can either delete this folder or "
 "delete the basket, or use both. But remember that modifying one will not "
 "modify the other anymore as they are now separate entities.</p>"
@@ -1630,7 +1630,7 @@ msgstr ""
 
 #: src/htmlexporter.cpp:330
 msgid ""
-"Made with <a href=\"http://basket.kde.org/\">%1</a> %2, a KDE tool to take "
+"Made with <a href=\"https://launchpad.net/basket\">%1</a> %2, a KDE tool to take "
 "notes and keep information at hand."
 msgstr ""
 
@@ -2561,7 +2561,7 @@ msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
 "generic note, allowing you to drag or copy it to an application that "
 "understand it.</p><p>If you want the support of these data, please contact "
-"developer or visit the <a href=\"http://basket.kde.org/dropdb.php\">BasKet "
+"developer or visit the <a href=\"http://basket-notepads.github.io/dropdb.php\">BasKet "
 "Drop Database</a>.</p>"
 msgstr ""
 

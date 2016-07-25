@@ -37,9 +37,11 @@ class BackgroundEntry
 {
     friend class BackgroundManager;
 
+public:
+    ~BackgroundEntry();
+
 protected:
     BackgroundEntry(const QString &location);
-    ~BackgroundEntry();
 
     QString  name;
     QString  location;
@@ -57,9 +59,11 @@ class OpaqueBackgroundEntry
 {
     friend class BackgroundManager;
 
+public:
+    ~OpaqueBackgroundEntry();
+
 protected:
     OpaqueBackgroundEntry(const QString &name, const QColor &color);
-    ~OpaqueBackgroundEntry();
 
     QString  name;
     QColor   color;

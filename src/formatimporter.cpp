@@ -133,7 +133,7 @@ void FormatImporter::importBaskets()
         // Move the folder to the new repository (normal basket) or copy the folder (mirorred folder):
         QString folderName = *it;
         if (folderName.startsWith('/')) { // It was a folder mirror:
-            KMessageBox::information(0, i18n("<p>Folder mirroring is not possible anymore (see <a href='http://basket.kde.org/'>basket.kde.org</a> for more information).</p>"
+            KMessageBox::information(0, i18n("<p>Folder mirroring is not possible anymore (see <a href='http://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"
                                              "<p>The folder <b>%1</b> has been copied for the basket needs. You can either delete this folder or delete the basket, or use both. But remember that "
                                              "modifying one will not modify the other anymore as they are now separate entities.</p>", folderName), i18n("Folder Mirror Import"),
                                      "", KMessageBox::AllowLink);

@@ -89,6 +89,8 @@ BackgroundManager::BackgroundManager()
 
 BackgroundManager::~BackgroundManager()
 {
+    qDeleteAll(m_backgroundsList);
+    qDeleteAll(m_opaqueBackgroundsList);
 }
 
 void BackgroundManager::addImage(const QString &fullPath)

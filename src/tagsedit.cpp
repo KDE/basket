@@ -66,6 +66,7 @@ StateCopy::StateCopy(State *old/* = 0*/)
 
 StateCopy::~StateCopy()
 {
+    delete newState;
 }
 
 void StateCopy::copyBack()
@@ -90,6 +91,7 @@ TagCopy::TagCopy(Tag *old/* = 0*/)
 
 TagCopy::~TagCopy()
 {
+    delete newTag;
 }
 
 void TagCopy::copyBack()

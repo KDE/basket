@@ -40,8 +40,8 @@ Developers are usually idle on #basket-devel @ freenode on IRC, and it's quite
 likely you'll catch one of us there Due to timezone differences, however, it's
 generally better to email the list.
 
-The BasKet web site (again, unmaintained right now) is at:
-http://basket.kde.org/
+The BasKet web site is at:
+https://launchpad.net/basket
 
 
 Building/Installation
