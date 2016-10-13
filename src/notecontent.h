@@ -32,7 +32,6 @@
 
 #include "linklabel.h"
 
-class QDomDocument;
 class QDomElement;
 
 class QBuffer;

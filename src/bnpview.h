@@ -31,7 +31,6 @@
 #include "global.h"
 #include "basket_export.h"
 
-class QDomDocument;
 class QDomElement;
 
 class QStackedWidget;

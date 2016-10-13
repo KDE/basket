@@ -34,8 +34,8 @@
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
 #include <QWidget>
-#include <QtXml/QDomDocument>
 #include <QtNetwork/QNetworkReply>
+#include <QtXml/QDomElement>
 #include <QTextBlock>
 #include <QTextCodec>
 #include <QMimeDatabase>
