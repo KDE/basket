@@ -101,11 +101,12 @@ NoteContent::NoteContent(Note *parent, const QString &fileName)
     setFileName(fileName);
 }
 
-void NoteContent::saveToNode(QDomDocument &doc, QDomElement &content)
+void NoteContent::saveToNode(QXmlStreamWriter &stream)
 {
     if (useFile()) {
-        QDomText textNode = doc.createTextNode(fileName());
-        content.appendChild(textNode);
+		stream.writeStartElement("content");
+		stream.writeCharacters(fileName());
+		stream.writeEndElement();
     }
 }
 
@@ -1694,14 +1695,15 @@ qreal LinkContent::setWidthAndGetHeight(qreal width)
     return m_linkDisplayItem.linkDisplay().height();
 }
 
-void LinkContent::saveToNode(QDomDocument &doc, QDomElement &content)
+void LinkContent::saveToNode(QXmlStreamWriter& stream)
 {
-    content.setAttribute("title",      title());
-    content.setAttribute("icon",       icon());
-    content.setAttribute("autoTitle", (autoTitle() ? "true" : "false"));
-    content.setAttribute("autoIcon", (autoIcon()  ? "true" : "false"));
-    QDomText textNode = doc.createTextNode(url().toDisplayString());
-    content.appendChild(textNode);
+	stream.writeStartElement("content");
+    stream.writeAttribute("title",      title());
+    stream.writeAttribute("icon",       icon());
+    stream.writeAttribute("autoIcon", (autoIcon()  ? "true" : "false"));
+    stream.writeAttribute("autoTitle", (autoTitle() ? "true" : "false"));
+    stream.writeCharacters(url().toDisplayString());
+	stream.writeEndElement();
 }
 
 
@@ -1952,12 +1954,13 @@ qreal CrossReferenceContent::setWidthAndGetHeight(qreal width)
     return m_linkDisplayItem.linkDisplay().height();
 }
 
-void CrossReferenceContent::saveToNode(QDomDocument &doc, QDomElement &content)
+void CrossReferenceContent::saveToNode(QXmlStreamWriter &stream)
 {
-    content.setAttribute("title",      title());
-    content.setAttribute("icon",       icon());
-    QDomText textNode = doc.createTextNode(url().toDisplayString());
-    content.appendChild(textNode);
+	stream.writeStartElement("content");
+    stream.writeAttribute("title",      title());
+    stream.writeAttribute("icon",       icon());
+    stream.writeCharacters(url().toDisplayString());
+	stream.writeEndElement();
 }
 
 void CrossReferenceContent::toolTipInfos(QStringList *keys, QStringList *values)
@@ -2277,10 +2280,11 @@ qreal ColorContent::setWidthAndGetHeight(qreal /*width*/) // We do not need widt
     return m_colorItem.boundingRect().height();
 }
 
-void ColorContent::saveToNode(QDomDocument &doc, QDomElement &content)
+void ColorContent::saveToNode(QXmlStreamWriter &stream)
 {
-    QDomText textNode = doc.createTextNode(color().name());
-    content.appendChild(textNode);
+	stream.writeStartElement("content");
+    stream.writeCharacters(color().name());
+	stream.writeEndElement();
 }
 
 void ColorContent::toolTipInfos(QStringList *keys, QStringList *values)

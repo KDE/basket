@@ -995,21 +995,28 @@ void BNPView::save()
 {
     DEBUG_WIN << "Basket Tree: Saving...";
 
-    // Create Document:
-    QDomDocument document("basketTree");
-    QDomElement root = document.createElement("basketTree");
-    document.appendChild(root);
+
+	QString data;
+	QXmlStreamWriter stream(&data);
+	stream.setAutoFormatting(true);
+	stream.setAutoFormattingIndent(1);
+	stream.writeStartDocument();
+	stream.writeDTD("<!DOCTYPE basketTree>");
+	stream.writeStartElement("basketTree");
 
     // Save Basket Tree:
-    save(m_tree, 0, document, root);
+    save(m_tree, 0, stream);
+
+	stream.writeEndElement();
+	stream.writeEndDocument();
 
     // Write to Disk:
-    BasketScene::safelySaveToFile(Global::basketsFolder() + "baskets.xml", "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + document.toString());
+    BasketScene::safelySaveToFile(Global::basketsFolder() + "baskets.xml", data);
 
     GitWrapper::commitBasketView();
 }
 
-void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QDomDocument &document, QDomElement &parentElement)
+void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QXmlStreamWriter &stream)
 {
     if (item == 0) {
         if (listView == NULL) {
@@ -1021,55 +1028,38 @@ void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QDomDocument &d
         // For each basket:
         for (int i = 0; i < listView->topLevelItemCount(); i++) {
             item = listView->topLevelItem(i);
-            QDomElement basketElement = createBasketElement(item, document, parentElement);
-
-            // Save Child Basket:
-            if (item->childCount() >= 0) {
-                for (int i = 0; i < item->childCount(); i++)
-                    save(0, item->child(i), document, basketElement);
-            }
+			save(0, item, stream);
         }
     } else {
-        QDomElement basketElement = createBasketElement(item, document, parentElement);
-
-        // Save Child Basket:
-        if (item->childCount() >= 0) {
-            for (int i = 0; i < item->childCount(); i++)
-                save(0, item->child(i), document, basketElement);
-        }
+		saveSubHierarchy(item, stream, true);
     }
 }
 
-QDomElement BNPView::createBasketElement(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement)
+void BNPView::writeBasketElement(QTreeWidgetItem *item, QXmlStreamWriter &stream)
 {
     BasketScene* basket = ((BasketListViewItem*)item)->basket();
 
-    QDomElement basketElement = document.createElement("basket");
-    parentElement.appendChild(basketElement);
-
     // Save Attributes:
-    basketElement.setAttribute("folderName", basket->folderName());
+    stream.writeAttribute("folderName", basket->folderName());
     if (item->childCount() >= 0) // If it can be expanded/folded:
-        basketElement.setAttribute("folded", XMLWork::trueOrFalse(!item->isExpanded()));
+        stream.writeAttribute("folded", XMLWork::trueOrFalse(!item->isExpanded()));
 
     if (((BasketListViewItem*)item)->isCurrentBasket())
-        basketElement.setAttribute("lastOpened", "true");
+        stream.writeAttribute("lastOpened", "true");
 
-    // Save Properties:
-    QDomElement properties = document.createElement("properties");
-    basketElement.appendChild(properties);
-    basket->saveProperties(document, properties);
-
-    return basketElement;
+    basket->saveProperties(stream);
 }
 
-void BNPView::saveSubHierarchy(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement, bool recursive)
+void BNPView::saveSubHierarchy(QTreeWidgetItem *item, QXmlStreamWriter &stream, bool recursive)
 {
-    QDomElement element = createBasketElement(item, document, parentElement); //create root <basket>
+	stream.writeStartElement("basket");
+    writeBasketElement(item, stream); //create root <basket>
     if (recursive) {
-        for (int i = 0; i < item->childCount(); i++)
-            save(0, item->child(i), document, element);
+        for (int i = 0; i < item->childCount(); i++) {
+			saveSubHierarchy(item->child(i), stream, true);
+		}
     }
+	stream.writeEndElement();
 }
 
 void BNPView::load()
