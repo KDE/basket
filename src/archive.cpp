@@ -86,16 +86,16 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     Archive::saveBasketToArchive(basket, withSubBaskets, &tar, backgrounds, tempFolder, &dialog);
 
     // Create a Small baskets.xml Document:
-	QString data;
-	QXmlStreamWriter stream(&data);
-	stream.setAutoFormatting(true);
-	stream.setAutoFormattingIndent(1);
-	stream.writeStartDocument();
-	stream.writeDTD("<!DOCTYPE basketTree>");
-	stream.writeStartElement("basketTree");
+    QString data;
+    QXmlStreamWriter stream(&data);
+    stream.setAutoFormatting(true);
+    stream.setAutoFormattingIndent(1);
+    stream.writeStartDocument();
+    stream.writeDTD("<!DOCTYPE basketTree>");
+    stream.writeStartElement("basketTree");
     Global::bnpView->saveSubHierarchy(Global::bnpView->listViewItemForBasket(basket), stream, withSubBaskets);
-	stream.writeEndElement();
-	stream.writeEndDocument();
+    stream.writeEndElement();
+    stream.writeEndDocument();
     BasketScene::safelySaveToFile(tempFolder + "baskets.xml", data);
     tar.addLocalFile(tempFolder + "baskets.xml", "baskets/baskets.xml");
     dir.remove(tempFolder + "baskets.xml");

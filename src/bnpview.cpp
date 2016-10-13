@@ -996,19 +996,19 @@ void BNPView::save()
     DEBUG_WIN << "Basket Tree: Saving...";
 
 
-	QString data;
-	QXmlStreamWriter stream(&data);
-	stream.setAutoFormatting(true);
-	stream.setAutoFormattingIndent(1);
-	stream.writeStartDocument();
-	stream.writeDTD("<!DOCTYPE basketTree>");
-	stream.writeStartElement("basketTree");
+    QString data;
+    QXmlStreamWriter stream(&data);
+    stream.setAutoFormatting(true);
+    stream.setAutoFormattingIndent(1);
+    stream.writeStartDocument();
+    stream.writeDTD("<!DOCTYPE basketTree>");
+    stream.writeStartElement("basketTree");
 
     // Save Basket Tree:
     save(m_tree, 0, stream);
 
-	stream.writeEndElement();
-	stream.writeEndDocument();
+    stream.writeEndElement();
+    stream.writeEndDocument();
 
     // Write to Disk:
     BasketScene::safelySaveToFile(Global::basketsFolder() + "baskets.xml", data);
@@ -1028,10 +1028,10 @@ void BNPView::save(QTreeWidget *listView, QTreeWidgetItem* item, QXmlStreamWrite
         // For each basket:
         for (int i = 0; i < listView->topLevelItemCount(); i++) {
             item = listView->topLevelItem(i);
-			save(0, item, stream);
+            save(0, item, stream);
         }
     } else {
-		saveSubHierarchy(item, stream, true);
+        saveSubHierarchy(item, stream, true);
     }
 }
 
@@ -1052,14 +1052,14 @@ void BNPView::writeBasketElement(QTreeWidgetItem *item, QXmlStreamWriter &stream
 
 void BNPView::saveSubHierarchy(QTreeWidgetItem *item, QXmlStreamWriter &stream, bool recursive)
 {
-	stream.writeStartElement("basket");
+    stream.writeStartElement("basket");
     writeBasketElement(item, stream); //create root <basket>
     if (recursive) {
         for (int i = 0; i < item->childCount(); i++) {
-			saveSubHierarchy(item->child(i), stream, true);
-		}
+            saveSubHierarchy(item->child(i), stream, true);
+        }
     }
-	stream.writeEndElement();
+    stream.writeEndElement();
 }
 
 void BNPView::load()

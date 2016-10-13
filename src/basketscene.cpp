@@ -613,13 +613,13 @@ void BasketScene::saveNotes(QXmlStreamWriter &stream, Note *parent)
                 QString tags;
                 for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it)
                     tags += (tags.isEmpty() ? "" : ";") + (*it)->id();
-				stream.writeTextElement("tags", tags);
+                stream.writeTextElement("tags", tags);
             }
         } else {
             // Save Child Notes:
             saveNotes(stream, note);
-		}
-		stream.writeEndElement();
+        }
+        stream.writeEndElement();
         // Go to the Next One:
         note = note->next();
     }
@@ -671,35 +671,35 @@ void BasketScene::loadProperties(const QDomElement &properties)
 
 void BasketScene::saveProperties(QXmlStreamWriter &stream)
 {
-	stream.writeStartElement("properties");
+    stream.writeStartElement("properties");
 
-	stream.writeTextElement("name", basketName());
-	stream.writeTextElement("icon", icon());
+    stream.writeTextElement("name", basketName());
+    stream.writeTextElement("icon", icon());
 
-	stream.writeStartElement("appearance");
+    stream.writeStartElement("appearance");
     stream.writeAttribute("backgroundColor", backgroundColorSetting().isValid() ? backgroundColorSetting().name() : "");
     stream.writeAttribute("backgroundImage", backgroundImageName());
     stream.writeAttribute("textColor",       textColorSetting().isValid()       ? textColorSetting().name()       : "");
-	stream.writeEndElement();
+    stream.writeEndElement();
 
     stream.writeStartElement("disposition");
     stream.writeAttribute("columnCount", QString::number(columnsCount()));
     stream.writeAttribute("free",        XMLWork::trueOrFalse(isFreeLayout()));
     stream.writeAttribute("mindMap",     XMLWork::trueOrFalse(isMindMap()));
-	stream.writeEndElement();
+    stream.writeEndElement();
 
     stream.writeStartElement("shortcut");
     QString actionStrings[] = { "show", "globalShow", "globalSwitch" };
     stream.writeAttribute("action",      actionStrings[shortcutAction()]);
     stream.writeAttribute("combination", m_action->shortcut().toString());
-	stream.writeEndElement();
+    stream.writeEndElement();
 
     stream.writeStartElement("protection");
     stream.writeAttribute("key",  m_encryptionKey);
     stream.writeAttribute("type", QString::number(m_encryptionType));
-	stream.writeEndElement();
+    stream.writeEndElement();
 
-	stream.writeEndElement();
+    stream.writeEndElement();
 }
 
 void BasketScene::subscribeBackgroundImages()
@@ -920,24 +920,24 @@ bool BasketScene::save()
 
     DEBUG_WIN << "Basket[" + folderName() + "]: Saving...";
 
-	QString data;
-	QXmlStreamWriter stream(&data);
-	stream.setAutoFormatting(true);
-	stream.setAutoFormattingIndent(1);
-	stream.writeStartDocument();
-	stream.writeDTD("<!DOCTYPE basket>");
-	stream.writeStartElement("basket");
+    QString data;
+    QXmlStreamWriter stream(&data);
+    stream.setAutoFormatting(true);
+    stream.setAutoFormattingIndent(1);
+    stream.writeStartDocument();
+    stream.writeDTD("<!DOCTYPE basket>");
+    stream.writeStartElement("basket");
 
     // Create Properties Element and Populate It:
     saveProperties(stream);
 
     // Create Notes Element and Populate It:
-	stream.writeStartElement("notes");
-	saveNotes(stream, NULL);
-	stream.writeEndElement();
+    stream.writeStartElement("notes");
+    saveNotes(stream, NULL);
+    stream.writeEndElement();
 
-	stream.writeEndElement();
-	stream.writeEndDocument();
+    stream.writeEndElement();
+    stream.writeEndDocument();
 
     // Write to Disk:
     if (!saveToFile(fullPath() + ".basket", data)) {

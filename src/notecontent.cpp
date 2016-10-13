@@ -104,9 +104,9 @@ NoteContent::NoteContent(Note *parent, const QString &fileName)
 void NoteContent::saveToNode(QXmlStreamWriter &stream)
 {
     if (useFile()) {
-		stream.writeStartElement("content");
-		stream.writeCharacters(fileName());
-		stream.writeEndElement();
+        stream.writeStartElement("content");
+        stream.writeCharacters(fileName());
+        stream.writeEndElement();
     }
 }
 
@@ -1697,13 +1697,13 @@ qreal LinkContent::setWidthAndGetHeight(qreal width)
 
 void LinkContent::saveToNode(QXmlStreamWriter& stream)
 {
-	stream.writeStartElement("content");
+    stream.writeStartElement("content");
     stream.writeAttribute("title",      title());
     stream.writeAttribute("icon",       icon());
     stream.writeAttribute("autoIcon", (autoIcon()  ? "true" : "false"));
     stream.writeAttribute("autoTitle", (autoTitle() ? "true" : "false"));
     stream.writeCharacters(url().toDisplayString());
-	stream.writeEndElement();
+    stream.writeEndElement();
 }
 
 
@@ -1956,11 +1956,11 @@ qreal CrossReferenceContent::setWidthAndGetHeight(qreal width)
 
 void CrossReferenceContent::saveToNode(QXmlStreamWriter &stream)
 {
-	stream.writeStartElement("content");
+    stream.writeStartElement("content");
     stream.writeAttribute("title",      title());
     stream.writeAttribute("icon",       icon());
     stream.writeCharacters(url().toDisplayString());
-	stream.writeEndElement();
+    stream.writeEndElement();
 }
 
 void CrossReferenceContent::toolTipInfos(QStringList *keys, QStringList *values)
@@ -2282,9 +2282,9 @@ qreal ColorContent::setWidthAndGetHeight(qreal /*width*/) // We do not need widt
 
 void ColorContent::saveToNode(QXmlStreamWriter &stream)
 {
-	stream.writeStartElement("content");
+    stream.writeStartElement("content");
     stream.writeCharacters(color().name());
-	stream.writeEndElement();
+    stream.writeEndElement();
 }
 
 void ColorContent::toolTipInfos(QStringList *keys, QStringList *values)
