@@ -97,6 +97,8 @@ QPoint  Settings::s_mainWindowPosition   = QPoint();
 QSize   Settings::s_mainWindowSize       = QSize();
 bool    Settings::s_showEmptyBasketInfo  = true;
 bool    Settings::s_spellCheckTextNotes  = true;
+// Version Sync
+bool    Settings::s_versionSyncEnabled   = false;
 
 void Settings::loadConfig()
 {
@@ -195,6 +197,9 @@ void Settings::loadConfig()
         config = Global::config()->group("MainWindow Toolbar mainToolBar");
         config.writeEntry("alreadySetToolbarSettings", true);
     }
+
+    config = Global::config()->group("Version Sync");
+    setVersionSyncEnabled(config.readEntry("enabled", false));
 }
 
 void Settings::saveConfig()
@@ -265,6 +270,9 @@ void Settings::saveConfig()
     config.writeEntry("defImageX",         defImageX());
     config.writeEntry("defImageY",         defImageY());
     config.writeEntry("defIconSize",       defIconSize());
+
+    config = Global::config()->group("Version Sync");
+    config.writeEntry("enabled", versionSyncEnabled());
 
     config.sync();
 }

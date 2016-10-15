@@ -229,6 +229,8 @@ protected:
     static int     s_defImageX;
     static int     s_defImageY;
     static int     s_defIconSize;
+    /** Version Sync */
+    static bool    s_versionSyncEnabled;
 public:  /* And the following methods are just getter / setters */
     /** App settings GET */
     static inline bool    treeOnLeft()           {
@@ -377,6 +379,10 @@ public:  /* And the following methods are just getter / setters */
     }
     static inline int     viewSoundFileContent() {
         return s_viewSoundFileContent;
+    }
+    /** Version Sync */
+    static inline bool    versionSyncEnabled()   {
+        return s_versionSyncEnabled;
     }
 
     /** App settings SET */
@@ -538,6 +544,10 @@ public:  /* And the following methods are just getter / setters */
     }
     static inline void setViewSoundFileContent(bool view)       {
         s_viewSoundFileContent = view;
+    }
+    // Version Sync
+    static inline void setVersionSyncEnabled(bool enable)       {
+        s_versionSyncEnabled = enable;
     }
 public:
     /* Save and load config */

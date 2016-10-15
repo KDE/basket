@@ -67,8 +67,12 @@ public:
     static QString backgroundsFolder(); /// << @return e.g. "/home/username/.kde/share/apps/basket/backgrounds/".
     static QString templatesFolder();   /// << @return e.g. "/home/username/.kde/share/apps/basket/templates/".
     static QString tempCutFolder();     /// << @return e.g. "/home/username/.kde/share/apps/basket/temp-cut/".   (was ".tmp/")
+    static QString gitFolder();         /// << @return e.g. "/home/username/.local/share/basket/.git/".
 
     // Various Things:
+    /** Initialize git repository if Version sync is enabled
+        @param savesFolder Path returned by savesFolder()  */
+    static void initializeGitIfNeeded(QString savesFolder);
     static QString openNoteIcon();      /// << @return the icon used for the "Open" action on notes.
     static KMainWindow* mainWindow();
     static KConfig* config();

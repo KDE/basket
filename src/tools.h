@@ -106,6 +106,9 @@ void deleteMetadataRecursively(const QString &folderOrFile);
   */
 QString fileNameForNewFile(const QString &wantedName, const QString &destFolder);
 
+//! @returns Total size in bytes of all files and subdirectories
+qint64 computeSizeRecursively(const QString& path);
+
 // Other:
 //void iconForURL(const KUrl &url);
 /** @Return true if the source is from a file cutting in Konqueror.

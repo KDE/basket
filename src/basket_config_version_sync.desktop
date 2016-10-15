@@ -1,0 +1,37 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=folder-sync
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-ModuleType=Library
+X-KDE-Library=kcm_basket
+X-KDE-FactoryName=basket_config_version_sync
+X-KDE-HasReadOnlyMode=false
+X-KDE-ParentApp=basket
+X-KDE-ParentComponents=basket,kontact_basketplugin
+X-KDE-CfgDlgHierarchy=Basket
+X-KDE-Weight=40
+
+Name=Version Sync
+Name[de]=Version Sync
+Name[es]=Version Sync
+Name[fr]=Version Sync
+Name[it]=Version Sync
+Name[ja]=Version Sync
+Name[nb]=Version Sync
+Name[nn]=Version Sync
+Name[pt]=Version Sync
+Name[ru]=Version Sync
+Name[tr]=Version Sync
+Comment=Version Sync
+Comment[de]=Version Sync
+Comment[es]=Version Sync
+Comment[fr]=Version Sync
+Comment[it]=Version Sync
+Comment[ja]=Version Sync
+Comment[nb]=Version Sync
+Comment[nn]=Version Sync
+Comment[pt]=Version Sync
+Comment[ru]=Version Sync
+Comment[tr]=Version Sync

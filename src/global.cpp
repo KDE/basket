@@ -64,9 +64,7 @@ QString Global::savesFolder()
             folder = new QString(Settings::dataFolder().endsWith("/") ? Settings::dataFolder() : Settings::dataFolder() + "/");
         } else { // The default path (should be that for most computers)
             folder = new QString(KGlobal::dirs()->saveLocation("data", "basket/"));
-            if(!QDir(*folder + ".git/").exists()) {
-                GitWrapper::initializeGitRepository(*folder);
-            }
+            initializeGitIfNeeded(*folder);
         }
     }
     return *folder;
@@ -87,6 +85,17 @@ QString Global::templatesFolder()
 QString Global::tempCutFolder()
 {
     return savesFolder() + "temp-cut/";
+}
+QString Global::gitFolder()
+{
+    return savesFolder() + ".git/";
+}
+
+void Global::initializeGitIfNeeded(QString savesFolder)
+{
+    if (!QDir(savesFolder + ".git/").exists()) {
+        GitWrapper::initializeGitRepository(savesFolder);
+    }
 }
 
 QString Global::openNoteIcon() // FIXME: Now an edit icon
