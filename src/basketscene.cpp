@@ -922,11 +922,7 @@ bool BasketScene::save()
 
     QString data;
     QXmlStreamWriter stream(&data);
-    stream.setAutoFormatting(true);
-    stream.setAutoFormattingIndent(1);
-    stream.writeStartDocument();
-    stream.writeDTD("<!DOCTYPE basket>");
-    stream.writeStartElement("basket");
+    XMLWork::setupXmlStream(stream, "basket");
 
     // Create Properties Element and Populate It:
     saveProperties(stream);

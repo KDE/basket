@@ -108,3 +108,12 @@ QString XMLWork::innerXml(QDomElement &element)
         }
     return inner;
 }
+
+void XMLWork::setupXmlStream(QXmlStreamWriter& stream, QString startElement)
+{
+    stream.setAutoFormatting(true);
+    stream.setAutoFormattingIndent(1);
+    stream.writeStartDocument();
+    stream.writeDTD("<!DOCTYPE " + startElement + ">");
+    stream.writeStartElement(startElement);
+}

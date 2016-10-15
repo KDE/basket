@@ -998,11 +998,7 @@ void BNPView::save()
 
     QString data;
     QXmlStreamWriter stream(&data);
-    stream.setAutoFormatting(true);
-    stream.setAutoFormattingIndent(1);
-    stream.writeStartDocument();
-    stream.writeDTD("<!DOCTYPE basketTree>");
-    stream.writeStartElement("basketTree");
+    XMLWork::setupXmlStream(stream, "basketTree");
 
     // Save Basket Tree:
     save(m_tree, 0, stream);

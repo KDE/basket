@@ -22,6 +22,7 @@
 #define XMLWORKXMLWORK_H
 
 #include <QtCore/QString>
+#include <QXmlStreamWriter>
 
 class QDomDocument;
 class QDomElement;
@@ -38,6 +39,7 @@ QDomElement   getElement(const QDomElement &startElement, const QString &element
 QString       getElementText(const QDomElement &startElement, const QString &elementPath, const QString &defaultTxt = "");
 void          addElement(QDomDocument &document, QDomElement &parent, const QString &name, const QString &text);
 QString       innerXml(QDomElement &element);
+void          setupXmlStream(QXmlStreamWriter& stream, QString startElement); ///< Set XML options and write document start
 // Not directly related to XML :
 bool          trueOrFalse(const QString &value, bool defaultValue = true);
 QString       trueOrFalse(bool value);

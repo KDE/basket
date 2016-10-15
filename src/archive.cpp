@@ -88,11 +88,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     // Create a Small baskets.xml Document:
     QString data;
     QXmlStreamWriter stream(&data);
-    stream.setAutoFormatting(true);
-    stream.setAutoFormattingIndent(1);
-    stream.writeStartDocument();
-    stream.writeDTD("<!DOCTYPE basketTree>");
-    stream.writeStartElement("basketTree");
+    XMLWork::setupXmlStream(stream, "basketTree");
     Global::bnpView->saveSubHierarchy(Global::bnpView->listViewItemForBasket(basket), stream, withSubBaskets);
     stream.writeEndElement();
     stream.writeEndDocument();
