@@ -583,44 +583,43 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
     }
 }
 
-void BasketScene::saveNotes(QDomDocument &document, QDomElement &element, Note *parent)
+void BasketScene::saveNotes(QXmlStreamWriter &stream, Note *parent)
 {
     Note *note = (parent ? parent->firstChild() : firstNote());
     while (note) {
         // Create Element:
-        QDomElement noteElement = document.createElement(note->isGroup() ? "group" : "note");
-        element.appendChild(noteElement);
+        stream.writeStartElement(note->isGroup() ? "group" : "note");
         // Free Note Properties:
         if (note->isFree()) {
-            noteElement.setAttribute("x", note->x());
-            noteElement.setAttribute("y", note->y());
+            stream.writeAttribute("x", QString::number(note->x()));
+            stream.writeAttribute("y", QString::number(note->y()));
         }
         // Resizeable Note Properties:
         if (note->hasResizer())
-            noteElement.setAttribute("width", note->groupWidth());
+            stream.writeAttribute("width", QString::number(note->groupWidth()));
         // Group Properties:
         if (note->isGroup() && !note->isColumn())
-            noteElement.setAttribute("folded", XMLWork::trueOrFalse(note->isFolded()));
+            stream.writeAttribute("folded", XMLWork::trueOrFalse(note->isFolded()));
         // Save Content:
         if (note->content()) {
             // Save Dates:
-            noteElement.setAttribute("added",            note->addedDate().toString(Qt::ISODate));
-            noteElement.setAttribute("lastModification", note->lastModificationDate().toString(Qt::ISODate));
+            stream.writeAttribute("added",            note->addedDate().toString(Qt::ISODate));
+            stream.writeAttribute("lastModification", note->lastModificationDate().toString(Qt::ISODate));
             // Save Content:
-            noteElement.setAttribute("type", note->content()->lowerTypeName());
-            QDomElement content = document.createElement("content");
-            noteElement.appendChild(content);
-            note->content()->saveToNode(document, content);
+            stream.writeAttribute("type", note->content()->lowerTypeName());
+            note->content()->saveToNode(stream);
             // Save Tags:
             if (note->states().count() > 0) {
                 QString tags;
                 for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it)
                     tags += (tags.isEmpty() ? "" : ";") + (*it)->id();
-                XMLWork::addElement(document, noteElement, "tags", tags);
+                stream.writeTextElement("tags", tags);
             }
-        } else
+        } else {
             // Save Child Notes:
-            saveNotes(document, noteElement, note);
+            saveNotes(stream, note);
+        }
+        stream.writeEndElement();
         // Go to the Next One:
         note = note->next();
     }
@@ -670,33 +669,37 @@ void BasketScene::loadProperties(const QDomElement &properties)
     setAppearance(icon, name, backgroundImage, backgroundColor, textColor); // Will emit propertiesChanged(this)
 }
 
-void BasketScene::saveProperties(QDomDocument &document, QDomElement &properties)
+void BasketScene::saveProperties(QXmlStreamWriter &stream)
 {
-    XMLWork::addElement(document, properties, "name", basketName());
-    XMLWork::addElement(document, properties, "icon", icon());
+    stream.writeStartElement("properties");
 
-    QDomElement appearance = document.createElement("appearance");
-    properties.appendChild(appearance);
-    appearance.setAttribute("backgroundImage", backgroundImageName());
-    appearance.setAttribute("backgroundColor", backgroundColorSetting().isValid() ? backgroundColorSetting().name() : "");
-    appearance.setAttribute("textColor",       textColorSetting().isValid()       ? textColorSetting().name()       : "");
+    stream.writeTextElement("name", basketName());
+    stream.writeTextElement("icon", icon());
 
-    QDomElement disposition = document.createElement("disposition");
-    properties.appendChild(disposition);
-    disposition.setAttribute("free",        XMLWork::trueOrFalse(isFreeLayout()));
-    disposition.setAttribute("columnCount", QString::number(columnsCount()));
-    disposition.setAttribute("mindMap",     XMLWork::trueOrFalse(isMindMap()));
+    stream.writeStartElement("appearance");
+    stream.writeAttribute("backgroundColor", backgroundColorSetting().isValid() ? backgroundColorSetting().name() : "");
+    stream.writeAttribute("backgroundImage", backgroundImageName());
+    stream.writeAttribute("textColor",       textColorSetting().isValid()       ? textColorSetting().name()       : "");
+    stream.writeEndElement();
 
-    QDomElement shortcut = document.createElement("shortcut");
-    properties.appendChild(shortcut);
+    stream.writeStartElement("disposition");
+    stream.writeAttribute("columnCount", QString::number(columnsCount()));
+    stream.writeAttribute("free",        XMLWork::trueOrFalse(isFreeLayout()));
+    stream.writeAttribute("mindMap",     XMLWork::trueOrFalse(isMindMap()));
+    stream.writeEndElement();
+
+    stream.writeStartElement("shortcut");
     QString actionStrings[] = { "show", "globalShow", "globalSwitch" };
-    shortcut.setAttribute("combination", m_action->shortcut().toString());
-    shortcut.setAttribute("action",      actionStrings[shortcutAction()]);
+    stream.writeAttribute("action",      actionStrings[shortcutAction()]);
+    stream.writeAttribute("combination", m_action->shortcut().toString());
+    stream.writeEndElement();
 
-    QDomElement protection = document.createElement("protection");
-    properties.appendChild(protection);
-    protection.setAttribute("type", m_encryptionType);
-    protection.setAttribute("key",  m_encryptionKey);
+    stream.writeStartElement("protection");
+    stream.writeAttribute("key",  m_encryptionKey);
+    stream.writeAttribute("type", QString::number(m_encryptionType));
+    stream.writeEndElement();
+
+    stream.writeEndElement();
 }
 
 void BasketScene::subscribeBackgroundImages()
@@ -917,23 +920,27 @@ bool BasketScene::save()
 
     DEBUG_WIN << "Basket[" + folderName() + "]: Saving...";
 
-    // Create Document:
-    QDomDocument document(/*doctype=*/"basket");
-    QDomElement root = document.createElement("basket");
-    document.appendChild(root);
+    QString data;
+    QXmlStreamWriter stream(&data);
+    stream.setAutoFormatting(true);
+    stream.setAutoFormattingIndent(1);
+    stream.writeStartDocument();
+    stream.writeDTD("<!DOCTYPE basket>");
+    stream.writeStartElement("basket");
 
     // Create Properties Element and Populate It:
-    QDomElement properties = document.createElement("properties");
-    saveProperties(document, properties);
-    root.appendChild(properties);
+    saveProperties(stream);
 
     // Create Notes Element and Populate It:
-    QDomElement notes = document.createElement("notes");
-    saveNotes(document, notes, 0);
-    root.appendChild(notes);
+    stream.writeStartElement("notes");
+    saveNotes(stream, NULL);
+    stream.writeEndElement();
+
+    stream.writeEndElement();
+    stream.writeEndDocument();
 
     // Write to Disk:
-    if (!saveToFile(fullPath() + ".basket", "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + document.toString())) {
+    if (!saveToFile(fullPath() + ".basket", data)) {
         DEBUG_WIN << "Basket[" + folderName() + "]: <font color=red>FAILED to save</font>!";
         return false;
 #ifdef HAVE_BALOO

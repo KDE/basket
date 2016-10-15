@@ -24,13 +24,13 @@
 #include <QtCore/QList>
 #include <QtGui/QClipboard>
 #include <QSplitter>
+#include <QXmlStreamWriter>
 
 #include <KXMLGUIClient>
 
 #include "global.h"
 #include "basket_export.h"
 
-class QDomDocument;
 class QDomElement;
 
 class QStackedWidget;
@@ -98,7 +98,7 @@ public:
 
 private:
     //! Create <basket> element with <properties>
-    QDomElement createBasketElement(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement);
+    void writeBasketElement(QTreeWidgetItem *item, QXmlStreamWriter &steam);
 public slots:
     void countsChanged(BasketScene *basket);
     void notesStateChanged();
@@ -106,8 +106,8 @@ public slots:
 
     void updateBasketListViewItem(BasketScene *basket);
     void save();
-    void save(QTreeWidget* listView, QTreeWidgetItem *firstItem, QDomDocument &document, QDomElement &parentElement);
-    void saveSubHierarchy(QTreeWidgetItem *item, QDomDocument &document, QDomElement &parentElement, bool recursive);
+    void save(QTreeWidget* listView, QTreeWidgetItem *firstItem, QXmlStreamWriter &stream);
+    void saveSubHierarchy(QTreeWidgetItem *item, QXmlStreamWriter &stream, bool recursive);
     void load();
     void load(QTreeWidgetItem *item, const QDomElement &baskets);
     void loadNewBasket(const QString &folderName, const QDomElement &properties, BasketScene *parent);

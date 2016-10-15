@@ -24,6 +24,7 @@
 #include <QtCore/QObject>
 #include <QGraphicsItem>
 #include <QUrl>
+#include <QXmlStreamWriter>
 
 #include <KIO/AccessManager>
 
@@ -31,7 +32,6 @@
 
 #include "linklabel.h"
 
-class QDomDocument;
 class QDomElement;
 
 class QBuffer;
@@ -130,7 +130,7 @@ public:
     virtual QString linkAt(const QPointF &/*pos*/)          {
         return "";
     } /// << @return the link anchor at position @p pos or "" if there is no link.
-    virtual void    saveToNode(QDomDocument &doc, QDomElement &content);  /// << Save the note in the basket XML file. By default it store the filename if a file is used.
+    virtual void    saveToNode(QXmlStreamWriter &stream);  /// << Save the note in the basket XML file. By default it store the filename if a file is used.
     virtual void    fontChanged()                                    = 0; /// << If your content display textual data, called when the font have changed (from tags or basket font)
     virtual void    linkLookChanged()                                  {} /// << If your content use LinkDisplay with preview enabled, reload the preview (can have changed size)
     virtual QString editToolTipText() const                          = 0; /// << @return "Edit this [text|image|...]" to put in the tooltip for the note's content zone.
@@ -521,7 +521,7 @@ public:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
-    void    saveToNode(QDomDocument &doc, QDomElement &content);
+    void    saveToNode(QXmlStreamWriter &stream);
     void    fontChanged();
     void    linkLookChanged();
     QString editToolTipText() const;
@@ -608,7 +608,7 @@ public:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal);
-    void    saveToNode(QDomDocument &doc, QDomElement &content);
+    void    saveToNode(QXmlStreamWriter &stream);
     void    fontChanged();
     void    linkLookChanged();
     QString editToolTipText() const;
@@ -751,7 +751,7 @@ public:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
-    void    saveToNode(QDomDocument &doc, QDomElement &content);
+    void    saveToNode(QXmlStreamWriter &stream);
     void    fontChanged();
     QString editToolTipText() const;
     void    toolTipInfos(QStringList *keys, QStringList *values);

@@ -24,6 +24,7 @@
 #include <QtCore/QList>
 #include <QtCore/QSet>
 #include <QtCore/QTimer>
+#include <QXmlStreamWriter>
 #include <QtGui/QTextCursor>
 #include <QtGui/QClipboard>
 #include <QGraphicsScene>
@@ -241,14 +242,14 @@ private:
 
 private slots:
     void loadNotes(const QDomElement &notes, Note *parent);
-    void saveNotes(QDomDocument &document, QDomElement &element, Note *parent);
+    void saveNotes(QXmlStreamWriter &stream, Note *parent);
     void unlock();
 protected slots:
     void inactivityAutoLockTimeout();
 public slots:
     void load();
     void loadProperties(const QDomElement &properties);
-    void saveProperties(QDomDocument &document, QDomElement &properties);
+    void saveProperties(QXmlStreamWriter &stream);
     bool save();
     void commitEdit();
     void reload();
