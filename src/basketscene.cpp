@@ -3996,7 +3996,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
         unselectAll();
     }
     // Must set focus to the editor, otherwise edit cursor is not seen and precomposed characters cannot be entered
-    if (m_editor != NULL)
+    if (m_editor != NULL && m_editor->textEdit() != NULL)
         m_editor->textEdit()->setFocus();
 
     Global::bnpView->m_actEditNote->setEnabled(false);
