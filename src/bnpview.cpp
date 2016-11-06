@@ -2250,8 +2250,11 @@ void BNPView::password()
     dlg->setKey(cur->encryptionKey());
     if (dlg->exec()) {
         cur->setProtection(dlg->type(), dlg->key());
-        if (cur->encryptionType() != BasketScene::NoEncryption)
+        if (cur->encryptionType() != BasketScene::NoEncryption) {
+            //Clear metadata
+            Tools::deleteMetadataRecursively(cur->fullPath());
             cur->lock();
+        }
     }
 #endif
 }
