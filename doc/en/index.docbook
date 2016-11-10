@@ -18,8 +18,8 @@
         <email>gleb.baryshev@gmail.com</email>
       </author>
     </authorgroup>
-    <date>2016-01-23</date>
-    <releaseinfo>2.10</releaseinfo>
+    <date>2016-11-07</date>
+    <releaseinfo>2.11</releaseinfo>
     
     <abstract>
       <para>Taking care of your ideas.</para>
@@ -34,10 +34,10 @@
   <chapter id="notice">
     <title>NOTICE: handbook not written yet</title>
     <para>&basket; still does not have a handbook, so contributors are welcome!
-      Check the <ulink url='http://techbase.kde.org/Documentation_Primer/Manual/DocBook'>
-      KDE TechBase</ulink> for the hints on the DocBook format.</para>
+      Check the <ulink url='http://l10n.kde.org/docs/doc-primer/index.html'>
+      KDE documentation</ulink> for the hints on the DocBook format.</para>
     <para>Meanwhile, you can look for help on the Internet. In particular,
-      look through the <ulink url='http://basket.kde.org/'>old website</ulink> or
+      look through the <ulink url='https://basket-notepads.github.io'>old website</ulink> or
       check Linux magazines if you have access to them, for example:
       <itemizedlist>
 	<listitem><para>
@@ -87,10 +87,43 @@
     </sect1>
   </chapter>
 
-<!--
   <chapter id="using-BasKet">
     <title>Using BasKet</title>
     <para></para>
+      <sect1>
+        <title>Version Sync</title>
+        <para>When enabled, Version Sync puts your baskets and notes under version control. Currently this is an experimental feature and only very basic functions are implemented,  so it may require additional software and some manual setup. These are some of the things that can be done using external tools (but not Basket interface yet):</para>
+        <itemizedlist>
+          <listitem>
+            <para>check out old revisions and revert the changes</para>
+          </listitem>
+          <listitem>
+            <para>synchronize baskets on several computers (merge the changes)</para>
+          </listitem>
+          <listitem>
+            <para>push baskets backup to remote repository</para>
+          </listitem>
+        </itemizedlist>
+        <para>To enable it, select
+          <menuchoice>
+          <guimenu>Settings</guimenu> <guimenuitem>Configure BasKet Note Pads</guimenuitem>
+          </menuchoice>
+          → <guibutton>Version Sync</guibutton>
+          and <guibutton>Enable distributed version control</guibutton>. It will initialize git repository in <filename>~/.kde/share/apps/basket/baskets</filename> (or <filename>$(kde4-config --path data)/basket/baskets</filename>), upon which standard git tools can be used.</para>
+        <sect2>
+          <title>Clearing version history</title>
+          <para>Clearing the history can be useful in these cases:</para>
+          <itemizedlist>
+          <listitem>
+            <para>you have locked a basket and want to remove any previous unencrypted versions (which are still stored in the system)</para>
+          </listitem>
+          <listitem>
+            <para>you want to free some disk space (can be topical if you insert a lot of images or other files into Basket)</para>
+          </listitem>
+          </itemizedlist>
+          <para>Note that you will have to redo any manual setup you did on the git repository.</para>
+        </sect2>
+      </sect1>
   </chapter>
 
   <chapter id="questions-answers-and-tips">
@@ -109,7 +142,6 @@
     </qandaset>
 
   </chapter>
--->
 </book>
 <!--
 Local Variables:

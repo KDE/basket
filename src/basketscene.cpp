@@ -5225,6 +5225,11 @@ bool BasketScene::loadFromFile(const QString &fullPath, QByteArray *array)
 bool BasketScene::saveToFile(const QString& fullPath, const QString& string)
 {
     QByteArray array = string.toUtf8();
+    return saveToFile(fullPath, array);
+}
+
+bool BasketScene::saveToFile(const QString &fullPath, const QByteArray &array)
+{
     ulong length = array.size();
 
     bool success = true;
