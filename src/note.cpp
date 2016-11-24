@@ -47,6 +47,7 @@
 #include "tools.h"
 #include "settings.h"
 #include "notefactory.h" // For NoteFactory::filteredURL()
+#include "debugwindow.h"
 
 /** class Note: */
 
@@ -2765,15 +2766,19 @@ void Note::deleteChilds()
 
 bool Note::saveAgain()
 {
+    bool result = true;
+
     if (content()) {
         if (!content()->saveToFile())
-            return false;
+            result = false;
     }
     FOR_EACH_CHILD(child) {
         if (!child->saveAgain())
-            return false;
+            result = false;
     }
-    return true;
+    if (!result)
+        DEBUG_WIN << QString("Note::saveAgain returned false for %1:%2").arg((content() != NULL) ? content()->typeName() : "null", toText(""));
+    return result;
 }
 
 bool Note::convertTexts()
