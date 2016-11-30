@@ -305,7 +305,7 @@ bool KGpgMe::encrypt(const QByteArray& inBuffer, unsigned long length,
                            .arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
     }
     if (err != GPG_ERR_NO_ERROR) {
-        DEBUG_WIN << "KGpgMe::encrypt error: " << ((err == GPG_ERR_CANCELED) ? "GPG_ERR_CANCELED" : QString::number(err));
+        DEBUG_WIN << "KGpgMe::encrypt error: " + QString::number(err);
         clearCache();
     }
     if (keys[0])
@@ -426,10 +426,9 @@ gpgme_error_t KGpgMe::passphrase(const char* uid_hint,
                                  const char* /*passphrase_info*/,
                                  int last_was_bad, int fd)
 {
-    gpgme_error_t res = GPG_ERR_CANCELED;
     QString s;
     QString gpg_hint = checkForUtf8(uid_hint);
-    int result;
+    bool canceled = false;
 
     if (last_was_bad) {
         s += "<b>" + i18n("Wrong password.") + "</b><br><br>\n\n";
@@ -451,14 +450,13 @@ gpgme_error_t KGpgMe::passphrase(const char* uid_hint,
 
         if (dlg.exec())
             m_cache = dlg.password();
-    } else
-        result = KPasswordDialog::Accepted;
-
-    if (result == KPasswordDialog::Accepted) {
-        write(fd, m_cache.data(), m_cache.length());
-        res = 0;
+        else
+            canceled = true;
     }
+
+    if (!canceled)
+        write(fd, m_cache.data(), m_cache.length());
     write(fd, "\n", 1);
-    return res;
+    return canceled ? GPG_ERR_CANCELED : GPG_ERR_NO_ERROR;
 }
 #endif  // HAVE_LIBGPGME

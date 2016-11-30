@@ -374,7 +374,6 @@ void Archive::open(const QString &path)
                     // Import the Tags:
                     importTagEmblems(extractionFolder); // Import and rename tag emblems BEFORE loading them!
                     QMap<QString, QString> mergedStates = Tag::loadTags(extractionFolder + "tags.xml");
-                    QMap<QString, QString>::Iterator it;
                     if (mergedStates.count() > 0) {
                         Tag::saveTags();
                     }
