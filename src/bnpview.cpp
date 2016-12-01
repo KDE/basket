@@ -736,7 +736,7 @@ void BNPView::setupActions()
 
     a = ac->addAction("insert_from_file");
     a->setText(i18n("Load From &File..."));
-    a->setIcon(KIcon("document-import"));
+    a->setIcon(KIcon(IconNames::DOCUMENT_IMPORT));
     m_actLoadFile = a;
 
 //  connect( m_actInsertText,     SIGNAL(triggered()), insertEmptyMapper, SLOT(map()) );

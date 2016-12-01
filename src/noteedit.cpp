@@ -55,6 +55,7 @@
 #include "tools.h"
 #include "variouswidgets.h"
 #include "focusedwidgets.h"
+#include "icon_names.h"
 
 /** class NoteEditor: */
 
@@ -506,15 +507,26 @@ void HtmlEditor::validate()
 ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)
         : NoteEditor(imageContent)
 {
-    int choice = KMessageBox::questionYesNo(parent, i18n(
-                                                "Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
-                                                "Do you want to open it with an application that understand it?"),
-                                            i18n("Edit Image Note"),
-                                            KStandardGuiItem::open(),
-                                            KStandardGuiItem::cancel());
+    int choice = KMessageBox::questionYesNoCancel(parent, i18n(
+            "Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
+            "Do you want to open it with an application that understand it?"),
+        i18n("Edit Image Note"),
+        KStandardGuiItem::open(),
+        KGuiItem(i18n("Load From &File..."), IconNames::DOCUMENT_IMPORT),
+        KStandardGuiItem::cancel());
 
-    if (choice == KMessageBox::Yes)
+    switch (choice) {
+    case (KMessageBox::Yes):
         note()->basket()->noteOpen(note());
+        break;
+    case (KMessageBox::No): //Load from file
+        cancel();
+        Global::bnpView->insertWizard(3); //3 maps to m_actLoadFile
+        break;
+    case (KMessageBox::Cancel):
+        cancel();
+        break;
+    }
 }
 
 /** class AnimationEditor: */
