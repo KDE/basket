@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket-ja\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 22:46+0100\n"
+"POT-Creation-Date: 2016-12-07 21:17+0200\n"
 "PO-Revision-Date: 2007-04-25 23:00+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -15,111 +15,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#. i18n: file: src/basketproperties.ui:14
-#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
-#: build/src/ui_basketproperties.h:204 rc.cpp:54
-msgid "Form"
-msgstr ""
-
-#. i18n: file: src/basketproperties.ui:30
-#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: build/src/ui_basketproperties.h:205 rc.cpp:57 src/settings.cpp:518
-#: src/tagsedit.cpp:1111
-msgid "Appearance"
-msgstr ""
-
-#. i18n: file: src/basketproperties.ui:42
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: build/src/ui_basketproperties.h:206 rc.cpp:60
-msgid "Background &image:"
-msgstr "背景画像(&I):"
-
-#. i18n: file: src/basketproperties.ui:52
-#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
-#: build/src/ui_basketproperties.h:207 rc.cpp:63
-msgid "&Background color:"
-msgstr "背景色(&B):"
-
-#. i18n: file: src/basketproperties.ui:59
-#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: build/src/ui_basketproperties.h:208 rc.cpp:66
-msgid "&Text color:"
-msgstr "文字色(&T):"
-
-#. i18n: file: src/basketproperties.ui:69
-#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
-#: build/src/ui_basketproperties.h:209 rc.cpp:69
-msgid "Disposition"
-msgstr "配置"
-
-#. i18n: file: src/basketproperties.ui:75
-#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
-#: build/src/ui_basketproperties.h:210 rc.cpp:72
-msgid "Col&umns:"
-msgstr "列(&U):"
-
-#. i18n: file: src/basketproperties.ui:82
-#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
-#: build/src/ui_basketproperties.h:211 rc.cpp:75
-msgid "&Free-form"
-msgstr "自由(&F)"
-
-#. i18n: file: src/basketproperties.ui:108
-#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
-#: build/src/ui_basketproperties.h:212 rc.cpp:78
-msgid "&Mind map"
-msgstr "マインドマップ(&M)"
-
-#. i18n: file: src/basketproperties.ui:118
-#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: build/src/ui_basketproperties.h:213 rc.cpp:81
-#, fuzzy
-msgid "Keyboard Shortcut"
-msgstr "キーボードショートカット(&K)"
-
-#. i18n: file: src/basketproperties.ui:136
-#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: build/src/ui_basketproperties.h:214 rc.cpp:84
-msgid "S&how this basket"
-msgstr "このバスケットを表示(&H)"
-
-#. i18n: file: src/basketproperties.ui:143
-#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: build/src/ui_basketproperties.h:215 rc.cpp:87
-msgid "Show this basket (&global shortcut)"
-msgstr "このバスケットを表示(&G) (グローバルショートカット)"
-
-#. i18n: file: src/basketproperties.ui:150
-#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: build/src/ui_basketproperties.h:216 rc.cpp:90
-msgid "S&witch to this basket (global shortcut)"
-msgstr "このバスケットに切り替え(&W) (グローバルショートカット)"
-
-#. i18n: file: src/passwordlayout.ui:14
-#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: build/src/ui_passwordlayout.h:105 rc.cpp:144 src/password.cpp:38
-#: src/settings.cpp:620
-msgid "Password Protection"
-msgstr "パスワード保護"
-
-#. i18n: file: src/passwordlayout.ui:29
-#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
-#: build/src/ui_passwordlayout.h:107 rc.cpp:147
-msgid "&No protection"
-msgstr "保護しない(&N)"
-
-#. i18n: file: src/passwordlayout.ui:36
-#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
-#: build/src/ui_passwordlayout.h:108 rc.cpp:150
-msgid "Protect basket with a &password"
-msgstr "バスケットをパスワードで保護する(&P)"
-
-#. i18n: file: src/passwordlayout.ui:51
-#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
-#: build/src/ui_passwordlayout.h:109 rc.cpp:153
-msgid "Protect basket with private &key:"
-msgstr "バスケットを秘密鍵で保護する(&K):"
 
 #. i18n: file: src/basket_part.rc:6
 #. i18n: ectx: Menu (file)
@@ -310,12 +205,152 @@ msgstr "書式ツールバー"
 msgid "Text Formating Toolbar"
 msgstr "書式ツールバー"
 
-#: rc.cpp:154
+#. i18n: file: src/basketproperties.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
+#. i18n: file: src/settings_versionsync.ui:14
+#. i18n: ectx: property (windowTitle), widget (KCModule, VersionSyncPage)
+#. i18n: file: src/basketproperties.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
+#. i18n: file: src/settings_versionsync.ui:14
+#. i18n: ectx: property (windowTitle), widget (KCModule, VersionSyncPage)
+#: rc.cpp:54 rc.cpp:156
+msgid "Form"
+msgstr ""
+
+#. i18n: file: src/basketproperties.ui:30
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: rc.cpp:57 src/settings.cpp:526 src/tagsedit.cpp:1113
+msgid "Appearance"
+msgstr ""
+
+#. i18n: file: src/basketproperties.ui:42
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:60
+msgid "Background &image:"
+msgstr "背景画像(&I):"
+
+#. i18n: file: src/basketproperties.ui:52
+#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
+#: rc.cpp:63
+msgid "&Background color:"
+msgstr "背景色(&B):"
+
+#. i18n: file: src/basketproperties.ui:59
+#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
+#: rc.cpp:66
+msgid "&Text color:"
+msgstr "文字色(&T):"
+
+#. i18n: file: src/basketproperties.ui:69
+#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
+#: rc.cpp:69
+msgid "Disposition"
+msgstr "配置"
+
+#. i18n: file: src/basketproperties.ui:75
+#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
+#: rc.cpp:72
+msgid "Col&umns:"
+msgstr "列(&U):"
+
+#. i18n: file: src/basketproperties.ui:82
+#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
+#: rc.cpp:75
+msgid "&Free-form"
+msgstr "自由(&F)"
+
+#. i18n: file: src/basketproperties.ui:108
+#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
+#: rc.cpp:78
+msgid "&Mind map"
+msgstr "マインドマップ(&M)"
+
+#. i18n: file: src/basketproperties.ui:118
+#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
+#: rc.cpp:81
+#, fuzzy
+msgid "Keyboard Shortcut"
+msgstr "キーボードショートカット(&K)"
+
+#. i18n: file: src/basketproperties.ui:136
+#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
+#: rc.cpp:84
+msgid "S&how this basket"
+msgstr "このバスケットを表示(&H)"
+
+#. i18n: file: src/basketproperties.ui:143
+#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
+#: rc.cpp:87
+msgid "Show this basket (&global shortcut)"
+msgstr "このバスケットを表示(&G) (グローバルショートカット)"
+
+#. i18n: file: src/basketproperties.ui:150
+#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
+#: rc.cpp:90
+msgid "S&witch to this basket (global shortcut)"
+msgstr "このバスケットに切り替え(&W) (グローバルショートカット)"
+
+#. i18n: file: src/passwordlayout.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
+#: rc.cpp:144 src/password.cpp:38 src/settings.cpp:628
+msgid "Password Protection"
+msgstr "パスワード保護"
+
+#. i18n: file: src/passwordlayout.ui:29
+#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
+#: rc.cpp:147
+msgid "&No protection"
+msgstr "保護しない(&N)"
+
+#. i18n: file: src/passwordlayout.ui:36
+#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
+#: rc.cpp:150
+msgid "Protect basket with a &password"
+msgstr "バスケットをパスワードで保護する(&P)"
+
+#. i18n: file: src/passwordlayout.ui:51
+#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
+#: rc.cpp:153
+msgid "Protect basket with private &key:"
+msgstr "バスケットを秘密鍵で保護する(&K):"
+
+#. i18n: file: src/settings_versionsync.ui:20
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
+#: rc.cpp:159
+msgid "Enable distributed version control"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:27
+#. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
+#: rc.cpp:162
+msgid "BasKet is built without version control (libgit2) support"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:37
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
+#: rc.cpp:165
+msgid "Control"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:48
+#. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
+#: rc.cpp:168
+msgid "Clear version history"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:55
+#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
+#: rc.cpp:171
+#, fuzzy
+msgid "TextLabel"
+msgstr "テキスト"
+
+#: rc.cpp:172
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 
-#: rc.cpp:155
+#: rc.cpp:173
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
@@ -335,7 +370,8 @@ msgid "BasKet Note Pads"
 msgstr "BasKet メモパッド"
 
 #: src/aboutdata.cpp:34
-msgid "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
+msgid ""
+"Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2016, Gleb Baryshev"
 msgstr ""
 
 #: src/aboutdata.cpp:42
@@ -392,7 +428,7 @@ msgstr ""
 msgid "Original icon"
 msgstr ""
 
-#: src/archive.cpp:59 src/bnpview.cpp:2281
+#: src/archive.cpp:59 src/bnpview.cpp:2284
 msgid "Save as Basket Archive"
 msgstr "バスケットアーカイブとして保存"
 
@@ -405,11 +441,11 @@ msgid "This file is not a basket archive."
 msgstr "このファイルはバスケットアーカイブではありません。"
 
 #: src/archive.cpp:273 src/archive.cpp:304 src/archive.cpp:323
-#: src/archive.cpp:331 src/archive.cpp:341 src/archive.cpp:395
+#: src/archive.cpp:331 src/archive.cpp:341 src/archive.cpp:394
 msgid "Basket Archive Error"
 msgstr "バスケットアーカイブのエラー"
 
-#: src/archive.cpp:304 src/archive.cpp:341 src/archive.cpp:395
+#: src/archive.cpp:304 src/archive.cpp:341 src/archive.cpp:394
 msgid "This file is corrupted. It can not be opened."
 msgstr "このファイルは壊れています。開けません。"
 
@@ -516,7 +552,7 @@ msgstr "フォルダ <b>%1</b> は空ではありません。上書きします�
 msgid "Override Folder?"
 msgstr "フォルダを上書きしますか？"
 
-#: src/backup.cpp:162 src/backup.cpp:213 src/bnpview.cpp:2290
+#: src/backup.cpp:162 src/backup.cpp:213 src/bnpview.cpp:2293
 #: src/htmlexporter.cpp:77
 msgid "&Override"
 msgstr "上書き(&O)"
@@ -553,8 +589,8 @@ msgstr "バスケット"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip によって圧縮された TAR アーカイブ"
 
-#: src/backup.cpp:198 src/backup.cpp:254 src/bnpview.cpp:2278
-#: src/bnpview.cpp:2324 src/htmlexporter.cpp:62
+#: src/backup.cpp:198 src/backup.cpp:254 src/bnpview.cpp:2281
+#: src/bnpview.cpp:2327 src/htmlexporter.cpp:62
 msgid "All Files"
 msgstr "すべてのファイル"
 
@@ -562,11 +598,11 @@ msgstr "すべてのファイル"
 msgid "Backup Baskets"
 msgstr "バスケットをバックアップ"
 
-#: src/backup.cpp:210 src/bnpview.cpp:2287 src/htmlexporter.cpp:74
+#: src/backup.cpp:210 src/bnpview.cpp:2290 src/htmlexporter.cpp:74
 msgid "The file <b>%1</b> already exists. Do you really want to override it?"
 msgstr "ファイル <b>%1</b> は既に存在します。本当に上書きしますか？"
 
-#: src/backup.cpp:212 src/bnpview.cpp:2289 src/htmlexporter.cpp:76
+#: src/backup.cpp:212 src/bnpview.cpp:2292 src/htmlexporter.cpp:76
 msgid "Override File?"
 msgstr "ファイルを上書きしますか？"
 
@@ -574,7 +610,7 @@ msgstr "ファイルを上書きしますか？"
 msgid "Backing up baskets. Please wait..."
 msgstr "バスケットをバックアップしています。お待ちください..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2325
+#: src/backup.cpp:255 src/bnpview.cpp:2328
 msgid "Open Basket Archive"
 msgstr "バスケットアーカイブを開く"
 
@@ -661,6 +697,28 @@ msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
 msgstr ""
 
+#: src/basket_options.h:29
+#, fuzzy
+msgid "Show the debug window"
+msgstr "メインウィンドウを表示/隠す"
+
+#: src/basket_options.h:32
+msgid "Custom folder to load and save baskets and other application data."
+msgstr ""
+
+#: src/basket_options.h:36
+msgid "Automatically hide the main window in the system tray on startup."
+msgstr ""
+
+#: src/basket_options.h:40
+msgid "On crash, use the standard KDE crash handler rather than send an email."
+msgstr ""
+
+#: src/basket_options.h:42
+#, fuzzy
+msgid "Open a basket archive or template."
+msgstr "バスケットアーカイブを開く"
+
 #: src/basketfactory.cpp:69
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr ""
@@ -694,28 +752,6 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basket_options.h:29
-#, fuzzy
-msgid "Show the debug window"
-msgstr "メインウィンドウを表示/隠す"
-
-#: src/basket_options.h:32
-msgid "Custom folder to load and save baskets and other application data."
-msgstr ""
-
-#: src/basket_options.h:36
-msgid "Automatically hide the main window in the system tray on startup."
-msgstr ""
-
-#: src/basket_options.h:40
-msgid "On crash, use the standard KDE crash handler rather than send an email."
-msgstr ""
-
-#: src/basket_options.h:42
-#, fuzzy
-msgid "Open a basket archive or template."
-msgstr "バスケットアーカイブを開く"
-
 #: src/basketproperties.cpp:64
 msgid "Basket Properties"
 msgstr "バスケットのプロパティ"
@@ -724,7 +760,7 @@ msgstr "バスケットのプロパティ"
 msgid "Icon"
 msgstr "アイコン"
 
-#: src/basketproperties.cpp:81 src/kgpgme.cpp:72 src/newbasketdialog.cpp:114
+#: src/basketproperties.cpp:81 src/kgpgme.cpp:74 src/newbasketdialog.cpp:114
 msgid "Name"
 msgstr "名前"
 
@@ -732,11 +768,11 @@ msgstr "名前"
 msgid "(None)"
 msgstr "(なし)"
 
-#: src/basketproperties.cpp:141
+#: src/basketproperties.cpp:140
 msgid "Learn some tips..."
 msgstr "使用上のヒント..."
 
-#: src/basketproperties.cpp:142
+#: src/basketproperties.cpp:141
 #, fuzzy
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -913,7 +949,7 @@ msgstr ""
 "のページで自動ロックの時間を変更してください。"
 
 #: src/basketscene.cpp:3151 src/basketstatusbar.cpp:88 src/bnpview.cpp:1815
-#: src/bnpview.cpp:2551 src/bnpview.cpp:2561
+#: src/bnpview.cpp:2554 src/bnpview.cpp:2564
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -922,7 +958,7 @@ msgstr "読み込み中..."
 msgid "&Remove"
 msgstr "すべて削除(&R)"
 
-#: src/basketscene.cpp:3306 src/basketscene.cpp:3351 src/bnpview.cpp:2939
+#: src/basketscene.cpp:3306 src/basketscene.cpp:3351 src/bnpview.cpp:2942
 msgid "&Customize..."
 msgstr "カスタマイズ(&C)..."
 
@@ -988,11 +1024,11 @@ msgstr "以下の秘密鍵のパスワードを入力してください:"
 msgid "Please enter the password for the basket <b>%1</b>:"
 msgstr "バスケット「%1」のパスワードを入力してください:"
 
-#: src/basketscene.cpp:5245
+#: src/basketscene.cpp:5250
 msgid "Please assign a password to the basket <b>%1</b>:"
 msgstr "バスケット「%1」のパスワードを設定してください:"
 
-#: src/basketscene.cpp:5300
+#: src/basketscene.cpp:5305
 msgid "Error while saving"
 msgstr ""
 
@@ -1108,7 +1144,7 @@ msgstr ""
 "メインウィンドウを開かずに現在のバスケットにテキストメモを追加することができ"
 "ます。"
 
-#: src/bnpview.cpp:391 src/settings.cpp:598
+#: src/bnpview.cpp:391 src/settings.cpp:606
 msgid "Insert image note"
 msgstr "画像メモを挿入"
 
@@ -1120,7 +1156,7 @@ msgstr ""
 "メインウィンドウを開かずに現在のバスケットに画像メモを追加することができま"
 "す。"
 
-#: src/bnpview.cpp:398 src/settings.cpp:599
+#: src/bnpview.cpp:398 src/settings.cpp:607
 msgid "Insert link note"
 msgstr "リンクメモを挿入"
 
@@ -1131,7 +1167,7 @@ msgstr ""
 "メインウィンドウを開かずに現在のバスケットにリンクメモを追加することができま"
 "す。"
 
-#: src/bnpview.cpp:405 src/settings.cpp:602
+#: src/bnpview.cpp:405 src/settings.cpp:610
 msgid "Insert color note"
 msgstr "色メモを挿入"
 
@@ -1154,7 +1190,7 @@ msgstr ""
 "メインウィンドウを開かずに現在のバスケットにスクリーン上の 1 ピクセルから採取"
 "した色をメモとして追加することができます。"
 
-#: src/bnpview.cpp:419 src/settings.cpp:603
+#: src/bnpview.cpp:419 src/settings.cpp:611
 msgid "Grab screen zone"
 msgstr "スクリーンの領域を取り込む"
 
@@ -1353,7 +1389,7 @@ msgstr "KDE メニューからランチャーをインポート(&K)..."
 msgid "Im&port Icon..."
 msgstr "アイコンをインポート(&P)..."
 
-#: src/bnpview.cpp:738
+#: src/bnpview.cpp:738 src/noteedit.cpp:515
 msgid "Load From &File..."
 msgstr "ファイルから読み込む(&F)..."
 
@@ -1579,39 +1615,39 @@ msgstr "子バスケットを削除"
 msgid "&Remove Children Baskets"
 msgstr "子バスケットを削除(&R)"
 
-#: src/bnpview.cpp:2278 src/bnpview.cpp:2324
+#: src/bnpview.cpp:2281 src/bnpview.cpp:2327
 msgid "Basket Archives"
 msgstr "バスケットアーカイブ"
 
-#: src/bnpview.cpp:2414
+#: src/bnpview.cpp:2417
 msgid "Clipboard content pasted to basket <i>%1</i>"
 msgstr "クリップボードの内容をバスケット「%1」に貼り付けました"
 
-#: src/bnpview.cpp:2422
+#: src/bnpview.cpp:2425
 msgid "Selection pasted to basket <i>%1</i>"
 msgstr "選択をバスケット「%1」に貼り付けました"
 
-#: src/bnpview.cpp:2434
+#: src/bnpview.cpp:2437
 msgid "No note was added."
 msgstr "追加されたメモはありません。"
 
-#: src/bnpview.cpp:2475 src/bnpview.cpp:2487
+#: src/bnpview.cpp:2478 src/bnpview.cpp:2490
 msgid "Basket <i>%1</i> is locked"
 msgstr "バスケット「%1」はロックされています"
 
-#: src/bnpview.cpp:2516 src/bnpview.cpp:2530
+#: src/bnpview.cpp:2519 src/bnpview.cpp:2533
 msgid "(Locked)"
 msgstr "(ロック中)"
 
-#: src/bnpview.cpp:2931
+#: src/bnpview.cpp:2934
 msgid "&Assign new Tag..."
 msgstr "新しいタグを付ける(&A)..."
 
-#: src/bnpview.cpp:2935
+#: src/bnpview.cpp:2938
 msgid "&Remove All"
 msgstr "すべて削除(&R)"
 
-#: src/crashhandler.cpp:62
+#: src/crashhandler.cpp:68
 msgid ""
 "%1 has crashed! We're sorry about this.\n"
 "\n"
@@ -1630,7 +1666,7 @@ msgstr ""
 "どのようにしてこのクラッシュが起こったのか簡潔な説明を書いて頂ければ幸いで"
 "す。"
 
-#: src/crashhandler.cpp:69
+#: src/crashhandler.cpp:75
 msgid ""
 "The information below is to help the developers identify the problem, please "
 "do not modify it."
@@ -1638,7 +1674,7 @@ msgstr ""
 "下の情報は開発者が問題を突き止めるのに役立ちます。変更されないようにお願いし"
 "ます。"
 
-#: src/crashhandler.cpp:188
+#: src/crashhandler.cpp:194
 msgid ""
 "%1 has crashed! We're sorry about this.\n"
 "\n"
@@ -1715,17 +1751,19 @@ msgstr "(タグあり)"
 
 #: src/formatimporter.cpp:136
 msgid ""
-"<p>Folder mirroring is not possible anymore (see <a href='http://basket-notepads.github.io'>"
-"basket-notepads.github.io</a> for more information).</p><p>The folder <b>%1</b> "
-"has been copied for the basket needs. You can either delete this folder or "
-"delete the basket, or use both. But remember that modifying one will not "
-"modify the other anymore as they are now separate entities.</p>"
+"<p>Folder mirroring is not possible anymore (see <a href='http://basket-"
+"notepads.github.io'>basket-notepads.github.io</a> for more information).</"
+"p><p>The folder <b>%1</b> has been copied for the basket needs. You can "
+"either delete this folder or delete the basket, or use both. But remember "
+"that modifying one will not modify the other anymore as they are now "
+"separate entities.</p>"
 msgstr ""
 "<p>フォルダの同期インポートはもうできません (詳細については <a href='http://"
-"basket-notepads.github.io'>basket-notepads.github.io</a> をご覧ください)。</p><p>バスケットが必要"
-"とするため、フォルダ <b>%1</b> をバスケットにコピーしました。フォルダまたはバ"
-"スケットを削除するか、あるいは両方使用することができます。ただし、ふたつは別"
-"の実体になったので、一方を変更しても、もう一方は同時に変更されません。</p>"
+"basket-notepads.github.io'>basket-notepads.github.io</a> をご覧ください)。</"
+"p><p>バスケットが必要とするため、フォルダ <b>%1</b> をバスケットにコピーしま"
+"した。フォルダまたはバスケットを削除するか、あるいは両方使用することができま"
+"す。ただし、ふたつは別の実体になったので、一方を変更しても、もう一方は同時に"
+"変更されません。</p>"
 
 #: src/formatimporter.cpp:138
 msgid "Folder Mirror Import"
@@ -1776,14 +1814,14 @@ msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr ""
 
-#: src/htmlexporter.cpp:330
+#: src/htmlexporter.cpp:331
 #, fuzzy
 msgid ""
-"Made with <a href=\"https://launchpad.net/basket\">%1</a> %2, a KDE tool to take "
-"notes and keep information at hand."
+"Made with <a href=\"%1\">%2</a> %3, a KDE tool to take notes and keep "
+"information at hand."
 msgstr "%1 で作成 (メモをとって情報を手元に置いておくための KDE ツール)"
 
-#: src/kcolorcombo2.cpp:124 src/kcolorcombo2.cpp:606 src/tagsedit.cpp:500
+#: src/kcolorcombo2.cpp:124 src/kcolorcombo2.cpp:606 src/tagsedit.cpp:502
 #: src/variouswidgets.cpp:291
 msgid "(Default)"
 msgstr "(デフォルト)"
@@ -1803,39 +1841,39 @@ msgctxt "color"
 msgid "(Default)"
 msgstr "(デフォルト)"
 
-#: src/kgpgme.cpp:58
+#: src/kgpgme.cpp:60
 msgid "Private Key List"
 msgstr "秘密鍵のリスト"
 
-#: src/kgpgme.cpp:72
+#: src/kgpgme.cpp:74
 msgid "Email"
 msgstr "Eメール"
 
-#: src/kgpgme.cpp:72
+#: src/kgpgme.cpp:74
 msgid "ID"
 msgstr "ID"
 
-#: src/kgpgme.cpp:76
+#: src/kgpgme.cpp:78
 msgid "Choose a secret key:"
 msgstr "秘密鍵を選択:"
 
-#: src/kgpgme.cpp:242
+#: src/kgpgme.cpp:258
 msgid "Key listing unexpectedly truncated."
 msgstr "鍵のリストは完全ではありません。"
 
-#: src/kgpgme.cpp:277
+#: src/kgpgme.cpp:293
 msgid "That public key is not meant for encryption"
 msgstr "その公開鍵は暗号化用ではありません"
 
-#: src/kgpgme.cpp:319
+#: src/kgpgme.cpp:337
 msgid "Unsupported algorithm"
 msgstr "サポートされていないアルゴリズム"
 
-#: src/kgpgme.cpp:417
+#: src/kgpgme.cpp:434
 msgid "Wrong password."
 msgstr "不正なパスワード。"
 
-#: src/kgpgme.cpp:432
+#: src/kgpgme.cpp:449
 #, fuzzy
 msgid "Please enter a new password:"
 msgstr "バスケットをパスワードで保護する(&P)"
@@ -2296,7 +2334,7 @@ msgstr "好み"
 msgid "Launcher"
 msgstr "ランチャー"
 
-#: src/notecontent.cpp:256 src/noteedit.cpp:1143
+#: src/notecontent.cpp:256 src/noteedit.cpp:1155
 msgid "Color"
 msgstr "色"
 
@@ -2634,7 +2672,7 @@ msgstr ""
 msgid "No"
 msgstr "なし"
 
-#: src/noteedit.cpp:510
+#: src/noteedit.cpp:511
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
 "Pads will include an image editor).\n"
@@ -2644,11 +2682,11 @@ msgstr ""
 "Basket ノートパッドの次のバージョンには画像エディタが含まれます。\n"
 "編集できる他のアプリケーションで開きますか？"
 
-#: src/noteedit.cpp:512
+#: src/noteedit.cpp:513
 msgid "Edit Image Note"
 msgstr "画像メモを編集"
 
-#: src/noteedit.cpp:526
+#: src/noteedit.cpp:538
 msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
@@ -2656,15 +2694,15 @@ msgstr ""
 "アニメーション画像をここで編集することはできません。\n"
 "編集できる他のアプリケーションで開きますか？"
 
-#: src/noteedit.cpp:528
+#: src/noteedit.cpp:540
 msgid "Edit Animation Note"
 msgstr "アニメーションメモを編集"
 
-#: src/noteedit.cpp:623
+#: src/noteedit.cpp:635
 msgid "Edit Color Note"
 msgstr "色メモを編集"
 
-#: src/noteedit.cpp:647
+#: src/noteedit.cpp:659
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
 "You however can drag or copy the note into an application that understands "
@@ -2673,153 +2711,153 @@ msgstr ""
 "このメモはタイプが不明なため、ここで編集することはできませんが、\n"
 "メモを認識する他のアプリケーションにドラッグまたはコピーできます。"
 
-#: src/noteedit.cpp:649
+#: src/noteedit.cpp:661
 msgid "Edit Unknown Note"
 msgstr "不明なメモを編集"
 
-#: src/noteedit.cpp:682
+#: src/noteedit.cpp:694
 msgid "Edit Link Note"
 msgstr "リンクメモを編集"
 
-#: src/noteedit.cpp:698 src/noteedit.cpp:728
+#: src/noteedit.cpp:710 src/noteedit.cpp:740
 msgid "Auto"
 msgstr "自動"
 
-#: src/noteedit.cpp:708 src/noteedit.cpp:1007
+#: src/noteedit.cpp:720 src/noteedit.cpp:1019
 msgid "&Icon:"
 msgstr "アイコン(&I):"
 
-#: src/noteedit.cpp:749 src/noteedit.cpp:910
+#: src/noteedit.cpp:761 src/noteedit.cpp:922
 msgid "Ta&rget:"
 msgstr "リンク先(&R):"
 
-#: src/noteedit.cpp:753
+#: src/noteedit.cpp:765
 msgid "&Title:"
 msgstr "タイトル(&T):"
 
-#: src/noteedit.cpp:876
+#: src/noteedit.cpp:888
 #, fuzzy
 msgid "Edit Cross Reference"
 msgstr "好み"
 
-#: src/noteedit.cpp:983
+#: src/noteedit.cpp:995
 msgid "Edit Launcher Note"
 msgstr "ランチャーメモを編集"
 
-#: src/noteedit.cpp:999
+#: src/noteedit.cpp:1011
 msgid "Choose a command to run:"
 msgstr "実行するコマンドを選択:"
 
-#: src/noteedit.cpp:1012
+#: src/noteedit.cpp:1024
 msgid "&Guess"
 msgstr "推測(&G)"
 
-#: src/noteedit.cpp:1029
+#: src/noteedit.cpp:1041
 msgid "Comman&d:"
 msgstr "コマンド(&D):"
 
-#: src/noteedit.cpp:1033 src/tagsedit.cpp:383
+#: src/noteedit.cpp:1045 src/tagsedit.cpp:385
 msgid "&Name:"
 msgstr "名前(&N):"
 
-#: src/noteedit.cpp:1127
+#: src/noteedit.cpp:1139
 #, fuzzy
 msgid "Font"
 msgstr "フォント(&F):"
 
-#: src/noteedit.cpp:1134
+#: src/noteedit.cpp:1146
 #, fuzzy
 msgid "Font Size"
 msgstr "アイコンサイズ"
 
-#: src/noteedit.cpp:1148 src/tagsedit.cpp:463
+#: src/noteedit.cpp:1160 src/tagsedit.cpp:465
 msgid "Bold"
 msgstr "ボールド"
 
-#: src/noteedit.cpp:1155 src/tagsedit.cpp:477
+#: src/noteedit.cpp:1167 src/tagsedit.cpp:479
 #, fuzzy
 msgid "Italic"
 msgstr "イタリック(&T)"
 
-#: src/noteedit.cpp:1162 src/tagsedit.cpp:470
+#: src/noteedit.cpp:1174 src/tagsedit.cpp:472
 msgid "Underline"
 msgstr "下線"
 
-#: src/noteedit.cpp:1170
+#: src/noteedit.cpp:1182
 msgid "Superscript"
 msgstr ""
 
-#: src/noteedit.cpp:1176
+#: src/noteedit.cpp:1188
 msgid "Subscript"
 msgstr ""
 
-#: src/noteedit.cpp:1183
+#: src/noteedit.cpp:1195
 msgid "Align Left"
 msgstr "左揃え"
 
-#: src/noteedit.cpp:1189
+#: src/noteedit.cpp:1201
 msgid "Centered"
 msgstr "中央揃え"
 
-#: src/noteedit.cpp:1195
+#: src/noteedit.cpp:1207
 msgid "Align Right"
 msgstr "右揃え"
 
-#: src/noteedit.cpp:1201
+#: src/noteedit.cpp:1213
 msgid "Justified"
 msgstr "左右両端揃え"
 
-#: src/noteedit.cpp:1213
+#: src/noteedit.cpp:1225
 msgid "Undo"
 msgstr ""
 
-#: src/noteedit.cpp:1219
+#: src/noteedit.cpp:1231
 msgid "Redo"
 msgstr ""
 
 #: src/notefactory.cpp:483
+#, fuzzy
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
 "generic note, allowing you to drag or copy it to an application that "
 "understand it.</p><p>If you want the support of these data, please contact "
-"developer or visit the <a href=\"http://basket-notepads.github.io/dropdb.php\">BasKet "
-"Drop Database</a>.</p>"
+"developer.</p>"
 msgstr ""
 "<p>%1はあなたがドロップしたデータをサポートしていません。<br>しかしながら、一"
 "般的なメモが作成されているので、それを認識するアプリケーションにドラッグして"
 "コピーすることはできます。</p><p>これらのデータのサポートを希望される場合は、"
-"開発者に連絡するか <a href=\"http://basket-notepads.github.io/dropdb.php\">BasKet Drop "
-"Database</a> をご覧ください。</p>"
+"開発者に連絡するか <a href=\"http://basket-notepads.github.io/dropdb.php"
+"\">BasKet Drop Database</a> をご覧ください。</p>"
 
-#: src/notefactory.cpp:487
+#: src/notefactory.cpp:486
 msgid "Unsupported MIME Type(s)"
 msgstr "サポートされていないMIMEタイプ"
 
-#: src/notefactory.cpp:543
+#: src/notefactory.cpp:542
 msgid "&Move Here\tShift"
 msgstr "ここに移動(&M)\tShift"
 
-#: src/notefactory.cpp:546
+#: src/notefactory.cpp:545
 msgid "&Copy Here\tCtrl"
 msgstr "ここにコピー(&C)\tCtrl"
 
-#: src/notefactory.cpp:549
+#: src/notefactory.cpp:548
 msgid "&Link Here\tCtrl+Shift"
 msgstr "ここにリンク(&L)\tCtrl+Shift"
 
-#: src/notefactory.cpp:556
+#: src/notefactory.cpp:555
 msgid "C&ancel\tEscape"
 msgstr "キャンセル(&A)\tEscape"
 
-#: src/notefactory.cpp:1060
+#: src/notefactory.cpp:1059
 msgid "Import Icon as Image"
 msgstr "アイコンを画像としてインポート"
 
-#: src/notefactory.cpp:1060
+#: src/notefactory.cpp:1059
 msgid "Choose the size of the icon to import as an image:"
 msgstr "画像としてインポートするアイコンのサイズを選択:"
 
-#: src/notefactory.cpp:1074
+#: src/notefactory.cpp:1073
 msgid "Load File Content into a Note"
 msgstr "ファイルの内容をメモに読み込む"
 
@@ -2827,45 +2865,45 @@ msgstr "ファイルの内容をメモに読み込む"
 msgid "No private key selected."
 msgstr "秘密鍵が選択されていません。"
 
-#: src/regiongrabber.cpp:103
+#: src/regiongrabber.cpp:104
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
 
-#: src/settings.cpp:368
+#: src/settings.cpp:376
 msgid "On left"
 msgstr "左"
 
-#: src/settings.cpp:369
+#: src/settings.cpp:377
 msgid "On right"
 msgstr "右"
 
-#: src/settings.cpp:372
+#: src/settings.cpp:380
 msgid "&Basket tree position:"
 msgstr "バスケットツリーの位置(&B):"
 
-#: src/settings.cpp:381 src/settings.cpp:728
+#: src/settings.cpp:389 src/settings.cpp:736
 msgid "On top"
 msgstr "上"
 
-#: src/settings.cpp:382 src/settings.cpp:729
+#: src/settings.cpp:390 src/settings.cpp:737
 msgid "On bottom"
 msgstr "下"
 
-#: src/settings.cpp:385
+#: src/settings.cpp:393
 msgid "&Filter bar position:"
 msgstr "フィルタバーの位置(&F):"
 
-#: src/settings.cpp:394
+#: src/settings.cpp:402
 msgid "&Use balloons to report results of global actions"
 msgstr "グローバルアクションの結果をバルーンを使って通知する(&U)"
 
-#: src/settings.cpp:397
+#: src/settings.cpp:405
 msgid "What are global actions?"
 msgstr "グローバルアクションって何？"
 
-#: src/settings.cpp:398
+#: src/settings.cpp:406
 msgid ""
 "You can configure global shortcuts to do some actions without having to show "
 "the main window. For instance, you can paste the clipboard content, take a "
@@ -2880,7 +2918,7 @@ msgstr ""
 "す。また、そのアイコンをマウスの中ボタンでクリックすることによって、現在選択"
 "されているものをそのバスケットに貼り付けることもできます。"
 
-#: src/settings.cpp:401
+#: src/settings.cpp:409
 msgid ""
 "When doing so, %1 pops up a little balloon message to inform you the action "
 "has been successfully done. You can disable that balloon."
@@ -2889,7 +2927,7 @@ msgstr ""
 "めに小さなバルーンメッセージをポップアップします。このバルーンは設定で無効に"
 "することができます。"
 
-#: src/settings.cpp:402
+#: src/settings.cpp:410
 msgid ""
 "Note that those messages are smart enough to not appear if the main window "
 "is visible. This is because you already see the result of your actions in "
@@ -2899,67 +2937,67 @@ msgstr ""
 "なっています。なぜなら、あなたが実行したアクションの結果が既にメインウィンド"
 "ウに表示されているからです。"
 
-#: src/settings.cpp:410
+#: src/settings.cpp:418
 msgid "System Tray Icon"
 msgstr "システムトレイアイコン"
 
-#: src/settings.cpp:415
+#: src/settings.cpp:423
 msgid "&Dock in system tray"
 msgstr "システムトレイにドッキング(&D)"
 
-#: src/settings.cpp:424
+#: src/settings.cpp:432
 msgid "&Show current basket icon in system tray icon"
 msgstr "現在のバスケットのアイコンをシステムトレイに表示する(&S)"
 
-#: src/settings.cpp:434
+#: src/settings.cpp:442
 msgid "&Hide main window when mouse leaves it for"
 msgstr "マウスが離れた後、次の時間が経過したらメインウィンドウを隠す(&H)"
 
-#: src/settings.cpp:437 src/settings.cpp:449
+#: src/settings.cpp:445 src/settings.cpp:457
 msgid " tenths of seconds"
 msgstr "/10 秒"
 
-#: src/settings.cpp:446
+#: src/settings.cpp:454
 msgid "Show &main window when mouse hovers over the system tray icon for"
 msgstr "マウスが次の時間アイコンの上にあったらメインウィンドウを表示する(&M)"
 
-#: src/settings.cpp:523
+#: src/settings.cpp:531
 msgid "Ani&mate changes in baskets"
 msgstr "バスケット内の変更をアニメーション表示する(&M)"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:535
 msgid "&Show tooltips in baskets"
 msgstr "バスケット内でツールチップを表示する(&S)"
 
-#: src/settings.cpp:531
+#: src/settings.cpp:539
 msgid "&Big notes"
 msgstr "大きなメモ(&B)"
 
-#: src/settings.cpp:537
+#: src/settings.cpp:545
 msgid "Behavior"
 msgstr "挙動"
 
-#: src/settings.cpp:542
+#: src/settings.cpp:550
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr "* または - で始まる行をテキストエディタでリストに変換する(&T)"
 
-#: src/settings.cpp:546
+#: src/settings.cpp:554
 msgid "Ask confirmation before &deleting notes"
 msgstr "メモを削除する前に確認する(&D)"
 
-#: src/settings.cpp:550
+#: src/settings.cpp:558
 msgid "Do not keep text formatting when pasting"
 msgstr ""
 
-#: src/settings.cpp:557
+#: src/settings.cpp:565
 msgid "&Export tags in texts"
 msgstr "タグをテキストとしてエクスポートする(&E)"
 
-#: src/settings.cpp:561
+#: src/settings.cpp:569
 msgid "When does this apply?"
 msgstr "これが適用されるのは..."
 
-#: src/settings.cpp:562
+#: src/settings.cpp:570
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
@@ -2967,15 +3005,14 @@ msgstr ""
 "これはメモをテキストエディタに「コピー&ペースト」または「ドラッグ&ドロップ」"
 "したときに適用されます。"
 
-#: src/settings.cpp:563
+#: src/settings.cpp:571
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr ""
 "このオプションを有効にすると、タグをテキストに置き換えて貼り付けることができ"
 "ます。"
 
-#. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:564 src/tagsedit.cpp:519
+#: src/settings.cpp:572 src/tagsedit.cpp:521
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
@@ -2985,15 +3022,15 @@ msgstr ""
 "<b>[ ]</b> または <b>[x]</b> が付きます。これはそれぞれ、チェックマークが入っ"
 "ていないボックスと入っているボックスを表します。"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:583
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "挿入ラインの右側をクリックしたときは新しいメモをグループ化する(&G)"
 
-#: src/settings.cpp:577
+#: src/settings.cpp:585
 msgid "How to group a new note?"
 msgstr "新しいメモをグループ化するには..."
 
-#: src/settings.cpp:578
+#: src/settings.cpp:586
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
 "insert notes at the cursor position, but also allows you to group a new note "
@@ -3002,7 +3039,7 @@ msgstr ""
 "<p>このオプションを有効にすると、カーソル位置にメモを挿入するだけでなく、同時"
 "にカーソルの下にある既存のメモとグループ化できるようになります。</p>"
 
-#: src/settings.cpp:580
+#: src/settings.cpp:588
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
 "on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note."
@@ -3015,182 +3052,182 @@ msgstr ""
 "します。新しいメモは、マウスの位置によって、上または下のメモとグループ化され"
 "ます。</p>"
 
-#: src/settings.cpp:596
+#: src/settings.cpp:604
 msgid "Do nothing"
 msgstr "何もしない"
 
-#: src/settings.cpp:597
+#: src/settings.cpp:605
 msgid "Paste clipboard"
 msgstr "クリップボードを貼り付け"
 
-#: src/settings.cpp:600
+#: src/settings.cpp:608
 #, fuzzy
 msgid "Insert cross reference"
 msgstr "スクリーンから色を挿入"
 
-#: src/settings.cpp:601
+#: src/settings.cpp:609
 msgid "Insert launcher note"
 msgstr "ランチャーメモを挿入"
 
-#: src/settings.cpp:604
+#: src/settings.cpp:612
 msgid "Insert color from screen"
 msgstr "スクリーンから色を挿入"
 
-#: src/settings.cpp:605
+#: src/settings.cpp:613
 msgid "Load note from file"
 msgstr "ファイルからメモを読み込む"
 
-#: src/settings.cpp:606
+#: src/settings.cpp:614
 msgid "Import Launcher from KDE Menu"
 msgstr "KDE メニューからランチャーをインポート"
 
-#: src/settings.cpp:607
+#: src/settings.cpp:615
 msgid "Import icon"
 msgstr "アイコンをインポート"
 
-#: src/settings.cpp:610
+#: src/settings.cpp:618
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift キーを押しながらバスケット内を中クリック:"
 
-#: src/settings.cpp:615
+#: src/settings.cpp:623
 msgid "at cursor position"
 msgstr "(カーソル位置に)"
 
-#: src/settings.cpp:629
+#: src/settings.cpp:637
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "保護されたバスケットが次の時間閉じられていたら自動的にロックする(&U)"
 
-#: src/settings.cpp:633
+#: src/settings.cpp:641
 msgid " minutes"
 msgstr " 分"
 
-#: src/settings.cpp:644
+#: src/settings.cpp:652
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "秘密鍵/公開鍵で保護されたバスケットに GnuPG エージェントを使う(&P)"
 
-#: src/settings.cpp:725
+#: src/settings.cpp:733
 msgid "&Place of new notes:"
 msgstr "新しいメモの場所(&P):"
 
-#: src/settings.cpp:730
+#: src/settings.cpp:738
 msgid "At current note"
 msgstr "現在のメモ"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:757
 msgid "&New images size:"
 msgstr "新しい画像サイズ(&N):"
 
-#: src/settings.cpp:762
+#: src/settings.cpp:770
 msgid "&by"
 msgstr "&x"
 
-#: src/settings.cpp:767
+#: src/settings.cpp:775
 msgid "pixels"
 msgstr "ピクセル"
 
-#: src/settings.cpp:769
+#: src/settings.cpp:777
 msgid "&Visualize..."
 msgstr "視覚化(&V)..."
 
-#: src/settings.cpp:777
+#: src/settings.cpp:785
 msgid "View Content of Added Files for the Following Types"
 msgstr "以下のファイルが追加されたらファイルの内容を表示する"
 
-#: src/settings.cpp:779
+#: src/settings.cpp:787
 msgid "&Plain text"
 msgstr "プレーンテキスト(&P)"
 
-#: src/settings.cpp:780
+#: src/settings.cpp:788
 msgid "&HTML page"
 msgstr "HTML ページ(&H)"
 
-#: src/settings.cpp:781
+#: src/settings.cpp:789
 msgid "&Image or animation"
 msgstr "画像とアニメーション(&I)"
 
-#: src/settings.cpp:782
+#: src/settings.cpp:790
 msgid "&Sound"
 msgstr "サウンド(&S)"
 
-#: src/settings.cpp:848
+#: src/settings.cpp:856
 msgid "Conference audio record"
 msgstr "会議の録音"
 
-#: src/settings.cpp:849
+#: src/settings.cpp:857
 msgid "Annual report"
 msgstr "年次報告"
 
-#: src/settings.cpp:850
+#: src/settings.cpp:858
 msgid "Home folder"
 msgstr "ホームフォルダ"
 
-#: src/settings.cpp:852
+#: src/settings.cpp:860
 msgid "Launch %1"
 msgstr "%1を起動"
 
-#: src/settings.cpp:853
+#: src/settings.cpp:861
 #, fuzzy
 msgid "Another basket"
 msgstr "このバスケットを表示(&H)"
 
-#: src/settings.cpp:855
+#: src/settings.cpp:863
 msgid "&Sounds"
 msgstr "サウンド(&S)"
 
-#: src/settings.cpp:856
+#: src/settings.cpp:864
 msgid "&Files"
 msgstr "ファイル(&F)"
 
-#: src/settings.cpp:857
+#: src/settings.cpp:865
 msgid "&Local Links"
 msgstr "ローカルリンク(&L)"
 
-#: src/settings.cpp:858
+#: src/settings.cpp:866
 msgid "&Network Links"
 msgstr "ネットワークリンク(&N)"
 
-#: src/settings.cpp:859
+#: src/settings.cpp:867
 msgid "Launc&hers"
 msgstr "ランチャー(&H)"
 
-#: src/settings.cpp:860
+#: src/settings.cpp:868
 #, fuzzy
 msgid "&Cross References"
 msgstr "好み"
 
-#: src/settings.cpp:899
+#: src/settings.cpp:907
 msgid "Open &text notes with a custom application:"
 msgstr "テキストメモを開くアプリケーションを指定する(&T):"
 
-#: src/settings.cpp:900
+#: src/settings.cpp:908
 msgid "Open text notes with:"
 msgstr "テキストメモを開くアプリケーション:"
 
-#: src/settings.cpp:907
+#: src/settings.cpp:915
 msgid "Open &image notes with a custom application:"
 msgstr "画像メモを開くアプリケーションを指定する(&I):"
 
-#: src/settings.cpp:908
+#: src/settings.cpp:916
 msgid "Open image notes with:"
 msgstr "画像メモを開くアプリケーション:"
 
-#: src/settings.cpp:915
+#: src/settings.cpp:923
 msgid "Open a&nimation notes with a custom application:"
 msgstr "アニメーションメモを開くアプリケーションを指定する(&N):"
 
-#: src/settings.cpp:916
+#: src/settings.cpp:924
 msgid "Open animation notes with:"
 msgstr "アニメーションメモを開くアプリケーション:"
 
-#: src/settings.cpp:923
+#: src/settings.cpp:931
 msgid "Open so&und notes with a custom application:"
 msgstr "サウンドメモを開くアプリケーションを指定する(&U):"
 
-#: src/settings.cpp:924
+#: src/settings.cpp:932
 msgid "Open sound notes with:"
 msgstr "サウンドメモを開くアプリケーション:"
 
-#: src/settings.cpp:932
+#: src/settings.cpp:940
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
 "type of note.</p><p>Otherwise, the application you've configured in "
@@ -3200,7 +3237,7 @@ msgstr ""
 "きます。</p><p>チェックしなかった場合は、Konqueror で設定されているアプリケー"
 "ションを使用します。</p>"
 
-#: src/settings.cpp:941
+#: src/settings.cpp:949
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
@@ -3208,11 +3245,11 @@ msgstr ""
 "<p>このタイプのメモを開くときに Konquerur で設定されているアプリケーションの"
 "代わりに使用するアプリケーションを指定します。</p>"
 
-#: src/settings.cpp:962
+#: src/settings.cpp:970
 msgid "How to change the application used to open Web links?"
 msgstr "ウェブリンクを開くアプリケーションを変更するには..."
 
-#: src/settings.cpp:963
+#: src/settings.cpp:971
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3243,11 +3280,11 @@ msgstr ""
 "p><p>ウェブページだけを指定したブラウザで開くようにする、といったより高度な設"
 "定については、次のリンクのヘルプをお読みください。</p>"
 
-#: src/settings.cpp:981
+#: src/settings.cpp:989
 msgid "How to change the applications used to open files and links?"
 msgstr "ファイルとリンクを開くアプリケーションを変更するには..."
 
-#: src/settings.cpp:982
+#: src/settings.cpp:990
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
 "also applies to Web links if you choose not to open them systematically in a "
@@ -3277,6 +3314,18 @@ msgstr ""
 "\"text\" を展開し、\"html\" をクリックします。</li><li>使用するウェブブラウザ"
 "をアプリケーションのリストの最上位に追加します。</li><li>\"application -> "
 "xhtml+xml\" についても同じように設定します。</li></ul>"
+
+#: src/settings_versionsync.cpp:71
+msgid "Do you really want to remove old versions for all baskets?"
+msgstr ""
+
+#: src/settings_versionsync.cpp:72
+msgid "Version Sync"
+msgstr ""
+
+#: src/settings_versionsync.cpp:83
+msgid "This will free %1 MB"
+msgstr ""
 
 #: src/softwareimporters.cpp:59
 msgid "Import Hierarchy"
@@ -3533,146 +3582,146 @@ msgstr ""
 msgid "Funny"
 msgstr "面白い"
 
-#: src/tagsedit.cpp:225
+#: src/tagsedit.cpp:227
 #, fuzzy
 msgctxt "Tag name (shortcut)"
 msgid "%1 (%2)"
 msgstr "%1、%2"
 
-#: src/tagsedit.cpp:316
+#: src/tagsedit.cpp:318
 msgid "Customize Tags"
 msgstr "タグをカスタマイズ"
 
-#: src/tagsedit.cpp:331
+#: src/tagsedit.cpp:333
 msgid "Ne&w Tag"
 msgstr "新しいタグ(&W)"
 
-#: src/tagsedit.cpp:332
+#: src/tagsedit.cpp:334
 msgid "New St&ate"
 msgstr "新しい状態(&A)"
 
-#: src/tagsedit.cpp:350
+#: src/tagsedit.cpp:352
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "上に移動 (Ctrl+Shift+Up)"
 
-#: src/tagsedit.cpp:351
+#: src/tagsedit.cpp:353
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "下に移動 (Ctrl+Shift+Down)"
 
-#: src/tagsedit.cpp:352
+#: src/tagsedit.cpp:354
 #, fuzzy
 msgid "Delete"
 msgstr "削除(&E)"
 
-#: src/tagsedit.cpp:375
+#: src/tagsedit.cpp:377
 msgid "Tag"
 msgstr "タグ"
 
-#: src/tagsedit.cpp:387
+#: src/tagsedit.cpp:389
 #, fuzzy
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "すべて削除(&R)"
 
-#: src/tagsedit.cpp:388
+#: src/tagsedit.cpp:390
 msgid "S&hortcut:"
 msgstr "ショートカット(&H):"
 
-#: src/tagsedit.cpp:393
+#: src/tagsedit.cpp:395
 msgid "&Inherited by new sibling notes"
 msgstr "新しい兄弟メモに継承する(&I)"
 
-#: src/tagsedit.cpp:395
+#: src/tagsedit.cpp:397
 msgid "Allow Cross Reference Links"
 msgstr ""
 
-#: src/tagsedit.cpp:398
+#: src/tagsedit.cpp:400
 #, fuzzy
 msgid "What does this do?"
 msgstr "ということは..."
 
-#: src/tagsedit.cpp:399
+#: src/tagsedit.cpp:401
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following sytax:"
 msgstr ""
 
-#: src/tagsedit.cpp:400
+#: src/tagsedit.cpp:402
 msgid "From the top of the tree (Absolute path):"
 msgstr ""
 
-#: src/tagsedit.cpp:400
+#: src/tagsedit.cpp:402
 msgid "[[/top level item/child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:403
 #, fuzzy
 msgid "Relative to the current basket:"
 msgstr "選択を現在のバスケットに貼り付け"
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:403
 msgid "[[../sibling|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:404
 msgid "[[child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:404
 msgid "[[./child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:416 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
+#: src/tagsedit.cpp:418 src/tagsedit.cpp:1106 src/tagsedit.cpp:1122
 msgid "State"
 msgstr "状態"
 
-#: src/tagsedit.cpp:424
+#: src/tagsedit.cpp:426
 msgid "Na&me:"
 msgstr "名前(&M):"
 
-#: src/tagsedit.cpp:432
+#: src/tagsedit.cpp:434
 #, fuzzy
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "すべて削除(&R)"
 
-#: src/tagsedit.cpp:433
+#: src/tagsedit.cpp:435
 msgid "&Emblem:"
 msgstr "エンブレム(&E):"
 
-#: src/tagsedit.cpp:450
+#: src/tagsedit.cpp:452
 msgid "&Background:"
 msgstr "背景(&B):"
 
-#: src/tagsedit.cpp:483
+#: src/tagsedit.cpp:485
 msgid "Strike Through"
 msgstr "取り消し線"
 
-#: src/tagsedit.cpp:485
+#: src/tagsedit.cpp:487
 msgid "&Text:"
 msgstr "テキスト(&T):"
 
-#: src/tagsedit.cpp:496
+#: src/tagsedit.cpp:498
 msgid "Co&lor:"
 msgstr "色(&L):"
 
-#: src/tagsedit.cpp:501
+#: src/tagsedit.cpp:503
 msgid "&Font:"
 msgstr "フォント(&F):"
 
-#: src/tagsedit.cpp:505
+#: src/tagsedit.cpp:507
 msgid "&Size:"
 msgstr "サイズ(&S):"
 
-#: src/tagsedit.cpp:509
+#: src/tagsedit.cpp:511
 msgid "Te&xt equivalent:"
 msgstr "次のテキストに置換(&X):"
 
-#: src/tagsedit.cpp:516
+#: src/tagsedit.cpp:518
 msgid "What is this for?"
 msgstr ""
 
-#: src/tagsedit.cpp:517
+#: src/tagsedit.cpp:519
 #, fuzzy
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3681,16 +3730,16 @@ msgstr ""
 "これはメモをテキストエディタに「コピー&ペースト」または「ドラッグ&ドロップ」"
 "したときに適用されます。"
 
-#: src/tagsedit.cpp:527
+#: src/tagsedit.cpp:529
 msgid "On ever&y line"
 msgstr "各行に付ける(&Y)"
 
-#: src/tagsedit.cpp:530
+#: src/tagsedit.cpp:532
 #, fuzzy
 msgid "What does this mean?"
 msgstr "ということは..."
 
-#: src/tagsedit.cpp:531
+#: src/tagsedit.cpp:533
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
 "on the first line or on every line of the note."
@@ -3698,7 +3747,7 @@ msgstr ""
 "メモが数行ある場合、タグまたは状態を最初の行だけに付けるか、メモの各行に付け"
 "るかを選択できます。"
 
-#: src/tagsedit.cpp:533
+#: src/tagsedit.cpp:535
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
@@ -3706,22 +3755,22 @@ msgstr ""
 "この例では、上のメモのタグは最初の行だけにエクスポートされているのに対して、"
 "下のメモのタグはメモの各行にエクスポートされています。"
 
-#: src/tagsedit.cpp:977
+#: src/tagsedit.cpp:979
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
 msgstr ""
 "タグを削除すると、現在このタグが付けられているすべてのメモからも削除されま"
 "す。"
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:980
 msgid "Confirm Delete Tag"
 msgstr "タグ削除の確認"
 
-#: src/tagsedit.cpp:979
+#: src/tagsedit.cpp:981
 msgid "Delete Tag"
 msgstr "タグを削除"
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:986
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
@@ -3729,11 +3778,11 @@ msgstr ""
 "状態を削除すると、現在この状態が付けられているすべてのメモからも削除されま"
 "す。"
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:987
 msgid "Confirm Delete State"
 msgstr "状態削除の確認"
 
-#: src/tagsedit.cpp:986
+#: src/tagsedit.cpp:988
 msgid "Delete State"
 msgstr "状態を削除"
 

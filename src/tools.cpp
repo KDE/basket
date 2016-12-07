@@ -242,7 +242,7 @@ QString Tools::crossReferenceForBasket(QStringList linkParts)
         : "");
 
     QString anchor = "<style>" + css + "</style><a href=\"" + basketLink + "\" class=\"" + classes + "\">"
-                + QUrl::fromPercentEncoding(title.toLatin1()) + "</a>";
+                + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
 }
 
@@ -288,7 +288,7 @@ QString Tools::crossReferenceForHtml(QStringList linkParts, HTMLExporter *export
             " a:hover.xref_empty { color: #A55858; }"
             : "");
 
-    QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toLatin1()) + "</a>";
+    QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
 }
 

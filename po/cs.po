@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 22:46+0100\n"
+"POT-Creation-Date: 2016-12-07 21:17+0200\n"
 "PO-Revision-Date: 2006-07-29 12:57+0200\n"
 "Last-Translator: Radomir Fojtik <radfoj@seznam.cz>\n"
 "Language-Team: Czech\n"
@@ -16,116 +16,6 @@ msgstr ""
 "X-Generator: KBabel 1.11.2\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-#. i18n: file: src/basketproperties.ui:14
-#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
-#: build/src/ui_basketproperties.h:204 rc.cpp:54
-msgid "Form"
-msgstr ""
-
-#. i18n: file: src/basketproperties.ui:30
-#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: build/src/ui_basketproperties.h:205 rc.cpp:57 src/settings.cpp:518
-#: src/tagsedit.cpp:1111
-msgid "Appearance"
-msgstr ""
-
-#. i18n: file: src/basketproperties.ui:42
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: build/src/ui_basketproperties.h:206 rc.cpp:60
-#, fuzzy
-msgid "Background &image:"
-msgstr "&Obrázek na pozadí:"
-
-#. i18n: file: src/basketproperties.ui:52
-#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
-#: build/src/ui_basketproperties.h:207 rc.cpp:63
-#, fuzzy
-msgid "&Background color:"
-msgstr "&Barva pozadí:"
-
-#. i18n: file: src/basketproperties.ui:59
-#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: build/src/ui_basketproperties.h:208 rc.cpp:66
-#, fuzzy
-msgid "&Text color:"
-msgstr "Barva &textu:"
-
-#. i18n: file: src/basketproperties.ui:69
-#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
-#: build/src/ui_basketproperties.h:209 rc.cpp:69
-msgid "Disposition"
-msgstr "Uspořádání"
-
-#. i18n: file: src/basketproperties.ui:75
-#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
-#: build/src/ui_basketproperties.h:210 rc.cpp:72
-msgid "Col&umns:"
-msgstr "Slo&upce:"
-
-#. i18n: file: src/basketproperties.ui:82
-#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
-#: build/src/ui_basketproperties.h:211 rc.cpp:75
-msgid "&Free-form"
-msgstr "&Volně"
-
-#. i18n: file: src/basketproperties.ui:108
-#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
-#: build/src/ui_basketproperties.h:212 rc.cpp:78
-msgid "&Mind map"
-msgstr "&Myšlenková mapa"
-
-#. i18n: file: src/basketproperties.ui:118
-#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: build/src/ui_basketproperties.h:213 rc.cpp:81
-#, fuzzy
-msgid "Keyboard Shortcut"
-msgstr "&Klávesové zkratky"
-
-#. i18n: file: src/basketproperties.ui:136
-#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: build/src/ui_basketproperties.h:214 rc.cpp:84
-msgid "S&how this basket"
-msgstr "&Zobrazit tento košík"
-
-#. i18n: file: src/basketproperties.ui:143
-#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: build/src/ui_basketproperties.h:215 rc.cpp:87
-msgid "Show this basket (&global shortcut)"
-msgstr "Zobrazit tento košík (&globální zkratka)"
-
-#. i18n: file: src/basketproperties.ui:150
-#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: build/src/ui_basketproperties.h:216 rc.cpp:90
-msgid "S&witch to this basket (global shortcut)"
-msgstr "Přepnout do tohoto košíku (&globální zkratka)"
-
-#. i18n: file: src/passwordlayout.ui:14
-#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: build/src/ui_passwordlayout.h:105 rc.cpp:144 src/password.cpp:38
-#: src/settings.cpp:620
-msgid "Password Protection"
-msgstr "Ochrana heslem"
-
-#. i18n: file: src/passwordlayout.ui:29
-#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
-#: build/src/ui_passwordlayout.h:107 rc.cpp:147
-#, fuzzy
-msgid "&No protection"
-msgstr "Ochrana heslem"
-
-#. i18n: file: src/passwordlayout.ui:36
-#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
-#: build/src/ui_passwordlayout.h:108 rc.cpp:150
-msgid "Protect basket with a &password"
-msgstr "Chránit košík &heslem"
-
-#. i18n: file: src/passwordlayout.ui:51
-#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
-#: build/src/ui_passwordlayout.h:109 rc.cpp:153
-#, fuzzy
-msgid "Protect basket with private &key:"
-msgstr "Chránit košík osobním &klíčem"
 
 #. i18n: file: src/basket_part.rc:6
 #. i18n: ectx: Menu (file)
@@ -317,12 +207,157 @@ msgstr "Skrýt &nástrojovou lištu"
 msgid "Text Formating Toolbar"
 msgstr "Lišta pro formátování textu"
 
-#: rc.cpp:154
+#. i18n: file: src/basketproperties.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
+#. i18n: file: src/settings_versionsync.ui:14
+#. i18n: ectx: property (windowTitle), widget (KCModule, VersionSyncPage)
+#. i18n: file: src/basketproperties.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, BasketPropertiesUi)
+#. i18n: file: src/settings_versionsync.ui:14
+#. i18n: ectx: property (windowTitle), widget (KCModule, VersionSyncPage)
+#: rc.cpp:54 rc.cpp:156
+msgid "Form"
+msgstr ""
+
+#. i18n: file: src/basketproperties.ui:30
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: rc.cpp:57 src/settings.cpp:526 src/tagsedit.cpp:1113
+msgid "Appearance"
+msgstr ""
+
+#. i18n: file: src/basketproperties.ui:42
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:60
+#, fuzzy
+msgid "Background &image:"
+msgstr "&Obrázek na pozadí:"
+
+#. i18n: file: src/basketproperties.ui:52
+#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
+#: rc.cpp:63
+#, fuzzy
+msgid "&Background color:"
+msgstr "&Barva pozadí:"
+
+#. i18n: file: src/basketproperties.ui:59
+#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
+#: rc.cpp:66
+#, fuzzy
+msgid "&Text color:"
+msgstr "Barva &textu:"
+
+#. i18n: file: src/basketproperties.ui:69
+#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
+#: rc.cpp:69
+msgid "Disposition"
+msgstr "Uspořádání"
+
+#. i18n: file: src/basketproperties.ui:75
+#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
+#: rc.cpp:72
+msgid "Col&umns:"
+msgstr "Slo&upce:"
+
+#. i18n: file: src/basketproperties.ui:82
+#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
+#: rc.cpp:75
+msgid "&Free-form"
+msgstr "&Volně"
+
+#. i18n: file: src/basketproperties.ui:108
+#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
+#: rc.cpp:78
+msgid "&Mind map"
+msgstr "&Myšlenková mapa"
+
+#. i18n: file: src/basketproperties.ui:118
+#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
+#: rc.cpp:81
+#, fuzzy
+msgid "Keyboard Shortcut"
+msgstr "&Klávesové zkratky"
+
+#. i18n: file: src/basketproperties.ui:136
+#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
+#: rc.cpp:84
+msgid "S&how this basket"
+msgstr "&Zobrazit tento košík"
+
+#. i18n: file: src/basketproperties.ui:143
+#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
+#: rc.cpp:87
+msgid "Show this basket (&global shortcut)"
+msgstr "Zobrazit tento košík (&globální zkratka)"
+
+#. i18n: file: src/basketproperties.ui:150
+#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
+#: rc.cpp:90
+msgid "S&witch to this basket (global shortcut)"
+msgstr "Přepnout do tohoto košíku (&globální zkratka)"
+
+#. i18n: file: src/passwordlayout.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
+#: rc.cpp:144 src/password.cpp:38 src/settings.cpp:628
+msgid "Password Protection"
+msgstr "Ochrana heslem"
+
+#. i18n: file: src/passwordlayout.ui:29
+#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
+#: rc.cpp:147
+#, fuzzy
+msgid "&No protection"
+msgstr "Ochrana heslem"
+
+#. i18n: file: src/passwordlayout.ui:36
+#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
+#: rc.cpp:150
+msgid "Protect basket with a &password"
+msgstr "Chránit košík &heslem"
+
+#. i18n: file: src/passwordlayout.ui:51
+#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
+#: rc.cpp:153
+#, fuzzy
+msgid "Protect basket with private &key:"
+msgstr "Chránit košík osobním &klíčem"
+
+#. i18n: file: src/settings_versionsync.ui:20
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
+#: rc.cpp:159
+msgid "Enable distributed version control"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:27
+#. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
+#: rc.cpp:162
+msgid "BasKet is built without version control (libgit2) support"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:37
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
+#: rc.cpp:165
+msgid "Control"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:48
+#. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
+#: rc.cpp:168
+msgid "Clear version history"
+msgstr ""
+
+#. i18n: file: src/settings_versionsync.ui:55
+#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
+#: rc.cpp:171
+#, fuzzy
+msgid "TextLabel"
+msgstr "Text"
+
+#: rc.cpp:172
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 
-#: rc.cpp:155
+#: rc.cpp:173
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
@@ -339,7 +374,8 @@ msgid "BasKet Note Pads"
 msgstr "BasKet Note Pads"
 
 #: src/aboutdata.cpp:34
-msgid "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
+msgid ""
+"Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2016, Gleb Baryshev"
 msgstr ""
 
 #: src/aboutdata.cpp:42
@@ -394,7 +430,7 @@ msgstr ""
 msgid "Original icon"
 msgstr ""
 
-#: src/archive.cpp:59 src/bnpview.cpp:2281
+#: src/archive.cpp:59 src/bnpview.cpp:2284
 msgid "Save as Basket Archive"
 msgstr ""
 
@@ -407,12 +443,12 @@ msgid "This file is not a basket archive."
 msgstr ""
 
 #: src/archive.cpp:273 src/archive.cpp:304 src/archive.cpp:323
-#: src/archive.cpp:331 src/archive.cpp:341 src/archive.cpp:395
+#: src/archive.cpp:331 src/archive.cpp:341 src/archive.cpp:394
 #, fuzzy
 msgid "Basket Archive Error"
 msgstr "Chyba ukládání"
 
-#: src/archive.cpp:304 src/archive.cpp:341 src/archive.cpp:395
+#: src/archive.cpp:304 src/archive.cpp:341 src/archive.cpp:394
 msgid "This file is corrupted. It can not be opened."
 msgstr ""
 
@@ -505,7 +541,7 @@ msgstr ""
 msgid "Override Folder?"
 msgstr ""
 
-#: src/backup.cpp:162 src/backup.cpp:213 src/bnpview.cpp:2290
+#: src/backup.cpp:162 src/backup.cpp:213 src/bnpview.cpp:2293
 #: src/htmlexporter.cpp:77
 msgid "&Override"
 msgstr ""
@@ -536,8 +572,8 @@ msgstr "Košíky"
 msgid "Tar Archives Compressed by Gzip"
 msgstr ""
 
-#: src/backup.cpp:198 src/backup.cpp:254 src/bnpview.cpp:2278
-#: src/bnpview.cpp:2324 src/htmlexporter.cpp:62
+#: src/backup.cpp:198 src/backup.cpp:254 src/bnpview.cpp:2281
+#: src/bnpview.cpp:2327 src/htmlexporter.cpp:62
 #, fuzzy
 msgid "All Files"
 msgstr "&Soubory"
@@ -547,11 +583,11 @@ msgstr "&Soubory"
 msgid "Backup Baskets"
 msgstr "Košíky"
 
-#: src/backup.cpp:210 src/bnpview.cpp:2287 src/htmlexporter.cpp:74
+#: src/backup.cpp:210 src/bnpview.cpp:2290 src/htmlexporter.cpp:74
 msgid "The file <b>%1</b> already exists. Do you really want to override it?"
 msgstr ""
 
-#: src/backup.cpp:212 src/bnpview.cpp:2289 src/htmlexporter.cpp:76
+#: src/backup.cpp:212 src/bnpview.cpp:2292 src/htmlexporter.cpp:76
 msgid "Override File?"
 msgstr ""
 
@@ -560,7 +596,7 @@ msgstr ""
 msgid "Backing up baskets. Please wait..."
 msgstr "&Exportovat do HTML..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2325
+#: src/backup.cpp:255 src/bnpview.cpp:2328
 msgid "Open Basket Archive"
 msgstr ""
 
@@ -641,6 +677,27 @@ msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
 msgstr ""
 
+#: src/basket_options.h:29
+#, fuzzy
+msgid "Show the debug window"
+msgstr "Zobrazit/skrýt hlavní okno"
+
+#: src/basket_options.h:32
+msgid "Custom folder to load and save baskets and other application data."
+msgstr ""
+
+#: src/basket_options.h:36
+msgid "Automatically hide the main window in the system tray on startup."
+msgstr ""
+
+#: src/basket_options.h:40
+msgid "On crash, use the standard KDE crash handler rather than send an email."
+msgstr ""
+
+#: src/basket_options.h:42
+msgid "Open a basket archive or template."
+msgstr ""
+
 #: src/basketfactory.cpp:69
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr "Promiňte, ale vytvoření adresáře pro tento košíš se nezdařilo."
@@ -669,27 +726,6 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basket_options.h:29
-#, fuzzy
-msgid "Show the debug window"
-msgstr "Zobrazit/skrýt hlavní okno"
-
-#: src/basket_options.h:32
-msgid "Custom folder to load and save baskets and other application data."
-msgstr ""
-
-#: src/basket_options.h:36
-msgid "Automatically hide the main window in the system tray on startup."
-msgstr ""
-
-#: src/basket_options.h:40
-msgid "On crash, use the standard KDE crash handler rather than send an email."
-msgstr ""
-
-#: src/basket_options.h:42
-msgid "Open a basket archive or template."
-msgstr ""
-
 #: src/basketproperties.cpp:64
 msgid "Basket Properties"
 msgstr "Vlastnosti košíku"
@@ -698,7 +734,7 @@ msgstr "Vlastnosti košíku"
 msgid "Icon"
 msgstr "Ikona"
 
-#: src/basketproperties.cpp:81 src/kgpgme.cpp:72 src/newbasketdialog.cpp:114
+#: src/basketproperties.cpp:81 src/kgpgme.cpp:74 src/newbasketdialog.cpp:114
 msgid "Name"
 msgstr "Jméno"
 
@@ -706,11 +742,11 @@ msgstr "Jméno"
 msgid "(None)"
 msgstr "(Žádná)"
 
-#: src/basketproperties.cpp:141
+#: src/basketproperties.cpp:140
 msgid "Learn some tips..."
 msgstr "Získej několik tipů..."
 
-#: src/basketproperties.cpp:142
+#: src/basketproperties.cpp:141
 #, fuzzy
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -887,7 +923,7 @@ msgid ""
 msgstr ""
 
 #: src/basketscene.cpp:3151 src/basketstatusbar.cpp:88 src/bnpview.cpp:1815
-#: src/bnpview.cpp:2551 src/bnpview.cpp:2561
+#: src/bnpview.cpp:2554 src/bnpview.cpp:2564
 msgid "Loading..."
 msgstr "Načítám..."
 
@@ -896,7 +932,7 @@ msgstr "Načítám..."
 msgid "&Remove"
 msgstr "&Odstranit vše"
 
-#: src/basketscene.cpp:3306 src/basketscene.cpp:3351 src/bnpview.cpp:2939
+#: src/basketscene.cpp:3306 src/basketscene.cpp:3351 src/bnpview.cpp:2942
 msgid "&Customize..."
 msgstr "&Přizpůsobit..."
 
@@ -990,11 +1026,11 @@ msgstr "Zadejte prosím heslo pro následující soukromý klíč:"
 msgid "Please enter the password for the basket <b>%1</b>:"
 msgstr "Zadejte prosím heslo pro košík <i>%1</i>"
 
-#: src/basketscene.cpp:5245
+#: src/basketscene.cpp:5250
 msgid "Please assign a password to the basket <b>%1</b>:"
 msgstr "Zvolte prosím heslo pro košík <i>%1</i>"
 
-#: src/basketscene.cpp:5300
+#: src/basketscene.cpp:5305
 msgid "Error while saving"
 msgstr ""
 
@@ -1116,7 +1152,7 @@ msgstr ""
 "Přodat textovou poznámku do současného košíku bez nutnosti mít otevřené "
 "hlavní okno."
 
-#: src/bnpview.cpp:391 src/settings.cpp:598
+#: src/bnpview.cpp:391 src/settings.cpp:606
 msgid "Insert image note"
 msgstr "Vložit obrázek"
 
@@ -1128,7 +1164,7 @@ msgid ""
 msgstr ""
 "Přidat obrázek do současného košíku bez nutnosti mít otevřené hlavní okno."
 
-#: src/bnpview.cpp:398 src/settings.cpp:599
+#: src/bnpview.cpp:398 src/settings.cpp:607
 msgid "Insert link note"
 msgstr "Vložit odkaz"
 
@@ -1139,7 +1175,7 @@ msgid ""
 msgstr ""
 "Přidat odkaz do současného košíku bez nutnosti mít otevřené hlavní okno."
 
-#: src/bnpview.cpp:405 src/settings.cpp:602
+#: src/bnpview.cpp:405 src/settings.cpp:610
 msgid "Insert color note"
 msgstr "Vložit barvu"
 
@@ -1164,7 +1200,7 @@ msgstr ""
 "Přidat barvu vybranou z jednoho pixelu na obrazovce do současného košíku bez "
 "nutnosti otevírat hlavní okno."
 
-#: src/bnpview.cpp:419 src/settings.cpp:603
+#: src/bnpview.cpp:419 src/settings.cpp:611
 msgid "Grab screen zone"
 msgstr "Sejmou část obrazovky"
 
@@ -1367,7 +1403,7 @@ msgstr "Importovat spouštěč z &KDE nabídky..."
 msgid "Im&port Icon..."
 msgstr "Im&portovat ikonu..."
 
-#: src/bnpview.cpp:738
+#: src/bnpview.cpp:738 src/noteedit.cpp:515
 msgid "Load From &File..."
 msgstr "Načíst ze &souboru..."
 
@@ -1605,40 +1641,40 @@ msgstr "Odstranit podřazený košík"
 msgid "&Remove Children Baskets"
 msgstr "Odstranit &podřazený košík"
 
-#: src/bnpview.cpp:2278 src/bnpview.cpp:2324
+#: src/bnpview.cpp:2281 src/bnpview.cpp:2327
 #, fuzzy
 msgid "Basket Archives"
 msgstr "Vlastnosti košíku"
 
-#: src/bnpview.cpp:2414
+#: src/bnpview.cpp:2417
 msgid "Clipboard content pasted to basket <i>%1</i>"
 msgstr "Obsah schránky vložen do košíku <i>%1</i>"
 
-#: src/bnpview.cpp:2422
+#: src/bnpview.cpp:2425
 msgid "Selection pasted to basket <i>%1</i>"
 msgstr "Výběr vložen do košíku <i>%1</i>"
 
-#: src/bnpview.cpp:2434
+#: src/bnpview.cpp:2437
 msgid "No note was added."
 msgstr "Nebyla přidána žádná poznámka."
 
-#: src/bnpview.cpp:2475 src/bnpview.cpp:2487
+#: src/bnpview.cpp:2478 src/bnpview.cpp:2490
 msgid "Basket <i>%1</i> is locked"
 msgstr "Košík <i>%1</i> je uzamčen"
 
-#: src/bnpview.cpp:2516 src/bnpview.cpp:2530
+#: src/bnpview.cpp:2519 src/bnpview.cpp:2533
 msgid "(Locked)"
 msgstr "(Uzamčen)"
 
-#: src/bnpview.cpp:2931
+#: src/bnpview.cpp:2934
 msgid "&Assign new Tag..."
 msgstr "&Přidělit novou značku..."
 
-#: src/bnpview.cpp:2935
+#: src/bnpview.cpp:2938
 msgid "&Remove All"
 msgstr "&Odstranit vše"
 
-#: src/crashhandler.cpp:62
+#: src/crashhandler.cpp:68
 msgid ""
 "%1 has crashed! We're sorry about this.\n"
 "\n"
@@ -1656,7 +1692,7 @@ msgstr ""
 "\n"
 "Mnohokrát díky."
 
-#: src/crashhandler.cpp:69
+#: src/crashhandler.cpp:75
 msgid ""
 "The information below is to help the developers identify the problem, please "
 "do not modify it."
@@ -1664,7 +1700,7 @@ msgstr ""
 "Informace níže mohou pomoci vývojářům identifikovat problém, prosím, "
 "nemodifikujte je."
 
-#: src/crashhandler.cpp:188
+#: src/crashhandler.cpp:194
 msgid ""
 "%1 has crashed! We're sorry about this.\n"
 "\n"
@@ -1739,17 +1775,19 @@ msgstr "(Označené)"
 
 #: src/formatimporter.cpp:136
 msgid ""
-"<p>Folder mirroring is not possible anymore (see <a href='http://basket-notepads.github.io'>"
-"basket-notepads.github.io</a> for more information).</p><p>The folder <b>%1</b> "
-"has been copied for the basket needs. You can either delete this folder or "
-"delete the basket, or use both. But remember that modifying one will not "
-"modify the other anymore as they are now separate entities.</p>"
+"<p>Folder mirroring is not possible anymore (see <a href='http://basket-"
+"notepads.github.io'>basket-notepads.github.io</a> for more information).</"
+"p><p>The folder <b>%1</b> has been copied for the basket needs. You can "
+"either delete this folder or delete the basket, or use both. But remember "
+"that modifying one will not modify the other anymore as they are now "
+"separate entities.</p>"
 msgstr ""
-"<p>Zrcadlení adresářů již není možné (viz <a href='http://basket-notepads.github.io'>"
-"basket-notepads.github.io</a> pro více informací).</p><p>Adresář <b>%1</b> byl "
-"zkopírován pro potřeby košíku. Můžete buď smazat tento adresář nebo smazat "
-"košík, nebo použít obě možnosti . Ale nezapomeňte, že modifikací jednoho již "
-"nedojde k modifikací druhého, protože jsou to tyní oddlělené entity.</p>"
+"<p>Zrcadlení adresářů již není možné (viz <a href='http://basket-notepads."
+"github.io'>basket-notepads.github.io</a> pro více informací).</p><p>Adresář "
+"<b>%1</b> byl zkopírován pro potřeby košíku. Můžete buď smazat tento adresář "
+"nebo smazat košík, nebo použít obě možnosti . Ale nezapomeňte, že modifikací "
+"jednoho již nedojde k modifikací druhého, protože jsou to tyní oddlělené "
+"entity.</p>"
 
 #: src/formatimporter.cpp:138
 msgid "Folder Mirror Import"
@@ -1802,16 +1840,16 @@ msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr ""
 
-#: src/htmlexporter.cpp:330
+#: src/htmlexporter.cpp:331
 #, fuzzy
 msgid ""
-"Made with <a href=\"https://launchpad.net/basket\">%1</a> %2, a KDE tool to take "
-"notes and keep information at hand."
+"Made with <a href=\"%1\">%2</a> %3, a KDE tool to take notes and keep "
+"information at hand."
 msgstr ""
 "Vytvořeno pomocí %1, KDE nástroj pro zachytávání poznámek a udržování "
 "velkého množství dat na dlani."
 
-#: src/kcolorcombo2.cpp:124 src/kcolorcombo2.cpp:606 src/tagsedit.cpp:500
+#: src/kcolorcombo2.cpp:124 src/kcolorcombo2.cpp:606 src/tagsedit.cpp:502
 #: src/variouswidgets.cpp:291
 msgid "(Default)"
 msgstr "(Výchozí)"
@@ -1831,39 +1869,39 @@ msgctxt "color"
 msgid "(Default)"
 msgstr "(Výchozí)"
 
-#: src/kgpgme.cpp:58
+#: src/kgpgme.cpp:60
 msgid "Private Key List"
 msgstr "Seznam osobních klíčů"
 
-#: src/kgpgme.cpp:72
+#: src/kgpgme.cpp:74
 msgid "Email"
 msgstr "Email"
 
-#: src/kgpgme.cpp:72
+#: src/kgpgme.cpp:74
 msgid "ID"
 msgstr "ID"
 
-#: src/kgpgme.cpp:76
+#: src/kgpgme.cpp:78
 msgid "Choose a secret key:"
 msgstr "Zvolte tajný klíč:"
 
-#: src/kgpgme.cpp:242
+#: src/kgpgme.cpp:258
 msgid "Key listing unexpectedly truncated."
 msgstr "Výčet klíčů se nečekaně zkrátil."
 
-#: src/kgpgme.cpp:277
+#: src/kgpgme.cpp:293
 msgid "That public key is not meant for encryption"
 msgstr ""
 
-#: src/kgpgme.cpp:319
+#: src/kgpgme.cpp:337
 msgid "Unsupported algorithm"
 msgstr "Nepodporovaný algoritmus"
 
-#: src/kgpgme.cpp:417
+#: src/kgpgme.cpp:434
 msgid "Wrong password."
 msgstr "Chybné heslo."
 
-#: src/kgpgme.cpp:432
+#: src/kgpgme.cpp:449
 #, fuzzy
 msgid "Please enter a new password:"
 msgstr "Chránit košík &heslem"
@@ -2335,7 +2373,7 @@ msgstr "Přednost"
 msgid "Launcher"
 msgstr "Spouštěč"
 
-#: src/notecontent.cpp:256 src/noteedit.cpp:1143
+#: src/notecontent.cpp:256 src/noteedit.cpp:1155
 msgid "Color"
 msgstr "Barva"
 
@@ -2673,7 +2711,7 @@ msgstr ""
 msgid "No"
 msgstr "Žádný"
 
-#: src/noteedit.cpp:510
+#: src/noteedit.cpp:511
 #, fuzzy
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2684,11 +2722,11 @@ msgstr ""
 "editor obrázků).\n"
 "Chcete je otevřít s aplikací, která to dokáže?"
 
-#: src/noteedit.cpp:512
+#: src/noteedit.cpp:513
 msgid "Edit Image Note"
 msgstr "Upravit obrázek"
 
-#: src/noteedit.cpp:526
+#: src/noteedit.cpp:538
 msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
@@ -2696,15 +2734,15 @@ msgstr ""
 "Tento animovaný obrázek zde nemůže být upraven.\n"
 "Chcete ho otevřít s aplikací, která to umí?"
 
-#: src/noteedit.cpp:528
+#: src/noteedit.cpp:540
 msgid "Edit Animation Note"
 msgstr "Upravit animaci"
 
-#: src/noteedit.cpp:623
+#: src/noteedit.cpp:635
 msgid "Edit Color Note"
 msgstr "Upravit barvu"
 
-#: src/noteedit.cpp:647
+#: src/noteedit.cpp:659
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
 "You however can drag or copy the note into an application that understands "
@@ -2713,153 +2751,153 @@ msgstr ""
 "Typ této poznámky je neznámý a nemůže zde být editován.\n"
 "Můžete ale chytnout nebo kopírovat poznámku do aplikace, která ji rozumí."
 
-#: src/noteedit.cpp:649
+#: src/noteedit.cpp:661
 msgid "Edit Unknown Note"
 msgstr "Upravit neznámou poznámku"
 
-#: src/noteedit.cpp:682
+#: src/noteedit.cpp:694
 msgid "Edit Link Note"
 msgstr "Upravit odkaz"
 
-#: src/noteedit.cpp:698 src/noteedit.cpp:728
+#: src/noteedit.cpp:710 src/noteedit.cpp:740
 msgid "Auto"
 msgstr "Automaticky"
 
-#: src/noteedit.cpp:708 src/noteedit.cpp:1007
+#: src/noteedit.cpp:720 src/noteedit.cpp:1019
 msgid "&Icon:"
 msgstr "&Ikona:"
 
-#: src/noteedit.cpp:749 src/noteedit.cpp:910
+#: src/noteedit.cpp:761 src/noteedit.cpp:922
 msgid "Ta&rget:"
 msgstr "&Cíl:"
 
-#: src/noteedit.cpp:753
+#: src/noteedit.cpp:765
 msgid "&Title:"
 msgstr "&Titulek:"
 
-#: src/noteedit.cpp:876
+#: src/noteedit.cpp:888
 #, fuzzy
 msgid "Edit Cross Reference"
 msgstr "Přednost"
 
-#: src/noteedit.cpp:983
+#: src/noteedit.cpp:995
 msgid "Edit Launcher Note"
 msgstr "Upravit spouštěč"
 
-#: src/noteedit.cpp:999
+#: src/noteedit.cpp:1011
 msgid "Choose a command to run:"
 msgstr "Vyberte příkaz k vykonání:"
 
-#: src/noteedit.cpp:1012
+#: src/noteedit.cpp:1024
 msgid "&Guess"
 msgstr "&Odhad"
 
-#: src/noteedit.cpp:1029
+#: src/noteedit.cpp:1041
 msgid "Comman&d:"
 msgstr "Pří&kaz:"
 
-#: src/noteedit.cpp:1033 src/tagsedit.cpp:383
+#: src/noteedit.cpp:1045 src/tagsedit.cpp:385
 msgid "&Name:"
 msgstr "&Název:"
 
-#: src/noteedit.cpp:1127
+#: src/noteedit.cpp:1139
 #, fuzzy
 msgid "Font"
 msgstr "&Font:"
 
-#: src/noteedit.cpp:1134
+#: src/noteedit.cpp:1146
 #, fuzzy
 msgid "Font Size"
 msgstr "Velikost ikony"
 
-#: src/noteedit.cpp:1148 src/tagsedit.cpp:463
+#: src/noteedit.cpp:1160 src/tagsedit.cpp:465
 msgid "Bold"
 msgstr "Tučné"
 
-#: src/noteedit.cpp:1155 src/tagsedit.cpp:477
+#: src/noteedit.cpp:1167 src/tagsedit.cpp:479
 #, fuzzy
 msgid "Italic"
 msgstr "S&kloněné"
 
-#: src/noteedit.cpp:1162 src/tagsedit.cpp:470
+#: src/noteedit.cpp:1174 src/tagsedit.cpp:472
 msgid "Underline"
 msgstr "Podtržené"
 
-#: src/noteedit.cpp:1170
+#: src/noteedit.cpp:1182
 msgid "Superscript"
 msgstr ""
 
-#: src/noteedit.cpp:1176
+#: src/noteedit.cpp:1188
 msgid "Subscript"
 msgstr ""
 
-#: src/noteedit.cpp:1183
+#: src/noteedit.cpp:1195
 msgid "Align Left"
 msgstr "Zarovnat vlevo"
 
-#: src/noteedit.cpp:1189
+#: src/noteedit.cpp:1201
 msgid "Centered"
 msgstr "Zarovnat na střed"
 
-#: src/noteedit.cpp:1195
+#: src/noteedit.cpp:1207
 msgid "Align Right"
 msgstr "Zarovnat vpravo"
 
-#: src/noteedit.cpp:1201
+#: src/noteedit.cpp:1213
 msgid "Justified"
 msgstr "Zarovnat do bloku"
 
-#: src/noteedit.cpp:1213
+#: src/noteedit.cpp:1225
 msgid "Undo"
 msgstr ""
 
-#: src/noteedit.cpp:1219
+#: src/noteedit.cpp:1231
 msgid "Redo"
 msgstr ""
 
 #: src/notefactory.cpp:483
+#, fuzzy
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
 "generic note, allowing you to drag or copy it to an application that "
 "understand it.</p><p>If you want the support of these data, please contact "
-"developer or visit the <a href=\"http://basket-notepads.github.io/dropdb.php\">BasKet "
-"Drop Database</a>.</p>"
+"developer.</p>"
 msgstr ""
 "<p>%1 nepodporuje data která jste upustila.<br>Ale vytvořila obecnou "
 "poznámku, umožňující Vám ji chytnou nebo kopírovatit do aplikace, která ji "
 "rozumí.</p><p>Pokud chcete podporu pro tyto data, prosím kontaktujte "
-"vývojáře nebo navštivte <a href=\"http://basket-notepads.github.io/dropdb.php\">BasKet "
-"Drop Database</a>.</p>"
+"vývojáře nebo navštivte <a href=\"http://basket-notepads.github.io/dropdb.php"
+"\">BasKet Drop Database</a>.</p>"
 
-#: src/notefactory.cpp:487
+#: src/notefactory.cpp:486
 msgid "Unsupported MIME Type(s)"
 msgstr "Nepodporoané MIME typy"
 
-#: src/notefactory.cpp:543
+#: src/notefactory.cpp:542
 msgid "&Move Here\tShift"
 msgstr "&Přesunout zde\tShift"
 
-#: src/notefactory.cpp:546
+#: src/notefactory.cpp:545
 msgid "&Copy Here\tCtrl"
 msgstr "&Kopírovat zde\tCtrl"
 
-#: src/notefactory.cpp:549
+#: src/notefactory.cpp:548
 msgid "&Link Here\tCtrl+Shift"
 msgstr "&Odkazovat zde\tCtrl+Shift"
 
-#: src/notefactory.cpp:556
+#: src/notefactory.cpp:555
 msgid "C&ancel\tEscape"
 msgstr "&Zrušit\tEscape"
 
-#: src/notefactory.cpp:1060
+#: src/notefactory.cpp:1059
 msgid "Import Icon as Image"
 msgstr "Importovat ikonu jako obrázek"
 
-#: src/notefactory.cpp:1060
+#: src/notefactory.cpp:1059
 msgid "Choose the size of the icon to import as an image:"
 msgstr "Zvolte velikost ikony k importu jako obrázek:"
 
-#: src/notefactory.cpp:1074
+#: src/notefactory.cpp:1073
 msgid "Load File Content into a Note"
 msgstr "Nahrát obsah souboru do poznámky"
 
@@ -2867,46 +2905,46 @@ msgstr "Nahrát obsah souboru do poznámky"
 msgid "No private key selected."
 msgstr "Nebyl vybrán osobní klíč."
 
-#: src/regiongrabber.cpp:103
+#: src/regiongrabber.cpp:104
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
 
-#: src/settings.cpp:368
+#: src/settings.cpp:376
 msgid "On left"
 msgstr "Vlevo"
 
-#: src/settings.cpp:369
+#: src/settings.cpp:377
 msgid "On right"
 msgstr "Vpravo"
 
-#: src/settings.cpp:372
+#: src/settings.cpp:380
 #, fuzzy
 msgid "&Basket tree position:"
 msgstr "Pozic&e stromu košíků:"
 
-#: src/settings.cpp:381 src/settings.cpp:728
+#: src/settings.cpp:389 src/settings.cpp:736
 msgid "On top"
 msgstr "Nahoře"
 
-#: src/settings.cpp:382 src/settings.cpp:729
+#: src/settings.cpp:390 src/settings.cpp:737
 msgid "On bottom"
 msgstr "Dole"
 
-#: src/settings.cpp:385
+#: src/settings.cpp:393
 msgid "&Filter bar position:"
 msgstr "Pozice nástrojové lišty pro &filtrování:"
 
-#: src/settings.cpp:394
+#: src/settings.cpp:402
 msgid "&Use balloons to report results of global actions"
 msgstr "&Používat bubliny pro ohlášení výsledku globálních akcí"
 
-#: src/settings.cpp:397
+#: src/settings.cpp:405
 msgid "What are global actions?"
 msgstr ""
 
-#: src/settings.cpp:398
+#: src/settings.cpp:406
 msgid ""
 "You can configure global shortcuts to do some actions without having to show "
 "the main window. For instance, you can paste the clipboard content, take a "
@@ -2915,87 +2953,87 @@ msgid ""
 "middle mouse button on that icon to paste the current selection."
 msgstr ""
 
-#: src/settings.cpp:401
+#: src/settings.cpp:409
 msgid ""
 "When doing so, %1 pops up a little balloon message to inform you the action "
 "has been successfully done. You can disable that balloon."
 msgstr ""
 
-#: src/settings.cpp:402
+#: src/settings.cpp:410
 msgid ""
 "Note that those messages are smart enough to not appear if the main window "
 "is visible. This is because you already see the result of your actions in "
 "the main window."
 msgstr ""
 
-#: src/settings.cpp:410
+#: src/settings.cpp:418
 msgid "System Tray Icon"
 msgstr "Ikona systémového panelu"
 
-#: src/settings.cpp:415
+#: src/settings.cpp:423
 #, fuzzy
 msgid "&Dock in system tray"
 msgstr "&Skrýt v systémové části panelu"
 
-#: src/settings.cpp:424
+#: src/settings.cpp:432
 #, fuzzy
 msgid "&Show current basket icon in system tray icon"
 msgstr "Zobrazit ikonu &současného košíku v systémovém panelu"
 
-#: src/settings.cpp:434
+#: src/settings.cpp:442
 #, fuzzy
 msgid "&Hide main window when mouse leaves it for"
 msgstr "&Skrýt hlavní okno, když ho opustí kurzor myši na"
 
-#: src/settings.cpp:437 src/settings.cpp:449
+#: src/settings.cpp:445 src/settings.cpp:457
 msgid " tenths of seconds"
 msgstr " desetiny sekundy"
 
-#: src/settings.cpp:446
+#: src/settings.cpp:454
 msgid "Show &main window when mouse hovers over the system tray icon for"
 msgstr ""
 "&Obnovit hlavní okno, když myš přejede přes ikonu v systémovém panelu na"
 
-#: src/settings.cpp:523
+#: src/settings.cpp:531
 msgid "Ani&mate changes in baskets"
 msgstr "&Animovat změny v košících"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:535
 #, fuzzy
 msgid "&Show tooltips in baskets"
 msgstr "Zobrazit &nástrojové tipy v košících"
 
-#: src/settings.cpp:531
+#: src/settings.cpp:539
 #, fuzzy
 msgid "&Big notes"
 msgstr "Vel&ké poznámky"
 
-#: src/settings.cpp:537
+#: src/settings.cpp:545
 msgid "Behavior"
 msgstr ""
 
-#: src/settings.cpp:542
+#: src/settings.cpp:550
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 
-#: src/settings.cpp:546
+#: src/settings.cpp:554
 msgid "Ask confirmation before &deleting notes"
 msgstr "Zeptat se na potvrzení před &smazáním poznámky"
 
-#: src/settings.cpp:550
+#: src/settings.cpp:558
 msgid "Do not keep text formatting when pasting"
 msgstr ""
 
-#: src/settings.cpp:557
+#: src/settings.cpp:565
 #, fuzzy
 msgid "&Export tags in texts"
 msgstr "E&xportovat značky v textech"
 
-#: src/settings.cpp:561
+#: src/settings.cpp:569
 msgid "When does this apply?"
 msgstr "Kdy se to použije?"
 
-#: src/settings.cpp:562
+#: src/settings.cpp:570
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
@@ -3003,14 +3041,13 @@ msgstr ""
 "To se použije když kopírujete a vložíte, nebo chytnete a pustíte poznámky do "
 "textového editoru."
 
-#: src/settings.cpp:563
+#: src/settings.cpp:571
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr ""
 "Pokud je povoleno, správně dovolí vložit značku jako textový ekvivalent."
 
-#. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:564 src/tagsedit.cpp:519
+#: src/settings.cpp:572 src/tagsedit.cpp:521
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
@@ -3020,15 +3057,15 @@ msgstr ""
 "exportovány jako řádky, kterým předchází  <b>[ ]</b> nebo <b>[x]</b>, "
 "reprezentujících prázdný  rámeček a zaškrtnutý rámeček."
 
-#: src/settings.cpp:575
+#: src/settings.cpp:583
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Seskupit novou poznámku kliknutím na pravou stranu čáry pro vložení"
 
-#: src/settings.cpp:577
+#: src/settings.cpp:585
 msgid "How to group a new note?"
 msgstr "Jak seskupit novou poznámku?"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:586
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
 "insert notes at the cursor position, but also allows you to group a new note "
@@ -3038,7 +3075,7 @@ msgstr ""
 "poznámky na pozici kurzoru, ale také umožňuje seskupovat nové poznámky s "
 "těmi, které se nacházejí pod pozicí kurzoru:</p>"
 
-#: src/settings.cpp:580
+#: src/settings.cpp:588
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
 "on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note."
@@ -3050,189 +3087,189 @@ msgstr ""
 "<b>vpravo</b> pro <b>seskupení</b> poznámky, s tou <b>pod nebo nad</b> - "
 "záleží na pozici Vaší myši.</p>"
 
-#: src/settings.cpp:596
+#: src/settings.cpp:604
 msgid "Do nothing"
 msgstr "Nedělej nic"
 
-#: src/settings.cpp:597
+#: src/settings.cpp:605
 msgid "Paste clipboard"
 msgstr "Vložit schránku"
 
-#: src/settings.cpp:600
+#: src/settings.cpp:608
 #, fuzzy
 msgid "Insert cross reference"
 msgstr "Zachytit barvu z obrazovky"
 
-#: src/settings.cpp:601
+#: src/settings.cpp:609
 msgid "Insert launcher note"
 msgstr "Vložit spouštěč"
 
-#: src/settings.cpp:604
+#: src/settings.cpp:612
 #, fuzzy
 msgid "Insert color from screen"
 msgstr "Zachytit barvu z obrazovky"
 
-#: src/settings.cpp:605
+#: src/settings.cpp:613
 #, fuzzy
 msgid "Load note from file"
 msgstr "Načíst ze &souboru..."
 
-#: src/settings.cpp:606
+#: src/settings.cpp:614
 #, fuzzy
 msgid "Import Launcher from KDE Menu"
 msgstr "Importovat spouštěč z &KDE nabídky..."
 
-#: src/settings.cpp:607
+#: src/settings.cpp:615
 #, fuzzy
 msgid "Import icon"
 msgstr "Im&portovat ikonu..."
 
-#: src/settings.cpp:610
+#: src/settings.cpp:618
 #, fuzzy
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+prostřední klik:"
 
-#: src/settings.cpp:615
+#: src/settings.cpp:623
 msgid "at cursor position"
 msgstr "na pozici kurzoru"
 
-#: src/settings.cpp:629
+#: src/settings.cpp:637
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr ""
 
-#: src/settings.cpp:633
+#: src/settings.cpp:641
 #, fuzzy
 msgid " minutes"
 msgstr "Žádné poznámky"
 
-#: src/settings.cpp:644
+#: src/settings.cpp:652
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Použít GnuPG agenta pro košíky chráněné &soukromým/veřejným klíčem"
 
-#: src/settings.cpp:725
+#: src/settings.cpp:733
 msgid "&Place of new notes:"
 msgstr ""
 
-#: src/settings.cpp:730
+#: src/settings.cpp:738
 msgid "At current note"
 msgstr "V současné poznámce"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:757
 msgid "&New images size:"
 msgstr "&Nová velikost obrázku:"
 
-#: src/settings.cpp:762
+#: src/settings.cpp:770
 msgid "&by"
 msgstr "&X"
 
-#: src/settings.cpp:767
+#: src/settings.cpp:775
 msgid "pixels"
 msgstr "pixelů"
 
-#: src/settings.cpp:769
+#: src/settings.cpp:777
 msgid "&Visualize..."
 msgstr "&Vizualizovat..."
 
-#: src/settings.cpp:777
+#: src/settings.cpp:785
 msgid "View Content of Added Files for the Following Types"
 msgstr "Zobrazit obsah přidaných souborů pro následující typy"
 
-#: src/settings.cpp:779
+#: src/settings.cpp:787
 #, fuzzy
 msgid "&Plain text"
 msgstr "Prostý &text"
 
-#: src/settings.cpp:780
+#: src/settings.cpp:788
 msgid "&HTML page"
 msgstr "&HTML stránka"
 
-#: src/settings.cpp:781
+#: src/settings.cpp:789
 msgid "&Image or animation"
 msgstr "&Obrázek nebo animace"
 
-#: src/settings.cpp:782
+#: src/settings.cpp:790
 msgid "&Sound"
 msgstr "&Zvuk"
 
-#: src/settings.cpp:848
+#: src/settings.cpp:856
 msgid "Conference audio record"
 msgstr "Audio nahrávka z konference"
 
-#: src/settings.cpp:849
+#: src/settings.cpp:857
 msgid "Annual report"
 msgstr "Roční zpráva"
 
-#: src/settings.cpp:850
+#: src/settings.cpp:858
 msgid "Home folder"
 msgstr "Domovský adresář"
 
-#: src/settings.cpp:852
+#: src/settings.cpp:860
 msgid "Launch %1"
 msgstr "Spustit %1"
 
-#: src/settings.cpp:853
+#: src/settings.cpp:861
 #, fuzzy
 msgid "Another basket"
 msgstr "&Zobrazit tento košík"
 
-#: src/settings.cpp:855
+#: src/settings.cpp:863
 msgid "&Sounds"
 msgstr "&Zvuky"
 
-#: src/settings.cpp:856
+#: src/settings.cpp:864
 msgid "&Files"
 msgstr "&Soubory"
 
-#: src/settings.cpp:857
+#: src/settings.cpp:865
 msgid "&Local Links"
 msgstr "&Místní odkazy"
 
-#: src/settings.cpp:858
+#: src/settings.cpp:866
 msgid "&Network Links"
 msgstr "&Síťové odkazy"
 
-#: src/settings.cpp:859
+#: src/settings.cpp:867
 msgid "Launc&hers"
 msgstr "S&pouštěče"
 
-#: src/settings.cpp:860
+#: src/settings.cpp:868
 #, fuzzy
 msgid "&Cross References"
 msgstr "Přednost"
 
-#: src/settings.cpp:899
+#: src/settings.cpp:907
 msgid "Open &text notes with a custom application:"
 msgstr "Otevřít &textové poznámky s aplikací:"
 
-#: src/settings.cpp:900
+#: src/settings.cpp:908
 msgid "Open text notes with:"
 msgstr "Otevřít textové poznámky s:"
 
-#: src/settings.cpp:907
+#: src/settings.cpp:915
 msgid "Open &image notes with a custom application:"
 msgstr "Otevřít &obrázkové poznámky s aplikací:"
 
-#: src/settings.cpp:908
+#: src/settings.cpp:916
 msgid "Open image notes with:"
 msgstr "Otevřít obrázky s:"
 
-#: src/settings.cpp:915
+#: src/settings.cpp:923
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Otevřít &animované poznámky s aplikací:"
 
-#: src/settings.cpp:916
+#: src/settings.cpp:924
 msgid "Open animation notes with:"
 msgstr "Otevřít animace s:"
 
-#: src/settings.cpp:923
+#: src/settings.cpp:931
 msgid "Open so&und notes with a custom application:"
 msgstr "Otevřít &zvukové poznámky s aplikací:"
 
-#: src/settings.cpp:924
+#: src/settings.cpp:932
 msgid "Open sound notes with:"
 msgstr "Otevřít zvukové poznámky s:"
 
-#: src/settings.cpp:932
+#: src/settings.cpp:940
 #, fuzzy
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3242,7 +3279,7 @@ msgstr ""
 "<p>Pokud zatrženo, aplikace uvedená níže bude použita pro otevření tohoto "
 "typu poznámky.</p><p>Jinak bude použita aplikace nastavená v Konqueroru.</p>"
 
-#: src/settings.cpp:941
+#: src/settings.cpp:949
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
@@ -3250,11 +3287,11 @@ msgstr ""
 "<p>Zvolte aplikaci pro otevírání typů poznámek místo aplikací nastavených v "
 "Konqueroru.</p>"
 
-#: src/settings.cpp:962
+#: src/settings.cpp:970
 msgid "How to change the application used to open Web links?"
 msgstr "Jak změnit aplikaci použitou k otevření webových odkazů ?"
 
-#: src/settings.cpp:963
+#: src/settings.cpp:971
 #, fuzzy
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3287,11 +3324,11 @@ msgstr ""
 "otevírání webových stránek ve Vašem prohlížeči), přečtěte si druhý odkaz "
 "nápovědy.</p>"
 
-#: src/settings.cpp:981
+#: src/settings.cpp:989
 msgid "How to change the applications used to open files and links?"
 msgstr "Jak změnit aplikaci použitou k otevření souborů a odkazů ?"
 
-#: src/settings.cpp:982
+#: src/settings.cpp:990
 #, fuzzy
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3321,6 +3358,18 @@ msgstr ""
 "\"text\" a klikněte \"html\";</li><li>V seznamu aplikací, přesuňte Váš "
 "prohlížeč na první pozici;</li><li>To samé platí typ \"aplikace -> xhtml+xml"
 "\".</li></ul>"
+
+#: src/settings_versionsync.cpp:71
+msgid "Do you really want to remove old versions for all baskets?"
+msgstr ""
+
+#: src/settings_versionsync.cpp:72
+msgid "Version Sync"
+msgstr ""
+
+#: src/settings_versionsync.cpp:83
+msgid "This will free %1 MB"
+msgstr ""
 
 #: src/softwareimporters.cpp:59
 msgid "Import Hierarchy"
@@ -3581,147 +3630,147 @@ msgstr ""
 msgid "Funny"
 msgstr "Veselé"
 
-#: src/tagsedit.cpp:225
+#: src/tagsedit.cpp:227
 #, fuzzy
 msgctxt "Tag name (shortcut)"
 msgid "%1 (%2)"
 msgstr "%1, %2"
 
-#: src/tagsedit.cpp:316
+#: src/tagsedit.cpp:318
 msgid "Customize Tags"
 msgstr "Přizpůsobit značky"
 
-#: src/tagsedit.cpp:331
+#: src/tagsedit.cpp:333
 msgid "Ne&w Tag"
 msgstr "No&vá značka"
 
-#: src/tagsedit.cpp:332
+#: src/tagsedit.cpp:334
 msgid "New St&ate"
 msgstr "Nový s&tav"
 
-#: src/tagsedit.cpp:350
+#: src/tagsedit.cpp:352
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "Posunout nahoru (Ctrl+Shift+Up)"
 
-#: src/tagsedit.cpp:351
+#: src/tagsedit.cpp:353
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "Posunout dolů (Ctrl+Shift+Down)"
 
-#: src/tagsedit.cpp:352
+#: src/tagsedit.cpp:354
 #, fuzzy
 msgid "Delete"
 msgstr "&Smazat"
 
-#: src/tagsedit.cpp:375
+#: src/tagsedit.cpp:377
 msgid "Tag"
 msgstr "Značka"
 
-#: src/tagsedit.cpp:387
+#: src/tagsedit.cpp:389
 #, fuzzy
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "&Odstranit vše"
 
-#: src/tagsedit.cpp:388
+#: src/tagsedit.cpp:390
 msgid "S&hortcut:"
 msgstr "&Zkratka:"
 
-#: src/tagsedit.cpp:393
+#: src/tagsedit.cpp:395
 msgid "&Inherited by new sibling notes"
 msgstr ""
 
-#: src/tagsedit.cpp:395
+#: src/tagsedit.cpp:397
 msgid "Allow Cross Reference Links"
 msgstr ""
 
-#: src/tagsedit.cpp:398
+#: src/tagsedit.cpp:400
 #, fuzzy
 msgid "What does this do?"
 msgstr "Co to znamená?"
 
-#: src/tagsedit.cpp:399
+#: src/tagsedit.cpp:401
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following sytax:"
 msgstr ""
 
-#: src/tagsedit.cpp:400
+#: src/tagsedit.cpp:402
 msgid "From the top of the tree (Absolute path):"
 msgstr ""
 
-#: src/tagsedit.cpp:400
+#: src/tagsedit.cpp:402
 msgid "[[/top level item/child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:403
 #, fuzzy
 msgid "Relative to the current basket:"
 msgstr "Vložit výběr do současného košíku"
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:403
 msgid "[[../sibling|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:404
 msgid "[[child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:404
 msgid "[[./child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:416 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
+#: src/tagsedit.cpp:418 src/tagsedit.cpp:1106 src/tagsedit.cpp:1122
 msgid "State"
 msgstr "Stav"
 
-#: src/tagsedit.cpp:424
+#: src/tagsedit.cpp:426
 msgid "Na&me:"
 msgstr "&Název:"
 
-#: src/tagsedit.cpp:432
+#: src/tagsedit.cpp:434
 #, fuzzy
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "&Odstranit vše"
 
-#: src/tagsedit.cpp:433
+#: src/tagsedit.cpp:435
 msgid "&Emblem:"
 msgstr "&Emblém:"
 
-#: src/tagsedit.cpp:450
+#: src/tagsedit.cpp:452
 msgid "&Background:"
 msgstr "&Barva pozadí:"
 
-#: src/tagsedit.cpp:483
+#: src/tagsedit.cpp:485
 msgid "Strike Through"
 msgstr ""
 
-#: src/tagsedit.cpp:485
+#: src/tagsedit.cpp:487
 msgid "&Text:"
 msgstr "&Text:"
 
-#: src/tagsedit.cpp:496
+#: src/tagsedit.cpp:498
 msgid "Co&lor:"
 msgstr "Ba&rva:"
 
-#: src/tagsedit.cpp:501
+#: src/tagsedit.cpp:503
 msgid "&Font:"
 msgstr "&Font:"
 
-#: src/tagsedit.cpp:505
+#: src/tagsedit.cpp:507
 msgid "&Size:"
 msgstr "&Velikost:"
 
-#: src/tagsedit.cpp:509
+#: src/tagsedit.cpp:511
 msgid "Te&xt equivalent:"
 msgstr "Te&xtový ekvivalent:"
 
-#: src/tagsedit.cpp:516
+#: src/tagsedit.cpp:518
 #, fuzzy
 msgid "What is this for?"
 msgstr "Co je &toto?"
 
-#: src/tagsedit.cpp:517
+#: src/tagsedit.cpp:519
 #, fuzzy
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3730,17 +3779,17 @@ msgstr ""
 "To se použije když kopírujete a vložíte, nebo chytnete a pustíte poznámky do "
 "textového editoru."
 
-#: src/tagsedit.cpp:527
+#: src/tagsedit.cpp:529
 #, fuzzy
 msgid "On ever&y line"
 msgstr "Na každ&ou řádku"
 
-#: src/tagsedit.cpp:530
+#: src/tagsedit.cpp:532
 #, fuzzy
 msgid "What does this mean?"
 msgstr "Co to znamená?"
 
-#: src/tagsedit.cpp:531
+#: src/tagsedit.cpp:533
 #, fuzzy
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3749,7 +3798,7 @@ msgstr ""
 "Pokud má poznámka několik řádků, můžete vybrat k exportu značku nebo stav na "
 "prvním řádku nebo na každém řádku poznámky."
 
-#: src/tagsedit.cpp:533
+#: src/tagsedit.cpp:535
 #, fuzzy
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3759,21 +3808,21 @@ msgstr ""
 "prvním řádku, jakožto značka spodní poznámky je exportována na každém řádku "
 "poznámky."
 
-#: src/tagsedit.cpp:977
+#: src/tagsedit.cpp:979
 #, fuzzy
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
 msgstr "Smazání značky ji odstraní ze všech poznamek, ke kterým je přiřazena."
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:980
 msgid "Confirm Delete Tag"
 msgstr "Potvrdit smazání značky"
 
-#: src/tagsedit.cpp:979
+#: src/tagsedit.cpp:981
 msgid "Delete Tag"
 msgstr "Smazat značku"
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:986
 #, fuzzy
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3781,11 +3830,11 @@ msgid ""
 msgstr ""
 "Smazání stavu jej odstraní ze všech poznamek, ke kterým je stav přiřazen."
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:987
 msgid "Confirm Delete State"
 msgstr "Potvrdit smazání stavu"
 
-#: src/tagsedit.cpp:986
+#: src/tagsedit.cpp:988
 msgid "Delete State"
 msgstr "Smazat stav"
 
