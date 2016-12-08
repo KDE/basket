@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-07 21:17+0200\n"
-"PO-Revision-Date: 2016-03-06 22:51+0100\n"
+"PO-Revision-Date: 2016-12-09 00:27+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: file: src/basket_part.rc:6
@@ -317,32 +317,33 @@ msgstr "Proteggi il cesto con c&hiave privata:"
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: rc.cpp:159
 msgid "Enable distributed version control"
-msgstr ""
+msgstr "Abilita il controllo di versione distribuito"
 
 #. i18n: file: src/settings_versionsync.ui:27
 #. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
 #: rc.cpp:162
 msgid "BasKet is built without version control (libgit2) support"
 msgstr ""
+"BasKet è stato compilato senza il supporto per il controllo di versione "
+"(libgit2)"
 
 #. i18n: file: src/settings_versionsync.ui:37
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
 #: rc.cpp:165
 msgid "Control"
-msgstr ""
+msgstr "Controllo"
 
 #. i18n: file: src/settings_versionsync.ui:48
 #. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
 #: rc.cpp:168
 msgid "Clear version history"
-msgstr ""
+msgstr "Pulisci cronologia delle versioni"
 
 #. i18n: file: src/settings_versionsync.ui:55
 #. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
 #: rc.cpp:171
-#, fuzzy
 msgid "TextLabel"
-msgstr "Testo"
+msgstr "EtichettaDiTesto"
 
 #: rc.cpp:172
 msgctxt "NAME OF TRANSLATORS"
@@ -370,10 +371,10 @@ msgid "BasKet Note Pads"
 msgstr "Blocco appunti BasKet"
 
 #: src/aboutdata.cpp:34
-#, fuzzy
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2016, Gleb Baryshev"
-msgstr "(c) 2003-2007, Sébastien Laoût, (c) 2013-2014, Gleb Baryshev"
+msgstr ""
+"Copyright © 2003-2007, Sébastien Laoût; Copyright © 2013-2016, Gleb Baryshev"
 
 #: src/aboutdata.cpp:42
 msgid "OmegaPhil"
@@ -1814,13 +1815,12 @@ msgid "data"
 msgstr "dati"
 
 #: src/htmlexporter.cpp:331
-#, fuzzy
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a KDE tool to take notes and keep "
 "information at hand."
 msgstr ""
-"Creato con <a href=\"https://launchpad.net/basket\">%1</a>, uno strumento "
-"KDE per prendere note ed averle sempre a portata di mano."
+"Creato con <a href=\"%1\">%2</a> %3, uno strumento KDE per prendere note ed "
+"averle sempre a portata di mano."
 
 #: src/kcolorcombo2.cpp:124 src/kcolorcombo2.cpp:606 src/tagsedit.cpp:502
 #: src/variouswidgets.cpp:291
@@ -2818,7 +2818,6 @@ msgid "Redo"
 msgstr "Rifai"
 
 #: src/notefactory.cpp:483
-#, fuzzy
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
 "generic note, allowing you to drag or copy it to an application that "
@@ -2828,8 +2827,7 @@ msgstr ""
 "<p>%1 non supporta i dati che hai trascinato.<br>Ha comunque creato una nota "
 "generica, in questo modo puoi trascinarla o copiarla in un'applicazione "
 "capace di gestirla.</p><p>Se vuoi che questo tipo di dati sia supportato "
-"contatta gli sviluppatori o visita il <a href=\"https://launchpad.net/"
-"basketdropdb.php\">banca dati del trascinamento di BasKet</a>.</p>"
+"contatta gli sviluppatori.</p>"
 
 #: src/notefactory.cpp:486
 msgid "Unsupported MIME Type(s)"
@@ -3326,15 +3324,15 @@ msgstr ""
 
 #: src/settings_versionsync.cpp:71
 msgid "Do you really want to remove old versions for all baskets?"
-msgstr ""
+msgstr "Vuoi veramente rimuovere le vecchie versioni di tutti i cesti?"
 
 #: src/settings_versionsync.cpp:72
 msgid "Version Sync"
-msgstr ""
+msgstr "Sincronizzazione versione"
 
 #: src/settings_versionsync.cpp:83
 msgid "This will free %1 MB"
-msgstr ""
+msgstr "Saranno liberati %1 MB"
 
 #: src/softwareimporters.cpp:59
 msgid "Import Hierarchy"
