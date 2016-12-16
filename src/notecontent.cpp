@@ -360,9 +360,9 @@ QString TextContent::toHtml(const QString &/*imageName*/, const QString &/*cutte
 QString HtmlContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
 {
     //return Tools::htmlToParagraph(html());
-    QTextDocument* simpleRichText = new QTextDocument();
-    simpleRichText->setHtml(html());
-    return Tools::textDocumentToMinimalHTML(simpleRichText);
+    QTextDocument simpleRichText;
+    simpleRichText.setHtml(html());
+    return Tools::textDocumentToMinimalHTML(&simpleRichText);
 }
 
 QString ImageContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
