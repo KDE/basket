@@ -83,7 +83,6 @@ target_link_libraries(basketcommon
   KF5::KIOWidgets
   KF5::Notifications
   KF5::Parts
-  KF5::Style
   KF5::TextWidgets
   KF5::WindowSystem
   KF5::XmlGui

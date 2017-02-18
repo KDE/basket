@@ -62,7 +62,6 @@
 #include <QMenu>
 
 #include <KTextEdit>
-#include <KStyle>
 
 #include <KColorScheme> // for KStatefulBrush
 #include <KOpenWithDialog>

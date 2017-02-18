@@ -33,8 +33,10 @@ endif (BUILD_KPARTS)
 find_package(Qt5 REQUIRED COMPONENTS
   Concurrent
   Core
-  Gui
   DBus
+  Gui
+  Widgets
+  Xml
 )
 
 include(KDECompilerSettings)
@@ -44,6 +46,7 @@ include(KDECMakeSettings)
 
 find_package(KF5 REQUIRED COMPONENTS
   Archive
+  Completion
   Config
   ConfigWidgets #KCM
   CoreAddons
@@ -51,7 +54,6 @@ find_package(KF5 REQUIRED COMPONENTS
   DBusAddons
   DocTools
   FileMetaData
-  FrameworkIntegration
   GlobalAccel
   GuiAddons
   I18n
@@ -60,7 +62,9 @@ find_package(KF5 REQUIRED COMPONENTS
   KIO
   Notifications
   Parts
+  Service
   TextWidgets
+  WidgetsAddons
   WindowSystem
   XmlGui
 )
