@@ -1,12 +1,12 @@
 #include "settings_versionsync.h"
 #include "ui_settings_versionsync.h"
 #include <QLocale>
-#include <QtConcurrentRun>
+#include <QtConcurrent/QtConcurrentRun>
 #include <QPointer>
 #include <QDir>
-#include <KComponentData>
 #include <KMessageBox>
 #include <KLocalizedString>
+#include "aboutdata.h"
 #include "settings.h"
 #include "tools.h"
 
@@ -21,9 +21,13 @@ void showHistorySize(QPointer<VersionSyncPage> versionSyncPage)
 }
 
 VersionSyncPage::VersionSyncPage(QWidget* parent, const char* name) :
-    KCModule(KComponentData(name), parent),
+    KCModule(parent),
     ui(new Ui::VersionSyncPage)
 {
+    KAboutData* about = new AboutData();
+    about->setComponentName(name);
+    setAboutData(about);
+
     ui->setupUi(this);
 
     #ifdef WITH_LIBGIT2

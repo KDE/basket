@@ -63,7 +63,7 @@ extern "C" {
 }
 
 extern "C" {
-    KDE_EXPORT KCModule *create_basket_config_version_sync(QWidget *parent, const char *) {
+    Q_DECL_EXPORT KCModule *create_basket_config_version_sync(QWidget *parent, const char *) {
         VersionSyncPage *page = new VersionSyncPage(parent, "kcmbasket_config_version_sync");
         return page;
     }

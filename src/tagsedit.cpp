@@ -232,7 +232,7 @@ void TagListViewItem::setup()
 
     QFont font = state->font(treeWidget()->font());
 
-    QRect textRect = QFontMetrics(font).boundingRect(0, 0, /*width=*/1, 500000, Qt::AlignLeft | Qt::AlignTop, text);
+    //QRect textRect = QFontMetrics(font).boundingRect(0, 0, /*width=*/1, 500000, Qt::AlignLeft | Qt::AlignTop, text);
 
     //widthChanged();
     //int height = TAG_MARGIN + qMax(TAG_ICON_SIZE, textRect.height()) + TAG_MARGIN;
@@ -1309,7 +1309,7 @@ void TagsEditDialog::slotOk()
 void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                             const QModelIndex &index) const
 {
-    TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
+//    TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
 //    qDebug() << "Pointer is: " << thisItem << endl;
     QItemDelegate::paint(painter, option, index);
 }

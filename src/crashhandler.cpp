@@ -26,7 +26,7 @@
 #include <QDir>
 #include <QFileInfoList>
 #include <QProcess>
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 #include <QSysInfo>
 #endif
 
@@ -54,7 +54,7 @@ runCommand(const QByteArray &command)
 void
 Crash::crashHandler(int /*signal*/)
 {
-#ifndef Q_WS_WIN 
+#ifndef Q_OS_WIN
     // we need to fork to be able to get a
     // semi-decent bt - I dunno why
     const pid_t pid = ::fork();
@@ -211,14 +211,14 @@ Crash::crashHandler(int /*signal*/)
         ::waitpid(pid, NULL, 0);
         ::_exit(253);
     }
-#endif //#ifndef Q_WS_WIN 
+#endif //#ifndef Q_OS_WIN
 }
 
 QString Crash::getOSVersionInfo()
 {
     QString result;
 
-    #ifdef Q_WS_X11
+    #ifdef Q_OS_UNIX
     QProcess process;
     process.start("lsb_release", QStringList("-a"));
     if (process.waitForFinished()) {

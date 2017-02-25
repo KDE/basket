@@ -38,7 +38,6 @@
 #include <QTabWidget>
 
 #include <KConfig>
-//#include <KAboutData>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KIO/Global>

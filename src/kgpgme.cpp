@@ -172,7 +172,7 @@ void KGpgMe::init(gpgme_protocol_t proto)
     gpgme_check_version("1.0.0"); //require GnuPG v1
     setlocale(LC_ALL, "");
     gpgme_set_locale(NULL, LC_CTYPE, setlocale(LC_CTYPE, NULL));
-#ifndef Q_WS_WIN 
+#ifndef Q_OS_WIN
     gpgme_set_locale(NULL, LC_MESSAGES, setlocale(LC_MESSAGES, NULL));
 #endif
     err = gpgme_engine_check_version(proto);

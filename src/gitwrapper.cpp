@@ -380,7 +380,6 @@ void GitWrapper::removeDeletedFromIndex(git_repository *repo, git_index* index)
     git_status_foreach(repo, [] (const char *path, unsigned int status_flags, void *payload) -> int {
         if(status_flags & GIT_STATUS_WT_DELETED)
         {
-            int i = 55;
             git_index * index = static_cast<git_index*>(payload);
             git_index_remove_bypath(index,path);
         }

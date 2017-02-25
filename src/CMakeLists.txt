@@ -89,10 +89,6 @@ target_link_libraries(basketcommon
   KF5::XmlGui
 )
 
-if(Q_WS_X11)
-    target_link_libraries(basketcommon ${X11_X11_LIB})
-endif(Q_WS_X11)
-
 IF(HAVE_BALOO)
   target_link_libraries(basketcommon KF5::BalooFiles)
 ENDIF(HAVE_BALOO)

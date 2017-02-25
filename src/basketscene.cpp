@@ -3752,7 +3752,7 @@ void BasketScene::editorCursorPositionChanged()
     {
       QPoint cursorPoint = textEdit->viewport()->mapToGlobal(textEdit->cursorRect().center());
 
-      QPointF contentsCursor = m_view->mapToScene( m_view->viewport()->mapFromGlobal(cursorPoint) );
+      //QPointF contentsCursor = m_view->mapToScene( m_view->viewport()->mapFromGlobal(cursorPoint) );
       //m_view->ensureVisible(contentsCursor.x(), contentsCursor.y(),1,1);
     }
 }

@@ -736,7 +736,7 @@ void KColorCombo2::keyPressEvent(QKeyEvent *event)
         KComboBox::keyPressEvent(event);
 }
 
-void KColorCombo2::fontChange(const QFont &oldFont)
+void KColorCombo2::fontChange(const QFont&)
 {
     // Since the color-rectangle is the same height of the text, we should resize it if the font change:
     updateComboBox();
