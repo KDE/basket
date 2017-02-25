@@ -738,7 +738,7 @@ void BNPView::setupActions()
 
     a = ac->addAction("insert_from_file");
     a->setText(i18n("Load From &File..."));
-    a->setIcon(QIcon::fromTheme("document-import"));
+    a->setIcon(QIcon::fromTheme(IconNames::DOCUMENT_IMPORT));
     m_actLoadFile = a;
 
 //  connect( m_actInsertText,     SIGNAL(triggered()), insertEmptyMapper, SLOT(map()) );
@@ -2227,8 +2227,11 @@ void BNPView::password()
     dlg->setKey(cur->encryptionKey());
     if (dlg->exec()) {
         cur->setProtection(dlg->type(), dlg->key());
-        if (cur->encryptionType() != BasketScene::NoEncryption)
+        if (cur->encryptionType() != BasketScene::NoEncryption) {
+            //Clear metadata
+            Tools::deleteMetadataRecursively(cur->fullPath());
             cur->lock();
+        }
     }
 #endif
 }
@@ -2983,7 +2986,7 @@ void BNPView::loadCrossReference(QString link)
 {
     //remove "basket://" and any encoding.
     QString folderName = link.mid(9, link.length() - 9);
-    folderName = QUrl::fromPercentEncoding(folderName.toLatin1());
+    folderName = QUrl::fromPercentEncoding(folderName.toUtf8());
 
     BasketScene* basket = this->basketForFolderName(folderName);
 
@@ -2999,7 +3002,7 @@ QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *pa
 
     QString page = pages.first();
 
-    page = QUrl::fromPercentEncoding(page.toLatin1());
+    page = QUrl::fromPercentEncoding(page.toUtf8());
     pages.removeFirst();
 
     if(page == "..") {

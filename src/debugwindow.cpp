@@ -59,7 +59,8 @@ void DebugWindow::postMessage(const QString msg)
 
 DebugWindow& DebugWindow::operator<<(const QString msg)
 {
-    textBrowser->append(msg);
+    //This can be used from a different thread
+    QMetaObject::invokeMethod(this, "postMessage", Qt::QueuedConnection, Q_ARG(QString, msg));
     return *this;
 }
 

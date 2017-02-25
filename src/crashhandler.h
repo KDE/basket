@@ -13,6 +13,8 @@
 #ifndef CRASH_H
 #define CRASH_H
 
+#include <QString>
+
 /**
  * @author Max Howell
  * @short The amaroK crash-handler
@@ -24,6 +26,7 @@ class Crash
 {
 public:
     static void crashHandler(int signal);
+    static QString getOSVersionInfo();
 };
 
 #endif

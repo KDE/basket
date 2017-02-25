@@ -1349,8 +1349,8 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 	      return;
 	    }
 	    else if(event->button() == Qt::MiddleButton)
-	    {
-	      m_editor->paste(event->scenePos());
+        {
+          m_editor->paste(event->scenePos(), QClipboard::Selection);
 	      return;
 	    }
     }
@@ -3999,7 +3999,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
         unselectAll();
     }
     // Must set focus to the editor, otherwise edit cursor is not seen and precomposed characters cannot be entered
-    if (m_editor != NULL)
+    if (m_editor != NULL && m_editor->textEdit() != NULL)
         m_editor->textEdit()->setFocus();
 
     Global::bnpView->m_actEditNote->setEnabled(false);
@@ -5233,6 +5233,11 @@ bool BasketScene::loadFromFile(const QString &fullPath, QByteArray *array)
 bool BasketScene::saveToFile(const QString& fullPath, const QString& string)
 {
     QByteArray array = string.toUtf8();
+    return saveToFile(fullPath, array);
+}
+
+bool BasketScene::saveToFile(const QString &fullPath, const QByteArray &array)
+{
     ulong length = array.size();
 
     bool success = true;

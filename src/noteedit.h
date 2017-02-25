@@ -21,6 +21,7 @@
 #ifndef NOTEEDIT_H
 #define NOTEEDIT_H
 
+#include <QClipboard>
 #include <QDialog>
 #include <QLineEdit>
 
@@ -94,7 +95,7 @@ public:
     void startSelection(const QPointF &pos);
     void updateSelection(const QPointF &pos);
     void endSelection(const QPointF &pos);    
-    void paste(const QPointF &pos);
+    void paste(const QPointF &pos, QClipboard::Mode mode);
     
 private:
     bool         m_isEmpty;

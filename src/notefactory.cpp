@@ -485,8 +485,7 @@ Note* NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
     note = createNoteUnknown(source, parent);
     QString message = i18n("<p>%1 doesn't support the data you've dropped.<br>"
                            "It however created a generic note, allowing you to drag or copy it to an application that understand it.</p>"
-                           "<p>If you want the support of these data, please contact developer or visit the "
-                           "<a href=\"http://basket.kde.org/dropdb.php\">BasKet Drop Database</a>.</p>", QGuiApplication::applicationDisplayName());
+                           "<p>If you want the support of these data, please contact developer.</p>", QGuiApplication::applicationDisplayName());
     KMessageBox::information(parent->graphicsView()->viewport(), message, i18n("Unsupported MIME Type(s)"),
                              "unsupportedDropInfo", KMessageBox::AllowLink);
     return note;

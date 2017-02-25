@@ -23,6 +23,12 @@
 #include <kcoreaddons_version.h>
 
 #include <QtCore/QRegExp>
+#include <QDir>
+#include <QFileInfoList>
+#include <QProcess>
+#ifdef Q_WS_WIN
+#include <QSysInfo>
+#endif
 
 #include <cstdio>         //popen, fread
 #include <sys/types.h>    //pid_t
@@ -72,7 +78,6 @@ Crash::crashHandler(int /*signal*/)
 
         body += "======== DEBUG INFORMATION  =======\n"
                 "Version:    " VERSION "\n"
-                "Build date: " __DATE__ "\n"
                 "CC version: " __VERSION__ "\n" //assuming we're using GCC
                 "KDElibs:    " KCOREADDONS_VERSION_STRING "\n"
                 ;//                    "TagLib:     %2.%3.%4\n";
@@ -86,6 +91,7 @@ Crash::crashHandler(int /*signal*/)
         body += "NDEBUG:     true";
 #endif
         body += "\n";
+        body += "OS:\n" + Crash::getOSVersionInfo() + "\n";
 
         /// obtain the backtrace with gdb
 
@@ -206,4 +212,32 @@ Crash::crashHandler(int /*signal*/)
         ::_exit(253);
     }
 #endif //#ifndef Q_WS_WIN 
+}
+
+QString Crash::getOSVersionInfo()
+{
+    QString result;
+
+    #ifdef Q_WS_X11
+    QProcess process;
+    process.start("lsb_release", QStringList("-a"));
+    if (process.waitForFinished()) {
+        result += "lsb_release -a:\n";
+        result += QString(process.readAll());
+    }
+    //Read version files in /etc
+    QStringList versionFileMasks = QStringList() << "*release" << "*version";
+    QFileInfoList versionFiles = QDir("/etc").entryInfoList(versionFileMasks, QDir::Files);
+    foreach (const QFileInfo& versionFile, versionFiles) {
+        result += versionFile.absoluteFilePath() + ":\n";
+        QFile file(versionFile.absoluteFilePath());
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream stream(&file);
+            result += stream.readAll();
+        }
+    }
+    #else
+    result = QString("Windows WinVersion=0x%1").arg((int)QSysInfo::windowsVersion(), 0, 16);
+    #endif
+    return result;
 }

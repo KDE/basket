@@ -58,6 +58,7 @@ void RegionGrabber::init()
     resize(pixmap.size());
     move(0, 0);
     setCursor(Qt::CrossCursor);
+    grabKeyboard();
 }
 
 void RegionGrabber::displayHelp()

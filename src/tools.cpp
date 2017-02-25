@@ -245,7 +245,7 @@ QString Tools::crossReferenceForBasket(QStringList linkParts)
         : "");
 
     QString anchor = "<style>" + css + "</style><a href=\"" + basketLink + "\" class=\"" + classes + "\">"
-                + QUrl::fromPercentEncoding(title.toLatin1()) + "</a>";
+                + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
 }
 
@@ -291,7 +291,7 @@ QString Tools::crossReferenceForHtml(QStringList linkParts, HTMLExporter *export
             " a:hover.xref_empty { color: #A55858; }"
             : "");
 
-    QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toLatin1()) + "</a>";
+    QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
 }
 
@@ -757,6 +757,19 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
     return finalName;
 }
 
+qint64 Tools::computeSizeRecursively(const QString& path)
+{
+    qint64 result = 0;
+
+    QFileInfo file(path);
+    result += file.size();
+    if (file.isDir()) {
+        QFileInfoList children = QDir(path).entryInfoList(QDir::Dirs | QDir::Files | QDir::NoSymLinks | QDir::NoDotAndDotDot | QDir::Hidden);
+        foreach (const QFileInfo& child, children)
+            result += computeSizeRecursively(child.absoluteFilePath());
+    }
+    return result;
+}
 
 // TODO: Move it from NoteFactory
 /*QString NoteFactory::iconForURL(const QUrl &url)

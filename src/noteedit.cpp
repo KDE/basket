@@ -61,6 +61,7 @@
 #include "tools.h"
 #include "variouswidgets.h"
 #include "focusedwidgets.h"
+#include "icon_names.h"
 
 /** class NoteEditor: */
 
@@ -118,23 +119,23 @@ void NoteEditor::updateSelection(const QPointF &pos)
     currentCursor.setPosition(cursor.position(), QTextCursor::KeepAnchor);
     //update the cursor
     m_textEdit->setTextCursor(currentCursor);
-    //copy to clipboard
-    m_textEdit->copy();    
   }
 }
 
 void NoteEditor::endSelection(const QPointF &/*pos*/)
 {
-    // nothing to do yet
-    // we could copy the selected text to the QClipboard with QClipboard::Selection mode
+    //For TextEdit inside GraphicsScene selectionChanged() is only generated for the first selected char -
+    //thus we need to call it manually after selection is finished
+    if (FocusedTextEdit* textEdit = dynamic_cast<FocusedTextEdit*>(m_textEdit))
+        textEdit->onSelectionChanged();
 }
 
-void NoteEditor::paste(const QPointF &pos)
+void NoteEditor::paste(const QPointF &pos, QClipboard::Mode mode)
 {
-  if(m_textEdit)
+  if (FocusedTextEdit* textEdit = dynamic_cast<FocusedTextEdit*>(m_textEdit))
   {
     setCursorTo(pos);
-    m_textEdit->paste();
+    textEdit->paste(mode);
   }
 }
 
@@ -512,15 +513,26 @@ void HtmlEditor::validate()
 ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)
         : NoteEditor(imageContent)
 {
-    int choice = KMessageBox::questionYesNo(parent, i18n(
-                                                "Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
-                                                "Do you want to open it with an application that understand it?"),
-                                            i18n("Edit Image Note"),
-                                            KStandardGuiItem::open(),
-                                            KStandardGuiItem::cancel());
+    int choice = KMessageBox::questionYesNoCancel(parent, i18n(
+            "Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
+            "Do you want to open it with an application that understand it?"),
+        i18n("Edit Image Note"),
+        KStandardGuiItem::open(),
+        KGuiItem(i18n("Load From &File..."), IconNames::DOCUMENT_IMPORT),
+        KStandardGuiItem::cancel());
 
-    if (choice == KMessageBox::Yes)
+    switch (choice) {
+    case (KMessageBox::Yes):
         note()->basket()->noteOpen(note());
+        break;
+    case (KMessageBox::No): //Load from file
+        cancel();
+        Global::bnpView->insertWizard(3); //3 maps to m_actLoadFile
+        break;
+    case (KMessageBox::Cancel):
+        cancel();
+        break;
+    }
 }
 
 /** class AnimationEditor: */

@@ -21,6 +21,7 @@
 // This must be first
 #include <config.h>
 #include "settings.h"   //For GeneralPage, etc.
+#include "settings_versionsync.h"
 #include <KCModule>
 
 //----------------------------
@@ -57,6 +58,13 @@ extern "C" {
 extern "C" {
     Q_DECL_EXPORT KCModule *create_basket_config_apps(QWidget *parent, const char *) {
         ApplicationsPage *page = new ApplicationsPage(parent, "kcmbasket_config_apps");
+        return page;
+    }
+}
+
+extern "C" {
+    KDE_EXPORT KCModule *create_basket_config_version_sync(QWidget *parent, const char *) {
+        VersionSyncPage *page = new VersionSyncPage(parent, "kcmbasket_config_version_sync");
         return page;
     }
 }

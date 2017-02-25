@@ -6,6 +6,7 @@
 
 #include "gitwrapper.h"
 #include "basketscene.h"
+#include "settings.h"
 
 #ifdef WITH_LIBGIT2
 
@@ -15,11 +16,15 @@ extern "C" {
 
 #include "global.h"
 
+#define GIT_RETURN_IF_DISABLED()         \
+    if (!Settings::versionSyncEnabled()) \
+        return;
 
 QMutex GitWrapper::gitMutex;
 
 void GitWrapper::initializeGitRepository(QString folder)
 {
+    GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     // this is not thread safe, we use locking elsewhere
     git_repository *repo = NULL;
@@ -58,6 +63,7 @@ void GitWrapper::initializeGitRepository(QString folder)
 
 void GitWrapper::commitBasketView()
 {
+    GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
 
     git_repository* repo = openRepository();
@@ -88,6 +94,7 @@ void GitWrapper::commitBasketView()
 
 void GitWrapper::commitCreateBasket()
 {
+    GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     git_repository* repo = openRepository();
     if(repo==0)
@@ -128,6 +135,7 @@ void GitWrapper::commitCreateBasket()
 
 void GitWrapper::commitTagsXml()
 {
+    GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     git_repository* repo = openRepository();
     if(repo==0)
@@ -154,6 +162,7 @@ void GitWrapper::commitTagsXml()
 
 void GitWrapper::commitDeleteBasket(BasketScene *basket)
 {
+    GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
 
     git_index *index = NULL;
@@ -199,6 +208,7 @@ void GitWrapper::commitDeleteBasket(BasketScene *basket)
 
 void GitWrapper::commitBasket(BasketScene *basket)
 {
+    GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     git_repository* repo = openRepository();
     if(repo==0)

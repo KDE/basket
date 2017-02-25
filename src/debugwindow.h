@@ -40,7 +40,7 @@ public:
     DebugWindow(QWidget *parent = 0);
     ~DebugWindow();
     /** Methods to post a message to the debug window */
-    void postMessage(const QString msg);
+    Q_INVOKABLE void postMessage(const QString msg);
     DebugWindow& operator<<(const QString msg);
     void insertHLine();
 protected:

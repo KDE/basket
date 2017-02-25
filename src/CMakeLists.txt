@@ -41,6 +41,7 @@ set(basketcommon_LIB_SRCS
     password.cpp
     regiongrabber.cpp
     settings.cpp
+    settings_versionsync.cpp
     softwareimporters.cpp
     systemtray.cpp
     tag.cpp
@@ -58,7 +59,7 @@ IF(HAVE_BALOO)
   list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
 ENDIF(HAVE_BALOO)
 
-qt5_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui)
+qt5_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
 
 QT5_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
 
@@ -168,7 +169,7 @@ install(FILES  basket_part.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 endif(BUILD_KPARTS)
 
 install(FILES  basket.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES  basket_config_general.desktop  	basket_config_baskets.desktop  	basket_config_new_notes.desktop  	basket_config_notes_appearance.desktop  	basket_config_apps.desktop  	DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES  basket_config_general.desktop  	basket_config_baskets.desktop  	basket_config_new_notes.desktop  	basket_config_notes_appearance.desktop  	basket_config_apps.desktop	basket_config_version_sync.desktop  	DESTINATION ${SERVICES_INSTALL_DIR})
 install(FILES  basketui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/basket)
 
 

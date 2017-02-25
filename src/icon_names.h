@@ -22,6 +22,8 @@ StrRes  LAUNCH = "system-run";
 StrRes  KMENU = "kde";
 StrRes  ICONS = "preferences-desktop-icons";
 
+StrRes  DOCUMENT_IMPORT = "document-import";
+
 // Import from
 StrRes  TOMBOY = "tomboy";
 

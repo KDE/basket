@@ -34,7 +34,7 @@ static const char description[] = I18N_NOOP(
 AboutData::AboutData()
         : KAboutData("basket", i18n("BasKet Note Pads"),
                      VERSION, i18n(description), KAboutLicense::GPL_V2,
-                     i18n("(c) 2003-2007, S\303\251bastien Lao\303\273t, (c) 2013-2016, Gleb Baryshev"),
+                     i18n("Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2017, Gleb Baryshev"),
                      QString(),
                      "http://basket.kde.org/")
 {
@@ -50,11 +50,11 @@ AboutData::AboutData()
               i18n("Maintainer"),
               "kelvie@ieee.org");
 
-    addAuthor(i18n("S\303\251bastien Lao\303\273t"),
+    addAuthor(i18n("Sébastien Laoût"),
               i18n("Original Author"),
               "slaout@linux62.org");
 
-    addAuthor(i18n("Petri Damst\303\251n"),
+    addAuthor(i18n("Petri Damstén"),
               i18n("Basket encryption, Kontact integration, KnowIt importer"),
               "damu@iki.fi");
 

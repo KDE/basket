@@ -269,6 +269,7 @@ public:
     bool loadFromFile(const QString &fullPath, QString* string);
     bool loadFromFile(const QString &fullPath, QByteArray* array);
     bool saveToFile(const QString& fullPath, const QString& string);
+    bool saveToFile(const QString& fullPath, const QByteArray& array); //[Encrypt and] save binary content
     static bool safelySaveToFile(const QString& fullPath, const QByteArray& array, unsigned long length);
     static bool safelySaveToFile(const QString& fullPath, const QString& string);
     bool setProtection(int type, QString key);

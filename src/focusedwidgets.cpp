@@ -25,6 +25,7 @@
 #include <QtGui/QKeyEvent>
 #include <QMimeData>
 #include <QScrollBar>
+#include <QApplication>
 
 #include "bnpview.h"
 #include "basketscene.h"
@@ -43,11 +44,18 @@ FocusedTextEdit::FocusedTextEdit(bool disableUpdatesOnKeyPress,
         : KTextEdit(parent),
         m_disableUpdatesOnKeyPress(disableUpdatesOnKeyPress)
 {
-    // pass
+    connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
 }
 
 FocusedTextEdit::~FocusedTextEdit()
 {
+}
+
+void FocusedTextEdit::paste(QClipboard::Mode mode)
+{
+    const QMimeData* md = QApplication::clipboard()->mimeData(mode);
+    if (md)
+        insertFromMimeData(md);
 }
 
 void FocusedTextEdit::keyPressEvent(QKeyEvent *event)
@@ -107,6 +115,14 @@ void FocusedTextEdit::insertFromMimeData(const QMimeData *source)
         KTextEdit::insertFromMimeData(&alteredSource);
     }
     else KTextEdit::insertFromMimeData(source);
+}
+
+void FocusedTextEdit::onSelectionChanged()
+{
+    if (textCursor().selectedText().length() > 0) {
+        QMimeData* md = createMimeDataFromSelection();
+        QApplication::clipboard()->setMimeData(md, QClipboard::Selection);
+    }
 }
 
 /** class FocusWidgetFilter */

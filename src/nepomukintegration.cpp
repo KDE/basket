@@ -65,6 +65,11 @@ nepomukIntegration::nepomukIntegration(BasketScene * basket, int idleTime = 1500
     QMutexLocker locker(&mutex);
     basketList << basket;
 
+    if (!Nepomuk::ResourceManager::instance()->initialized()) {
+        int err = Nepomuk::ResourceManager::instance()->init(); //should be done before moving to thread
+        DEBUG_WIN << QString("\tNepomuk::ResourceManager::instance initialized, err=%1").arg(err);
+    }
+
     moveToThread(&workerThread);
     QTimer::singleShot(500, this, SLOT(doUpdate()));
     workerThread.start(QThread::IdlePriority);
@@ -277,9 +282,14 @@ void nepomukIntegration::doUpdate() {
         emit updateCompleted(basketFolderName, false);
         return;
     }
+
+    if (basket->isEncrypted()) {
+        //If basket is encrypted, skip indexing it
+        emit updateCompleted(basketFolderName, false);
+        return;
+    }
     DEBUG_WIN << "Indexing (" << basketFolderName << "): " << basketName ;
-    if ( Nepomuk::ResourceManager::instance()->initialized() || Nepomuk::ResourceManager::instance()->init() ) {
-        DEBUG_WIN << "\tNepomuk::ResourceManager::instance initialized";
+    if (Nepomuk::ResourceManager::instance()->initialized()) {
         QUrl basketUri = KUrl( basketFolderAbsolutePath + ".basket" );
         /* Nepomuk::File basketRes(basketUri); */
         Nepomuk::Resource basketRes(basketUri);
@@ -395,8 +405,7 @@ bool nepomukIntegration::doDelete(const QString &fullPath) {
     }
     instanceMutex.unlock();
 
-    if ( Nepomuk::ResourceManager::instance()->initialized() || Nepomuk::ResourceManager::instance()->init() ) {
-        DEBUG_WIN << "\tNepomuk::ResourceManager::instance initialized";
+    if (Nepomuk::ResourceManager::instance()->initialized()) {
         QUrl basketUri = KUrl( fullPath );
         Nepomuk::Resource basketRes(basketUri);
         basketRes.remove();
