@@ -59,7 +59,7 @@ IF(HAVE_BALOO)
   list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
 ENDIF(HAVE_BALOO)
 
-qt5_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
+ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
 
 QT5_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
 
@@ -93,7 +93,7 @@ IF(HAVE_BALOO)
   target_link_libraries(basketcommon KF5::BalooFiles)
 ENDIF(HAVE_BALOO)
 
-set_target_properties(basketcommon PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
+set_target_properties(basketcommon PROPERTIES VERSION ${Qt5Core_VERSION} SOVERSION ${Qt5Core_VERSION_MAJOR})
 
 install(TARGETS basketcommon DESTINATION ${LIB_INSTALL_DIR})
 

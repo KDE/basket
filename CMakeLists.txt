@@ -92,6 +92,9 @@ ENDIF(GPGME_FOUND)
 
 #TODO: find meinproc
 
+#Make libbasketcommon search for translations in basket.mo
+ADD_DEFINITIONS(-DTRANSLATION_DOMAIN=\"basket\")
+
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 
