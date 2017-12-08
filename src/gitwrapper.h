@@ -18,7 +18,7 @@ class GitWrapper
         static void initializeGitRepository(QString folder);
         static void commitBasketView();     //commits the whole directory
         static void commitCreateBasket();      //commits and checks baskets/baskets.xml
-        static void commitDeleteBasket(BasketScene *basket);    //deletes a basket directory
+        static void commitDeleteBasket(QString basketFolderName);    //deletes a basket directory
         static void commitBasket(BasketScene *basket); //commits and checks baskets/$BASKETNAME
         static void commitTagsXml();        //commits and checks baskets.xml
 
