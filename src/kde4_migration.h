@@ -30,6 +30,8 @@
 #include <Kdelibs4Migration>
 #include <KIO/CopyJob>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include "aboutdata.h"
 #include "global.h"
@@ -60,6 +62,12 @@ public:
             return false;
         }
 
+        QString customDataFolder = getCustomDataFolder();
+        if (customDataFolder.length() > 0) {
+            qDebug() << "Keeping basket data in" << customDataFolder;
+            return false; //Do not delete the data folder. Note: old basketrc will not be deleted either
+        }
+
         m_dataMigrator.reset(new Kdelibs4Migration());
         if (m_dataMigrator->kdeHomeFound()) {
             bool copySucceeded = false;
@@ -68,6 +76,13 @@ public:
             auto onCopyFinished = [&](KJob* job) {
                 int error = job->error();
                 qDebug() << "KIO::CopyJob finished with result" << error;
+                if (error != 0) {
+                    qDebug() << job->errorString();
+                    QMessageBox::critical(NULL, QGuiApplication::applicationDisplayName(),
+                        i18n("Failed to migrate Basket data from KDE4. You will need to close Basket and copy the basket folder manually.\n" \
+                        "Source: %1\nDestination: %2\nReason: %3",
+                        getOldDataDir(), getNewDataDir(), job->errorString()));
+                }
                 copySucceeded = (error == 0);
                 waitLoop.quit();
             };
@@ -125,6 +140,12 @@ private:
 
     QString getNewDataDir() {
         return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+ "/basket";
+    }
+
+    QString getCustomDataFolder() {
+        KSharedConfig::Ptr basketConfig = KSharedConfig::openConfig(BASKET_RC);
+        KConfigGroup config = basketConfig->group("Main window");
+        return config.readEntry("dataFolder", "");
     }
 };
 

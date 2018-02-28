@@ -31,7 +31,7 @@ function prefix_cmd
 function qtplugin_prefix_cmd
 {
 	if test -n "$1"; then
-		echo '-DQT_PLUGIN_INSTALL_DIR='$1''
+		echo '-DKDE_INSTALL_QTPLUGINDIR='$1''
 	fi
 }
 

@@ -52,7 +52,7 @@ kde4 development libraries and CMake):
 ----
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix` -DQT_PLUGIN_INSTALL_DIR=`qtpaths --plugin-dir` ..
+cmake -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix` -DKDE_INSTALL_QTPLUGINDIR=`qtpaths --plugin-dir` ..
 make
 # make install
 ----
