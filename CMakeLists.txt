@@ -40,7 +40,7 @@ find_package(Qt5 REQUIRED COMPONENTS
   Xml
 )
 
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
 include(ECMInstallIcons)
 include(KDECMakeSettings)
