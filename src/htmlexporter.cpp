@@ -329,7 +329,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream << QString(
         "  </div>\n"
         "  <p class=\"credits\">%1</p>\n").arg(
-            i18n("Made with <a href=\"%1\">%2</a> %3, a KDE tool to take notes and keep information at hand.",
+            i18n("Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep information at hand.",
                  Global::about()->homepage(), QGuiApplication::applicationDisplayName(), VERSION));
 
     stream <<

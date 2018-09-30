@@ -727,7 +727,7 @@ void BNPView::setupActions()
     m_actInsertLauncher = a;
 
     a = ac->addAction("insert_kmenu");
-    a->setText(i18n("Import Launcher from &KDE Menu..."));
+    a->setText(i18n("Import Launcher from &desktop menu..."));
     a->setIcon(QIcon::fromTheme(IconNames::KMENU));
     m_actImportKMenu = a;
 

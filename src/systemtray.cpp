@@ -27,7 +27,7 @@
 #include <QLocale>
 #include <QDialog>
 
-// KDE
+// Frameworks
 #include <KIconEffect>  //Port to Blitz/Quasar?
 #include <KLocalizedString>
 

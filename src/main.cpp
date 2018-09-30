@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
         // The user wanted to not show the window (but it is already hidden by default, so we do nothing):
         if (opts->isSet(QCommandLineOption("start-hidden")))
             ;
-        // When the application is restored by KDE session, restore its state:
+        // When the application is restored by the desktop session, restore its state:
         else if (app.isSessionRestored()){
                 if (!Settings::startDocked())
                         win->show();
@@ -87,5 +87,5 @@ int main(int argc, char *argv[])
 
     /* Go */
     int result = app.exec();
-    exit(result); // Do not clean up memory to not crash while deleting the KApplication, or do not hang up on KDE exit
+    exit(result); // Do not clean up memory to not crash while deleting the QApplication, or do not hang up on session exit
 }

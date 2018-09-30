@@ -449,7 +449,7 @@ void Archive::importTagEmblems(const QString &extractionFolder)
                         // The icon does not exists on that computer, import it:
                         if (emblem.isNull()) {
                             // Of the emblem path was eg. "/home/seb/emblem.png", it was exported as "tag-emblems/_home_seb_emblem.png".
-                            // So we need to copy that image to "~/.kde/share/apps/basket/tag-emblems/emblem.png":
+                            // So we need to copy that image to "~/.local/share/basket/tag-emblems/emblem.png":
                             int slashIndex = emblemName.lastIndexOf('/');
                             QString emblemFileName = (slashIndex < 0 ? emblemName : emblemName.right(slashIndex - 2));
                             QString source      = extractionFolder + "tag-emblems/" + emblemName.replace('/', '_');
@@ -571,7 +571,7 @@ void Archive::importBasketIcon(QDomElement properties, const QString &extraction
             dir.mkdir(Global::savesFolder() + "basket-icons/");
             FormatImporter copier; // Only used to copy files synchronously
             // Of the icon path was eg. "/home/seb/icon.png", it was exported as "basket-icons/_home_seb_icon.png".
-            // So we need to copy that image to "~/.kde/share/apps/basket/basket-icons/icon.png":
+            // So we need to copy that image to "~/.local/share/basket/basket-icons/icon.png":
             int slashIndex = iconName.lastIndexOf('/');
             QString iconFileName = (slashIndex < 0 ? iconName : iconName.right(slashIndex - 2));
             QString source       = extractionFolder + "basket-icons/" + iconName.replace('/', '_');

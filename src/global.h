@@ -67,11 +67,11 @@ public:
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
-    static QString savesFolder();       /// << @return e.g. "/home/username/.kde/share/apps/basket/".
-    static QString basketsFolder();     /// << @return e.g. "/home/username/.kde/share/apps/basket/baskets/".
-    static QString backgroundsFolder(); /// << @return e.g. "/home/username/.kde/share/apps/basket/backgrounds/".
-    static QString templatesFolder();   /// << @return e.g. "/home/username/.kde/share/apps/basket/templates/".
-    static QString tempCutFolder();     /// << @return e.g. "/home/username/.kde/share/apps/basket/temp-cut/".   (was ".tmp/")
+    static QString savesFolder();       /// << @return e.g. "/home/username/.local/share/basket/".
+    static QString basketsFolder();     /// << @return e.g. "/home/username/.local/share/basket/baskets/".
+    static QString backgroundsFolder(); /// << @return e.g. "/home/username/.local/share/basket/backgrounds/".
+    static QString templatesFolder();   /// << @return e.g. "/home/username/.local/share/basket/templates/".
+    static QString tempCutFolder();     /// << @return e.g. "/home/username/.local/share/basket/temp-cut/".   (was ".tmp/")
     static QString gitFolder();         /// << @return e.g. "/home/username/.local/share/basket/.git/".
 
     // Various Things:
