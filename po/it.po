@@ -1,13 +1,13 @@
 # translation of BasKet to Italian
 #
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007, 2014, 2016.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007, 2014, 2016, 2018.
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-30 18:06+0200\n"
-"PO-Revision-Date: 2016-12-09 00:27+0100\n"
+"PO-Revision-Date: 2018-09-30 18:19+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -371,11 +371,10 @@ msgid "BasKet Note Pads"
 msgstr "Blocco appunti BasKet"
 
 #: src/aboutdata.cpp:37
-#, fuzzy
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2017, Gleb Baryshev"
 msgstr ""
-"Copyright © 2003-2007, Sébastien Laoût; Copyright © 2013-2016, Gleb Baryshev"
+"Copyright © 2003-2007, Sébastien Laoût; Copyright © 2013-2017, Gleb Baryshev"
 
 #: src/aboutdata.cpp:45
 msgid "OmegaPhil"
@@ -743,10 +742,9 @@ msgstr ""
 "dell'applicazione."
 
 #: src/basket_options.h:44
-#, fuzzy
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
-msgstr "Cartella home"
+msgstr "cartella"
 
 #: src/basket_options.h:46
 msgid "Automatically hide the main window in the system tray on startup."
@@ -1397,9 +1395,8 @@ msgid "L&auncher"
 msgstr "Avvi&atore"
 
 #: src/bnpview.cpp:730
-#, fuzzy
 msgid "Import Launcher from &desktop menu..."
-msgstr "Importa avviatore dal menu KDE"
+msgstr "Importa avviatore dal menu del &desktop..."
 
 #: src/bnpview.cpp:735
 msgid "Im&port Icon..."
@@ -1486,7 +1483,7 @@ msgstr "Cesto &precedente"
 
 #: src/bnpview.cpp:922
 msgid "&Next Basket"
-msgstr "Ca&nestro successivo"
+msgstr "Cesto &successivo"
 
 #: src/bnpview.cpp:928
 msgid "&Fold Basket"
@@ -1707,28 +1704,27 @@ msgstr "Errore nel salvataggio"
 
 #: src/file_metadata.cpp:15
 msgid "Bit rate"
-msgstr ""
+msgstr "Bitrate"
 
 #: src/file_metadata.cpp:16
 msgid "Channels"
-msgstr ""
+msgstr "Canali"
 
 #: src/file_metadata.cpp:17
-#, fuzzy
 msgid "Duration"
-msgstr "Informazione"
+msgstr "Durata"
 
 #: src/file_metadata.cpp:18
 msgid "Genre"
-msgstr ""
+msgstr "Genere"
 
 #: src/file_metadata.cpp:19
 msgid "Sample rate"
-msgstr ""
+msgstr "Campionamento"
 
 #: src/file_metadata.cpp:20
 msgid "Track number"
-msgstr ""
+msgstr "Numero traccia"
 
 #: src/file_metadata.cpp:21 src/notecontent.cpp:2129
 msgid "Comment"
@@ -1736,11 +1732,11 @@ msgstr "Commento"
 
 #: src/file_metadata.cpp:22
 msgid "Artist"
-msgstr ""
+msgstr "Artista"
 
 #: src/file_metadata.cpp:23
 msgid "Album"
-msgstr ""
+msgstr "Album"
 
 #: src/file_metadata.cpp:24 src/tag.cpp:707
 msgid "Title"
@@ -1748,24 +1744,23 @@ msgstr "Titolo"
 
 #: src/file_metadata.cpp:25
 msgid "Word count"
-msgstr ""
+msgstr "Conteggio parole"
 
 #: src/file_metadata.cpp:26
-#, fuzzy
 msgid "Line count"
-msgstr "Una colonna"
+msgstr "Conteggio righe"
 
 #: src/file_metadata.cpp:27
 msgid "Copyright"
-msgstr ""
+msgstr "Copyright"
 
 #: src/file_metadata.cpp:28
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: src/file_metadata.cpp:29
 msgid "Frame rate"
-msgstr ""
+msgstr "Velocità dei fotogrammi"
 
 #: src/filter.cpp:57
 msgid "Reset Filter"
@@ -1853,12 +1848,11 @@ msgid "data"
 msgstr "dati"
 
 #: src/htmlexporter.cpp:332
-#, fuzzy
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
 "information at hand."
 msgstr ""
-"Creato con <a href=\"%1\">%2</a> %3, uno strumento KDE per prendere note ed "
+"Creato con <a href=\"%1\">%2</a> %3, uno strumento per prendere note ed "
 "averle sempre a portata di mano."
 
 #: src/kcolorcombo2.cpp:126 src/kcolorcombo2.cpp:609 src/tagsedit.cpp:513
@@ -1887,11 +1881,15 @@ msgid ""
 "Destination: %2\n"
 "Reason: %3"
 msgstr ""
+"Migrazione non riuscita dei dati della versione KDE4 di Basket. Devi "
+"chiudere Basket e copiare la cartella di basket manualmente.\n"
+"Sorgente: %1\n"
+"Destinazione: %2\n"
+"Motivo: %3"
 
 #: src/kde4_migration.h:105
-#, fuzzy
 msgid "Choose action"
-msgstr "Scegli il comando da eseguire:"
+msgstr "Scegli azione"
 
 #: src/kde4_migration.h:106
 msgid ""
@@ -1899,15 +1897,17 @@ msgid ""
 "Unless you are planning to run KDE4 version again, you can delete the old "
 "folder %2"
 msgstr ""
+"I dati della versione KDE4 di Basket sono stati migrati con successo in %1.\n"
+"A meno che non pianifichi di usare ancora la vecchia versione, puoi "
+"eliminare la vecchia cartella %2"
 
 #: src/kde4_migration.h:109
-#, fuzzy
 msgid "Delete (to Trash)"
-msgstr "Cancella etichetta"
+msgstr "Elimina (cestina)"
 
 #: src/kde4_migration.h:110
 msgid "Keep"
-msgstr ""
+msgstr "Mantieni"
 
 #: src/kgpgme.cpp:63
 msgid "Private Key List"
@@ -2299,16 +2299,15 @@ msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Vuoi veramente uscire da %1?</p>"
 
 #: src/mainwindow.cpp:271
-#, fuzzy
 msgid ""
 "<p>Notice that you do not have to quit the application before ending your "
 "desktop session. If you end your session while the application is still "
 "running, the application will be reloaded the next time you log in.</p>"
 msgstr ""
 "<p>Nota che non devi necessariamente chiudere il programma prima della "
-"chiusura della sessione KDE. Se chiudi la sessione mentre il programma è "
-"ancora in esecuzione, questo sarà caricato nuovamente quando accederai al "
-"sistema.</p>"
+"chiusura della sessione del desktop. Se chiudi la sessione mentre il "
+"programma è ancora in esecuzione, questo sarà caricato nuovamente quando "
+"accederai al sistema.</p>"
 
 #: src/mainwindow.cpp:275
 msgid "Quit Confirm"
@@ -3151,9 +3150,8 @@ msgid "Load note from file"
 msgstr "Carica nota da file"
 
 #: src/settings.cpp:624
-#, fuzzy
 msgid "Import Launcher from desktop menu"
-msgstr "Importa avviatore dal menu KDE"
+msgstr "Importa avviatore dal menu del desktop"
 
 #: src/settings.cpp:625
 msgid "Import icon"
@@ -3322,7 +3320,6 @@ msgid "How to change the application used to open Web links?"
 msgstr "Come modificare l'applicazione usata per aprire collegamenti Web?"
 
 #: src/settings.cpp:991
-#, fuzzy
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3343,24 +3340,23 @@ msgstr ""
 "applicazioni in base al contenuto del collegamento (una pagina Web, "
 "un'immagine, un documento PDF...) come se fossero dei file presenti sul tuo "
 "computer.</p><p>Qui viene illustrato come fare se vuoi che ogni indirizzo "
-"Web sia aperto nel tuo browser. È utile se non stai utilizzando KDE (se "
-"utilizzi ad esempio GNOME, XFCE...).</p><ul><li>Apri il Centro di Controllo "
-"di KDE (se non è disponibile, prova a digitare \"kcontrol\" in un terminale);"
-"</li><li>Vai nella sezione \"Componenti di KDE\" e poi in \"Scelta componenti"
-"\";</li><li>Scegli \"Navigazione Web\", marca \"nel seguente browser:\" ed "
-"inserisci il nome del tuo browser (come \"firefox\" o \"epiphany\").</li></"
-"ul><p>Adesso, quando fai clic su un <i>qualsiasi</i> collegamento che inizia "
-"per \"http://...\", questo verrà aperto nel tuo browser (ad esempio Mozilla "
-"Firefox o Epiphany o ...).http://...</p><p>Per una configurazione più "
-"accurata (come aprire solo le pagine Web nel browser), leggi il secondo "
-"collegamento di aiuto.</p>"
+"Web sia aperto nel tuo browser. È utile se non stai utilizzando Plasma (se "
+"utilizzi ad esempio GNOME, XFCE...).</p><ul><li>Apri Impostazioni di sistema "
+"di KDE (se non è disponibile, prova a digitare «systemsettings» in un "
+"terminale);</li><li>Vai nella sezione «Applicazioni» e poi in «Applicazioni "
+"predefinite»\";</li><li>Scegli «Browser Web», seleziona «con il comando "
+"seguente:» ed inserisci il nome del tuo browser (come «firefox» o "
+"«epiphany»).</li></ul><p>Adesso, quando fai clic su un <i>qualsiasi</i> "
+"collegamento che inizia per \"http://...\", questo verrà aperto nel tuo "
+"browser (ad esempio Mozilla Firefox o Epiphany o ...).</p><p>Per una "
+"configurazione più accurata (come aprire solo le pagine Web nel browser), "
+"leggi il secondo collegamento di aiuto.</p>"
 
 #: src/settings.cpp:1009
 msgid "How to change the applications used to open files and links?"
 msgstr "Come modificare le applicazioni usate per aprire file e collegamenti?"
 
 #: src/settings.cpp:1010
-#, fuzzy
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
 "also applies to Web links if you choose not to open them systematically in a "
@@ -3380,17 +3376,17 @@ msgstr ""
 "ogni tipo di file. Si applica anche ai collegamenti web se scegli di non "
 "aprirli sistematicamente in un browser web (vedi il primo collegamento di "
 "aiuto). Le impostazioni predefinite normalmente sono sufficienti, ma questo "
-"consiglio è utile se usi GNOME, XFCE o un altro ambiente diverso da KDE.</"
+"consiglio è utile se usi GNOME, XFCE o un altro ambiente diverso da Plasma.</"
 "p><p>Questo è un esempio di come aprire pagine HTML nel browser web (e "
 "continuare ad utilizzare le altre applicazioni per altri indirizzi o file). "
 "Ripeti questi passi per ogni tipo di file che vuoi associare ad una "
-"particolare applicazione.</p><ul><li>Apri il Centro di controllo di KDE (se "
-"non è disponibile prova a scrivere \"kcontrol\" in un terminale);</"
-"li><li>Vai nella sezione \"Componenti di KDE\" e quindi \"Associazioni file"
-"\";</li><li>Nell'albero espandi la voce \"text\" e fai clic su \"html\";</"
+"particolare applicazione.</p><ul><li>Apri Impostazioni di sistema di KDE (se "
+"non è disponibile prova a scrivere «systemsettings» in un terminale);</"
+"li><li>Vai nella sezione «Applicazioni» e quindi «Associazioni dei file»;</"
+"li><li>Nell'albero espandi la voce «text» e fai clic su «html»;</"
 "li><li>Nella lista delle applicazioni aggiungi il tuo browser web come prima "
-"voce;</li><li>Ripeti il procedimento per il tipo \"application -> xhtml+xml"
-"\".</li></ul>"
+"voce;</li><li>Ripeti il procedimento per il tipo «application -> xhtml+xml»."
+"</li></ul>"
 
 #: src/settings_versionsync.cpp:75
 msgid "Do you really want to remove old versions for all baskets?"
@@ -3856,7 +3852,7 @@ msgstr "Cancella stato"
 #: src/tools.cpp:808
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: src/variouswidgets.cpp:57
 msgid "..."
