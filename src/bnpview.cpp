@@ -198,7 +198,7 @@ void BNPView::lateInit()
 
     /* System tray icon */
     Global::systemTray = new SystemTray(Global::activeMainWindow());
-    Global::systemTray->setIconByName(":/images/hi22-apps-basket");
+    Global::systemTray->setIconByName(":/images/22-apps-basket");
     connect(Global::systemTray, SIGNAL(showPart()), this, SIGNAL(showPart()));
     /*if (Settings::useSystray())
         Global::systemTray->show();*/

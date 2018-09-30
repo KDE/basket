@@ -462,19 +462,19 @@ void LikeBack::showInformationMessage()
                           : "") +
                              "<p>" + i18np("Example:", "Examples:", nbButtons) + "</p>" +
                              (buttons & LikeBack::Like ?
-                              "<p><img source=\":images/hi16-actions-likeback_like.png\"> &nbsp;" +
+                              "<p><img source=\":images/16-actions-likeback_like.png\"> &nbsp;" +
                               i18n("<b>I like</b> the new artwork. Very refreshing.") + "</p>"
                               : "") +
                              (buttons & LikeBack::Dislike ?
-                              "<p><img source=\":images/hi16-actions-likeback_dislike.png\"> &nbsp;" +
+                              "<p><img source=\":images/16-actions-likeback_dislike.png\"> &nbsp;" +
                               i18n("<b>I dislike</b> the welcome page of that assistant. Too time consuming.") + "</p>"
                               : "") +
                              (buttons & LikeBack::Bug ?
-                              "<p><img source=\":images/hi16-actions-likeback_bug.png\"> &nbsp;" +
+                              "<p><img source=\":images/16-actions-likeback_bug.png\"> &nbsp;" +
                               i18n("<b>The application has an improper behaviour</b> when clicking the Add button. Nothing happens.") + "</p>"
                               : "") +
                              (buttons & LikeBack::Feature ?
-                              "<p><img source=\":images/hi16-actions-likeback_feature.png\"> &nbsp;" +
+                              "<p><img source=\":images/16-actions-likeback_feature.png\"> &nbsp;" +
                               i18n("<b>I desire a new feature</b> allowing me to send my work by email.") + "</p>"
                               : "") +
                              "</tr></table>",
@@ -664,7 +664,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     QGridLayout *buttonsGrid = new QGridLayout(buttons);
     if (m_likeBack->buttons() & LikeBack::Like) {
         QPixmap likePixmap = KIconLoader::global()->loadIcon(
-                                 ":images/hi16-actions-likeback_like.png", KIconLoader::NoGroup, 16,
+                                 ":images/16-actions-likeback_like.png", KIconLoader::NoGroup, 16,
                                  KIconLoader::DefaultState, QStringList(), 0L, true
                              );
         QLabel *likeIcon = new QLabel(buttons);
@@ -676,7 +676,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     }
     if (m_likeBack->buttons() & LikeBack::Dislike) {
         QPixmap dislikePixmap = KIconLoader::global()->loadIcon(
-                                    ":images/hi16-actions-likeback_dislike.png", KIconLoader::NoGroup, 16,
+                                    ":images/16-actions-likeback_dislike.png", KIconLoader::NoGroup, 16,
                                     KIconLoader::DefaultState, QStringList(), 0L, true
                                 );
         QLabel *dislikeIcon = new QLabel(buttons);
@@ -688,7 +688,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     }
     if (m_likeBack->buttons() & LikeBack::Bug) {
         QPixmap bugPixmap = KIconLoader::global()->loadIcon(
-                                ":images/hi16-actions-likeback_bug.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState,
+                                ":images/16-actions-likeback_bug.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState,
                                 QStringList(), 0L, true
                             );
         QLabel *bugIcon = new QLabel(buttons);
@@ -700,7 +700,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     }
     if (m_likeBack->buttons() & LikeBack::Feature) {
         QPixmap featurePixmap = KIconLoader::global()->loadIcon(
-                                    ":images/hi16-actions-likeback_feature.png", KIconLoader::NoGroup, 16,
+                                    ":images/16-actions-likeback_feature.png", KIconLoader::NoGroup, 16,
                                     KIconLoader::DefaultState, QStringList(), 0L, true);
         QLabel *featureIcon = new QLabel(buttons);
         featureIcon->setPixmap(featurePixmap);
