@@ -66,3 +66,11 @@ AboutData::AboutData()
               i18n("Original icon"),
               "m4rt@libero.it");
 }
+
+QString componentName() {
+    return QString("basket");
+}
+
+QString displayName() {
+    return i18n("BasKet Note Pads");
+}

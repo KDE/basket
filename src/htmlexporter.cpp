@@ -226,7 +226,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     " <head>\n"
     "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n"
     "  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"Generator\" content=\""
-           << QGuiApplication::applicationDisplayName() << " " << VERSION << " " << Global::about()->homepage() << "\">\n"
+           << QGuiApplication::applicationDisplayName() << " " << VERSION << " " << KAboutData::applicationData().homepage() << "\">\n"
     "  <style type=\"text/css\">\n"
 //      "   @media print {\n"
 //      "    span.printable { display: inline; }\n"
@@ -330,7 +330,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         "  </div>\n"
         "  <p class=\"credits\">%1</p>\n").arg(
             i18n("Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep information at hand.",
-                 Global::about()->homepage(), QGuiApplication::applicationDisplayName(), VERSION));
+                 KAboutData::applicationData().homepage(), QGuiApplication::applicationDisplayName(), VERSION));
 
     stream <<
     " </body>\n"

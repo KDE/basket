@@ -59,7 +59,6 @@ public:
     static SystemTray        *systemTray;
     static BNPView           *bnpView;
     static KSharedConfig::Ptr basketConfig;
-    static AboutData          basketAbout;
     static QCommandLineParser* commandLineOpts;
     static MainWindow*        mainWnd;
 
@@ -82,7 +81,6 @@ public:
     static KMainWindow* activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
     static MainWindow* mainWindow(); /// << @returns Main window (always not NULL after it has been actually created)
     static KConfig* config();
-    static KAboutData* about();
 };
 
 #endif // GLOBAL_H

@@ -40,9 +40,10 @@ int main(int argc, char *argv[])
     Application app(argc, argv);
 
     QCommandLineParser* opts = Global::commandLineOpts;
+    KAboutData::applicationData().setupCommandLine(opts); //--author, --license
     setupCmdLineOptions(opts);
     opts->process(app);
-    Global::basketAbout.processCommandLine(opts); //show author, license information and exit
+    KAboutData::applicationData().processCommandLine(opts); //show author, license information and exit
 
     {
         Kde4Migrator migrator;

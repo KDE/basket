@@ -26,15 +26,13 @@
 #include <QMessageBox>
 #include <QScopedPointer>
 #include <QStandardPaths>
+#include <KAboutData>
 #include <Kdelibs4ConfigMigrator>
 #include <Kdelibs4Migration>
 #include <KIO/CopyJob>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KConfigGroup>
-
-#include "aboutdata.h"
-#include "global.h"
 
 
 /** Use Kdelibs4ConfigMigrator to detect KDE4 config and then migrate both config and data.
@@ -47,7 +45,7 @@ class Kde4Migrator
 public:
     //! @returns True if both config and data have been migrated
     bool migrateKde4Data() {
-        Kdelibs4ConfigMigrator rcMigrator(Global::basketAbout.componentName());
+        Kdelibs4ConfigMigrator rcMigrator(KAboutData::applicationData().componentName());
         rcMigrator.setConfigFiles({ BASKET_RC });
         rcMigrator.setUiFiles({ "basketui.rc", "basket_part.rc" });
         if (rcMigrator.migrate())

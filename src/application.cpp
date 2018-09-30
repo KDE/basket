@@ -45,8 +45,11 @@ Application::Application(int &argc, char **argv)
         : QApplication(argc, argv)
         , m_service(KDBusService::Unique)
 {
+
+    KLocalizedString::setApplicationDomain("basket");
+
     //AboutData is initialized before this
-    KAboutData::setApplicationData(Global::basketAbout);
+    KAboutData::setApplicationData(AboutData());
     //BasketPart::createAboutData();
 
     connect(&m_service, &KDBusService::activateRequested, this, &Application::onActivateRequested);

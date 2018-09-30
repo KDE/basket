@@ -232,7 +232,7 @@ LikeBack::LikeBack(Button buttons, bool showBarByDefault, KConfig *config, const
     if (d->config == 0)
         d->config = KSharedConfig::openConfig().data();
     if (d->aboutData == 0)
-        d->aboutData = Global::about();
+        d->aboutData = new KAboutData(KAboutData::applicationData());
 
     // Initialize properties (2/2) [Needs aboutData to be set]:
     d->showBar          = userWantsToShowBar();
