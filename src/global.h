@@ -27,9 +27,7 @@
 class QString;
 
 class KMainWindow;
-class KAboutData;
 
-class AboutData;
 class LikeBack;
 class DebugWindow;
 class BackgroundManager;

@@ -29,7 +29,6 @@
 #include <QApplication>
 
 #include "gitwrapper.h"
-#include "aboutdata.h"
 #include "bnpview.h"
 #include "settings.h"
 

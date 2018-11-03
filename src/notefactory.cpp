@@ -1011,7 +1011,7 @@ Note* NoteFactory::importKMenuLauncher(BasketScene *parent)
         // * desktopEntryPath() returns the full path for system wide resources, but relative path if in home
         QString serviceFilePath = dialog->service()->entryPath();
         if (! serviceFilePath.startsWith('/'))
-            serviceFilePath = dialog->service()->locateLocal(); //locateLocal("xdgdata-apps", serviceFilePath);
+            serviceFilePath = dialog->service()->locateLocal();
         return createNoteLauncher(QUrl::fromUserInput(serviceFilePath), parent);
     }
     return 0;

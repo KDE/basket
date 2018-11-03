@@ -47,8 +47,6 @@ Application::Application(int &argc, char **argv)
 {
 
     KLocalizedString::setApplicationDomain("basket");
-
-    //AboutData is initialized before this
     KAboutData::setApplicationData(AboutData());
     //BasketPart::createAboutData();
 

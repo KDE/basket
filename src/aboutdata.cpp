@@ -32,7 +32,7 @@ static const char description[] = I18N_NOOP(
 // Or how to make order of disorganized toughts.
 
 AboutData::AboutData()
-        : KAboutData("basket", i18n("BasKet Note Pads"),
+        : KAboutData(AboutData::componentName(), AboutData::displayName(),
                      VERSION, i18n(description), KAboutLicense::GPL_V2,
                      i18n("Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2017, Gleb Baryshev"),
                      QString(),
@@ -67,10 +67,12 @@ AboutData::AboutData()
               "m4rt@libero.it");
 }
 
-QString componentName() {
+QString AboutData::componentName()
+{
     return QString("basket");
 }
 
-QString displayName() {
+QString AboutData::displayName()
+{
     return i18n("BasKet Note Pads");
 }

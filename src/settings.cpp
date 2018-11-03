@@ -621,7 +621,7 @@ BasketsPage::BasketsPage(QWidget * parent, const char * name)
     m_middleAction->addItem(i18n("Grab screen zone"));
     m_middleAction->addItem(i18n("Insert color from screen"));
     m_middleAction->addItem(i18n("Load note from file"));
-    m_middleAction->addItem(i18n("Import Launcher from desktop menu"));
+    m_middleAction->addItem(i18n("Import Launcher for desktop application"));
     m_middleAction->addItem(i18n("Import icon"));
 
     QLabel *labelM = new QLabel(widget);

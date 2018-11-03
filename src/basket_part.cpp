@@ -46,7 +46,6 @@ BasketPart::BasketPart(QWidget *parentWidget, QObject *parent, const QList<QVari
     // notify the part that this is our internal widget
     setWidget(m_view);
 
-    //setComponentData(BasketFactory::componentData());
     setComponentName(AboutData::componentName(), AboutData::displayName());
 
     // set our XML-UI resource file
