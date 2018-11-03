@@ -198,7 +198,7 @@ void BNPView::lateInit()
 
     /* System tray icon */
     Global::systemTray = new SystemTray(Global::activeMainWindow());
-    Global::systemTray->setIconByName(":/images/hi22-apps-basket");
+    Global::systemTray->setIconByName(":/images/22-apps-basket");
     connect(Global::systemTray, SIGNAL(showPart()), this, SIGNAL(showPart()));
     /*if (Settings::useSystray())
         Global::systemTray->show();*/
@@ -280,7 +280,7 @@ void BNPView::onFirstShow()
 {
     // Don't enable LikeBack until bnpview is shown. This way it works better with kontact.
     /* LikeBack */
-    /*  Global::likeBack = new LikeBack(LikeBack::AllButtons, / *showBarByDefault=* /true, Global::config(), Global::about());
+    /*  Global::likeBack = new LikeBack(LikeBack::AllButtons, / *showBarByDefault=* /true, Global::config());
         Global::likeBack->setServer("basket.linux62.org", "/likeback/send.php");
         Global:likeBack->setAcceptedLanguages(QStringList::split(";", "en;fr"), i18n("Only english and french languages are accepted."));
         if (isPart())
@@ -479,7 +479,7 @@ void BNPView::initialize()
     connect(m_history, SIGNAL(canUndoChanged(bool)), this, SLOT(canUndoRedoChanged()));
 
     /* LikeBack */
-    Global::likeBack = new LikeBack(LikeBack::AllButtons, /*showBarByDefault=*/false, Global::config(), Global::about());
+    Global::likeBack = new LikeBack(LikeBack::AllButtons, /*showBarByDefault=*/false, Global::config());
     Global::likeBack->setServer("basket.linux62.org", "/likeback/send.php");
 
 // There are too much comments, and people reading comments are more and more international, so we accept only English:
@@ -727,7 +727,7 @@ void BNPView::setupActions()
     m_actInsertLauncher = a;
 
     a = ac->addAction("insert_kmenu");
-    a->setText(i18n("Import Launcher from &KDE Menu..."));
+    a->setText(i18n("Import Launcher from &desktop menu..."));
     a->setIcon(QIcon::fromTheme(IconNames::KMENU));
     m_actImportKMenu = a;
 

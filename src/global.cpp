@@ -42,7 +42,6 @@ BackgroundManager *Global::backgroundManager   = 0L;
 SystemTray        *Global::systemTray          = 0L;
 BNPView           *Global::bnpView             = 0L;
 KSharedConfig::Ptr Global::basketConfig;
-AboutData          Global::basketAbout;
 QCommandLineParser* Global::commandLineOpts    = NULL;
 MainWindow*        Global::mainWnd             = NULL;
 
@@ -123,7 +122,3 @@ KConfig* Global::config()
     //The correct solution is to go and replace all KConfig* with KSharedConfig::Ptr, but that seems awfully annoying to do right now
     return Global::basketConfig.data();
 }
-
-KAboutData* Global::about() {
-    return &basketAbout;
-};

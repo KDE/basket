@@ -59,7 +59,6 @@ public:
     static SystemTray        *systemTray;
     static BNPView           *bnpView;
     static KSharedConfig::Ptr basketConfig;
-    static AboutData          basketAbout;
     static QCommandLineParser* commandLineOpts;
     static MainWindow*        mainWnd;
 
@@ -67,11 +66,11 @@ public:
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
-    static QString savesFolder();       /// << @return e.g. "/home/username/.kde/share/apps/basket/".
-    static QString basketsFolder();     /// << @return e.g. "/home/username/.kde/share/apps/basket/baskets/".
-    static QString backgroundsFolder(); /// << @return e.g. "/home/username/.kde/share/apps/basket/backgrounds/".
-    static QString templatesFolder();   /// << @return e.g. "/home/username/.kde/share/apps/basket/templates/".
-    static QString tempCutFolder();     /// << @return e.g. "/home/username/.kde/share/apps/basket/temp-cut/".   (was ".tmp/")
+    static QString savesFolder();       /// << @return e.g. "/home/username/.local/share/basket/".
+    static QString basketsFolder();     /// << @return e.g. "/home/username/.local/share/basket/baskets/".
+    static QString backgroundsFolder(); /// << @return e.g. "/home/username/.local/share/basket/backgrounds/".
+    static QString templatesFolder();   /// << @return e.g. "/home/username/.local/share/basket/templates/".
+    static QString tempCutFolder();     /// << @return e.g. "/home/username/.local/share/basket/temp-cut/".   (was ".tmp/")
     static QString gitFolder();         /// << @return e.g. "/home/username/.local/share/basket/.git/".
 
     // Various Things:
@@ -82,7 +81,6 @@ public:
     static KMainWindow* activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
     static MainWindow* mainWindow(); /// << @returns Main window (always not NULL after it has been actually created)
     static KConfig* config();
-    static KAboutData* about();
 };
 
 #endif // GLOBAL_H

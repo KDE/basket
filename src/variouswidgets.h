@@ -133,7 +133,7 @@ private:
 };
 
 /**
- * A missing class from KDE (and Qt): a combobox to select a font size!
+ * A missing class from Frameworks (and Qt): a combobox to select a font size!
  */
 class FontSizeCombo : public KComboBox
 {

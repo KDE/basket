@@ -621,7 +621,7 @@ BasketsPage::BasketsPage(QWidget * parent, const char * name)
     m_middleAction->addItem(i18n("Grab screen zone"));
     m_middleAction->addItem(i18n("Insert color from screen"));
     m_middleAction->addItem(i18n("Load note from file"));
-    m_middleAction->addItem(i18n("Import Launcher from KDE Menu"));
+    m_middleAction->addItem(i18n("Import Launcher from desktop menu"));
     m_middleAction->addItem(i18n("Import icon"));
 
     QLabel *labelM = new QLabel(widget);
@@ -991,11 +991,11 @@ ApplicationsPage::ApplicationsPage(QWidget * parent, const char * name)
         i18n("<p>When opening Web links, they are opened in different applications, depending on the content of the link "
              "(a Web page, an image, a PDF document...), such as if they were files on your computer.</p>"
              "<p>Here is how to do if you want every Web addresses to be opened in your Web browser. "
-             "It is useful if you are not using KDE (if you are using eg. GNOME, XFCE...).</p>"
+             "It is useful if you are not using Plasma (if you are using eg. GNOME, XFCE...).</p>"
              "<ul>"
-             "<li>Open the KDE Control Center (if it is not available, try to type \"kcontrol\" in a command line terminal);</li>"
-             "<li>Go to the \"KDE Components\" and then \"Components Selector\" section;</li>"
-             "<li>Choose \"Web Browser\", check \"In the following browser:\" and enter the name of your Web browser (like \"firefox\" or \"epiphany\").</li>"
+             "<li>Open the KDE System Settings (if it is not available, try to type \"systemsettings\" in a command line terminal);</li>"
+             "<li>Go to the \"Applications\" and then \"Default Applications\" section;</li>"
+             "<li>Choose \"Web Browser\", check \"with the following command:\" and enter the name of your Web browser (like \"firefox\" or \"epiphany\").</li>"
              "</ul>"
              "<p>Now, when you click <i>any</i> link that start with \"http://...\", it will be opened in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p>"
              "<p>For more fine-grained configuration (like opening only Web pages in your Web browser), read the second help link.</p>"),
@@ -1009,12 +1009,12 @@ ApplicationsPage::ApplicationsPage(QWidget * parent, const char * name)
         i18n("How to change the applications used to open files and links?"),
         i18n("<p>Here is how to set the application to be used for each type of file. "
              "This also applies to Web links if you choose not to open them systematically in a Web browser (see the first help link). "
-             "The default settings should be good enough for you, but this tip is useful if you are using GNOME, XFCE, or another environment than KDE.</p>"
+             "The default settings should be good enough for you, but this tip is useful if you are using GNOME, XFCE, or another environment than Plasma.</p>"
              "<p>This is an example of how to open HTML pages in your Web browser (and keep using the other applications for other addresses or files). "
              "Repeat these steps for each type of file you want to open in a specific application.</p>"
              "<ul>"
-             "<li>Open the KDE Control Center (if it is not available, try to type \"kcontrol\" in a command line terminal);</li>"
-             "<li>Go to the \"KDE Components\" and then \"File Associations\" section;</li>"
+             "<li>Open the KDE System Settings (if it is not available, try to type \"systemsettings\" in a command line terminal);</li>"
+             "<li>Go to the \"Applications\" and then \"File Associations\" section;</li>"
              "<li>In the tree, expand \"text\" and click \"html\";</li>"
              "<li>In the applications list, add your Web browser as the first entry;</li>"
              "<li>Do the same for the type \"application -> xhtml+xml\".</li>"

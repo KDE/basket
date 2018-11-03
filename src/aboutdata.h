@@ -30,6 +30,9 @@
 class BASKET_EXPORT AboutData : public KAboutData
 {
 public:
+    static QString componentName();
+    static QString displayName();
+
     AboutData();
 };
 
