@@ -227,18 +227,9 @@ void TagListViewItem::setup()
     QString text = (m_tagCopy ? m_tagCopy->newTag->name() : m_stateCopy->newState->name());
     State *state = (m_tagCopy ? m_tagCopy->stateCopies[0]->newState : m_stateCopy->newState);
 
-    if (m_tagCopy && !m_tagCopy->newTag->shortcut().isEmpty())
-        text = i18nc("Tag name (shortcut)", "%1 (%2)", text, m_tagCopy->newTag->shortcut().toString());
-
     QFont font = state->font(treeWidget()->font());
 
-    //QRect textRect = QFontMetrics(font).boundingRect(0, 0, /*width=*/1, 500000, Qt::AlignLeft | Qt::AlignTop, text);
-
-    //widthChanged();
-    //int height = TAG_MARGIN + qMax(TAG_ICON_SIZE, textRect.height()) + TAG_MARGIN;
-    //setHeight(height);
-
-    //repaint();
+    setText(0, text);
 
     QBrush brush;
 
