@@ -43,6 +43,7 @@ private:
     void exportNote(Note *note, int indent);
     void writeBasketTree(BasketScene *currentBasket);
     void writeBasketTree(BasketScene *currentBasket, BasketScene *basket, int indent);
+    void saveToFile(const QString &fullPath, QByteArray *array);
 
 public:
     QString copyIcon(const QString &iconName, int size);

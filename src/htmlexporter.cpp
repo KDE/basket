@@ -536,11 +536,22 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
         bool success = currentBasket->loadFromFile(srcPath, &array);
 
         if (success){
-            BasketScene::safelySaveToFile(fullPath, array, array.size());
+            saveToFile(fullPath, &array);
         } else {
             qDebug() << "Unable to load encrypted file " << srcPath;
         }
     }
 
     return fileName;
+}
+
+void HTMLExporter::saveToFile(const QString &fullPath, QByteArray *array)
+{
+    QFile file(QUrl::fromLocalFile(fullPath).path());
+    if (file.open(QIODevice::WriteOnly)){
+        file.write(*array, array->size());
+        file.close();
+    } else {
+        qDebug() << "Unable to open file for writing: " << fullPath;
+    }
 }
