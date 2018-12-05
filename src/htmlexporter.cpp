@@ -520,15 +520,38 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
     QString fileName = Tools::fileNameForNewFile(QUrl::fromLocalFile(srcPath).fileName(), dataFolderPath);
     QString fullPath = dataFolderPath + fileName;
 
-    if (createIt) {
-        // We create the file to be sure another very near call to copyFile() willn't choose the same name:
-        QFile file(QUrl::fromLocalFile(fullPath).path());
-        if (file.open(QIODevice::WriteOnly))
-            file.close();
-        // And then we copy the file AND overwriting the file we juste created:
-        KIO::file_copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), 0666, KIO::HideProgressInfo | KIO::Resume | KIO::Overwrite);
-    } else
-        /*KIO::CopyJob *copyJob = */KIO::copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), KIO::DefaultFlags); // Do it as before
+    if (!currentBasket->isEncrypted()){
+        if (createIt) {
+            // We create the file to be sure another very near call to copyFile() willn't choose the same name:
+            QFile file(QUrl::fromLocalFile(fullPath).path());
+            if (file.open(QIODevice::WriteOnly))
+                file.close();
+            // And then we copy the file AND overwriting the file we juste created:
+            KIO::file_copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), 0666, KIO::HideProgressInfo | KIO::Resume | KIO::Overwrite);
+        } else {
+            /*KIO::CopyJob *copyJob = */KIO::copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), KIO::DefaultFlags); // Do it as before
+        }
+    } else {
+        QByteArray array;
+        bool success = currentBasket->loadFromFile(srcPath, &array);
+
+        if (success){
+            saveToFile(fullPath, array);
+        } else {
+            qDebug() << "Unable to load encrypted file " << srcPath;
+        }
+    }
 
     return fileName;
+}
+
+void HTMLExporter::saveToFile(const QString& fullPath, const QByteArray& array)
+{
+    QFile file(QUrl::fromLocalFile(fullPath).path());
+    if (file.open(QIODevice::WriteOnly)){
+        file.write(array, array.size());
+        file.close();
+    } else {
+        qDebug() << "Unable to open file for writing: " << fullPath;
+    }
 }
