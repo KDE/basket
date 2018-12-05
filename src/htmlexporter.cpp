@@ -536,7 +536,7 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
         bool success = currentBasket->loadFromFile(srcPath, &array);
 
         if (success){
-            saveToFile(fullPath, &array);
+            saveToFile(fullPath, array);
         } else {
             qDebug() << "Unable to load encrypted file " << srcPath;
         }
@@ -545,11 +545,11 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
     return fileName;
 }
 
-void HTMLExporter::saveToFile(const QString &fullPath, QByteArray *array)
+void HTMLExporter::saveToFile(const QString& fullPath, const QByteArray& array)
 {
     QFile file(QUrl::fromLocalFile(fullPath).path());
     if (file.open(QIODevice::WriteOnly)){
-        file.write(*array, array->size());
+        file.write(array, array.size());
         file.close();
     } else {
         qDebug() << "Unable to open file for writing: " << fullPath;
