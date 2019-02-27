@@ -5,5 +5,5 @@
 #cmakedefine HAVE_BALOO
 
 /* Version number of package */
-#define VERSION "2.49-alpha"
+#define VERSION "2.49-beta"
 
