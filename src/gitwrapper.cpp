@@ -160,7 +160,7 @@ void GitWrapper::commitTagsXml()
     git_repository_free(repo);
 }
 
-void GitWrapper::commitDeleteBasket(BasketScene *basket)
+void GitWrapper::commitDeleteBasket(QString basketFolderName)
 {
     GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
@@ -178,7 +178,7 @@ void GitWrapper::commitDeleteBasket(BasketScene *basket)
     }
 
     //remove the directory
-    const QString dir("baskets/" + basket->folderName());
+    const QString dir("baskets/" + basketFolderName);
     const QByteArray dirba = dir.toUtf8();
     const char *dirCString = dirba.data();
     error = git_index_remove_directory(index, dirCString, 0);
@@ -440,7 +440,7 @@ void GitWrapper::commitBasketView()
 {}
 void GitWrapper::commitCreateBasket()
 {}
-void GitWrapper::commitDeleteBasket(BasketScene *basket)
+void GitWrapper::commitDeleteBasket(QString basketFolderName)
 {}
 void GitWrapper::commitBasket(BasketScene *basket)
 {}

@@ -2193,9 +2193,10 @@ void BNPView::delBasket()
             return;
     }
 
+    QString basketFolderName = basket->folderName();
     doBasketDeletion(basket);
 
-    GitWrapper::commitDeleteBasket(basket);
+    GitWrapper::commitDeleteBasket(basketFolderName);
 }
 
 void BNPView::doBasketDeletion(BasketScene *basket)
