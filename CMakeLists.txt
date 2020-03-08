@@ -101,11 +101,12 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(doc)
 add_subdirectory(src)
-add_subdirectory(po)
 add_subdirectory(tags)
 add_subdirectory(welcome)
 add_subdirectory(backgrounds)
 add_subdirectory(images)
 add_subdirectory(file-integration)
+
+ki18n_install(po)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
