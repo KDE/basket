@@ -1,20 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=BasketPart
-Name[br]=Perzhbasket
-Name[ca]=Part per a basket
-Name[el]=Τμήμαbasket
-Name[es]=Componente de Basket
-Name[et]=basket komponent
-Name[it]=Componente Basket
-Name[ja]=basket パート
-Name[nb]=kurvDel
-Name[nn]=korgDel
-Name[pt_BR]=Parte basket
-Name[sv]=basket-del
-Name[ta]=basketபாகம்
-Name[tr]=basket Bileşeni
-Name[ru]=Модуль basket
 MimeType=application/x-basket;
 X-KDE-ServiceTypes=KParts/ReadOnlyPart,KParts/ReadWritePart
 X-KDE-Library=basketpart
