@@ -34,7 +34,7 @@
  * " Note that only visible widgets can grab mouse input.
  *   If isVisible() returns FALSE for a widget, that widget cannot call grabMouse(). "
  * So, we should use an always visible widget to be able to pick a color from screen,
- * even by first hidding the main window (user seldomly want to grab a color from BasKet!)
+ * even by first  the main window (user rarely want to grab a color from BasKet!)
  * or use a global shortcut (main window can be hidden when hitting that shortcut).
  */
 

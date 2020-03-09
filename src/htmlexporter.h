@@ -50,7 +50,7 @@ public:
     QString copyFile(const QString &srcPath, bool createIt);
 
 public: //TODO: make private?
-    // Absolute path of the file name the user chozen:
+    // Absolute path of the file name the user chosen:
     QString filePath;          // eg.: "/home/seb/foo.html"
     QString fileName;          // eg.: "foo.html"
 

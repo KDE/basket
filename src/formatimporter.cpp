@@ -128,7 +128,7 @@ void FormatImporter::importBaskets()
         ++i;
         qDebug() << "Import Baskets: Importing basket " << i << " of " << baskets.count() << "...";
 
-        // Move the folder to the new repository (normal basket) or copy the folder (mirorred folder):
+        // Move the folder to the new repository (normal basket) or copy the folder (mirrored folder):
         QString folderName = *it;
         if (folderName.startsWith('/')) { // It was a folder mirror:
             KMessageBox::information(0, i18n("<p>Folder mirroring is not possible anymore (see <a href='http://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"

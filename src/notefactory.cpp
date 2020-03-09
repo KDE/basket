@@ -393,7 +393,7 @@ Note* NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
             return createNoteColor(color, parent);
 //          if ( (note = createNoteColor(color, parent)) )
 //              return note;
-//          // Theorically it should be returned. If not, continue by dropping other things
+//          // Theoretically it should be returned. If not, continue by dropping other things
     }
 
     QList<QUrl> urls = source->urls();
@@ -481,7 +481,7 @@ Note* NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         return createNoteCrossReference(QUrl("basket://" + folderName), basketName, icon, parent);
     }
 
-    /* Unsucceful drop */
+    /* Unsuccessful drop */
     note = createNoteUnknown(source, parent);
     QString message = i18n("<p>%1 doesn't support the data you've dropped.<br>"
                            "It however created a generic note, allowing you to drag or copy it to an application that understand it.</p>"

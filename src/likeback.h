@@ -34,8 +34,8 @@ class LikeBackPrivate;
 /**
  * @short System to Get Quick Feedback from Beta-Testers
  *
- * This system allows users to communicate theire liking of the application to its developers.
- * Thus, developers know what theire users prefer of theire applications, what should be enhanced, etc.
+ * This system allows users to communicate their liking of the application to its developers.
+ * Thus, developers know what their users prefer of their applications, what should be enhanced, etc.
  *
  * Basically, how does it work?
  * Whenever the user notice something good he appreciate or something he do not like, do not understand, do not find polished...
@@ -55,7 +55,7 @@ class LikeBackPrivate;
  *
  * Here is an example of code to call to quickly setup LikeBack on the client:
  * @code
- *     // Instanciate the LikeBack system, and show the first-use information dialog if the button-bar is shown:
+ *     // Instantiate the LikeBack system, and show the first-use information dialog if the button-bar is shown:
  *     LikeBack *likeBack = new LikeBack(LikeBack::AllButtons, LikeBack::isDevelopmentVersion(KGlobal::mainComponent().aboutData->version())); // Show button-bar only in beta-versions
  *     likeBack->setServer("myapp.kde.org", "/likeback/send.php");
  *     likeBack->setAcceptedLanguages(QStringList::split(";", "en;fr"), i18n("Please write in English or French."));
@@ -104,7 +104,7 @@ public:
 
     /**
      * You only need to call the constructor once, typically in main.cpp.
-     * Even if you do not show the button-bar by default, you should instanciate LikeBack,
+     * Even if you do not show the button-bar by default, you should instantiate LikeBack,
      * to include its action in the Help menu of your application, to let the users send comments or activate the bar.
      * @param buttons          The types of comments you want to get. Determine which radio-buttons are shown in the comment dialog,
      *                         and which ones are displayed in the button-bar. Default buttons do not show the Bug and Feature buttons because you are
@@ -133,7 +133,7 @@ public:
 
     /**
      * This method is interesting while setting up the system for the first time.
-     * LikeBack send the current window name (and hierarchy) with the comment. This allows you to put the comments in theire context.
+     * LikeBack send the current window name (and hierarchy) with the comment. This allows you to put the comments in their context.
      * So, of course, you are encouraged to give a name to your windows. It is done in the constructor of the widgets.
      * This method allows to output the name of the current window to the standard output.
      * So you can use the application, open all the windows, and when you see a warning, you know which window you should assign a name.
@@ -151,7 +151,7 @@ public:
     /**
      * By default, only English comments are accepted. The user is informed she must write in this language by a sentence placed in the comment dialog.
      * If you have people talking other languages in your development team, it can be interesting to call this method to define the accepted locales (languages),
-     * and provide a message to inform users. The developer interface on the server let developers view comments in theire locale.
+     * and provide a message to inform users. The developer interface on the server let developers view comments in their locale.
      * Note that no verification is done to check if the user used the right language, it would be impossible.
      * The list of locales is there to make it possible to NOT show the message for users of the accepted languages.
      * For instance, if you accept only English and French, and that the application run in a French environment,
@@ -181,7 +181,7 @@ public:
 
     /**
      * Set the path where LikeBack should send every comments.
-     * It is composed of the server host name, the path to the PHP script used to send comments, and optionaly a port number if it is not 80.
+     * It is composed of the server host name, the path to the PHP script used to send comments, and optionally a port number if it is not 80.
      * This call is mandatory for LikeBack to work.
      * @param hostName   The server host name to contact when sending comments. For instance "myapp.kde.org".
      * @param remotePath The path to the send script on the server. For instance, "/likeback/send.php".
@@ -241,19 +241,19 @@ public:
 public slots:
 
     /**
-     * Temporarily disable the button-bar: it is hiden from the screen if it was shown.
-     * Does not affect anything if the user has not chozen to show the button-bar.
+     * Temporarily disable the button-bar: it is hidden from the screen if it was shown.
+     * Does not affect anything if the user has not chosen to show the button-bar.
      * @Note Calls to enableBar() and disableBar() are ref-counted.
      * This means that the number of times disableBar() is called is memorized,
      * and enableBar() will only have effect after it has been called as many times as disableBar() was called before.
-     * So, make sure to always call enableBar() the same number of times ou called disableBar().
+     * So, make sure to always call enableBar() the same number of times we called disableBar().
      * And please make sure to ALWAYS call disableBar() BEFORE enableBar().
      * In the counter-case, another code could call disableBar() and EXCPECT the bar to be disabled. But it will not, because its call only canceled yours.
      * @Note Sometimes, you will absolutely need to call enableBar() before disableBar().
      * For instance, MyWindow::show() calls enableBar() and MyWindow::hide() calls disableBar().
      * This is the trick used to show the LikeBack button-bar of a Kontact plugin only when the main widget of that plugin is active.
      * In this case, call disableBar() at the begin of your program, so the disable count will never be negative.
-     * @Note If the bar is enabled, it does not mean the bar is shown. For that, the developer (using showBarByDefault in the construcor)
+     * @Note If the bar is enabled, it does not mean the bar is shown. For that, the developer (using showBarByDefault in the constructor)
      *       or the user (by checking the checkbox in the comment dialog) have to explicitly show the bar.
      */
     void disableBar();
@@ -273,7 +273,7 @@ public slots:
      * Popup the comment dialog.
      * With no parameter, it popups in the default configuration: the first type is checked, empty message, current window path, and empty context.
      * You can use the following parameters to customize how it should appears:
-     * @param type           Which radiobutton should be checked when poping up. AllButton, the default value, means the first available type will be checked.
+     * @param type           Which radiobutton should be checked when popping up. AllButton, the default value, means the first available type will be checked.
      * @param initialComment The text to put in the comment text area. Allows you to popup the dialog in some special circumstances,
      *                       like to let the user report an internal error by populating the comment area with technical details useful for you to debug.
      * @param windowPath     The window path to send with the comment. If empty (the default), the current window path is took.
@@ -316,13 +316,13 @@ public:
 
     /**
      * Explicitly set if the floating button-bar should be shown or not.
-     * Tehorically, this choice should only be left to the user,
+     * Theoretically, this choice should only be left to the user,
      * and to the developers for the default value, already provided in the constructor.
      */
     void setUserWantsToShowBar(bool showBar);
 
     /**
-     * @Returns A pointer to the KAboutData used to determin the application name and version.
+     * @Returns A pointer to the KAboutData used to determine the application name and version.
      * @See The LikeBack constructor for more information.
      */
     const KAboutData *aboutData();

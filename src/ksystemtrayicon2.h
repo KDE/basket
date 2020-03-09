@@ -25,7 +25,7 @@
 #include <KSystemTrayIcon>
 
 /** Convenient class to develop the displayCloseMessage() dialog
-  * hopefuly integrated in KDE 3.4
+  * hopefully integrated in KDE 3.4
   * @author Sébastien Laoût
   */
 class KSystemTray2 : public KSystemTrayIcon, public QWidget

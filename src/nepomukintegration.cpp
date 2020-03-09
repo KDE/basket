@@ -216,7 +216,7 @@ void nepomukIntegration::cleanupRequestedIndexes() {
                 );
         mutex.unlock();
         isCleaningupRequestedIndexes = false;
-        DEBUG_WIN << "\tqueue is empty, desconnected from indexingStopped signal and isCleaningupRequestedIndexes set to false.";
+        DEBUG_WIN << "\tqueue is empty, disconnected from indexingStopped signal and isCleaningupRequestedIndexes set to false.";
         if ( ! isDoingUpdate ) {
             //Make sure the timer is not active so that the queues are rechecked
             //             and timeout of the timer is reevaluated and restarted

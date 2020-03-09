@@ -149,7 +149,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     previewImage = previewImage.scaled(PREVIEW_SIZE, PREVIEW_SIZE, Qt::KeepAspectRatio);
     previewImage.save(tempFolder + "preview.png", "PNG");
 
-    // Finaly Save to the Real Destination file:
+    // Finally Save to the Real Destination file:
     QFile file(destination);
     if (file.open(QIODevice::WriteOnly)) {
         ulong previewSize = QFile(tempFolder + "preview.png").size();
@@ -218,7 +218,7 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
             tar->addLocalFile(tempIconFile, "basket-icons/" + iconFileName);
         }
     }
-    // Save basket backgorund image:
+    // Save basket background image:
     QString imageName = basket->backgroundImageName();
     if (!basket->backgroundImageName().isEmpty() && !backgrounds.contains(imageName)) {
         QString backgroundPath = Global::backgroundManager->pathForImageName(imageName);
@@ -262,7 +262,7 @@ void Archive::listUsedTags(BasketScene *basket, bool recursive, QList<Tag*> &lis
 
 void Archive::open(const QString &path)
 {
-    // Create the temporar folder:
+    // Create the temporary folder:
     QString tempFolder = Global::savesFolder() + "temp-archive/";
     QDir dir;
     dir.mkdir(tempFolder);
@@ -422,7 +422,7 @@ void Archive::open(const QString &path)
  * it can contains tags that use icons (emblems) that are not present on that computer.
  * Fortunately, basket archives contains a copy of every used icons.
  * This method check for every emblems and import the missing ones.
- * It also modify the tags.xml copy for the emblems to point to the absolute path of the impported icons.
+ * It also modify the tags.xml copy for the emblems to point to the absolute path of the imported icons.
  */
 void Archive::importTagEmblems(const QString &extractionFolder)
 {

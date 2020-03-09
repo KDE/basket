@@ -92,7 +92,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket) : dialog(new QProgressDialog())
     dialog->setAutoClose(true);
     dialog->show();
 
-    // Remember the last folder used for HTML exporation:
+    // Remember the last folder used for HTML exploration:
     config.writeEntry("lastFolder", QUrl::fromLocalFile(destination).adjusted(QUrl::RemoveFilename).path());
     config.sync();
 
@@ -112,7 +112,7 @@ void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
     dialog->setValue(0);
     qApp->processEvents();
 
-    // Remember the file path chozen by the user:
+    // Remember the file path chosen by the user:
     filePath = fullPath;
     fileName = QUrl::fromLocalFile(fullPath).fileName();
     exportedBasket = basket;
@@ -211,7 +211,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream.setDevice(&file);
     stream.setCodec("UTF-8");
 
-    // Compute the colors to draw dragient for notes:
+    // Compute the colors to draw gradient for notes:
     QColor topBgColor;
     QColor bottomBgColor;
     Note::getGradientColors(basket->backgroundColor(), &topBgColor, &bottomBgColor);
@@ -357,7 +357,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
         QString width = "";
         if (false/*TODO: DEBUG AND REENABLE: hasResizer()*/) {
             // As we cannot be precise in CSS (say eg. "width: 50%-40px;"),
-            // we output a percentage that is approximatively correct.
+            // we output a percentage that is approximately correct.
             // For instance, we compute the currently used percentage of width in the basket
             // and try make make it the same on a 1024*768 display in a Web browser:
             int availableSpaceForColumnsInThisBasket = note->basket()->sceneRect().width() - (note->basket()->columnsCount() - 1) * Note::RESIZER_WIDTH;
@@ -417,7 +417,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
         QString additionalClasses = note->content()->cssClass();
         if (!additionalClasses.isEmpty())
             additionalClasses = " " + additionalClasses;
-        // Assign the style of each associted tags:
+        // Assign the style of each associated tags:
         for (State::List::Iterator it = note->states().begin(); it != note->states().end(); ++it)
             additionalClasses += " tag_" + (*it)->id();
         //stream << spaces.fill(' ', indent);

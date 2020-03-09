@@ -323,7 +323,7 @@ void SoftwareImporters::finishImport(BasketScene *basket)
     // Focus the FIRST note (the last inserted note is currently focused!):
     basket->setFocusedNote(basket->firstNoteShownInStack());
 
-    // Relayout every notes at theire new place and simulate a load animation (because already loaded just after the creation).
+    // Relayout every notes at their new place and simulate a load animation (because already loaded just after the creation).
     // Without a relayouting, notes on the bottom would comes from the top (because they were inserted on top) and clutter the animation load:
     basket->relayoutNotes(/*animate=*/false);
     basket->animateLoad();
@@ -466,7 +466,7 @@ void SoftwareImporters::importKNotes()
             }
 
             // Bouh : duplicate code
-            // In case of unvalide ICAL file!
+            // In case of invalid ICAL file!
             if (! body.isEmpty())   // Add the ending note
                 insertTitledNote(basket, fromICS(title), fromICS(body), (isRichText ? Qt::RichText : Qt::PlainText));
             file.close();

@@ -131,8 +131,8 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     columnCount->setValue(m_basket->columnsCount());
     connect(columnCount, SIGNAL(valueChanged(int)), this, SLOT(selectColumnsLayout()));
 
-    int height = qMax(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equaly-spaced!
-    mindMap->setMinimumSize(mindMap->sizeHint().width(), height); // Because the m_columnCount can be heigher, and make radio1 and radio2 more spaced than radio2 and radio3.
+    int height = qMax(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equally-spaced!
+    mindMap->setMinimumSize(mindMap->sizeHint().width(), height); // Because the m_columnCount can be higher, and make radio1 and radio2 more spaced than radio2 and radio3.
 
     if (!m_basket->isFreeLayout())
         columnForm->setChecked(true);

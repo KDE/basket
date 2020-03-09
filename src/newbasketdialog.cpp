@@ -148,9 +148,9 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
 
     // Empty:
     // * * * * *
-    // Personnal:
+    // Personal:
     // *To Do
-    // Professionnal:
+    // Professional:
     // *Meeting Summary
     // Hobbies:
     // *

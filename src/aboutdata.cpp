@@ -29,7 +29,7 @@ static const char description[] = I18N_NOOP(
                                       "<p>A note-taking application that makes it easy to record ideas as you think, and quickly find them later. "
                                       "Organizing your notes has never been so easy.</p>");
 
-// Or how to make order of disorganized toughts.
+// Or how to make order of disorganized thoughts.
 
 AboutData::AboutData()
         : KAboutData(AboutData::componentName(), AboutData::displayName(),

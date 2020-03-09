@@ -44,7 +44,7 @@ class MainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
 public:
-    /** Construtor, initializer and destructor */
+    /** Constructor, initializer and destructor */
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 private:

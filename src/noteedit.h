@@ -297,7 +297,7 @@ private:
 
 /** This class manage toolbars for the inline editors.
   * The toolbars should be created once at the application startup,
-  * then KXMLGUI can manage them and save theire state and position...
+  * then KXMLGUI can manage them and save their state and position...
   * @author Sébastien Laoût
   */
 class InlineEditors : public QObject

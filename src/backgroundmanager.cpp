@@ -175,7 +175,7 @@ void BackgroundManager::unsubscribe(const QString &image)
     BackgroundEntry *entry = backgroundEntryFor(image);
 
     if (!entry) {
-///     qDebug() << "BackgroundManager: Wanted to unsuscribe a not subscribed image: " << image;
+///     qDebug() << "BackgroundManager: Wanted to unsubscribe a not subscribed image: " << image;
         return;
     }
 
@@ -189,7 +189,7 @@ void BackgroundManager::unsubscribe(const QString &image, const QColor &color)
     OpaqueBackgroundEntry *entry = opaqueBackgroundEntryFor(image, color);
 
     if (!entry) {
-///     qDebug() << "BackgroundManager: Wanted to unsuscribe a not subscribed colored image: (" << image << "," << color.name() << ")";
+///     qDebug() << "BackgroundManager: Wanted to unsubscribe a not subscribed colored image: (" << image << "," << color.name() << ")";
         return;
     }
 

@@ -293,7 +293,7 @@ void FilterBar::tagChanged(int index)
                 m_data.tagFilterType = FilterData::StateFilter;
                 m_data.state         = *it2;
             } else {
-                // If not (should never happens), do as if the tags filter was reseted:
+                // If not (should never happens), do as if the tags filter was reset:
                 m_data.tagFilterType = FilterData::DontCareTagsFilter;
             }
         }

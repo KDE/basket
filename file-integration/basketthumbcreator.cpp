@@ -31,7 +31,7 @@
 
 bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height*/, QImage &image)
 {
-	// Create the temporar folder:
+	// Create the temporary folder:
     QTemporaryDir tempDir;
 	tempDir.setAutoRemove(true);
     QString tempFolder = tempDir.path();

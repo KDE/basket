@@ -377,7 +377,7 @@ void Backup::setFolderAndRestart(const QString &folder, const QString &message)
     Settings::setDataFolder(folder);
     Settings::saveConfig();
 
-    // Rassure the user that the application main window disapearition is not a crash, but a normal restart.
+    // Reassure the user that the application main window disappearance is not a crash, but a normal restart.
     // This is important for users to trust the application in such a critical phase and understands what's happening:
     KMessageBox::information(
         0,

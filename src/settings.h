@@ -174,7 +174,7 @@ private:
 /** Handle all global variables (to avoid lot of extern declarations)
   * @author Sébastien Laoût
   */
-class BASKET_EXPORT Settings // FIXME: Distaptch new config events ?
+class BASKET_EXPORT Settings // FIXME: Dispatch new config events ?
 {
 protected:
     /** Main window */

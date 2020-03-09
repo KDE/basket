@@ -493,7 +493,7 @@ void KColorCombo2::newColorArray(int columnCount, int rowCount)
     // Delete any previous array (if any):
     deleteColorArray();
 
-    // Create a new array of the wanted dimentions:
+    // Create a new array of the wanted dimensions:
     m_columnCount = columnCount;
     m_rowCount    = rowCount;
     m_colorArray  = new QColor* [columnCount];
@@ -696,7 +696,7 @@ void KColorCombo2::mouseMoveEvent(QMouseEvent *event)
         QMimeData* mimeData = new QMimeData;
         QDrag* colorDrag = new QDrag(this);
         mimeData->setColorData(effectiveColor());
-        // Replace the drag pixmap with our own rounded one, at the same position and dimetions:
+        // Replace the drag pixmap with our own rounded one, at the same position and dimensions:
         QPixmap pixmap = colorDrag->pixmap();
         pixmap = colorRectPixmap(effectiveColor(), /*isDefault=*/false, pixmap.width(), pixmap.height());
         colorDrag->setPixmap(pixmap);

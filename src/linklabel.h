@@ -82,7 +82,7 @@ public:
     inline bool   canPreview()   const {
         return m_canPreview;
     }
-    /* Helpping Functions */
+    /* Helping Functions */
     bool underlineOutside() const {
         return underlining() == Always || underlining() == OnMouseOutside;
     }
@@ -184,7 +184,7 @@ public:
     qreal     height()   const {
         return m_height;
     }                              /// << @return the height if the link after having set it a width.
-    // And finaly, use it:
+    // And finally, use it:
     void    paint(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QPalette &palette, bool isDefaultColor, bool isSelected, bool isHovered, bool isIconButtonHovered) const; /// << Draw the link on a painter. Set textColor to be !isValid() to use the LinkLook color. Otherwise it will use this color!
     QPixmap feedbackPixmap(qreal width, qreal height, const QPalette &palette, bool isDefaultColor); /// << @return the pixmap to put under the cursor while dragging this object.
     // Eventually get some information about the link display:

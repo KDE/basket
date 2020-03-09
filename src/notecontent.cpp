@@ -849,7 +849,7 @@ QPixmap ImageContent::feedbackPixmap(qreal width, qreal height)
 	} else{
 	   return m_pixmapItem.pixmap();
 	}
-    } else { // Scalled down
+    } else { // Scaled down
         QImage imageToScale = m_pixmapItem.pixmap().toImage();
         QPixmap pmScaled;
         pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height,
@@ -872,7 +872,7 @@ QPixmap AnimationContent::feedbackPixmap(qreal width, qreal height)
     QPixmap pixmap = m_movie->currentPixmap();
     if (width >= pixmap.width() && height >= pixmap.height()) // Full size
 	return pixmap;
-    else { // Scalled down
+    else { // Scaled down
         QImage imageToScale = pixmap.toImage();
         QPixmap pmScaled;
         pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height,
@@ -1117,7 +1117,7 @@ bool HtmlContent::finishLazyLoad()
     m_graphicsTextItem.setHtml(convert);
     m_graphicsTextItem.setDefaultTextColor(note()->textColor());
     m_graphicsTextItem.setFont(note()->font());
-    m_graphicsTextItem.setTextWidth(1); // We put a width of 1 pixel, so usedWidth() is egual to the minimum width
+    m_graphicsTextItem.setTextWidth(1); // We put a width of 1 pixel, so usedWidth() is equal to the minimum width
     int minWidth = m_graphicsTextItem.document()->idealWidth();
     m_graphicsTextItem.setTextWidth(width);
     contentChanged(minWidth + 1);
@@ -1207,7 +1207,7 @@ qreal ImageContent::setWidthAndGetHeight(qreal width)
         m_pixmapItem.setScale(1.0);
         return m_pixmapItem.boundingRect().height();
     }
-    else { // Scalled down
+    else { // Scaled down
         qreal scaleFactor = width / m_pixmapItem.pixmap().width();
 	m_pixmapItem.setScale( scaleFactor );
         return m_pixmapItem.boundingRect().height()*scaleFactor;
@@ -1286,7 +1286,7 @@ QString ImageContent::messageWhenOpening(OpenMessage where)
 void ImageContent::setPixmap(const QPixmap &pixmap)
 {
     m_pixmapItem.setPixmap(pixmap);
-    // Since it's scalled, the height is always greater or equal to the size of the tag emblems (16)
+    // Since it's scaled, the height is always greater or equal to the size of the tag emblems (16)
     contentChanged(16 + 1); // TODO: always good? I don't think...
 }
 
@@ -1298,7 +1298,7 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 
     QString imageName = exporter->copyFile(fullPath(), /*createIt=*/true);
 
-    if (contentWidth <= m_pixmapItem.pixmap().width()) { // Scalled down
+    if (contentWidth <= m_pixmapItem.pixmap().width()) { // Scaled down
         qreal scale = contentWidth / m_pixmapItem.pixmap().width();
         width  = m_pixmapItem.pixmap().width()  * scale;
         height = m_pixmapItem.pixmap().height() * scale;
@@ -1308,7 +1308,7 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     exporter->stream << "<img src=\"" << exporter->dataFolderName << imageName
     << "\" width=\"" << width << "\" height=\"" << height << "\" alt=\"\">";
 
-    if (contentWidth <= m_pixmapItem.pixmap().width()) // Scalled down
+    if (contentWidth <= m_pixmapItem.pixmap().width()) // Scaled down
         exporter->stream << "</a>";
 }
 
@@ -1868,7 +1868,7 @@ void LinkContent::startFetchingLinkTitle()
     }
 }
 
-// Code dupicated from FileContent::startFetchingUrlPreview()
+// Code duplicated from FileContent::startFetchingUrlPreview()
 void LinkContent::startFetchingUrlPreview()
 {
     QUrl url = this->url();
@@ -2168,7 +2168,7 @@ QUrl LauncherContent::urlToOpen(bool with)
     if (KService(fullPath()).exec().isEmpty())
         return QUrl();
 
-    return (with ? QUrl() : QUrl::fromLocalFile(fullPath())); // Can open the appliation, but not with another application :-)
+    return (with ? QUrl() : QUrl::fromLocalFile(fullPath())); // Can open the application, but not with another application :-)
 }
 
 QString LauncherContent::messageWhenOpening(OpenMessage where)

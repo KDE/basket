@@ -310,7 +310,7 @@ FontSizeCombo::FontSizeCombo(bool rw, bool withDefault, QWidget *parent)
     for (QList<int>::Iterator it = sizes.begin(); it != sizes.end(); ++it)
         addItem(QString::number(*it));
 
-//  connect( this, SIGNAL(acivated(const QString&)), this, SLOT(textChangedInCombo(const QString&)) );
+//  connect( this, SIGNAL(activated(const QString&)), this, SLOT(textChangedInCombo(const QString&)) );
     connect(this, SIGNAL(editTextChanged(const QString&)), this, SLOT(textChangedInCombo(const QString&)));
 
     // TODO: 01617 void KFontSizeAction::setFontSize( int size )

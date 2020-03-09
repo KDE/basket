@@ -808,7 +808,7 @@ void BNPView::setupActions()
         parentWidget = (QWidget*) parentWidget->parent();
     }
 
-    // Use the "basket" incon in Kontact so it is consistent with the Kontact "New..." icon
+    // Use the "basket" icon in Kontact so it is consistent with the Kontact "New..." icon
 
     a = ac->addAction("basket_new", this, SLOT(askNewBasket()));
     a->setText(i18n("&New Basket..."));
@@ -975,7 +975,7 @@ void BNPView::slotContextMenu(const QPoint &pos)
     } else {
         menuName = "tab_bar_popup";
         /*
-        * "File -> New" create a new basket with the same parent basket as the the current one.
+        * "File -> New" create a new basket with the same parent basket as the current one.
         * But when invoked when right-clicking the empty area at the bottom of the basket tree,
         * it is obvious the user want to create a new basket at the bottom of the tree (with no parent).
         * So we set a temporary variable during the time the popup menu is shown,
@@ -989,7 +989,7 @@ void BNPView::slotContextMenu(const QPoint &pos)
     menu->exec(m_tree->mapToGlobal(pos));
 }
 
-/* this happens everytime we switch the basket (but not if we tell the user we save the stuff
+/* this happens every time we switch the basket (but not if we tell the user we save the stuff
  */
 void BNPView::save()
 {
@@ -1184,7 +1184,7 @@ void BNPView::foldBasket()
 {
     BasketListViewItem *item = listViewItemForBasket(currentBasket());
     if (item && item->childCount() <= 0)
-        item->setExpanded(false); // If Alt+Left is hitted and there is nothing to close, make sure the focus will go to the parent basket
+        item->setExpanded(false); // If Alt+Left is hit and there is nothing to close, make sure the focus will go to the parent basket
 
     QKeyEvent* keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, 0, 0);
     QApplication::postEvent(m_tree, keyEvent);
@@ -1867,7 +1867,7 @@ void BNPView::updateNotesActions()
         m_type == Link ? i18n("&Open target")         : i18n("&Open")
         m_type == Link ? i18n("Open target &with...") : i18n("Open &with...")
         m_type == Link ? i18n("&Save target as...")   : i18n("&Save a copy as...")
-            // If useFile() theire is always a file to open / open with / save, but :
+            // If useFile() there is always a file to open / open with / save, but :
         if (m_type == Link) {
                 if (url().toDisplayString().isEmpty() && runCommand().isEmpty())     // no URL nor runCommand :
         popupMenu->setItemEnabled(7, false);                       //  no possible Open !
@@ -1932,7 +1932,7 @@ void BNPView::slotConvertTexts()
             this,
             i18n(
                 "<p>This will convert every text notes into rich text notes.<br>"
-                "The content of the notes will not change and you will be able to apply formating to those notes.</p>"
+                "The content of the notes will not change and you will be able to apply formatting to those notes.</p>"
                 "<p>This process cannot be reverted back: you will not be able to convert the rich text notes to plain text ones later.</p>"
                 "<p>As a beta-tester, you are strongly encouraged to do the convert process because it is to test if plain text notes are still needed.<br>"
                 "If nobody complain about not having plain text notes anymore, then the final version is likely to not support plain text notes anymore.</p>"
@@ -1983,7 +1983,7 @@ QMenu* BNPView::popupMenu(const QString &menuName)
                                    "<p>If you do not have administrator access to install the application "
                                    "system wide, you can copy the file basketui.rc from the installation "
                                    "archive to the folder <a href='file://%3'>%4</a>.</p>"
-                                   "<p>As last ressort, if you are sure the application is correctly installed "
+                                   "<p>As last resort, if you are sure the application is correctly installed "
                                    "but you had a preview version of it, try to remove the "
                                    "file %5basketui.rc</p>",
                                    QGuiApplication::applicationDisplayName(), QGuiApplication::applicationDisplayName(),
@@ -1991,7 +1991,7 @@ QMenu* BNPView::popupMenu(const QString &menuName)
                                i18n("Resource not Found"), KMessageBox::AllowLink);
         }
         if (!isPart())
-            exit(1); // We SHOULD exit right now and abord everything because the caller except menu != 0 to not crash.
+            exit(1); // We SHOULD exit right now and aboard everything because the caller except menu != 0 to not crash.
         else
             menu = new QMenu; // When running in kpart we cannot exit
     }
@@ -2212,7 +2212,7 @@ void BNPView::doBasketDeletion(BasketScene *basket)
     DecoratedBasket *decoBasket = basket->decoration();
     basket->deleteFiles();
     removeBasket(basket);
-    // Remove the action to avoir keyboard-shortcut clashes:
+    // Remove the action to avoid keyboard-shortcut clashes:
     delete basket->m_action; // FIXME: It's quick&dirty. In the future, the Basket should be deleted, and then the QAction deleted in the Basket destructor.
     delete decoBasket;
 //  delete basket;
@@ -2428,7 +2428,7 @@ void BNPView::showPassiveDroppedDelayed()
     if (Settings::useSystray()){
 
     /*Uncomment after switching to QSystemTrayIcon or port to KStatusNotifierItem
-     See also other occurences of Global::systemTray below*/
+     See also other occurrences of Global::systemTray below*/
     /*KPassivePopup::message(KPassivePopup::Boxed,
         title.arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
         (contentsImage.isNull() ? "" : "<img src=\":/images/passivepopup_image\">"),
@@ -2792,7 +2792,7 @@ void BNPView::timeoutTryHide()
         m_hideTimer->start(Settings::timeToHideOnMouseOut() * 100);
     }
 
-    // If a sub-dialog is oppened, we musn't hide the main window:
+    // If a subdialog is opened, we mustn't hide the main window:
     if (qApp->activeWindow() != 0L && qApp->activeWindow() != Global::activeMainWindow())
         m_hideTimer->stop();
 }

@@ -149,8 +149,8 @@ void State::merge(const List &states, State *result, int *emblemsCount, bool *ha
     for (List::const_iterator it = states.begin(); it != states.end(); ++it) {
         State *state = *it;
         bool isVisible = false;
-        // For each propertie, if that properties have a value (is not default) is the current state of the list,
-        // and if it haven't been set to the result state by a previous state, then it's visible and we assign the propertie to the result state.
+        // For each property, if that properties have a value (is not default) is the current state of the list,
+        // and if it haven't been set to the result state by a previous state, then it's visible and we assign the property to the result state.
         if (!state->emblem().isEmpty()) {
             ++*emblemsCount;
             isVisible = true;
@@ -361,7 +361,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
                         }
                         // TODO: if shortcut is already assigned to a previous note, do not import it, keep the user settings!
                         all.append(tag);
-                        // Tag already exists, rename to theire ids:
+                        // Tag already exists, rename to their ids:
                     } else {
                         State::List::iterator it2 = similarTag->states().begin();
                         for (State::List::iterator it = tag->states().begin(); it != tag->states().end(); ++it, ++it2) {
@@ -389,7 +389,7 @@ Tag* Tag::tagSimilarTo(Tag *tagToTest)
     // Keyboard shortcut, text equivalent and onEveryLines are user settings, and thus not considered during the comparison.
     // Default tags (To Do, Important, Idea...) do not take into account the name of the tag and states during the comparison.
     // Default tags are equal only if they have the same number of states, in the same order, and the same look.
-    // This is because default tag names are translated differently in every countries, but they are essentialy the same!
+    // This is because default tag names are translated differently in every countries, but they are essentially the same!
     // User tags begins with "tag_state_" followed by a number. Default tags are the other ones.
 
     // Browse all tags:
@@ -398,7 +398,7 @@ Tag* Tag::tagSimilarTo(Tag *tagToTest)
         bool same = true;
         bool sameName;
         bool defaultTag = true;
-        // We test only name and look. Shorcut and whenever it is inherited by sibling new notes are user settings only!
+        // We test only name and look. Shortcut and whenever it is inherited by sibling new notes are user settings only!
         sameName = tag->name() == tagToTest->name();
         if (tag->countStates() != tagToTest->countStates())
             continue; // Tag is different!

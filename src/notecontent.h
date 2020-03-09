@@ -82,7 +82,7 @@ private:
 };
 
 /** A list of numeric identifier for each note type.
-  * Declare a varible with the type NoteType::Id and assign a value like NoteType::Text...
+  * Declare a variable with the type NoteType::Id and assign a value like NoteType::Text...
   * @author Sébastien Laoût
   */
 namespace NoteType
@@ -113,8 +113,8 @@ public:
     virtual bool    useFile() const                                  = 0; /// << @return true if it use a file to store the content.
     virtual bool    canBeSavedAs() const                             = 0; /// << @return true if the content can be saved as a file by the user.
     virtual QString saveAsFilters() const                            = 0; /// << @return the filters for the user to choose a file destination to save the note as.
-    virtual bool    match(const FilterData &data)                    = 0; /// << @return true if the content match the filter criterias.
-    // Complexe Abstract Generic Methods:
+    virtual bool    match(const FilterData &data)                    = 0; /// << @return true if the content match the filter criteria.
+    // Complex Abstract Generic Methods:
     virtual void exportToHTML(HTMLExporter *exporter, int indent)    = 0; /// << Export the note in an HTML file.
     virtual QString cssClass() const                                 = 0; /// << @return the CSS class of the note when exported to HTML
     virtual qreal     setWidthAndGetHeight(qreal width)                  = 0; /// << Relayout content with @p width (never less than minWidth()). @return its new height.
@@ -178,7 +178,7 @@ public:
     virtual QString customOpenCommand() {
         return QString();
     }  /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the users in the setting (choice to use a custom app or not, and which app).
-    // Common File Management:                                            ///    (and do save changes) and optionaly hide the toolbar.
+    // Common File Management:                                            ///    (and do save changes) and optionally hide the toolbar.
     virtual void setFileName(const QString &fileName); /// << Set the filename. Reimplement it if you eg. want to update the view when the filename is changed.
     bool trySetFileName(const QString &fileName);      /// << Set the new filename and return true. Can fail and return false if a file with this fileName already exists.
     QString  fullPath();                               /// << Get the absolute path of the file where this content is stored on disk.
@@ -224,7 +224,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -272,7 +272,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -319,7 +319,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -376,7 +376,7 @@ public:
     bool    needSpaceForFeedbackPixmap() {
         return true;
     }
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -422,7 +422,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -478,7 +478,7 @@ public:
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
     QString editToolTipText() const;
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     QString cssClass() const;
     // Custom Zones:
     QString zoneTip(int zone);
@@ -517,7 +517,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -604,7 +604,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal);
@@ -666,7 +666,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -747,7 +747,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);
@@ -817,7 +817,7 @@ public:
     bool    canBeSavedAs() const;
     QString saveAsFilters() const;
     bool    match(const FilterData &data);
-    // Complexe Generic Methods:
+    // Complex Generic Methods:
     void    exportToHTML(HTMLExporter *exporter, int indent);
     QString cssClass() const;
     qreal     setWidthAndGetHeight(qreal width);

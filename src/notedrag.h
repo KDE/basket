@@ -38,10 +38,10 @@ class NoteSelection;
   * - User select some notes and cut them;
   * - NoteDrag::toMultipleDrag() is called with a tree of the selected notes (see BasketScene::toSelectionTree()):
   *   - This method create a new QDrag object, create a stream,
-  *   - And then browse all notes and call the virtual Note::serialize() with the stream as parameter for them to serialize theire content in the "native format".
+  *   - And then browse all notes and call the virtual Note::serialize() with the stream as parameter for them to serialize their content in the "native format".
   *   - This give the MIME type "application/x-basket-note" that will be used by the application to paste the notes exactly as they were.
-  *   - Then the method try to set alterante formats for the dragged objects:
-  *   - It call successively toText() for each notes and stack up the result so theire is ONE big text flavour to add to the QDrag object
+  *   - Then the method try to set alternate formats for the dragged objects:
+  *   - It call successively toText() for each notes and stack up the result so there is ONE big text flavour to add to the QDrag object
   *   - It do the same with toHtml(), toImage() and toLink() to have those flavors as well, if possible...
   *   - If there is only ONE copied note, addAlternateDragObjects() is called on it, so that Unknown objects can be dragged "as is".
   *   - It's OK for the flavors. The method finally set the drag feedback pixmap by asking every selected notes to draw the content to a small pixmap.

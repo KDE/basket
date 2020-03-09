@@ -109,7 +109,7 @@ void NoteDrag::serializeNotes(NoteSelection *noteList, QDataStream &stream, bool
         } else {
             NoteContent *content = node->note->content();
             stream << (quint64)(content->type()) << (quint64)(node->note->groupWidth());
-            // Serialize file name, and move the file to a temporary place if the note is to be cuttted.
+            // Serialize file name, and move the file to a temporary place if the note is to be cut.
             // If note does not have file name, we append empty string to be able to easily decode the notes later:
             stream << content->fileName();
             if (content->shouldSerializeFile()) {
@@ -229,7 +229,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
         // Then, also provide it in the Mozilla proprietary format (that also allow to add titles to URLs):
         // A version for Mozilla applications (convert to "theUrl\ntheTitle", into UTF-16):
         // FIXME: Does Mozilla support the drag of several URLs at once?
-        // FIXME: If no, only provide that if theire is only ONE URL.
+        // FIXME: If no, only provide that if there is only ONE URL.
         QString xMozUrl;
         for (int i = 0; i < urls.count(); ++i)
             xMozUrl += (xMozUrl.isEmpty() ? "" : "\n") + urls[i].toDisplayString() + "\n" + titles[i];

@@ -139,7 +139,7 @@ QString Tools::htmlToParagraph(const QString &html)
     }
 
     // Remove the ending "</p>\n</body></html>", each tag can be separated by space characters (%s)
-    // "</p>" can be omitted (eg. if the HTML doesn't contain paragraph but tables), as well as "</body>" (optinal)
+    // "</p>" can be omitted (eg. if the HTML doesn't contain paragraph but tables), as well as "</body>" (optional)
     pos = result.indexOf(QRegExp("(?:(?:</p>[\\s\\n\\r\\t]*)*</body>[\\s\\n\\r\\t]*)*</html>", Qt::CaseInsensitive));
     if (pos != -1)
         result = result.left(pos);
@@ -355,7 +355,7 @@ QString Tools::htmlToText(const QString &html)
     text.replace("<br />", "\n");
     text.replace("</p>", "\n");
     // FIXME: Format <table> tags better, if possible
-    // TODO: Replace &eacute; and co. by theire equivalent!
+    // TODO: Replace &eacute; and co. by their equivalent!
 
     // To manage tags:
     int pos = 0;

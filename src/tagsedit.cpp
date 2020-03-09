@@ -403,7 +403,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     HelpLabel *allowCrossReferenceHelp = new HelpLabel(
         i18n("What does this do?"),
-        "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following sytax:") + "</p>" +
+        "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + "</p>" +
         "<p>" + i18n("From the top of the tree (Absolute path):") + "<br />" + i18n("[[/top level item/child|optional title]]") + "<p>" +
         "<p>" + i18n("Relative to the current basket:") + "<br />" + i18n("[[../sibling|optional title]]") + "<br />" +
         i18n("[[child|optional title]]") + "<br />" + i18n("[[./child|optional title]]") + "<p>",
@@ -1109,7 +1109,7 @@ void TagsEditDialog::currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem* 
             m_stateNameLabel->setEnabled(true);
             m_stateName->setEnabled(true);
         } else {
-            loadTagFrom(tagItem->tagCopy()->newTag); // TODO: No duplicat
+            loadTagFrom(tagItem->tagCopy()->newTag); // TODO: No duplicate
             loadStateFrom(tagItem->tagCopy()->stateCopies[0]->newState);
             m_stateBox->setEnabled(true);
             m_stateBox->setTitle(i18n("Appearance"));

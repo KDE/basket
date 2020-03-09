@@ -154,9 +154,9 @@ public:
     QColor defaultColor() const;
 
     /**
-     * Allocate a new color array of the specified dimention.\n
+     * Allocate a new color array of the specified dimension.\n
      * The new array will have invalid colors: you should then assign them one by one.\n
-     * If one or both of the dimentions are negative or null, this function do nothing (both dimentions are always ensured to be at least equal to 1).
+     * If one or both of the dimensions are negative or null, this function do nothing (both dimensions are always ensured to be at least equal to 1).
      * @param columnCount The number of columns of the array.
      * @param rowCount    The number of rows of the array.
      * @see setColorAt() to set all colors once the array have been created.
@@ -191,7 +191,7 @@ public:
      * @p column and @p row start from 0 to columnCount()-1 and columnRow()-1.
      *
      * @return The asked color, or an invalid color if the index is out of limit of the array.
-     * @see columnCount() and rowCount() to get the array dimentions.
+     * @see columnCount() and rowCount() to get the array dimensions.
      */
     QColor colorAt(int column, int row)/* const*/;
 
@@ -199,8 +199,8 @@ public:
      * Fill the array of colors (that will be shown to the user in the popup that appears when he/she click the arrow) with a rainbow of different luminosity.\n
      * This rainbow representation have the advantage of being natural and well structured for a human to be able to select reasonable colors.\n
      * This function will allocate a color array by itself depending on the parameters (no need to call newColorArray()).
-     * @param colorColumnCount The number of columns. The 360 possible colors of the rainbow will be split to take the wanted number of colors, equaly separated.
-     * @param lightRowCount    There is always at least 1 row of colors: the "pure" colors: pure red, pure blue, pure green, pure fushia...\n
+     * @param colorColumnCount The number of columns. The 360 possible colors of the rainbow will be split to take the wanted number of colors, equally separated.
+     * @param lightRowCount    There is always at least 1 row of colors: the "pure" colors: pure red, pure blue, pure green, pure fuchsia...\n
      *                         Additionally, you can add row on top: they will contain the same colors, but lighter.\n
      *                         The parameter @p lightRowCount specify how many different lighting grades should be shown (from near to white, but not white, to "pure").
      * @param darkRowCount     Finally, on bottom of the row of "pure colors", you can put any variety of dark colors (from "pure", to near to black, but not black).\n

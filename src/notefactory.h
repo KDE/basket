@@ -40,7 +40,7 @@ class Note;
 namespace NoteFactory
 {
 /** Functions to create a new note from a content item.
-  * Content, if any, is saved to file but the note is not insterted in the basket, and the basket is not saved.
+  * Content, if any, is saved to file but the note is not inserted in the basket, and the basket is not saved.
   * Return 0 if the note has not been successfully created.
   * In some cases, the returned note can be a group containing several notes or the first note of a chained list.
   * The method BasketScene::TODO() can insert several grouped or chained notes without problem.

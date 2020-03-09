@@ -51,7 +51,7 @@ protected:
     int      customersCount;
 };
 
-/** A node in the list of opaque background images (with a background color applyed to an image) of BackgroundManager.
+/** A node in the list of opaque background images (with a background color applied to an image) of BackgroundManager.
   * It can only be used by BackgroundManager because it is an internal structure of this manager.
   * @author Sébastien Laoût
   */
@@ -77,13 +77,13 @@ protected:
   *   when it's time to get the preview of an image it call preview() with the image name to get it.
   *   Preview are only computed on demand and then cached to fast the next demands (only the pointer will have to be returned).
   *   Previews are scaled to fit in a rectangle of 100 by 75 pixels, and with a white background color.
-  *   They are also saved to files, so that the scalling/opaquification has not to be done later (they will be directly loaded from file).
+  *   They are also saved to files, so that the scaling/opaquification has not to be done later (they will be directly loaded from file).
   *   Previews are saved in Global::backgroundsFolder()+"previews/", so that emptying the folder is sufficient to remove them.
-  * BASIC FUNCTIONNING OF AN IMAGE REQUESTER:
+  * BASIC FUNCTIONING OF AN IMAGE REQUESTER:
   *   When eg. a basket is assigned an image name, it register it with subscribe().
   *   The full pixmap is then loaded from file and cached (if it was not already loaded) and the "tiled" property is read from the image configuration file.
-  *   If this object want to have the pixmap applyed on a background color (for no transparency => really faster drawing),
-  *   it should register for the couple (imageName,color) with suscribe(): the pixmap will be created in the cache.
+  *   If this object want to have the pixmap applied on a background color (for no transparency => really faster drawing),
+  *   it should register for the couple (imageName,color) with subscribe(): the pixmap will be created in the cache.
   *   Then, the object can get the subscribed images with pixmap() or opaquePixmap() and know if it's tiled with tiled().
   *   When the user removed the object background image (or when the object/basket/... is removed), the object should call unsubscribe() for
   *   EVERY subscribed image and image couples. Usage count is decreased for those images and a garbage collector will remove the cached images

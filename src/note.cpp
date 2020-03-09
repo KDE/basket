@@ -200,7 +200,7 @@ bool Note::computeMatching(const FilterData &data)
     if (!content())
         return true;
 
-    // If we were editing this note and there is a save operation in the middle, then do not hide it suddently:
+    // If we were editing this note and there is a save operation in the middle, then do not hide it suddenly:
     if (basket()->editedNote() == this)
         return true;
 
@@ -521,9 +521,9 @@ NoteSelection* Note::selectedNotes()
         if (selection->firstChild->next)
             return selection;
         else {
-            // If 'selection' is a groupe with only one content, return directly that content:
+            // If 'selection' is a group with only one content, return directly that content:
             NoteSelection *reducedSelection = selection->firstChild;
-//          delete selection; // TODO: Cut all connexions of 'selection' before deleting it!
+//          delete selection; // TODO: Cut all connections of 'selection' before deleting it!
             for (NoteSelection *node = reducedSelection; node; node = node->next)
                 node->parent = 0;
             return reducedSelection;
@@ -1080,7 +1080,7 @@ Note* Note::noteAt(QPointF pos)
 {
     if (matching() && hasResizer()) {
         int right = rightLimit();
-        // TODO: This code is dupliacted 3 times: !!!!
+        // TODO: This code is duplicated 3 times: !!!!
         if ((pos.x() >= right) && (pos.x() < right + RESIZER_WIDTH) && (pos.y() >= y()) && (pos.y() < y() + resizerHeight())) {
             if (! m_computedAreas)
                 recomputeAreas();
@@ -1184,7 +1184,7 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
                 h += child->height();
                 if(!child->isVisible()) child->show();
             } else {                                 // In case the user collapse a group, then move it and then expand it:
-                child->setXRecursively(x() + width()); //  notes SHOULD have a good X coordonate, and not the old one!
+                child->setXRecursively(x() + width()); //  notes SHOULD have a good X coordinate, and not the old one!
                 if(child->isVisible()) child->hideRecursively();
             }
             // For future animation when re-match, but on bottom of already matched notes!
@@ -1204,12 +1204,12 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
             //}
         }
     } else {
-        // If rightLimit is excedded, set the top-level right limit!!!
+        // If rightLimit is exceeded, set the top-level right limit!!!
         // and NEED RELAYOUT
         setWidth(finalRightLimit() - x());            
     }
 
-    // Set the basket area limits (but not for child notes: no need, because they will look for theire parent note):
+    // Set the basket area limits (but not for child notes: no need, because they will look for their parent note):
     if (!parentNote()) {
         if (basket()->tmpWidth < finalRightLimit() + (hasResizer() ? RESIZER_WIDTH : 0))
             basket()->tmpWidth = finalRightLimit() + (hasResizer() ? RESIZER_WIDTH : 0);
@@ -1281,7 +1281,7 @@ qreal Note::finalRightLimit() const
 }
 
 /*
- * This code is derivated from drawMetalGradient() from the Qt documentation:
+ * This code is derived from drawMetalGradient() from the Qt documentation:
  */
 void drawGradient(QPainter *p, const QColor &colorTop, const QColor & colorBottom,
                   qreal x, qreal y, qreal w, qreal h,
@@ -1522,7 +1522,7 @@ void Note::drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal h
         painter->drawPoint(width - 3, 2);
     }
 
-    // Draw the arows:
+    // Draw the arrows:
     qreal xArrow  = 2;
     qreal hMargin = 9;
     int countArrows = (height >= hMargin * 4 + 6 * 3 ? 3 : (height >= hMargin * 3 + 6 * 2 ? 2 : 1));
@@ -1782,7 +1782,7 @@ void Note::getGradientColors(const QColor &originalBackground, QColor *colorTop,
  * - But as drawing the pixmap offscreen is little time consuming we can keep
  *   last visible notes buffered and then the redraw of the entire window is
  *   INSTANTANEOUS
- * - We keep bufferized note/group draws BUT NOT the resizer: such objects are
+ * - We keep buffered note/group draws BUT NOT the resizer: such objects are
  *   small and fast to draw, so we don't complexify code for that
  */
 
@@ -1817,7 +1817,7 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
     QColor highColor(palette().color(QPalette::Highlight));
     QColor midColor = Tools::mixColor(baseColor, highColor);
 
-    /** Initialise brushs and pens: */
+    /** Initialise brushes and pens: */
     QBrush baseBrush(baseColor);
     QBrush highBrush(highColor);
     QPen   basePen(baseColor);
@@ -2530,7 +2530,7 @@ bool Note::isShown()
     if (basket()->isFiltering()) // And isMatching() because of the line above!
         return true;
 
-    // So, here we go to the complexe case: if the note is inside a collapsed group:
+    // So, here we go to the complex case: if the note is inside a collapsed group:
     Note *group = parentNote();
     Note *child = this;
     while (group) {

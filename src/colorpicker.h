@@ -33,13 +33,13 @@ class DesktopColorPicker : public QDesktopWidget
 {
     Q_OBJECT
 public:
-    /** Construtor, initializer and destructor */
+    /** Constructor, initializer and destructor */
     DesktopColorPicker();
     ~DesktopColorPicker();
 public slots:
     /** Begin color picking.
       * This function returns immediately, and pickedColor() is emitted if user has
-      * chozen a color, and not canceled the process (by pressing Escape).
+      * chosen a color, and not canceled the process (by pressing Escape).
       */
     void pickColor();
 signals:

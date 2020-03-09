@@ -102,7 +102,7 @@ void trashRecursively(const QString &folderOrFile);
   */
 void deleteMetadataRecursively(const QString &folderOrFile);
 /** @Return a new filename that doesn't already exist in @p destFolder.
-  * If @p wantedName alread exist in @p destFolder, a dash and a number will be added before the extenssion.
+  * If @p wantedName already exist in @p destFolder, a dash and a number will be added before the extension.
   * Id there were already such a number in @p wantedName, it is incremented until a free filename is found.
   */
 QString fileNameForNewFile(const QString &wantedName, const QString &destFolder);

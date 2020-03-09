@@ -734,7 +734,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent/*, QKey
     /* Icon button: */
     m_icon->setIcon(m_noteContent->icon());
     int minSize = m_autoIcon->sizeHint().height();
-    // Make the icon button at least the same heigh than the other buttons for a better alignment (nicer to the eyes):
+    // Make the icon button at least the same height than the other buttons for a better alignment (nicer to the eyes):
     if (m_icon->sizeHint().height() < minSize)
         m_icon->setFixedSize(minSize, minSize);
     else
@@ -873,7 +873,7 @@ void LinkEditDialog::slotOk()
     m_icon->setIconSize(linkLook->iconSize()); //  So I store it's name and reload it after size change !
     m_icon->setIcon(icon);
     int minSize = m_autoIcon->sizeHint().height();
-    // Make the icon button at least the same heigh than the other buttons for a better alignment (nicer to the eyes):
+    // Make the icon button at least the same height than the other buttons for a better alignment (nicer to the eyes):
     if (m_icon->sizeHint().height() < minSize)
         m_icon->setFixedSize(minSize, minSize);
     else
@@ -1044,7 +1044,7 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     /* Icon button: */
     m_icon->setIcon(service.icon());
     int minSize = guessButton->sizeHint().height();
-    // Make the icon button at least the same heigh than the other buttons for a better alignment (nicer to the eyes):
+    // Make the icon button at least the same height than the other buttons for a better alignment (nicer to the eyes):
     if (m_icon->sizeHint().height() < minSize)
         m_icon->setFixedSize(minSize, minSize);
     else

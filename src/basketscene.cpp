@@ -533,7 +533,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
             loadNotes(e, note);         // 3. ... And populate it with child notes.
             int noteCount = note->count();
             if (noteCount > 0 || (parent == 0 && !isFreeLayout())) { // But don't remove columns!
-                appendNoteIn(note, parent); // 2. ... Insert it... FIXME: Initially, the if() the insrtion was the step 2. Was it on purpose?
+                appendNoteIn(note, parent); // 2. ... Insert it... FIXME: Initially, the if() the insertion was the step 2. Was it on purpose?
                 // The notes in the group are counted two times (it's why appendNoteIn() was called before loadNotes):
                 m_count       -= noteCount;// TODO: Recompute note count every time noteCount() is emitted!
                 m_countFounds -= noteCount;
@@ -1310,7 +1310,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     // If user click the basket, focus it!
     // The focus is delayed because if the click results in showing a popup menu,
     // the interface flicker by showing the focused rectangle (as the basket gets focus)
-    // and immediatly removing it (because the popup menu now have focus).
+    // and immediately removing it (because the popup menu now have focus).
     if (!isDuringEdit())
         QTimer::singleShot(0, this, SLOT(setFocusIfNotInPopupMenu()));
 
@@ -1564,7 +1564,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    // Finally, no action has been done durint pressEvent, so an action can be done on releaseEvent:
+    // Finally, no action has been done during pressEvent, so an action can be done on releaseEvent:
     m_noActionOnMouseRelease = false;
 
     /* Selection scenario:
@@ -1576,7 +1576,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (event->button() == Qt::LeftButton) {
         m_selectionStarted = true;
         m_selectionBeginPoint = event->scenePos();
-        // We usualy invert the selection with the Ctrl key, but some environements (like GNOME or The Gimp) do it with the Shift key.
+        // We usually invert the selection with the Ctrl key, but some environments (like GNOME or The Gimp) do it with the Shift key.
         // Since the Shift key has no specific usage, we allow to invert selection ALSO with Shift for Gimp people
         m_selectionInvert = controlPressed || shiftPressed;
     }
@@ -1816,7 +1816,7 @@ void BasketScene::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
         } else
             acceptDropEvent(event);*/
 
-    // A workarround since QScrollView::dragAutoScroll seem to have no effect :
+    // A workaround since QScrollView::dragAutoScroll seem to have no effect :
 //  ensureVisible(event->pos().x() + contentsX(), event->pos().y() + contentsY(), 30, 30);
 //  QScrollView::dragMoveEvent(event);
 }
@@ -1869,7 +1869,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
 
         insertNote(note, clicked, zone, pos, animateNewPosition);
 
-        // If moved a note on bottom, contentsHeight has been disminished, then view scrolled up, and we should re-scroll the view down:
+        // If moved a note on bottom, contentsHeight has been diminished, then view scrolled up, and we should re-scroll the view down:
         ensureNoteVisible(note);
 
 //      if (event->button() != Qt::MidButton) {
@@ -2378,7 +2378,7 @@ void BasketScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
             /*bool shouldRemove = */d->exec();
 //      delete selection;
 
-            // Never delete because URL is dragged and the file must be available for the extern appliation
+            // Never delete because URL is dragged and the file must be available for the extern application
 //      if (shouldRemove && d->target() == 0) // If target is another application that request to remove the note
 //          emit wantDelete(this);
         }
@@ -2557,11 +2557,11 @@ void BasketScene::unselectAll()
             QTextCursor cursor = m_editor->textEdit()->textCursor();
             cursor.clearSelection();
             m_editor->textEdit()->setTextCursor(cursor);
-            selectionChangedInEditor(); // THIS IS NOT EMITED BY Qt!!!
+            selectionChangedInEditor(); // THIS IS NOT EMITTED BY Qt!!!
         } else if (m_editor->lineEdit())
             m_editor->lineEdit()->deselect();
     } else {
-        if (countSelecteds() > 0) // Optimisation
+        if (countSelecteds() > 0) // Optimization
             FOR_EACH_NOTE(note)
             note->setSelectedRecursively(false);
     }
@@ -2707,7 +2707,7 @@ void BasketScene::placeInserter(Note *note, int zone)
 	if (inserterShown()){
 	  invalidate(m_inserterRect);
 	}
-    // Some comodities:
+    // Some commodities:
     m_inserterShown = true;
     m_inserterTop   = (zone == Note::TopGroup || zone == Note::TopInsert);
     m_inserterGroup = (zone == Note::TopGroup || zone == Note::BottomGroup);
@@ -3538,7 +3538,7 @@ void BasketScene::updateEditorAppearance()
 	m_editor->graphicsWidget()->setPalette(palette);
       }
 
-      // Uggly Hack arround Qt bugs: placeCursor() don't call any signal:
+      // Ugly Hack around Qt bugs: placeCursor() don't call any signal:
       HtmlEditor *htmlEditor = dynamic_cast<HtmlEditor*>(m_editor);
       if (htmlEditor) {
 	if (m_editor->textEdit()->textCursor().atStart()) {
@@ -3633,7 +3633,7 @@ bool BasketScene::hasSelectedTextInEditor()
 
     if (m_editor->textEdit()) {
         // The following line does NOT work if one letter is selected and the user press Shift+Left or Shift+Right to unselect than letter:
-        // Qt misteriously tell us there is an invisible selection!!
+        // Qt mysteriously tell us there is an invisible selection!!
         //return m_editor->textEdit()->hasSelectedText();
         return !m_editor->textEdit()->textCursor().selectedText().isEmpty();
     } else if (m_editor->lineEdit())
@@ -3888,8 +3888,8 @@ NoteSelection* BasketScene::selectedNotes()
     for (NoteSelection *node = selection.firstChild; node; node = node->next)
         node->parent = 0;
 
-    // If the top-most groups are columns, export only childs of those groups
-    // (because user is not consciencious that columns are groups, and don't care: it's not what she want):
+    // If the top-most groups are columns, export only children of those groups
+    // (because user is not aware that columns are groups, and don't care: it's not what she want):
     if (selection.firstChild->note->isColumn()) {
         NoteSelection tmpSelection;
         NoteSelection *nextNode;
@@ -3980,7 +3980,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
 	
 //      qApp->processEvents();     // Show the editor toolbar before ensuring the note is visible
         ensureNoteVisible(note);   //  because toolbar can create a new line and then partially hide the note
-        m_editor->graphicsWidget()->setFocus(); // When clicking in the basket, a QTimer::singleShot(0, ...) focus the basket! So we focus the the widget after qApp->processEvents()
+        m_editor->graphicsWidget()->setFocus(); // When clicking in the basket, a QTimer::singleShot(0, ...) focus the basket! So we focus the widget after qApp->processEvents()
         emit resetStatusBarText(); // Display "Editing. ... to validate."
     } else {
         // Delete the note user have canceled the addition:
@@ -4180,7 +4180,7 @@ void BasketScene::noteOpen(Note *note)
                 noteEdit(note);
         }
     } else {
-        emit postMessage(message); // "Openning link target..." / "Launching application..." / "Openning note file..."
+        emit postMessage(message); // "Opening link target..." / "Launching application..." / "Opening note file..."
         // Finally do the opening job:
         QString customCommand = note->content()->customOpenCommand();
 
@@ -4364,7 +4364,7 @@ void BasketScene::noteGroup()
         note = nextNote;
     }
 
-    m_loaded = true; // Part 2 / 2 of the workarround!
+    m_loaded = true; // Part 2 / 2 of the workaround!
 
     // Do cleanup:
     unplugNote(fakeNote);
@@ -4550,9 +4550,9 @@ void BasketScene::slotCopyingDone2(KIO::Job *job,
         note->content()->loadFromFile(/*lazyLoad=*/false);
         if (isEncrypted())
             note->content()->saveToFile();
-        if (m_focusedNote == note)   // When inserting a new note we ensure it visble
+        if (m_focusedNote == note)   // When inserting a new note we ensure it visible
             ensureNoteVisible(note); //  But after loading it has certainly grown and if it was
-    }                                //  on bottom of the basket it's not visible entirly anymore
+    }                                //  on bottom of the basket it's not visible entirely anymore
 }
 
 Note* BasketScene::noteForFullPath(const QString &path)
@@ -4768,7 +4768,7 @@ Note* BasketScene::noteOnHome()
     // If it was not found, then focus the very first note in the basket:
     if (isFreeLayout()) {
         Note *first = firstNoteShownInStack(); // The effective first note found
-        Note *note  = first; // The current note, to conpare with the previous first note, if this new note is more on top
+        Note *note  = first; // The current note, to compare with the previous first note, if this new note is more on top
         if (note)
             note = note->nextShownInStack();
         while (note) {
@@ -5079,7 +5079,7 @@ void BasketScene::watchedFileModified(const QString &fullPath)
     if (!m_modifiedFiles.contains(fullPath))
         m_modifiedFiles.append(fullPath);
     // If a big file is saved by an application, notifications are send several times.
-    // We wait they are not sent anymore to considere the file complete!
+    // We wait they are not sent anymore to consider the file complete!
     m_watcherTimer.setSingleShot(true);
     m_watcherTimer.start(200);
     DEBUG_WIN << "Watcher>Modified : <font color=blue>" + fullPath + "</font>";

@@ -356,7 +356,7 @@ public:
         return m_inserterGroup;
     }
 public slots:
-    void doHoverEffects(Note *note, Note::Zone zone, const QPointF &pos = QPointF(0, 0)); /// << @p pos is optionnal and only used to show the link target in the statusbar
+    void doHoverEffects(Note *note, Note::Zone zone, const QPointF &pos = QPointF(0, 0)); /// << @p pos is optional and only used to show the link target in the statusbar
     void doHoverEffects(const QPointF &pos);
     void doHoverEffects(); // The same, but using the current cursor position
     void mouseEnteredEditorWidget();
@@ -431,7 +431,7 @@ private:
 
 /// COMMUNICATION WITH ITS CONTAINER:
 signals:
-    void postMessage(const QString &message);      /// << Post a temporar message in the statusBar.
+    void postMessage(const QString &message);      /// << Post a temporary message in the statusBar.
     void setStatusBarText(const QString &message); /// << Set the permanent statusBar text or reset it if message isEmpty().
     void resetStatusBarText();                     /// << Equivalent to setStatusBarText("").
     void propertiesChanged(BasketScene *basket);

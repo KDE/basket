@@ -52,10 +52,10 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
     *    and image in QMimeSourceFactory shouldn't be removed.
     *  - Sometimes the systray icon is covered (a passive popup...)
     *    Use XComposite extension, if available, to get the kicker pixmap.
-    *  - Perhapse desaturate the area around the proper SysTray icon,
-    *    helping bring it into sharper focus. Or draw the cicle with XOR
+    *  - Perhaps desaturate the area around the proper SysTray icon,
+    *    helping bring it into sharper focus. Or draw the circle with XOR
     *    brush.
-    *  - Perhapse add the icon in the text (eg. "... in the
+    *  - Perhaps add the icon in the text (eg. "... in the
     *    system tray ([icon])."). Add some clutter to the dialog.
     */
 #if KDE_IS_VERSION( 3, 1, 90 )
@@ -63,7 +63,7 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
     if (! KMessageBox::shouldBeShownContinue("hideOnCloseInfo"))
         return;
 #endif
-    // "Default parameter". Here, to avoid a i18n() call and dependancy in the .h
+    // "Default parameter". Here, to avoid a i18n() call and dependency in the .h
     if (fileMenu.isEmpty())
         fileMenu = i18n("File");
 
@@ -74,7 +74,7 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
     int tw = width();
     int th = height();
 
-    // We are triying to make a live screenshot of the systray icon to circle it
+    // We are trying to make a live screenshot of the systray icon to circle it
     //  and show it to the user. If no systray is used or if the icon is not visible,
     //  we should not show that screenshot but only a text!
 
@@ -131,7 +131,7 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
         // Compute size and position of the pixmap to be grabbed:
         int w = desktopWidth / 4;
         int h = desktopHeight / 9;
-        int x = g.x() + tw / 2 - w / 2; // Center the rectange in the systray icon
+        int x = g.x() + tw / 2 - w / 2; // Center the rectangle in the systray icon
         int y = g.y() + th / 2 - h / 2;
         if (x < 0)                 x = 0; // Move the rectangle to stay in the desktop limits
         if (y < 0)                 y = 0;

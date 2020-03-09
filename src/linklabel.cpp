@@ -234,7 +234,7 @@ void LinkLabel::setLink(const QString &title, const QString &icon, LinkLook *loo
         setLook(look);
 }
 
-void LinkLabel::setLook(LinkLook *look) // FIXME: called externaly (so, without setLink()) it's buggy (icon not
+void LinkLabel::setLook(LinkLook *look) // FIXME: called externally (so, without setLink()) it's buggy (icon not
 {
     m_look = look;
 
