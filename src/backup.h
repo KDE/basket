@@ -38,7 +38,7 @@ class BackupDialog : public QDialog
     Q_OBJECT
 public:
     explicit BackupDialog(QWidget *parent = 0, const char *name = 0);
-    ~BackupDialog();
+    ~BackupDialog() override;
 private slots:
     void moveToAnotherFolder();
     void useAnotherExistingFolder();
@@ -68,7 +68,7 @@ class BackupThread : public QThread
 public:
     BackupThread(const QString &tarFile, const QString &folderToBackup);
 protected:
-    virtual void run();
+    void run() override;
 private:
     QString m_tarFile;
     QString m_folderToBackup;
@@ -82,7 +82,7 @@ public:
         return m_success;
     }
 protected:
-    virtual void run();
+    void run() override;
 private:
     QString m_tarFile;
     QString m_destFolder;

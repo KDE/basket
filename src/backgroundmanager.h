@@ -101,7 +101,7 @@ private:
 public:
     /// CONTRUCTOR AND DESTRUCTOR:
     BackgroundManager();
-    ~BackgroundManager();
+    ~BackgroundManager() override;
     /// SUBSCRIPTION TO IMAGES:
     bool subscribe(const QString &image); /// << @Return true if the loading is a success. In the counter-case, calling methods below is unsafe with this @p image name.
     bool subscribe(const QString &image, const QColor &color); /// << Idem.

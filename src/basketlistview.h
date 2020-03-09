@@ -44,7 +44,7 @@ public:
     BasketListViewItem(QTreeWidgetItem *parent, BasketScene *basket);
     BasketListViewItem(QTreeWidget *parent, QTreeWidgetItem *after, BasketScene *basket);
     BasketListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after, BasketScene *basket);
-    ~BasketListViewItem();
+    ~BasketListViewItem() override;
 
     BasketScene *basket() {
         return m_basket;
@@ -84,14 +84,14 @@ class BasketTreeListView : public QTreeWidget
     Q_OBJECT
 public:
     BasketTreeListView(QWidget *parent = 0);
-    void dragEnterEvent(QDragEnterEvent *event);
+    void dragEnterEvent(QDragEnterEvent *event) override;
     void removeExpands();
-    void dragLeaveEvent(QDragLeaveEvent *event);
-    void dragMoveEvent(QDragMoveEvent *event);
-    void dropEvent(QDropEvent *event);
-    void resizeEvent(QResizeEvent *event);
-    void contextMenuEvent(QContextMenuEvent *event);
-    Qt::DropActions supportedDropActions() const;
+    void dragLeaveEvent(QDragLeaveEvent *event) override;
+    void dragMoveEvent(QDragMoveEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
+    Qt::DropActions supportedDropActions() const override;
 
     /*! Retrieve a basket from the tree
      *  @see BasketListViewItem::basket() */
@@ -100,12 +100,12 @@ public:
 
     static QString TREE_ITEM_MIME_STRING;
 protected:
-    QStringList mimeTypes() const;
-    QMimeData* mimeData(const QList<QTreeWidgetItem *> items) const;
-    bool event(QEvent *e);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void focusInEvent(QFocusEvent*);
+    QStringList mimeTypes() const override;
+    QMimeData* mimeData(const QList<QTreeWidgetItem *> items) const override;
+    bool event(QEvent *e) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void focusInEvent(QFocusEvent*) override;
 private:
     QTimer         m_autoOpenTimer;
     QTreeWidgetItem *m_autoOpenItem;
@@ -127,7 +127,7 @@ class FoundCountIcon : public QStyledItemDelegate
 public:
     FoundCountIcon(BasketTreeListView* basketTree, QObject* parent = NULL) :
         QStyledItemDelegate(parent), m_basketTree(basketTree) {}
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     QPixmap circledTextPixmap(const QString& text, int height, const QFont& font, const QColor &color) const;

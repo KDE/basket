@@ -58,7 +58,7 @@ class BASKET_EXPORT Note : public QGraphicsItemGroup
 /// CONSTRUCTOR AND DESTRUCTOR:
 public:
     Note(BasketScene *parent = 0);
-    ~Note();
+    ~Note() override;
 
 private:
     NotePrivate* d;
@@ -85,9 +85,9 @@ public:
     QRectF rect();
     QRectF resizerRect();
     QRectF visibleRect();
-    QRectF boundingRect() const;
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                QWidget *widget);
+                QWidget *widget) override;
     void relayoutAt(qreal ax, qreal ay, bool animate);
     qreal contentX() const;
     qreal minWidth() const;

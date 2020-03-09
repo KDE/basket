@@ -31,7 +31,7 @@ class Application : public QApplication
 {
 public:
     Application(int &argc, char **argv);
-    ~Application();
+    ~Application() override;
     int newInstance();
     void tryLoadFile(const QStringList &args, const QString& workingDir); //!< Open a file passed as command line argument
 private slots:

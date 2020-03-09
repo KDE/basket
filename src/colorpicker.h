@@ -35,7 +35,7 @@ class DesktopColorPicker : public QDesktopWidget
 public:
     /** Constructor, initializer and destructor */
     DesktopColorPicker();
-    ~DesktopColorPicker();
+    ~DesktopColorPicker() override;
 public slots:
     /** Begin color picking.
       * This function returns immediately, and pickedColor() is emitted if user has
@@ -52,8 +52,8 @@ signals:
 protected slots:
     void slotDelayedPick();
 protected:
-    void mouseReleaseEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
     bool m_gettingColorFromScreen;
 };
 

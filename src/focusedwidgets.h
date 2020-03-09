@@ -35,15 +35,15 @@ class FocusedTextEdit : public KTextEdit
     Q_OBJECT
 public:
     explicit FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent = 0);
-    ~FocusedTextEdit();
+    ~FocusedTextEdit() override;
     void paste(QClipboard::Mode mode);
 public slots:
     void onSelectionChanged(); //!< Put selected text into the global mouse selection
 protected:
-    void keyPressEvent(QKeyEvent *event);
-    void wheelEvent(QWheelEvent *event);
-    void enterEvent(QEvent *event);
-    void insertFromMimeData (const QMimeData *source);
+    void keyPressEvent(QKeyEvent *event) override;
+    void wheelEvent(QWheelEvent *event) override;
+    void enterEvent(QEvent *event) override;
+    void insertFromMimeData (const QMimeData *source) override;
 signals:
     void escapePressed();
     void mouseEntered();
@@ -73,10 +73,10 @@ public:
      * @param watched The widget to install the event filter on; also becomes
      * the parent of this object. */
     FocusWidgetFilter(QWidget *watched = 0);
-    ~FocusWidgetFilter() {}
+    ~FocusWidgetFilter() override {}
 
 protected:
-    bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) override;
 
 signals:
     void escapePressed();

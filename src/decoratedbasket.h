@@ -38,7 +38,7 @@ class DecoratedBasket : public QWidget
     Q_OBJECT
 public:
     DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl = 0);
-    ~DecoratedBasket();
+    ~DecoratedBasket() override;
     void setFilterBarPosition(bool onTop);
     void resetFilter();
     void setFilterBarVisible(bool show, bool switchFocus = true);
@@ -55,7 +55,7 @@ public:
         return m_basket;
     }
 
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     QVBoxLayout *m_layout;

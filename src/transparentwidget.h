@@ -36,9 +36,9 @@ public:
     void setPosition(int x, int y);
     //void reparent(QWidget *parent, Qt::WFlags f, const QPoint &p, bool showIt = FALSE);
 protected:
-    void paintEvent(QPaintEvent*);
-    void mouseMoveEvent(QMouseEvent *event);
-    bool eventFilter(QObject *object, QEvent *event);
+    void paintEvent(QPaintEvent*) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    bool eventFilter(QObject *object, QEvent *event) override;
 private:
     BasketScene *m_basket;
     int     m_x;

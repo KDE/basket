@@ -36,7 +36,7 @@ class SystemTray : public KStatusNotifierItem
 
 public:
     SystemTray(QWidget *parent = 0);
-    ~SystemTray();
+    ~SystemTray() override;
 
 public slots:
     void updateDisplay();

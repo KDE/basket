@@ -129,7 +129,7 @@ public:
     /**
      * Destroys the combobox.
      */
-    virtual ~KColorCombo2();
+    ~KColorCombo2() override;
 
     /**
      * Get the color chosen by the user.\n
@@ -258,11 +258,11 @@ public:
     int colorRectWidthForHeight(int height) const;
 
 protected:
-    virtual void showPopup();
-    virtual void mouseMoveEvent(QMouseEvent *event);
-    virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dropEvent(QDropEvent *event);
-    virtual void keyPressEvent(QKeyEvent *event);
+    void showPopup() override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
     virtual void fontChange(const QFont &oldFont);
 
 private:
@@ -298,7 +298,7 @@ protected:
      * Keep place for future improvements without having to break binary compatibility.\n
      * Does nothing for the moment.
      */
-    virtual void virtual_hook(int id, void *data);
+    void virtual_hook(int id, void *data) override;
 
 private:
     /**
@@ -316,15 +316,15 @@ class KColorPopup : public QWidget
     Q_OBJECT
 public:
     KColorPopup(KColorCombo2 *parent);
-    ~KColorPopup();
+    ~KColorPopup() override;
     void relayout(); // updateGeometry() ??
 signals:
     void closed();
 protected:
-    void paintEvent(QPaintEvent */*event*/);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+    void paintEvent(QPaintEvent */*event*/) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
     void doSelection();
     void validate();
     void updateCell(int column, int row);

@@ -72,7 +72,7 @@ public:
     /// CONSTRUCTOR AND DESTRUCTOR:
     BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient,
             KActionCollection *actionCollection, BasketStatusBar *bar);
-    ~BNPView();
+    ~BNPView() override;
     /// MANAGE CONFIGURATION EVENTS!:
     void setTreePlacement(bool onLeft);
     void relayoutAllBaskets();
@@ -345,8 +345,8 @@ public slots:
     void disconnectTagsMenu();
     void disconnectTagsMenuDelayed();
 protected:
-    void showEvent(QShowEvent*);
-    void hideEvent(QHideEvent*);
+    void showEvent(QShowEvent*) override;
+    void hideEvent(QHideEvent*) override;
 private:
     QMenu *m_lastOpenedTagsMenu;
 
@@ -363,8 +363,8 @@ signals:
     void showPart();
 
 protected:
-    void enterEvent(QEvent*);
-    void leaveEvent(QEvent*);
+    void enterEvent(QEvent*) override;
+    void leaveEvent(QEvent*) override;
 
 protected:
     void hideMainWindow();

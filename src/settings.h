@@ -49,11 +49,11 @@ class BASKET_EXPORT GeneralPage : public KCModule
     Q_OBJECT
 public:
     explicit GeneralPage(QWidget * parent = 0, const char * name = 0);
-    virtual ~GeneralPage() {}
+    ~GeneralPage() override {}
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private:
     // General
@@ -77,9 +77,9 @@ class BASKET_EXPORT BasketsPage : public KCModule
 public:
     explicit BasketsPage(QWidget * parent = 0, const char * name = 0);
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private:
     // Appearance
@@ -108,9 +108,9 @@ class BASKET_EXPORT NewNotesPage : public KCModule
 public:
     explicit NewNotesPage(QWidget * parent = 0, const char * name = 0);
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private slots:
     void visualize();
@@ -135,9 +135,9 @@ class BASKET_EXPORT NotesAppearancePage : public KCModule
 public:
     explicit NotesAppearancePage(QWidget * parent = 0, const char * name = 0);
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private:
     // Link Looks
@@ -155,9 +155,9 @@ class BASKET_EXPORT ApplicationsPage : public KCModule
 public:
     explicit ApplicationsPage(QWidget * parent = 0, const char * name = 0);
 
-    virtual void load();
-    virtual void save();
-    virtual void defaults();
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private:
     // Applications

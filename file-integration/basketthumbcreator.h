@@ -24,6 +24,6 @@
 
 class BasketThumbCreator : public ThumbCreator
 {
-	bool create(const QString &path, int width, int height, QImage &image);
-	Flags flags() const;
+	bool create(const QString &path, int width, int height, QImage &image) override;
+	Flags flags() const override;
 };

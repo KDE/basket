@@ -49,7 +49,7 @@ class BasketPropertiesDialog : public QDialog, private Ui::BasketPropertiesUi
     Q_OBJECT
 public:
     explicit BasketPropertiesDialog(BasketScene *basket, QWidget *parent = 0);
-    ~BasketPropertiesDialog();
+    ~BasketPropertiesDialog() override;
     void ensurePolished();
 
 public slots:

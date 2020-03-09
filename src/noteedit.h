@@ -69,7 +69,7 @@ class NoteEditor : public QObject
     Q_OBJECT
 public:
     NoteEditor(NoteContent *noteContent);
-    virtual ~NoteEditor();
+    ~NoteEditor() override;
 
     bool        isEmpty()  {
         return m_isEmpty;
@@ -135,9 +135,9 @@ class TextEditor : public NoteEditor
     Q_OBJECT
 public:
     TextEditor(TextContent *textContent, QWidget *parent);
-    ~TextEditor();
-    void validate();
-    void autoSave(bool toFileToo);
+    ~TextEditor() override;
+    void validate() override;
+    void autoSave(bool toFileToo) override;
 protected:
     TextContent *m_textContent;
 };
@@ -147,9 +147,9 @@ class HtmlEditor : public NoteEditor
     Q_OBJECT
 public:
     HtmlEditor(HtmlContent *htmlContent, QWidget *parent);
-    ~HtmlEditor();
-    void validate();
-    void autoSave(bool toFileToo);
+    ~HtmlEditor() override;
+    void validate() override;
+    void autoSave(bool toFileToo) override;
 protected:
     HtmlContent *m_htmlContent;
 public slots:
@@ -184,9 +184,9 @@ class FileEditor : public NoteEditor
     Q_OBJECT
 public:
     FileEditor(FileContent *fileContent, QWidget *parent);
-    ~FileEditor();
-    void validate();
-    void autoSave(bool toFileToo);
+    ~FileEditor() override;
+    void validate() override;
+    void autoSave(bool toFileToo) override;
 protected:
     FileContent *m_fileContent;
 };
@@ -235,7 +235,7 @@ class LinkEditDialog : public QDialog
     Q_OBJECT
 public:
     explicit LinkEditDialog(LinkContent *contentNote, QWidget *parent = 0);
-    ~LinkEditDialog();
+    ~LinkEditDialog() override;
     void ensurePolished();
 
 protected slots:
@@ -263,7 +263,7 @@ class CrossReferenceEditDialog : public QDialog
     Q_OBJECT
 public:
     explicit CrossReferenceEditDialog(CrossReferenceContent *contentNote, QWidget *parent = 0);
-    ~CrossReferenceEditDialog();
+    ~CrossReferenceEditDialog() override;
 
 protected slots:
     void slotOk();
@@ -283,7 +283,7 @@ class LauncherEditDialog : public QDialog
     Q_OBJECT
 public:
     explicit LauncherEditDialog(LauncherContent *contentNote, QWidget *parent = 0);
-    ~LauncherEditDialog();
+    ~LauncherEditDialog() override;
     void ensurePolished();
 protected slots:
     void slotOk();
@@ -305,7 +305,7 @@ class InlineEditors : public QObject
     Q_OBJECT
 public:
     InlineEditors();
-    ~InlineEditors();
+    ~InlineEditors() override;
     void initToolBars(KActionCollection *ac);
     static InlineEditors* instance();
 

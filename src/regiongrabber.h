@@ -35,7 +35,7 @@ class RegionGrabber : public QWidget
     Q_OBJECT
 public:
     RegionGrabber();
-    ~RegionGrabber();
+    ~RegionGrabber() override;
 
 protected slots:
     void init();
@@ -45,13 +45,13 @@ signals:
     void regionGrabbed(const QPixmap &);
 
 protected:
-    void paintEvent(QPaintEvent* e);
-    void resizeEvent(QResizeEvent* e);
-    void mousePressEvent(QMouseEvent* e);
-    void mouseMoveEvent(QMouseEvent* e);
-    void mouseReleaseEvent(QMouseEvent* e);
-    void mouseDoubleClickEvent(QMouseEvent*);
-    void keyPressEvent(QKeyEvent* e);
+    void paintEvent(QPaintEvent* e) override;
+    void resizeEvent(QResizeEvent* e) override;
+    void mousePressEvent(QMouseEvent* e) override;
+    void mouseMoveEvent(QMouseEvent* e) override;
+    void mouseReleaseEvent(QMouseEvent* e) override;
+    void mouseDoubleClickEvent(QMouseEvent*) override;
+    void keyPressEvent(QKeyEvent* e) override;
     void updateHandles();
     QRegion handleMask() const;
     QPoint limitPointToRect(const QPoint &p, const QRect &r) const;

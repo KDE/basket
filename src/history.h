@@ -29,8 +29,8 @@ class HistorySetBasket : public QUndoCommand
 {
 public:
     explicit HistorySetBasket(BasketScene *basket, QUndoCommand *parent = 0);
-    void undo();
-    void redo();
+    void undo() override;
+    void redo() override;
 
 private:
     QString m_folderNameOld;

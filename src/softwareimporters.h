@@ -41,7 +41,7 @@ class TreeImportDialog : public QDialog
     Q_OBJECT
 public:
     TreeImportDialog(QWidget *parent = 0);
-    ~TreeImportDialog();
+    ~TreeImportDialog() override;
     int choice();
 private:
     QGroupBox *m_choices;
@@ -59,7 +59,7 @@ class TextFileImportDialog : public QDialog
     Q_OBJECT
 public:
     TextFileImportDialog(QWidget *parent = 0);
-    ~TextFileImportDialog();
+    ~TextFileImportDialog() override;
     QString separator();
 protected slots:
     void customSeparatorChanged();

@@ -33,11 +33,11 @@ class BASKET_EXPORT VersionSyncPage : public KCModule
     
 public:
     explicit VersionSyncPage(QWidget * parent = 0, const char * name = 0);
-    ~VersionSyncPage();
+    ~VersionSyncPage() override;
 
-    virtual void load() override;
-    virtual void save() override;
-    virtual void defaults() override;
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 public slots:
     void setHistorySize(qint64 size_bytes);

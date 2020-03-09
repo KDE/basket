@@ -38,13 +38,13 @@ class DebugWindow : public QWidget
 public:
     /** Constructor and destructor */
     DebugWindow(QWidget *parent = 0);
-    ~DebugWindow();
+    ~DebugWindow() override;
     /** Methods to post a message to the debug window */
     Q_INVOKABLE void postMessage(const QString msg);
     DebugWindow& operator<<(const QString msg);
     void insertHLine();
 protected:
-    virtual void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 private:
     QVBoxLayout  *layout;
     QTextBrowser *textBrowser;

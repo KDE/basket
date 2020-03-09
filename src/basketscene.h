@@ -87,7 +87,7 @@ public:
 public:
 /// CONSTRUCTOR AND DESTRUCTOR:
     BasketScene(QWidget *parent, const QString &folderName);
-    ~BasketScene();
+    ~BasketScene() override;
 
 /// USER INTERACTION:
 private:
@@ -97,16 +97,16 @@ private:
     bool   m_canDrag;
 
 public:
-    void drawBackground ( QPainter * painter, const QRectF & rect );
-    void drawForeground ( QPainter * painter, const QRectF & rect );
+    void drawBackground ( QPainter * painter, const QRectF & rect ) override;
+    void drawForeground ( QPainter * painter, const QRectF & rect ) override;
 
     void enterEvent(QEvent *);
     void leaveEvent(QEvent *);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
-    void contextMenuEvent(QGraphicsSceneContextMenuEvent *event);
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
+    void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
     void clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked = 0, int zone = 0);
 private slots:
     void setFocusIfNotInPopupMenu();
@@ -210,7 +210,7 @@ private slots:
 
 /// TOOL TIPS:
 protected:
-    void helpEvent(QGraphicsSceneHelpEvent* event);
+    void helpEvent(QGraphicsSceneHelpEvent* event) override;
 
 /// ANIMATIONS:
 private:
@@ -570,7 +570,7 @@ private:
     QList<Note*> m_draggedNotes;
 public:
     static void acceptDropEvent(QGraphicsSceneDragDropEvent *event, bool preCond = true);
-    void dropEvent(QGraphicsSceneDragDropEvent *event);
+    void dropEvent(QGraphicsSceneDragDropEvent *event) override;
     void blindDrop(QGraphicsSceneDragDropEvent * event);
     void blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction, QObject *source);
     bool isDuringDrag() {
@@ -580,9 +580,9 @@ public:
         return m_draggedNotes;
     }
 protected:
-    void dragEnterEvent(QGraphicsSceneDragDropEvent *);
-    void dragMoveEvent(QGraphicsSceneDragDropEvent *event);
-    void dragLeaveEvent(QGraphicsSceneDragDropEvent *);
+    void dragEnterEvent(QGraphicsSceneDragDropEvent *) override;
+    void dragMoveEvent(QGraphicsSceneDragDropEvent *event) override;
+    void dragLeaveEvent(QGraphicsSceneDragDropEvent *) override;
 public slots:
     void slotCopyingDone2(KIO::Job *job, const QUrl &from, const QUrl &to);
 public:
@@ -615,9 +615,9 @@ public:
     Note* lastNoteShownInStack();
     void selectRange(Note *start, Note *end, bool unselectOthers = true); /// FIXME: Not really a focus related method!
     void ensureNoteVisible(Note *note);
-    virtual void keyPressEvent(QKeyEvent *event);
-    virtual void focusInEvent(QFocusEvent*);
-    virtual void focusOutEvent(QFocusEvent*);
+    void keyPressEvent(QKeyEvent *event) override;
+    void focusInEvent(QFocusEvent*) override;
+    void focusOutEvent(QFocusEvent*) override;
     QRectF noteVisibleRect(Note *note); // clipped global (desktop as origin) rectangle
     Note* firstNoteInGroup();
     Note *noteOnHome();
@@ -633,7 +633,7 @@ public:
 
 
 public:
-    void wheelEvent(QGraphicsSceneWheelEvent *event);
+    void wheelEvent(QGraphicsSceneWheelEvent *event) override;
 
 
 

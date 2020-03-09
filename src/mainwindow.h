@@ -46,7 +46,7 @@ class MainWindow : public KXmlGuiWindow
 public:
     /** Constructor, initializer and destructor */
     MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    ~MainWindow() override;
 private:
     void setupActions();
 public slots:
@@ -55,7 +55,7 @@ public slots:
 //  void toggleToolBar();
     void toggleStatusBar();
     void showShortcutsSettingsDialog();
-    void configureToolbars();
+    void configureToolbars() override;
     void configureNotifications();
     void showSettingsDialog();
     void minimizeRestore();
@@ -64,9 +64,9 @@ public slots:
 
 protected:
     bool queryExit();
-    bool queryClose();
-    virtual void resizeEvent(QResizeEvent*);
-    virtual void moveEvent(QMoveEvent*);
+    bool queryClose() override;
+    void resizeEvent(QResizeEvent*) override;
+    void moveEvent(QMoveEvent*) override;
 
 public:
     void ensurePolished();

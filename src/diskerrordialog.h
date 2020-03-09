@@ -35,10 +35,10 @@ class DiskErrorDialog : public QDialog
     Q_OBJECT
 public:
     DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent = 0);
-    ~DiskErrorDialog();
+    ~DiskErrorDialog() override;
 protected:
-    void closeEvent(QCloseEvent *event);
-    void keyPressEvent(QKeyEvent*);
+    void closeEvent(QCloseEvent *event) override;
+    void keyPressEvent(QKeyEvent*) override;
 };
 
 #endif // DISKERRORDIALOG_H

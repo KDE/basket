@@ -43,7 +43,7 @@ class RunCommandRequester : public QWidget
     Q_OBJECT
 public:
     RunCommandRequester(const QString &runCommand, const QString &message, QWidget *parent = 0);
-    ~RunCommandRequester();
+    ~RunCommandRequester() override;
     QString runCommand();
     void setRunCommand(const QString &runCommand);
     QLineEdit *lineEdit() {
@@ -64,7 +64,7 @@ class IconSizeCombo : public KComboBox
     Q_OBJECT
 public:
     IconSizeCombo(QWidget *parent = 0);
-    ~IconSizeCombo();
+    ~IconSizeCombo() override;
     int iconSize();
     void setSize(int size);
 };
@@ -78,9 +78,9 @@ class ViewSizeDialog : public QDialog
     Q_OBJECT
 public:
     ViewSizeDialog(QWidget *parent, int w, int h);
-    ~ViewSizeDialog();
+    ~ViewSizeDialog() override;
 private:
-    virtual void resizeEvent(QResizeEvent *);
+    void resizeEvent(QResizeEvent *) override;
     QWidget *m_sizeGrip;
 };
 
@@ -92,7 +92,7 @@ class HelpLabel : public KUrlLabel
     Q_OBJECT
 public:
     HelpLabel(const QString &text, const QString &message, QWidget *parent);
-    ~HelpLabel();
+    ~HelpLabel() override;
     QString message()                       {
         return m_message;
     }
@@ -113,7 +113,7 @@ class IconSizeDialog : public QDialog
     Q_OBJECT
 public:
     IconSizeDialog(const QString &caption, const QString &message, const QString &icon, int iconSize, QWidget *parent);
-    ~IconSizeDialog();
+    ~IconSizeDialog() override;
     int iconSize() {
         return m_iconSize;
     } /// << @return the chosen icon size (16, 32, ...) or -1 if canceled!
@@ -140,11 +140,11 @@ class FontSizeCombo : public KComboBox
     Q_OBJECT
 public:
     FontSizeCombo(bool rw, bool withDefault, QWidget *parent = 0);
-    ~FontSizeCombo();
+    ~FontSizeCombo() override;
     void setFontSize(qreal size);
     qreal fontSize();
 protected:
-    void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) override;
 signals:
     void sizeChanged(qreal size);
     void escapePressed();

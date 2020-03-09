@@ -43,7 +43,7 @@ class BASKET_EXPORT BasketStatusBar : public QObject
 public:
     BasketStatusBar(QStatusBar *bar);
     BasketStatusBar(KParts::StatusBarExtension *extension);
-    ~BasketStatusBar();
+    ~BasketStatusBar() override;
 
 public slots:
     /** GUI Main Window actions **/
@@ -59,7 +59,7 @@ protected:
     QStatusBar *statusBar() const;
     void addWidget(QWidget * widget, int stretch = 0, bool permanent = false);
     void setStatusText(const QString &txt);
-    bool eventFilter(QObject * obj, QEvent * event);
+    bool eventFilter(QObject * obj, QEvent * event) override;
 private:
     QStatusBar                 *m_bar;
     KParts::StatusBarExtension *m_extension;

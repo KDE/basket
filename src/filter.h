@@ -61,7 +61,7 @@ class FilterBar : public QWidget
     Q_OBJECT
 public:
     FilterBar(QWidget *parent = 0);
-    ~FilterBar();
+    ~FilterBar() override;
     const FilterData& filterData();
 signals:
     void newFilter(const FilterData &data);

@@ -129,7 +129,7 @@ public:
      * Also hide the button-bar, if it was shown.
      * Be careful, the QAction is deleted. Do not use it afterward, and take care to unplug it before destroying this LikeBack instance.
      */
-    ~LikeBack();
+    ~LikeBack() override;
 
     /**
      * This method is interesting while setting up the system for the first time.

@@ -83,7 +83,7 @@ public:
     TagListViewItem(QTreeWidgetItem *parent, StateCopy *stateCopy);
     TagListViewItem(QTreeWidget *parent, QTreeWidgetItem *after, StateCopy *stateCopy);
     TagListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after, StateCopy *stateCopy);
-    ~TagListViewItem();
+    ~TagListViewItem() override;
     TagCopy*   tagCopy()   {
         return m_tagCopy;
     }
@@ -110,11 +110,11 @@ class TagListView : public QTreeWidget
     Q_OBJECT
 public:
     TagListView(QWidget *parent = 0);
-    ~TagListView();
-    void keyPressEvent(QKeyEvent *event);
-    void mouseDoubleClickEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
+    ~TagListView() override;
+    void keyPressEvent(QKeyEvent *event) override;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
     TagListViewItem* currentItem() const; // Reimplemented to cast the return value
     TagListViewItem* firstChild() const; // Reimplemented to cast the return value
     TagListViewItem* lastItem() const; // Reimplemented to cast the return value
@@ -131,7 +131,7 @@ class TagsEditDialog : public QDialog
     Q_OBJECT
 public:
     explicit TagsEditDialog(QWidget *parent = 0, State *stateToEdit = 0, bool addNewTag = false);
-    ~TagsEditDialog();
+    ~TagsEditDialog() override;
     State::List deletedStates() {
         return m_deletedStates;
     }
@@ -209,7 +209,7 @@ class TagListDelegate : public QItemDelegate
 public:
     TagListDelegate(QWidget *parent = 0) : QItemDelegate(parent) {}
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const;
+               const QModelIndex &index) const override;
 
 };
 

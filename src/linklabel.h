@@ -131,18 +131,18 @@ public:
     LinkLabel(int hAlign, int vAlign, QWidget *parent = 0, Qt::WindowFlags f = 0);
     LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign,
               QWidget *parent = 0, Qt::WindowFlags f = 0);
-    ~LinkLabel();
+    ~LinkLabel() override;
 public:
     void setLink(const QString &title, const QString &icon, LinkLook *look = 0);
     void setLook(LinkLook *look);
     void setAlign(int hAlign, int vAlign);
     void setSelected(bool selected);
     void setPaletteBackgroundColor(const QColor &color);
-    int  heightForWidth(int w = -1) const;
+    int  heightForWidth(int w = -1) const override;
 protected:
     void initLabel(int hAlign, int vAlign);
-    void enterEvent(QEvent*);
-    void leaveEvent(QEvent*);
+    void enterEvent(QEvent*) override;
+    void leaveEvent(QEvent*) override;
 private:
     QBoxLayout  *m_layout;
     QLabel      *m_icon;
@@ -216,7 +216,7 @@ class LinkLookEditWidget : public QWidget
 public:
     LinkLookEditWidget(KCModule* module, const QString exTitle, const QString exIcon,
                        QWidget *parent = 0, Qt::WindowFlags fl = 0);
-    ~LinkLookEditWidget();
+    ~LinkLookEditWidget() override;
     void saveChanges();
     void saveToLook(LinkLook *look);
     void set(LinkLook *look);

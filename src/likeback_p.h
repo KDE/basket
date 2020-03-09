@@ -65,7 +65,7 @@ class LikeBackBar : public QWidget
     Q_OBJECT
 public:
     LikeBackBar(LikeBack *likeBack);
-    ~LikeBackBar();
+    ~LikeBackBar() override;
 public slots:
     void startTimer();
     void stopTimer();
@@ -89,7 +89,7 @@ class LikeBackDialog : public QDialog
     Q_OBJECT
 public:
     LikeBackDialog(LikeBack::Button reason, const QString &initialComment, const QString &windowPath, const QString &context, LikeBack *likeBack);
-    ~LikeBackDialog();
+    ~LikeBackDialog() override;
 private:
     LikeBack     *m_likeBack;
     QString       m_windowPath;

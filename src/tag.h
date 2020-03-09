@@ -247,7 +247,7 @@ public:
                 QWidget * parent,
                 bool withTagName = false);
 
-    ~StateAction();
+    ~StateAction() override;
 private:
     State   *m_state;
     QString  m_name;

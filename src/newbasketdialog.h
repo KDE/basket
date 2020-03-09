@@ -81,7 +81,7 @@ class NewBasketDialog : public QDialog
     Q_OBJECT
 public:
     NewBasketDialog(BasketScene *parentBasket, const NewBasketDefaultProperties &defaultProperties, QWidget *parent = 0);
-    ~NewBasketDialog();
+    ~NewBasketDialog() override;
     void ensurePolished();
 protected slots:
     void slotOk();
