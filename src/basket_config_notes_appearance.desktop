@@ -14,4 +14,10 @@ X-KDE-CfgDlgHierarchy=Basket
 X-KDE-Weight=10
 
 Name=Notes Appearance
+Name[nl]=Uiterlijk van notities
+Name[uk]=Вигляд нотаток
+Name[x-test]=xxNotes Appearancexx
 Comment=Notes Appearance
+Comment[nl]=Uiterlijk van notities
+Comment[uk]=Вигляд нотаток
+Comment[x-test]=xxNotes Appearancexx

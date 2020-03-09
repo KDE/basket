@@ -14,4 +14,10 @@ X-KDE-CfgDlgHierarchy=Basket
 X-KDE-Weight=10
 
 Name=Baskets
+Name[nl]=Baskets
+Name[uk]=Кошики
+Name[x-test]=xxBasketsxx
 Comment=Baskets
+Comment[nl]=Baskets
+Comment[uk]=Кошики
+Comment[x-test]=xxBasketsxx

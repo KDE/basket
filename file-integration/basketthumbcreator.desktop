@@ -2,6 +2,9 @@
 Encoding=UTF-8
 Type=Service
 Name=Basket Archives & Templates
+Name[nl]=Basket archieven & sjablonen
+Name[uk]=Архіви і шаблони Basket
+Name[x-test]=xxBasket Archives & Templatesxx
 ServiceTypes=ThumbCreator
 MimeTypes=application/x-basket-archive,application/x-basket-template
 CacheThumbnail=true

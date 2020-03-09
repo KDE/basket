@@ -14,4 +14,10 @@ X-KDE-CfgDlgHierarchy=Basket
 X-KDE-Weight=10
 
 Name=New Notes
+Name[nl]=Nieuwe notities
+Name[uk]=Нові нотатки
+Name[x-test]=xxNew Notesxx
 Comment=New Notes
+Comment[nl]=Nieuwe notities
+Comment[uk]=Нові нотатки
+Comment[x-test]=xxNew Notesxx

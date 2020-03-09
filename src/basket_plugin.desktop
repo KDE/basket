@@ -14,4 +14,10 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 Comment=BasKet NotePads -- a KDE note organization application
+Comment[nl]=BasKet notitieblaadjes -- een toepassing van KDE voor het organiseren van notities
+Comment[uk]=Нотатники BasKet — програма KDE для упорядковування нотаток
+Comment[x-test]=xxBasKet NotePads -- a KDE note organization applicationxx
 Name=basket
+Name[nl]=mandje
+Name[uk]=basket
+Name[x-test]=xxbasketxx
