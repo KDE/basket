@@ -9,15 +9,21 @@ Categories=Qt;KDE;Office;
 X-DBUS-StartupType=Unique
 
 Name=BasKet Note Pads
+Name[ca]=Blocs de notes del BasKet
 Name[nl]=BasKet notitieblaadjes
+Name[pt]=Blocos de Notas do BasKet
 Name[uk]=Нотатники BasKet
 Name[x-test]=xxBasKet Note Padsxx
 GenericName=Multi-Purpose Notepad
+GenericName[ca]=Bloc de notes multipropòsit
 GenericName[nl]=Notitieblaadje voor meerdere doelen
+GenericName[pt]=Bloco de Notas Multi-Usos
 GenericName[uk]=Багатоцільовий нотатник
 GenericName[x-test]=xxMulti-Purpose Notepadxx
 
 Comment=Taking care of your ideas.
+Comment[ca]=Per tenir cura de les vostres idees.
 Comment[nl]=Zorgen voor uw ideeën.
+Comment[pt]=A tomar conta das suas ideias.
 Comment[uk]=Подбає про ваші ідеї.
 Comment[x-test]=xxTaking care of your ideas.xx

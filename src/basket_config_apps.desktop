@@ -14,10 +14,14 @@ X-KDE-CfgDlgHierarchy=Basket
 X-KDE-Weight=30
 
 Name=Applications
+Name[ca]=Aplicacions
 Name[nl]=Toepassingen
+Name[pt]=Aplicações
 Name[uk]=Програми
 Name[x-test]=xxApplicationsxx
 Comment=Applications
+Comment[ca]=Aplicacions
 Comment[nl]=Toepassingen
+Comment[pt]=Aplicações
 Comment[uk]=Програми
 Comment[x-test]=xxApplicationsxx

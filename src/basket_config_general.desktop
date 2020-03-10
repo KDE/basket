@@ -14,10 +14,14 @@ X-KDE-CfgDlgHierarchy=Basket
 X-KDE-Weight=10
 
 Name=General
+Name[ca]=General
 Name[nl]=Algemeen
+Name[pt]=Geral
 Name[uk]=Загальне
 Name[x-test]=xxGeneralxx
 Comment=General
+Comment[ca]=General
 Comment[nl]=Algemeen
+Comment[pt]=Geral
 Comment[uk]=Загальне
 Comment[x-test]=xxGeneralxx

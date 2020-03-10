@@ -14,10 +14,14 @@ X-KDE-CfgDlgHierarchy=Basket
 X-KDE-Weight=40
 
 Name=Version Sync
+Name[ca]=Sincronitza la versió
 Name[nl]=Versiesynchronisatie
+Name[pt]=Sincronização das Versões
 Name[uk]=Синхронізація версій
 Name[x-test]=xxVersion Syncxx
 Comment=Version Sync
+Comment[ca]=Sincronitza la versió
 Comment[nl]=Versiesynchronisatie
+Comment[pt]=Sincronização das Versões
 Comment[uk]=Синхронізація версій
 Comment[x-test]=xxVersion Syncxx
