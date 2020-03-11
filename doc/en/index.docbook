@@ -34,7 +34,7 @@
   <chapter id="notice">
     <title>NOTICE: handbook not written yet</title>
     <para>&basket; still does not have a handbook, so contributors are welcome!
-      Check the <ulink url='http://l10n.kde.org/docs/doc-primer/index.html'>
+      Check the <ulink url='https://l10n.kde.org/docs/doc-primer/index.html'>
       KDE documentation</ulink> for the hints on the DocBook format.</para>
     <para>Meanwhile, you can look for help on the Internet. In particular,
       look through the <ulink url='https://basket-notepads.github.io'>old website</ulink> or
