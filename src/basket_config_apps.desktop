@@ -15,13 +15,17 @@ X-KDE-Weight=30
 
 Name=Applications
 Name[ca]=Aplicacions
+Name[ca@valencia]=Aplicacions
 Name[nl]=Toepassingen
 Name[pt]=Aplicações
+Name[sk]=Aplikácie
 Name[uk]=Програми
 Name[x-test]=xxApplicationsxx
 Comment=Applications
 Comment[ca]=Aplicacions
+Comment[ca@valencia]=Aplicacions
 Comment[nl]=Toepassingen
 Comment[pt]=Aplicações
+Comment[sk]=Aplikácie
 Comment[uk]=Програми
 Comment[x-test]=xxApplicationsxx

@@ -15,12 +15,14 @@ X-KDE-Weight=10
 
 Name=Notes Appearance
 Name[ca]=Aparença de les notes
+Name[ca@valencia]=Aparença de les notes
 Name[nl]=Uiterlijk van notities
 Name[pt]=Aparência das Notas
 Name[uk]=Вигляд нотаток
 Name[x-test]=xxNotes Appearancexx
 Comment=Notes Appearance
 Comment[ca]=Aparença de les notes
+Comment[ca@valencia]=Aparença de les notes
 Comment[nl]=Uiterlijk van notities
 Comment[pt]=Aparência das Notas
 Comment[uk]=Вигляд нотаток
