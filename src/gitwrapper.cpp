@@ -241,7 +241,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
             return;
         }
 
-        const QString pattern("baskets/" + basket->folderName() + "*");
+        const QString pattern("baskets/" + basket->folderName() + '*');
 
         QByteArray patternba = pattern.toUtf8();
         char *patternCString = patternba.data();

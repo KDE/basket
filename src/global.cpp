@@ -57,9 +57,9 @@ QString Global::savesFolder()
         if (!s_customSavesFolder.isEmpty()) { // Passed by command line (for development & debug purpose)
             QDir dir;
             dir.mkdir(s_customSavesFolder);
-            folder = new QString(s_customSavesFolder.endsWith("/") ? s_customSavesFolder : s_customSavesFolder + "/");
+            folder = new QString(s_customSavesFolder.endsWith("/") ? s_customSavesFolder : s_customSavesFolder + '/');
         } else if (!Settings::dataFolder().isEmpty()) { // Set by config option (in Basket -> Backup & Restore)
-            folder = new QString(Settings::dataFolder().endsWith("/") ? Settings::dataFolder() : Settings::dataFolder() + "/");
+            folder = new QString(Settings::dataFolder().endsWith("/") ? Settings::dataFolder() : Settings::dataFolder() + '/');
         } else { // The default path (should be that for most computers)
             folder = new QString(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/");
             initializeGitIfNeeded(*folder);

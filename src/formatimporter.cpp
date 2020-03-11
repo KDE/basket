@@ -117,7 +117,7 @@ void FormatImporter::importBaskets()
     if (list.count() > 2) // Pass "." and ".."
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) // For each folder
             if (*it != "." && *it != ".." && dir.exists(Global::savesFolder() + *it + "/.basket")) // If it can be a basket folder
-                if (!(baskets.contains((*it) + "/")) && baskets.contains(*it))   // And if it is not already in the imported baskets list
+                if (!(baskets.contains((*it) + '/')) && baskets.contains(*it))   // And if it is not already in the imported baskets list
                     baskets.append(*it);
 
     qDebug() << "Import Baskets: Found " << baskets.count() << " baskets to import.";
@@ -234,7 +234,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                 annotNote.setAttribute("type", "text");
                 annotGroup.appendChild(annotNote);
                 QString annotFileName = Tools::fileNameForNewFile("annotations1.txt", BasketScene::fullPathForFolderName(folderName));
-                QString annotFullPath = BasketScene::fullPathForFolderName(folderName) + "/" + annotFileName;
+                QString annotFullPath = BasketScene::fullPathForFolderName(folderName) + '/' + annotFileName;
                 QFile file(annotFullPath);
                 if (file.open(QIODevice::WriteOnly)) {
                     QTextStream stream(&file);

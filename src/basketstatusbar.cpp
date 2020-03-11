@@ -155,11 +155,11 @@ void BasketStatusBar::setLockStatus(bool isLocked)
     if (isLocked) {
         m_lockStatus->setPixmap(SmallIcon("encrypted.png"));
         m_lockStatus->setToolTip(i18n(
-                                     "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(" ", "&nbsp;"));
+                                     "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(QChar(' '), "&nbsp;"));
     } else {
         m_lockStatus->clear();
         m_lockStatus->setToolTip(i18n(
-                                     "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>").replace(" ", "&nbsp;"));
+                                     "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>").replace(QChar(' '), "&nbsp;"));
     }
 }
 

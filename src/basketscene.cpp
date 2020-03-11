@@ -569,7 +569,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
             // Tags:
             if (note->content()) {
                 QString tagsString = XMLWork::getElementText(e, "tags", "");
-                QStringList tagsId = tagsString.split(";");
+                QStringList tagsId = tagsString.split(';');
                 for (QStringList::iterator it = tagsId.begin(); it != tagsId.end(); ++it) {
                     State *state = Tag::stateForId(*it);
                     if (state)
@@ -1234,8 +1234,8 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     KActionCollection* ac = Global::bnpView->actionCollection();
     ac->setShortcutsConfigurable(m_action, false);
 
-    if (!m_folderName.endsWith("/"))
-        m_folderName += "/";
+    if (!m_folderName.endsWith('/'))
+        m_folderName += '/';
 
 //    setDragAutoScroll(true);
 
@@ -2861,9 +2861,9 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent* event)
                 message += "<br>" + i18nc("of the form 'key: value'", "<b>%1</b>: %2", *key, *value);
             message += "</nobr></qt>";
         } else if (m_inserterSplit && (zone == Note::TopInsert || zone == Note::BottomInsert))
-            message += "\n" + i18n("Click on the right to group instead of insert");
+            message += '\n' + i18n("Click on the right to group instead of insert");
         else if (m_inserterSplit && (zone == Note::TopGroup || zone == Note::BottomGroup))
-            message += "\n" + i18n("Click on the left to insert instead of group");
+            message += '\n' + i18n("Click on the left to insert instead of group");
 
         rect = note->zoneRect(zone, contentPos - QPoint(note->x(), note->y()));
 

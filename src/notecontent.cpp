@@ -1051,8 +1051,8 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" +
-                   Tools::tagCrossReferences(Tools::tagURLs(Tools::textToHTMLWithoutP(text().replace("\t", "                "))), false, exporter); // Don't collapse multiple spaces!
-    exporter->stream << html.replace("  ", " &nbsp;").replace("\n", "\n" + spaces.fill(' ', indent + 1));
+                   Tools::tagCrossReferences(Tools::tagURLs(Tools::textToHTMLWithoutP(text().replace(QChar('\t'), "                "))), false, exporter); // Don't collapse multiple spaces!
+    exporter->stream << html.replace("  ", " &nbsp;").replace(QChar('\n'), '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class HtmlContent:
@@ -1174,7 +1174,7 @@ void HtmlContent::exportToHTML(HTMLExporter *exporter, int indent)
 
     exporter->stream << Tools::htmlToParagraph(convert)
     .replace("  ", " &nbsp;")
-    .replace("\n", "\n" + spaces.fill(' ', indent + 1));
+    .replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class ImageContent:
@@ -1609,7 +1609,7 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", "\n" + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class SoundContent:
@@ -1930,7 +1930,7 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
     */
 
     QString spaces;
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, linkURL, linkTitle).replace("\n", "\n" + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, linkURL, linkTitle).replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class CrossReferenceContent:
@@ -2201,7 +2201,7 @@ void LauncherContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), /*createIt=*/true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", "\n" + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class ColorItem:
@@ -2498,7 +2498,7 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     QString iconHtml = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
                        .arg(exporter->iconsFolderName + fileName, QString::number(colorIcon.width()), QString::number(colorIcon.height()));
 
-    exporter->stream << iconHtml + " " + color().name();
+    exporter->stream << iconHtml + ' ' + color().name();
 }
 
 /** class UnknownItem:
@@ -2655,7 +2655,7 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
 void UnknownContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    exporter->stream << "<div class=\"unknown\">" << mimeTypes().replace("\n", "\n" + spaces.fill(' ', indent + 1 + 1)) << "</div>";
+    exporter->stream << "<div class=\"unknown\">" << mimeTypes().replace("\n", '\n' + spaces.fill(' ', indent + 1 + 1)) << "</div>";
 }
 
 

@@ -257,7 +257,7 @@ void BNPView::addWelcomeBaskets()
     if (QString(Tools::systemCodeset()) == QString("UTF-8")) { // Welcome baskets are encoded in UTF-8. If the system is not, then use the English version:
         QString lang = QLocale().languageToString(QLocale().language());
         possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/welcome/Welcome_" + lang + ".baskets"));
-        possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/welcome/Welcome_" + lang.split("_")[0] + ".baskets"));
+        possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/welcome/Welcome_" + lang.split('_')[0] + ".baskets"));
     }
     possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/welcome/Welcome_en_US.baskets"));
 
@@ -1724,7 +1724,7 @@ void checkBasket(BasketListViewItem * item, QList<QString> & dirList, QList<QStr
 }
 
 void BNPView::checkCleanup() {
-    DEBUG_WIN << "Starting the check, cleanup and reindexing... (" + Global::basketsFolder() + ")";
+    DEBUG_WIN << "Starting the check, cleanup and reindexing... (" + Global::basketsFolder() + ')';
     QList<QString> dirList;
     QList<QString> fileList;
     QString topDirEntry;
@@ -1733,14 +1733,14 @@ void BNPView::checkCleanup() {
     QDir topDir(Global::basketsFolder(), QString::null, QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
     foreach( topDirEntry, topDir.entryList() ) {
         if( topDirEntry != "." && topDirEntry != ".." ) {
-            fileInfo.setFile(Global::basketsFolder() + "/" + topDirEntry);
+            fileInfo.setFile(Global::basketsFolder() + '/' + topDirEntry);
             if (fileInfo.isDir()) {
-                dirList << topDirEntry + "/";
-                QDir basketDir(Global::basketsFolder() + "/" + topDirEntry,
+                dirList << topDirEntry + '/';
+                QDir basketDir(Global::basketsFolder() + '/' + topDirEntry,
                                QString::null, QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
                 foreach( subDirEntry, basketDir.entryList() ) {
                     if (subDirEntry != "." && subDirEntry != "..") {
-                        fileList << topDirEntry + "/" + subDirEntry;
+                        fileList << topDirEntry + '/' + subDirEntry;
                     }
                 }
             } else if (topDirEntry != "." && topDirEntry != ".." && topDirEntry != "baskets.xml") {
@@ -1761,12 +1761,12 @@ void BNPView::checkCleanup() {
 
     foreach(topDirEntry, dirList) {
         DEBUG_WIN << "<font color='red'>" + topDirEntry + " does not belong to any basket!</font>";
-        //Tools::deleteRecursively(Global::basketsFolder() + "/" + topDirEntry);
+        //Tools::deleteRecursively(Global::basketsFolder() + '/' + topDirEntry);
         //DEBUG_WIN << "<font color='red'>\t" + topDirEntry + " removed!</font>";
         Tools::trashRecursively(Global::basketsFolder() + "/" + topDirEntry);
         DEBUG_WIN << "<font color='red'>\t" + topDirEntry + " trashed!</font>";
         foreach(subDirEntry, fileList) {
-            fileInfo.setFile(Global::basketsFolder() + "/" + subDirEntry);
+            fileInfo.setFile(Global::basketsFolder() + '/' + subDirEntry);
             if ( ! fileInfo.isFile() ) {
                 fileList.removeAll( subDirEntry );
                 DEBUG_WIN << "<font color='red'>\t\t" + subDirEntry + " already removed!</font>";
@@ -1775,9 +1775,9 @@ void BNPView::checkCleanup() {
     }
     foreach(subDirEntry, fileList) {
         DEBUG_WIN << "<font color='red'>" + subDirEntry + " does not belong to any note!</font>";
-        //Tools::deleteRecursively(Global::basketsFolder() + "/" + subDirEntry);
+        //Tools::deleteRecursively(Global::basketsFolder() + '/' + subDirEntry);
         //DEBUG_WIN << "<font color='red'>\t" + subDirEntry + " removed!</font>";
-        Tools::trashRecursively(Global::basketsFolder() + "/" + subDirEntry);
+        Tools::trashRecursively(Global::basketsFolder() + '/' + subDirEntry);
         DEBUG_WIN << "<font color='red'>\t" + subDirEntry + " trashed!</font>";
     }
     DEBUG_WIN << "Check, cleanup and reindexing completed";
@@ -2254,7 +2254,7 @@ void BNPView::saveAsArchive()
 
     KConfigGroup config = KSharedConfig::openConfig()->group("Basket Archive");
     QString folder = config.readEntry("lastFolder", QDir::homePath()) + "/";
-    QString url = folder + QString(basket->basketName()).replace("/", "_") + ".baskets";
+    QString url = folder + QString(basket->basketName()).replace('/', '_') + ".baskets";
 
     QString filter = "*.baskets|" + i18n("Basket Archives") + "\n*|" + i18n("All Files");
     QString destination = url;

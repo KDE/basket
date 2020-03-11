@@ -172,7 +172,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
 
         /* Search for mail address ("*@*.*" ; "*" can contain '_', '-', or '.') and add protocol to it */
         QString mailExpString = "[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+";
-        QRegExp mailExp("^" + mailExpString + "$");
+        QRegExp mailExp("^" + mailExpString + '$');
         if (mailExp.exactMatch(ltext)) {
             ltext.insert(0, "mailto:");
             (*it).insert(0, "mailto:");
@@ -885,7 +885,7 @@ QUrl NoteFactory::filteredURL(const QUrl &url)
 QString NoteFactory::titleForURL(const QUrl &url)
 {
     QString title = url.toDisplayString();
-    QString home  = "file:" + QDir::homePath() + "/";
+    QString home  = "file:" + QDir::homePath() + '/';
 
     if (title.startsWith(QLatin1String("mailto:")))
         return title.remove(0, 7);

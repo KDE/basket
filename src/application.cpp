@@ -91,7 +91,7 @@ void Application::tryLoadFile(const QStringList& args, const QString& workingDir
         if (QFile::exists(fileName)) {
             QFileInfo fileInfo(fileName);
             if (fileInfo.absoluteFilePath().contains(Global::basketsFolder())) {
-                QString folder = fileInfo.absolutePath().split("/").last();
+                QString folder = fileInfo.absolutePath().split('/').last();
                 folder.append("/");
                 BNPView::s_basketToOpen = folder;
                 QTimer::singleShot(100, Global::bnpView, SLOT(delayedOpenBasket()));

@@ -334,7 +334,7 @@ QString Tools::crossReferenceForConversion(QStringList linkParts)
 QString Tools::htmlToText(const QString &html)
 {
     QString text = htmlToParagraph(html);
-    text.remove("\n");
+    text.remove('\n');
     text.replace("</h1>", "\n");
     text.replace("</h2>", "\n");
     text.replace("</h3>", "\n");
@@ -668,7 +668,7 @@ void Tools::deleteRecursively(const QString &folderOrFile)
         QStringList list = dir.entryList();
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)
             if (*it != "." && *it != "..")
-                deleteRecursively(folderOrFile + "/" + *it);
+                deleteRecursively(folderOrFile + '/' + *it);
         // And then delete the folder:
         dir.rmdir(folderOrFile);
     } else
@@ -690,7 +690,7 @@ void Tools::deleteMetadataRecursively(const QString &folderOrFile)
         QStringList list = dir.entryList();
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)
             if (*it != "." && *it != "..")
-                deleteMetadataRecursively(folderOrFile + "/" + *it);
+                deleteMetadataRecursively(folderOrFile + '/' + *it);
     }
 #ifdef HAVE_BALOO
     DEBUG_WIN << "NepomukIntegration: Deleting File[" + folderOrFile + "]:"; // <font color=red>Updating Metadata</font>!";
@@ -747,7 +747,7 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
 
     QString finalName;
     for (/*int number = 2*/; ; ++number) { // TODO: FIXME: If overflow ???
-        finalName = fileName + "-" + QString::number(number) + extension;
+        finalName = fileName + '-' + QString::number(number) + extension;
         fullName = destFolder + finalName;
         dir = QDir(fullName);
         if (! dir.exists(fullName))

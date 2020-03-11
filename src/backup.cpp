@@ -205,7 +205,7 @@ void BackupDialog::backup()
     // Compute a default file name & path (eg. "Baskets_2007-01-31.tar.gz"):
     KConfig *config = KSharedConfig::openConfig().data();
     KConfigGroup configGroup(config, "Backups");
-    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + "/";
+    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + '/';
     QString fileName = i18nc("Backup filename (without extension), %1 is the date", "Baskets_%1", QDate::currentDate().toString(Qt::ISODate));
     QString url = folder + fileName;
 
@@ -270,7 +270,7 @@ void BackupDialog::restore()
     // Get last backup folder:
     KConfig *config = KSharedConfig::openConfig().data();
     KConfigGroup configGroup(config, "Backups");
-    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + "/";
+    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + '/';
 
     // Ask a file name to the user:
     QString filter = "*.tar.gz|" + i18n("Tar Archives Compressed by Gzip") + "\n*|" + i18n("All Files");
@@ -292,7 +292,7 @@ void BackupDialog::restore()
         stream << i18n("This is a safety copy of your baskets like they were before you started to restore the backup %1.", QUrl::fromLocalFile(path).fileName()) + "\n\n"
         << i18n("If the restoration was a success and you restored what you wanted to restore, you can remove this folder.") + "\n\n"
         << i18n("If something went wrong during the restoration process, you can re-use this folder to store your baskets and nothing will be lost.") + "\n\n"
-        << i18n("Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing Folder...\" and select that folder.") + "\n";
+        << i18n("Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing Folder...\" and select that folder.") + '\n';
         file.close();
     }
 
@@ -392,12 +392,12 @@ QString Backup::newSafetyFolder()
     QDir dir;
     QString fullPath;
 
-    fullPath = QDir::homePath() + "/" + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration") + "/";
+    fullPath = QDir::homePath() + '/' + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration") + '/';
     if (!dir.exists(fullPath))
         return fullPath;
 
     for (int i = 2; ; ++i) {
-        fullPath = QDir::homePath() + "/" + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration (%1)", i) + "/";
+        fullPath = QDir::homePath() + '/' + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration (%1)", i) + '/';
         if (!dir.exists(fullPath))
             return fullPath;
     }

@@ -232,7 +232,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
         // FIXME: If no, only provide that if there is only ONE URL.
         QString xMozUrl;
         for (int i = 0; i < urls.count(); ++i)
-            xMozUrl += (xMozUrl.isEmpty() ? "" : "\n") + urls[i].toDisplayString() + "\n" + titles[i];
+            xMozUrl += (xMozUrl.isEmpty() ? "" : "\n") + urls[i].toDisplayString() + '\n' + titles[i];
         /*      Code for only one: ===============
                 xMozUrl = note->title() + "\n" + note->url().toDisplayString();*/
         QByteArray baMozUrl;

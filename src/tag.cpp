@@ -115,10 +115,10 @@ QString State::toCSS(const QString &gradientFolderPath, const QString &gradientF
     else if (strikeOut())
         css += " text-decoration: line-through;";
     if (textColor().isValid())
-        css += " color: " + textColor().name() + ";";
+        css += " color: " + textColor().name() + ';';
     if (!fontName().isEmpty()) {
         QString fontFamily = Tools::cssFontDefinition(fontName(), /*onlyFontFamily=*/true);
-        css += " font-family: " + fontFamily + ";";
+        css += " font-family: " + fontFamily + ';';
     }
     if (fontSize() > 0)
         css += " font-size: " + QString::number(fontSize()) + "px;";

@@ -174,9 +174,9 @@ QString Note::toText(const QString &cuttedFullPath)
         QString otherLines;
         for (State::List::Iterator it = m_states.begin(); it != m_states.end(); ++it) {
             if (!(*it)->textEquivalent().isEmpty()) {
-                firstLine += (*it)->textEquivalent() + " ";
+                firstLine += (*it)->textEquivalent() + ' ';
                 if ((*it)->onAllTextLines())
-                    otherLines += (*it)->textEquivalent() + " ";
+                    otherLines += (*it)->textEquivalent() + ' ';
             }
         }
         // Merge the texts:

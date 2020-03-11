@@ -46,7 +46,7 @@ QDomDocument* XMLWork::openFile(const QString &name, const QString &filePath)
 
 QDomElement XMLWork::getElement(const QDomElement &startElement, const QString &elementPath)
 {
-    QStringList elements = elementPath.split("/");
+    QStringList elements = elementPath.split('/');
     QDomNode n = startElement.firstChild();
     for (int i = 0; i < elements.count(); ++i) {                // For each elements
         while (! n.isNull()) {                                          // Browse their  sub elements
@@ -104,7 +104,7 @@ QString XMLWork::innerXml(QDomElement &element)
             inner += n.toCharacterData().data();
         else if (n.isElement()) {
             QDomElement e = n.toElement();
-            inner += "<" + e.tagName() + ">" + innerXml(e) + "</" + e.tagName() + ">";
+            inner += '<' + e.tagName() + '>' + innerXml(e) + "</" + e.tagName() + '>';
         }
     return inner;
 }
@@ -114,6 +114,6 @@ void XMLWork::setupXmlStream(QXmlStreamWriter& stream, QString startElement)
     stream.setAutoFormatting(true);
     stream.setAutoFormattingIndent(1);
     stream.writeStartDocument();
-    stream.writeDTD("<!DOCTYPE " + startElement + ">");
+    stream.writeDTD("<!DOCTYPE " + startElement + '>');
     stream.writeStartElement(startElement);
 }

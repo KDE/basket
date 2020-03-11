@@ -163,7 +163,7 @@ QString LinkLook::toCSS(const QString &cssClass, const QColor &defaultTextColor)
         hover = "text-decoration: none;";
     if (effectiveHoverColor() != effectiveColor()) {
         if (!hover.isEmpty())
-            hover += " ";
+            hover += ' ';
         hover += QString("color: %4;").arg(effectiveHoverColor().name());
     }
 

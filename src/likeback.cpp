@@ -739,7 +739,7 @@ LikeBackDialog::~LikeBackDialog()
 
 QString LikeBackDialog::introductionText()
 {
-    QString text = "<p>" + i18n("Please provide a brief description of your opinion of %1.", QGuiApplication::applicationDisplayName()) + " ";
+    QString text = "<p>" + i18n("Please provide a brief description of your opinion of %1.", QGuiApplication::applicationDisplayName()) + ' ';
 
     QString languagesMessage = "";
     if (!m_likeBack->acceptedLocales().isEmpty() && !m_likeBack->acceptedLanguagesMessage().isEmpty()) {
@@ -757,9 +757,9 @@ QString LikeBackDialog::introductionText()
 
     if (!languagesMessage.isEmpty())
         // TODO: Replace the URL with a localized one:
-        text += languagesMessage + " " +
+        text += languagesMessage + ' ' +
                 i18n("You may be able to use an <a href=\"%1\">online translation tool</a>."
-                     , "http://www.google.com/language_tools?hl=" + QLocale().language()) + " ";
+                     , "http://www.google.com/language_tools?hl=" + QLocale().language()) + ' ';
 
     // If both "I Like" and "I Dislike" buttons are shown and one is clicked:
     if ((m_likeBack->buttons() & LikeBack::Like) && (m_likeBack->buttons() & LikeBack::Dislike))

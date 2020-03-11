@@ -56,8 +56,8 @@ HTMLExporter::HTMLExporter(BasketScene *basket) : dialog(new QProgressDialog())
 
     // Compute a default file name & path:
     KConfigGroup config = Global::config()->group("Export to HTML");
-    QString folder = config.readEntry("lastFolder", QDir::homePath()) + "/";
-    QString url = folder + QString(basket->basketName()).replace("/", "_") + ".html";
+    QString folder = config.readEntry("lastFolder", QDir::homePath()) + '/';
+    QString url = folder + QString(basket->basketName()).replace('/', '_') + ".html";
 
     // Ask a file name & path to the user:
     QString filter = "*.html *.htm|" + i18n("HTML Documents") + "\n*|" + i18n("All Files");
@@ -122,15 +122,15 @@ void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
     withBasketTree = (item->childCount() >= 0);
 
     // Create and empty the files folder:
-    QString filesFolderPath = i18nc("HTML export folder (files)", "%1_files", filePath) + "/"; // eg.: "/home/seb/foo.html_files/"
+    QString filesFolderPath = i18nc("HTML export folder (files)", "%1_files", filePath) + '/'; // eg.: "/home/seb/foo.html_files/"
     Tools::deleteRecursively(filesFolderPath);
     QDir dir;
     dir.mkdir(filesFolderPath);
 
     // Create sub-folders:
-    iconsFolderPath   = filesFolderPath + i18nc("HTML export folder (icons)",   "icons")   + "/"; // eg.: "/home/seb/foo.html_files/icons/"
-    imagesFolderPath  = filesFolderPath + i18nc("HTML export folder (images)",  "images")  + "/"; // eg.: "/home/seb/foo.html_files/images/"
-    basketsFolderPath = filesFolderPath + i18nc("HTML export folder (baskets)", "baskets") + "/"; // eg.: "/home/seb/foo.html_files/baskets/"
+    iconsFolderPath   = filesFolderPath + i18nc("HTML export folder (icons)",   "icons")   + '/'; // eg.: "/home/seb/foo.html_files/icons/"
+    imagesFolderPath  = filesFolderPath + i18nc("HTML export folder (images)",  "images")  + '/'; // eg.: "/home/seb/foo.html_files/images/"
+    basketsFolderPath = filesFolderPath + i18nc("HTML export folder (baskets)", "baskets") + '/'; // eg.: "/home/seb/foo.html_files/baskets/"
     dir.mkdir(iconsFolderPath);
     dir.mkdir(imagesFolderPath);
     dir.mkdir(basketsFolderPath);
@@ -147,22 +147,22 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     currentBasket = basket;
 
     // Compute the absolute & relative paths for this basket:
-    filesFolderPath   = i18nc("HTML export folder (files)", "%1_files", filePath) + "/";
+    filesFolderPath   = i18nc("HTML export folder (files)", "%1_files", filePath) + '/';
     if (isSubBasket) {
         basketFilePath    = basketsFolderPath + basket->folderName().left(basket->folderName().length() - 1) + ".html";
         filesFolderName   = "../";
-        dataFolderName    = basket->folderName().left(basket->folderName().length() - 1) + "-" + i18nc("HTML export folder (data)", "data") + "/";
+        dataFolderName    = basket->folderName().left(basket->folderName().length() - 1) + '-' + i18nc("HTML export folder (data)", "data") + '/';
         dataFolderPath    = basketsFolderPath + dataFolderName;
         basketsFolderName = "";
     } else {
         basketFilePath    = filePath;
-        filesFolderName   = i18nc("HTML export folder (files)", "%1_files", QUrl::fromLocalFile(filePath).fileName()) + "/";
-        dataFolderName    = filesFolderName + i18nc("HTML export folder (data)",    "data")  + "/";
-        dataFolderPath    = filesFolderPath + i18nc("HTML export folder (data)",    "data")  + "/";
-        basketsFolderName = filesFolderName + i18nc("HTML export folder (baskets)", "baskets")  + "/";
+        filesFolderName   = i18nc("HTML export folder (files)", "%1_files", QUrl::fromLocalFile(filePath).fileName()) + '/';
+        dataFolderName    = filesFolderName + i18nc("HTML export folder (data)",    "data")  + '/';
+        dataFolderPath    = filesFolderPath + i18nc("HTML export folder (data)",    "data")  + '/';
+        basketsFolderName = filesFolderName + i18nc("HTML export folder (baskets)", "baskets")  + '/';
     }
-    iconsFolderName   = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (icons)",   "icons")   + "/"; // eg.: "foo.html_files/icons/"   or "../icons/"
-    imagesFolderName  = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (images)",  "images")  + "/"; // eg.: "foo.html_files/images/"  or "../images/"
+    iconsFolderName   = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (icons)",   "icons")   + '/'; // eg.: "foo.html_files/icons/"   or "../icons/"
+    imagesFolderName  = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (images)",  "images")  + '/'; // eg.: "foo.html_files/images/"  or "../images/"
 
     qDebug() << "Exporting ================================================";
     qDebug() << "  filePath:" << filePath;
@@ -416,7 +416,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
         // Additional class for the content (link, netword, color...):
         QString additionalClasses = note->content()->cssClass();
         if (!additionalClasses.isEmpty())
-            additionalClasses = " " + additionalClasses;
+            additionalClasses = ' ' + additionalClasses;
         // Assign the style of each associated tags:
         for (State::List::Iterator it = note->states().begin(); it != note->states().end(); ++it)
             additionalClasses += " tag_" + (*it)->id();
@@ -452,7 +452,7 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
     // Compute variable HTML code:
     QString spaces;
     QString cssClass = (basket == currentBasket ? " class=\"current\"" : "");
-    QString link = "#";
+    QString link('#');
     if (currentBasket != basket) {
         if (currentBasket == exportedBasket) {
             link = basketsFolderName + basket->folderName().left(basket->folderName().length() - 1) + ".html";
@@ -502,7 +502,7 @@ QString HTMLExporter::copyIcon(const QString &iconName, int size)
 
     // Sometimes icon can be "favicons/www.kde.org", we replace the '/' with a '_'
     QString fileName = iconName; // QString::replace() isn't const, so I must copy the string before
-    fileName = "ico" + QString::number(size) + "_" + fileName.replace("/", "_") + ".png";
+    fileName = "ico" + QString::number(size) + '_' + fileName.replace('/', '_') + ".png";
     QString fullPath = iconsFolderPath + fileName;
     if (!QFile::exists(fullPath))
         DesktopIcon(iconName, size).save(fullPath, "PNG");

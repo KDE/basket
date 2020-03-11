@@ -265,7 +265,7 @@ QString SoftwareImporters::fromTomboy(QString tomboy)
     tomboy.replace("</list-item>",     "</li>");
 
     // In the Tomboy file, new lines are "\n" and not "<br>":
-    tomboy.replace("\n", "<br>\n");
+    tomboy.replace('\n', "<br>\n");
 
     // Preserve consecutive spaces:
     return "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" + tomboy + "</body></html>";
@@ -373,7 +373,7 @@ void SoftwareImporters::importKJots()
                         while ((pos = buf.indexOf('\\', pos)) != -1)
                             if (buf[++pos] == '\\')
                                 buf.remove(pos, 1);
-                        body.append(buf + "\n");
+                        body.append(buf + '\n');
                     }
                     buf = stream.readLine();
                     if (buf.isNull()) // OEF
@@ -486,7 +486,7 @@ void SoftwareImporters::importStickyNotes()
     QStringList list = dir.entryList();
     for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {   // For each folder
         if ((*it).contains("gnome", Qt::CaseInsensitive)) {
-            QString fullPath = QDir::home().absolutePath() + "/" + (*it) + "/stickynotes_applet";
+            QString fullPath = QDir::home().absolutePath() + '/' + (*it) + "/stickynotes_applet";
             if (dir.exists(fullPath))
                 founds += fullPath;
         }
@@ -796,7 +796,7 @@ void SoftwareImporters::importKnowIt()
                         descriptions.append("");
                     descriptions.append(line.mid(7));
                 } else {
-                    text += line + "\n";
+                    text += line + '\n';
                 }
             }
             file.close();

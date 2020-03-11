@@ -90,8 +90,8 @@ Crash::crashHandler(int /*signal*/)
 #ifdef NDEBUG
         body += "NDEBUG:     true";
 #endif
-        body += "\n";
-        body += "OS:\n" + Crash::getOSVersionInfo() + "\n";
+        body += '\n';
+        body += "OS:\n" + Crash::getOSVersionInfo() + '\n';
 
         /// obtain the backtrace with gdb
 
@@ -124,9 +124,9 @@ Crash::crashHandler(int /*signal*/)
         QByteArray gdb;
         gdb  = "gdb --nw -n --batch -x ";
         gdb += temp.fileName().toLatin1();
-        gdb += " ";
+        gdb += ' ';
     gdb += QGuiApplication::applicationFilePath();
-	gdb += " ";
+	gdb += ' ';
         gdb += QByteArray().setNum(::getppid());
 
  
@@ -174,7 +174,7 @@ Crash::crashHandler(int /*signal*/)
 
         if (useful) {
             body += "==== file `which basket` ==========\n";
-            body += fileCommandOutput + "\n";
+            body += fileCommandOutput + '\n';
             body += "==== (gdb) bt =====================\n";
             body += bt;//+ "\n\n";
 //                body += "==== kBacktrace() ================\n";
@@ -191,7 +191,7 @@ Crash::crashHandler(int /*signal*/)
                 /*attachURLs*/  QStringList(),
                 /*startup_id*/  "");
         } else {
-            qDebug() << "\n" + i18n("%1 has crashed! We're sorry about this.\n\n"
+            qDebug() << '\n' + i18n("%1 has crashed! We're sorry about this.\n\n"
                                     "But, all is not lost! Perhaps an upgrade is already available "
                                     "which fixes the problem. Please check your distribution's software repository.",
                                     QGuiApplication::applicationDisplayName());

@@ -298,9 +298,9 @@ void Archive::open(const QString &path)
             if (key == "version") {
                 version = value;
             } else if (key == "read-compatible") {
-                readCompatibleVersions = value.split(";");
+                readCompatibleVersions = value.split(';');
             } else if (key == "write-compatible") {
-                writeCompatibleVersions = value.split(";");
+                writeCompatibleVersions = value.split(';');
             } else if (key == "preview*") {
                 bool ok;
                 qint64 size = value.toULong(&ok);
@@ -598,7 +598,7 @@ void Archive::renameMergedStates(QDomNode notes, QMap<QString, QString> &mergedS
             } else if (element.tagName() == "note") {
                 QString tags = XMLWork::getElementText(element, "tags");
                 if (!tags.isEmpty()) {
-                    QStringList tagNames = tags.split(";");
+                    QStringList tagNames = tags.split(';');
                     for (QStringList::Iterator it = tagNames.begin(); it != tagNames.end(); ++it) {
                         QString &tag = *it;
                         if (mergedStates.contains(tag)) {
