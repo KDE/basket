@@ -35,7 +35,6 @@
 #include <KSharedConfig>
 #include <KIconLoader>
 #include <KConfigGroup>
-#include <KGuiItem>
 
 #include <KIO/AccessManager>
 
@@ -57,11 +56,8 @@
 #include <QDesktopWidget>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <QVBoxLayout>
 #include <QApplication>
-#include <QAction>
 #include <QLocale>
-#include <QPushButton>
 #include <QDialog>
 #include <QInputDialog>
 

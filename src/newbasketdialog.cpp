@@ -21,16 +21,14 @@
 #include "newbasketdialog.h"
 
 #include <QHBoxLayout>
-#include <QtGui/QPixmap>
+#include <QPixmap>
 #include <QVBoxLayout>
 #include <QLabel>
-#include <QtGui/QPainter>
+#include <QPainter>
 #include <QLocale>
 #include <QPushButton>
 #include <QLineEdit>
 #include <QDialogButtonBox>
-#include <QPushButton>
-#include <QVBoxLayout>
 
 #include <KComboBox>
 #include <KGuiItem>

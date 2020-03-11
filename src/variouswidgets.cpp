@@ -37,7 +37,6 @@
 #include <QLineEdit>
 #include <QListWidget>
 #include <QLocale>
-#include <QPushButton>
 #include <QDialogButtonBox>
 
 #include <KOpenWithDialog>

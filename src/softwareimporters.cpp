@@ -33,7 +33,6 @@
 #include <QLocale>
 #include <QDialogButtonBox>
 #include <QPushButton>
-#include <QVBoxLayout>
 #include <QStandardPaths>
 #include <QFileDialog>
 

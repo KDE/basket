@@ -35,13 +35,11 @@
 #include <QLabel>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPainter>
-#include <QVBoxLayout>
 #include <QApplication>
 #include <QLineEdit>
 #include <QLocale>
 #include <QPushButton>
 #include <QDialogButtonBox>
-#include <QPushButton>
 
 #include <KIconButton>
 #include <KIconLoader>

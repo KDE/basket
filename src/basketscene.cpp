@@ -55,7 +55,6 @@
 #include <QScrollBar>
 #include <QtXml/QDomDocument>
 #include <QFileDialog>
-#include <QApplication>
 #include <QLocale>
 #include <QLineEdit>
 #include <QSaveFile>

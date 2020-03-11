@@ -28,6 +28,7 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QTextStream>
+#include <QDialogButtonBox>
 #include <QLayout>
 #include <QLabel>
 #include <QPushButton>
@@ -43,6 +44,7 @@
 #include <KAboutData>
 #include <KRun>
 #include <KConfig>
+#include <KIconLoader>
 #include <KTar>
 #include <KMessageBox>
 #include <KLocalizedString>
@@ -344,13 +346,6 @@ void BackupDialog::restore()
 /** class Backup: */
 
 QString Backup::binaryPath = "";
-
-#include <kiconloader.h>
-#include <QDialogButtonBox>
-#include <KConfigGroup>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QFileDialog>
 
 void Backup::figureOutBinaryPath(const char *argv0, QApplication &app)
 {
