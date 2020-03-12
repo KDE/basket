@@ -35,7 +35,7 @@ AboutData::AboutData()
                      VERSION, i18n(description), KAboutLicense::GPL_V2,
                      i18n("Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"),
                      QString(),
-                     "http://basket.kde.org/")
+                     "https://basket.kde.org/")
 {
     //Pass basket.kde.org to constructor to be used as D-Bus domain name, but set the displayed address below
     setHomepage("https://launchpad.net/basket");

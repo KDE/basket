@@ -113,7 +113,7 @@ void SystemTray::updateDisplay()
         setIconByName("basket");
     else {
         // What pixmap size to use? For example, see how overlay icon is applied:
-        // http://api.kde.org/frameworks-api/frameworks5-apidocs/knotifications/html/kstatusnotifieritem_8cpp_source.html
+        // https://api.kde.org/frameworks-api/frameworks5-apidocs/knotifications/html/kstatusnotifieritem_8cpp_source.html
 
         // Code that comes from JuK:
         QPixmap bgPix = QIcon::fromTheme("basket").pixmap(22);

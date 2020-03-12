@@ -873,7 +873,7 @@ NotesAppearancePage::NotesAppearancePage(QWidget * parent, const char * name)
     m_soundLook       = new LinkLookEditWidget(this, i18n("Conference audio record"),                         "folder-sound",       tabs);
     m_fileLook        = new LinkLookEditWidget(this, i18n("Annual report"),                                   "folder-documents",    tabs);
     m_localLinkLook   = new LinkLookEditWidget(this, i18n("Home folder"),                                     "user-home", tabs);
-    m_networkLinkLook = new LinkLookEditWidget(this, "www.kde.org",             KIO::iconNameForUrl(QUrl("http://www.kde.org")), tabs);
+    m_networkLinkLook = new LinkLookEditWidget(this, "kde.org",             KIO::iconNameForUrl(QUrl("https://kde.org")), tabs);
     m_launcherLook    = new LinkLookEditWidget(this, i18n("Launch %1", QGuiApplication::applicationDisplayName()), "basket",      tabs);
     m_crossReferenceLook=new LinkLookEditWidget(this, i18n("Another basket"), "basket", tabs);
 
@@ -996,7 +996,7 @@ ApplicationsPage::ApplicationsPage(QWidget * parent, const char * name)
              "<li>Go to the \"Applications\" and then \"Default Applications\" section;</li>"
              "<li>Choose \"Web Browser\", check \"with the following command:\" and enter the name of your Web browser (like \"firefox\" or \"epiphany\").</li>"
              "</ul>"
-             "<p>Now, when you click <i>any</i> link that start with \"http://...\", it will be opened in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p>"
+             "<p>Now, when you click <i>any</i> link that start with \"https://...\", it will be opened in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p>"
              "<p>For more fine-grained configuration (like opening only Web pages in your Web browser), read the second help link.</p>"),
         this);
     hLay->addWidget(hl1);

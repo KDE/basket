@@ -239,7 +239,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
 
         // It's UTF16 (aka UCS2), but with the first two order bytes
         //stream.setEncoding(QTextStream::RawUnicode); // It's UTF16 (aka UCS2), but with the first two order bytes
-        //FIXME: find out if this is really equivalent, as http://doc.trolltech.com/4.5/qtextstream-qt3.html pretends
+        //FIXME: find out if this is really equivalent, as https://doc.qt.io/archives/3.3/qtextstream.html pretends
         stream.setCodec("UTF-16");
 
         stream << xMozUrl;

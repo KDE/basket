@@ -898,8 +898,12 @@ QString NoteFactory::titleForURL(const QUrl &url)
         title = title.remove(0, 5); // 5 == QString("file:").length() - 1
     else if (title.startsWith(QLatin1String("http://www.")))
         title = title.remove(0, 11); // 11 == QString("http://www.").length() - 1
+    else if (title.startsWith(QLatin1String("https://www.")))
+        title = title.remove(0, 12); // 12 == QString("https://www.").length() - 1
     else if (title.startsWith(QLatin1String("http://")))
         title = title.remove(0, 7); // 7 == QString("http://").length() - 1
+    else if (title.startsWith(QLatin1String("https://")))
+        title = title.remove(0, 8); // 8 == QString("https://").length() - 1
 
     if (! url.isLocalFile()) {
         if (title.endsWith(QLatin1String("/index.html")) && title.length() > 11)

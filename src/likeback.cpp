@@ -758,7 +758,7 @@ QString LikeBackDialog::introductionText()
         // TODO: Replace the URL with a localized one:
         text += languagesMessage + ' ' +
                 i18n("You may be able to use an <a href=\"%1\">online translation tool</a>."
-                     , "http://www.google.com/language_tools?hl=" + QLocale().language()) + ' ';
+                     , "https://www.google.com/language_tools?hl=" + QLocale().language()) + ' ';
 
     // If both "I Like" and "I Dislike" buttons are shown and one is clicked:
     if ((m_likeBack->buttons() & LikeBack::Like) && (m_likeBack->buttons() & LikeBack::Dislike))
@@ -817,12 +817,12 @@ void LikeBackDialog::send()
 
     KIO::Integration::AccessManager *http = new KIO::Integration::AccessManager(this);
     QString urlString;
-    urlString = "http://" + m_likeBack->hostName() + ":" + m_likeBack->hostPort() + m_likeBack->remotePath();
+    urlString = "https://" + m_likeBack->hostName() + ":" + m_likeBack->hostPort() + m_likeBack->remotePath();
     QUrl url(urlString);
     QNetworkRequest request(url);
     request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    qDebug() << "http://" << m_likeBack->hostName() << ":" << m_likeBack->hostPort() << m_likeBack->remotePath();
+    qDebug() << "https://" << m_likeBack->hostName() << ":" << m_likeBack->hostPort() << m_likeBack->remotePath();
     qDebug() << data;
 
     connect(http, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));

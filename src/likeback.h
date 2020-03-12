@@ -67,7 +67,7 @@ class LikeBackPrivate;
  *     likeBack->sendACommentAction(actionCollection());
  * @endcode
  *
- * @see Visit http://basket.kde.org/likeback.php for more information, screenshots, a tutorial, hints, return of experiences, and to download the server-side developer interface...
+ * @see Visit https://basket.kde.org/likeback.php for more information, screenshots, a tutorial, hints, return of experiences, and to download the server-side developer interface...
  * @author Sebastien Laout <slaout@linux62.org>
  */
 class LikeBack : public QObject
