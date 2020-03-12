@@ -50,7 +50,7 @@ class StateCopy
 {
 public:
     typedef QList<StateCopy*> List;
-    StateCopy(State *old = 0);
+    explicit StateCopy(State *old = nullptr);
     ~StateCopy();
     State *oldState;
     State *newState;
@@ -61,7 +61,7 @@ class TagCopy
 {
 public:
     typedef QList<TagCopy*> List;
-    TagCopy(Tag *old = 0);
+    explicit TagCopy(Tag *old = nullptr);
     ~TagCopy();
     Tag *oldTag;
     Tag *newTag;
@@ -108,7 +108,7 @@ class TagListView : public QTreeWidget
 {
     Q_OBJECT
 public:
-    TagListView(QWidget *parent = 0);
+    explicit TagListView(QWidget *parent = nullptr);
     ~TagListView() override;
     void keyPressEvent(QKeyEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
@@ -129,7 +129,7 @@ class TagsEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit TagsEditDialog(QWidget *parent = 0, State *stateToEdit = 0, bool addNewTag = false);
+    explicit TagsEditDialog(QWidget *parent = nullptr, State *stateToEdit = nullptr, bool addNewTag = false);
     ~TagsEditDialog() override;
     State::List deletedStates() {
         return m_deletedStates;
@@ -206,7 +206,7 @@ class TagListDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
-    TagListDelegate(QWidget *parent = 0) : QItemDelegate(parent) {}
+    explicit TagListDelegate(QWidget *parent = nullptr) : QItemDelegate(parent) {}
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
                const QModelIndex &index) const override;
 

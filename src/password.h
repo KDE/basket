@@ -34,7 +34,7 @@ class Password : public QWidget, public Ui::PasswordLayout
 {
     Q_OBJECT
 public:
-    Password(QWidget *parent = 0);
+    explicit Password(QWidget *parent = nullptr);
     ~Password();
 };
 

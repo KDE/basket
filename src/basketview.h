@@ -28,7 +28,7 @@ class BasketView : public QGraphicsView
 {
   Q_OBJECT
 public:
-  BasketView( BasketScene *scene, QWidget * parent = 0 );
+  BasketView(BasketScene *scene, QWidget *parent = nullptr);
   ~BasketView() override;
 protected:
   void resizeEvent( QResizeEvent * event ) override;

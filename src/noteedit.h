@@ -67,7 +67,7 @@ class NoteEditor : public QObject
 {
     Q_OBJECT
 public:
-    NoteEditor(NoteContent *noteContent);
+    explicit NoteEditor(NoteContent *noteContent);
     ~NoteEditor() override;
 
     bool        isEmpty()  {
@@ -233,7 +233,7 @@ class LinkEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit LinkEditDialog(LinkContent *contentNote, QWidget *parent = 0);
+    explicit LinkEditDialog(LinkContent *contentNote, QWidget *parent = nullptr);
     ~LinkEditDialog() override;
     void ensurePolished();
 
@@ -261,14 +261,14 @@ class CrossReferenceEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit CrossReferenceEditDialog(CrossReferenceContent *contentNote, QWidget *parent = 0);
+    explicit CrossReferenceEditDialog(CrossReferenceContent *contentNote, QWidget *parent = nullptr);
     ~CrossReferenceEditDialog() override;
 
 protected slots:
     void slotOk();
     void urlChanged(const int index);
 protected:
-    void generateBasketList(KComboBox *targetList, BasketListViewItem *item = 0, int indent = 0);
+    void generateBasketList(KComboBox *targetList, BasketListViewItem *item = nullptr, int indent = 0);
 private:
     CrossReferenceContent   *m_noteContent;
     KComboBox     *m_targetBasket;
@@ -281,7 +281,7 @@ class LauncherEditDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit LauncherEditDialog(LauncherContent *contentNote, QWidget *parent = 0);
+    explicit LauncherEditDialog(LauncherContent *contentNote, QWidget *parent = nullptr);
     ~LauncherEditDialog() override;
     void ensurePolished();
 protected slots:

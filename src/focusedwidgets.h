@@ -33,7 +33,7 @@ class FocusedTextEdit : public KTextEdit
 {
     Q_OBJECT
 public:
-    explicit FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent = 0);
+    explicit FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent = nullptr);
     ~FocusedTextEdit() override;
     void paste(QClipboard::Mode mode);
 public slots:
@@ -71,7 +71,7 @@ public:
     /** Constructor
      * @param watched The widget to install the event filter on; also becomes
      * the parent of this object. */
-    FocusWidgetFilter(QWidget *watched = 0);
+    explicit FocusWidgetFilter(QWidget *watched = nullptr);
     ~FocusWidgetFilter() override {}
 
 protected:

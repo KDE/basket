@@ -82,7 +82,7 @@ class BasketTreeListView : public QTreeWidget
 {
     Q_OBJECT
 public:
-    BasketTreeListView(QWidget *parent = 0);
+    explicit BasketTreeListView(QWidget *parent = nullptr);
     void dragEnterEvent(QDragEnterEvent *event) override;
     void removeExpands();
     void dragLeaveEvent(QDragLeaveEvent *event) override;

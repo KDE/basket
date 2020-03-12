@@ -314,7 +314,7 @@ class KColorPopup : public QWidget
 {
     Q_OBJECT
 public:
-    KColorPopup(KColorCombo2 *parent);
+    explicit KColorPopup(KColorCombo2 *parent);
     ~KColorPopup() override;
     void relayout(); // updateGeometry() ??
 signals:

@@ -59,7 +59,7 @@ class FilterBar : public QWidget
 {
     Q_OBJECT
 public:
-    FilterBar(QWidget *parent = 0);
+    explicit FilterBar(QWidget *parent = nullptr);
     ~FilterBar() override;
     const FilterData& filterData();
 signals:

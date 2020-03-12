@@ -36,7 +36,7 @@ class DebugWindow : public QWidget
     Q_OBJECT
 public:
     /** Constructor and destructor */
-    DebugWindow(QWidget *parent = 0);
+    explicit DebugWindow(QWidget *parent = nullptr);
     ~DebugWindow() override;
     /** Methods to post a message to the debug window */
     Q_INVOKABLE void postMessage(const QString msg);

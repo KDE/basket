@@ -69,7 +69,8 @@ class Note;
 class LinkDisplayItem : public QGraphicsItem
 {
 public:
-  LinkDisplayItem(Note *parent):m_note(parent) {}
+  explicit LinkDisplayItem(Note *parent)
+      : m_note(parent) {}
   ~LinkDisplayItem() override {}
   QRectF boundingRect() const override;
   void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;

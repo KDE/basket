@@ -34,7 +34,7 @@ class Note;
 class HTMLExporter
 {
 public:
-    HTMLExporter(BasketScene *basket);
+    explicit HTMLExporter(BasketScene *basket);
     ~HTMLExporter();
 private:
     void prepareExport(BasketScene *basket, const QString &fullPath);

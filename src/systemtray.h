@@ -34,7 +34,7 @@ class SystemTray : public KStatusNotifierItem
     Q_DISABLE_COPY(SystemTray);
 
 public:
-    SystemTray(QWidget *parent = 0);
+    explicit SystemTray(QWidget *parent = nullptr);
     ~SystemTray() override;
 
 public slots:
@@ -53,7 +53,7 @@ class SystemTray2 : public SystemTray
 {
     Q_OBJECT
 public:
-    explicit SystemTray2(QWidget *parent = 0, const char *name = 0);
+    explicit SystemTray2(QWidget *parent = nullptr, const char *name = nullptr);
     ~SystemTray2();
 protected:
     void mousePressEvent(QMouseEvent *event);

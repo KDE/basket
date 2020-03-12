@@ -40,7 +40,7 @@ class BASKET_EXPORT BasketStatusBar : public QObject
 {
     Q_OBJECT
 public:
-    BasketStatusBar(QStatusBar *bar);
+    explicit BasketStatusBar(QStatusBar *bar);
     BasketStatusBar(KParts::StatusBarExtension *extension);
     ~BasketStatusBar() override;
 

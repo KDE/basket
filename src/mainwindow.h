@@ -44,7 +44,7 @@ class MainWindow : public KXmlGuiWindow
     Q_OBJECT
 public:
     /** Constructor, initializer and destructor */
-    MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 private:
     void setupActions();

@@ -56,7 +56,7 @@ class BASKET_EXPORT Note : public QGraphicsItemGroup
 {
 /// CONSTRUCTOR AND DESTRUCTOR:
 public:
-    Note(BasketScene *parent = 0);
+    explicit Note(BasketScene *parent = nullptr);
     ~Note() override;
 
 private:

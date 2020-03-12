@@ -43,7 +43,7 @@ class SingleSelectionKIconView : public QListWidget
 {
     Q_OBJECT
 public:
-    SingleSelectionKIconView(QWidget *parent = 0);
+    explicit SingleSelectionKIconView(QWidget *parent = nullptr);
     QMimeData* dragObject();
     QListWidgetItem* selectedItem() {
         return m_lastSelected;

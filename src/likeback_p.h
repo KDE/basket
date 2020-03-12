@@ -63,7 +63,7 @@ class LikeBackBar : public QWidget
 {
     Q_OBJECT
 public:
-    LikeBackBar(LikeBack *likeBack);
+    explicit LikeBackBar(LikeBack *likeBack);
     ~LikeBackBar() override;
 public slots:
     void startTimer();

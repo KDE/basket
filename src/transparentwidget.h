@@ -31,7 +31,7 @@ class TransparentWidget : public QWidget
 {
     Q_OBJECT
 public:
-    TransparentWidget(BasketScene *basket);
+    explicit TransparentWidget(BasketScene *basket);
     void setPosition(int x, int y);
     //void reparent(QWidget *parent, Qt::WFlags f, const QPoint &p, bool showIt = FALSE);
 protected:
