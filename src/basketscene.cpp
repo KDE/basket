@@ -4173,7 +4173,7 @@ void BasketScene::noteOpen(Note *note)
         if (message.isEmpty())
             emit postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
         else {
-            int result = KMessageBox::warningContinueCancel(m_view, message, /*caption=*/QString::null, KGuiItem(i18n("&Edit"), "edit"));
+            int result = KMessageBox::warningContinueCancel(m_view, message, /*caption=*/QString(), KGuiItem(i18n("&Edit"), "edit"));
             if (result == KMessageBox::Continue)
                 noteEdit(note);
         }
@@ -4203,7 +4203,7 @@ bool KRun__displayOpenWithDialog(const QList<QUrl>& lst, QWidget *window, bool t
         KMessageBox::sorry(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
         return false;
     }
-    KOpenWithDialog l(lst, text, QString::null, 0L);
+    KOpenWithDialog l(lst, text, QString(), 0L);
     if (l.exec()) {
         KService::Ptr service = l.service();
         if (!!service)
@@ -5243,7 +5243,7 @@ bool BasketScene::saveToFile(const QString &fullPath, const QByteArray &array)
 
 #ifdef HAVE_LIBGPGME
     if (isEncrypted()) {
-        QString key = QString::null;
+        QString key = QString();
 
         // We only use gpg-agent for private key encryption and saving without
         // public key doesn't need one.

@@ -1729,14 +1729,14 @@ void BNPView::checkCleanup() {
     QString topDirEntry;
     QString subDirEntry;
     QFileInfo fileInfo;
-    QDir topDir(Global::basketsFolder(), QString::null, QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
+    QDir topDir(Global::basketsFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
     foreach( topDirEntry, topDir.entryList() ) {
         if( topDirEntry != "." && topDirEntry != ".." ) {
             fileInfo.setFile(Global::basketsFolder() + '/' + topDirEntry);
             if (fileInfo.isDir()) {
                 dirList << topDirEntry + '/';
                 QDir basketDir(Global::basketsFolder() + '/' + topDirEntry,
-                               QString::null, QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
+                               QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
                 foreach( subDirEntry, basketDir.entryList() ) {
                     if (subDirEntry != "." && subDirEntry != "..") {
                         fileList << topDirEntry + '/' + subDirEntry;

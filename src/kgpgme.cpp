@@ -195,7 +195,7 @@ QString KGpgMe::checkForUtf8(QString txt)
     // Make sure the encoding is UTF-8.
     // Test structure suggested by Werner Koch
     if (txt.isEmpty())
-        return QString::null;
+        return QString();
 
     for (s = txt.toLatin1(); *s && !(*s & 0x80); s++)
         ;
@@ -277,7 +277,7 @@ KGpgKeyList KGpgMe::keys(bool privateKeys /* = false */) const
 }
 
 bool KGpgMe::encrypt(const QByteArray& inBuffer, unsigned long length,
-                     QByteArray* outBuffer, QString keyid /* = QString::null */)
+                     QByteArray* outBuffer, QString keyid /* = QString() */)
 {
     gpgme_error_t err = 0;
     gpgme_data_t in = 0, out = 0;

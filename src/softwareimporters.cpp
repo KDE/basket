@@ -334,7 +334,7 @@ void SoftwareImporters::importKJots()
 {
     //This code is out-of-date. KJots (KDE4) and KNotes (KDE4, 5) now store data in Akonadi and MIME files in .local/share/notes
     QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/../kjots/"; // I think the assumption is good
-    QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
+    QDir dir(dirPath, QString(), QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
     if (list.isEmpty())
@@ -415,7 +415,7 @@ void SoftwareImporters::importKJots()
 void SoftwareImporters::importKNotes()
 {
     QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/../knotes/"; // I think the assumption is good
-    QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
+    QDir dir(dirPath, QString(), QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
     for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {   // For each file
@@ -478,7 +478,7 @@ void SoftwareImporters::importStickyNotes()
     // Sticky Notes file is usually located in ~/.gnome2/stickynotes_applet
     // We will search all directories in "~/" that contain "gnome" in the name,
     // and will search for "stickynotes_applet" file (that should be XML file with <stickynotes> root.
-    QDir dir(QDir::home().absolutePath(), QString::null, QDir::Name | QDir::IgnoreCase,
+    QDir dir(QDir::home().absolutePath(), QString(), QDir::Name | QDir::IgnoreCase,
              QDir::Dirs | QDir::NoSymLinks | QDir::Hidden);
     QStringList founds;
 
@@ -545,7 +545,7 @@ void SoftwareImporters::importTomboy()
     for (int L=0; L<2; L++) {
 
         QString dirPath = QDir::home().absolutePath() + possibleLocations[L];
-        QDir dir(dirPath, QString::null, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
+        QDir dir(dirPath, QString(), QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
         DEBUG_WIN << "Tomboy import: Checking " + dirPath;
 
         QStringList list = dir.entryList();

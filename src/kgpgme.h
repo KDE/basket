@@ -49,7 +49,7 @@ public:
     KGpgMe();
     ~KGpgMe();
 
-    QString selectKey(QString previous = QString::null);
+    QString selectKey(QString previous = QString());
     KGpgKeyList keys(bool privateKeys = false) const;
     void setText(QString text, bool saving) {
         m_text = text; m_saving = saving;
@@ -66,7 +66,7 @@ public:
     void clearCache();
 
     bool encrypt(const QByteArray& inBuffer, unsigned long length,
-                 QByteArray* outBuffer, QString keyid = QString::null);
+                 QByteArray* outBuffer, QString keyid = QString());
     bool decrypt(const QByteArray& inBuffer, QByteArray* outBuffer);
 
     static QString checkForUtf8(QString txt);

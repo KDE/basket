@@ -663,7 +663,7 @@ void Tools::deleteRecursively(const QString &folderOrFile)
     QFileInfo fileInfo(folderOrFile);
     if (fileInfo.isDir()) {
         // Delete the child files:
-        QDir dir(folderOrFile, QString::null, QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
+        QDir dir(folderOrFile, QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
         QStringList list = dir.entryList();
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)
             if (*it != "." && *it != "..")
@@ -685,7 +685,7 @@ void Tools::deleteMetadataRecursively(const QString &folderOrFile)
     QFileInfo fileInfo(folderOrFile);
     if (fileInfo.isDir()) {
         // Delete Metadata of the child files:
-        QDir dir(folderOrFile, QString::null, QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
+        QDir dir(folderOrFile, QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
         QStringList list = dir.entryList();
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)
             if (*it != "." && *it != "..")

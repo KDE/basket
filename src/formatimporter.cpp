@@ -48,7 +48,7 @@ bool FormatImporter::shouldImportBaskets()
         return false;
 
     // ... And there is at least one folder in the save folder, with a ".basket" file inside that folder.
-    QDir dir(Global::savesFolder(), QString::null, QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks);
+    QDir dir(Global::savesFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks);
     QStringList list = dir.entryList();
     for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)
         if (*it != "." && *it != ".." && dir.exists(Global::savesFolder() + *it + "/.basket"))
@@ -111,7 +111,7 @@ void FormatImporter::importBaskets()
     }
 
     // Then load the baskets that weren't loaded (import < 0.5.0 ones):
-    QDir dir(Global::savesFolder(), QString::null, QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks);
+    QDir dir(Global::savesFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks);
     QStringList list = dir.entryList();
     if (list.count() > 2) // Pass "." and ".."
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) // For each folder
