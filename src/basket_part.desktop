@@ -9,6 +9,7 @@ Name[nl]=BasketPart
 Name[pt]=BasketPart
 Name[uk]=BasketPart
 Name[x-test]=xxBasketPartxx
+Name[zh_TW]=BasketPart
 MimeType=application/x-basket;
 X-KDE-ServiceTypes=KParts/ReadOnlyPart,KParts/ReadWritePart
 X-KDE-Library=basketpart
