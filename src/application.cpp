@@ -1,28 +1,14 @@
-/***************************************************************************
- *   Copyright (C) 2003 by Sébastien Laoût <slaout@linux62.org>            *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+/**
+ * SPDX-FileCopyrightText: (C) 2003 by Sébastien Laoût <slaout@linux62.org>
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 
 #include "application.h"
 
-#include <QtCore/QString>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QTimer>
+#include <QString>
+#include <QFile>
+#include <QFileInfo>
+#include <QTimer>
 #include <QCommandLineParser>
 #include <QDir>
 
@@ -51,9 +37,6 @@ Application::Application(int &argc, char **argv)
 
     connect(&m_service, &KDBusService::activateRequested, this, &Application::onActivateRequested);
 
-    newInstance();
-
-
     #ifdef WITH_LIBGIT2
         #if LIBGIT2_VER_MAJOR > 0 || (LIBGIT2_VER_MAJOR == 0 && LIBGIT2_VER_MINOR >= 22)
             git_libgit2_init();
@@ -72,13 +55,6 @@ Application::~Application()
             git_threads_shutdown();
         #endif
     #endif
-}
-
-int Application::newInstance()
-{
-    //KUniqueApplication::newInstance();
-
-    return 0;
 }
 
 void Application::tryLoadFile(const QStringList& args, const QString& workingDir)
