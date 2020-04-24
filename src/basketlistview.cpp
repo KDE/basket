@@ -198,11 +198,6 @@ bool BasketListViewItem::isUnderDrag()
     return m_isUnderDrag;
 }
 
-// TODO: Move this function from item.cpp to class Tools:
-extern void drawGradient(QPainter *p, const QColor &colorTop, const QColor & colorBottom,
-                         qreal x, qreal y, qreal w, qreal h,
-                         bool sunken, bool horz, bool flat);   /*const*/
-
 bool BasketListViewItem::haveChildsLoading()
 {
     for (int i = 0; i < childCount(); i++) {
@@ -610,25 +605,12 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     qreal xMargin = height / 6;
     qreal width   = xMargin + textRect.width() + xMargin;
 
-    // Create the gradient image:
-    QPixmap gradient(3 * width, 3 * height); // We double the size to be able to smooth scale down it (== antialiased curves)
-    QPainter gradientPainter(&gradient);
-#if 1 // Enable the new look of the gradient:
+    // Create the background image:
+    QPixmap background(3 * width, 3 * height); // We double the size to be able to smooth scale down it (== antialiased curves)
+    QPainter backgroundPainter(&background);
     const QPalette& palette = m_basketTree->palette();
-    QColor topColor       = palette.color(QPalette::Highlight).lighter(130); //120
-    QColor topMidColor    = palette.color(QPalette::Highlight).lighter(105); //105
-    QColor bottomMidColor = palette.color(QPalette::Highlight).darker(130);  //120
-    QColor bottomColor    = palette.color(QPalette::Highlight);
-    drawGradient(&gradientPainter, topColor, topMidColor,
-                 0, 0, gradient.width(), gradient.height() / 2, /*sunken=*/false, /*horz=*/true, /*flat=*/false);
-    drawGradient(&gradientPainter, bottomMidColor, bottomColor,
-                 0, gradient.height() / 2, gradient.width(), gradient.height() - gradient.height() / 2, /*sunken=*/false, /*horz=*/true, /*flat=*/false);
-    gradientPainter.fillRect(0, 0, gradient.width(), 3, palette.color(QPalette::Highlight));
-#else
-    drawGradient(&gradientPainter, palette().color(QPalette::Highlight), palette().color(QPalette::Highlight).darker(),
-                 0, 0, gradient.width(), gradient.height(), /*sunken=*/false, /*horz=*/true, /*flat=*/false);
-#endif
-    gradientPainter.end();
+    backgroundPainter.fillRect(0, 0, background.width(), background.height(), palette.color(QPalette::Highlight));
+    backgroundPainter.end();
 
     // Draw the curved rectangle:
     QBitmap curvedRectangle(3 * width, 3 * height);
@@ -644,9 +626,9 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     curvePainter.fillRect(3*(height / 6), 0, 3*(width - 2 * height / 6), 3*(height), curvePainter.brush());
     curvePainter.end();
 
-    // Apply the curved rectangle as the mask of the gradient:
-    gradient.setMask(curvedRectangle);
-    QImage resultImage = gradient.toImage();
+    // Apply the curved rectangle as the mask of the background:
+    background.setMask(curvedRectangle);
+    QImage resultImage = background.toImage();
 
     //resultImage.setAlphaBuffer(true);
     resultImage.convertToFormat(QImage::Format_ARGB32);

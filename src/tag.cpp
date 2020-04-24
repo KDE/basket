@@ -122,15 +122,7 @@ QString State::toCSS(const QString &gradientFolderPath, const QString &gradientF
     if (fontSize() > 0)
         css += " font-size: " + QString::number(fontSize()) + "px;";
     if (backgroundColor().isValid()) {
-        // Get the colors of the gradient and the border:
-        QColor topBgColor;
-        QColor bottomBgColor;
-        Note::getGradientColors(backgroundColor(), &topBgColor, &bottomBgColor);
-        // Produce the CSS code:
-        QString gradientFileName = BasketScene::saveGradientBackground(backgroundColor(), font(baseFont), gradientFolderPath);
-        css += " background: " + bottomBgColor.name() + " url('" + gradientFolderName + gradientFileName + "') repeat-x;";
-        css += " border-top: solid " + topBgColor.name() + " 1px;";
-        css += " border-bottom: solid " + Tools::mixColor(topBgColor, bottomBgColor).name() + " 1px;";
+        css += " background-color: " + backgroundColor().name() + ";";
     }
 
     if (css.isEmpty())

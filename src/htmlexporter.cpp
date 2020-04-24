@@ -210,13 +210,6 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream.setDevice(&file);
     stream.setCodec("UTF-8");
 
-    // Compute the colors to draw gradient for notes:
-    QColor topBgColor;
-    QColor bottomBgColor;
-    Note::getGradientColors(basket->backgroundColor(), &topBgColor, &bottomBgColor);
-    // Compute the gradient image for notes:
-    QString gradientImageFileName = BasketScene::saveGradientBackground(basket->backgroundColor(), basket->QGraphicsScene::font(), imagesFolderPath);
-
     // Output the header:
     QString borderColor = Tools::mixColor(basket->backgroundColor(), basket->textColor()).name();
     stream <<
@@ -257,10 +250,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     "   .columnHandle { width: " << Note::RESIZER_WIDTH << "px; background: transparent url('" << imagesFolderName << "column_handle_" << backgroundColorName << ".png') repeat-y; }\n"
     "   .group { margin: 0; padding: 0; border-collapse: collapse; width: 100% }\n"
     "   .groupHandle { margin: 0; width: " << Note::GROUP_WIDTH << "px; text-align: center; }\n"
-    "   .note { padding: 1px 2px; background: " << bottomBgColor.name() << " url('" << imagesFolderName << gradientImageFileName << "')"
-    " repeat-x; border-top: solid " << topBgColor.name() <<
-    " 1px; border-bottom: solid " << Tools::mixColor(topBgColor, bottomBgColor).name() <<
-    " 1px; width: 100%; }\n"
+    "   .note { padding: 1px 2px; background-color: " << basket->backgroundColor().name() << "; width: 100%; }\n"
     "   .tags { width: 1px; white-space: nowrap; }\n"
     "   .tags img { padding-right: 2px; }\n"
     << LinkLook::soundLook->toCSS("sound", basket->textColor())

@@ -194,7 +194,7 @@ public:
     void drawBufferOnScreen(QPainter *painter, const QPixmap &contentPixmap);
     static void getGradientColors(const QColor &originalBackground, QColor *colorTop, QColor *colorBottom);
     static void drawExpander(QPainter *painter, qreal x, qreal y, const QColor &background, bool expand, BasketScene *basket);
-    void drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground);
+    void drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, const QColor &lightForeground);
     void drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, bool rounded);
     void drawRoundings(QPainter *painter, qreal x, qreal y, int type, qreal width = 0, qreal height = 0);
     void unbufferizeAll();
@@ -390,9 +390,6 @@ public:
 /*
  * Convenience functions:
  */
-void drawGradient(QPainter *p, const QColor &colorTop, const QColor & colorBottom,
-		  qreal x, qreal y, qreal w, qreal h,
-		  bool sunken, bool horz, bool flat);
 
 extern void substractRectOnAreas(const QRectF &rectToSubstract,
 		QList<QRectF> &areas, bool andRemove = true);

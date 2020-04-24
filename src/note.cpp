@@ -1279,68 +1279,6 @@ qreal Note::finalRightLimit() const
         return x() + m_groupWidth;
 }
 
-/*
- * This code is derived from drawMetalGradient() from the Qt documentation:
- */
-void drawGradient(QPainter *p, const QColor &colorTop, const QColor & colorBottom,
-                  qreal x, qreal y, qreal w, qreal h,
-                  bool sunken, bool horz, bool flat)   /*const*/
-{
-    w++; //proper width in kde4 version
-
-    QColor highlight(colorBottom);
-    QColor subh1(colorTop);
-    QColor subh2(colorTop);
-
-    QColor topgrad(colorTop);
-    QColor botgrad(colorBottom);
-
-
-    if (flat && !sunken)
-        p->fillRect(x, y, w, h, colorTop);
-    else {
-        int i  = 0;
-        int x1 = x;
-        int y1 = y;
-        int x2 = x + w - 1;
-        int y2 = y + h - 1;
-        if (horz)
-            x2 = x2;
-        else
-            y2 = y2;
-
-#define DRAWLINE if (horz) \
-        p->drawLine( x1, y1+i, x2, y1+i ); \
-    else \
-        p->drawLine( x1+i, y1, x1+i, y2 ); \
-    i++;
-
-        // Gradient:
-        int ng = (horz ? h : w); // how many lines for the gradient?
-
-        int h1, h2, s1, s2, v1, v2;
-        if (!sunken) {
-            topgrad.getHsv(&h1, &s1, &v1);
-            botgrad.getHsv(&h2, &s2, &v2);
-        } else {
-            botgrad.getHsv(&h1, &s1, &v1);
-            topgrad.getHsv(&h2, &s2, &v2);
-        }
-
-        if (ng > 1) {
-            for (int j = 0; j < ng; j++) {
-                p->setPen(QColor::fromHsv(h1 + ((h2 - h1)*j) / (ng - 1),
-                                          s1 + ((s2 - s1)*j) / (ng - 1),
-                                          v1 + ((v2 - v1)*j) / (ng - 1)));
-                DRAWLINE;
-            }
-        } else if (ng == 1) {
-            p->setPen(QColor::fromHsv((h1 + h2) / 2, (s1 + s2) / 2, (v1 + v2) / 2));
-            DRAWLINE;
-        }
-    }
-}
-
 void Note::drawExpander(QPainter *painter, qreal x, qreal y,
                         const QColor &background, bool expand,
                         BasketScene *basket)
@@ -1394,24 +1332,19 @@ QColor expanderBackground(qreal height, qreal y, const QColor &foreground)
                            v1 + ((v2 - v1)*y) / (ng - 1));
 }
 
-void Note::drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground)
+void Note::drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, const QColor &lightForeground)
 {
-    QPen backgroundPen(background);
-    QPen foregroundPen(foreground);
-
-    QColor dark     = foreground.dark(110);  // 1/1.1 of brightness
-    QColor light    = foreground.light(150); // 50% brighter
+    const QPen backgroundPen(background);
+    const QPen foregroundPen(foreground);
 
     // Draw the surrounding rectangle:
     painter->setPen(foregroundPen);
     painter->drawLine(0,         0,          width - 1, 0);
     painter->drawLine(0,         0,          0,         height - 1);
-    painter->drawLine(width - 1, 0,          width - 1, height - 1);
     painter->drawLine(0,         height - 1, width - 1, height - 1);
 
     // Draw the gradients:
-    drawGradient(painter, light, dark,       1 + x, 1 + y,                width - 2, (height - 1) / 2,            /*sunken=*/false, /*horz=*/true, /*flat=*/false);
-    drawGradient(painter, dark,  foreground, 1 + x, 1 + y + (height - 1) / 2, width - 2, (height - 1) - (height - 1) / 2, /*sunken=*/false, /*horz=*/true, /*flat=*/false);
+    painter->fillRect(1 + x, 1 + y, width - 2, height - 2, lightForeground);
 
     // Round the top corner with background color:
     painter->setPen(backgroundPen);
@@ -1427,71 +1360,47 @@ void Note::drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal he
     painter->setPen(foregroundPen);
     painter->drawLine(1, 2, 1, 3);
     painter->drawLine(2, 1, 3, 1);
+    // Surrounding line of the rounded bottom-left corner:
+    painter->drawLine(1, height - 3, 1, height - 4);
+    painter->drawLine(2, height - 2, 3, height - 2);
 
     // Anti-aliased rounded top corner (1/2):
-    painter->setPen(Tools::mixColor(foreground, background));
+    painter->setPen(lightForeground);
     painter->drawPoint(0, 3);
     painter->drawPoint(3, 0);
+    painter->drawPoint(2, 2);
     // Anti-aliased rounded bottom corner:
     painter->drawPoint(0, height - 4);
     painter->drawPoint(3, height - 1);
-    // Anti-aliased rounded top corner (2/2):
-    painter->setPen(Tools::mixColor(foreground, light));
-    painter->drawPoint(2, 2);
+    painter->drawPoint(2, height - 3);
 
     // Draw the grips:
-    qreal xGrips             = 4;
-    qreal marginedHeight = (height * 80 / 100); // 10% empty on top, and 10% empty on bottom, so 20% of the height should be empty of any grip, and 80% should be in the grips
-    int nbGrips            = (marginedHeight - 3) / 6;
-    if (nbGrips < 2)
-        nbGrips = 2;
-    qreal yGrips             = (height + 1 - nbGrips * 6 - 3) / 2; // +1 to avoid rounding errors, -nbGrips*6-3 the size of the grips
-    QColor darker  = foreground.dark(130);
-    QColor lighter = foreground.light(130);
-    for (int i = 0; i < nbGrips; ++i) {
-        /// Dark color:
-        painter->setPen(darker);
-        // Top-left point:
-        painter->drawPoint(xGrips,     yGrips);
-        painter->drawPoint(xGrips + 1, yGrips);
-        painter->drawPoint(xGrips,     yGrips + 1);
-        // Bottom-right point:
-        painter->drawPoint(xGrips + 4, yGrips + 3);
-        painter->drawPoint(xGrips + 5, yGrips + 3);
-        painter->drawPoint(xGrips + 4, yGrips + 4);
-        /// Light color:
-        painter->setPen(lighter);
-        // Top-left point:
-        painter->drawPoint(xGrips + 1, yGrips + 1);
-        // Bottom-right point:
-        painter->drawPoint(xGrips + 5, yGrips + 4);
-        yGrips += 6;
-    }
-    // The remaining point:
-    painter->setPen(darker);
-    painter->drawPoint(xGrips,     yGrips);
-    painter->drawPoint(xGrips + 1, yGrips);
-    painter->drawPoint(xGrips,     yGrips + 1);
-    painter->setPen(lighter);
-    painter->drawPoint(xGrips + 1, yGrips + 1);
+    const qreal middleHeight = (height - 1) / 2;
+    const qreal middleWidth = width / 2;
+    painter->fillRect(middleWidth - 2, middleHeight, 2, 2, foreground);
+    painter->fillRect(middleWidth + 2, middleHeight, 2, 2, foreground);
+    painter->fillRect(middleWidth - 2, middleHeight - 4, 2, 2, foreground);
+    painter->fillRect(middleWidth + 2, middleHeight - 4, 2, 2, foreground);
+    painter->fillRect(middleWidth - 2, middleHeight + 4, 2, 2, foreground);
+    painter->fillRect(middleWidth + 2, middleHeight + 4, 2, 2, foreground);
 }
 
 void Note::drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, bool rounded)
 {
-    QPen backgroundPen(background);
-    QPen foregroundPen(foreground);
+    const QPen backgroundPen(background);
+    const QPen foregroundPen(foreground);
 
-    QColor dark     = foreground.dark(110);  // 1/1.1 of brightness
-    QColor light    = foreground.light(150); // 50% brighter
-    QColor midLight = foreground.light(105); // 5% brighter
+    const QColor lightForeground = Tools::mixColor(background, foreground, 2);
 
     // Draw the surrounding rectangle:
     painter->setPen(foregroundPen);
-    painter->fillRect(0, 0, width, height,foreground);
-
-    // Draw the gradients:
-    drawGradient(painter, light, dark,       1 + x, 1 + y,                width - 2, (height - 2) / 2,            /*sunken=*/false, /*horz=*/true, /*flat=*/false);
-    drawGradient(painter, dark,  foreground, 1 + x, 1 + y + (height - 2) / 2, width - 2, (height - 2) - (height - 2) / 2, /*sunken=*/false, /*horz=*/true, /*flat=*/false);
+    painter->fillRect(0, 0, width, height,lightForeground);
+    painter->drawLine(0, 0, width - 2, 0);
+    painter->drawLine(0, height - 1, width - 2, height - 1);
+    painter->drawLine(width - 1, 2, width - 1, height - 2);
+    if (isColumn()) {
+        painter->drawLine(0, 2, 0, height - 2);
+    }
 
     if (rounded) {
         // Round the top corner with background color:
@@ -1503,30 +1412,32 @@ void Note::drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal h
         painter->drawLine(width - 1, height - 1, width - 1, height - 4);
         painter->drawLine(width - 2, height - 1, width - 4, height - 1);
         painter->drawPoint(width - 2, height - 2);
-
         // Surrounding line of the rounded top-left corner:
         painter->setPen(foregroundPen);
         painter->drawLine(width - 2, 2, width - 2, 3);
         painter->drawLine(width - 3, 1, width - 4, 1);
+        // Surrounding line of the rounded bottom-left corner:
+        painter->drawLine(width - 2, height - 3, width - 2, height - 4);
+        painter->drawLine(width - 3, height - 2, width - 4, height - 2);
 
         // Anti-aliased rounded top corner (1/2):
-        painter->setPen(Tools::mixColor(foreground, background));
+        painter->setPen(Tools::mixColor(foreground, background, 2));
         painter->drawPoint(width - 1, 3);
         painter->drawPoint(width - 4, 0);
         // Anti-aliased rounded bottom corner:
         painter->drawPoint(width - 1, height - 4);
         painter->drawPoint(width - 4, height - 1);
         // Anti-aliased rounded top corner (2/2):
-        painter->setPen(Tools::mixColor(foreground, light));
+        painter->setPen(foreground);
         painter->drawPoint(width - 3, 2);
+        // Anti-aliased rounded bottom corner (2/2):
+        painter->drawPoint(width - 3, height - 3);
     }
 
     // Draw the arrows:
     qreal xArrow  = 2;
     qreal hMargin = 9;
     int countArrows = (height >= hMargin * 4 + 6 * 3 ? 3 : (height >= hMargin * 3 + 6 * 2 ? 2 : 1));
-    QColor darker  = foreground.dark(130);
-    QColor lighter = foreground.light(130);
     for (int i = 0; i < countArrows; ++i) {
         qreal yArrow;
         switch (countArrows) {
@@ -1536,7 +1447,7 @@ void Note::drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal h
         case 3: yArrow = (i == 1 ? hMargin : (i == 2 ? (height-6) / 2 : height - hMargin - 6)); break;
         }
         /// Dark color:
-        painter->setPen(darker);
+        painter->setPen(foreground);
         // Left arrow:
         painter->drawLine(xArrow, yArrow + 2, xArrow + 2, yArrow);
         painter->drawLine(xArrow, yArrow + 2, xArrow + 2, yArrow + 4);
@@ -1544,7 +1455,7 @@ void Note::drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal h
         painter->drawLine(width - 1 - xArrow, yArrow + 2, width - 1 - xArrow - 2, yArrow);
         painter->drawLine(width - 1 - xArrow, yArrow + 2, width - 1 - xArrow - 2, yArrow + 4);
         /// Light color:
-        painter->setPen(lighter);
+        painter->setPen(background);
         // Left arrow:
         painter->drawLine(xArrow, yArrow + 2 + 1, xArrow + 2, yArrow + 1);
         painter->drawLine(xArrow, yArrow + 2 + 1, xArrow + 2, yArrow + 4 + 1);
@@ -1558,12 +1469,7 @@ void Note::drawInactiveResizer(QPainter *painter, qreal x, qreal y, qreal height
 {
     // If background color is too dark, we compute a lighter color instead of a darker:
     QColor darkBgColor = (Tools::tooDark(background) ? background.light(120) : background.dark(105));
-    if (column) {
-        qreal halfWidth = RESIZER_WIDTH / 2;
-        drawGradient(painter, darkBgColor, background,  x,         y, halfWidth,                 height, /*sunken=*/false, /*horz=*/false, /*flat=*/false);
-        drawGradient(painter, background,  darkBgColor, halfWidth, y, RESIZER_WIDTH - halfWidth, height, /*sunken=*/false, /*horz=*/false, /*flat=*/false);
-    } else
-        drawGradient(painter, darkBgColor, background,  x,         y, RESIZER_WIDTH,             height, /*sunken=*/false, /*horz=*/false, /*flat=*/false);
+    painter->fillRect(x, y, RESIZER_WIDTH, height, Tools::mixColor(background, darkBgColor, 2));
 }
 
 QPalette Note::palette() const
@@ -1757,18 +1663,6 @@ bool Note::isEditing()
     return basket()->editedNote() == this;
 }
 
-void Note::getGradientColors(const QColor &originalBackground, QColor *colorTop, QColor *colorBottom)
-{
-    bool wasTooDark = Tools::tooDark(originalBackground);
-    if (wasTooDark) {
-        *colorTop    = originalBackground;
-        *colorBottom = originalBackground.light(120);
-    } else {
-        *colorTop    = originalBackground.dark(105);
-        *colorBottom = originalBackground;
-    }
-}
-
 /* Drawing policy:
  * ==============
  * - Draw the note on a pixmap and then draw the pixmap on screen is faster and
@@ -1814,7 +1708,7 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
     /** Initialise colors: */
     QColor baseColor(basket()->backgroundColor());
     QColor highColor(palette().color(QPalette::Highlight));
-    QColor midColor = Tools::mixColor(baseColor, highColor);
+    QColor midColor = Tools::mixColor(baseColor, highColor, 2);
 
     /** Initialise brushes and pens: */
     QBrush baseBrush(baseColor);
@@ -1830,7 +1724,7 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
     if (isGroup()) {
         //Draw background or handle:
         if (hovered) {
-            drawHandle(&painter2, 0, 0, width(), height(), baseColor, highColor);
+            drawHandle(&painter2, 0, 0, width(), height(), baseColor, highColor, midColor);
             drawRoundings(&painter2, 0, 0,            /*type=*/1);
             drawRoundings(&painter2, 0, height() - 3, /*type=*/2);
         } else {
@@ -1840,7 +1734,7 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
 
         // Draw expander:
         qreal yExp = yExpander();
-        drawExpander(&painter2, NOTE_MARGIN, yExp, (hovered ? expanderBackground(height(), yExp + EXPANDER_HEIGHT / 2, highColor) : baseColor), m_isFolded, basket());
+        drawExpander(&painter2, NOTE_MARGIN, yExp, hovered ? midColor : baseColor, m_isFolded, basket());
         // Draw expander rounded edges:
         if (hovered) {
             QColor color1 = expanderBackground(height(), yExp,                       highColor);
@@ -1860,78 +1754,34 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
         return;
     }
 
-    
+
     /** Or draw the note: */
     // What are the background colors:
-    QColor background = basket()->backgroundColor();
-    if (isSelected())
-    {
-        if (m_computedState.backgroundColor().isValid())
-        {
-            background = Tools::mixColor(Tools::mixColor(m_computedState.backgroundColor(), palette().color(QPalette::Highlight)), palette().color(QPalette::Highlight));
-        }
-        else
-        {
-            background = palette().color(QPalette::Highlight);
-        }
-    }
-    else if (m_computedState.backgroundColor().isValid())
+    QColor background;
+    if (m_computedState.backgroundColor().isValid())
     {
         background = m_computedState.backgroundColor();
+    } else {
+        background = basket()->backgroundColor();
     }
-    
-    QColor bgColor;
-    QColor darkBgColor;
-    getGradientColors(background, &darkBgColor, &bgColor);
-    // Draw background (color, gradient and pixmap):
-    drawGradient(&painter2, bgColor, darkBgColor, 0, 0, width(), height(), /*sunken=*/!hovered, /*horz=*/true, /*flat=*/false);
-    basket()->blendBackground(painter2, boundingRect().translated(x(),y()));
 
-    if (!hovered) 
-    {
-        painter2.setPen(Tools::mixColor(bgColor, darkBgColor));
-        painter2.drawLine(0, height() - 1, width(), height() - 1);
+    if(!hovered && !isSelected()) {
+        // Draw background:
+        painter2.fillRect(0, 0, width(), height(), background);
+        basket()->blendBackground(painter2, boundingRect().translated(x(),y()));
     }
-    else 
-    {
+    else {
+        // Draw selection background:
+        painter2.fillRect(0, 0, width(), height(), midColor);
         // Top/Bottom lines:
         painter2.setPen(highPen);
         painter2.drawLine(0, height() - 1, width(), height() - 1);
         painter2.drawLine(0, 0,            width(), 0);
         // The handle:
-        drawHandle(&painter2, 0, 0, HANDLE_WIDTH, height(), baseColor, highColor);
+        drawHandle(&painter2, 0, 0, HANDLE_WIDTH, height(), baseColor, highColor, midColor);
         drawRoundings(&painter2, 0, 0,            /*type=*/1);
         drawRoundings(&painter2, 0, height() - 3, /*type=*/2);
-        // Round handle-right-side border:
-        painter2.setPen(highPen);
-        painter2.drawPoint(HANDLE_WIDTH, 1);
-        painter2.drawPoint(HANDLE_WIDTH, height() - 2);
-        // Light handle top-right round corner:
-        painter2.setPen(QPen(highColor.light(150)));
-        painter2.drawPoint(HANDLE_WIDTH - 1, 1);
-        // Handle anti-aliased rounded handle-right-side corners:
-        QColor insideMidColor = Tools::mixColor(bgColor, highColor);
-        painter2.setPen(insideMidColor);
-        // Left inside round corners:
-        painter2.drawPoint(HANDLE_WIDTH + 1, 1);
-        painter2.drawPoint(HANDLE_WIDTH,     2);
-        painter2.drawPoint(HANDLE_WIDTH + 1, height() - 2);
-        painter2.drawPoint(HANDLE_WIDTH,     height() - 3);
-        // Right inside round corners:
-        painter2.drawPoint(width() - 4, 1);
-        painter2.drawPoint(width() - 3, 2);
-        painter2.drawPoint(width() - 4, height() - 2);
-        painter2.drawPoint(width() - 3, height() - 3);
-        // Right rounded edge:
-        painter2.setPen(highPen);
-        painter2.fillRect(width() - 2, 0, 2, height(), highBrush);
-        painter2.drawPoint(width() - 3, 1);
-        painter2.drawPoint(width() - 3, height() - 2);
-        // Right anti-aliased rounded edge:
-        painter2.setPen(midPen);
-        painter2.drawPoint(width() - 1, 0);
-        painter2.drawPoint(width() - 1, height() - 1);
-        // Blend background pixmap:
+        painter2.setPen(midColor);
         drawRoundings(&painter2, 0, 0, /*type=*/6, width(), height());
     }
 
@@ -1953,14 +1803,14 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
     // Determine the colors (for the richText drawing) and the text color (for the tags arrow too):
     QPalette notePalette(basket()->palette());
     notePalette.setColor(QPalette::Text, (m_computedState.textColor().isValid() ? m_computedState.textColor() : basket()->textColor()));
-    notePalette.setColor(QPalette::Background, bgColor);
+    notePalette.setColor(QPalette::Background, background);
     if (isSelected())
         notePalette.setColor(QPalette::Text, palette().color(QPalette::HighlightedText));
 
     // Draw the Tags Arrow:
     if (hovered) {
         QColor textColor = notePalette.color(QPalette::Text);
-        QColor light     = Tools::mixColor(textColor, bgColor);
+        QColor light     = Tools::mixColor(textColor, background);
         QColor mid       = Tools::mixColor(textColor, light);
         painter2.setPen(light);//QPen(basket()->colorGroup().dark().light(150)));
         painter2.drawLine(xIcon,      yIcon + 6, xIcon + 4, yIcon + 6);
@@ -1973,18 +1823,6 @@ void Note::draw(QPainter *painter, const QRectF &/*clipRect*/)
         painter2.drawPoint(xIcon,     yIcon + 7);
         painter2.drawPoint(xIcon + 2, yIcon + 7);
         painter2.drawPoint(xIcon + 4, yIcon + 7);
-    }
-
-    if (isFocused()) {
-        QRect focusRect(HANDLE_WIDTH, NOTE_MARGIN - 1,
-                        width() - HANDLE_WIDTH - 2, height() - 2*NOTE_MARGIN + 2);
-
-        // TODO: make this look right/better
-        QStyleOptionFocusRect opt;
-        opt.initFrom(m_basket->graphicsView());
-        opt.rect = focusRect;
-        qApp->style()->drawPrimitive(QStyle::PE_FrameFocusRect, &opt,
-                                     &painter2);
     }
 
     // Draw on screen:
@@ -2001,7 +1839,7 @@ void Note::paint(QPainter *painter,
 
     if(boundingRect().width()<=0.1 || boundingRect().height()<=0.1)
         return;
-    
+
     draw(painter,boundingRect());
 
     if (hasResizer()) 
@@ -2012,7 +1850,7 @@ void Note::paint(QPainter *painter,
        QPixmap pixmap(RESIZER_WIDTH, resizerHeight());
        QPainter painter2(&pixmap);
        // Draw gradient or resizer:
-       if (m_hovered && m_hoveredZone == Resizer) 
+       if ((m_hovered && m_hoveredZone == Resizer) || ((m_hovered || isSelected()) && !isColumn()))
        {
            QColor baseColor(basket()->backgroundColor());
            QColor highColor(palette().color(QPalette::Highlight));

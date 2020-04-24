@@ -2736,16 +2736,12 @@ void BasketScene::drawInserter(QPainter &painter, qreal xPainter, qreal yPainter
     int roundY = (m_inserterGroup && m_inserterTop ? 0 : 1);
 
     KStatefulBrush statefulBrush(KColorScheme::View, KColorScheme::HoverColor);
-    QColor dark = statefulBrush.brush(palette()).color();
-    QColor light = dark.lighter().lighter();
-    if (m_inserterGroup && Settings::groupOnInsertionLine())
-        light = Tools::mixColor(light, palette().color(QPalette::Highlight));
-    painter.setPen(dark);
+    const QColor highlightColor = palette().color(QPalette::Highlight).lighter();
+    painter.setPen(highlightColor);
     // The horizontal line:
     //painter.drawRect(       rect.x(),                    rect.y() + lineY,  rect.width(), 2);
     int width = rect.width() - 4;
-    drawGradient(&painter, dark,  light, rect.x() + 2,           rect.y() + lineY, width / 2,         2, /*sunken=*/false, /*horz=*/false, /*flat=*/false);
-    drawGradient(&painter, light, dark,  rect.x() + 2 + width / 2, rect.y() + lineY, width - width / 2, 2, /*sunken=*/false, /*horz=*/false, /*flat=*/false);
+    painter.fillRect(rect.x() + 2, rect.y() + lineY, width, 2, highlightColor);
     // The left-most and right-most edges (biggest vertical lines):
     drawLineByRect(painter, rect.x(),                    rect.y(),          1, (m_inserterGroup ? 4 : 6));
     drawLineByRect(painter, rect.x() + rect.width() - 1, rect.y(),          1, (m_inserterGroup ? 4 : 6));
@@ -2756,9 +2752,7 @@ void BasketScene::drawInserter(QPainter &painter, qreal xPainter, qreal yPainter
     if (m_inserterSplit) {
         int noteWidth = rect.width() + (m_inserterGroup ? Note::HANDLE_WIDTH : 0);
         int xSplit = rect.x() - (m_inserterGroup ? Note::HANDLE_WIDTH : 0) + noteWidth / 2;
-        painter.setPen(Tools::mixColor(dark, light));
         painter.drawRect(xSplit - 2, rect.y() + lineY, 4, 2);
-        painter.setPen(dark);
         painter.drawRect(xSplit - 1, rect.y() + lineY, 2, 2);
     }
 }
@@ -4568,33 +4562,6 @@ QList<State*> BasketScene::usedStates()
     FOR_EACH_NOTE(note)
     note->usedStates(states);
     return states;
-}
-
-QString BasketScene::saveGradientBackground(const QColor &color, const QFont &font, const QString &folder)
-{
-    // Construct file name and return if the file already exists:
-    QString fileName = "note_background_" + color.name().toLower().mid(1) + ".png";
-    QString fullPath = folder + fileName;
-    if (QFile::exists(fullPath))
-        return fileName;
-
-    // Get the gradient top and bottom colors:
-    QColor topBgColor;
-    QColor bottomBgColor;
-    Note::getGradientColors(color, &topBgColor, &bottomBgColor);
-
-    // Draw and save the gradient image:
-    int sampleTextHeight = QFontMetrics(font)
-                           .boundingRect(0, 0, /*width=*/10000, /*height=*/0, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, "Test text")
-                           .height();
-    QPixmap noteGradient(100, sampleTextHeight + Note::NOTE_MARGIN);
-    QPainter painter(&noteGradient);
-    drawGradient(&painter, topBgColor, bottomBgColor, 0, 0, noteGradient.width(), noteGradient.height(), /*sunken=*/false, /*horz=*/true, /*flat=*/false);
-    painter.end();
-    noteGradient.save(fullPath, "PNG");
-
-    // Return the name of the created file:
-    return fileName;
 }
 
 void BasketScene::listUsedTags(QList<Tag*> &list)

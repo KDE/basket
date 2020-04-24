@@ -2502,10 +2502,6 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 
 /** class UnknownItem:
  */
-// TODO: Move this function from note.cpp to class Tools:
-extern void drawGradient(QPainter *p, const QColor &colorTop, const QColor & colorBottom,
-                         qreal x, qreal y, qreal w, qreal h,
-                         bool sunken, bool horz, bool flat);   /*const*/
 
 const qreal UnknownItem::DECORATION_MARGIN = 2;
 
@@ -2527,9 +2523,6 @@ void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWid
     qreal height = boundingRect().height();
     painter->setPen(palette.color(QPalette::Active, QPalette::WindowText));
 
-    // FIXME: Duplicate from ColorContent::paint() and CommonColorSelector::drawColorRect:
-    // Fill with gradient:
-    //drawGradient(painter, palette.color(QPalette::Active, QPalette::WindowText), palette.color(QPalette::Active, QPalette::WindowText).dark(110), 1, 1, width - 2, height - 2, /*sunken=*/false, /*horz=*/true, /*flat=*/false);
     // Stroke:
     QColor stroke = Tools::mixColor(palette.color(QPalette::Active, QPalette::Background), palette.color(QPalette::Active, QPalette::WindowText));
     painter->setPen(stroke);

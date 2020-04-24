@@ -590,7 +590,6 @@ public:
 /// EXPORTATION:
 public:
     QList<State*> usedStates();
-    static QString saveGradientBackground(const QColor &color, const QFont &font, const QString &folder);
 
 public:
     void listUsedTags(QList<Tag*> &list);

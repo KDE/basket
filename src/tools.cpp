@@ -583,12 +583,12 @@ bool Tools::isWebColor(const QColor &color)
              b == 153 || b == 204 || b == 255));
 }
 
-QColor Tools::mixColor(const QColor &color1, const QColor &color2)
+QColor Tools::mixColor(const QColor &color1, const QColor &color2, const float ratio)
 {
     QColor mixedColor;
-    mixedColor.setRgb((color1.red()   + color2.red())   / 2,
-                      (color1.green() + color2.green()) / 2,
-                      (color1.blue()  + color2.blue())  / 2);
+    mixedColor.setRgb((color1.red() * ratio  + color2.red())   / (1 + ratio),
+                      (color1.green() * ratio + color2.green()) / (1 + ratio),
+                      (color1.blue() * ratio  + color2.blue())  / (1 + ratio));
     return mixedColor;
 }
 

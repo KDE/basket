@@ -77,7 +77,7 @@ QString makeStandardCaption(const QString& userCaption); //!< Replacement for KD
 bool isWebColor(const QColor &color);
 /** @Return a color that is 50% of @p color1 and 50% of @p color2.
   */
-QColor mixColor(const QColor &color1, const QColor &color2);
+QColor mixColor(const QColor &color1, const QColor &color2, const float ratio = 1);
 /** @Return true if the color is too dark to be darkened one more time.
   */
 bool tooDark(const QColor &color);
