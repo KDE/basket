@@ -56,7 +56,7 @@ set(PIMO_CPP "") # One of the generated files
 
 ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
 
-QT5_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
+qt5_add_dbus_adaptor(basketcommon_LIB_SRCS org.kde.basket.BNPView.xml bnpview.h BNPView)
 
 QT5_ADD_RESOURCES(basket_RESOURCES ../basket.qrc)
 
@@ -138,8 +138,6 @@ install(TARGETS basketpart DESTINATION ${PLUGIN_INSTALL_DIR})
 set(kontact_basket_PLUGIN_SRCS basket_plugin.cpp)
 
 add_library(kontact_basketplugin MODULE ${kontact_basket_PLUGIN_SRCS})
-
-qt5_add_dbus_interfaces(kontact_basket_PLUGIN_SRCS org.kde.basket.basket.xml)
 
 add_dependencies(kontact_basketplugin basket)
 
