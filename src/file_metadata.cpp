@@ -1,3 +1,7 @@
+/**
+ * SPDX-FileCopyrightText: (C) 2015 by Gleb Baryshev <gleb.baryshev@gmail.com>
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 #include "file_metadata.h"
 #include <KLocalizedString>
 

@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: (C) 2013 Gleb Baryshev <gleb.baryshev@gmail.com>
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 #ifndef ICON_NAMES_H
 #define ICON_NAMES_H
 

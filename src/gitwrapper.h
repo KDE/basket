@@ -1,3 +1,10 @@
+/**
+ * SPDX-FileCopyrightText: (C) 2014 Narfinger <Narfinger@users.noreply.github.com>
+ * SPDX-FileCopyrightText: (C) 2014 Gleb Baryshev <gleb.baryshev@gmail.com>
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
 #ifndef GITWRAPPER_H
 #define GITWRAPPER_H
 

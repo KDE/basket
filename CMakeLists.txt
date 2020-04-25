@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: (C) 2008 Kelvie Wong <kelvie@ieee.org>
+# SPDX-FileCopyrightText: (C) 2014 Gleb Baryshev <gleb.baryshev@gmail.com>
+# SPDX-FileCopyrightText: (C) 2018 Luigi Toscano <luigi.toscano@tiscali.it>
+#
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 cmake_minimum_required(VERSION 2.8.12)
 cmake_policy(SET CMP0063 NEW)
 set(BASKET_DISABLE_GPG "0" CACHE BOOL "Disables GPG Support")

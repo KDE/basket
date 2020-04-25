@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: (C) 2016 Gleb Baryshev <gleb.baryshev@gmail.com>
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 #include "settings_versionsync.h"
 #include "aboutdata.h"
 #include "settings.h"
