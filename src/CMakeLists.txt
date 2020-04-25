@@ -54,11 +54,6 @@ set(basketcommon_LIB_SRCS
 
 set(PIMO_CPP "") # One of the generated files
 
-IF(HAVE_BALOO)
-  include_directories("${CMAKE_CURRENT_SOURCE_DIR}/src" ${BALOO_INCLUDES})
-  list(INSERT basketcommon_LIB_SRCS 10 nepomukintegration.cpp)
-ENDIF(HAVE_BALOO)
-
 ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
 
 QT5_ADD_DBUS_ADAPTOR(basketcommon_LIB_SRCS org.basket.BNPView.xml bnpview.h BNPView)
@@ -88,10 +83,6 @@ target_link_libraries(basketcommon
   KF5::WindowSystem
   KF5::XmlGui
 )
-
-IF(HAVE_BALOO)
-  target_link_libraries(basketcommon KF5::BalooFiles)
-ENDIF(HAVE_BALOO)
 
 set_target_properties(basketcommon PROPERTIES VERSION ${Qt5Core_VERSION} SOVERSION ${Qt5Core_VERSION_MAJOR})
 

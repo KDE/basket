@@ -103,10 +103,6 @@
 #include "kgpgme.h"
 #endif
 
-#ifdef HAVE_BALOO
-#include "nepomukintegration.h"
-#endif
-
 const int BasketScene::ANIMATION_DELAY = 2000;
 
 void debugZone(int zone)
@@ -936,12 +932,6 @@ bool BasketScene::save()
     if (!saveToFile(fullPath() + ".basket", data)) {
         DEBUG_WIN << "Basket[" + folderName() + "]: <font color=red>FAILED to save</font>!";
         return false;
-#ifdef HAVE_BALOO
-    } else {
-        //The .basket file is saved; now updating the Metadata in Nepomuk
-        DEBUG_WIN << "NepomukIntegration: Updating Basket[" + folderName() + "]:"; // <font color=red>Updating Metadata</font>!";
-        nepomukIntegration::updateMetadata(this);
-#endif
     }
 
     Global::bnpView->setUnsavedStatus(false);

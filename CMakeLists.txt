@@ -72,9 +72,6 @@ find_package(KF5 REQUIRED COMPONENTS
 
 find_package(Phonon4Qt5 REQUIRED)
 
-#find_package(KF5 COMPONENTS Baloo)
-
-
 IF(GPGME_FOUND)
   SET(HAVE_LIBGPGME 1)
   SET(LARGEFILE_SOURCE_1)
@@ -86,10 +83,6 @@ ELSE(GPGME_FOUND)
     MESSAGE("GPG not found, configuring without")
   ENDIF (BASKET_DISABLE_GPG)
 ENDIF(GPGME_FOUND)
-
-#IF(KF5BALOO_FOUND)
-#  SET(HAVE_BALOO 1)
-#ENDIF(KF5BALOO_FOUND)
 
 #TODO: find meinproc
 

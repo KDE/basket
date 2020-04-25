@@ -51,10 +51,6 @@
 
 #include <langinfo.h>
 
-#ifdef HAVE_BALOO
-#include "nepomukintegration.h"
-#endif
-
 QVector<QTime>  StopWatch::starts;
 QVector<double> StopWatch::totals;
 QVector<uint>   StopWatch::counts;
@@ -673,11 +669,6 @@ void Tools::deleteRecursively(const QString &folderOrFile)
     } else
         // Delete the file:
         QFile::remove(folderOrFile);
-#ifdef HAVE_BALOO
-    //The file/dir is deleted; now deleting the Metadata in Nepomuk
-    DEBUG_WIN << "NepomukIntegration: Deleting File[" + folderOrFile + "]:"; // <font color=red>Updating Metadata</font>!";
-    nepomukIntegration::deleteMetadata(folderOrFile);
-#endif
 }
 
 void Tools::deleteMetadataRecursively(const QString &folderOrFile)
@@ -691,21 +682,12 @@ void Tools::deleteMetadataRecursively(const QString &folderOrFile)
             if (*it != "." && *it != "..")
                 deleteMetadataRecursively(folderOrFile + '/' + *it);
     }
-#ifdef HAVE_BALOO
-    DEBUG_WIN << "NepomukIntegration: Deleting File[" + folderOrFile + "]:"; // <font color=red>Updating Metadata</font>!";
-    nepomukIntegration::deleteMetadata(folderOrFile);
-#endif
 }
 
 void Tools::trashRecursively(const QString &folderOrFile)
 {
     if (folderOrFile.isEmpty())
         return;
-
-#ifdef HAVE_BALOO
-    //First, deleting the Metadata in Nepomuk
-    deleteMetadataRecursively(folderOrFile);
-#endif
 
     KIO::trash( QUrl::fromLocalFile(folderOrFile), KIO::HideProgressInfo );
 }
