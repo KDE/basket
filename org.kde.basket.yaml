@@ -1,0 +1,24 @@
+id: org.kde.basket
+branch: master
+
+runtime: org.kde.Platform
+runtime-version: '5.14'
+sdk: org.kde.Sdk
+
+command: basket
+desktop-file-name-suffix: ' (Nightly)'
+tags: [nightly]
+
+finish-args:
+ - --share=ipc
+ - --socket=fallback-x11
+ - --socket=wayland
+ - --device=dri
+ - --own-name=local.basket
+
+modules:
+ - name: basket
+   buildsystem: cmake-ninja
+   sources:
+     - type: git
+       url: https://anongit.kde.org/basket.git
