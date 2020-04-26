@@ -5,3 +5,6 @@ build/*
 *.user
 *~
 buil-dir/
+.flatpak-builder/
+cmake-build-debug/
+.idea/
