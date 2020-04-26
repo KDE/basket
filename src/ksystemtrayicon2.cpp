@@ -20,24 +20,25 @@
 
 #include "ksystemtrayicon2.h"
 
-//Added by qt3to4:
-#include <QtGui/QPainter>
+// Added by qt3to4:
 #include <QtCore/QPoint>
+#include <QtGui/QPainter>
 #include <QtGui/QPixmap>
 
 #include <kdeversion.h>
 
-#include <QApplication>
-#include <KGlobal>          // To know the program name:
+#include <KGlobal> // To know the program name:
 #include <KMessageBox>
+#include <QApplication>
 
 #include <KLocalizedString>
-#include <qdesktopwidget.h>
-#include <kaboutdata.h>
 #include <QResource>
+#include <kaboutdata.h>
+#include <qdesktopwidget.h>
 
 KSystemTray2::KSystemTray2(QWidget *parent, const char *name)
-        : KSystemTrayIcon(parent), QWidget(parent)
+    : KSystemTrayIcon(parent)
+    , QWidget(parent)
 {
 }
 
@@ -48,19 +49,19 @@ KSystemTray2::~KSystemTray2()
 void KSystemTray2::displayCloseMessage(QString fileMenu)
 {
     /* IDEAS OF IMPROVEMENTS:
-    *  - Use queuedMessageBox() but it need a dontAskAgainName parameter
-    *    and image in QMimeSourceFactory shouldn't be removed.
-    *  - Sometimes the systray icon is covered (a passive popup...)
-    *    Use XComposite extension, if available, to get the kicker pixmap.
-    *  - Perhaps desaturate the area around the proper SysTray icon,
-    *    helping bring it into sharper focus. Or draw the circle with XOR
-    *    brush.
-    *  - Perhaps add the icon in the text (eg. "... in the
-    *    system tray ([icon])."). Add some clutter to the dialog.
-    */
-#if KDE_IS_VERSION( 3, 1, 90 )
+     *  - Use queuedMessageBox() but it need a dontAskAgainName parameter
+     *    and image in QMimeSourceFactory shouldn't be removed.
+     *  - Sometimes the systray icon is covered (a passive popup...)
+     *    Use XComposite extension, if available, to get the kicker pixmap.
+     *  - Perhaps desaturate the area around the proper SysTray icon,
+     *    helping bring it into sharper focus. Or draw the circle with XOR
+     *    brush.
+     *  - Perhaps add the icon in the text (eg. "... in the
+     *    system tray ([icon])."). Add some clutter to the dialog.
+     */
+#if KDE_IS_VERSION(3, 1, 90)
     // Don't do all the computations if they are unneeded:
-    if (! KMessageBox::shouldBeShownContinue("hideOnCloseInfo"))
+    if (!KMessageBox::shouldBeShownContinue("hideOnCloseInfo"))
         return;
 #endif
     // "Default parameter". Here, to avoid a i18n() call and dependency in the .h
@@ -69,7 +70,7 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
 
     // Some values we need:
     QPoint g = mapToGlobal(pos());
-    int desktopWidth  = qApp->desktop()->width();
+    int desktopWidth = qApp->desktop()->width();
     int desktopHeight = qApp->desktop()->height();
     int tw = width();
     int th = height();
@@ -93,8 +94,7 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
     //    out of screen.
     if (useSystray) {
         QRect deskRect(0, 0, desktopWidth, desktopHeight);
-        if (!deskRect.contains(g.x(), g.y()) ||
-                !deskRect.contains(g.x() + tw, g.y() + th))
+        if (!deskRect.contains(g.x(), g.y()) || !deskRect.contains(g.x() + tw, g.y() + th))
             useSystray = false;
     }
 
@@ -119,13 +119,13 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
     //      }
         }*/
 
-//  KMessageBox::information(this, QString::number(g.x()) + ":" + QString::number(g.y()) + ":" +
-//                           QString::number((int)(qApp->widgetAt(g+QPoint(1,1)))));
+    //  KMessageBox::information(this, QString::number(g.x()) + ":" + QString::number(g.y()) + ":" +
+    //                           QString::number((int)(qApp->widgetAt(g+QPoint(1,1)))));
 
     QString message = i18n(
-                          "<p>Closing the main window will keep %1 running in the system tray. "
-                          "Use <b>Quit</b> from the <b>Basket</b> menu to quit the application.</p>"
-                          , QGuiApplication::applicationDisplayName());
+        "<p>Closing the main window will keep %1 running in the system tray. "
+        "Use <b>Quit</b> from the <b>Basket</b> menu to quit the application.</p>",
+        QGuiApplication::applicationDisplayName());
     // We are sure the systray icon is visible: ouf!
     if (useSystray) {
         // Compute size and position of the pixmap to be grabbed:
@@ -133,25 +133,28 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
         int h = desktopHeight / 9;
         int x = g.x() + tw / 2 - w / 2; // Center the rectangle in the systray icon
         int y = g.y() + th / 2 - h / 2;
-        if (x < 0)                 x = 0; // Move the rectangle to stay in the desktop limits
-        if (y < 0)                 y = 0;
-        if (x + w > desktopWidth)  x = desktopWidth - w;
-        if (y + h > desktopHeight) y = desktopHeight - h;
+        if (x < 0)
+            x = 0; // Move the rectangle to stay in the desktop limits
+        if (y < 0)
+            y = 0;
+        if (x + w > desktopWidth)
+            x = desktopWidth - w;
+        if (y + h > desktopHeight)
+            y = desktopHeight - h;
 
         // Grab the desktop and draw a circle around the icon:
         QPixmap shot = QPixmap::grabWindow(QX11Info::appRootWindow(), x, y, w, h);
         QPainter painter(&shot);
         const int CIRCLE_MARGINS = 6;
-        const int CIRCLE_WIDTH   = 3;
-        const int SHADOW_OFFSET  = 1;
-        const int IMAGE_BORDER   = 1;
+        const int CIRCLE_WIDTH = 3;
+        const int SHADOW_OFFSET = 1;
+        const int IMAGE_BORDER = 1;
         int ax = g.x() - x - CIRCLE_MARGINS - 1;
         int ay = g.y() - y - CIRCLE_MARGINS - 1;
         painter.setPen(QPen(QApplication::palette().dark(), CIRCLE_WIDTH));
-        painter.drawArc(ax + SHADOW_OFFSET, ay + SHADOW_OFFSET,
-                        tw + 2*CIRCLE_MARGINS, th + 2*CIRCLE_MARGINS, 0, 16*360);
-        painter.setPen(QPen(Qt::red/*QApplication::palette().active().highlight()*/, CIRCLE_WIDTH));
-        painter.drawArc(ax, ay, tw + 2*CIRCLE_MARGINS, th + 2*CIRCLE_MARGINS, 0, 16*360);
+        painter.drawArc(ax + SHADOW_OFFSET, ay + SHADOW_OFFSET, tw + 2 * CIRCLE_MARGINS, th + 2 * CIRCLE_MARGINS, 0, 16 * 360);
+        painter.setPen(QPen(Qt::red /*QApplication::palette().active().highlight()*/, CIRCLE_WIDTH));
+        painter.drawArc(ax, ay, tw + 2 * CIRCLE_MARGINS, th + 2 * CIRCLE_MARGINS, 0, 16 * 360);
 #if 1
         // Draw the pixmap over the screenshot in case a window hide the icon:
         painter.drawPixmap(g.x() - x, g.y() - y + 1, QSystemTrayIcon::icon().pixmap(0));
@@ -159,7 +162,7 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
         painter.end();
 
         // Then, we add a border around the image to make it more visible:
-        QPixmap finalShot(w + 2*IMAGE_BORDER, h + 2*IMAGE_BORDER);
+        QPixmap finalShot(w + 2 * IMAGE_BORDER, h + 2 * IMAGE_BORDER);
         finalShot.fill(QApplication::palette().foreground().color());
         painter.begin(&finalShot);
         painter.drawPixmap(IMAGE_BORDER, IMAGE_BORDER, shot);
@@ -167,13 +170,9 @@ void KSystemTray2::displayCloseMessage(QString fileMenu)
 
         // Associate source to image and show the dialog:
         QResource::registerResource(finalShot.toImage().bits(), "systray_shot");
-        KMessageBox::information(qApp->activeWindow(),
-                                 message + "<p><center><img source=\":/systray_shot\"></center></p>",
-                                 i18n("Docking in System Tray"), "hideOnCloseInfo");
+        KMessageBox::information(qApp->activeWindow(), message + "<p><center><img source=\":/systray_shot\"></center></p>", i18n("Docking in System Tray"), "hideOnCloseInfo");
         QResource::unregisterResource(finalShot.toImage().bits(), "systray_shot");
     } else {
-        KMessageBox::information(qApp->activeWindow(),
-                                 message,
-                                 i18n("Docking in System Tray"), "hideOnCloseInfo");
+        KMessageBox::information(qApp->activeWindow(), message, i18n("Docking in System Tray"), "hideOnCloseInfo");
     }
 }

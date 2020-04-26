@@ -19,39 +19,39 @@
 
 #include "archive.h"
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QList>
-#include <QtCore/QMap>
-#include <QtCore/QDir>
-#include <QtCore/QTextStream>
-#include <QtGui/QPixmap>
-#include <QtGui/QPainter>
-#include <QProgressBar>
-#include <QtXml/QDomDocument>
-#include <QGuiApplication>
 #include <QDebug>
+#include <QGuiApplication>
 #include <QLocale>
+#include <QProgressBar>
 #include <QProgressDialog>
 #include <QStandardPaths>
+#include <QtCore/QDir>
+#include <QtCore/QList>
+#include <QtCore/QMap>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QTextStream>
+#include <QtGui/QPainter>
+#include <QtGui/QPixmap>
+#include <QtXml/QDomDocument>
 
 #include <KAboutData>
-#include <KMainWindow>          //For Global::MainWindow()
 #include <KIconLoader>
+#include <KLocalizedString>
+#include <KMainWindow> //For Global::MainWindow()
 #include <KMessageBox>
 #include <KTar>
-#include <KLocalizedString>
 
-#include "global.h"
-#include "bnpview.h"
-#include "basketscene.h"
-#include "basketlistview.h"
-#include "basketfactory.h"
-#include "tag.h"
-#include "xmlwork.h"
-#include "tools.h"
 #include "backgroundmanager.h"
+#include "basketfactory.h"
+#include "basketlistview.h"
+#include "basketscene.h"
+#include "bnpview.h"
 #include "formatimporter.h"
+#include "global.h"
+#include "tag.h"
+#include "tools.h"
+#include "xmlwork.h"
 
 void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &destination)
 {
@@ -62,7 +62,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     dialog.setCancelButton(NULL);
     dialog.setAutoClose(true);
 
-    dialog.setRange(0,/*Preparation:*/1 + /*Finishing:*/1 + /*Basket:*/1 + /*SubBaskets:*/(withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
+    dialog.setRange(0, /*Preparation:*/ 1 + /*Finishing:*/ 1 + /*Basket:*/ 1 + /*SubBaskets:*/ (withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
     dialog.setValue(0);
     dialog.show();
 
@@ -76,7 +76,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     tar.open(QIODevice::WriteOnly);
     tar.writeDir("baskets", "", "");
 
-    dialog.setValue(dialog.value() + 1);      // Preparation finished
+    dialog.setValue(dialog.value() + 1); // Preparation finished
 
     qDebug() << "Preparation finished out of " << dialog.maximum();
 
@@ -96,7 +96,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     dir.remove(tempFolder + "baskets.xml");
 
     // Save a Small tags.xml Document:
-    QList<Tag*> tags;
+    QList<Tag *> tags;
     listUsedTags(basket, withSubBaskets, tags);
     Tag::saveTagsTo(tags, tempFolder + "tags.xml");
     tar.addLocalFile(tempFolder + "tags.xml", "tags.xml");
@@ -108,10 +108,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         State::List states = (*it)->states();
         for (State::List::iterator it2 = states.begin(); it2 != states.end(); ++it2) {
             State *state = (*it2);
-            QPixmap icon = KIconLoader::global()->loadIcon(
-                               state->emblem(), KIconLoader::Small, 16, KIconLoader::DefaultState,
-                               QStringList(), 0L, true
-                           );
+            QPixmap icon = KIconLoader::global()->loadIcon(state->emblem(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), 0L, true);
             if (!icon.isNull()) {
                 icon.save(tempIconFile, "PNG");
                 QString iconFileName = state->emblem().replace('/', '_');
@@ -126,7 +123,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
 
     // Computing the File Preview:
     BasketScene *previewBasket = basket; // FIXME: Use the first non-empty basket!
-    //QPixmap previewPixmap(previewBasket->visibleWidth(), previewBasket->visibleHeight());
+    // QPixmap previewPixmap(previewBasket->visibleWidth(), previewBasket->visibleHeight());
     QPixmap previewPixmap(previewBasket->width(), previewBasket->height());
     QPainter painter(&previewPixmap);
     // Save old state, and make the look clean ("smile, you are filmed!"):
@@ -156,10 +153,10 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         QTextStream stream(&file);
         stream.setCodec("ISO-8859-1");
         stream << "BasKetNP:archive\n"
-        << "version:0.6.1\n"
-//             << "read-compatible:0.6.1\n"
-//             << "write-compatible:0.6.1\n"
-        << "preview*:" << previewSize << "\n";
+               << "version:0.6.1\n"
+               //             << "read-compatible:0.6.1\n"
+               //             << "write-compatible:0.6.1\n"
+               << "preview*:" << previewSize << "\n";
 
         stream.flush();
         // Copy the Preview File:
@@ -209,8 +206,7 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
     // Save basket icon:
     QString tempIconFile = tempFolder + "icon.png";
     if (!basket->icon().isEmpty() && basket->icon() != "basket") {
-        QPixmap icon = KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState,
-                       QStringList(), /*path_store=*/0L, /*canReturnNull=*/true);
+        QPixmap icon = KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), /*path_store=*/0L, /*canReturnNull=*/true);
         if (!icon.isNull()) {
             icon.save(tempIconFile, "PNG");
             QString iconFileName = basket->icon().replace('/', '_');
@@ -248,7 +244,7 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
     }
 }
 
-void Archive::listUsedTags(BasketScene *basket, bool recursive, QList<Tag*> &list)
+void Archive::listUsedTags(BasketScene *basket, bool recursive, QList<Tag *> &list)
 {
     basket->listUsedTags(list);
     BasketListViewItem *item = Global::bnpView->listViewItemForBasket(basket);
@@ -310,29 +306,22 @@ void Archive::open(const QString &path)
                     return;
                 }
                 // Get the preview file:
-//FIXME: We do not need the preview for now
-//              QFile previewFile(tempFolder + "preview.png");
-//              if (previewFile.open(QIODevice::WriteOnly)) {
+                // FIXME: We do not need the preview for now
+                //              QFile previewFile(tempFolder + "preview.png");
+                //              if (previewFile.open(QIODevice::WriteOnly)) {
                 stream.seek(stream.pos() + size);
             } else if (key == "archive*") {
                 if (version != "0.6.1" && readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    KMessageBox::information(
-                        0,
-                        i18n("This file was created with a recent version of %1. "
-                             "It can be opened but not every information will be available to you. "
-                             "For instance, some notes may be missing because they are of a type only available in new versions. "
-                             "When saving the file back, consider to save it to another file, to preserve the original one.",
-                             QGuiApplication::applicationDisplayName()),
-                        i18n("Basket Archive Error")
-                    );
+                    KMessageBox::information(0,
+                                             i18n("This file was created with a recent version of %1. "
+                                                  "It can be opened but not every information will be available to you. "
+                                                  "For instance, some notes may be missing because they are of a type only available in new versions. "
+                                                  "When saving the file back, consider to save it to another file, to preserve the original one.",
+                                                  QGuiApplication::applicationDisplayName()),
+                                             i18n("Basket Archive Error"));
                 }
                 if (version != "0.6.1" && !readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    KMessageBox::error(
-                        0,
-                        i18n("This file was created with a recent version of %1. Please upgrade to a newer version to be able to open that file.",
-                             QGuiApplication::applicationDisplayName()),
-                        i18n("Basket Archive Error")
-                    );
+                    KMessageBox::error(0, i18n("This file was created with a recent version of %1. Please upgrade to a newer version to be able to open that file.", QGuiApplication::applicationDisplayName()), i18n("Basket Archive Error"));
                     file.close();
                     Tools::deleteRecursively(tempFolder);
                     return;
@@ -387,7 +376,6 @@ void Archive::open(const QString &path)
                     // Import the Baskets:
                     renameBasketFolders(extractionFolder, mergedStates);
                     stream.seek(file.pos());
-
                 }
             } else if (key.endsWith('*')) {
                 // We do not know what it is, but we should read the embedded-file in order to discard it:
@@ -444,14 +432,14 @@ void Archive::importTagEmblems(const QString &extractionFolder)
                 if ((!subElement.isNull()) && subElement.tagName() == "state") {
                     QString emblemName = XMLWork::getElementText(subElement, "emblem");
                     if (!emblemName.isEmpty()) {
-                        QPixmap emblem = KIconLoader::global()->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState,  QStringList(), 0L, /*canReturnNull=*/true);
+                        QPixmap emblem = KIconLoader::global()->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/true);
                         // The icon does not exists on that computer, import it:
                         if (emblem.isNull()) {
                             // Of the emblem path was eg. "/home/seb/emblem.png", it was exported as "tag-emblems/_home_seb_emblem.png".
                             // So we need to copy that image to "~/.local/share/basket/tag-emblems/emblem.png":
                             int slashIndex = emblemName.lastIndexOf('/');
                             QString emblemFileName = (slashIndex < 0 ? emblemName : emblemName.right(slashIndex - 2));
-                            QString source      = extractionFolder + "tag-emblems/" + emblemName.replace('/', '_');
+                            QString source = extractionFolder + "tag-emblems/" + emblemName.replace('/', '_');
                             QString destination = Global::savesFolder() + "tag-emblems/" + emblemFileName;
                             if (!dir.exists(destination) && dir.exists(source))
                                 copier.copyFolder(source, destination);
@@ -474,7 +462,7 @@ void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 {
     FormatImporter copier; // Only used to copy files synchronously
     QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/backgrounds/";
-    QDir().mkpath(destFolder); //does not exist at the first run when addWelcomeBaskets is called
+    QDir().mkpath(destFolder); // does not exist at the first run when addWelcomeBaskets is called
 
     QDir dir(extractionFolder + "backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
     QStringList files = dir.entryList();
@@ -483,16 +471,16 @@ void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
         if (!Global::backgroundManager->exists(image)) {
             // Copy images:
             QString imageSource = extractionFolder + "backgrounds/" + image;
-            QString imageDest   = destFolder + image;
+            QString imageDest = destFolder + image;
             copier.copyFolder(imageSource, imageDest);
             // Copy configuration file:
             QString configSource = extractionFolder + "backgrounds/" + image + ".config";
-            QString configDest   = destFolder + image;
+            QString configDest = destFolder + image;
             if (dir.exists(configSource))
                 copier.copyFolder(configSource, configDest);
             // Copy preview:
             QString previewSource = extractionFolder + "backgrounds/previews/" + image;
-            QString previewDest   = destFolder + "previews/" + image;
+            QString previewDest = destFolder + "previews/" + image;
             if (dir.exists(previewSource)) {
                 dir.mkdir(destFolder + "previews/"); // Make sure the folder exists!
                 copier.copyFolder(previewSource, previewDest);
@@ -518,7 +506,7 @@ void Archive::renameBasketFolders(const QString &extractionFolder, QMap<QString,
 void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &basketNode, QMap<QString, QString> &folderMap, QMap<QString, QString> &mergedStates)
 {
     QDomNode n = basketNode;
-    while (! n.isNull()) {
+    while (!n.isNull()) {
         QDomElement element = n.toElement();
         if ((!element.isNull()) && element.tagName() == "basket") {
             QString folderName = element.attribute("folderName");
@@ -530,9 +518,9 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
                 QDir dir;
                 dir.mkdir(Global::basketsFolder() + newFolderName);
                 // Rename the merged tag ids:
-//              if (mergedStates.count() > 0) {
+                //              if (mergedStates.count() > 0) {
                 renameMergedStatesAndBasketIcon(extractionFolder + "baskets/" + folderName + ".basket", mergedStates, extractionFolder);
-//              }
+                //              }
                 // Child baskets:
                 QDomNode node = element.firstChild();
                 renameBasketFolder(extractionFolder, node, folderMap, mergedStates);
@@ -553,17 +541,14 @@ void Archive::renameMergedStatesAndBasketIcon(const QString &fullPath, QMap<QStr
     QDomElement notes = XMLWork::getElement(docElem, "notes");
     if (mergedStates.count() > 0)
         renameMergedStates(notes, mergedStates);
-    BasketScene::safelySaveToFile(fullPath, /*"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + */doc->toString());
+    BasketScene::safelySaveToFile(fullPath, /*"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + */ doc->toString());
 }
 
 void Archive::importBasketIcon(QDomElement properties, const QString &extractionFolder)
 {
     QString iconName = XMLWork::getElementText(properties, "icon");
     if (!iconName.isEmpty() && iconName != "basket") {
-        QPixmap icon = KIconLoader::global()->loadIcon(
-                           iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState,
-                           QStringList(), 0L, /*canReturnNull=*/true
-                       );
+        QPixmap icon = KIconLoader::global()->loadIcon(iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/true);
         // The icon does not exists on that computer, import it:
         if (icon.isNull()) {
             QDir dir;
@@ -573,7 +558,7 @@ void Archive::importBasketIcon(QDomElement properties, const QString &extraction
             // So we need to copy that image to "~/.local/share/basket/basket-icons/icon.png":
             int slashIndex = iconName.lastIndexOf('/');
             QString iconFileName = (slashIndex < 0 ? iconName : iconName.right(slashIndex - 2));
-            QString source       = extractionFolder + "basket-icons/" + iconName.replace('/', '_');
+            QString source = extractionFolder + "basket-icons/" + iconName.replace('/', '_');
             QString destination = Global::savesFolder() + "basket-icons/" + iconFileName;
             if (!dir.exists(destination))
                 copier.copyFolder(source, destination);
@@ -589,7 +574,7 @@ void Archive::importBasketIcon(QDomElement properties, const QString &extraction
 void Archive::renameMergedStates(QDomNode notes, QMap<QString, QString> &mergedStates)
 {
     QDomNode n = notes.firstChild();
-    while (! n.isNull()) {
+    while (!n.isNull()) {
         QDomElement element = n.toElement();
         if (!element.isNull()) {
             if (element.tagName() == "group") {
@@ -620,7 +605,7 @@ void Archive::loadExtractedBaskets(const QString &extractionFolder, QDomNode &ba
 {
     bool basketSetAsCurrent = (parent != 0);
     QDomNode n = basketNode;
-    while (! n.isNull()) {
+    while (!n.isNull()) {
         QDomElement element = n.toElement();
         if ((!element.isNull()) && element.tagName() == "basket") {
             QString folderName = element.attribute("folderName");

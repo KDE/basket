@@ -19,30 +19,30 @@
 
 #include "notedrag.h"
 
-#include <QtCore/QDir>
-#include <QtCore/QTextCodec>
+#include <QApplication>
+#include <QDesktopWidget> //For qApp->desktop()
 #include <QtCore/QBuffer>
-#include <QtCore/QTextStream>
+#include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QMimeData>
+#include <QtCore/QTextCodec>
+#include <QtCore/QTextStream>
+#include <QtGui/QDragEnterEvent>
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
-#include <QDesktopWidget>       //For qApp->desktop()
-#include <QtGui/QDragEnterEvent>
-#include <QApplication>
 
 #include <KIO/CopyJob>
 
 #include "basketscene.h"
+#include "global.h"
 #include "notefactory.h"
 #include "noteselection.h"
 #include "tools.h"
-#include "global.h"
 
 /** NoteDrag */
 
-const char * NoteDrag::NOTE_MIME_STRING = "application/x-basket-note";
-QList<Note*> NoteDrag::selectedNotes;
+const char *NoteDrag::NOTE_MIME_STRING = "application/x-basket-note";
+QList<Note *> NoteDrag::selectedNotes;
 
 void NoteDrag::createAndEmptyCuttingTmpFolder()
 {
@@ -51,12 +51,12 @@ void NoteDrag::createAndEmptyCuttingTmpFolder()
     dir.mkdir(Global::tempCutFolder());
 }
 
-QDrag* NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *source)
+QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *source)
 {
     if (noteList->count() <= 0)
         return 0;
 
-    QDrag* multipleDrag = new QDrag(source);
+    QDrag *multipleDrag = new QDrag(source);
 
     // The MimeSource:
     QMimeData *mimeData = new QMimeData;
@@ -71,12 +71,12 @@ QDrag* NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *sour
         QDataStream stream(&buffer);
         // First append a pointer to the basket:
         stream << (quint64)(noteList->firstStacked()->note->basket());
-	
+
         // And finally the notes themselves:
         serializeNotes(noteList, stream, cutting);
         // Append the object:
         buffer.close();
-        mimeData->setData(NOTE_MIME_STRING,  buffer.buffer());
+        mimeData->setData(NOTE_MIME_STRING, buffer.buffer());
     }
 
     // The "Other Flavors" Serialization:
@@ -143,7 +143,7 @@ void NoteDrag::serializeText(NoteSelection *noteList, QDrag *multipleDrag)
             textEquivalent += (!textEquivalent.isEmpty() ? "\n" : "") + text;
     }
     if (!textEquivalent.isEmpty()) {
-        QMimeData* mimeData = new QMimeData;
+        QMimeData *mimeData = new QMimeData;
         mimeData->setText(textEquivalent);
         multipleDrag->setMimeData(mimeData);
     }
@@ -185,7 +185,7 @@ void NoteDrag::serializeImage(NoteSelection *noteList, QDrag *multipleDrag)
         else {
             // Search the total size:
             int height = 0;
-            int width  = 0;
+            int width = 0;
             for (QList<QPixmap>::iterator it = pixmaps.begin(); it != pixmaps.end(); ++it) {
                 height += (*it).height();
                 if ((*it).width() > width)
@@ -209,9 +209,9 @@ void NoteDrag::serializeImage(NoteSelection *noteList, QDrag *multipleDrag)
 
 void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool cutting)
 {
-    QList<QUrl>  urls;
+    QList<QUrl> urls;
     QStringList titles;
-    QUrl    url;
+    QUrl url;
     QString title;
     for (NoteSelection *node = noteList->firstStacked(); node; node = node->nextStacked()) {
         node->note->content()->toLink(&url, &title, node->fullPath);
@@ -222,7 +222,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
     }
     if (!urls.isEmpty()) {
         // First, the standard text/uri-list MIME format:
-        QMimeData* mimeData = new QMimeData;
+        QMimeData *mimeData = new QMimeData;
         mimeData->setUrls(urls);
 
         // Then, also provide it in the Mozilla proprietary format (that also allow to add titles to URLs):
@@ -238,8 +238,8 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
         QTextStream stream(baMozUrl, QIODevice::WriteOnly);
 
         // It's UTF16 (aka UCS2), but with the first two order bytes
-        //stream.setEncoding(QTextStream::RawUnicode); // It's UTF16 (aka UCS2), but with the first two order bytes
-        //FIXME: find out if this is really equivalent, as https://doc.qt.io/archives/3.3/qtextstream.html pretends
+        // stream.setEncoding(QTextStream::RawUnicode); // It's UTF16 (aka UCS2), but with the first two order bytes
+        // FIXME: find out if this is really equivalent, as https://doc.qt.io/archives/3.3/qtextstream.html pretends
         stream.setCodec("UTF-16");
 
         stream << xMozUrl;
@@ -271,19 +271,19 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
     if (noteList == 0)
         return QPixmap();
 
-    static const int MARGIN  = 2;
+    static const int MARGIN = 2;
     static const int SPACING = 1;
 
-    QColor textColor       = noteList->firstStacked()->note->basket()->textColor();
+    QColor textColor = noteList->firstStacked()->note->basket()->textColor();
     QColor backgroundColor = noteList->firstStacked()->note->basket()->backgroundColor().dark(NoteContent::FEEDBACK_DARKING);
 
     QList<QPixmap> pixmaps;
-    QList<QColor>  backgrounds;
-    QList<bool>    spaces;
+    QList<QColor> backgrounds;
+    QList<bool> spaces;
     QPixmap pixmap;
     int height = 0;
-    int width  = 0;
-    int i      = 0;
+    int width = 0;
+    int i = 0;
     bool elipsisImage = false;
     QColor bgColor;
     bool needSpace;
@@ -297,11 +297,11 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
             painter.drawPoint(3, 1);
             painter.drawPoint(5, 1);
             painter.end();
-            bgColor   = node->note->basket()->backgroundColor();
+            bgColor = node->note->basket()->backgroundColor();
             needSpace = false;
         } else {
-            pixmap    = node->note->content()->feedbackPixmap(/*maxWidth=*/qApp->desktop()->width() / 2, /*maxHeight=*/96);
-            bgColor   = node->note->backgroundColor();
+            pixmap = node->note->content()->feedbackPixmap(/*maxWidth=*/qApp->desktop()->width() / 2, /*maxHeight=*/96);
+            bgColor = node->note->backgroundColor();
             needSpace = node->note->content()->needSpaceForFeedbackPixmap();
         }
         if (!pixmap.isNull()) {
@@ -323,8 +323,8 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
         // Draw all the images:
         height = MARGIN;
         QList<QPixmap>::iterator it;
-        QList<QColor>::iterator  it2;
-        QList<bool>::iterator    it3;
+        QList<QColor>::iterator it2;
+        QList<bool>::iterator it3;
         int i = 0;
         for (it = pixmaps.begin(), it2 = backgrounds.begin(), it3 = spaces.begin(); it != pixmaps.end(); ++it, ++it2, ++it3, ++i) {
             if (i != 0 && (*it3)) {
@@ -343,24 +343,24 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
         }
         // Draw the border:
         painter.setPen(textColor);
-        painter.drawLine(0,                  0,                   result.width() - 1, 0);
-        painter.drawLine(0,                  0,                   0,                  result.height() - 1);
-        painter.drawLine(0,                  result.height() - 1, result.width() - 1, result.height() - 1);
-        painter.drawLine(result.width() - 1, 0,                   result.width() - 1, result.height() - 1);
+        painter.drawLine(0, 0, result.width() - 1, 0);
+        painter.drawLine(0, 0, 0, result.height() - 1);
+        painter.drawLine(0, result.height() - 1, result.width() - 1, result.height() - 1);
+        painter.drawLine(result.width() - 1, 0, result.width() - 1, result.height() - 1);
         // Draw the "lightly rounded" border:
         painter.setPen(Tools::mixColor(textColor, backgroundColor));
-        painter.drawPoint(0,                  0);
-        painter.drawPoint(0,                  result.height() - 1);
+        painter.drawPoint(0, 0);
+        painter.drawPoint(0, result.height() - 1);
         painter.drawPoint(result.width() - 1, result.height() - 1);
         painter.drawPoint(result.width() - 1, 0);
         // Draw the background in the margin (the inside will be painted above, anyway):
         painter.setPen(backgroundColor);
-        painter.drawLine(1,                  1,                   result.width() - 2, 1);
-        painter.drawLine(1,                  1,                   1,                  result.height() - 2);
-        painter.drawLine(1,                  result.height() - 2, result.width() - 2, result.height() - 2);
-        painter.drawLine(result.width() - 2, 1,                   result.width() - 2, result.height() - 2);
+        painter.drawLine(1, 1, result.width() - 2, 1);
+        painter.drawLine(1, 1, 1, result.height() - 2);
+        painter.drawLine(1, result.height() - 2, result.width() - 2, result.height() - 2);
+        painter.drawLine(result.width() - 2, 1, result.width() - 2, result.height() - 2);
         // And assign the feedback pixmap to the drag object:
-        //multipleDrag->setPixmap(result, QPoint(-8, -8));
+        // multipleDrag->setPixmap(result, QPoint(-8, -8));
         return result;
     }
     return QPixmap();
@@ -371,7 +371,7 @@ bool NoteDrag::canDecode(const QMimeData *source)
     return source->hasFormat(NOTE_MIME_STRING);
 }
 
-BasketScene* NoteDrag::basketOf(const QMimeData *source)
+BasketScene *NoteDrag::basketOf(const QMimeData *source)
 {
     QByteArray srcData = source->data(NOTE_MIME_STRING);
     QBuffer buffer(&srcData);
@@ -379,13 +379,13 @@ BasketScene* NoteDrag::basketOf(const QMimeData *source)
         QDataStream stream(&buffer);
         // Get the parent basket:
         quint64 basketPointer;
-        stream >> (quint64&)basketPointer;
-        return (BasketScene*)basketPointer;
+        stream >> (quint64 &)basketPointer;
+        return (BasketScene *)basketPointer;
     } else
         return 0;
 }
 
-QList<Note*> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
+QList<Note *> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
 {
     /* FIXME: this code does not parse the stream properly (see NoteDrag::decode).
        Thus m_draggedNotes will contain many invalid pointer values.
@@ -397,19 +397,19 @@ QList<Note*> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
         QDataStream stream(&buffer);
         // Get the parent basket:
         quint64 basketPointer;
-        stream >> (quint64&)basketPointer;
+        stream >> (quint64 &)basketPointer;
         // Get the note list:
-        quint64          notePointer;
-        QList<Note*> notes;
+        quint64 notePointer;
+        QList<Note *> notes;
         do {
             stream >> notePointer;
             if (notePointer != 0)
-                notes.append((Note*)notePointer);
+                notes.append((Note *)notePointer);
         } while (notePointer);
         // Done:
         return notes;
     } else
-        return QList<Note*>();
+        return QList<Note *>();
 }
 
 void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
@@ -422,7 +422,7 @@ void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
     }
 }
 
-Note* NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes)
+Note *NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes)
 {
     QByteArray srcData = source->data(NOTE_MIME_STRING);
     QBuffer buffer(&srcData);
@@ -430,8 +430,8 @@ Note* NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFi
         QDataStream stream(&buffer);
         // Get the parent basket:
         quint64 basketPointer;
-        stream >> (quint64&)basketPointer;
-        BasketScene *basket = (BasketScene*)basketPointer;
+        stream >> (quint64 &)basketPointer;
+        BasketScene *basket = (BasketScene *)basketPointer;
         // Decode the note hierarchy:
         Note *hierarchy = decodeHierarchy(stream, parent, moveFiles, moveNotes, basket);
         // In case we moved notes from one basket to another, save the source basket where notes were removed:
@@ -442,42 +442,42 @@ Note* NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFi
         return 0;
 }
 
-Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool moveFiles, bool moveNotes, BasketScene *originalBasket)
+Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool moveFiles, bool moveNotes, BasketScene *originalBasket)
 {
-    quint64  notePointer;
-    quint64  type;
-    QString   fileName;
-    QString   fullPath;
+    quint64 notePointer;
+    quint64 type;
+    QString fileName;
+    QString fullPath;
     QDateTime addedDate;
     QDateTime lastModificationDate;
 
-    Note *firstNote    = 0; // TODO: class NoteTreeChunk
+    Note *firstNote = 0; // TODO: class NoteTreeChunk
     Note *lastInserted = 0;
 
     do {
         stream >> notePointer;
         if (notePointer == 0)
             return firstNote;
-        Note *oldNote = (Note*)notePointer;
+        Note *oldNote = (Note *)notePointer;
 
         Note *note = 0;
         quint64 groupWidth;
         stream >> type >> groupWidth;
         if (type == NoteType::Group) {
             note = new Note(parent);
-	    note->setZValue(-1);
+            note->setZValue(-1);
             note->setGroupWidth(groupWidth);
             quint64 isFolded;
             stream >> isFolded;
             if (isFolded)
                 note->toggleFolded();
             if (moveNotes) {
-                note->setX(oldNote->x()); // We don't move groups but re-create them (every children can to not be selected)
-                note->setY(oldNote->y()); // We just set the position of the copied group so the animation seems as if the group is the same as (or a copy of) the old.
+                note->setX(oldNote->x());           // We don't move groups but re-create them (every children can to not be selected)
+                note->setY(oldNote->y());           // We just set the position of the copied group so the animation seems as if the group is the same as (or a copy of) the old.
                 note->setHeight(oldNote->height()); // Idem: the only use of Note::setHeight()
-                parent->removeItem(oldNote);		
+                parent->removeItem(oldNote);
             }
-            Note* children = decodeHierarchy(stream, parent, moveFiles, moveNotes, originalBasket);
+            Note *children = decodeHierarchy(stream, parent, moveFiles, moveNotes, originalBasket);
             if (children) {
                 for (Note *n = children; n; n = n->next())
                     n->setParentNote(note);
@@ -489,12 +489,10 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                 originalBasket->unplugNote(oldNote);
                 note = oldNote;
                 if (note->basket() != parent && (!fileName.isEmpty() && !fullPath.isEmpty())) {
-
                     QString newFileName = Tools::fileNameForNewFile(fileName, parent->fullPath());
                     note->content()->setFileName(newFileName);
 
-                    KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
-				    KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
+                    KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                     parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
                 }
                 note->setGroupWidth(groupWidth);
@@ -512,18 +510,16 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                 // (while dropping several files at once a filename cannot be used by two of them).
                 // Later on, file_copy/file_move will copy/move the file to the new location.
                 QString newFileName = Tools::fileNameForNewFile(fileName, parent->fullPath());
-                        //NoteFactory::createFileForNewNote(parent, "", fileName);
+                // NoteFactory::createFileForNewNote(parent, "", fileName);
                 KIO::CopyJob *copyJob;
                 if (moveFiles) {
-                    copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
-                        KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
+                    copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 } else {
-                    copyJob = KIO::copy(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName),
-                        KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
+                    copyJob = KIO::copy(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 }
                 parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
-		
-		note = NoteFactory::loadFile(newFileName, (NoteType::Id)type, parent);
+
+                note = NoteFactory::loadFile(newFileName, (NoteType::Id)type, parent);
                 note->setGroupWidth(groupWidth);
                 note->setAddedDate(addedDate);
                 note->setLastModificationDate(lastModificationDate);
@@ -535,7 +531,7 @@ Note* NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
             do {
                 stream >> statePointer;
                 if (statePointer)
-                    note->addState((State*)statePointer);
+                    note->addState((State *)statePointer);
             } while (statePointer);
         }
         // Now that we have created the note, insert it:
@@ -603,4 +599,3 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
     }
     return ok;
 }
-

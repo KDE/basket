@@ -19,64 +19,68 @@
 
 #include "basketlistview.h"
 
-#include <QtCore/QRegExp>
 #include <QApplication>
-#include <QtGui/QStandardItemModel>
-#include <QtGui/QDragLeaveEvent>
-#include <QtGui/QPixmap>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QDragMoveEvent>
-#include <QtGui/QDropEvent>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QFocusEvent>
-#include <QtGui/QPainter>
-#include <QtGui/QBitmap>
-#include <QtGui/QPixmapCache>
-#include <QToolTip>
-#include <QMimeData>
 #include <QDebug>
 #include <QLocale>
+#include <QMimeData>
+#include <QToolTip>
+#include <QtCore/QRegExp>
+#include <QtGui/QBitmap>
+#include <QtGui/QDragEnterEvent>
+#include <QtGui/QDragLeaveEvent>
+#include <QtGui/QDragMoveEvent>
+#include <QtGui/QDropEvent>
+#include <QtGui/QFocusEvent>
+#include <QtGui/QPainter>
+#include <QtGui/QPixmap>
+#include <QtGui/QPixmapCache>
+#include <QtGui/QResizeEvent>
+#include <QtGui/QStandardItemModel>
 
 #include <KIconLoader>
-#include <KStringHandler>
 #include <KLocalizedString>
+#include <KStringHandler>
 
-#include "global.h"
-#include "bnpview.h"
 #include "basketscene.h"
-#include "tools.h"
-#include "settings.h"
-#include "notedrag.h"
+#include "bnpview.h"
 #include "decoratedbasket.h"
+#include "global.h"
 #include "icon_names.h"
+#include "notedrag.h"
+#include "settings.h"
+#include "tools.h"
 
 /** class BasketListViewItem: */
 
 BasketListViewItem::BasketListViewItem(QTreeWidget *parent, BasketScene *basket)
-        : QTreeWidgetItem(parent), m_basket(basket)
-        , m_isUnderDrag(false)
-        , m_isAbbreviated(false)
+    : QTreeWidgetItem(parent)
+    , m_basket(basket)
+    , m_isUnderDrag(false)
+    , m_isAbbreviated(false)
 {
 }
 
 BasketListViewItem::BasketListViewItem(QTreeWidgetItem *parent, BasketScene *basket)
-        : QTreeWidgetItem(parent), m_basket(basket)
-        , m_isUnderDrag(false)
-        , m_isAbbreviated(false)
+    : QTreeWidgetItem(parent)
+    , m_basket(basket)
+    , m_isUnderDrag(false)
+    , m_isAbbreviated(false)
 {
 }
 
 BasketListViewItem::BasketListViewItem(QTreeWidget *parent, QTreeWidgetItem *after, BasketScene *basket)
-        : QTreeWidgetItem(parent, after), m_basket(basket)
-        , m_isUnderDrag(false)
-        , m_isAbbreviated(false)
+    : QTreeWidgetItem(parent, after)
+    , m_basket(basket)
+    , m_isUnderDrag(false)
+    , m_isAbbreviated(false)
 {
 }
 
 BasketListViewItem::BasketListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after, BasketScene *basket)
-        : QTreeWidgetItem(parent, after), m_basket(basket)
-        , m_isUnderDrag(false)
-        , m_isAbbreviated(false)
+    : QTreeWidgetItem(parent, after)
+    , m_basket(basket)
+    , m_isUnderDrag(false)
+    , m_isAbbreviated(false)
 {
 }
 
@@ -107,10 +111,7 @@ void BasketListViewItem::setup()
 {
     setText(/*column=*/0, escapedName(m_basket->basketName()));
 
-    QPixmap icon = KIconLoader::global()->loadIcon(
-                       m_basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState,
-                       QStringList(), 0L, /*canReturnNull=*/false
-                   );
+    QPixmap icon = KIconLoader::global()->loadIcon(m_basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/false);
 
     setIcon(/*column=*/0, icon);
     /*
@@ -123,12 +124,12 @@ void BasketListViewItem::setup()
         */
 }
 
-BasketListViewItem* BasketListViewItem::lastChild()
+BasketListViewItem *BasketListViewItem::lastChild()
 {
     int count = childCount();
     if (count <= 0)
         return 0;
-    return (BasketListViewItem*)(child(count - 1));
+    return (BasketListViewItem *)(child(count - 1));
 }
 
 QStringList BasketListViewItem::childNamesTree(int deep)
@@ -141,7 +142,7 @@ QStringList BasketListViewItem::childNamesTree(int deep)
         spaces += "  ";
 
     // Append the names of sub baskets
-    if(deep > 0)
+    if (deep > 0)
         result.append(spaces + basket()->basketName());
 
     // Append the children:
@@ -172,7 +173,7 @@ void BasketListViewItem::ensureVisible()
 {
     BasketListViewItem *item = this;
     while (item->parent()) {
-        item = (BasketListViewItem*)(item->parent());
+        item = (BasketListViewItem *)(item->parent());
         item->setExpanded(true);
     }
 }
@@ -201,7 +202,7 @@ bool BasketListViewItem::isUnderDrag()
 bool BasketListViewItem::haveChildsLoading()
 {
     for (int i = 0; i < childCount(); i++) {
-        BasketListViewItem *childItem = (BasketListViewItem*)child(i);
+        BasketListViewItem *childItem = (BasketListViewItem *)child(i);
         if (!childItem->basket()->isLoaded() && !childItem->basket()->isLocked())
             return true;
         if (childItem->haveChildsLoading())
@@ -220,8 +221,8 @@ bool BasketListViewItem::haveHiddenChildsLoading()
 bool BasketListViewItem::haveChildsLocked()
 {
     for (int i = 0; i < childCount(); i++) {
-        BasketListViewItem *childItem = (BasketListViewItem*)child(i);
-        if (/*!*/childItem->basket()->isLocked())
+        BasketListViewItem *childItem = (BasketListViewItem *)child(i);
+        if (/*!*/ childItem->basket()->isLocked())
             return true;
         if (childItem->haveChildsLocked())
             return true;
@@ -240,7 +241,7 @@ int BasketListViewItem::countChildsFound()
 {
     int count = 0;
     for (int i = 0; i < childCount(); i++) {
-        BasketListViewItem *childItem = (BasketListViewItem*)child(i);
+        BasketListViewItem *childItem = (BasketListViewItem *)child(i);
         count += childItem->basket()->countFounds();
         count += childItem->countChildsFound();
     }
@@ -273,8 +274,9 @@ void BasketListViewItem::setAbbreviated(bool b)
 QString BasketTreeListView::TREE_ITEM_MIME_STRING = "application/x-basket-item";
 
 BasketTreeListView::BasketTreeListView(QWidget *parent)
-        : QTreeWidget(parent), m_autoOpenItem(0)
-        , m_itemUnderDrag(0)
+    : QTreeWidget(parent)
+    , m_autoOpenItem(0)
+    , m_itemUnderDrag(0)
 {
     connect(&m_autoOpenTimer, SIGNAL(timeout()), this, SLOT(autoOpen()));
     setItemDelegate(new FoundCountIcon(this));
@@ -293,21 +295,19 @@ QStringList BasketTreeListView::mimeTypes() const
     return types;
 }
 
-QMimeData* BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> items) const
+QMimeData *BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> items) const
 {
     QString mimeType = TREE_ITEM_MIME_STRING;
 
     QByteArray data = QByteArray();
     QDataStream out(&data, QIODevice::WriteOnly);
 
-    if(items.isEmpty())
+    if (items.isEmpty())
         return new QMimeData();
 
-
     for (int i = 0; i < items.count(); ++i) {
-        BasketListViewItem *basketItem = static_cast<BasketListViewItem*>(items[i]);
-        out << basketItem->basket()->basketName() << basketItem->basket()->folderName()
-                << basketItem->basket()->icon();
+        BasketListViewItem *basketItem = static_cast<BasketListViewItem *>(items[i]);
+        out << basketItem->basket()->basketName() << basketItem->basket()->folderName() << basketItem->basket()->icon();
     }
 
     QMimeData *mimeData = new QMimeData();
@@ -321,11 +321,10 @@ bool BasketTreeListView::event(QEvent *e)
     if (e->type() == QEvent::ToolTip) {
         QHelpEvent *he = static_cast<QHelpEvent *>(e);
         QTreeWidgetItem *item = itemAt(he->pos());
-        BasketListViewItem* bitem = dynamic_cast<BasketListViewItem*>(item);
+        BasketListViewItem *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (bitem && bitem->isAbbreviated()) {
             QRect rect = visualItemRect(bitem);
-            QToolTip::showText(rect.topLeft(), bitem->basket()->basketName(),
-                               viewport(), rect);
+            QToolTip::showText(rect.topLeft(), bitem->basket()->basketName(), viewport(), rect);
         }
         return true;
     }
@@ -340,7 +339,7 @@ void BasketTreeListView::mousePressEvent(QMouseEvent *event)
 
 void BasketTreeListView::mouseMoveEvent(QMouseEvent *event)
 {
-    //QTreeWidget::mouseMoveEvent(event);
+    // QTreeWidget::mouseMoveEvent(event);
     if (!(event->buttons() & Qt::LeftButton)) {
         event->ignore();
         return;
@@ -355,15 +354,14 @@ void BasketTreeListView::mouseMoveEvent(QMouseEvent *event)
     drag->setMimeData(mimeData);
 
     Qt::DropAction dropAction = drag->exec(Qt::CopyAction | Qt::MoveAction);
-    if(dropAction == Qt::MoveAction || dropAction == Qt::CopyAction)
+    if (dropAction == Qt::MoveAction || dropAction == Qt::CopyAction)
         event->accept();
-
 }
 
 void BasketTreeListView::dragEnterEvent(QDragEnterEvent *event)
 {
-    //TODO: accept everything? (forwarding dropped basket-notes and arbitrary data to the basket)
-    //files: MoveAction vs. CopyAction, or acceptProposedAction()
+    // TODO: accept everything? (forwarding dropped basket-notes and arbitrary data to the basket)
+    // files: MoveAction vs. CopyAction, or acceptProposedAction()
 
     QTreeWidget::dragEnterEvent(event);
 }
@@ -378,7 +376,6 @@ void BasketTreeListView::removeExpands()
         ++it;
     }
 }
-
 
 void BasketTreeListView::dragLeaveEvent(QDragLeaveEvent *event)
 {
@@ -399,9 +396,9 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
         qDebug() << "Forwarding dropped data to the basket";
         event->setDropAction(Qt::MoveAction);
         QTreeWidgetItem *item = itemAt(event->pos());
-        BasketListViewItem* bitem = dynamic_cast<BasketListViewItem*>(item);
+        BasketListViewItem *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (bitem) {
-            bitem->basket()->blindDrop(event->mimeData(),event->dropAction(),event->source());
+            bitem->basket()->blindDrop(event->mimeData(), event->dropAction(), event->source());
         } else {
             qDebug() << "Forwarding failed: no bitem found";
         }
@@ -417,11 +414,11 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
 
 void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
 {
-    //qDebug() << "BasketTreeListView::dragMoveEvent";
+    // qDebug() << "BasketTreeListView::dragMoveEvent";
 
     if (!event->mimeData()->hasFormat(TREE_ITEM_MIME_STRING)) {
         QTreeWidgetItem *item = itemAt(event->pos());
-        BasketListViewItem* bitem = dynamic_cast<BasketListViewItem*>(item);
+        BasketListViewItem *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (m_autoOpenItem != item) {
             m_autoOpenItem = item;
             m_autoOpenTimer.setSingleShot(true);
@@ -437,7 +434,7 @@ void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
     QTreeWidget::dragMoveEvent(event);
 }
 
-void BasketTreeListView::setItemUnderDrag(BasketListViewItem* item)
+void BasketTreeListView::setItemUnderDrag(BasketListViewItem *item)
 {
     if (m_itemUnderDrag != item) {
         if (m_itemUnderDrag) {
@@ -456,7 +453,7 @@ void BasketTreeListView::setItemUnderDrag(BasketListViewItem* item)
 
 void BasketTreeListView::autoOpen()
 {
-    BasketListViewItem *item = (BasketListViewItem*)m_autoOpenItem;
+    BasketListViewItem *item = (BasketListViewItem *)m_autoOpenItem;
     if (item)
         Global::bnpView->setCurrentBasket(item->basket());
 }
@@ -470,7 +467,7 @@ void BasketTreeListView::resizeEvent(QResizeEvent *event)
  * but QTreeView can programatically give us the focus.
  * So we give it to the basket.
  */
-void BasketTreeListView::focusInEvent(QFocusEvent*)
+void BasketTreeListView::focusInEvent(QFocusEvent *)
 {
     BasketScene *basket = Global::bnpView->currentBasket();
     if (basket)
@@ -482,10 +479,10 @@ Qt::DropActions BasketTreeListView::supportedDropActions() const
     return Qt::MoveAction | Qt::CopyAction;
 }
 
-BasketListViewItem* BasketTreeListView::getBasketInTree(const QModelIndex& index) const
+BasketListViewItem *BasketTreeListView::getBasketInTree(const QModelIndex &index) const
 {
-    QTreeWidgetItem* item = itemFromIndex(index);
-    return dynamic_cast<BasketListViewItem*>(item);
+    QTreeWidgetItem *item = itemFromIndex(index);
+    return dynamic_cast<BasketListViewItem *>(item);
 }
 
 void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -493,34 +490,28 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
     QStyledItemDelegate::paint(painter, option, index);
 
     // Get access to basket pointer
-    BasketListViewItem* basketInTree = m_basketTree->getBasketInTree(index);
+    BasketListViewItem *basketInTree = m_basketTree->getBasketInTree(index);
     if (basketInTree == NULL)
         return;
 
     const int BASKET_ICON_SIZE = 16; // [replace with m_basketTree->iconSize()]
     const int MARGIN = 1;
 
-    BasketScene* basket = basketInTree->basket();
-
+    BasketScene *basket = basketInTree->basket();
 
     // If we are filtering all baskets, and are effectively filtering on something:
     bool showLoadingIcon = false;
     bool showEncryptedIcon = false;
     QPixmap countPixmap;
-    bool showCountPixmap = Global::bnpView->isFilteringAllBaskets() &&
-        Global::bnpView->currentBasket()->decoration()->filterBar()->filterData().isFiltering;
+    bool showCountPixmap = Global::bnpView->isFilteringAllBaskets() && Global::bnpView->currentBasket()->decoration()->filterBar()->filterData().isFiltering;
     if (showCountPixmap) {
         showLoadingIcon = (!basket->isLoaded() && !basket->isLocked()) || basketInTree->haveHiddenChildsLoading();
         showEncryptedIcon = basket->isLocked() || basketInTree->haveHiddenChildsLocked();
         bool childrenAreLoading = basketInTree->haveHiddenChildsLoading() || basketInTree->haveHiddenChildsLocked();
 
-        countPixmap = foundCountPixmap(!basket->isLoaded(), basket->countFounds(), childrenAreLoading,
-                                       basketInTree->countHiddenChildsFound(), m_basketTree->font(), option.rect.height() - 2 * MARGIN);
+        countPixmap = foundCountPixmap(!basket->isLoaded(), basket->countFounds(), childrenAreLoading, basketInTree->countHiddenChildsFound(), m_basketTree->font(), option.rect.height() - 2 * MARGIN);
     }
-    int effectiveWidth = option.rect.right() -
-        (countPixmap.isNull() ? 0 : countPixmap.width() + MARGIN) -
-        (showLoadingIcon || showEncryptedIcon ? BASKET_ICON_SIZE + MARGIN : 0);
-
+    int effectiveWidth = option.rect.right() - (countPixmap.isNull() ? 0 : countPixmap.width() + MARGIN) - (showLoadingIcon || showEncryptedIcon ? BASKET_ICON_SIZE + MARGIN : 0);
 
     bool drawRoundRect = basket->backgroundColorSetting().isValid() || basket->textColorSetting().isValid();
 
@@ -531,17 +522,11 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
         int textWidth = m_basketTree->fontMetrics().width(basketInTree->text(/*column=*/0));
         int iconTextMargin = m_basketTree->style()->pixelMetric(QStyle::PM_FocusFrameHMargin); ///< Space between icon and text
 
-
         // Don't forget to update the key computation if parameters
         // affecting the rendering logic change
-        QString key = QString("BLIRR::%1.%2.%3.%4")
-                    .arg(option.rect.width())
-                    .arg(option.rect.size().height())
-                    .arg(textWidth)
-                    .arg(background.rgb());
+        QString key = QString("BLIRR::%1.%2.%3.%4").arg(option.rect.width()).arg(option.rect.size().height()).arg(textWidth).arg(background.rgb());
 
-
-        if (QPixmap* cached = QPixmapCache::find(key)) {
+        if (QPixmap *cached = QPixmapCache::find(key)) {
             // Qt's documentation recommends copying the pointer
             // into a QPixmap immediately
             roundRectBmp = *cached;
@@ -553,12 +538,9 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
 
             QPainter brushPainter(&roundRectBmp);
 
-            int cornerR = option.rect.height()/2 - MARGIN;
+            int cornerR = option.rect.height() / 2 - MARGIN;
 
-            QRect roundRect(0, MARGIN,
-                            BASKET_ICON_SIZE + iconTextMargin + textWidth + 2*cornerR,
-                            option.rect.height() - 2*MARGIN);
-
+            QRect roundRect(0, MARGIN, BASKET_ICON_SIZE + iconTextMargin + textWidth + 2 * cornerR, option.rect.height() - 2 * MARGIN);
 
             brushPainter.setPen(background);
             brushPainter.setBrush(background);
@@ -568,14 +550,13 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
             QPixmapCache::insert(key, roundRectBmp);
         }
 
-
         basketInTree->setBackground(0, QBrush(roundRectBmp));
         basketInTree->setForeground(0, QBrush(basket->textColor()));
     }
-    //end if drawRoundRect
+    // end if drawRoundRect
 
     // Render icons on the right
-    int y = option.rect.center().y() - BASKET_ICON_SIZE/2;
+    int y = option.rect.center().y() - BASKET_ICON_SIZE / 2;
 
     if (!countPixmap.isNull()) {
         painter->drawPixmap(effectiveWidth, y, countPixmap);
@@ -594,21 +575,20 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
 
 QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const QFont &font, const QColor &color) const
 {
-    QString key = QString("BLI-%1.%2.%3.%4")
-                  .arg(text).arg(height).arg(font.toString()).arg(color.rgb());
-    if (QPixmap* cached = QPixmapCache::find(key)) {
+    QString key = QString("BLI-%1.%2.%3.%4").arg(text).arg(height).arg(font.toString()).arg(color.rgb());
+    if (QPixmap *cached = QPixmapCache::find(key)) {
         return *cached;
     }
 
     // Compute the sizes of the image components:
     QRectF textRect = QFontMetrics(font).boundingRect(0, 0, /*width=*/1, height, Qt::AlignLeft | Qt::AlignTop, text);
     qreal xMargin = height / 6;
-    qreal width   = xMargin + textRect.width() + xMargin;
+    qreal width = xMargin + textRect.width() + xMargin;
 
     // Create the background image:
     QPixmap background(3 * width, 3 * height); // We double the size to be able to smooth scale down it (== antialiased curves)
     QPainter backgroundPainter(&background);
-    const QPalette& palette = m_basketTree->palette();
+    const QPalette &palette = m_basketTree->palette();
     backgroundPainter.fillRect(0, 0, background.width(), background.height(), palette.color(QPalette::Highlight));
     backgroundPainter.end();
 
@@ -618,19 +598,19 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     QPainter curvePainter(&curvedRectangle);
     curvePainter.setPen(Qt::color1);
     curvePainter.setBrush(Qt::color1);
-    curvePainter.setClipRect(0, 0, 3*(height / 5), 3*(height)); // If the width is small, don't fill the right part of the pixmap
-    curvePainter.drawEllipse(0, 3*(-height / 4), 3*(height), 3*(height * 3 / 2)); // Don't forget we double the sizes
-    curvePainter.setClipRect(3*(width - height / 5), 0, 3*(height / 5), 3*(height));
-    curvePainter.drawEllipse(3*(width - height), 3*(-height / 4), 3*(height), 3*(height * 3 / 2));
+    curvePainter.setClipRect(0, 0, 3 * (height / 5), 3 * (height));                     // If the width is small, don't fill the right part of the pixmap
+    curvePainter.drawEllipse(0, 3 * (-height / 4), 3 * (height), 3 * (height * 3 / 2)); // Don't forget we double the sizes
+    curvePainter.setClipRect(3 * (width - height / 5), 0, 3 * (height / 5), 3 * (height));
+    curvePainter.drawEllipse(3 * (width - height), 3 * (-height / 4), 3 * (height), 3 * (height * 3 / 2));
     curvePainter.setClipping(false);
-    curvePainter.fillRect(3*(height / 6), 0, 3*(width - 2 * height / 6), 3*(height), curvePainter.brush());
+    curvePainter.fillRect(3 * (height / 6), 0, 3 * (width - 2 * height / 6), 3 * (height), curvePainter.brush());
     curvePainter.end();
 
     // Apply the curved rectangle as the mask of the background:
     background.setMask(curvedRectangle);
     QImage resultImage = background.toImage();
 
-    //resultImage.setAlphaBuffer(true);
+    // resultImage.setAlphaBuffer(true);
     resultImage.convertToFormat(QImage::Format_ARGB32);
 
     // Scale down the image smoothly to get anti-aliasing:
@@ -648,8 +628,7 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     return pmScaled;
 }
 
-QPixmap FoundCountIcon::foundCountPixmap(bool isLoading, int countFound, bool childrenAreLoading, int countChildsFound,
-                                         const QFont &font, int height) const
+QPixmap FoundCountIcon::foundCountPixmap(bool isLoading, int countFound, bool childrenAreLoading, int countChildsFound, const QFont &font, int height) const
 {
     if (isLoading)
         return QPixmap();

@@ -30,8 +30,8 @@ class QGraphicsView;
 #include "filter.h"
 
 /** This class handle Basket and add a FilterWidget on top of it.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class DecoratedBasket : public QWidget
 {
     Q_OBJECT
@@ -41,16 +41,20 @@ public:
     void setFilterBarPosition(bool onTop);
     void resetFilter();
     void setFilterBarVisible(bool show, bool switchFocus = true);
-    bool isFilterBarVisible()        {
+    bool isFilterBarVisible()
+    {
         return m_filter->isVisible();
     }
-    const FilterData& filterData() {
+    const FilterData &filterData()
+    {
         return m_filter->filterData();
     }
-    FilterBar* filterBar()         {
+    FilterBar *filterBar()
+    {
         return m_filter;
     }
-    BasketScene*    basket()            {
+    BasketScene *basket()
+    {
         return m_basket;
     }
 
@@ -58,7 +62,7 @@ public:
 
 private:
     QVBoxLayout *m_layout;
-    FilterBar   *m_filter;
-    BasketScene  *m_basket;
+    FilterBar *m_filter;
+    BasketScene *m_basket;
 };
 #endif // DECORATEDBASKET_H

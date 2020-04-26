@@ -20,12 +20,12 @@
 #include <QObject>
 #include <QtTest/QtTest>
 
-#include "note.h"
 #include "basketview.h"
+#include "note.h"
 
-class NoteTest: public QObject
+class NoteTest : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 private Q_SLOTS:
     void testCreation();
 };
@@ -34,7 +34,7 @@ QTEST_MAIN(NoteTest)
 
 void NoteTest::testCreation()
 {
-    Note* n = new Note(0);
+    Note *n = new Note(0);
     QVERIFY(n->basket() == 0);
     QVERIFY(n->next() == 0);
     QVERIFY(n->prev() == 0);

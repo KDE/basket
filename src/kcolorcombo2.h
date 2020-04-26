@@ -82,7 +82,7 @@ class KColorPopup;
 class KColorCombo2 : public KComboBox
 {
     Q_OBJECT
-    Q_PROPERTY(QColor color        READ color        WRITE setColor)
+    Q_PROPERTY(QColor color READ color WRITE setColor)
     Q_PROPERTY(QColor defaultColor READ defaultColor WRITE setDefaultColor)
 
 public slots:
@@ -116,14 +116,14 @@ public:
      *                      But if @p color is invalid and there is no default color, the result is undefined.
      * @param defaultColor  The color to return if the user choose the default one. If it is not valid, the user willn't be allowed to choose a default one.
      */
-    KColorCombo2(const QColor& color, const QColor& defaultColor, QWidget* parent = 0);
+    KColorCombo2(const QColor &color, const QColor &defaultColor, QWidget *parent = 0);
 
     /**
      * Constructs a color combobox with parent @p parent.\n
      * The user is not allowed to choose a default color, unless you call setDefaultColor() later.
      * @param color         The initial selected color. If it is invalid, the result is undefined.
      */
-    explicit KColorCombo2(const QColor& color, QWidget* parent = 0L);
+    explicit KColorCombo2(const QColor &color, QWidget *parent = 0L);
 
     /**
      * Destroys the combobox.
@@ -192,7 +192,7 @@ public:
      * @return The asked color, or an invalid color if the index is out of limit of the array.
      * @see columnCount() and rowCount() to get the array dimensions.
      */
-    QColor colorAt(int column, int row)/* const*/;
+    QColor colorAt(int column, int row) /* const*/;
 
     /**
      * Fill the array of colors (that will be shown to the user in the popup that appears when he/she click the arrow) with a rainbow of different luminosity.\n
@@ -215,7 +215,7 @@ public:
      *     @p darkRowCount to a small one for a fewer choice of dark colors, but at least some ones.
      */
     void setRainbowPreset(int colorColumnCount = 12, int lightRowCount = 4, int darkRowCount = 4, bool withGray = true);
-    //void setHsvPreset(QColor hue[], QColor saturation[], QColor value[], bool withGray = true);
+    // void setHsvPreset(QColor hue[], QColor saturation[], QColor value[], bool withGray = true);
 
     /**
      * Returns a pixmap of a colored rounded-rectangle. The four corners are transparent.\n
@@ -285,12 +285,12 @@ private:
     void updateComboBox();
 
     KColorPopup *m_popup;
-    QColor       m_color;
-    QColor       m_defaultColor;
-    QColor     **m_colorArray;
-    int          m_columnCount;
-    int          m_rowCount;
-    QPoint       m_dragStartPos;
+    QColor m_color;
+    QColor m_defaultColor;
+    QColor **m_colorArray;
+    int m_columnCount;
+    int m_rowCount;
+    QPoint m_dragStartPos;
 
 protected:
     /**
@@ -319,8 +319,9 @@ public:
     void relayout(); // updateGeometry() ??
 signals:
     void closed();
+
 protected:
-    void paintEvent(QPaintEvent */*event*/) override;
+    void paintEvent(QPaintEvent * /*event*/) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;

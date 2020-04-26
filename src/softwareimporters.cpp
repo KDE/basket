@@ -19,41 +19,41 @@
 
 #include "softwareimporters.h"
 
-#include <QtCore/QString>
-#include <QtCore/QDir>
-#include <QtCore/QTextStream>
-#include <QtCore/QStack>
+#include <QDialogButtonBox>
+#include <QFileDialog>
 #include <QGroupBox>
 #include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QRadioButton>
-#include <QtXml/QDomDocument>
-#include <QRegExp>
 #include <QLocale>
-#include <QDialogButtonBox>
 #include <QPushButton>
+#include <QRadioButton>
+#include <QRegExp>
 #include <QStandardPaths>
-#include <QFileDialog>
+#include <QVBoxLayout>
+#include <QtCore/QDir>
+#include <QtCore/QStack>
+#include <QtCore/QString>
+#include <QtCore/QTextStream>
+#include <QtXml/QDomDocument>
 
-#include <KMessageBox>
-#include <KTextEdit>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <KMessageBox>
+#include <KTextEdit>
 
-#include "basketscene.h"
 #include "basketfactory.h"
-#include "notefactory.h"
-#include "global.h"
+#include "basketscene.h"
 #include "bnpview.h"
-#include "xmlwork.h"
-#include "tools.h"
-#include "icon_names.h"
 #include "debugwindow.h"
+#include "global.h"
+#include "icon_names.h"
+#include "notefactory.h"
+#include "tools.h"
+#include "xmlwork.h"
 
 /** class TreeImportDialog: */
 
 TreeImportDialog::TreeImportDialog(QWidget *parent)
-        : QDialog(parent)
+    : QDialog(parent)
 {
     QWidget *page = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(page);
@@ -74,8 +74,8 @@ TreeImportDialog::TreeImportDialog(QWidget *parent)
     m_choices->setLayout(m_choiceLayout);
 
     m_hierarchy_choice = new QRadioButton(i18n("&Keep original hierarchy (all notes in separate baskets)"), m_choices);
-    m_separate_baskets_choice = new QRadioButton(i18n("&First level notes in separate baskets"),            m_choices);
-    m_one_basket_choice = new QRadioButton(i18n("&All notes in one basket"),                                m_choices);
+    m_separate_baskets_choice = new QRadioButton(i18n("&First level notes in separate baskets"), m_choices);
+    m_one_basket_choice = new QRadioButton(i18n("&All notes in one basket"), m_choices);
 
     m_hierarchy_choice->setChecked(true);
     m_choiceLayout->addWidget(m_hierarchy_choice);
@@ -87,7 +87,7 @@ TreeImportDialog::TreeImportDialog(QWidget *parent)
 
     mainLayout->addWidget(page);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -113,7 +113,7 @@ int TreeImportDialog::choice()
 /** class TextFileImportDialog: */
 
 TextFileImportDialog::TextFileImportDialog(QWidget *parent)
-        : QDialog(parent)
+    : QDialog(parent)
 {
     QWidget *page = new QWidget(this);
     QVBoxLayout *topLayout = new QVBoxLayout(page);
@@ -125,17 +125,16 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     setObjectName("ImportTextFile");
     setModal(true);
 
-
     m_choices = new QGroupBox(i18n("Format of the Text File"), page);
     mainLayout->addWidget(m_choices);
     m_choiceLayout = new QVBoxLayout;
     m_choices->setLayout(m_choiceLayout);
 
     m_emptyline_choice = new QRadioButton(i18n("Notes separated by an &empty line"), m_choices);
-    m_newline_choice = new QRadioButton(i18n("One &note per line"),                  m_choices);
-    m_dash_choice = new QRadioButton(i18n("Notes begin with a &dash (-)"),           m_choices);
-    m_star_choice = new QRadioButton(i18n("Notes begin with a &star (*)"),           m_choices);
-    m_anotherSeparator = new QRadioButton(i18n("&Use another separator:"),           m_choices);
+    m_newline_choice = new QRadioButton(i18n("One &note per line"), m_choices);
+    m_dash_choice = new QRadioButton(i18n("Notes begin with a &dash (-)"), m_choices);
+    m_star_choice = new QRadioButton(i18n("Notes begin with a &star (*)"), m_choices);
+    m_anotherSeparator = new QRadioButton(i18n("&Use another separator:"), m_choices);
 
     m_choiceLayout->addWidget(m_emptyline_choice);
     m_choiceLayout->addWidget(m_newline_choice);
@@ -151,7 +150,7 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     m_customSeparator = new KTextEdit(indentedTextEdit);
     hLayout->addWidget(m_customSeparator);
 
-    m_all_in_one_choice = new QRadioButton(i18n("&All in one note"),                  m_choices);
+    m_all_in_one_choice = new QRadioButton(i18n("&All in one note"), m_choices);
     m_choiceLayout->addWidget(m_all_in_one_choice);
 
     m_emptyline_choice->setChecked(true);
@@ -161,7 +160,7 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
 
     mainLayout->addWidget(page);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -209,11 +208,11 @@ QString SoftwareImporters::fromICS(const QString &ics)
     while ((pos = result.indexOf('\\', pos)) != -1) {
         if (pos == result.length() - 1) // End of string
             break;
-        if (result[pos+1] == 'n') {
+        if (result[pos + 1] == 'n') {
             result.replace(pos, 2, '\n');
-        } else if (result[pos+1] == 'r') {
+        } else if (result[pos + 1] == 'r') {
             result.replace(pos, 2, '\r');
-        } else if (result[pos+1] == 't') {
+        } else if (result[pos + 1] == 't') {
             result.replace(pos, 2, '\t');
         } else if (result[pos] == '\\') {
             result.remove(pos, 1); // Take care of "\\", "\,", "\;" and other escaped characters I haven't noticed
@@ -230,38 +229,38 @@ QString SoftwareImporters::fromTomboy(QString tomboy)
     tomboy = tomboy.mid(tomboy.indexOf("\n")).trimmed();
 
     // Font styles and decorations:
-    tomboy.replace("<bold>",           "<b>");
-    tomboy.replace("</bold>",          "</b>");
-    tomboy.replace("<italic>",         "<i>");
-    tomboy.replace("</italic>",        "</i>");
-    tomboy.replace("<strikethrough>",  "<span style='text-decoration: line-through'>");
+    tomboy.replace("<bold>", "<b>");
+    tomboy.replace("</bold>", "</b>");
+    tomboy.replace("<italic>", "<i>");
+    tomboy.replace("</italic>", "</i>");
+    tomboy.replace("<strikethrough>", "<span style='text-decoration: line-through'>");
     tomboy.replace("</strikethrough>", "</span>");
 
     // Highlight not supported by KTextEdit:
-    //TODO: implement this marker-style yellow highlight?
-    tomboy.replace("<highlight>",      "<span style='color:#ff0080'>");
-    tomboy.replace("</highlight>",     "</span>");
+    // TODO: implement this marker-style yellow highlight?
+    tomboy.replace("<highlight>", "<span style='color:#ff0080'>");
+    tomboy.replace("</highlight>", "</span>");
 
     // Font sizes:
-    tomboy.replace("<size:small>",     "<span style='font-size: 7pt'>");
-    tomboy.replace("</size:small>",    "</span>");
-    tomboy.replace("<size:large>",     "<span style='font-size: 16pt'>");
-    tomboy.replace("</size:large>",    "</span>");
-    tomboy.replace("<size:huge>",      "<span style='font-size: 20pt'>");
-    tomboy.replace("</size:huge>",     "</span>");
+    tomboy.replace("<size:small>", "<span style='font-size: 7pt'>");
+    tomboy.replace("</size:small>", "</span>");
+    tomboy.replace("<size:large>", "<span style='font-size: 16pt'>");
+    tomboy.replace("</size:large>", "</span>");
+    tomboy.replace("<size:huge>", "<span style='font-size: 20pt'>");
+    tomboy.replace("</size:huge>", "</span>");
 
     // Internal links to other notes aren't supported yet by BasKet Note Pads:
-    tomboy.replace("<link:internal>",  "");
+    tomboy.replace("<link:internal>", "");
     tomboy.replace("</link:internal>", "");
 
     // Bullets
-    tomboy.replace("<list>",           "<ul>");
-    tomboy.replace("</list>",          "</ul>");
+    tomboy.replace("<list>", "<ul>");
+    tomboy.replace("</list>", "</ul>");
 
     QRegExp tagRegex("<list-item.*>");
     tagRegex.setMinimal(true); // non-greedy
-    tomboy.replace(QRegExp(tagRegex),  "<li>");
-    tomboy.replace("</list-item>",     "</li>");
+    tomboy.replace(QRegExp(tagRegex), "<li>");
+    tomboy.replace("</list-item>", "</li>");
 
     // In the Tomboy file, new lines are "\n" and not "<br>":
     tomboy.replace('\n', "<br>\n");
@@ -270,28 +269,27 @@ QString SoftwareImporters::fromTomboy(QString tomboy)
     return "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" + tomboy + "</body></html>";
 }
 
-QString SoftwareImporters::getFirstTomboyTag(const QDomElement& docElem)
+QString SoftwareImporters::getFirstTomboyTag(const QDomElement &docElem)
 {
     // Would be better to take the last tag (latest user choice), but that requires more DOM code
 
-   QString tag = XMLWork::getElementText(docElem, "tags/tag");
-   if (tag.length() > 0) {
+    QString tag = XMLWork::getElementText(docElem, "tags/tag");
+    if (tag.length() > 0) {
+        // Carefully peel the markup
+        const QString SYSTEM_PREFIX = "system:";
+        const QString NOTEBOOK_PREFIX = "notebook:";
 
-       // Carefully peel the markup
-       const QString SYSTEM_PREFIX = "system:";
-       const QString NOTEBOOK_PREFIX = "notebook:";
+        if (tag.startsWith(SYSTEM_PREFIX))
+            tag.remove(0, SYSTEM_PREFIX.length());
 
-       if (tag.startsWith(SYSTEM_PREFIX))
-           tag.remove(0, SYSTEM_PREFIX.length());
+        if (tag.startsWith(NOTEBOOK_PREFIX))
+            tag.remove(0, NOTEBOOK_PREFIX.length());
+    }
 
-       if (tag.startsWith(NOTEBOOK_PREFIX))
-           tag.remove(0, NOTEBOOK_PREFIX.length());
-   }
-
-   return tag;
+    return tag;
 }
 
-Note* SoftwareImporters::insertTitledNote(BasketScene *parent, const QString &title, const QString &content, Qt::TextFormat format/* = Qt::PlainText*/, Note *parentNote/* = 0*/)
+Note *SoftwareImporters::insertTitledNote(BasketScene *parent, const QString &title, const QString &content, Qt::TextFormat format /* = Qt::PlainText*/, Note *parentNote /* = 0*/)
 {
     Note *nGroup = new Note(parent);
 
@@ -306,9 +304,9 @@ Note* SoftwareImporters::insertTitledNote(BasketScene *parent, const QString &ti
 
     if (parentNote == 0)
         parentNote = parent->firstNote(); // In the first column!
-    parent->insertNote(nGroup,   parentNote, Note::BottomColumn, QPoint(), /*animate=*/false);
-    parent->insertNote(nTitle,   nGroup,     Note::BottomColumn, QPoint(), /*animate=*/false);
-    parent->insertNote(nContent, nTitle,     Note::BottomInsert, QPoint(), /*animate=*/false);
+    parent->insertNote(nGroup, parentNote, Note::BottomColumn, QPoint(), /*animate=*/false);
+    parent->insertNote(nTitle, nGroup, Note::BottomColumn, QPoint(), /*animate=*/false);
+    parent->insertNote(nContent, nTitle, Note::BottomInsert, QPoint(), /*animate=*/false);
 
     return nGroup;
 }
@@ -328,11 +326,9 @@ void SoftwareImporters::finishImport(BasketScene *basket)
     basket->save();
 }
 
-
-
 void SoftwareImporters::importKJots()
 {
-    //This code is out-of-date. KJots (KDE4) and KNotes (KDE4, 5) now store data in Akonadi and MIME files in .local/share/notes
+    // This code is out-of-date. KJots (KDE4) and KNotes (KDE4, 5) now store data in Akonadi and MIME files in .local/share/notes
     QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "/../kjots/"; // I think the assumption is good
     QDir dir(dirPath, QString(), QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
@@ -343,7 +339,7 @@ void SoftwareImporters::importKJots()
     BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/i18n("From KJots"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
     BasketScene *kjotsBasket = Global::bnpView->currentBasket();
 
-    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {   // For each file
+    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) { // For each file
         QFile file(dirPath + *it);
         if (file.open(QIODevice::ReadOnly)) {
             QTextStream stream(&file);
@@ -351,9 +347,9 @@ void SoftwareImporters::importKJots()
 
             // IT IS A NOTEBOOK FILE, AT THE VERION 0.6.x and older:
             if (!buf.isNull() && buf.left(9) == "\\NewEntry") {
-
                 // First create a basket for it:
-                BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/QUrl::fromLocalFile(file.fileName()).fileName(), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
+                BasketFactory::newBasket(
+                    /*icon=*/"kjots", /*name=*/QUrl::fromLocalFile(file.fileName()).fileName(), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
                 BasketScene *basket = Global::bnpView->currentBasket();
                 basket->load();
 
@@ -363,8 +359,8 @@ void SoftwareImporters::importKJots()
                     if (buf.left(9) == "\\NewEntry") {
                         if (haveAnEntry) // Do not add note the first time
                             insertTitledNote(basket, title, Tools::stripEndWhiteSpaces(body));
-                        title = buf.mid(10, buf.length());          // Problem : basket will be saved
-                        body = ""; // New note will then be created //  EACH time a note is imported
+                        title = buf.mid(10, buf.length()); // Problem : basket will be saved
+                        body = "";                         // New note will then be created //  EACH time a note is imported
                         haveAnEntry = true;
                     } else if (buf.left(3) != "\\ID") { // Don't care of the ID
                         // Remove escaped '\' characters and append the text to the body
@@ -385,7 +381,6 @@ void SoftwareImporters::importKJots()
 
                 // IT IS A NOTEBOOK XML FILE, AT THE VERION 0.7.0 and later:
             } else if ((*it).endsWith(QLatin1String(".book")) /*&& !buf.isNull() && (buf.left(2) == "<!" / *<!DOCTYPE...* / || buf.left(2) == "<?" / *<?xml...* /)*/) {
-
                 QDomDocument *doc = XMLWork::openFile("KJots", dirPath + *it);
                 if (doc == 0)
                     continue;
@@ -404,7 +399,6 @@ void SoftwareImporters::importKJots()
                         insertTitledNote(basket, XMLWork::getElementText(e, "Title"), XMLWork::getElementText(e, "Text"));
                 }
                 finishImport(basket);
-
             }
 
             file.close();
@@ -418,8 +412,8 @@ void SoftwareImporters::importKNotes()
     QDir dir(dirPath, QString(), QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
 
     QStringList list = dir.entryList();
-    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {   // For each file
-        if (!(*it).endsWith(QLatin1String(".ics")))    // Don't process *.ics~ and other files
+    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) { // For each file
+        if (!(*it).endsWith(QLatin1String(".ics")))                         // Don't process *.ics~ and other files
             continue;
         QFile file(dirPath + *it);
         if (file.open(QIODevice::ReadOnly)) {
@@ -431,9 +425,9 @@ void SoftwareImporters::importKNotes()
             BasketScene *basket = Global::bnpView->currentBasket();
             basket->load();
 
-            bool inVJournal    = false;
+            bool inVJournal = false;
             bool inDescription = false;
-            bool isRichText    = false;
+            bool isRichText = false;
             QString title, body;
             QString buf;
             while (1) {
@@ -454,9 +448,9 @@ void SoftwareImporters::importKNotes()
                     isRichText = XMLWork::trueOrFalse(buf.mid(22, buf.length() - 22).trimmed(), "false");
                 } else if (buf == "END:VJOURNAL") {
                     insertTitledNote(basket, fromICS(title), fromICS(body), (isRichText ? Qt::RichText : Qt::PlainText));
-                    inVJournal    = false;
+                    inVJournal = false;
                     inDescription = false;
-                    isRichText    = false;
+                    isRichText = false;
                     title = "";
                     body = "";
                 } else
@@ -465,7 +459,7 @@ void SoftwareImporters::importKNotes()
 
             // Bouh : duplicate code
             // In case of invalid ICAL file!
-            if (! body.isEmpty())   // Add the ending note
+            if (!body.isEmpty()) // Add the ending note
                 insertTitledNote(basket, fromICS(title), fromICS(body), (isRichText ? Qt::RichText : Qt::PlainText));
             file.close();
             finishImport(basket);
@@ -478,12 +472,11 @@ void SoftwareImporters::importStickyNotes()
     // Sticky Notes file is usually located in ~/.gnome2/stickynotes_applet
     // We will search all directories in "~/" that contain "gnome" in the name,
     // and will search for "stickynotes_applet" file (that should be XML file with <stickynotes> root.
-    QDir dir(QDir::home().absolutePath(), QString(), QDir::Name | QDir::IgnoreCase,
-             QDir::Dirs | QDir::NoSymLinks | QDir::Hidden);
+    QDir dir(QDir::home().absolutePath(), QString(), QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks | QDir::Hidden);
     QStringList founds;
 
     QStringList list = dir.entryList();
-    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {   // For each folder
+    for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) { // For each folder
         if ((*it).contains("gnome", Qt::CaseInsensitive)) {
             QString fullPath = QDir::home().absolutePath() + '/' + (*it) + "/stickynotes_applet";
             if (dir.exists(fullPath))
@@ -491,7 +484,7 @@ void SoftwareImporters::importStickyNotes()
         }
     }
 
-    for (QStringList::Iterator it = founds.begin(); it != founds.end(); ++it) {   // For each file
+    for (QStringList::Iterator it = founds.begin(); it != founds.end(); ++it) { // For each file
         QFile file(*it);
         QDomDocument *doc = XMLWork::openFile("stickynotes", *it);
         if (doc == 0)
@@ -512,8 +505,6 @@ void SoftwareImporters::importStickyNotes()
     }
 }
 
-
-
 // TODO: FIXME: Code duplicated from notecontent.cpp but with UTF-8 encoding.
 // TODO: FIXME: Later, merge!
 QString loadUtf8FileToString(const QString &fileName)
@@ -530,26 +521,24 @@ QString loadUtf8FileToString(const QString &fileName)
         return "";
 }
 
-
 void SoftwareImporters::importTomboy()
 {
     /* A notebook becomes a basket.
     What can be improved: separate big text into notes by "\n\n";
     remove "\n" from lists - we don't need <br> between two <li>s */
 
-    BasketScene *basketFromTomboy = 0; // Create the basket ONLY if we found at least one note to add!
-    BasketScene *subBasket; // Where are we adding current note? (can equal basketFromTomboy if the note is in generic notebook)
-    QMap<QString, BasketScene*> subBuskets; // "notebook name - basket" correspondence
+    BasketScene *basketFromTomboy = 0;       // Create the basket ONLY if we found at least one note to add!
+    BasketScene *subBasket;                  // Where are we adding current note? (can equal basketFromTomboy if the note is in generic notebook)
+    QMap<QString, BasketScene *> subBuskets; // "notebook name - basket" correspondence
 
-    QString possibleLocations[2] = { "/.tomboy/", "/.local/share/tomboy/" };
-    for (int L=0; L<2; L++) {
-
+    QString possibleLocations[2] = {"/.tomboy/", "/.local/share/tomboy/"};
+    for (int L = 0; L < 2; L++) {
         QString dirPath = QDir::home().absolutePath() + possibleLocations[L];
         QDir dir(dirPath, QString(), QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks);
         DEBUG_WIN << "Tomboy import: Checking " + dirPath;
 
         QStringList list = dir.entryList();
-        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {   // For each file
+        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) { // For each file
             if (!(*it).endsWith(QLatin1String(".note")))
                 continue;
             QDomDocument *doc = XMLWork::openFile("note", dirPath + *it);
@@ -570,10 +559,10 @@ void SoftwareImporters::importTomboy()
             // Find subbasket or create a new one
             if (notebook.length() > 0) {
                 if (subBuskets.contains(notebook))
-                    subBasket = subBuskets[notebook]; else
-                {
+                    subBasket = subBuskets[notebook];
+                else {
                     BasketFactory::newBasket(IconNames::TOMBOY, notebook, "", QColor(), QColor(), "1column", /*createIn=*/basketFromTomboy);
-                    subBasket = Global::bnpView->currentBasket(); //TODO: ? change newBasket() so that it returns pointer and we don't have to load it
+                    subBasket = Global::bnpView->currentBasket(); // TODO: ? change newBasket() so that it returns pointer and we don't have to load it
                     subBasket->load();
 
                     subBuskets.insert(notebook, subBasket);
@@ -581,10 +570,9 @@ void SoftwareImporters::importTomboy()
             } else
                 subBasket = basketFromTomboy; // will insert to the root basket
 
-
             // DOES NOT REALLY WORKS:
-            //QDomElement contentElement = XMLWork::getElement(docElem, "text/note-content");
-            //QString content = XMLWork::innerXml(contentElement);
+            // QDomElement contentElement = XMLWork::getElement(docElem, "text/note-content");
+            // QString content = XMLWork::innerXml(contentElement);
 
             // Isolate "<note-content version="0.1">CONTENT</note-content>"!
             QString xml = loadUtf8FileToString(dirPath + *it);
@@ -592,23 +580,22 @@ void SoftwareImporters::importTomboy()
             xml = xml.mid(xml.indexOf(">") + 1);
             xml = xml.mid(0, xml.indexOf("</note-content>"));
 
-            if (!title.isEmpty() && !/*content*/xml.isEmpty()) {
-                insertTitledNote(subBasket, title, fromTomboy(xml/*content*/), Qt::RichText);
+            if (!title.isEmpty() && !/*content*/ xml.isEmpty()) {
+                insertTitledNote(subBasket, title, fromTomboy(xml /*content*/), Qt::RichText);
                 DEBUG_WIN << QString("Tomboy import: Inserting note '%1' into '%2'").arg(title, notebook);
             }
         }
-
     }
 
     if (basketFromTomboy)
         finishImport(basketFromTomboy);
 }
 
-void SoftwareImporters::importJreepadFile(){
+void SoftwareImporters::importJreepadFile()
+{
     typedef QPair<BasketScene *, QDomElement> basketAndElementPair;
 
-    QString fileName = QFileDialog::getOpenFileName(0, QString(), "kfiledialog:///:ImportJreepadFile",
-                                                    "*.xml|XML files");
+    QString fileName = QFileDialog::getOpenFileName(0, QString(), "kfiledialog:///:ImportJreepadFile", "*.xml|XML files");
     if (fileName.isEmpty()) {
         return;
     }
@@ -616,15 +603,19 @@ void SoftwareImporters::importJreepadFile(){
     basketAndElementPair newElement;
     basketAndElementPair currentElement;
     QList<basketAndElementPair> elements;
-    QList<BasketScene*> basketList;
+    QList<BasketScene *> basketList;
 
     QDomDocument *doc = XMLWork::openFile("node", fileName);
     newElement.second = doc->documentElement();
 
     BasketScene *basket = 0;
-    BasketFactory::newBasket(/*icon=*/"xml", /*name=*/doc->documentElement().attribute("title"), 
-                             /*backgroundImage=*/"", /*backgroundColor=*/QColor(), 
-                             /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+    BasketFactory::newBasket(/*icon=*/"xml",
+                             /*name=*/doc->documentElement().attribute("title"),
+                             /*backgroundImage=*/"",
+                             /*backgroundColor=*/QColor(),
+                             /*textColor=*/QColor(),
+                             /*templateName=*/"1column",
+                             /*createIn=*/0);
     basket = Global::bnpView->currentBasket();
     basket->load();
     basketList << basket;
@@ -632,18 +623,20 @@ void SoftwareImporters::importJreepadFile(){
 
     elements << newElement;
 
-    while ( !elements.isEmpty() ) {
+    while (!elements.isEmpty()) {
         currentElement = elements.takeFirst();
         for (QDomNode n = currentElement.second.firstChild(); !n.isNull(); n = n.nextSibling()) {
-            if ( n.isText() ) {
+            if (n.isText()) {
                 basket = currentElement.first;
                 Note *note = NoteFactory::createNoteFromText(n.toText().data(), basket);
-                basket->insertNote(note, basket->firstNote(), 
-                                   Note::BottomColumn, QPoint(), /*animate=*/false);
-            } else if ( n.isElement() ) {
-                BasketFactory::newBasket(/*icon=*/"xml", /*name=*/n.toElement().attribute("title"), 
-                                         /*backgroundImage=*/"", /*backgroundColor=*/QColor(), 
-                                         /*textColor=*/QColor(), /*templateName=*/"1column", 
+                basket->insertNote(note, basket->firstNote(), Note::BottomColumn, QPoint(), /*animate=*/false);
+            } else if (n.isElement()) {
+                BasketFactory::newBasket(/*icon=*/"xml",
+                                         /*name=*/n.toElement().attribute("title"),
+                                         /*backgroundImage=*/"",
+                                         /*backgroundColor=*/QColor(),
+                                         /*textColor=*/QColor(),
+                                         /*templateName=*/"1column",
                                          /*createIn=*/currentElement.first);
                 basket = Global::bnpView->currentBasket();
                 basket->load();
@@ -654,7 +647,7 @@ void SoftwareImporters::importJreepadFile(){
             }
         }
     }
-    
+
     foreach (basket, basketList) {
         finishImport(basket);
     }
@@ -671,15 +664,11 @@ void SoftwareImporters::importTextFile()
         return;
     QString separator = dialog.separator();
 
-
     QFile file(fileName);
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
         QString content = stream.readAll();
-        QStringList list = (separator.isEmpty()
-                            ? QStringList(content)
-                            : content.split(separator)
-                           );
+        QStringList list = (separator.isEmpty() ? QStringList(content) : content.split(separator));
 
         // First create a basket for it:
         QString title = i18nc("From TextFile.txt", "From %1", QUrl::fromLocalFile(fileName).fileName());
@@ -699,16 +688,15 @@ void SoftwareImporters::importTextFile()
 }
 
 /** @author Petri Damsten <petri.damsten@iki.fi>
-  */
+ */
 void SoftwareImporters::importKnowIt()
 {
-    QUrl url = QFileDialog::getOpenFileUrl(NULL, "", QUrl("kfiledialog:///:ImportKnowIt"),
-                                       "*.kno|KnowIt files\n*|All files");
+    QUrl url = QFileDialog::getOpenFileUrl(NULL, "", QUrl("kfiledialog:///:ImportKnowIt"), "*.kno|KnowIt files\n*|All files");
     if (!url.isEmpty()) {
         QFile file(url.path());
         QFileInfo info(url.path());
-        BasketScene* basket = 0;
-        QStack<BasketScene*> baskets;
+        BasketScene *basket = 0;
+        QStack<BasketScene *> baskets;
         QString text;
         int hierarchy = 0;
 
@@ -719,12 +707,12 @@ void SoftwareImporters::importKnowIt()
         hierarchy = dialog.choice();
 
         BasketFactory::newBasket(/*icon=*/"knowit",
-                                          /*name=*/info.baseName(),
-                                          /*backgroundImage=*/"",
-                                          /*backgroundColor=*/QColor(),
-                                          /*textColor=*/QColor(),
-                                          /*templateName=*/"1column",
-                                          /*createIn=*/0);
+                                 /*name=*/info.baseName(),
+                                 /*backgroundImage=*/"",
+                                 /*backgroundColor=*/QColor(),
+                                 /*textColor=*/QColor(),
+                                 /*templateName=*/"1column",
+                                 /*createIn=*/0);
         basket = Global::bnpView->currentBasket();
         basket->load();
         baskets.push(basket);
@@ -741,39 +729,34 @@ void SoftwareImporters::importKnowIt()
             while (1) {
                 line = stream.readLine();
 
-                if (line.startsWith(QLatin1String("\\NewEntry")) ||
-                        line.startsWith(QLatin1String("\\CurrentEntry")) || stream.atEnd()) {
+                if (line.startsWith(QLatin1String("\\NewEntry")) || line.startsWith(QLatin1String("\\CurrentEntry")) || stream.atEnd()) {
                     while (level + 1 < baskets.size() - baskets.count(0))
                         baskets.pop();
                     if (level + 1 > baskets.size() - baskets.count(0))
                         baskets.push(basket);
 
                     if (!name.isEmpty()) {
-                        if ((level == 0 && hierarchy == 1) ||
-                                (hierarchy == 0)) {
+                        if ((level == 0 && hierarchy == 1) || (hierarchy == 0)) {
                             BasketFactory::newBasket(/*icon=*/"knowit",
-                                                              /*name=*/name,
-                                                              /*backgroundImage=*/"",
-                                                              /*backgroundColor=*/QColor(),
-                                                              /*textColor=*/QColor(),
-                                                              /*templateName=*/"1column",
-                                                              /*createIn=*/baskets.top());
+                                                     /*name=*/name,
+                                                     /*backgroundImage=*/"",
+                                                     /*backgroundColor=*/QColor(),
+                                                     /*textColor=*/QColor(),
+                                                     /*templateName=*/"1column",
+                                                     /*createIn=*/baskets.top());
                             basket = Global::bnpView->currentBasket();
                             basket->load();
                         }
 
-                        if (!text.trimmed().isEmpty() ||
-                                hierarchy == 2 ||
-                                (hierarchy == 1 && level > 0)) {
+                        if (!text.trimmed().isEmpty() || hierarchy == 2 || (hierarchy == 1 && level > 0)) {
                             insertTitledNote(basket, name, text, Qt::RichText);
                         }
                         for (int j = 0; j < links.count(); ++j) {
-                            Note* link;
+                            Note *link;
                             if (descriptions.count() < j + 1 || descriptions[j].isEmpty())
                                 link = NoteFactory::createNoteLink(links[j], basket);
                             else
-                                link = NoteFactory::createNoteLink(links[j],
-                                                                   descriptions[j], basket);
+                                link = NoteFactory::createNoteLink(links[j], descriptions[j], basket);
                             basket->insertCreatedNote(link);
                         }
                         finishImport(basket);
@@ -815,7 +798,7 @@ void SoftwareImporters::importTuxCards()
 
     int hierarchy = dialog.choice();
 
-    QDomDocument *document = XMLWork::openFile("tuxcards_data_file"/*"InformationCollection"*/, fileName);
+    QDomDocument *document = XMLWork::openFile("tuxcards_data_file" /*"InformationCollection"*/, fileName);
     if (document == 0) {
         KMessageBox::error(0, i18n("Can not import that file. It is either corrupted or not a TuxCards file."), i18n("Bad File Format"));
         return;
@@ -835,11 +818,11 @@ void SoftwareImporters::importTuxCardsNode(const QDomElement &element, BasketSce
         if (e.isNull() || e.tagName() != "InformationElement") // Cannot handle that!
             continue;
 
-        QString icon        = e.attribute("iconFileName");
-        QString name        = XMLWork::getElementText(e, "Description");
-        QString content     = XMLWork::getElementText(e, "Information");
-        bool    isRichText  = (e.attribute("informationFormat") == "RTF");
-        bool    isEncrypted = (e.attribute("isEncripted") == "true");
+        QString icon = e.attribute("iconFileName");
+        QString name = XMLWork::getElementText(e, "Description");
+        QString content = XMLWork::getElementText(e, "Information");
+        bool isRichText = (e.attribute("informationFormat") == "RTF");
+        bool isEncrypted = (e.attribute("isEncripted") == "true");
         if (icon.isEmpty() || icon == "none")
             icon = "tuxcards";
         Note *nContent;
@@ -869,4 +852,3 @@ void SoftwareImporters::importTuxCardsNode(const QDomElement &element, BasketSce
         }
     }
 }
-

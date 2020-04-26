@@ -19,9 +19,9 @@
 #ifndef REGIONGRABBER_H
 #define REGIONGRABBER_H
 
-#include <QtCore/QVector>
-#include <QtCore/QTimer>
 #include <QWidget>
+#include <QtCore/QTimer>
+#include <QtCore/QVector>
 
 class QPoint;
 class QRect;
@@ -45,13 +45,13 @@ signals:
     void regionGrabbed(const QPixmap &);
 
 protected:
-    void paintEvent(QPaintEvent* e) override;
-    void resizeEvent(QResizeEvent* e) override;
-    void mousePressEvent(QMouseEvent* e) override;
-    void mouseMoveEvent(QMouseEvent* e) override;
-    void mouseReleaseEvent(QMouseEvent* e) override;
-    void mouseDoubleClickEvent(QMouseEvent*) override;
-    void keyPressEvent(QKeyEvent* e) override;
+    void paintEvent(QPaintEvent *e) override;
+    void resizeEvent(QResizeEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
+    void mouseDoubleClickEvent(QMouseEvent *) override;
+    void keyPressEvent(QKeyEvent *e) override;
     void updateHandles();
     QRegion handleMask() const;
     QPoint limitPointToRect(const QPoint &p, const QRect &r) const;
@@ -61,9 +61,9 @@ protected:
     bool mouseDown;
     bool newSelection;
     const int handleSize;
-    QRect* mouseOverHandle;
+    QRect *mouseOverHandle;
     QPoint dragStartPoint;
-    QRect  selectionBeforeDrag;
+    QRect selectionBeforeDrag;
     QTimer idleTimer;
     bool showHelp;
     bool grabbing;
@@ -75,7 +75,7 @@ protected:
     QRect TLHandle, TRHandle, BLHandle, BRHandle;
     QRect LHandle, THandle, RHandle, BHandle;
 
-    QVector<QRect*> handles;
+    QVector<QRect *> handles;
     QPixmap pixmap;
 };
 

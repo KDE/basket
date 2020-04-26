@@ -19,45 +19,44 @@
 
 #include "tagsedit.h"
 
-#include <QtCore/QEvent>
-#include <QtCore/QList>
-#include <QtCore/QTimer>
 #include <QAction>
+#include <QApplication>
 #include <QCheckBox>
+#include <QDialogButtonBox>
 #include <QFontComboBox>
 #include <QGridLayout>
 #include <QGroupBox>
-#include <QHeaderView>    //For m_tags->header()
 #include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QtGui/QKeyEvent>
+#include <QHeaderView> //For m_tags->header()
 #include <QLabel>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPainter>
-#include <QApplication>
 #include <QLineEdit>
 #include <QLocale>
 #include <QPushButton>
-#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QtCore/QEvent>
+#include <QtCore/QList>
+#include <QtCore/QTimer>
+#include <QtGui/QKeyEvent>
+#include <QtGui/QMouseEvent>
+#include <QtGui/QPainter>
 
+#include <KConfigGroup>
 #include <KIconButton>
 #include <KIconLoader>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KSeparator>
 #include <KShortcutWidget>
-#include <KConfigGroup>
-#include <KLocalizedString>
 
-#include "tag.h"
-#include "kcolorcombo2.h"
-#include "variouswidgets.h"         //For FontSizeCombo
-#include "global.h"
 #include "bnpview.h"
-
+#include "global.h"
+#include "kcolorcombo2.h"
+#include "tag.h"
+#include "variouswidgets.h" //For FontSizeCombo
 
 /** class StateCopy: */
 
-StateCopy::StateCopy(State *old/* = 0*/)
+StateCopy::StateCopy(State *old /* = 0*/)
 {
     oldState = old;
     newState = new State();
@@ -76,7 +75,7 @@ void StateCopy::copyBack()
 
 /** class TagCopy: */
 
-TagCopy::TagCopy(Tag *old/* = 0*/)
+TagCopy::TagCopy(Tag *old /* = 0*/)
 {
     oldTag = old;
     newTag = new Tag();
@@ -107,25 +106,33 @@ bool TagCopy::isMultiState()
 /** class TagListViewItem: */
 
 TagListViewItem::TagListViewItem(QTreeWidget *parent, TagCopy *tagCopy)
-        : QTreeWidgetItem(parent), m_tagCopy(tagCopy), m_stateCopy(0)
+    : QTreeWidgetItem(parent)
+    , m_tagCopy(tagCopy)
+    , m_stateCopy(0)
 {
     setText(0, tagCopy->newTag->name());
 }
 
 TagListViewItem::TagListViewItem(QTreeWidgetItem *parent, TagCopy *tagCopy)
-        : QTreeWidgetItem(parent), m_tagCopy(tagCopy), m_stateCopy(0)
+    : QTreeWidgetItem(parent)
+    , m_tagCopy(tagCopy)
+    , m_stateCopy(0)
 {
     setText(0, tagCopy->newTag->name());
 }
 
 TagListViewItem::TagListViewItem(QTreeWidget *parent, QTreeWidgetItem *after, TagCopy *tagCopy)
-        : QTreeWidgetItem(parent, after), m_tagCopy(tagCopy), m_stateCopy(0)
+    : QTreeWidgetItem(parent, after)
+    , m_tagCopy(tagCopy)
+    , m_stateCopy(0)
 {
     setText(0, tagCopy->newTag->name());
 }
 
 TagListViewItem::TagListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after, TagCopy *tagCopy)
-        : QTreeWidgetItem(parent, after), m_tagCopy(tagCopy), m_stateCopy(0)
+    : QTreeWidgetItem(parent, after)
+    , m_tagCopy(tagCopy)
+    , m_stateCopy(0)
 {
     setText(0, tagCopy->newTag->name());
 }
@@ -133,25 +140,33 @@ TagListViewItem::TagListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after
 /* */
 
 TagListViewItem::TagListViewItem(QTreeWidget *parent, StateCopy *stateCopy)
-        : QTreeWidgetItem(parent), m_tagCopy(0), m_stateCopy(stateCopy)
+    : QTreeWidgetItem(parent)
+    , m_tagCopy(0)
+    , m_stateCopy(stateCopy)
 {
     setText(0, stateCopy->newState->name());
 }
 
 TagListViewItem::TagListViewItem(QTreeWidgetItem *parent, StateCopy *stateCopy)
-        : QTreeWidgetItem(parent), m_tagCopy(0), m_stateCopy(stateCopy)
+    : QTreeWidgetItem(parent)
+    , m_tagCopy(0)
+    , m_stateCopy(stateCopy)
 {
     setText(0, stateCopy->newState->name());
 }
 
 TagListViewItem::TagListViewItem(QTreeWidget *parent, QTreeWidgetItem *after, StateCopy *stateCopy)
-        : QTreeWidgetItem(parent, after), m_tagCopy(0), m_stateCopy(stateCopy)
+    : QTreeWidgetItem(parent, after)
+    , m_tagCopy(0)
+    , m_stateCopy(stateCopy)
 {
     setText(0, stateCopy->newState->name());
 }
 
 TagListViewItem::TagListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after, StateCopy *stateCopy)
-        : QTreeWidgetItem(parent, after), m_tagCopy(0), m_stateCopy(stateCopy)
+    : QTreeWidgetItem(parent, after)
+    , m_tagCopy(0)
+    , m_stateCopy(stateCopy)
 {
     setText(0, stateCopy->newState->name());
 }
@@ -162,7 +177,7 @@ TagListViewItem::~TagListViewItem()
 {
 }
 
-TagListViewItem* TagListViewItem::lastChild()
+TagListViewItem *TagListViewItem::lastChild()
 {
     if (childCount() <= 0)
         return 0;
@@ -174,47 +189,50 @@ bool TagListViewItem::isEmblemObligatory()
     return m_stateCopy != 0; // It's a state of a multi-state
 }
 
-TagListViewItem* TagListViewItem::prevSibling()
+TagListViewItem *TagListViewItem::prevSibling()
 {
     TagListViewItem *item = this;
     int idx = 0;
     if (!parent()) {
         idx = treeWidget()->indexOfTopLevelItem(item);
-        if (idx <= 0) return NULL;
+        if (idx <= 0)
+            return NULL;
         return (TagListViewItem *)treeWidget()->topLevelItem(idx - 1);
     } else {
         idx = parent()->indexOfChild(item);
-        if (idx <= 0) return NULL;
+        if (idx <= 0)
+            return NULL;
         return (TagListViewItem *)parent()->child(idx - 1);
     }
 }
 
-TagListViewItem* TagListViewItem::nextSibling()
+TagListViewItem *TagListViewItem::nextSibling()
 {
     TagListViewItem *item = this;
     int idx = 0;
     if (!parent()) {
         idx = treeWidget()->indexOfTopLevelItem(item);
-        if (idx >= treeWidget()->topLevelItemCount()) return NULL;
+        if (idx >= treeWidget()->topLevelItemCount())
+            return NULL;
         return (TagListViewItem *)treeWidget()->topLevelItem(idx + 1);
     } else {
         idx = parent()->indexOfChild(item);
-        if (idx >= parent()->childCount()) return NULL;
+        if (idx >= parent()->childCount())
+            return NULL;
         return (TagListViewItem *)parent()->child(idx + 1);
     }
 }
 
-
-TagListViewItem* TagListViewItem::parent() const
+TagListViewItem *TagListViewItem::parent() const
 {
-    return (TagListViewItem*) QTreeWidgetItem::parent();
+    return (TagListViewItem *)QTreeWidgetItem::parent();
 }
 
 // TODO: TagListViewItem::
 int TAG_ICON_SIZE = 16;
 int TAG_MARGIN = 1;
 
-int TagListViewItem::width(const QFontMetrics &/* fontMetrics */, const QTreeWidget* /*listView*/, int /* column */) const
+int TagListViewItem::width(const QFontMetrics & /* fontMetrics */, const QTreeWidget * /*listView*/, int /* column */) const
 {
     return treeWidget()->width();
 }
@@ -231,16 +249,15 @@ void TagListViewItem::setup()
     QBrush brush;
 
     bool withIcon = m_stateCopy || (m_tagCopy && !m_tagCopy->isMultiState());
-    brush.setColor(isSelected() ? qApp->palette().color(QPalette::Highlight)  :
-                   (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() :
-                    treeWidget()->viewport()->palette().color(treeWidget()->viewport()->backgroundRole())));
+    brush.setColor(isSelected() ? qApp->palette().color(QPalette::Highlight)
+                                : (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() : treeWidget()->viewport()->palette().color(treeWidget()->viewport()->backgroundRole())));
     setBackground(1, brush);
 }
 
 /** class TagListView: */
 
 TagListView::TagListView(QWidget *parent)
-        : QTreeWidget(parent)
+    : QTreeWidget(parent)
 {
     setItemDelegate(new TagListDelegate);
 }
@@ -281,34 +298,34 @@ void TagListView::mouseReleaseEvent(QMouseEvent *event)
         QTreeWidget::mouseReleaseEvent(event);
 }
 
-TagListViewItem* TagListView::currentItem() const
+TagListViewItem *TagListView::currentItem() const
 {
-    return (TagListViewItem*) QTreeWidget::currentItem();
+    return (TagListViewItem *)QTreeWidget::currentItem();
 }
 
-TagListViewItem* TagListView::firstChild() const
+TagListViewItem *TagListView::firstChild() const
 {
     if (topLevelItemCount() <= 0)
         return NULL;
-    return (TagListViewItem*)topLevelItem(0);
+    return (TagListViewItem *)topLevelItem(0);
 }
 
-TagListViewItem* TagListView::lastItem() const
+TagListViewItem *TagListView::lastItem() const
 {
     if (topLevelItemCount() <= 0)
         return NULL;
-    return (TagListViewItem*)topLevelItem(topLevelItemCount() - 1);
+    return (TagListViewItem *)topLevelItem(topLevelItemCount() - 1);
 }
 
 /** class TagsEditDialog: */
 
 TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewTag)
-        : QDialog(parent)
-        ,  m_loading(false)
+    : QDialog(parent)
+    , m_loading(false)
 {
     // QDialog options
     setWindowTitle(i18n("Customize Tags"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -329,24 +346,24 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     /* Left part: */
 
-    QPushButton *newTag     = new QPushButton(i18n("Ne&w Tag"),   mainWidget);
-    QPushButton *newState   = new QPushButton(i18n("New St&ate"), mainWidget);
+    QPushButton *newTag = new QPushButton(i18n("Ne&w Tag"), mainWidget);
+    QPushButton *newState = new QPushButton(i18n("New St&ate"), mainWidget);
 
-    connect(newTag,   SIGNAL(clicked()), this, SLOT(newTag()));
+    connect(newTag, SIGNAL(clicked()), this, SLOT(newTag()));
     connect(newState, SIGNAL(clicked()), this, SLOT(newState()));
 
     m_tags = new TagListView(mainWidget);
     m_tags->header()->hide();
     m_tags->setRootIsDecorated(false);
-    //m_tags->addColumn("");
-    //m_tags->setSorting(-1); // Sort column -1, so disabled sorting
-    //m_tags->setResizeMode(QTreeWidget::LastColumn);
+    // m_tags->addColumn("");
+    // m_tags->setSorting(-1); // Sort column -1, so disabled sorting
+    // m_tags->setResizeMode(QTreeWidget::LastColumn);
 
     m_tags->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_moveUp    = new QPushButton(mainWidget);
+    m_moveUp = new QPushButton(mainWidget);
     KGuiItem::assign(m_moveUp, KGuiItem("", "arrow-up"));
-    m_moveDown  = new QPushButton( mainWidget);
+    m_moveDown = new QPushButton(mainWidget);
     KGuiItem::assign(m_moveDown, KGuiItem("", "arrow-down"));
     m_deleteTag = new QPushButton(mainWidget);
     KGuiItem::assign(m_deleteTag, KGuiItem("", "edit-delete"));
@@ -355,8 +372,8 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_moveDown->setToolTip(i18n("Move Down (Ctrl+Shift+Down)"));
     m_deleteTag->setToolTip(i18n("Delete"));
 
-    connect(m_moveUp,    SIGNAL(clicked()), this, SLOT(moveUp()));
-    connect(m_moveDown,  SIGNAL(clicked()), this, SLOT(moveDown()));
+    connect(m_moveUp, SIGNAL(clicked()), this, SLOT(moveUp()));
+    connect(m_moveDown, SIGNAL(clicked()), this, SLOT(moveDown()));
     connect(m_deleteTag, SIGNAL(clicked()), this, SLOT(deleteTag()));
 
     QHBoxLayout *topLeftLayout = new QHBoxLayout;
@@ -376,11 +393,11 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     QWidget *rightWidget = new QWidget(mainWidget);
 
-    m_tagBox             = new QGroupBox(i18n("Tag"), rightWidget);
-    m_tagBoxLayout       = new QHBoxLayout;
+    m_tagBox = new QGroupBox(i18n("Tag"), rightWidget);
+    m_tagBoxLayout = new QHBoxLayout;
     m_tagBox->setLayout(m_tagBoxLayout);
 
-    QWidget   *tagWidget = new QWidget;
+    QWidget *tagWidget = new QWidget;
     m_tagBoxLayout->addWidget(tagWidget);
 
     m_tagName = new QLineEdit(tagWidget);
@@ -391,20 +408,18 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_removeShortcut = new QPushButton(i18nc("Remove tag shortcut", "&Remove"), tagWidget);
     QLabel *shortcutLabel = new QLabel(i18n("S&hortcut:"), tagWidget);
     shortcutLabel->setBuddy(m_shortcut);
-    //connect( m_shortcut,       SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(capturedShortcut(const QKeySequence&)) );
-    connect(m_removeShortcut, SIGNAL(clicked()),                          this, SLOT(removeShortcut()));
+    // connect( m_shortcut,       SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(capturedShortcut(const QKeySequence&)) );
+    connect(m_removeShortcut, SIGNAL(clicked()), this, SLOT(removeShortcut()));
 
     m_inherit = new QCheckBox(i18n("&Inherited by new sibling notes"), tagWidget);
 
     m_allowCrossRefernce = new QCheckBox(i18n("Allow Cross Reference Links"), tagWidget);
 
-    HelpLabel *allowCrossReferenceHelp = new HelpLabel(
-        i18n("What does this do?"),
-        "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + "</p>" +
-        "<p>" + i18n("From the top of the tree (Absolute path):") + "<br />" + i18n("[[/top level item/child|optional title]]") + "<p>" +
-        "<p>" + i18n("Relative to the current basket:") + "<br />" + i18n("[[../sibling|optional title]]") + "<br />" +
-        i18n("[[child|optional title]]") + "<br />" + i18n("[[./child|optional title]]") + "<p>",
-        tagWidget);
+    HelpLabel *allowCrossReferenceHelp = new HelpLabel(i18n("What does this do?"),
+                                                       "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + "</p>" + "<p>" +
+                                                           i18n("From the top of the tree (Absolute path):") + "<br />" + i18n("[[/top level item/child|optional title]]") + "<p>" + "<p>" + i18n("Relative to the current basket:") +
+                                                           "<br />" + i18n("[[../sibling|optional title]]") + "<br />" + i18n("[[child|optional title]]") + "<br />" + i18n("[[./child|optional title]]") + "<p>",
+                                                       tagWidget);
 
     QGridLayout *tagGrid = new QGridLayout(tagWidget);
     tagGrid->addWidget(tagNameLabel, 0, 0);
@@ -417,7 +432,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     tagGrid->addWidget(allowCrossReferenceHelp, 3, 1);
     tagGrid->setColumnStretch(/*col=*/3, /*stretch=*/255);
 
-    m_stateBox           = new QGroupBox(i18n("State"), rightWidget);
+    m_stateBox = new QGroupBox(i18n("State"), rightWidget);
     m_stateBoxLayout = new QHBoxLayout;
     m_stateBox->setLayout(m_stateBoxLayout);
 
@@ -436,7 +451,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_removeEmblem = new QPushButton(i18nc("Remove tag emblem", "Remo&ve"), emblemWidget);
     QLabel *emblemLabel = new QLabel(i18n("&Emblem:"), stateWidget);
     emblemLabel->setBuddy(m_emblem);
-    connect(m_removeEmblem, SIGNAL(clicked()), this, SLOT(removeEmblem()));   // m_emblem.resetIcon() is not a slot!
+    connect(m_removeEmblem, SIGNAL(clicked()), this, SLOT(removeEmblem())); // m_emblem.resetIcon() is not a slot!
 
     // Make the icon button and the remove button the same height:
     int height = qMax(m_emblem->sizeHint().width(), m_emblem->sizeHint().height());
@@ -513,36 +528,34 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     font.setFamily("monospace");
     m_textEquivalent->setFont(font);
 
-    HelpLabel *textEquivalentHelp = new HelpLabel(
-        i18n("What is this for?"),
-        "<p>" + i18n("When you copy and paste or drag and drop notes to a text editor, this text will be inserted as a textual equivalent of the tag.") + "</p>" +
-//      "<p>" + i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-        i18n("For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, "
-             "representing an empty checkbox and a checked box.") + "</p>" +
-        "<p align='center'><img src=\":images/tag_export_help.png\"></p>",
-        stateWidget);
+    HelpLabel *textEquivalentHelp = new HelpLabel(i18n("What is this for?"),
+                                                  "<p>" + i18n("When you copy and paste or drag and drop notes to a text editor, this text will be inserted as a textual equivalent of the tag.") + "</p>" +
+                                                      //      "<p>" + i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
+                                                      i18n("For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, "
+                                                           "representing an empty checkbox and a checked box.") +
+                                                      "</p>" + "<p align='center'><img src=\":images/tag_export_help.png\"></p>",
+                                                  stateWidget);
     QHBoxLayout *textEquivalentHelpLayout = new QHBoxLayout;
     textEquivalentHelpLayout->addWidget(textEquivalentHelp);
     textEquivalentHelpLayout->addStretch(255);
 
     m_onEveryLines = new QCheckBox(i18n("On ever&y line"), stateWidget);
 
-    HelpLabel *onEveryLinesHelp = new HelpLabel(
-        i18n("What does this mean?"),
-        "<p>" + i18n("When a note has several lines, you can choose to export the tag or the state on the first line or on every line of the note.") + "</p>" +
-        "<p align='center'><img src=\":images/tag_export_on_every_lines_help.png\"></p>" +
-        "<p>" + i18n("In the example above, the tag of the top note is only exported on the first line, while the tag of the bottom note is exported on every line of the note."),
-        stateWidget);
+    HelpLabel *onEveryLinesHelp = new HelpLabel(i18n("What does this mean?"),
+                                                "<p>" + i18n("When a note has several lines, you can choose to export the tag or the state on the first line or on every line of the note.") + "</p>" +
+                                                    "<p align='center'><img src=\":images/tag_export_on_every_lines_help.png\"></p>" + "<p>" +
+                                                    i18n("In the example above, the tag of the top note is only exported on the first line, while the tag of the bottom note is exported on every line of the note."),
+                                                stateWidget);
     QHBoxLayout *onEveryLinesHelpLayout = new QHBoxLayout;
     onEveryLinesHelpLayout->addWidget(onEveryLinesHelp);
     onEveryLinesHelpLayout->addStretch(255);
 
     QGridLayout *textEquivalentGrid = new QGridLayout;
-    textEquivalentGrid->addWidget(textEquivalentLabel,      0, 0);
-    textEquivalentGrid->addWidget(m_textEquivalent,         0, 1);
+    textEquivalentGrid->addWidget(textEquivalentLabel, 0, 0);
+    textEquivalentGrid->addWidget(m_textEquivalent, 0, 1);
     textEquivalentGrid->addLayout(textEquivalentHelpLayout, 0, 2);
-    textEquivalentGrid->addWidget(m_onEveryLines,           1, 1);
-    textEquivalentGrid->addLayout(onEveryLinesHelpLayout,   1, 2);
+    textEquivalentGrid->addWidget(m_onEveryLines, 1, 1);
+    textEquivalentGrid->addLayout(onEveryLinesHelpLayout, 1, 2);
     textEquivalentGrid->setColumnStretch(/*col=*/3, /*stretch=*/255);
 
     KSeparator *separator = new KSeparator(Qt::Horizontal, stateWidget);
@@ -618,27 +631,26 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     }
 
     // Connect Signals:
-    connect(m_tagName,         SIGNAL(textChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_shortcut,        SIGNAL(shortcutChanged(const QList<QKeySequence>&)), this, SLOT(modified()));
-    connect(m_inherit,         SIGNAL(stateChanged(int)),                  this, SLOT(modified()));
-    connect(m_allowCrossRefernce, SIGNAL(clicked(bool)),                   this, SLOT(modified()));
-    connect(m_stateName,       SIGNAL(textChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_emblem,          SIGNAL(iconChanged(QString)),               this, SLOT(modified()));
-    connect(m_backgroundColor, SIGNAL(changed(const QColor&)),             this, SLOT(modified()));
-    connect(m_bold,            SIGNAL(toggled(bool)),                      this, SLOT(modified()));
-    connect(m_underline,       SIGNAL(toggled(bool)),                      this, SLOT(modified()));
-    connect(m_italic,          SIGNAL(toggled(bool)),                      this, SLOT(modified()));
-    connect(m_strike,          SIGNAL(toggled(bool)),                      this, SLOT(modified()));
-    connect(m_textColor,       SIGNAL(activated(int)),                     this, SLOT(modified()));
-    connect(m_font,            SIGNAL(editTextChanged(const QString&)),    this, SLOT(modified()));
-    connect(m_fontSize,        SIGNAL(editTextChanged(const QString&)),    this, SLOT(modified()));
-    connect(m_textEquivalent,  SIGNAL(textChanged(const QString&)),        this, SLOT(modified()));
-    connect(m_onEveryLines,    SIGNAL(stateChanged(int)),                  this, SLOT(modified()));
+    connect(m_tagName, SIGNAL(textChanged(const QString &)), this, SLOT(modified()));
+    connect(m_shortcut, SIGNAL(shortcutChanged(const QList<QKeySequence> &)), this, SLOT(modified()));
+    connect(m_inherit, SIGNAL(stateChanged(int)), this, SLOT(modified()));
+    connect(m_allowCrossRefernce, SIGNAL(clicked(bool)), this, SLOT(modified()));
+    connect(m_stateName, SIGNAL(textChanged(const QString &)), this, SLOT(modified()));
+    connect(m_emblem, SIGNAL(iconChanged(QString)), this, SLOT(modified()));
+    connect(m_backgroundColor, SIGNAL(changed(const QColor &)), this, SLOT(modified()));
+    connect(m_bold, SIGNAL(toggled(bool)), this, SLOT(modified()));
+    connect(m_underline, SIGNAL(toggled(bool)), this, SLOT(modified()));
+    connect(m_italic, SIGNAL(toggled(bool)), this, SLOT(modified()));
+    connect(m_strike, SIGNAL(toggled(bool)), this, SLOT(modified()));
+    connect(m_textColor, SIGNAL(activated(int)), this, SLOT(modified()));
+    connect(m_font, SIGNAL(editTextChanged(const QString &)), this, SLOT(modified()));
+    connect(m_fontSize, SIGNAL(editTextChanged(const QString &)), this, SLOT(modified()));
+    connect(m_textEquivalent, SIGNAL(textChanged(const QString &)), this, SLOT(modified()));
+    connect(m_onEveryLines, SIGNAL(stateChanged(int)), this, SLOT(modified()));
 
-    connect(m_tags,            SIGNAL(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)),     this,
-            SLOT(currentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*)));
-    connect(m_tags,            SIGNAL(deletePressed()),                    this, SLOT(deleteTag()));
-    connect(m_tags,            SIGNAL(doubleClickedItem()),                this, SLOT(renameIt()));
+    connect(m_tags, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)));
+    connect(m_tags, SIGNAL(deletePressed()), this, SLOT(deleteTag()));
+    connect(m_tags, SIGNAL(doubleClickedItem()), this, SLOT(renameIt()));
 
     QTreeWidgetItem *firstItem = m_tags->firstChild();
     if (stateToEdit != 0) {
@@ -695,10 +707,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     rename->setShortcut(Qt::Key_F2);
     connect(rename, SIGNAL(triggered()), this, SLOT(renameIt()));
 
-    m_tags->setMinimumSize(
-        m_tags->sizeHint().width() * 2,
-        m_tagBox->sizeHint().height() + m_stateBox->sizeHint().height()
-    );
+    m_tags->setMinimumSize(m_tags->sizeHint().width() * 2, m_tagBox->sizeHint().height() + m_stateBox->sizeHint().height());
 
     if (addNewTag)
         QTimer::singleShot(0, this, SLOT(newTag()));
@@ -716,7 +725,7 @@ void TagsEditDialog::resetTreeSizeHint()
     m_tags->setMinimumSize(m_tags->sizeHint());
 }
 
-TagListViewItem* TagsEditDialog::itemForState(State *state)
+TagListViewItem *TagsEditDialog::itemForState(State *state)
 {
     // Browse all tags:
     QTreeWidgetItemIterator it(m_tags);
@@ -724,7 +733,7 @@ TagListViewItem* TagsEditDialog::itemForState(State *state)
         QTreeWidgetItem *item = *it;
 
         // Return if we found the tag item:
-        TagListViewItem *tagItem = (TagListViewItem*)item;
+        TagListViewItem *tagItem = (TagListViewItem *)item;
         if (tagItem->tagCopy() && tagItem->tagCopy()->oldTag && tagItem->tagCopy()->stateCopies[0]->oldState == state)
             return tagItem;
 
@@ -734,7 +743,7 @@ TagListViewItem* TagsEditDialog::itemForState(State *state)
             QTreeWidgetItem *subItem = *it2;
 
             // Return if we found the state item:
-            TagListViewItem *stateItem = (TagListViewItem*)subItem;
+            TagListViewItem *stateItem = (TagListViewItem *)subItem;
             if (stateItem->stateCopy() && stateItem->stateCopy()->oldState && stateItem->stateCopy()->oldState == state)
                 return stateItem;
 
@@ -750,7 +759,7 @@ void TagsEditDialog::newTag()
 {
     // Add to the "model":
     TagCopy *newTagCopy = new TagCopy();
-    newTagCopy->stateCopies[0]->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid()));   //TODO: Check if it's really unique
+    newTagCopy->stateCopies[0]->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
     m_tagCopies.append(newTagCopy);
     m_addedStates.append(newTagCopy->stateCopies[0]->newState);
 
@@ -779,7 +788,7 @@ void TagsEditDialog::newState()
 {
     TagListViewItem *tagItem = m_tags->currentItem();
     if (tagItem->parent())
-        tagItem = ((TagListViewItem*)(tagItem->parent()));
+        tagItem = ((TagListViewItem *)(tagItem->parent()));
     tagItem->setExpanded(true); // Show sub-states if we're adding them for the first time!
 
     State *firstState = tagItem->tagCopy()->stateCopies[0]->newState;
@@ -796,8 +805,8 @@ void TagsEditDialog::newState()
     // Add to the "model":
     StateCopy *newStateCopy = new StateCopy();
     firstState->copyTo(newStateCopy->newState);
-    newStateCopy->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid()));   //TODO: Check if it's really unique
-    newStateCopy->newState->setName(""); // We copied it too but it's likely the name will not be the same
+    newStateCopy->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
+    newStateCopy->newState->setName("");                                                   // We copied it too but it's likely the name will not be the same
     tagItem->tagCopy()->stateCopies.append(newStateCopy);
     m_addedStates.append(newStateCopy->newState);
 
@@ -815,13 +824,13 @@ void TagsEditDialog::moveUp()
     if (!m_moveUp->isEnabled()) // Trggered by keyboard shortcut
         return;
 
-    TagListViewItem *tagItem     = m_tags->currentItem();
+    TagListViewItem *tagItem = m_tags->currentItem();
 
     // Move in the list view:
     int idx = 0;
     QList<QTreeWidgetItem *> children;
     if (tagItem->parent()) {
-        TagListViewItem* parentItem = tagItem->parent();
+        TagListViewItem *parentItem = tagItem->parent();
         idx = parentItem->indexOfChild(tagItem);
         if (idx > 0) {
             tagItem = (TagListViewItem *)parentItem->takeChild(idx);
@@ -854,7 +863,7 @@ void TagsEditDialog::moveUp()
                 break;
             }
     } else {
-        StateCopy::List &stateCopies = ((TagListViewItem*)(tagItem->parent()))->tagCopy()->stateCopies;
+        StateCopy::List &stateCopies = ((TagListViewItem *)(tagItem->parent()))->tagCopy()->stateCopies;
         int pos = stateCopies.indexOf(tagItem->stateCopy());
         stateCopies.removeAll(tagItem->stateCopy());
         int i = 0;
@@ -882,7 +891,7 @@ void TagsEditDialog::moveDown()
     int idx = 0;
     QList<QTreeWidgetItem *> children;
     if (tagItem->parent()) {
-        TagListViewItem* parentItem = tagItem->parent();
+        TagListViewItem *parentItem = tagItem->parent();
         idx = parentItem->indexOfChild(tagItem);
         if (idx < parentItem->childCount() - 1) {
             children = tagItem->takeChildren();
@@ -919,7 +928,7 @@ void TagsEditDialog::moveDown()
                 }
         }
     } else {
-        StateCopy::List &stateCopies = ((TagListViewItem*)(tagItem->parent()))->tagCopy()->stateCopies;
+        StateCopy::List &stateCopies = ((TagListViewItem *)(tagItem->parent()))->tagCopy()->stateCopies;
         uint pos = stateCopies.indexOf(tagItem->stateCopy());
         stateCopies.removeAll(tagItem->stateCopy());
         if (pos == (uint)stateCopies.count() - 1) // Insert at end: iterator does not go there
@@ -942,25 +951,25 @@ void TagsEditDialog::moveDown()
 
 void TagsEditDialog::selectUp()
 {
-    QKeyEvent* keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Up, 0, 0);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Up, 0, 0);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectDown()
 {
-    QKeyEvent* keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Down, 0, 0);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Down, 0, 0);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectLeft()
 {
-    QKeyEvent* keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, 0, 0);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, 0, 0);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectRight()
 {
-    QKeyEvent* keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, 0, 0);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, 0, 0);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
@@ -973,19 +982,9 @@ void TagsEditDialog::deleteTag()
 
     int result = KMessageBox::Continue;
     if (item->tagCopy() && item->tagCopy()->oldTag)
-        result = KMessageBox::warningContinueCancel(
-                     this,
-                     i18n("Deleting the tag will remove it from every note it is currently assigned to."),
-                     i18n("Confirm Delete Tag"),
-                     KGuiItem(i18n("Delete Tag"), "edit-delete")
-                 );
+        result = KMessageBox::warningContinueCancel(this, i18n("Deleting the tag will remove it from every note it is currently assigned to."), i18n("Confirm Delete Tag"), KGuiItem(i18n("Delete Tag"), "edit-delete"));
     else if (item->stateCopy() && item->stateCopy()->oldState)
-        result = KMessageBox::warningContinueCancel(
-                     this,
-                     i18n("Deleting the state will remove the tag from every note the state is currently assigned to."),
-                     i18n("Confirm Delete State"),
-                     KGuiItem(i18n("Delete State"), "edit-delete")
-                 );
+        result = KMessageBox::warningContinueCancel(this, i18n("Deleting the state will remove the tag from every note the state is currently assigned to."), i18n("Confirm Delete State"), KGuiItem(i18n("Delete State"), "edit-delete"));
     if (result != KMessageBox::Continue)
         return;
 
@@ -1043,12 +1042,12 @@ void TagsEditDialog::capturedShortcut(const QKeySequence &shortcut)
 {
     Q_UNUSED(shortcut);
     // TODO: Validate it!
-    //m_shortcut->setShortcut(shortcut);
+    // m_shortcut->setShortcut(shortcut);
 }
 
 void TagsEditDialog::removeShortcut()
 {
-    //m_shortcut->setShortcut(QKeySequence());
+    // m_shortcut->setShortcut(QKeySequence());
     modified();
 }
 
@@ -1075,7 +1074,7 @@ void TagsEditDialog::modified()
             saveStateTo(tagItem->tagCopy()->stateCopies[0]->newState);
         }
     } else if (tagItem->stateCopy()) {
-        saveTagTo(((TagListViewItem*)(tagItem->parent()))->tagCopy()->newTag);
+        saveTagTo(((TagListViewItem *)(tagItem->parent()))->tagCopy()->newTag);
         saveStateTo(tagItem->stateCopy()->newState);
     }
 
@@ -1088,7 +1087,7 @@ void TagsEditDialog::modified()
     m_onEveryLines->setEnabled(!m_textEquivalent->text().isEmpty());
 }
 
-void TagsEditDialog::currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem* nextItem)
+void TagsEditDialog::currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem *nextItem)
 {
     Q_UNUSED(nextItem);
     if (item == 0)
@@ -1096,7 +1095,7 @@ void TagsEditDialog::currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem* 
 
     m_loading = true;
 
-    TagListViewItem *tagItem = (TagListViewItem*)item;
+    TagListViewItem *tagItem = (TagListViewItem *)item;
     if (tagItem->tagCopy()) {
         if (tagItem->tagCopy()->isMultiState()) {
             loadTagFrom(tagItem->tagCopy()->newTag);
@@ -1115,7 +1114,7 @@ void TagsEditDialog::currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem* 
             m_stateName->setEnabled(false);
         }
     } else if (tagItem->stateCopy()) {
-        loadTagFrom(((TagListViewItem*)(tagItem->parent()))->tagCopy()->newTag);
+        loadTagFrom(((TagListViewItem *)(tagItem->parent()))->tagCopy()->newTag);
         loadStateFrom(tagItem->stateCopy()->newState);
         m_stateBox->setEnabled(true);
         m_stateBox->setTitle(i18n("State"));
@@ -1161,7 +1160,7 @@ void TagsEditDialog::loadBlankState()
     m_italic->setChecked(false);
     m_strike->setChecked(false);
     m_textColor->setColor(QColor());
-    //m_font->setCurrentIndex(0);
+    // m_font->setCurrentIndex(0);
     m_font->setCurrentFont(defaultFont.family());
     m_fontSize->setCurrentIndex(0);
     m_textEquivalent->setText("");
@@ -1189,7 +1188,7 @@ void TagsEditDialog::loadStateFrom(State *state)
 
     QFont defaultFont;
     if (state->fontName().isEmpty())
-        m_font->setCurrentFont(defaultFont.family() );
+        m_font->setCurrentFont(defaultFont.family());
     else
         m_font->setCurrentFont(state->fontName());
 
@@ -1202,7 +1201,7 @@ void TagsEditDialog::loadStateFrom(State *state)
 void TagsEditDialog::loadTagFrom(Tag *tag)
 {
     m_tagName->setText(tag->name());
-    QList<QKeySequence> shortcuts{tag->shortcut()};
+    QList<QKeySequence> shortcuts {tag->shortcut()};
     m_shortcut->setShortcut(shortcuts);
     m_removeShortcut->setEnabled(!tag->shortcut().isEmpty());
     m_inherit->setChecked(tag->inheritedBySiblings());
@@ -1253,7 +1252,7 @@ void TagsEditDialog::slotCancel()
     // So, shortcuts are duplicated, and if the user press one tag keyboard-shortcut in the main window, there is a conflict.
     // We then should delete every copies:
     for (TagCopy::List::iterator tagCopyIt = m_tagCopies.begin(); tagCopyIt != m_tagCopies.end(); ++tagCopyIt) {
-        delete(*tagCopyIt)->newTag;
+        delete (*tagCopyIt)->newTag;
     }
 }
 
@@ -1294,10 +1293,9 @@ void TagsEditDialog::slotOk()
     Global::bnpView->recomputeAllStyles();
 }
 
-void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
-                            const QModelIndex &index) const
+void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-//    TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
-//    qDebug() << "Pointer is: " << thisItem << endl;
+    //    TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
+    //    qDebug() << "Pointer is: " << thisItem << endl;
     QItemDelegate::paint(painter, option, index);
 }

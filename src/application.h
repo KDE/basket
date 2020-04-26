@@ -6,8 +6,8 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include <QApplication>
 #include <KDBusService>
+#include <QApplication>
 
 /**
  * @class Application
@@ -19,10 +19,11 @@ class Application : public QApplication
 public:
     Application(int &argc, char **argv);
     ~Application() override;
-    void tryLoadFile(const QStringList &args, const QString& workingDir); //!< Open a file passed as command line argument
+    void tryLoadFile(const QStringList &args, const QString &workingDir); //!< Open a file passed as command line argument
 private slots:
     /// Activate program window if duplicate instance is started, load file from args
-    void onActivateRequested(const QStringList& args, const QString& workingDir);
+    void onActivateRequested(const QStringList &args, const QString &workingDir);
+
 private:
     KDBusService m_service;
 };

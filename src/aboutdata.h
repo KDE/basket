@@ -6,8 +6,8 @@
 #ifndef ABOUTDATA_H
 #define ABOUTDATA_H
 
-#include <KAboutData>
 #include "basket_export.h"
+#include <KAboutData>
 
 /**
  * @class AboutData

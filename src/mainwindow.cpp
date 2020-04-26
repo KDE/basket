@@ -19,36 +19,38 @@
 
 #include "mainwindow.h"
 
-#include <QtGui/QMoveEvent>
-#include <QtGui/QResizeEvent>
 #include <QAction>
 #include <QApplication>
+#include <QDesktopWidget>
 #include <QLocale>
 #include <QStatusBar>
-#include <QDesktopWidget>
+#include <QtGui/QMoveEvent>
+#include <QtGui/QResizeEvent>
 
-#include <KEditToolBar>
-#include <KMessageBox>
-#include <KConfig>
 #include <KAboutData>
-#include <KShortcutsDialog>
 #include <KActionCollection>
-#include <KToggleAction>
-#include <KLocalizedString>
+#include <KConfig>
 #include <KConfigGroup>
+#include <KEditToolBar>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KShortcutsDialog>
+#include <KToggleAction>
 #include <ksettings/dialog.h>
 
-#include "settings.h"
-#include "global.h"
-#include "bnpview.h"
 #include "basketstatusbar.h"
+#include "bnpview.h"
+#include "global.h"
+#include "settings.h"
 
 /** Container */
 
 MainWindow::MainWindow(QWidget *parent)
-        : KXmlGuiWindow(parent), m_settings(0), m_quit(false)
+    : KXmlGuiWindow(parent)
+    , m_settings(0)
+    , m_quit(false)
 {
-    BasketStatusBar* bar = new BasketStatusBar(statusBar());
+    BasketStatusBar *bar = new BasketStatusBar(statusBar());
     m_baskets = new BNPView(this, "BNPViewApp", this, actionCollection(), bar);
     setCentralWidget(m_baskets);
 
@@ -56,13 +58,13 @@ MainWindow::MainWindow(QWidget *parent)
     statusBar()->show();
     statusBar()->setSizeGripEnabled(true);
 
-    setAutoSaveSettings(/*groupName=*/QString::fromLatin1("MainWindow"), /*saveWindowSize=*//*FIXME:false:Why was it false??*/true);
+    setAutoSaveSettings(/*groupName=*/QString::fromLatin1("MainWindow"), /*saveWindowSize=*//*FIXME:false:Why was it false??*/ true);
 
-//  m_actShowToolbar->setChecked(   toolBar()->isVisible()   );
+    //  m_actShowToolbar->setChecked(   toolBar()->isVisible()   );
     m_actShowStatusbar->setChecked(statusBar()->isVisible());
-    connect(m_baskets,      SIGNAL(setWindowCaption(const QString &)), this, SLOT(setWindowTitle(const QString &)));
+    connect(m_baskets, SIGNAL(setWindowCaption(const QString &)), this, SLOT(setWindowTitle(const QString &)));
 
-//  InlineEditors::instance()->richTextToolBar();
+    //  InlineEditors::instance()->richTextToolBar();
     setStandardToolBarMenuEnabled(true);
 
     createGUI("basketui.rc");
@@ -80,26 +82,25 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupActions()
 {
-    actQuit         = KStandardAction::quit(this, SLOT(quit()), actionCollection());
+    actQuit = KStandardAction::quit(this, SLOT(quit()), actionCollection());
     QAction *a = NULL;
-    a = actionCollection()->addAction("minimizeRestore", this,
-                                      SLOT(minimizeRestore()));
+    a = actionCollection()->addAction("minimizeRestore", this, SLOT(minimizeRestore()));
     a->setText(i18n("Minimize"));
     a->setIcon(QIcon::fromTheme(""));
     a->setShortcut(0);
 
     /** Settings : ************************************************************/
-//  m_actShowToolbar   = KStandardAction::showToolbar(   this, SLOT(toggleToolBar()),   actionCollection());
+    //  m_actShowToolbar   = KStandardAction::showToolbar(   this, SLOT(toggleToolBar()),   actionCollection());
     m_actShowStatusbar = KStandardAction::showStatusbar(this, SLOT(toggleStatusBar()), actionCollection());
 
-//  m_actShowToolbar->setCheckedState( KGuiItem(i18n("Hide &Toolbar")) );
+    //  m_actShowToolbar->setCheckedState( KGuiItem(i18n("Hide &Toolbar")) );
 
-    (void) KStandardAction::keyBindings(this, SLOT(showShortcutsSettingsDialog()), actionCollection());
+    (void)KStandardAction::keyBindings(this, SLOT(showShortcutsSettingsDialog()), actionCollection());
 
-    (void) KStandardAction::configureToolbars(this, SLOT(configureToolbars()), actionCollection());
+    (void)KStandardAction::configureToolbars(this, SLOT(configureToolbars()), actionCollection());
 
-    //QAction *actCfgNotifs = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection() );
-    //actCfgNotifs->setEnabled(false); // Not yet implemented !
+    // QAction *actCfgNotifs = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection() );
+    // actCfgNotifs->setEnabled(false); // Not yet implemented !
 
     actAppConfig = KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 }
@@ -159,7 +160,7 @@ void MainWindow::showSettingsDialog()
     if (m_settings == 0)
         m_settings = new KSettings::Dialog(qApp->activeWindow());
     if (Global::activeMainWindow()) {
-        //Help, RestoreDefaults buttons not implemented!
+        // Help, RestoreDefaults buttons not implemented!
         m_settings->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
         m_settings->exec();
     } else
@@ -170,7 +171,7 @@ void MainWindow::showShortcutsSettingsDialog()
 {
     KShortcutsDialog::configure(actionCollection());
     //.setWindowTitle(..)
-    //actionCollection()->writeSettings();
+    // actionCollection()->writeSettings();
 }
 
 void MainWindow::ensurePolished()
@@ -181,27 +182,27 @@ void MainWindow::ensurePolished()
     //  - Set size to sizeHint()
     //  - Keep the window manager placing the window where it want and save this
     if (Settings::mainWindowSize().isEmpty()) {
-//      qDebug() << "Main Window Position: Initial Set in show()";
-        int defaultWidth  = qApp->desktop()->width()  * 5 / 6;
+        //      qDebug() << "Main Window Position: Initial Set in show()";
+        int defaultWidth = qApp->desktop()->width() * 5 / 6;
         int defaultHeight = qApp->desktop()->height() * 5 / 6;
         resize(defaultWidth, defaultHeight); // sizeHint() is bad (too small) and we want the user to have a good default area size
         shouldSave = true;
     } else {
-//      qDebug() << "Main Window Position: Recall in show(x="
-//                << Settings::mainWindowPosition().x() << ", y=" << Settings::mainWindowPosition().y()
-//                << ", width=" << Settings::mainWindowSize().width() << ", height=" << Settings::mainWindowSize().height()
-//                << ")";
-        //move(Settings::mainWindowPosition());
-        //resize(Settings::mainWindowSize());
+        //      qDebug() << "Main Window Position: Recall in show(x="
+        //                << Settings::mainWindowPosition().x() << ", y=" << Settings::mainWindowPosition().y()
+        //                << ", width=" << Settings::mainWindowSize().width() << ", height=" << Settings::mainWindowSize().height()
+        //                << ")";
+        // move(Settings::mainWindowPosition());
+        // resize(Settings::mainWindowSize());
     }
 
     KXmlGuiWindow::ensurePolished();
 
     if (shouldSave) {
-//      qDebug() << "Main Window Position: Save size and position in show(x="
-//                << pos().x() << ", y=" << pos().y()
-//                << ", width=" << size().width() << ", height=" << size().height()
-//                << ")";
+        //      qDebug() << "Main Window Position: Save size and position in show(x="
+        //                << pos().x() << ", y=" << pos().y()
+        //                << ", width=" << size().width() << ", height=" << size().height()
+        //                << ")";
         Settings::setMainWindowPosition(pos());
         Settings::setMainWindowSize(size());
         Settings::saveConfig();
@@ -210,24 +211,24 @@ void MainWindow::ensurePolished()
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-//  qDebug() << "Main Window Position: Save size in resizeEvent(width=" << size().width() << ", height=" << size().height() << ") ; isMaximized="
-//            << (isMaximized() ? "true" : "false");
+    //  qDebug() << "Main Window Position: Save size in resizeEvent(width=" << size().width() << ", height=" << size().height() << ") ; isMaximized="
+    //            << (isMaximized() ? "true" : "false");
     Settings::setMainWindowSize(size());
     Settings::saveConfig();
 
     // Added to make it work (previous lines do not work):
-    //saveMainWindowSettings( KSharedConfig::openConfig(), autoSaveGroup() );
+    // saveMainWindowSettings( KSharedConfig::openConfig(), autoSaveGroup() );
     KXmlGuiWindow::resizeEvent(event);
 }
 
 void MainWindow::moveEvent(QMoveEvent *event)
 {
-//  qDebug() << "Main Window Position: Save position in moveEvent(x=" << pos().x() << ", y=" << pos().y() << ")";
+    //  qDebug() << "Main Window Position: Save position in moveEvent(x=" << pos().x() << ", y=" << pos().y() << ")";
     Settings::setMainWindowPosition(pos());
     Settings::saveConfig();
 
     // Added to make it work (previous lines do not work):
-    //saveMainWindowSettings( KSharedConfig::openConfig(), autoSaveGroup() );
+    // saveMainWindowSettings( KSharedConfig::openConfig(), autoSaveGroup() );
     KXmlGuiWindow::moveEvent(event);
 }
 
@@ -254,9 +255,8 @@ bool MainWindow::queryClose()
         return true;
     }
 
-    if (Settings::useSystray()
-            && !m_quit
-            /*&& Global::systemTray->parentWidgetTrayClose()*/) {
+    if (Settings::useSystray() && !m_quit
+        /*&& Global::systemTray->parentWidgetTrayClose()*/) {
         hide();
         return false;
     } else
@@ -267,14 +267,11 @@ bool MainWindow::askForQuit()
 {
     QString message = i18n("<p>Do you really want to quit %1?</p>", QGuiApplication::applicationDisplayName());
     if (Settings::useSystray())
-        message += i18n("<p>Notice that you do not have to quit the application before ending your desktop session. "
-                        "If you end your session while the application is still running, the application will be reloaded the next time you log in.</p>");
+        message += i18n(
+            "<p>Notice that you do not have to quit the application before ending your desktop session. "
+            "If you end your session while the application is still running, the application will be reloaded the next time you log in.</p>");
 
-    int really = KMessageBox::warningContinueCancel(this, message,
-                 i18n("Quit Confirm"),
-                 KStandardGuiItem::quit(),
-                 KStandardGuiItem::cancel(),
-                 "confirmQuitAsking");
+    int really = KMessageBox::warningContinueCancel(this, message, i18n("Quit Confirm"), KStandardGuiItem::quit(), KStandardGuiItem::cancel(), "confirmQuitAsking");
 
     if (really == KMessageBox::Cancel) {
         m_quit = false;
@@ -291,4 +288,3 @@ void MainWindow::minimizeRestore()
     else
         show();
 }
-

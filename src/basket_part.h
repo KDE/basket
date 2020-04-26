@@ -78,7 +78,7 @@ protected:
     virtual bool openFile();
 
     /**
-         * This must be implemented by each read-write part
+     * This must be implemented by each read-write part
      */
     virtual bool saveFile();
 

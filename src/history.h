@@ -37,5 +37,4 @@ private:
     QString m_folderNameNew;
 };
 
-
 #endif // HISTORY_H

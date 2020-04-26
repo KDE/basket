@@ -26,17 +26,15 @@
 #include "basketstatusbar.h"
 #include "bnpview.h"
 
-K_PLUGIN_FACTORY_DEFINITION(BasketFactory,
-                 registerPlugin<BasketPart>();
-                )
+K_PLUGIN_FACTORY_DEFINITION(BasketFactory, registerPlugin<BasketPart>();)
 
 BasketPart::BasketPart(QWidget *parentWidget, QObject *parent, const QList<QVariant> &)
-        : KParts::ReadWritePart(parent)
+    : KParts::ReadWritePart(parent)
 {
     // we need an instance
-    //setInstance( BasketFactory::instance() );
+    // setInstance( BasketFactory::instance() );
 
-    BasketStatusBar* bar = new BasketStatusBar(new KParts::StatusBarExtension(this));
+    BasketStatusBar *bar = new BasketStatusBar(new KParts::StatusBarExtension(this));
     // this should be your custom internal widget
     m_view = new BNPView(parentWidget, "BNPViewPart", this, actionCollection(), bar);
     connect(m_view, SIGNAL(setWindowCaption(const QString &)), this, SLOT(setWindowTitle(const QString &)));
@@ -59,7 +57,8 @@ BasketPart::BasketPart(QWidget *parentWidget, QObject *parent, const QList<QVari
 }
 
 BasketPart::~BasketPart()
-{}
+{
+}
 
 void BasketPart::setReadWrite(bool rw)
 {
@@ -81,7 +80,7 @@ bool BasketPart::openFile()
 
 bool BasketPart::saveFile()
 {
-    //TODO
+    // TODO
     return false;
 }
 

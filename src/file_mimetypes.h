@@ -22,17 +22,17 @@
 
 namespace MimeTypes
 {
-#define StrRes static const char* const
+#define StrRes static const char *const
 
-StrRes  LAUNCHER = "application/x-desktop";
-StrRes  HTML = "text/html";
-StrRes  TEXT = "text/plain";
+StrRes LAUNCHER = "application/x-desktop";
+StrRes HTML = "text/html";
+StrRes TEXT = "text/plain";
 
-StrRes  ANIMATION = "image/gif";
-StrRes  ANIMATION_MNG = "movie/x-mng";
+StrRes ANIMATION = "image/gif";
+StrRes ANIMATION_MNG = "movie/x-mng";
 
-StrRes  IMAGE = "image/";
-StrRes  AUDIO = "audio/";
+StrRes IMAGE = "image/";
+StrRes AUDIO = "audio/";
 
 #undef StrRes
 }

@@ -20,9 +20,9 @@
 #ifndef BASKETPROPERTIES_H
 #define BASKETPROPERTIES_H
 
+#include <KIconButton>
 #include <QDialog>
 #include <QtCore/QMap>
-#include <KIconButton>
 
 #include "ui_basketproperties.h"
 
@@ -41,8 +41,8 @@ class KColorCombo2;
 class BasketScene;
 
 /** The dialog that hold basket settings.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class BasketPropertiesDialog : public QDialog, private Ui::BasketPropertiesUi
 {
     Q_OBJECT
@@ -55,13 +55,13 @@ public slots:
     void applyChanges();
 
 protected slots:
-    void capturedShortcut(const QList<QKeySequence>& shortcut);
+    void capturedShortcut(const QList<QKeySequence> &shortcut);
     void selectColumnsLayout();
 
 private:
-    BasketScene   *m_basket;
-    KColorCombo2  *m_backgroundColor;
-    KColorCombo2  *m_textColor;
+    BasketScene *m_basket;
+    KColorCombo2 *m_backgroundColor;
+    KColorCombo2 *m_textColor;
 
     QMap<int, QString> m_backgroundImagesMap;
 };

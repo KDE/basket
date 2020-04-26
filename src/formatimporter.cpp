@@ -19,27 +19,25 @@
 
 #include "formatimporter.h"
 
+#include <QApplication>
+#include <QLocale>
+#include <QtCore/QDir>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
-#include <QtCore/QDir>
 #include <QtCore/QTextStream>
 #include <QtXml/QDomDocument>
-#include <QLocale>
-#include <QApplication>
 
-#include <KMessageBox>
 #include <KIO/CopyJob>
 #include <KLocalizedString>
+#include <KMessageBox>
 
+#include "basketscene.h"
+#include "bnpview.h"
+#include "global.h"
 #include "notecontent.h"
 #include "notefactory.h"
-#include "bnpview.h"
-#include "basketscene.h"
-#include "global.h"
-#include "xmlwork.h"
 #include "tools.h"
-
-
+#include "xmlwork.h"
 
 bool FormatImporter::shouldImportBaskets()
 {
@@ -77,7 +75,7 @@ void FormatImporter::moveFolder(const QString &folder, const QString &newFolder)
 
 void FormatImporter::slotCopyingDone(KIO::Job *)
 {
-//  qDebug() << "Copy finished of " + from.path() + " to " + to.path();
+    //  qDebug() << "Copy finished of " + from.path() + " to " + to.path();
     copyFinished = true;
 }
 
@@ -113,10 +111,10 @@ void FormatImporter::importBaskets()
     // Then load the baskets that weren't loaded (import < 0.5.0 ones):
     QDir dir(Global::savesFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks);
     QStringList list = dir.entryList();
-    if (list.count() > 2) // Pass "." and ".."
-        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) // For each folder
+    if (list.count() > 2)                                                                          // Pass "." and ".."
+        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)                      // For each folder
             if (*it != "." && *it != ".." && dir.exists(Global::savesFolder() + *it + "/.basket")) // If it can be a basket folder
-                if (!(baskets.contains((*it) + '/')) && baskets.contains(*it))   // And if it is not already in the imported baskets list
+                if (!(baskets.contains((*it) + '/')) && baskets.contains(*it))                     // And if it is not already in the imported baskets list
                     baskets.append(*it);
 
     qDebug() << "Import Baskets: Found " << baskets.count() << " baskets to import.";
@@ -130,10 +128,14 @@ void FormatImporter::importBaskets()
         // Move the folder to the new repository (normal basket) or copy the folder (mirrored folder):
         QString folderName = *it;
         if (folderName.startsWith('/')) { // It was a folder mirror:
-            KMessageBox::information(0, i18n("<p>Folder mirroring is not possible anymore (see <a href='https://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"
-                                             "<p>The folder <b>%1</b> has been copied for the basket needs. You can either delete this folder or delete the basket, or use both. But remember that "
-                                             "modifying one will not modify the other anymore as they are now separate entities.</p>", folderName), i18n("Folder Mirror Import"),
-                                     "", KMessageBox::AllowLink);
+            KMessageBox::information(0,
+                                     i18n("<p>Folder mirroring is not possible anymore (see <a href='https://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"
+                                          "<p>The folder <b>%1</b> has been copied for the basket needs. You can either delete this folder or delete the basket, or use both. But remember that "
+                                          "modifying one will not modify the other anymore as they are now separate entities.</p>",
+                                          folderName),
+                                     i18n("Folder Mirror Import"),
+                                     "",
+                                     KMessageBox::AllowLink);
             // Also modify folderName to be only the folder name and not the full path anymore:
             QString newFolderName = folderName;
             if (newFolderName.endsWith('/'))
@@ -195,9 +197,9 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
         properties.appendChild(appearance);
     }
     QDomElement disposition = document->createElement("disposition");
-    disposition.setAttribute("mindMap",     "false");
+    disposition.setAttribute("mindMap", "false");
     disposition.setAttribute("columnCount", "1");
-    disposition.setAttribute("free",        "false");
+    disposition.setAttribute("free", "false");
     bool isCheckList = XMLWork::trueOrFalse(XMLWork::getElementText(properties, "showCheckBoxes"), false);
 
     // Insert all notes in a group (column): 1/ rename "items" to "group", 2/ add "notes" to root, 3/ move "group" into "notes"
@@ -209,7 +211,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
 
     // Import notes from older representations:
     QDomNode n = column.firstChild();
-    while (! n.isNull()) {
+    while (!n.isNull()) {
         QDomElement e = n.toElement();
         if (!e.isNull()) {
             e.setTagName("note");
@@ -244,14 +246,16 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                 n = annotGroup;
             }
             // Import Launchers from 0.3.x, 0.4.0 and 0.5.0-alphas:
-            QString runCommand = e.attribute("runcommand"); // Keep compatibility with 0.4.0 and 0.5.0-alphas versions
+            QString runCommand = e.attribute("runcommand");                // Keep compatibility with 0.4.0 and 0.5.0-alphas versions
             runCommand = XMLWork::getElementText(e, "action", runCommand); // Keep compatibility with 0.3.x versions
-            if (! runCommand.isEmpty()) {   // An import should be done
+            if (!runCommand.isEmpty()) {                                   // An import should be done
                 // Prepare the launcher note:
                 QString title = content.attribute("title", "");
-                QString icon  = content.attribute("icon",  "");
-                if (title.isEmpty()) title = runCommand;
-                if (icon.isEmpty())  icon  = NoteFactory::iconForCommand(runCommand);
+                QString icon = content.attribute("icon", "");
+                if (title.isEmpty())
+                    title = runCommand;
+                if (icon.isEmpty())
+                    icon = NoteFactory::iconForCommand(runCommand);
                 // Import the launcher note:
                 // Adapted version of "QString launcherName = NoteFactory::createNoteLauncherFile(runCommand, title, icon, this)":
                 QString launcherContent = QString(
@@ -260,7 +264,8 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                                               "Name=%2\n"
                                               "Icon=%3\n"
                                               "Encoding=UTF-8\n"
-                                              "Type=Application\n").arg(runCommand, title, icon.isEmpty() ? QString("exec") : icon);
+                                              "Type=Application\n")
+                                              .arg(runCommand, title, icon.isEmpty() ? QString("exec") : icon);
                 QString launcherFileName = Tools::fileNameForNewFile("launcher.desktop", Global::basketsFolder() + folderName /*+ "/"*/);
                 QString launcherFullPath = Global::basketsFolder() + folderName /*+ "/"*/ + launcherFileName;
                 QFile file(launcherFullPath);
@@ -293,9 +298,9 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
         stream.setCodec("UTF-8");
-//      QString xml = document->toString();
-//      stream << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
-//      stream << xml;
+        //      QString xml = document->toString();
+        //      stream << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
+        //      stream << xml;
         stream << document->toString(); // Document is ALREADY using UTF-8
         file.close();
     } else
@@ -304,4 +309,3 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     // Return the newly created properties (to put in the basket tree):
     return properties;
 }
-

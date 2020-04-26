@@ -33,15 +33,16 @@ class TransparentWidget : public QWidget
 public:
     explicit TransparentWidget(BasketScene *basket);
     void setPosition(int x, int y);
-    //void reparent(QWidget *parent, Qt::WFlags f, const QPoint &p, bool showIt = FALSE);
+    // void reparent(QWidget *parent, Qt::WFlags f, const QPoint &p, bool showIt = FALSE);
 protected:
-    void paintEvent(QPaintEvent*) override;
+    void paintEvent(QPaintEvent *) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     bool eventFilter(QObject *object, QEvent *event) override;
+
 private:
     BasketScene *m_basket;
-    int     m_x;
-    int     m_y;
+    int m_x;
+    int m_y;
 };
 
 #endif // TRANSPARENTWIDGET_H

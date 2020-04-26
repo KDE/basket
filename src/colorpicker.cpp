@@ -19,11 +19,11 @@
 
 #include "colorpicker.h"
 
+#include <QApplication>
+#include <QColorDialog>
 #include <QtCore/QTimer>
 #include <QtGui/QKeyEvent>
 #include <QtGui/QMouseEvent>
-#include <QColorDialog>
-#include <QApplication>
 
 /// ///
 
@@ -38,7 +38,7 @@
  */
 
 DesktopColorPicker::DesktopColorPicker()
-        : QDesktopWidget()
+    : QDesktopWidget()
 {
     setObjectName("DesktopColorPicker");
     m_gettingColorFromScreen = false;
@@ -51,7 +51,7 @@ DesktopColorPicker::~DesktopColorPicker()
 void DesktopColorPicker::pickColor()
 {
     m_gettingColorFromScreen = true;
-//  Global::mainContainer->setActive(false);
+    //  Global::mainContainer->setActive(false);
     QTimer::singleShot(50, this, SLOT(slotDelayedPick()));
 }
 
@@ -77,7 +77,7 @@ void DesktopColorPicker::mouseReleaseEvent(QMouseEvent *event)
         releaseMouse();
         releaseKeyboard();
 
-        //Grab color of pixel
+        // Grab color of pixel
         QPoint p = event->globalPos();
         QPixmap pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), p.x(), p.y(), 1, 1);
         QColor color(pixmap.toImage().pixel(0, 0));
@@ -100,4 +100,3 @@ void DesktopColorPicker::keyPressEvent(QKeyEvent *event)
         }
     QDesktopWidget::keyPressEvent(event);
 }
-

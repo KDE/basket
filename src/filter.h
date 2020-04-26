@@ -20,8 +20,8 @@
 #ifndef FILTER_H
 #define FILTER_H
 
-#include <QtCore/QMap>
 #include <QWidget>
+#include <QtCore/QMap>
 
 class QToolButton;
 
@@ -32,36 +32,41 @@ class Tag;
 class State;
 
 /** The structure that contain all filter terms
-  * @author Sébastien Laoût
-  */
-struct FilterData
-{
+ * @author Sébastien Laoût
+ */
+struct FilterData {
 public:
     // Useful Enum for tagFilterType:
     enum TagFilterType { DontCareTagsFilter = 0, NotTaggedFilter, TaggedFilter, TagFilter, StateFilter };
     // Constructor and Destructor:
-    FilterData()  {
-        isFiltering = false; tagFilterType = DontCareTagsFilter; tag = 0; state = 0;
+    FilterData()
+    {
+        isFiltering = false;
+        tagFilterType = DontCareTagsFilter;
+        tag = 0;
+        state = 0;
     }
-    ~FilterData() {}
+    ~FilterData()
+    {
+    }
     // Filter data:
-    QString  string;
-    int      tagFilterType;
-    Tag     *tag;
-    State   *state;
-    bool     isFiltering;
+    QString string;
+    int tagFilterType;
+    Tag *tag;
+    State *state;
+    bool isFiltering;
 };
 
 /** A QWidget that allow user to enter terms to filter in a Basket.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class FilterBar : public QWidget
 {
     Q_OBJECT
 public:
     explicit FilterBar(QWidget *parent = nullptr);
     ~FilterBar() override;
-    const FilterData& filterData();
+    const FilterData &filterData();
 signals:
     void newFilter(const FilterData &data);
 public slots:
@@ -72,23 +77,26 @@ public slots:
     void filterTag(Tag *tag);
     void filterState(State *state);
     void setFilterData(const FilterData &data);
+
 public:
     bool hasEditFocus();
-    QLineEdit* lineEdit() {
+    QLineEdit *lineEdit()
+    {
         return m_lineEdit;
     }
 private slots:
     void changeFilter();
     void tagChanged(int index);
-private:
-    FilterData  m_data;
-    QLineEdit *m_lineEdit;
-    QToolButton     *m_resetButton;
-    KComboBox *m_tagsBox;
-    QToolButton     *m_inAllBasketsButton;
 
-    QMap<int, Tag*>   m_tagsMap;
-    QMap<int, State*> m_statesMap;
+private:
+    FilterData m_data;
+    QLineEdit *m_lineEdit;
+    QToolButton *m_resetButton;
+    KComboBox *m_tagsBox;
+    QToolButton *m_inAllBasketsButton;
+
+    QMap<int, Tag *> m_tagsMap;
+    QMap<int, State *> m_statesMap;
 };
 
 #endif // FILTER_H

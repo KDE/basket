@@ -30,8 +30,8 @@ class Job;
 }
 
 /**
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class FormatImporter : public QObject
 {
     Q_OBJECT
@@ -43,7 +43,8 @@ public:
     void copyFolder(const QString &folder, const QString &newFolder);
     void moveFolder(const QString &folder, const QString &newFolder);
 private slots:
-    void slotCopyingDone(KIO::Job*);
+    void slotCopyingDone(KIO::Job *);
+
 private:
     bool copyFinished;
 };

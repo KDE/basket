@@ -27,7 +27,7 @@
 class QStatusBar;
 namespace KParts
 {
-    class StatusBarExtension;
+class StatusBarExtension;
 }
 
 class QWidget;
@@ -56,17 +56,18 @@ public slots:
 
 protected:
     QStatusBar *statusBar() const;
-    void addWidget(QWidget * widget, int stretch = 0, bool permanent = false);
+    void addWidget(QWidget *widget, int stretch = 0, bool permanent = false);
     void setStatusText(const QString &txt);
-    bool eventFilter(QObject * obj, QEvent * event) override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
 private:
-    QStatusBar                 *m_bar;
+    QStatusBar *m_bar;
     KParts::StatusBarExtension *m_extension;
-    QLabel                     *m_selectionStatus;
-    QLabel                     *m_lockStatus;
-    QLabel                     *m_basketStatus;
-    QLabel                     *m_savedStatus;
-    QPixmap                     m_savedStatusPixmap;
+    QLabel *m_selectionStatus;
+    QLabel *m_lockStatus;
+    QLabel *m_basketStatus;
+    QLabel *m_savedStatus;
+    QPixmap m_savedStatusPixmap;
 };
 
 #endif

@@ -21,22 +21,21 @@
 #include "systemtray.h"
 
 // Qt
+#include <QDialog>
+#include <QLocale>
 #include <QtGui/QImage>
 #include <QtGui/QPixmap>
-#include <QLocale>
-#include <QDialog>
 
 // Frameworks
-#include <KIconEffect>  //Port to Blitz/Quasar?
+#include <KIconEffect> //Port to Blitz/Quasar?
 #include <KLocalizedString>
 
 // Local
 #include "basketscene.h"
-#include "settings.h"
 #include "global.h"
-#include "tools.h"
 #include "icon_names.h"
-
+#include "settings.h"
+#include "tools.h"
 
 /* This function comes directly from JuK: */
 
@@ -68,9 +67,9 @@ static bool copyImage(QImage &dest, QImage &src, int x, int y)
     // However, we do have to specifically ensure that setAlphaBuffer is set
     // to false
 
-    //large_src.setAlphaBuffer(false);
+    // large_src.setAlphaBuffer(false);
     large_src.fill(0); // All transparent pixels
-    //large_src.setAlphaBuffer(true);
+    // large_src.setAlphaBuffer(true);
 
     int w = src.width();
     int h = src.height();
@@ -85,10 +84,9 @@ static bool copyImage(QImage &dest, QImage &src, int x, int y)
     return true;
 }
 
-
 /** Constructor */
 SystemTray::SystemTray(QWidget *parent)
-        : KStatusNotifierItem(parent)
+    : KStatusNotifierItem(parent)
 {
     updateDisplay();
 }
@@ -107,9 +105,7 @@ void SystemTray::updateDisplay()
         return;
 
     // Update the icon
-    if (basket->icon().isEmpty()
-            || basket->icon() == "basket"
-            || !Settings::showIconInSystray())
+    if (basket->icon().isEmpty() || basket->icon() == "basket" || !Settings::showIconInSystray())
         setIconByName("basket");
     else {
         // What pixmap size to use? For example, see how overlay icon is applied:
@@ -123,8 +119,7 @@ void SystemTray::updateDisplay()
         QImage fgImage = fgPix.toImage(); // Should be 16x16
 
         KIconEffect::semiTransparent(bgImage);
-        copyImage(bgImage, fgImage, (bgImage.width() - fgImage.width()) / 2,
-                  (bgImage.height() - fgImage.height()) / 2);
+        copyImage(bgImage, fgImage, (bgImage.width() - fgImage.width()) / 2, (bgImage.height() - fgImage.height()) / 2);
 
         setIconByPixmap(QPixmap::fromImage(bgImage));
     }
@@ -143,7 +138,9 @@ void SystemTray::updateDisplay()
 #ifdef USE_OLD_SYSTRAY
 #define QT3_SUPPORT // No need to port that old stuff
 SystemTray::SystemTray(QWidget *parent, const char *name)
-        : KSystemTray2(parent, name != 0 ? name : "SystemTray"), m_showTimer(0), m_autoShowTimer(0)
+    : KSystemTray2(parent, name != 0 ? name : "SystemTray")
+    , m_showTimer(0)
+    , m_autoShowTimer(0)
 {
     setAcceptDrops(true);
 
@@ -154,13 +151,13 @@ SystemTray::SystemTray(QWidget *parent, const char *name)
     connect(m_autoShowTimer, SIGNAL(timeout()), Global::bnpView, SLOT(setActive()));
 
     // Create pixmaps for the icon:
-    m_iconPixmap              = loadIcon("basket");
-//  FIXME: When main window is shown at start, the icon is loaded 1 pixel too high
-//         and then reloaded instantly after at the right position.
-//  setPixmap(m_iconPixmap); // Load it the sooner as possible to avoid flicker
-    QImage  lockedIconImage   = m_iconPixmap.convertToImage();
+    m_iconPixmap = loadIcon("basket");
+    //  FIXME: When main window is shown at start, the icon is loaded 1 pixel too high
+    //         and then reloaded instantly after at the right position.
+    //  setPixmap(m_iconPixmap); // Load it the sooner as possible to avoid flicker
+    QImage lockedIconImage = m_iconPixmap.convertToImage();
     QPixmap lockOverlayPixmap = loadIcon("object-locked");
-    QImage  lockOverlayImage  = lockOverlayPixmap.convertToImage();
+    QImage lockOverlayImage = lockOverlayPixmap.convertToImage();
     KIconEffect::overlay(lockedIconImage, lockOverlayImage);
     m_lockedIconPixmap.convertFromImage(lockedIconImage);
 
@@ -173,11 +170,11 @@ SystemTray::~SystemTray()
 
 void SystemTray::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() & Qt::LeftButton) {          // Prepare drag
+    if (event->button() & Qt::LeftButton) { // Prepare drag
         m_pressPos = event->globalPos();
-        m_canDrag  = true;
+        m_canDrag = true;
         event->accept();
-    } else if (event->button() & Qt::MidButton) {    // Paste
+    } else if (event->button() & Qt::MidButton) { // Paste
         Global::bnpView->currentBasket()->setInsertPopupMenu();
         Global::bnpView->currentBasket()->pasteNote(QClipboard::Selection);
         Global::bnpView->currentBasket()->cancelInsertPopupMenu();
@@ -197,7 +194,7 @@ void SystemTray::mousePressEvent(QMouseEvent *event)
         Global::bnpView->m_actColorPicker->plug(&menu);
 
         if (!Global::bnpView->isPart()) {
-            QAction * action;
+            QAction *action;
 
             menu.insertSeparator();
 
@@ -242,8 +239,8 @@ void SystemTray::mouseMoveEvent(QMouseEvent *event)
 void SystemTray::mouseReleaseEvent(QMouseEvent *event)
 {
     m_canDrag = false;
-    if (event->button() == Qt::LeftButton)         // Show / hide main window
-        if (rect().contains(event->pos())) {       // Accept only if released in systemTray
+    if (event->button() == Qt::LeftButton)   // Show / hide main window
+        if (rect().contains(event->pos())) { // Accept only if released in systemTray
             toggleActive();
             emit showPart();
             event->accept();
@@ -255,7 +252,7 @@ void SystemTray::dragEnterEvent(QDragEnterEvent *event)
 {
     m_showTimer->start(Settings::dropTimeToShow() * 100, true);
     Global::bnpView->currentBasket()->showFrameInsertTo();
-/// m_parentContainer->setStatusBarDrag(); // FIXME: move this line in BasketScene::showFrameInsertTo() ?
+    /// m_parentContainer->setStatusBarDrag(); // FIXME: move this line in BasketScene::showFrameInsertTo() ?
     BasketScene::acceptDropEvent(event);
 }
 
@@ -264,7 +261,7 @@ void SystemTray::dragMoveEvent(QDragMoveEvent *event)
     BasketScene::acceptDropEvent(event);
 }
 
-void SystemTray::dragLeaveEvent(QDragLeaveEvent*)
+void SystemTray::dragLeaveEvent(QDragLeaveEvent *)
 {
     m_showTimer->stop();
     m_canDrag = false;
@@ -294,13 +291,13 @@ void SystemTray::dropEvent(QDropEvent *event)
 
 void SystemTray::updateToolTip()
 {
-//  return; /////////////////////////////////////////////////////
+    //  return; /////////////////////////////////////////////////////
 
     BasketScene *basket = Global::bnpView->currentBasket();
     if (!basket)
         return;
 
-    if (basket->icon().isEmpty() || basket->icon() == "basket" || ! Settings::showIconInSystray())
+    if (basket->icon().isEmpty() || basket->icon() == "basket" || !Settings::showIconInSystray())
         setPixmap(basket->isLocked() ? m_lockedIconPixmap : m_iconPixmap);
     else {
         // Code that comes from JuK:
@@ -312,8 +309,7 @@ void SystemTray::updateToolTip()
         QImage lockOverlayImage = loadIcon("object-locked").convertToImage();
 
         KIconEffect::semiTransparent(bgImage);
-        copyImage(bgImage, fgImage, (bgImage.width() - fgImage.width()) / 2,
-                  (bgImage.height() - fgImage.height()) / 2);
+        copyImage(bgImage, fgImage, (bgImage.width() - fgImage.width()) / 2, (bgImage.height() - fgImage.height()) / 2);
         if (basket->isLocked())
             KIconEffect::overlay(bgImage, lockOverlayImage);
 
@@ -321,7 +317,7 @@ void SystemTray::updateToolTip()
         setPixmap(bgPix);
     }
 
-    //QTimer::singleShot( Container::c_delayTooltipTime, this, SLOT(updateToolTipDelayed()) );
+    // QTimer::singleShot( Container::c_delayTooltipTime, this, SLOT(updateToolTipDelayed()) );
     // No need to delay: it's be called when notes are changed:
     updateToolTipDelayed();
 }
@@ -330,9 +326,7 @@ void SystemTray::updateToolTipDelayed()
 {
     BasketScene *basket = Global::bnpView->currentBasket();
 
-    QString tip = "<p><nobr>" + (basket->isLocked() ? Tools::makeStandardCaption(i18n("%1 (Locked)"))
-                                 : Tools::makeStandardCaption("%1"))
-                  .arg(Tools::textToHTMLWithoutP(basket->basketName()));
+    QString tip = "<p><nobr>" + (basket->isLocked() ? Tools::makeStandardCaption(i18n("%1 (Locked)")) : Tools::makeStandardCaption("%1")).arg(Tools::textToHTMLWithoutP(basket->basketName()));
 
     QToolTip::add(this, tip);
 }
@@ -348,13 +342,13 @@ void SystemTray::wheelEvent(QWheelEvent *event)
         Global::bnpView->showPassiveContent();
 }
 
-void SystemTray::enterEvent(QEvent*)
+void SystemTray::enterEvent(QEvent *)
 {
     if (Settings::showOnMouseIn())
         m_autoShowTimer->start(Settings::timeToShowOnMouseIn() * 100, true);
 }
 
-void SystemTray::leaveEvent(QEvent*)
+void SystemTray::leaveEvent(QEvent *)
 {
     m_autoShowTimer->stop();
 }

@@ -19,39 +19,36 @@
 
 #include "diskerrordialog.h"
 
-#include <QtCore/QString>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QCloseEvent>
-#include <QLabel>
-#include <QtGui/QPixmap>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QLocale>
 #include <QVBoxLayout>
+#include <QtCore/QString>
+#include <QtGui/QCloseEvent>
+#include <QtGui/QKeyEvent>
+#include <QtGui/QPixmap>
 
-#include <KLocalizedString>
 #include <KIconLoader>
+#include <KLocalizedString>
 
 DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent)
-        : QDialog(parent)
+    : QDialog(parent)
 {
     setObjectName("DiskError");
     setWindowTitle(i18n("Save Error"));
-    //enableButtonCancel(false);
-    //enableButtonClose(false);
-    //enableButton(Close, false);
-    //okButton->setEnabled(false);
+    // enableButtonCancel(false);
+    // enableButtonClose(false);
+    // enableButton(Close, false);
+    // okButton->setEnabled(false);
     setModal(true);
-    //QHBoxLayout *layout = new QHBoxLayout(mainWidget(), /*margin=*/0, spacingHint());
+    // QHBoxLayout *layout = new QHBoxLayout(mainWidget(), /*margin=*/0, spacingHint());
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
-    QPixmap icon = KIconLoader::global()->loadIcon(
-                       "drive-harddisk", KIconLoader::NoGroup, 64, KIconLoader::DefaultState,
-                       QStringList(), /*path_store=*/0L, /*canReturnNull=*/true
-                   );
-    QLabel *iconLabel  = new QLabel(mainWidget);
+    QPixmap icon = KIconLoader::global()->loadIcon("drive-harddisk", KIconLoader::NoGroup, 64, KIconLoader::DefaultState, QStringList(), /*path_store=*/0L, /*canReturnNull=*/true);
+    QLabel *iconLabel = new QLabel(mainWidget);
     iconLabel->setPixmap(icon);
     iconLabel->setFixedSize(iconLabel->sizeHint());
     QLabel *label = new QLabel("<p><nobr><b><font size='+1'>" + titleMessage + "</font></b></nobr></p><p>" + message + "</p>", mainWidget);
@@ -69,7 +66,7 @@ void DiskErrorDialog::closeEvent(QCloseEvent *event)
     event->ignore();
 }
 
-void DiskErrorDialog::keyPressEvent(QKeyEvent*)
+void DiskErrorDialog::keyPressEvent(QKeyEvent *)
 {
     // Escape should not close the window...
 }

@@ -26,12 +26,13 @@ class BasketScene;
 
 class BasketView : public QGraphicsView
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  BasketView(BasketScene *scene, QWidget *parent = nullptr);
-  ~BasketView() override;
+    BasketView(BasketScene *scene, QWidget *parent = nullptr);
+    ~BasketView() override;
+
 protected:
-  void resizeEvent( QResizeEvent * event ) override;
+    void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // BASKET_VIEW_H

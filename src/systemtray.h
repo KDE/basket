@@ -20,9 +20,9 @@
 #ifndef SYSTEMTRAY_H
 #define SYSTEMTRAY_H
 
-#include <QSize>
-#include <QIcon>
 #include <KStatusNotifierItem>
+#include <QIcon>
+#include <QSize>
 
 /** A thin wrapper around KSystemTrayIcon until the old SystemTray is ported.
  * As things are ported, items should
@@ -47,31 +47,32 @@ signals:
 #ifdef USE_OLD_SYSTRAY
 
 /** This class provide a personalized system tray icon.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class SystemTray2 : public SystemTray
 {
     Q_OBJECT
 public:
     explicit SystemTray2(QWidget *parent = nullptr, const char *name = nullptr);
     ~SystemTray2();
+
 protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     virtual void dragEnterEvent(QDragEnterEvent *event);
-    virtual void dragMoveEvent(QDragMoveEvent* event);
-    virtual void dragLeaveEvent(QDragLeaveEvent*);
+    virtual void dragMoveEvent(QDragMoveEvent *event);
+    virtual void dragLeaveEvent(QDragLeaveEvent *);
     virtual void dropEvent(QDropEvent *event);
     void wheelEvent(QWheelEvent *event);
-    void enterEvent(QEvent*);
-    void leaveEvent(QEvent*);
+    void enterEvent(QEvent *);
+    void leaveEvent(QEvent *);
 
 private:
-    QTimer    *m_showTimer;
-    QTimer    *m_autoShowTimer;
-    bool       m_canDrag;
-    QPoint     m_pressPos;
+    QTimer *m_showTimer;
+    QTimer *m_autoShowTimer;
+    bool m_canDrag;
+    QPoint m_pressPos;
 };
 #endif // USE_OLD_SYSTRAY
 

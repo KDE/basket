@@ -21,13 +21,13 @@
 #ifndef K_SYSTEM_TRAY_ICON
 #define K_SYSTEM_TRAY_ICON
 
-#include <QWidget>
 #include <KSystemTrayIcon>
+#include <QWidget>
 
 /** Convenient class to develop the displayCloseMessage() dialog
-  * hopefully integrated in KDE 3.4
-  * @author Sébastien Laoût
-  */
+ * hopefully integrated in KDE 3.4
+ * @author Sébastien Laoût
+ */
 class KSystemTray2 : public KSystemTrayIcon, public QWidget
 {
     Q_OBJECT
@@ -35,16 +35,15 @@ public:
     explicit KSystemTray2(QWidget *parent = 0, const char *name = 0);
     ~KSystemTray2();
     /**
-      * Call this method when the user clicked the close button of the window
-      * (the [x]) to inform him that the application sit in the system tray
-      * and willn't be closed (as he is used to).
-      *
-      * You usually call it from reimplemented KMainWindow::queryClose()
-      *
-      * @since 3.4
-      */
+     * Call this method when the user clicked the close button of the window
+     * (the [x]) to inform him that the application sit in the system tray
+     * and willn't be closed (as he is used to).
+     *
+     * You usually call it from reimplemented KMainWindow::queryClose()
+     *
+     * @since 3.4
+     */
     void displayCloseMessage(QString fileMenu = "");
 };
-
 
 #endif // K_SYSTEM_TRAY_ICON

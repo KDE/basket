@@ -20,10 +20,10 @@
 #ifndef NOTE_H
 #define NOTE_H
 
+#include <QGraphicsItemGroup>
+#include <QtCore/QDateTime>
 #include <QtCore/QList>
 #include <QtCore/QSet>
-#include <QtCore/QDateTime>
-#include <QGraphicsItemGroup>
 
 #include "basket_export.h"
 #include "tag.h"
@@ -43,31 +43,31 @@ class QTimeLine;
 class NotePrivate;
 
 /** Handle basket notes and groups!\n
-  * After creation, the note is a group. You should create a NoteContent with this Note
-  * as constructor parameter to transform it to a note with content. eg:
-  * @code
-  * Note *note = new Note(basket);   // note is a group!
-  * new TextContent(note, fileName); // note is now a note with a text content!
-  * new ColorContent(note, Qt::red); // Should never be done!!!!! the old Content should be deleted...
-  * @endcode
-  * @author Sébastien Laoût
-  */
+ * After creation, the note is a group. You should create a NoteContent with this Note
+ * as constructor parameter to transform it to a note with content. eg:
+ * @code
+ * Note *note = new Note(basket);   // note is a group!
+ * new TextContent(note, fileName); // note is now a note with a text content!
+ * new ColorContent(note, Qt::red); // Should never be done!!!!! the old Content should be deleted...
+ * @endcode
+ * @author Sébastien Laoût
+ */
 class BASKET_EXPORT Note : public QGraphicsItemGroup
 {
-/// CONSTRUCTOR AND DESTRUCTOR:
+    /// CONSTRUCTOR AND DESTRUCTOR:
 public:
     explicit Note(BasketScene *parent = nullptr);
     ~Note() override;
 
 private:
-    NotePrivate* d;
+    NotePrivate *d;
 
-/// DOUBLY LINKED LIST:
+    /// DOUBLY LINKED LIST:
 public:
-    void  setNext(Note *next);
-    void  setPrev(Note *prev);
-    Note* next() const;
-    Note* prev() const;
+    void setNext(Note *next);
+    void setPrev(Note *prev);
+    Note *next() const;
+    Note *prev() const;
 
 public:
     void setWidth(qreal width);
@@ -85,8 +85,7 @@ public:
     QRectF resizerRect();
     QRectF visibleRect();
     QRectF boundingRect() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                QWidget *widget) override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void relayoutAt(qreal ax, qreal ay, bool animate);
     qreal contentX() const;
     qreal minWidth() const;
@@ -96,82 +95,97 @@ public:
     /** << DO NEVER USE IT!!! Only available when moving notes, groups should be recreated with the exact same state as before! */
     void setHeight(qreal height);
 
-/// FREE AND COLUMN LAYOUTS MANAGEMENT:
+    /// FREE AND COLUMN LAYOUTS MANAGEMENT:
 private:
     qreal m_groupWidth;
+
 public:
-    qreal  groupWidth() const;
+    qreal groupWidth() const;
     void setGroupWidth(qreal width);
     qreal rightLimit() const;
-    qreal  finalRightLimit() const;
+    qreal finalRightLimit() const;
     bool isFree() const;
     bool isColumn() const;
     bool hasResizer() const;
     qreal resizerHeight() const;
 
-/// GROUPS MANAGEMENT:
+    /// GROUPS MANAGEMENT:
 private:
-    bool  m_isFolded;
+    bool m_isFolded;
     Note *m_firstChild;
     Note *m_parentNote;
+
 public:
-    inline bool isGroup() const           {
+    inline bool isGroup() const
+    {
         return m_content == 0L;
     }
-    inline bool isFolded()                {
+    inline bool isFolded()
+    {
         return m_isFolded;
     }
-    inline Note* firstChild()             {
+    inline Note *firstChild()
+    {
         return m_firstChild;
     }
-    inline Note* parentNote() const       {
+    inline Note *parentNote() const
+    {
         return m_parentNote;
     }
-    /*inline*/ bool showSubNotes();//            { return !m_isFolded || !m_collapseFinished; }
-    inline void setParentNote(Note *note) {
+    /*inline*/ bool showSubNotes(); //            { return !m_isFolded || !m_collapseFinished; }
+    inline void setParentNote(Note *note)
+    {
         m_parentNote = note;
     }
-    inline void setFirstChild(Note *note) {
+    inline void setFirstChild(Note *note)
+    {
         m_firstChild = note;
     }
     bool isShown();
-    bool  toggleFolded();
-    
-    Note* noteAt(QPointF pos);
-    Note* firstRealChild();
-    Note* lastRealChild();
-    Note* lastChild();
-    Note* lastSibling();
-    qreal yExpander();
-    bool  isAfter(Note *note);
-    bool  containsNote(Note *note);
+    bool toggleFolded();
 
-/// NOTES VARIOUS PROPERTIES:       // CONTENT MANAGEMENT?
+    Note *noteAt(QPointF pos);
+    Note *firstRealChild();
+    Note *lastRealChild();
+    Note *lastChild();
+    Note *lastSibling();
+    qreal yExpander();
+    bool isAfter(Note *note);
+    bool containsNote(Note *note);
+
+    /// NOTES VARIOUS PROPERTIES:       // CONTENT MANAGEMENT?
 private:
-    BasketScene  *m_basket;
+    BasketScene *m_basket;
     NoteContent *m_content;
-    QDateTime    m_addedDate;
-    QDateTime    m_lastModificationDate;
+    QDateTime m_addedDate;
+    QDateTime m_lastModificationDate;
+
 public:
-    inline BasketScene*      basket() const {
+    inline BasketScene *basket() const
+    {
         return m_basket;
     }
-    inline NoteContent* content() {
+    inline NoteContent *content()
+    {
         return m_content;
     }
-    inline void setAddedDate(const QDateTime &dateTime)            {
-        m_addedDate            = dateTime;
+    inline void setAddedDate(const QDateTime &dateTime)
+    {
+        m_addedDate = dateTime;
     }
-    inline void setLastModificationDate(const QDateTime &dateTime) {
+    inline void setLastModificationDate(const QDateTime &dateTime)
+    {
         m_lastModificationDate = dateTime;
     }
-    
+
     void setParentBasket(BasketScene *basket);
-    
-    QDateTime addedDate()            {
+
+    QDateTime addedDate()
+    {
         return m_addedDate;
     }
-    QDateTime lastModificationDate() {
+    QDateTime lastModificationDate()
+    {
         return m_lastModificationDate;
     }
     QString addedStringDate();
@@ -185,10 +199,11 @@ protected:
     friend class NoteContent;
     friend class AnimationContent;
 
-/// DRAWING:
+    /// DRAWING:
 private:
     QPixmap m_bufferedPixmap;
     QPixmap m_bufferedSelectionPixmap;
+
 public:
     void draw(QPainter *painter, const QRectF &clipRect);
     void drawBufferOnScreen(QPainter *painter, const QPixmap &contentPixmap);
@@ -198,97 +213,123 @@ public:
     void drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, bool rounded);
     void drawRoundings(QPainter *painter, qreal x, qreal y, int type, qreal width = 0, qreal height = 0);
     void unbufferizeAll();
-    inline void unbufferize()  {
-        m_bufferedPixmap = QPixmap(); m_bufferedSelectionPixmap = QPixmap();
+    inline void unbufferize()
+    {
+        m_bufferedPixmap = QPixmap();
+        m_bufferedSelectionPixmap = QPixmap();
     }
-    inline bool isBufferized() {
+    inline bool isBufferized()
+    {
         return !m_bufferedPixmap.isNull();
     }
     void recomputeBlankRects(QList<QRectF> &blankAreas);
     static void drawInactiveResizer(QPainter *painter, qreal x, qreal y, qreal height, const QColor &background, bool column);
     QPalette palette() const;
 
-/// VISIBLE AREAS COMPUTATION:
+    /// VISIBLE AREAS COMPUTATION:
 private:
     QList<QRectF> m_areas;
-    bool              m_computedAreas;
-    bool              m_onTop;
+    bool m_computedAreas;
+    bool m_onTop;
     void recomputeAreas();
     bool recomputeAreas(Note *note, bool noteIsAfterThis);
+
 public:
     void setOnTop(bool onTop);
-    inline bool isOnTop() {
+    inline bool isOnTop()
+    {
         return m_onTop;
     }
     bool isEditing();
 
-/// MANAGE ANIMATION:
+    /// MANAGE ANIMATION:
 private:
     QGraphicsItemAnimation *m_animation;
+
 public:
     bool initAnimationLoad(QTimeLine *timeLine);
     void animationFinished();
-    
-/// USER INTERACTION:
+
+    /// USER INTERACTION:
 public:
-    enum Zone { None = 0,
-                Handle, TagsArrow, Custom0, /*CustomContent1, CustomContent2, */Content, Link,
-                TopInsert, TopGroup, BottomInsert, BottomGroup, BottomColumn,
-                Resizer,
-                Group, GroupExpander,
-                Emblem0
-              }; // Emblem0 should be at end, because we add 1 to get Emblem1, 2 to get Emblem2...
-    inline void setHovered(bool hovered)  {
-        m_hovered     = hovered; unbufferize();
+    enum Zone {
+        None = 0,
+        Handle,
+        TagsArrow,
+        Custom0,
+        /*CustomContent1, CustomContent2, */ Content,
+        Link,
+        TopInsert,
+        TopGroup,
+        BottomInsert,
+        BottomGroup,
+        BottomColumn,
+        Resizer,
+        Group,
+        GroupExpander,
+        Emblem0
+    }; // Emblem0 should be at end, because we add 1 to get Emblem1, 2 to get Emblem2...
+    inline void setHovered(bool hovered)
+    {
+        m_hovered = hovered;
+        unbufferize();
     }
-    void        setHoveredZone(Zone zone);
-    inline bool hovered()                 {
+    void setHoveredZone(Zone zone);
+    inline bool hovered()
+    {
         return m_hovered;
     }
-    inline Zone hoveredZone()             {
+    inline Zone hoveredZone()
+    {
         return m_hoveredZone;
     }
     Zone zoneAt(const QPointF &pos, bool toAdd = false);
     QRectF zoneRect(Zone zone, const QPointF &pos);
     Qt::CursorShape cursorFromZone(Zone zone) const;
     QString linkAt(const QPointF &pos);
+
 private:
     bool m_hovered;
     Zone m_hoveredZone;
 
-/// SELECTION:
+    /// SELECTION:
 public:
-    NoteSelection* selectedNotes();
+    NoteSelection *selectedNotes();
     void setSelected(bool selected);
     void setSelectedRecursively(bool selected);
     void invertSelectionRecursively();
     void selectIn(const QRectF &rect, bool invertSelection, bool unselectOthers = true);
     void setFocused(bool focused);
-    inline bool isFocused()  {
+    inline bool isFocused()
+    {
         return m_focused;
     }
-    inline bool isSelected() {
+    inline bool isSelected()
+    {
         return m_selected;
     }
     bool allSelected();
     void resetWasInLastSelectionRect();
     void unselectAllBut(Note *toSelect);
     void invertSelectionOf(Note *toSelect);
-    Note* theSelectedNote();
+    Note *theSelectedNote();
+
 private:
     bool m_focused;
     bool m_selected;
     bool m_wasInLastSelectionRect;
 
-/// TAGS:
+    /// TAGS:
 private:
     State::List m_states;
-    State       m_computedState;
-    int         m_emblemsCount;
-    bool        m_haveInvisibleTags;
+    State m_computedState;
+    int m_emblemsCount;
+    bool m_haveInvisibleTags;
+
 public:
-    /*const */State::List& states() const;
-    inline int emblemsCount() {
+    /*const */ State::List &states() const;
+    inline int emblemsCount()
+    {
         return m_emblemsCount;
     }
     void addState(State *state, bool orReplace = true);
@@ -305,57 +346,58 @@ public:
     void inheritTagsOf(Note *note);
     bool hasTag(Tag *tag);
     bool hasState(State *state);
-    State* stateOfTag(Tag *tag);
-    State* stateForEmblemNumber(int number) const;
+    State *stateOfTag(Tag *tag);
+    State *stateForEmblemNumber(int number) const;
     bool stateForTagFromSelectedNotes(Tag *tag, State **state);
-    void   recomputeStyle();
-    void   recomputeAllStyles();
-    bool   removedStates(const QList<State*> &deletedStates);
-    QFont  font(); // Computed!
+    void recomputeStyle();
+    void recomputeAllStyles();
+    bool removedStates(const QList<State *> &deletedStates);
+    QFont font();             // Computed!
     QColor backgroundColor(); // Computed!
-    QColor textColor(); // Computed!
+    QColor textColor();       // Computed!
     bool allowCrossReferences();
 
-/// FILTERING:
+    /// FILTERING:
 private:
     bool m_matching;
+
 public:
     bool computeMatching(const FilterData &data);
-    int  newFilter(const FilterData &data);
-    bool matching() {
+    int newFilter(const FilterData &data);
+    bool matching()
+    {
         return m_matching;
     }
 
-/// ADDED:
+    /// ADDED:
 public:
     /**
      * @return true if this note could be deleted
      **/
-    void deleteSelectedNotes(bool deleteFilesToo = true, QSet<Note*> *notesToBeDeleted = 0);
+    void deleteSelectedNotes(bool deleteFilesToo = true, QSet<Note *> *notesToBeDeleted = 0);
     int count();
     int countDirectChilds();
 
     QString fullPath();
-    Note* noteForFullPath(const QString &path);
+    Note *noteForFullPath(const QString &path);
 
-    //void update();
+    // void update();
     void linkLookChanged();
 
-    void usedStates(QList<State*> &states);
+    void usedStates(QList<State *> &states);
 
-    void listUsedTags(QList<Tag*> &list);
+    void listUsedTags(QList<Tag *> &list);
 
+    Note *nextInStack();
+    Note *prevInStack();
+    Note *nextShownInStack();
+    Note *prevShownInStack();
 
-    Note* nextInStack();
-    Note* prevInStack();
-    Note* nextShownInStack();
-    Note* prevShownInStack();
+    Note *parentPrimaryNote(); // TODO: There are places in the code where this methods is hand-copied / hand-inlined instead of called.
 
-    Note* parentPrimaryNote(); // TODO: There are places in the code where this methods is hand-copied / hand-inlined instead of called.
-
-    Note* firstSelected();
-    Note* lastSelected();
-    Note* selectedGroup();
+    Note *firstSelected();
+    Note *lastSelected();
+    Note *selectedGroup();
     void groupIn(Note *group);
 
     bool tryExpandParent();
@@ -368,30 +410,29 @@ public:
 
     void debug();
 
-/// SPEED OPTIMIZATION
+    /// SPEED OPTIMIZATION
 public:
     void finishLazyLoad();
 
 public:
     // Values are provided here as info:
     // Please see Settings::setBigNotes() to know whats values are assigned.
-    static qreal NOTE_MARGIN      /*= 2*/;
+    static qreal NOTE_MARGIN /*= 2*/;
     static qreal INSERTION_HEIGHT /*= 5*/;
-    static qreal EXPANDER_WIDTH   /*= 9*/;
-    static qreal EXPANDER_HEIGHT  /*= 9*/;
-    static qreal GROUP_WIDTH      /*= 2*NOTE_MARGIN + EXPANDER_WIDTH*/;
-    static qreal HANDLE_WIDTH     /*= GROUP_WIDTH*/;
-    static qreal RESIZER_WIDTH    /*= GROUP_WIDTH*/;
-    static qreal TAG_ARROW_WIDTH  /*= 5*/;
-    static qreal EMBLEM_SIZE      /*= 16*/;
-    static qreal MIN_HEIGHT       /*= 2*NOTE_MARGIN + EMBLEM_SIZE*/;
+    static qreal EXPANDER_WIDTH /*= 9*/;
+    static qreal EXPANDER_HEIGHT /*= 9*/;
+    static qreal GROUP_WIDTH /*= 2*NOTE_MARGIN + EXPANDER_WIDTH*/;
+    static qreal HANDLE_WIDTH /*= GROUP_WIDTH*/;
+    static qreal RESIZER_WIDTH /*= GROUP_WIDTH*/;
+    static qreal TAG_ARROW_WIDTH /*= 5*/;
+    static qreal EMBLEM_SIZE /*= 16*/;
+    static qreal MIN_HEIGHT /*= 2*NOTE_MARGIN + EMBLEM_SIZE*/;
 };
 
 /*
  * Convenience functions:
  */
 
-extern void substractRectOnAreas(const QRectF &rectToSubstract,
-		QList<QRectF> &areas, bool andRemove = true);
+extern void substractRectOnAreas(const QRectF &rectToSubstract, QList<QRectF> &areas, bool andRemove = true);
 
 #endif // NOTE_H

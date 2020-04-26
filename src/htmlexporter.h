@@ -36,22 +36,23 @@ class HTMLExporter
 public:
     explicit HTMLExporter(BasketScene *basket);
     ~HTMLExporter();
+
 private:
     void prepareExport(BasketScene *basket, const QString &fullPath);
     void exportBasket(BasketScene *basket, bool isSubBasket);
     void exportNote(Note *note, int indent);
     void writeBasketTree(BasketScene *currentBasket);
     void writeBasketTree(BasketScene *currentBasket, BasketScene *basket, int indent);
-    void saveToFile(const QString& fullPath, const QByteArray& array);
+    void saveToFile(const QString &fullPath, const QByteArray &array);
 
 public:
     QString copyIcon(const QString &iconName, int size);
     QString copyFile(const QString &srcPath, bool createIt);
 
-public: //TODO: make private?
+public: // TODO: make private?
     // Absolute path of the file name the user chosen:
-    QString filePath;          // eg.: "/home/seb/foo.html"
-    QString fileName;          // eg.: "foo.html"
+    QString filePath; // eg.: "/home/seb/foo.html"
+    QString fileName; // eg.: "foo.html"
 
     // Absolute & relative paths for the current basket to be exported:
     QString basketFilePath;    // eg.: "/home/seb/foo.html" or "/home/seb/foo.html_files/baskets/basketN.html"

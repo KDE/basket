@@ -20,10 +20,10 @@
 #ifndef NOTECONTENT_H
 #define NOTECONTENT_H
 
-#include <QtCore/QObject>
 #include <QGraphicsItem>
 #include <QUrl>
 #include <QXmlStreamWriter>
+#include <QtCore/QObject>
 
 #include <KIO/AccessManager>
 
@@ -51,12 +51,12 @@ class QUrl;
 
 namespace KIO
 {
-    class PreviewJob;
+class PreviewJob;
 }
 
 namespace Phonon
 {
-    class MediaObject;
+class MediaObject;
 }
 
 class BasketScene;
@@ -69,22 +69,30 @@ class Note;
 class LinkDisplayItem : public QGraphicsItem
 {
 public:
-  explicit LinkDisplayItem(Note *parent)
-      : m_note(parent) {}
-  ~LinkDisplayItem() override {}
-  QRectF boundingRect() const override;
-  void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
-  
-  LinkDisplay &linkDisplay() { return m_linkDisplay; }
+    explicit LinkDisplayItem(Note *parent)
+        : m_note(parent)
+    {
+    }
+    ~LinkDisplayItem() override
+    {
+    }
+    QRectF boundingRect() const override;
+    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
+
+    LinkDisplay &linkDisplay()
+    {
+        return m_linkDisplay;
+    }
+
 private:
-  LinkDisplay m_linkDisplay;
-  Note *m_note;
+    LinkDisplay m_linkDisplay;
+    Note *m_note;
 };
 
 /** A list of numeric identifier for each note type.
-  * Declare a variable with the type NoteType::Id and assign a value like NoteType::Text...
-  * @author Sébastien Laoût
-  */
+ * Declare a variable with the type NoteType::Id and assign a value like NoteType::Text...
+ * @author Sébastien Laoût
+ */
 namespace NoteType
 {
 enum Id { Group = 255, Text = 1, Html, Image, Animation, Sound, File, Link, CrossReference, Launcher, Color, Unknown }; // Always positive
@@ -98,72 +106,99 @@ class NoteContent
 {
 public:
     // Constructor and destructor:
-    explicit NoteContent(Note *parent, const QString &fileName = "");     /// << Constructor. Inherited notes should call it to initialize the parent note.
-    virtual ~NoteContent()                                             {} /// << Virtual destructor. Reimplement it if you should destroy some data your custom types.
+    explicit NoteContent(Note *parent, const QString &fileName = ""); /// << Constructor. Inherited notes should call it to initialize the parent note.
+    virtual ~NoteContent()
+    {
+    } /// << Virtual destructor. Reimplement it if you should destroy some data your custom types.
     // Simple Abstract Generic Methods:
-    virtual NoteType::Id type() const                                = 0; /// << @return the internal number that identify that note type.
-    virtual QString typeName() const                                 = 0; /// << @return the translated type name to display in the user interface.
-    virtual QString lowerTypeName() const                            = 0; /// << @return the type name in lowercase without space, for eg. saving.
-    virtual QString toText(const QString &cuttedFullPath);                /// << @return a plain text equivalent of the content.
+    virtual NoteType::Id type() const = 0;                                               /// << @return the internal number that identify that note type.
+    virtual QString typeName() const = 0;                                                /// << @return the translated type name to display in the user interface.
+    virtual QString lowerTypeName() const = 0;                                           /// << @return the type name in lowercase without space, for eg. saving.
+    virtual QString toText(const QString &cuttedFullPath);                               /// << @return a plain text equivalent of the content.
     virtual QString toHtml(const QString &imageName, const QString &cuttedFullPath) = 0; /// << @return an HTML text equivalent of the content. @param imageName Save image in this Qt resource.
-    virtual QPixmap toPixmap()                      {
+    virtual QPixmap toPixmap()
+    {
         return QPixmap();
-    } /// << @return an image equivalent of the content.
-    virtual void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
-    virtual bool    useFile() const                                  = 0; /// << @return true if it use a file to store the content.
-    virtual bool    canBeSavedAs() const                             = 0; /// << @return true if the content can be saved as a file by the user.
-    virtual QString saveAsFilters() const                            = 0; /// << @return the filters for the user to choose a file destination to save the note as.
-    virtual bool    match(const FilterData &data)                    = 0; /// << @return true if the content match the filter criteria.
+    }                                                                              /// << @return an image equivalent of the content.
+    virtual void toLink(QUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
+    virtual bool useFile() const = 0;                                              /// << @return true if it use a file to store the content.
+    virtual bool canBeSavedAs() const = 0;                                         /// << @return true if the content can be saved as a file by the user.
+    virtual QString saveAsFilters() const = 0;                                     /// << @return the filters for the user to choose a file destination to save the note as.
+    virtual bool match(const FilterData &data) = 0;                                /// << @return true if the content match the filter criteria.
     // Complex Abstract Generic Methods:
-    virtual void exportToHTML(HTMLExporter *exporter, int indent)    = 0; /// << Export the note in an HTML file.
-    virtual QString cssClass() const                                 = 0; /// << @return the CSS class of the note when exported to HTML
-    virtual qreal     setWidthAndGetHeight(qreal width)                  = 0; /// << Relayout content with @p width (never less than minWidth()). @return its new height.
-    virtual bool    loadFromFile(bool /*lazyLoad*/)     {
+    virtual void exportToHTML(HTMLExporter *exporter, int indent) = 0; /// << Export the note in an HTML file.
+    virtual QString cssClass() const = 0;                              /// << @return the CSS class of the note when exported to HTML
+    virtual qreal setWidthAndGetHeight(qreal width) = 0;               /// << Relayout content with @p width (never less than minWidth()). @return its new height.
+    virtual bool loadFromFile(bool /*lazyLoad*/)
+    {
         return false;
     } /// << Load the content from the file. The default implementation does nothing. @see fileName().
-    virtual bool    finishLazyLoad()                    {
+    virtual bool finishLazyLoad()
+    {
         return false;
     } /// << Load what was not loaded by loadFromFile() if it was lazy-loaded
-    virtual bool    saveToFile()                        {
+    virtual bool saveToFile()
+    {
         return false;
     } /// << Save the content to the file. The default implementation does nothing. @see fileName().
-    virtual QString linkAt(const QPointF &/*pos*/)          {
+    virtual QString linkAt(const QPointF & /*pos*/)
+    {
         return "";
-    } /// << @return the link anchor at position @p pos or "" if there is no link.
-    virtual void    saveToNode(QXmlStreamWriter &stream);  /// << Save the note in the basket XML file. By default it store the filename if a file is used.
-    virtual void    fontChanged()                                    = 0; /// << If your content display textual data, called when the font have changed (from tags or basket font)
-    virtual void    linkLookChanged()                                  {} /// << If your content use LinkDisplay with preview enabled, reload the preview (can have changed size)
-    virtual QString editToolTipText() const                          = 0; /// << @return "Edit this [text|image|...]" to put in the tooltip for the note's content zone.
-    virtual void    toolTipInfos(QStringList */*keys*/, QStringList */*values*/) {} /// << Get "key: value" couples to put in the tooltip for the note's content zone.
+    }                                                  /// << @return the link anchor at position @p pos or "" if there is no link.
+    virtual void saveToNode(QXmlStreamWriter &stream); /// << Save the note in the basket XML file. By default it store the filename if a file is used.
+    virtual void fontChanged() = 0;                    /// << If your content display textual data, called when the font have changed (from tags or basket font)
+    virtual void linkLookChanged()
+    {
+    }                                            /// << If your content use LinkDisplay with preview enabled, reload the preview (can have changed size)
+    virtual QString editToolTipText() const = 0; /// << @return "Edit this [text|image|...]" to put in the tooltip for the note's content zone.
+    virtual void toolTipInfos(QStringList * /*keys*/, QStringList * /*values*/)
+    {
+    } /// << Get "key: value" couples to put in the tooltip for the note's content zone.
     // Custom Zones:                                                      ///    Implement this if you want to store custom data.
-    virtual int	zoneAt(const QPointF &/*pos*/)           {
+    virtual int zoneAt(const QPointF & /*pos*/)
+    {
         return 0;
-    } /// << If your note-type have custom zones, @return the zone at @p pos or 0 if it's not a custom zone!
-    virtual QRectF   zoneRect(int /*zone*/, const QPointF &/*pos*/);            /// << Idem, @return the rect of the custom zone
-    virtual QString zoneTip(int /*zone*/)                  {
+    }                                                               /// << If your note-type have custom zones, @return the zone at @p pos or 0 if it's not a custom zone!
+    virtual QRectF zoneRect(int /*zone*/, const QPointF & /*pos*/); /// << Idem, @return the rect of the custom zone
+    virtual QString zoneTip(int /*zone*/)
+    {
         return "";
     } /// << Idem, @return the toolTip of the custom zone
-    virtual Qt::CursorShape cursorFromZone(int /*zone*/) const   { return Qt::ArrowCursor; } /// << Idem, @return the mouse cursor when it is over zone @p zone!
-    virtual void    setHoveredZone(int /*oldZone*/, int /*newZone*/)   {} /// << If your note type need some feedback, you get notified of hovering changes here.
-    virtual QString statusBarMessage(int /*zone*/)         {
+    virtual Qt::CursorShape cursorFromZone(int /*zone*/) const
+    {
+        return Qt::ArrowCursor;
+    } /// << Idem, @return the mouse cursor when it is over zone @p zone!
+    virtual void setHoveredZone(int /*oldZone*/, int /*newZone*/)
+    {
+    } /// << If your note type need some feedback, you get notified of hovering changes here.
+    virtual QString statusBarMessage(int /*zone*/)
+    {
         return "";
     } /// << @return the statusBar message to show for zone @p zone, or "" if nothing special have to be said.
     // Drag and Drop Content:
-    virtual void    serialize(QDataStream &/*stream*/)                 {} /// << Serialize the content in a QDragObject. If it consists of a file, it can be serialized for you.
-    virtual bool    shouldSerializeFile()           {
+    virtual void serialize(QDataStream & /*stream*/)
+    {
+    } /// << Serialize the content in a QDragObject. If it consists of a file, it can be serialized for you.
+    virtual bool shouldSerializeFile()
+    {
         return useFile();
     } /// << @return true if the dragging process should serialize the filename (and move the file if cutting).
-    virtual void    addAlternateDragObjects(QMimeData */*dragObj*/) {} /// << If you offer more than toText/Html/Image/Link(), this will be called if this is the only selected.
-    virtual QPixmap feedbackPixmap(qreal width, qreal height)            = 0; /// << @return the pixmap to put under the cursor while dragging this object.
-    virtual bool    needSpaceForFeedbackPixmap()        {
+    virtual void addAlternateDragObjects(QMimeData * /*dragObj*/)
+    {
+    }                                                              /// << If you offer more than toText/Html/Image/Link(), this will be called if this is the only selected.
+    virtual QPixmap feedbackPixmap(qreal width, qreal height) = 0; /// << @return the pixmap to put under the cursor while dragging this object.
+    virtual bool needSpaceForFeedbackPixmap()
+    {
         return false;
     } /// << @return true if a space must be inserted before and after the DND feedback pixmap.
     // Content Edition:
-    virtual int xEditorIndent()                        {
+    virtual int xEditorIndent()
+    {
         return 0;
     } /// << If the editor should be indented (eg. to not cover an icon), return the number of pixels.
     // Open Content or File:
-    virtual QUrl urlToOpen(bool /*with*/); /// << @return the URL to open the note, or an invalid QUrl if it's not openable. If @p with if false, it's a normal "Open". If it's true, it's for an "Open with..." action. The default implementation return the fullPath() if the note useFile() and nothing if not.
+    virtual QUrl urlToOpen(bool /*with*/); /// << @return the URL to open the note, or an invalid QUrl if it's not openable. If @p with if false, it's a normal "Open". If it's true, it's for an "Open with..." action. The default
+                                           /// implementation return the fullPath() if the note useFile() and nothing if not.
     enum OpenMessage {
         OpenOne,              /// << Message to send to the statusbar when opening this note.
         OpenSeveral,          /// << Message to send to the statusbar when opening several notes of this type.
@@ -172,35 +207,44 @@ public:
         OpenOneWithDialog,    /// << Prompt-message of the "Open With..." dialog for this note.
         OpenSeveralWithDialog /// << Prompt-message of the "Open With..." dialog for several notes of this type.
     };
-    virtual QString messageWhenOpening(OpenMessage /*where*/) {
+    virtual QString messageWhenOpening(OpenMessage /*where*/)
+    {
         return QString();
-    } /// << @return the message to display according to @p where or nothing if it can't be done. @see OpenMessage describing the nature of the message that should be returned... The default implementation return an empty string. NOTE: If urlToOpen() is invalid and messageWhenOpening() is not empty, then the user will be prompted to edit the note (with the message returned by messageWhenOpening()) for eg. being able to edit URL of a link if it's empty when opening it...
-    virtual QString customOpenCommand() {
+    } /// << @return the message to display according to @p where or nothing if it can't be done. @see OpenMessage describing the nature of the message that should be returned... The default implementation return an empty string. NOTE: If
+      /// urlToOpen() is invalid and messageWhenOpening() is not empty, then the user will be prompted to edit the note (with the message returned by messageWhenOpening()) for eg. being able to edit URL of a link if it's empty when opening
+      /// it...
+    virtual QString customOpenCommand()
+    {
         return QString();
-    }  /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the users in the setting (choice to use a custom app or not, and which app).
+    } /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the users in the setting (choice to use a custom app or not, and which app).
     // Common File Management:                                            ///    (and do save changes) and optionally hide the toolbar.
     virtual void setFileName(const QString &fileName); /// << Set the filename. Reimplement it if you eg. want to update the view when the filename is changed.
     bool trySetFileName(const QString &fileName);      /// << Set the new filename and return true. Can fail and return false if a file with this fileName already exists.
-    QString  fullPath();                               /// << Get the absolute path of the file where this content is stored on disk.
-    QString  fileName() const {
+    QString fullPath();                                /// << Get the absolute path of the file where this content is stored on disk.
+    QString fileName() const
+    {
         return m_fileName;
-    }   /// << Get the file name where this content is stored (relative to the basket folder). @see fullPath().
-    qreal      minWidth() const {
+    } /// << Get the file name where this content is stored (relative to the basket folder). @see fullPath().
+    qreal minWidth() const
+    {
         return m_minWidth;
-    }    /// << Get the minimum width for this content.
-    Note    *note()     {
+    } /// << Get the minimum width for this content.
+    Note *note()
+    {
         return m_note;
-    }         /// << Get the note managing this content.
-    BasketScene  *basket();                                 /// << Get the basket containing the note managing this content.
+    }                      /// << Get the note managing this content.
+    BasketScene *basket(); /// << Get the basket containing the note managing this content.
     virtual QGraphicsItem *graphicsItem() = 0;
+
 public:
     void setEdited(); /// << Mark the note as edited NOW: change the "last modification time and time" AND save the basket to XML file.
 protected:
     void contentChanged(qreal newMinWidth); /// << When the content has changed, inherited classes should call this to specify its new minimum size and trigger a basket relayout.
 private:
-    Note    *m_note;
-    QString  m_fileName;
-    qreal    m_minWidth;
+    Note *m_note;
+    QString m_fileName;
+    qreal m_minWidth;
+
 public:
     static const int FEEDBACK_DARKING;
 };
@@ -218,37 +262,41 @@ public:
     NoteType::Id type() const override;
     QString typeName() const override;
     QString lowerTypeName() const override;
-    QString toText(const QString &/*cuttedFullPath*/) override;
+    QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool lazyLoad) override;
-    bool    finishLazyLoad() override;
-    bool    saveToFile() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool lazyLoad) override;
+    bool finishLazyLoad() override;
+    bool saveToFile() override;
     QString linkAt(const QPointF &pos) override;
-    void    fontChanged() override;
+    void fontChanged() override;
     QString editToolTipText() const override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
-//  QString customOpenCommand();
+    //  QString customOpenCommand();
     // Content-Specific Methods:
-    void    setText(const QString &text, bool lazyLoad = false); /// << Change the text note-content and relayout the note.
-    QString text() {
+    void setText(const QString &text, bool lazyLoad = false); /// << Change the text note-content and relayout the note.
+    QString text()
+    {
         return m_graphicsTextItem.text();
-    }     /// << @return the text note-content.
-    QGraphicsItem *graphicsItem() override { return &m_graphicsTextItem; }
-    
+    } /// << @return the text note-content.
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_graphicsTextItem;
+    }
+
 protected:
-//     QString          m_text;
-    //QTextDocument *m_simpleRichText;
+    //     QString          m_text;
+    // QTextDocument *m_simpleRichText;
     QGraphicsSimpleTextItem m_graphicsTextItem;
 };
 
@@ -266,21 +314,21 @@ public:
     NoteType::Id type() const override;
     QString typeName() const override;
     QString lowerTypeName() const override;
-    QString toText(const QString &/*cuttedFullPath*/) override;
+    QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool lazyLoad) override;
-    bool    finishLazyLoad() override;
-    bool    saveToFile() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool lazyLoad) override;
+    bool finishLazyLoad() override;
+    bool saveToFile() override;
     QString linkAt(const QPointF &pos) override;
-    void    fontChanged() override;
+    void fontChanged() override;
     QString editToolTipText() const override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
@@ -288,14 +336,19 @@ public:
     QString messageWhenOpening(OpenMessage where) override;
     QString customOpenCommand() override;
     // Content-Specific Methods:
-    void    setHtml(const QString &html, bool lazyLoad = false); /// << Change the HTML note-content and relayout the note.
-    QString html() {
+    void setHtml(const QString &html, bool lazyLoad = false); /// << Change the HTML note-content and relayout the note.
+    QString html()
+    {
         return m_html;
-    }     /// << @return the HTML note-content.
-    QGraphicsItem *graphicsItem() override { return &m_graphicsTextItem; }
+    } /// << @return the HTML note-content.
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_graphicsTextItem;
+    }
+
 protected:
-    QString          m_html;
-    QString          m_textEquivalent; //OPTIM_FILTER
+    QString m_html;
+    QString m_textEquivalent; // OPTIM_FILTER
     QTextDocument *m_simpleRichText;
     QGraphicsTextItem m_graphicsTextItem;
 };
@@ -315,37 +368,43 @@ public:
     QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     QPixmap toPixmap() override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool lazyLoad) override;
-    bool    finishLazyLoad() override;
-    bool    saveToFile() override;
-    void    fontChanged() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool lazyLoad) override;
+    bool finishLazyLoad() override;
+    bool saveToFile() override;
+    void fontChanged() override;
     QString editToolTipText() const override;
-    void    toolTipInfos(QStringList *keys, QStringList *values) override;
+    void toolTipInfos(QStringList *keys, QStringList *values) override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
-    bool    needSpaceForFeedbackPixmap() override {
+    bool needSpaceForFeedbackPixmap() override
+    {
         return true;
     }
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
     QString customOpenCommand() override;
     // Content-Specific Methods:
-    void    setPixmap(const QPixmap &pixmap); /// << Change the pixmap note-content and relayout the note.
-    QPixmap pixmap() {
+    void setPixmap(const QPixmap &pixmap); /// << Change the pixmap note-content and relayout the note.
+    QPixmap pixmap()
+    {
         return m_pixmapItem.pixmap();
-    }     /// << @return the pixmap note-content.
+    } /// << @return the pixmap note-content.
     QByteArray data();
-    QGraphicsItem *graphicsItem() override { return &m_pixmapItem; }
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_pixmapItem;
+    }
+
 protected:
-    QGraphicsPixmapItem  m_pixmapItem;
+    QGraphicsPixmapItem m_pixmapItem;
     QByteArray m_format;
 };
 
@@ -365,28 +424,32 @@ public:
     QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     QPixmap toPixmap() override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
-    void    fontChanged() override;
+    bool match(const FilterData &data) override;
+    void fontChanged() override;
     QString editToolTipText() const override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
-    bool    needSpaceForFeedbackPixmap() override {
+    bool needSpaceForFeedbackPixmap() override
+    {
         return true;
     }
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool lazyLoad) override;
-    bool    finishLazyLoad() override;
-    bool    saveToFile() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool lazyLoad) override;
+    bool finishLazyLoad() override;
+    bool saveToFile() override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
     QString customOpenCommand() override;
-    QGraphicsItem *graphicsItem() override { return &m_graphicsPixmap; }
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_graphicsPixmap;
+    }
 
     // Content-Specific Methods:
     bool startMovie();
@@ -398,7 +461,7 @@ protected slots:
 
 protected:
     QBuffer *m_buffer;
-    QMovie  *m_movie;
+    QMovie *m_movie;
     qreal m_currentWidth;
     QGraphicsPixmapItem m_graphicsPixmap;
 };
@@ -418,43 +481,49 @@ public:
     QString typeName() const override;
     QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool /*lazyLoad*/) override;
-    void    fontChanged() override;
-    void    linkLookChanged() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool /*lazyLoad*/) override;
+    void fontChanged() override;
+    void linkLookChanged() override;
     QString editToolTipText() const override;
-    void    toolTipInfos(QStringList *keys, QStringList *values) override;
+    void toolTipInfos(QStringList *keys, QStringList *values) override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Custom Zones:
-    int     zoneAt(const QPointF &pos) override;
-    QRectF   zoneRect(int zone, const QPointF &/*pos*/) override;
+    int zoneAt(const QPointF &pos) override;
+    QRectF zoneRect(int zone, const QPointF & /*pos*/) override;
     QString zoneTip(int zone) override;
     Qt::CursorShape cursorFromZone(int zone) const override;
     // Content Edition:
-    int      xEditorIndent() override;
+    int xEditorIndent() override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
     // Content-Specific Methods:
-    void    setFileName(const QString &fileName) override; /// << Reimplemented to be able to relayout the note.
-    virtual LinkLook* linkLook() {
+    void setFileName(const QString &fileName) override; /// << Reimplemented to be able to relayout the note.
+    virtual LinkLook *linkLook()
+    {
         return LinkLook::fileLook;
     }
-    QGraphicsItem *graphicsItem() override { return &m_linkDisplayItem; }
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_linkDisplayItem;
+    }
+
 protected:
     LinkDisplayItem m_linkDisplayItem;
     // File Preview Management:
 protected slots:
-    void newPreview(const KFileItem&, const QPixmap &preview);
-    void removePreview(const KFileItem&);
+    void newPreview(const KFileItem &, const QPixmap &preview);
+    void removePreview(const KFileItem &);
     void startFetchingUrlPreview();
+
 protected:
     KIO::PreviewJob *m_previewJob;
 };
@@ -473,27 +542,27 @@ public:
     QString typeName() const override;
     QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     QString editToolTipText() const override;
     // Complex Generic Methods:
     QString cssClass() const override;
     // Custom Zones:
     QString zoneTip(int zone) override;
-    void    setHoveredZone(int oldZone, int newZone) override;
+    void setHoveredZone(int oldZone, int newZone) override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
     QString customOpenCommand() override;
     // Content-Specific Methods:
-    LinkLook* linkLook() override {
+    LinkLook *linkLook() override
+    {
         return LinkLook::soundLook;
     }
     Phonon::MediaObject *music;
 private slots:
     void stateChanged(Phonon::State, Phonon::State);
-
 };
 
 /** Real implementation of link notes:
@@ -510,28 +579,28 @@ public:
     NoteType::Id type() const override;
     QString typeName() const override;
     QString lowerTypeName() const override;
-    QString toText(const QString &/*cuttedFullPath*/) override;
+    QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    void    saveToNode(QXmlStreamWriter &stream) override;
-    void    fontChanged() override;
-    void    linkLookChanged() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    void saveToNode(QXmlStreamWriter &stream) override;
+    void fontChanged() override;
+    void linkLookChanged() override;
     QString editToolTipText() const override;
-    void    toolTipInfos(QStringList *keys, QStringList *values) override;
+    void toolTipInfos(QStringList *keys, QStringList *values) override;
     // Drag and Drop Content:
-    void    serialize(QDataStream &stream) override;
+    void serialize(QDataStream &stream) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Custom Zones:
-    int     zoneAt(const QPointF &pos) override;
-    QRectF   zoneRect(int zone, const QPointF &/*pos*/) override;
+    int zoneAt(const QPointF &pos) override;
+    QRectF zoneRect(int zone, const QPointF & /*pos*/) override;
     QString zoneTip(int zone) override;
     Qt::CursorShape cursorFromZone(int zone) const override;
     QString statusBarMessage(int zone) override;
@@ -539,46 +608,57 @@ public:
     QUrl urlToOpen(bool /*with*/) override;
     QString messageWhenOpening(OpenMessage where) override;
     // Content-Specific Methods:
-    void    setLink(const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon); /// << Change the link and relayout the note.
-    QUrl    url()       {
+    void setLink(const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon); /// << Change the link and relayout the note.
+    QUrl url()
+    {
         return m_url;
     } /// << @return the URL of the link note-content.
-    QString title()     {
+    QString title()
+    {
         return m_title;
     } /// << @return the displayed title of the link note-content.
-    QString icon()      {
+    QString icon()
+    {
         return m_icon;
     } /// << @return the displayed icon of the link note-content.
-    bool    autoTitle() {
+    bool autoTitle()
+    {
         return m_autoTitle;
     } /// << @return if the title is auto-computed from the URL.
-    bool    autoIcon()  {
+    bool autoIcon()
+    {
         return m_autoIcon;
     } /// << @return if the icon is auto-computed from the URL.
     void startFetchingLinkTitle();
-    QGraphicsItem *graphicsItem() override { return &m_linkDisplayItem; }
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_linkDisplayItem;
+    }
+
 protected:
-    QUrl        m_url;
-    QString     m_title;
-    QString     m_icon;
-    bool        m_autoTitle;
-    bool        m_autoIcon;
+    QUrl m_url;
+    QString m_title;
+    QString m_icon;
+    bool m_autoTitle;
+    bool m_autoIcon;
     LinkDisplayItem m_linkDisplayItem;
-    KIO::Integration::AccessManager*      m_access_manager;
-    QNetworkReply*      m_reply;
+    KIO::Integration::AccessManager *m_access_manager;
+    QNetworkReply *m_reply;
     QByteArray m_httpBuff; ///< Accumulator for downloaded HTTP data with yet unknown encoding
-    bool m_acceptingData; ///< When false, don't accept any HTTP data
+    bool m_acceptingData;  ///< When false, don't accept any HTTP data
     // File Preview Management:
 protected slots:
     void httpReadyRead();
-    void httpDone(QNetworkReply* reply);
-    void newPreview(const KFileItem&, const QPixmap &preview);
-    void removePreview(const KFileItem&);
+    void httpDone(QNetworkReply *reply);
+    void newPreview(const KFileItem &, const QPixmap &preview);
+    void removePreview(const KFileItem &);
     void startFetchingUrlPreview();
+
 protected:
     KIO::PreviewJob *m_previewJob;
+
 private:
-    void decodeHtmlTitle(); ///< Detect encoding of \p m_httpBuff and extract the title from HTML
+    void decodeHtmlTitle();      ///< Detect encoding of \p m_httpBuff and extract the title from HTML
     void endFetchingLinkTitle(); ///< Extract title and clear http buffer
 };
 
@@ -597,28 +677,28 @@ public:
     NoteType::Id type() const override;
     QString typeName() const override;
     QString lowerTypeName() const override;
-    QString toText(const QString &/*cuttedFullPath*/) override;
+    QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal) override;
-    void    saveToNode(QXmlStreamWriter &stream) override;
-    void    fontChanged() override;
-    void    linkLookChanged() override;
+    qreal setWidthAndGetHeight(qreal) override;
+    void saveToNode(QXmlStreamWriter &stream) override;
+    void fontChanged() override;
+    void linkLookChanged() override;
     QString editToolTipText() const override;
-    void    toolTipInfos(QStringList *keys, QStringList *values) override;
+    void toolTipInfos(QStringList *keys, QStringList *values) override;
     // Drag and Drop Content:
-    void    serialize(QDataStream &stream) override;
+    void serialize(QDataStream &stream) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Custom Zones:
-    int     zoneAt(const QPointF &pos) override;
-    QRectF   zoneRect(int zone, const QPointF &/*pos*/) override;
+    int zoneAt(const QPointF &pos) override;
+    QRectF zoneRect(int zone, const QPointF & /*pos*/) override;
     QString zoneTip(int zone) override;
     Qt::CursorShape cursorFromZone(int zone) const override;
     QString statusBarMessage(int zone) override;
@@ -626,24 +706,30 @@ public:
     QUrl urlToOpen(bool /*with*/) override;
     QString messageWhenOpening(OpenMessage where) override;
     // Content-Specific Methods:
-    void    setLink(const QUrl &url, const QString &title, const QString &icon); /// << Change the link and relayout the note.
-    void    setCrossReference(const QUrl &url, const QString &title, const QString &icon);
-    QUrl    url()       {
+    void setLink(const QUrl &url, const QString &title, const QString &icon); /// << Change the link and relayout the note.
+    void setCrossReference(const QUrl &url, const QString &title, const QString &icon);
+    QUrl url()
+    {
         return m_url;
     } /// << @return the URL of the link note-content.
-    QString title()     {
+    QString title()
+    {
         return m_title;
     } /// << @return the displayed title of the link note-content.
-    QString icon()      {
+    QString icon()
+    {
         return m_icon;
     } /// << @return the displayed icon of the link note-content.
 
-    QGraphicsItem *graphicsItem() override { return &m_linkDisplayItem; }
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_linkDisplayItem;
+    }
 
 protected:
-    QUrl        m_url;
-    QString     m_title;
-    QString     m_icon;
+    QUrl m_url;
+    QString m_title;
+    QString m_icon;
     LinkDisplayItem m_linkDisplayItem;
 };
 
@@ -661,71 +747,80 @@ public:
     QString typeName() const override;
     QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool /*lazyLoad*/) override;
-    void    fontChanged() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool /*lazyLoad*/) override;
+    void fontChanged() override;
     QString editToolTipText() const override;
-    void    toolTipInfos(QStringList *keys, QStringList *values) override;
+    void toolTipInfos(QStringList *keys, QStringList *values) override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Custom Zones:
-    int     zoneAt(const QPointF &pos) override;
-    QRectF   zoneRect(int zone, const QPointF &/*pos*/) override;
+    int zoneAt(const QPointF &pos) override;
+    QRectF zoneRect(int zone, const QPointF & /*pos*/) override;
     QString zoneTip(int zone) override;
     Qt::CursorShape cursorFromZone(int zone) const override;
     // Open Content or File:
     QUrl urlToOpen(bool with) override;
     QString messageWhenOpening(OpenMessage where) override;
     // Content-Specific Methods:
-    void    setLauncher(const QString &name, const QString &icon, const QString &exec); /// << Change the launcher note-content and relayout the note. Normally called by loadFromFile (no save done).
-    QString name() {
+    void setLauncher(const QString &name, const QString &icon, const QString &exec); /// << Change the launcher note-content and relayout the note. Normally called by loadFromFile (no save done).
+    QString name()
+    {
         return m_name;
-    }                              /// << @return the URL of the launcher note-content.
-    QString icon() {
+    } /// << @return the URL of the launcher note-content.
+    QString icon()
+    {
         return m_icon;
-    }                              /// << @return the displayed icon of the launcher note-content.
-    QString exec() {
+    } /// << @return the displayed icon of the launcher note-content.
+    QString exec()
+    {
         return m_exec;
-    }                              /// << @return the execute command line of the launcher note-content.
+    } /// << @return the execute command line of the launcher note-content.
     // TODO: KService *service() ??? And store everything in thta service ?
-    
-    QGraphicsItem *graphicsItem() override { return &m_linkDisplayItem; }
+
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_linkDisplayItem;
+    }
 
 protected:
-    QString     m_name; // TODO: Store them in linkDisplay to gain place (idem for Link notes)
-    QString     m_icon;
-    QString     m_exec;
+    QString m_name; // TODO: Store them in linkDisplay to gain place (idem for Link notes)
+    QString m_icon;
+    QString m_exec;
     LinkDisplayItem m_linkDisplayItem;
 };
 
-/** 
- * 
+/**
+ *
  */
 class ColorItem : public QGraphicsItem
 {
 public:
-  ColorItem(Note *parent, const QColor &color);
-//   virtual ~ColorItem();
-  virtual QColor color() { return m_color; }
-  virtual void setColor(const QColor &color);
-  
-  QRectF boundingRect() const override;
-  void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
+    ColorItem(Note *parent, const QColor &color);
+    //   virtual ~ColorItem();
+    virtual QColor color()
+    {
+        return m_color;
+    }
+    virtual void setColor(const QColor &color);
+
+    QRectF boundingRect() const override;
+    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
 
 private:
-  Note *m_note;
-  QColor m_color;
-  QRectF m_textRect;
-  
-  static const int RECT_MARGIN;
+    Note *m_note;
+    QColor m_color;
+    QRectF m_textRect;
+
+    static const int RECT_MARGIN;
 };
 
 /** Real implementation of color notes:
@@ -741,60 +836,67 @@ public:
     NoteType::Id type() const override;
     QString typeName() const override;
     QString lowerTypeName() const override;
-    QString toText(const QString &/*cuttedFullPath*/) override;
+    QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    void    saveToNode(QXmlStreamWriter &stream) override;
-    void    fontChanged() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    void saveToNode(QXmlStreamWriter &stream) override;
+    void fontChanged() override;
     QString editToolTipText() const override;
-    void    toolTipInfos(QStringList *keys, QStringList *values) override;
+    void toolTipInfos(QStringList *keys, QStringList *values) override;
     // Drag and Drop Content:
-    void    serialize(QDataStream &stream) override;
+    void serialize(QDataStream &stream) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;
-    bool    needSpaceForFeedbackPixmap() override {
+    bool needSpaceForFeedbackPixmap() override
+    {
         return true;
     }
-    void    addAlternateDragObjects(QMimeData *dragObject) override;
+    void addAlternateDragObjects(QMimeData *dragObject) override;
     // Content-Specific Methods:
-    void    setColor(const QColor &color); /// << Change the color note-content and relayout the note.
-    QColor  color() {
+    void setColor(const QColor &color); /// << Change the color note-content and relayout the note.
+    QColor color()
+    {
         return m_colorItem.color();
-    }    /// << @return the color note-content.
-    QGraphicsItem *graphicsItem() override { return &m_colorItem; }
-    
+    } /// << @return the color note-content.
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_colorItem;
+    }
+
 protected:
-    ColorItem  m_colorItem;
+    ColorItem m_colorItem;
 };
 
-/** 
- * 
+/**
+ *
  */
 class UnknownItem : public QGraphicsItem
 {
 public:
-  UnknownItem(Note *parent);
-  
-  QRectF boundingRect() const override;
-  void paint(QPainter*, const QStyleOptionGraphicsItem*, QWidget*) override;
+    UnknownItem(Note *parent);
 
-  virtual QString mimeTypes()
-    { return m_mimeTypes; }
-  virtual void setMimeTypes(QString mimeTypes);
-  virtual void setWidth(qreal width);
+    QRectF boundingRect() const override;
+    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
+
+    virtual QString mimeTypes()
+    {
+        return m_mimeTypes;
+    }
+    virtual void setMimeTypes(QString mimeTypes);
+    virtual void setWidth(qreal width);
 
 private:
-  Note *m_note;
-  QString m_mimeTypes;
-  QRectF m_textRect;
-  
-  static const qreal DECORATION_MARGIN;
+    Note *m_note;
+    QString m_mimeTypes;
+    QRectF m_textRect;
+
+    static const qreal DECORATION_MARGIN;
 };
 
 /** Real implementation of unknown MIME-types dropped notes:
@@ -810,42 +912,49 @@ public:
     NoteType::Id type() const override;
     QString typeName() const override;
     QString lowerTypeName() const override;
-    QString toText(const QString &/*cuttedFullPath*/) override;
+    QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    void    toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
-    bool    useFile() const override;
-    bool    canBeSavedAs() const override;
+    void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
+    bool useFile() const override;
+    bool canBeSavedAs() const override;
     QString saveAsFilters() const override;
-    bool    match(const FilterData &data) override;
+    bool match(const FilterData &data) override;
     // Complex Generic Methods:
-    void    exportToHTML(HTMLExporter *exporter, int indent) override;
+    void exportToHTML(HTMLExporter *exporter, int indent) override;
     QString cssClass() const override;
-    qreal     setWidthAndGetHeight(qreal width) override;
-    bool    loadFromFile(bool /*lazyLoad*/) override;
-    void    fontChanged() override;
+    qreal setWidthAndGetHeight(qreal width) override;
+    bool loadFromFile(bool /*lazyLoad*/) override;
+    void fontChanged() override;
     QString editToolTipText() const override;
     // Drag and Drop Content:
-    bool    shouldSerializeFile() override {
+    bool shouldSerializeFile() override
+    {
         return false;
     }
-    void    addAlternateDragObjects(QMimeData *dragObject) override;
+    void addAlternateDragObjects(QMimeData *dragObject) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;
-    bool    needSpaceForFeedbackPixmap() override {
+    bool needSpaceForFeedbackPixmap() override
+    {
         return true;
     }
     // Open Content or File:
-    QUrl urlToOpen(bool /*with*/) override {
+    QUrl urlToOpen(bool /*with*/) override
+    {
         return QUrl();
     }
-    
-    QGraphicsItem *graphicsItem() override { return &m_unknownItem; }
-    
+
+    QGraphicsItem *graphicsItem() override
+    {
+        return &m_unknownItem;
+    }
+
     // Content-Specific Methods:
-    QString mimeTypes() {
+    QString mimeTypes()
+    {
         return m_unknownItem.mimeTypes();
     } /// << @return the list of MIME types this note-content contains.
 private:
-  UnknownItem m_unknownItem;
+    UnknownItem m_unknownItem;
 };
 
 void NoteFactory__loadNode(const QDomElement &content, const QString &lowerTypeName, Note *parent, bool lazyLoad);

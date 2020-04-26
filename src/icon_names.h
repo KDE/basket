@@ -8,24 +8,24 @@
  *  @brief Icon names for KIconLoader used by BasKet */
 namespace IconNames
 {
-#define StrRes static const char* const
+#define StrRes static const char *const
 
-StrRes  LOADING = "process-idle";
-StrRes  LOCKED = "object-locked";
+StrRes LOADING = "process-idle";
+StrRes LOCKED = "object-locked";
 
 // Insert stuff
-StrRes  LINK = "insert-link";
-StrRes  CROSS_REF = LINK;
-StrRes  IMAGE = "insert-image";
-StrRes  COLOR = "fill-color";
-StrRes  LAUNCH = "system-run";
-StrRes  KMENU = "kde";
-StrRes  ICONS = "preferences-desktop-icons";
+StrRes LINK = "insert-link";
+StrRes CROSS_REF = LINK;
+StrRes IMAGE = "insert-image";
+StrRes COLOR = "fill-color";
+StrRes LAUNCH = "system-run";
+StrRes KMENU = "kde";
+StrRes ICONS = "preferences-desktop-icons";
 
-StrRes  DOCUMENT_IMPORT = "document-import";
+StrRes DOCUMENT_IMPORT = "document-import";
 
 // Import from
-StrRes  TOMBOY = "tomboy";
+StrRes TOMBOY = "tomboy";
 
 #undef StrRes
 }

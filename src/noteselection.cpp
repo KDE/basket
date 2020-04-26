@@ -26,7 +26,7 @@
 
 /** Class NoteSelection: */
 
-NoteSelection* NoteSelection::nextStacked()
+NoteSelection *NoteSelection::nextStacked()
 {
     // First, search in the children:
     if (firstChild) {
@@ -57,7 +57,7 @@ NoteSelection* NoteSelection::nextStacked()
     return 0;
 }
 
-NoteSelection* NoteSelection::firstStacked()
+NoteSelection *NoteSelection::firstStacked()
 {
     if (!this)
         return 0;
@@ -103,14 +103,14 @@ int NoteSelection::count()
     return count;
 }
 
-QList<Note*> NoteSelection::parentGroups()
+QList<Note *> NoteSelection::parentGroups()
 {
-    QList<Note*> groups;
+    QList<Note *> groups;
 
     // For each note:
     for (NoteSelection *node = firstStacked(); node; node = node->nextStacked())
         // For each parent groups of the note:
-        for (Note * note = node->note->parentNote(); note; note = note->parentNote())
+        for (Note *note = node->note->parentNote(); note; note = note->parentNote())
             // Add it (if it was not already in the list):
             if (!note->isColumn() && !groups.contains(note))
                 groups.append(note);
@@ -118,7 +118,7 @@ QList<Note*> NoteSelection::parentGroups()
     return groups;
 }
 
-void debugSel(NoteSelection* sel, int n = 0)
+void debugSel(NoteSelection *sel, int n = 0)
 {
     for (NoteSelection *node = sel; node; node = node->next) {
         for (int i = 0; i < n; i++)

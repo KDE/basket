@@ -82,13 +82,13 @@ public:
      * @See The LikeBack constructor and execCommentDialog().
      */
     enum Button {
-        Like           = 0x01,                           /// The user select that option to report a positive experience he got with the application.
-        Dislike        = 0x02,                           /// The user select that option to report a frustrating experience he got with the application.
-        Bug            = 0x04,                           /// The user select that option to report a bug in the application.
-        Feature        = 0x10,                           /// The user select that option to ask for a new feature he desire.
+        Like = 0x01,    /// The user select that option to report a positive experience he got with the application.
+        Dislike = 0x02, /// The user select that option to report a frustrating experience he got with the application.
+        Bug = 0x04,     /// The user select that option to report a bug in the application.
+        Feature = 0x10, /// The user select that option to ask for a new feature he desire.
         /// If not enabled, the user is explicitly informed she cannot ask for new features.
-        AllButtons     = Like | Dislike | Bug | Feature, /// Usable in the constructor to enable every possible buttons.
-        DefaultButtons = Like | Dislike                  /// Usable in the constructor to enable only the recommended default set of buttons.
+        AllButtons = Like | Dislike | Bug | Feature, /// Usable in the constructor to enable every possible buttons.
+        DefaultButtons = Like | Dislike              /// Usable in the constructor to enable only the recommended default set of buttons.
     };
 
     /**
@@ -217,7 +217,7 @@ public:
      *       <Action name="likeback_send_a_comment" />
      * @endcode
      */
-    QAction * sendACommentAction(KActionCollection *parent = 0);
+    QAction *sendACommentAction(KActionCollection *parent = 0);
 
     /**
      * @Returns The path of the currently active window. Each windows are separated with "~~".
@@ -307,7 +307,6 @@ private slots:
     void execCommentDialogFromHelp();
 
 public:
-
     /**
      * @Returns true if the user has enabled the LikeBack bar for this version.
      */

@@ -28,7 +28,7 @@
 EXPORT_KONTACT_PLUGIN(BasketPlugin, basket)
 
 BasketPlugin::BasketPlugin(KontactInterface::Core *core, const QVariantList &)
-        : KontactInterface::Plugin(core, core, "Basket")
+    : KontactInterface::Plugin(core, core, "Basket")
 {
     setComponentData(KontactPluginFactory::componentData());
     Global::basketConfig = KSharedConfig::openConfig("basketrc");
@@ -50,14 +50,14 @@ KParts::ReadOnlyPart *BasketPlugin::createPart()
 void BasketPlugin::readProperties(const KConfigGroup &config)
 {
     if (part()) {
-        BasketPart *myPart = static_cast<BasketPart*>(part());
+        BasketPart *myPart = static_cast<BasketPart *>(part());
     }
 }
 
 void BasketPlugin::saveProperties(KConfigGroup &config)
 {
     if (part()) {
-        BasketPart *myPart = static_cast<BasketPart*>(part());
+        BasketPart *myPart = static_cast<BasketPart *>(part());
     }
 }
 

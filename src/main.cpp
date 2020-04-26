@@ -17,19 +17,18 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
-#include <kconfig.h> // TMP IN ALPHA 1
-#include <config.h>
-#include <QCommandLineParser>
-#include <QCommandLineOption>
 #include "basket_options.h"
+#include <QCommandLineOption>
+#include <QCommandLineParser>
+#include <config.h>
+#include <kconfig.h> // TMP IN ALPHA 1
 
 #include "application.h"
+#include "backup.h"
+#include "global.h"
+#include "kde4_migration.h"
 #include "mainwindow.h"
 #include "settings.h"
-#include "global.h"
-#include "backup.h"
-#include "kde4_migration.h"
 
 int main(int argc, char *argv[])
 {
@@ -38,11 +37,11 @@ int main(int argc, char *argv[])
     Global::commandLineOpts = new QCommandLineParser();
     Application app(argc, argv);
 
-    QCommandLineParser* opts = Global::commandLineOpts;
+    QCommandLineParser *opts = Global::commandLineOpts;
     KAboutData::applicationData().setupCommandLine(opts); //--author, --license
     setupCmdLineOptions(opts);
     opts->process(app);
-    KAboutData::applicationData().processCommandLine(opts); //show author, license information and exit
+    KAboutData::applicationData().processCommandLine(opts); // show author, license information and exit
 
     {
         Kde4Migrator migrator;
@@ -52,14 +51,13 @@ int main(int argc, char *argv[])
 
     app.tryLoadFile(opts->positionalArguments(), QDir::currentPath());
 
-
     // Initialize the config file
     Global::basketConfig = KSharedConfig::openConfig("basketrc");
 
     Backup::figureOutBinaryPath(argv0, app);
 
     /* Main Window */
-    MainWindow* win = new MainWindow();
+    MainWindow *win = new MainWindow();
     Global::mainWnd = win;
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);
@@ -69,9 +67,9 @@ int main(int argc, char *argv[])
         if (opts->isSet(QCommandLineOption("start-hidden")))
             ;
         // When the application is restored by the desktop session, restore its state:
-        else if (app.isSessionRestored()){
-                if (!Settings::startDocked())
-                        win->show();
+        else if (app.isSessionRestored()) {
+            if (!Settings::startDocked())
+                win->show();
         }
         // Else, the application has been launched explicitly by the user (QMenu, keyboard shortcut...), so he need it, we show it:
         else

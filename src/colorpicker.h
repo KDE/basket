@@ -26,8 +26,8 @@ class QKeyEvent;
 class QMouseEvent;
 
 /** Class to pick a color on the screen
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class DesktopColorPicker : public QDesktopWidget
 {
     Q_OBJECT
@@ -37,19 +37,20 @@ public:
     ~DesktopColorPicker() override;
 public slots:
     /** Begin color picking.
-      * This function returns immediately, and pickedColor() is emitted if user has
-      * chosen a color, and not canceled the process (by pressing Escape).
-      */
+     * This function returns immediately, and pickedColor() is emitted if user has
+     * chosen a color, and not canceled the process (by pressing Escape).
+     */
     void pickColor();
 signals:
     /** When user picked a color, this signal is emitted.
-      */
+     */
     void pickedColor(const QColor &color);
     /** When user cancel a picking (by pressing Escape), this signal is emitted.
-      */
+     */
     void canceledPick();
 protected slots:
     void slotDelayedPick();
+
 protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;

@@ -19,73 +19,72 @@
 
 #include "notecontent.h"
 
+#include <QLocale>
+#include <QMimeData>
+#include <QMimeDatabase>
+#include <QTextBlock>
+#include <QTextCodec>
+#include <QWidget>
 #include <QtCore/QBuffer>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
 #include <QtCore/QDateTime>
 #include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QFileInfo>
 #include <QtCore/QRegExp>
 #include <QtCore/QStringList>
-#include <QtGui/QAbstractTextDocumentLayout>    //For m_simpleRichText->documentLayout()
-#include <QtGui/QBitmap>                        //For QPixmap::createHeuristicMask()
+#include <QtGui/QAbstractTextDocumentLayout> //For m_simpleRichText->documentLayout()
+#include <QtGui/QBitmap>                     //For QPixmap::createHeuristicMask()
 #include <QtGui/QFontMetrics>
 #include <QtGui/QMovie>
 #include <QtGui/QPainter>
 #include <QtGui/QPixmap>
-#include <QWidget>
 #include <QtNetwork/QNetworkReply>
 #include <QtXml/QDomElement>
-#include <QTextBlock>
-#include <QTextCodec>
-#include <QMimeDatabase>
-#include <QMimeData>
-#include <QLocale>
 
-#include <KIO/AccessManager>
-#include <KService>
-#include <KFileMetaData/KFileMetaData/Extractor>
-#include <KFileItem>
-#include <KIO/PreviewJob>                   //For KIO::file_preview(...)
 #include <KEncodingProber>
+#include <KFileItem>
+#include <KFileMetaData/KFileMetaData/Extractor>
+#include <KIO/AccessManager>
+#include <KIO/PreviewJob> //For KIO::file_preview(...)
 #include <KLocalizedString>
+#include <KService>
 
 #include <phonon/AudioOutput>
 #include <phonon/MediaObject>
 
-#include "note.h"
 #include "basketscene.h"
-#include "filter.h"
-#include "xmlwork.h"
-#include "tools.h"
-#include "notefactory.h"
-#include "global.h"
-#include "settings.h"
-#include "debugwindow.h"
-#include "htmlexporter.h"
 #include "config.h"
+#include "debugwindow.h"
 #include "file_metadata.h"
+#include "filter.h"
+#include "global.h"
+#include "htmlexporter.h"
+#include "note.h"
+#include "notefactory.h"
+#include "settings.h"
+#include "tools.h"
+#include "xmlwork.h"
 
 /**
  * LinkDisplayItem definition
- * 
+ *
  */
 
 QRectF LinkDisplayItem::boundingRect() const
 {
-  if(m_note)
-  {
-    return QRect(0, 0, m_note->width() - m_note->contentX() - Note::NOTE_MARGIN, m_note->height() - 2*Note::NOTE_MARGIN);
-  }
-  return QRectF();  
+    if (m_note) {
+        return QRect(0, 0, m_note->width() - m_note->contentX() - Note::NOTE_MARGIN, m_note->height() - 2 * Note::NOTE_MARGIN);
+    }
+    return QRectF();
 }
 
-void LinkDisplayItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
+void LinkDisplayItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-  if(!m_note)
-    return;
-  
-  QRectF rect = boundingRect();
-  m_linkDisplay.paint(painter, 0, 0, rect.width(), rect.height(), m_note->palette(), true, m_note->isSelected(), m_note->hovered(), m_note->hovered() && m_note->hoveredZone() == Note::Custom0);
+    if (!m_note)
+        return;
+
+    QRectF rect = boundingRect();
+    m_linkDisplay.paint(painter, 0, 0, rect.width(), rect.height(), m_note->palette(), true, m_note->isSelected(), m_note->hovered(), m_note->hovered() && m_note->hoveredZone() == Note::Custom0);
 }
 
 /** class NoteContent:
@@ -94,7 +93,7 @@ void LinkDisplayItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, 
 const int NoteContent::FEEDBACK_DARKING = 105;
 
 NoteContent::NoteContent(Note *parent, const QString &fileName)
-        : m_note(parent)
+    : m_note(parent)
 {
     parent->setContent(this);
     setFileName(fileName);
@@ -109,7 +108,7 @@ void NoteContent::saveToNode(QXmlStreamWriter &stream)
     }
 }
 
-QRectF NoteContent::zoneRect(int zone, const QPointF &/*pos*/)
+QRectF NoteContent::zoneRect(int zone, const QPointF & /*pos*/)
 {
     if (zone == Note::Content)
         return QRectF(0, 0, note()->width(), note()->height()); // Too wide and height, but it will be clipped by Note::zoneRect()
@@ -151,12 +150,12 @@ void NoteContent::contentChanged(qreal newMinWidth)
 {
     m_minWidth = newMinWidth;
     if (note()) {
-//      note()->unbufferize();
+        //      note()->unbufferize();
         note()->requestRelayout(); // TODO: It should re-set the width!  m_width = 0 ?   contentChanged: setWidth, geteight, if size havent changed, only repaint and not relayout
     }
 }
 
-BasketScene* NoteContent::basket()
+BasketScene *NoteContent::basket()
 {
     if (note())
         return note()->basket();
@@ -313,15 +312,15 @@ QString NoteContent::toText(const QString &cuttedFullPath)
     return (cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
 }
 
-QString TextContent::toText(const QString &/*cuttedFullPath*/)
+QString TextContent::toText(const QString & /*cuttedFullPath*/)
 {
     return text();
 }
-QString HtmlContent::toText(const QString &/*cuttedFullPath*/)
+QString HtmlContent::toText(const QString & /*cuttedFullPath*/)
 {
     return Tools::htmlToText(html());
 }
-QString LinkContent::toText(const QString &/*cuttedFullPath*/)
+QString LinkContent::toText(const QString & /*cuttedFullPath*/)
 {
     if (autoTitle())
         return url().toDisplayString();
@@ -334,7 +333,7 @@ QString LinkContent::toText(const QString &/*cuttedFullPath*/)
     else
         return QString("%1 <%2>").arg(title(), url().toDisplayString());
 }
-QString CrossReferenceContent::toText(const QString &/*cuttedFullPath*/)
+QString CrossReferenceContent::toText(const QString & /*cuttedFullPath*/)
 {
     if (title().isEmpty() && url().isEmpty())
         return "";
@@ -345,70 +344,70 @@ QString CrossReferenceContent::toText(const QString &/*cuttedFullPath*/)
     else
         return QString("%1 <%2>").arg(title(), url().toDisplayString());
 }
-QString ColorContent::toText(const QString &/*cuttedFullPath*/)
+QString ColorContent::toText(const QString & /*cuttedFullPath*/)
 {
     return color().name();
 }
-QString UnknownContent::toText(const QString &/*cuttedFullPath*/)
+QString UnknownContent::toText(const QString & /*cuttedFullPath*/)
 {
     return "";
 }
 
 // TODO: If imageName.isEmpty() return fullPath() because it's for external use, else return fileName() because it's to display in a tooltip
-QString TextContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
+QString TextContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
     return Tools::textToHTMLWithoutP(text());
 }
 
-QString HtmlContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
+QString HtmlContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    //return Tools::htmlToParagraph(html());
+    // return Tools::htmlToParagraph(html());
     QTextDocument simpleRichText;
     simpleRichText.setHtml(html());
     return Tools::textDocumentToMinimalHTML(&simpleRichText);
 }
 
-QString ImageContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
+QString ImageContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
     return QString("<img src=\"%1\">").arg(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
 }
 
-QString AnimationContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
+QString AnimationContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
     return QString("<img src=\"%1\">").arg(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
 }
 
-QString SoundContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
+QString SoundContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
     return QString("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), fileName());
 } // With the icon?
 
-QString FileContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
+QString FileContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
     return QString("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), fileName());
 } // With the icon?
 
-QString LinkContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
+QString LinkContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
     return QString("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
 } // With the icon?
 
-QString CrossReferenceContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
+QString CrossReferenceContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
     return QString("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
 } // With the icon?
 
-QString LauncherContent::toHtml(const QString &/*imageName*/, const QString &cuttedFullPath)
+QString LauncherContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
     return QString("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), name());
 } // With the icon?
 
-QString ColorContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
+QString ColorContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
     return QString("<span style=\"color: %1\">%2</span>").arg(color().name(), color().name());
 }
 
-QString UnknownContent::toHtml(const QString &/*imageName*/, const QString &/*cuttedFullPath*/)
+QString UnknownContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
     return "";
 }
@@ -425,32 +424,32 @@ QPixmap AnimationContent::toPixmap()
 void NoteContent::toLink(QUrl *url, QString *title, const QString &cuttedFullPath)
 {
     if (useFile()) {
-        *url   = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
+        *url = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
         *title = (cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
     } else {
-        *url   = QUrl();
+        *url = QUrl();
         title->clear();
     }
 }
-void LinkContent::toLink(QUrl *url, QString *title, const QString &/*cuttedFullPath*/)
+void LinkContent::toLink(QUrl *url, QString *title, const QString & /*cuttedFullPath*/)
 {
-    *url   = this->url();
+    *url = this->url();
     *title = this->title();
 }
-void CrossReferenceContent::toLink(QUrl *url, QString *title, const QString &/*cuttedFullPath*/)
+void CrossReferenceContent::toLink(QUrl *url, QString *title, const QString & /*cuttedFullPath*/)
 {
-    *url   = this->url();
+    *url = this->url();
     *title = this->title();
 }
 
 void LauncherContent::toLink(QUrl *url, QString *title, const QString &cuttedFullPath)
 {
-    *url   = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
+    *url = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
     *title = name();
 }
-void UnknownContent::toLink(QUrl *url, QString *title, const QString &/*cuttedFullPath*/)
+void UnknownContent::toLink(QUrl *url, QString *title, const QString & /*cuttedFullPath*/)
 {
-    *url   = QUrl();
+    *url = QUrl();
     *title = QString();
 }
 
@@ -595,13 +594,13 @@ bool TextContent::match(const FilterData &data)
 }
 bool HtmlContent::match(const FilterData &data)
 {
-    return m_textEquivalent/*toText("")*/.contains(data.string);
-} //OPTIM_FILTER
-bool ImageContent::match(const FilterData &/*data*/)
+    return m_textEquivalent /*toText("")*/.contains(data.string);
+} // OPTIM_FILTER
+bool ImageContent::match(const FilterData & /*data*/)
 {
     return false;
 }
-bool AnimationContent::match(const FilterData &/*data*/)
+bool AnimationContent::match(const FilterData & /*data*/)
 {
     return false;
 }
@@ -717,7 +716,7 @@ QString LauncherContent::cssClass() const
 }
 QString ColorContent::cssClass() const
 {
-    return ""     ;
+    return "";
 }
 QString UnknownContent::cssClass() const
 {
@@ -730,9 +729,9 @@ void TextContent::fontChanged()
 }
 void HtmlContent::fontChanged()
 {
-    QTextDocument* richDoc = m_graphicsTextItem.document();
-    //This check is important when applying style to a note which is not loaded yet. Example:
-    //Filter all -> open some basket for the first time -> close filter: if a note was tagged as TODO, then it would display no text
+    QTextDocument *richDoc = m_graphicsTextItem.document();
+    // This check is important when applying style to a note which is not loaded yet. Example:
+    // Filter all -> open some basket for the first time -> close filter: if a note was tagged as TODO, then it would display no text
     if (!richDoc->isEmpty())
         setHtml(Tools::textDocumentToMinimalHTML(richDoc));
 }
@@ -769,22 +768,22 @@ void UnknownContent::fontChanged()
     loadFromFile(/*lazyLoad=*/false);
 } // TODO: Optimize: setMimeTypes()
 
-//QString TextContent::customOpenCommand()      { return (Settings::isTextUseProg()      && ! Settings::textProg().isEmpty()      ? Settings::textProg()      : QString()); }
+// QString TextContent::customOpenCommand()      { return (Settings::isTextUseProg()      && ! Settings::textProg().isEmpty()      ? Settings::textProg()      : QString()); }
 QString HtmlContent::customOpenCommand()
 {
-    return (Settings::isHtmlUseProg()      && ! Settings::htmlProg().isEmpty()      ? Settings::htmlProg()      : QString());
+    return (Settings::isHtmlUseProg() && !Settings::htmlProg().isEmpty() ? Settings::htmlProg() : QString());
 }
 QString ImageContent::customOpenCommand()
 {
-    return (Settings::isImageUseProg()     && ! Settings::imageProg().isEmpty()     ? Settings::imageProg()     : QString());
+    return (Settings::isImageUseProg() && !Settings::imageProg().isEmpty() ? Settings::imageProg() : QString());
 }
 QString AnimationContent::customOpenCommand()
 {
-    return (Settings::isAnimationUseProg() && ! Settings::animationProg().isEmpty() ? Settings::animationProg() : QString());
+    return (Settings::isAnimationUseProg() && !Settings::animationProg().isEmpty() ? Settings::animationProg() : QString());
 }
 QString SoundContent::customOpenCommand()
 {
-    return (Settings::isSoundUseProg()     && ! Settings::soundProg().isEmpty()     ? Settings::soundProg()     : QString());
+    return (Settings::isSoundUseProg() && !Settings::soundProg().isEmpty() ? Settings::soundProg() : QString());
 }
 
 void LinkContent::serialize(QDataStream &stream)
@@ -822,7 +821,7 @@ QPixmap HtmlContent::feedbackPixmap(qreal width, qreal height)
     richText.setTextWidth(width);
     QPalette palette;
     palette = basket()->palette();
-    palette.setColor(QPalette::Text,       note()->textColor());
+    palette.setColor(QPalette::Text, note()->textColor());
     palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
     QPixmap pixmap(qMin(width, richText.idealWidth()), qMin(height, richText.size().height()));
     pixmap.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
@@ -845,24 +844,23 @@ QPixmap ImageContent::feedbackPixmap(qreal width, qreal height)
             painter.drawPixmap(0, 0, m_pixmapItem.pixmap());
             painter.end();
             return opaque;
-	} else{
-	   return m_pixmapItem.pixmap();
-	}
+        } else {
+            return m_pixmapItem.pixmap();
+        }
     } else { // Scaled down
         QImage imageToScale = m_pixmapItem.pixmap().toImage();
         QPixmap pmScaled;
-        pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height,
-                                      Qt::KeepAspectRatio));
+        pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height, Qt::KeepAspectRatio));
         if (pmScaled.hasAlpha()) {
             QPixmap opaque(pmScaled.width(), pmScaled.height());
             opaque.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
             QPainter painter(&opaque);
             painter.drawPixmap(0, 0, pmScaled);
             painter.end();
-	    return opaque;
-	} else {
-	  return pmScaled;
-	}
+            return opaque;
+        } else {
+            return pmScaled;
+        }
     }
 }
 
@@ -870,12 +868,11 @@ QPixmap AnimationContent::feedbackPixmap(qreal width, qreal height)
 {
     QPixmap pixmap = m_movie->currentPixmap();
     if (width >= pixmap.width() && height >= pixmap.height()) // Full size
-	return pixmap;
+        return pixmap;
     else { // Scaled down
         QImage imageToScale = pixmap.toImage();
         QPixmap pmScaled;
-        pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height,
-                                      Qt::KeepAspectRatio));
+        pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height, Qt::KeepAspectRatio));
         return pmScaled;
     }
 }
@@ -884,7 +881,7 @@ QPixmap LinkContent::feedbackPixmap(qreal width, qreal height)
 {
     QPalette palette;
     palette = basket()->palette();
-    palette.setColor(QPalette::WindowText,       note()->textColor());
+    palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
@@ -902,16 +899,16 @@ QPixmap ColorContent::feedbackPixmap(qreal width, qreal height)
 {
     // TODO: Duplicate code: make a rect() method!
     QRectF boundingRect = m_colorItem.boundingRect();
-    
+
     QPalette palette;
     palette = basket()->palette();
-    palette.setColor(QPalette::WindowText,       note()->textColor());
+    palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     pixmap.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
-    m_colorItem.paint(&painter,0,0);//, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
+    m_colorItem.paint(&painter, 0, 0); //, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.end();
 
     return pixmap;
@@ -921,7 +918,7 @@ QPixmap FileContent::feedbackPixmap(qreal width, qreal height)
 {
     QPalette palette;
     palette = basket()->palette();
-    palette.setColor(QPalette::WindowText,       note()->textColor());
+    palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
@@ -930,7 +927,7 @@ QPixmap LauncherContent::feedbackPixmap(qreal width, qreal height)
 {
     QPalette palette;
     palette = basket()->palette();
-    palette.setColor(QPalette::WindowText,       note()->textColor());
+    palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
@@ -941,33 +938,32 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
 
     QPalette palette;
     palette = basket()->palette();
-    palette.setColor(QPalette::WindowText,       note()->textColor());
+    palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     QPainter painter(&pixmap);
-    m_unknownItem.paint(&painter,0,0);//, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
+    m_unknownItem.paint(&painter, 0, 0); //, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.setPen(note()->backgroundColor().dark(FEEDBACK_DARKING));
-    painter.drawPoint(0,                  0);
+    painter.drawPoint(0, 0);
     painter.drawPoint(pixmap.width() - 1, 0);
-    painter.drawPoint(0,                  pixmap.height() - 1);
+    painter.drawPoint(0, pixmap.height() - 1);
     painter.drawPoint(pixmap.width() - 1, pixmap.height() - 1);
     painter.end();
 
     return pixmap;
 }
 
-
 /** class TextContent:
  */
 
 TextContent::TextContent(Note *parent, const QString &fileName, bool lazyLoad)
-        : NoteContent(parent, fileName), m_graphicsTextItem(parent)
+    : NoteContent(parent, fileName)
+    , m_graphicsTextItem(parent)
 {
-    if(parent)
-    {
-      parent->addToGroup(&m_graphicsTextItem);
-      m_graphicsTextItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_graphicsTextItem);
+        m_graphicsTextItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 
     basket()->addWatchedFile(fullPath());
@@ -976,7 +972,8 @@ TextContent::TextContent(Note *parent, const QString &fileName, bool lazyLoad)
 
 TextContent::~TextContent()
 {
-    if(note()) note()->removeFromGroup(&m_graphicsTextItem);
+    if (note())
+        note()->removeFromGroup(&m_graphicsTextItem);
 }
 
 qreal TextContent::setWidthAndGetHeight(qreal /*width*/)
@@ -1014,26 +1011,32 @@ bool TextContent::saveToFile()
     return basket()->saveToFile(fullPath(), text());
 }
 
-QString TextContent::linkAt(const QPointF &/*pos*/)
+QString TextContent::linkAt(const QPointF & /*pos*/)
 {
-  return "";
-/*    if (m_simpleRichText)
-        return m_simpleRichText->documentLayout()->anchorAt(pos);
-    else
-        return ""; // Lazy loaded*/
+    return "";
+    /*    if (m_simpleRichText)
+            return m_simpleRichText->documentLayout()->anchorAt(pos);
+        else
+            return ""; // Lazy loaded*/
 }
-
 
 QString TextContent::messageWhenOpening(OpenMessage where)
 {
     switch (where) {
-    case OpenOne:               return i18n("Opening plain text...");
-    case OpenSeveral:           return i18n("Opening plain texts...");
-    case OpenOneWith:           return i18n("Opening plain text with...");
-    case OpenSeveralWith:       return i18n("Opening plain texts with...");
-    case OpenOneWithDialog:     return i18n("Open plain text with:");
-    case OpenSeveralWithDialog: return i18n("Open plain texts with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening plain text...");
+    case OpenSeveral:
+        return i18n("Opening plain texts...");
+    case OpenOneWith:
+        return i18n("Opening plain text with...");
+    case OpenSeveralWith:
+        return i18n("Opening plain texts with...");
+    case OpenOneWithDialog:
+        return i18n("Open plain text with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open plain texts with:");
+    default:
+        return "";
     }
 }
 
@@ -1050,7 +1053,7 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" +
-                   Tools::tagCrossReferences(Tools::tagURLs(Tools::textToHTMLWithoutP(text().replace(QChar('\t'), "                "))), false, exporter); // Don't collapse multiple spaces!
+        Tools::tagCrossReferences(Tools::tagURLs(Tools::textToHTMLWithoutP(text().replace(QChar('\t'), "                "))), false, exporter); // Don't collapse multiple spaces!
     exporter->stream << html.replace("  ", " &nbsp;").replace(QChar('\n'), '\n' + spaces.fill(' ', indent + 1));
 }
 
@@ -1058,20 +1061,22 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
  */
 
 HtmlContent::HtmlContent(Note *parent, const QString &fileName, bool lazyLoad)
-        : NoteContent(parent, fileName), m_simpleRichText(0), m_graphicsTextItem(parent)
+    : NoteContent(parent, fileName)
+    , m_simpleRichText(0)
+    , m_graphicsTextItem(parent)
 {
-  if(parent)
-  {
-      parent->addToGroup(&m_graphicsTextItem);
-      m_graphicsTextItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
-  }
-  basket()->addWatchedFile(fullPath());
-  loadFromFile(lazyLoad);
+    if (parent) {
+        parent->addToGroup(&m_graphicsTextItem);
+        m_graphicsTextItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
+    }
+    basket()->addWatchedFile(fullPath());
+    loadFromFile(lazyLoad);
 }
 
 HtmlContent::~HtmlContent()
 {
-    if(note()) note()->removeFromGroup(&m_graphicsTextItem);
+    if (note())
+        note()->removeFromGroup(&m_graphicsTextItem);
 
     delete m_simpleRichText;
 }
@@ -1103,15 +1108,15 @@ bool HtmlContent::loadFromFile(bool lazyLoad)
 bool HtmlContent::finishLazyLoad()
 {
     qreal width = m_graphicsTextItem.document()->idealWidth();
-    
-    m_graphicsTextItem.setFlags(QGraphicsItem::ItemIsSelectable|QGraphicsItem::ItemIsFocusable);
+
+    m_graphicsTextItem.setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsFocusable);
     m_graphicsTextItem.setTextInteractionFlags(Qt::TextEditorInteraction);
-    
+
     /*QString css = ".cross_reference { display: block; width: 100%; text-decoration: none; color: #336600; }"
        "a:hover.cross_reference { text-decoration: underline; color: #ff8000; }";
     m_graphicsTextItem.document()->setDefaultStyleSheet(css);*/
     QString convert = Tools::tagURLs(m_html);
-    if(note()->allowCrossReferences())
+    if (note()->allowCrossReferences())
         convert = Tools::tagCrossReferences(convert);
     m_graphicsTextItem.setHtml(convert);
     m_graphicsTextItem.setDefaultTextColor(note()->textColor());
@@ -1134,17 +1139,23 @@ QString HtmlContent::linkAt(const QPointF &pos)
     return m_graphicsTextItem.document()->documentLayout()->anchorAt(pos);
 }
 
-
 QString HtmlContent::messageWhenOpening(OpenMessage where)
 {
     switch (where) {
-    case OpenOne:               return i18n("Opening text...");
-    case OpenSeveral:           return i18n("Opening texts...");
-    case OpenOneWith:           return i18n("Opening text with...");
-    case OpenSeveralWith:       return i18n("Opening texts with...");
-    case OpenOneWithDialog:     return i18n("Open text with:");
-    case OpenSeveralWithDialog: return i18n("Open texts with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening text...");
+    case OpenSeveral:
+        return i18n("Opening texts...");
+    case OpenOneWith:
+        return i18n("Opening text with...");
+    case OpenSeveralWith:
+        return i18n("Opening texts with...");
+    case OpenOneWithDialog:
+        return i18n("Open text with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open texts with:");
+    default:
+        return "";
     }
 }
 
@@ -1157,7 +1168,7 @@ void HtmlContent::setHtml(const QString &html, bool lazyLoad)
     while (m_html.contains(rx)) {
         m_html.replace( rx.cap().unicode()[0], QString("&#%1;").arg(rx.cap().unicode()[0].unicode()) );
     }*/
-    m_textEquivalent = toText(""); //OPTIM_FILTER
+    m_textEquivalent = toText(""); // OPTIM_FILTER
     if (!lazyLoad)
         finishLazyLoad();
     else
@@ -1168,24 +1179,23 @@ void HtmlContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString convert = Tools::tagURLs(html().replace("\t", "                "));
-    if(note()->allowCrossReferences())
+    if (note()->allowCrossReferences())
         convert = Tools::tagCrossReferences(convert, false, exporter);
 
-    exporter->stream << Tools::htmlToParagraph(convert)
-    .replace("  ", " &nbsp;")
-    .replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << Tools::htmlToParagraph(convert).replace("  ", " &nbsp;").replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class ImageContent:
  */
 
 ImageContent::ImageContent(Note *parent, const QString &fileName, bool lazyLoad)
-        : NoteContent(parent, fileName), m_pixmapItem(parent), m_format()
+    : NoteContent(parent, fileName)
+    , m_pixmapItem(parent)
+    , m_format()
 {
-    if(parent)
-    {
-      parent->addToGroup(&m_pixmapItem);
-      m_pixmapItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_pixmapItem);
+        m_pixmapItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 
     basket()->addWatchedFile(fullPath());
@@ -1194,7 +1204,8 @@ ImageContent::ImageContent(Note *parent, const QString &fileName, bool lazyLoad)
 
 ImageContent::~ImageContent()
 {
-    if(note()) note()->removeFromGroup(&m_pixmapItem);
+    if (note())
+        note()->removeFromGroup(&m_pixmapItem);
 }
 
 qreal ImageContent::setWidthAndGetHeight(qreal width)
@@ -1205,11 +1216,10 @@ qreal ImageContent::setWidthAndGetHeight(qreal width)
     {
         m_pixmapItem.setScale(1.0);
         return m_pixmapItem.boundingRect().height();
-    }
-    else { // Scaled down
+    } else { // Scaled down
         qreal scaleFactor = width / m_pixmapItem.pixmap().width();
-	m_pixmapItem.setScale( scaleFactor );
-        return m_pixmapItem.boundingRect().height()*scaleFactor;
+        m_pixmapItem.setScale(scaleFactor);
+        return m_pixmapItem.boundingRect().height() * scaleFactor;
     }
 }
 
@@ -1227,7 +1237,7 @@ bool ImageContent::finishLazyLoad()
 
     QByteArray content;
     QPixmap pixmap;
-    
+
     if (basket()->loadFromFile(fullPath(), &content)) {
         QBuffer buffer(&content);
 
@@ -1242,7 +1252,7 @@ bool ImageContent::finishLazyLoad()
     }
 
     qDebug() << "FAILED TO LOAD ImageContent: " << fullPath();
-    m_format = "PNG"; // If the image is set later, it should be saved without destruction, so we use PNG by default.
+    m_format = "PNG";       // If the image is set later, it should be saved without destruction, so we use PNG by default.
     pixmap = QPixmap(1, 1); // Create a 1x1 pixels image instead of an undefined one.
     pixmap.fill();
     pixmap.setMask(pixmap.createHeuristicMask());
@@ -1262,7 +1272,6 @@ bool ImageContent::saveToFile()
     return basket()->saveToFile(fullPath(), ba);
 }
 
-
 void ImageContent::toolTipInfos(QStringList *keys, QStringList *values)
 {
     keys->append(i18n("Size"));
@@ -1272,13 +1281,20 @@ void ImageContent::toolTipInfos(QStringList *keys, QStringList *values)
 QString ImageContent::messageWhenOpening(OpenMessage where)
 {
     switch (where) {
-    case OpenOne:               return i18n("Opening image...");
-    case OpenSeveral:           return i18n("Opening images...");
-    case OpenOneWith:           return i18n("Opening image with...");
-    case OpenSeveralWith:       return i18n("Opening images with...");
-    case OpenOneWithDialog:     return i18n("Open image with:");
-    case OpenSeveralWithDialog: return i18n("Open images with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening image...");
+    case OpenSeveral:
+        return i18n("Opening images...");
+    case OpenOneWith:
+        return i18n("Opening image with...");
+    case OpenSeveralWith:
+        return i18n("Opening images with...");
+    case OpenOneWithDialog:
+        return i18n("Open image with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open images with:");
+    default:
+        return "";
     }
 }
 
@@ -1291,7 +1307,7 @@ void ImageContent::setPixmap(const QPixmap &pixmap)
 
 void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 {
-    qreal width  = m_pixmapItem.pixmap().width();
+    qreal width = m_pixmapItem.pixmap().width();
     qreal height = m_pixmapItem.pixmap().height();
     qreal contentWidth = note()->width() - note()->contentX() - 1 - Note::NOTE_MARGIN;
 
@@ -1299,13 +1315,12 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 
     if (contentWidth <= m_pixmapItem.pixmap().width()) { // Scaled down
         qreal scale = contentWidth / m_pixmapItem.pixmap().width();
-        width  = m_pixmapItem.pixmap().width()  * scale;
+        width = m_pixmapItem.pixmap().width() * scale;
         height = m_pixmapItem.pixmap().height() * scale;
         exporter->stream << "<a href=\"" << exporter->dataFolderName << imageName << "\" title=\"" << i18n("Click for full size view") << "\">";
     }
 
-    exporter->stream << "<img src=\"" << exporter->dataFolderName << imageName
-    << "\" width=\"" << width << "\" height=\"" << height << "\" alt=\"\">";
+    exporter->stream << "<img src=\"" << exporter->dataFolderName << imageName << "\" width=\"" << width << "\" height=\"" << height << "\" alt=\"\">";
 
     if (contentWidth <= m_pixmapItem.pixmap().width()) // Scaled down
         exporter->stream << "</a>";
@@ -1314,23 +1329,20 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 /** class AnimationContent:
  */
 
-AnimationContent::AnimationContent(Note *parent,
-                                   const QString &fileName,
-                                   bool lazyLoad)
-        : NoteContent(parent, fileName)
-        , m_buffer(new QBuffer(this))
-        , m_movie(new QMovie(this))
-	, m_currentWidth(0)
-	, m_graphicsPixmap(parent)
+AnimationContent::AnimationContent(Note *parent, const QString &fileName, bool lazyLoad)
+    : NoteContent(parent, fileName)
+    , m_buffer(new QBuffer(this))
+    , m_movie(new QMovie(this))
+    , m_currentWidth(0)
+    , m_graphicsPixmap(parent)
 {
-    if(parent)
-    {
-      parent->addToGroup(&m_graphicsPixmap);
-      m_graphicsPixmap.setPos(parent->contentX(),Note::NOTE_MARGIN);
-      connect(parent->basket(), SIGNAL(activated()), m_movie, SLOT(start()));
-      connect(parent->basket(), SIGNAL(closed()), m_movie, SLOT(stop()));
+    if (parent) {
+        parent->addToGroup(&m_graphicsPixmap);
+        m_graphicsPixmap.setPos(parent->contentX(), Note::NOTE_MARGIN);
+        connect(parent->basket(), SIGNAL(activated()), m_movie, SLOT(start()));
+        connect(parent->basket(), SIGNAL(closed()), m_movie, SLOT(stop()));
     }
-    
+
     basket()->addWatchedFile(fullPath());
     connect(m_movie, SIGNAL(resized(QSize)), this, SLOT(movieResized()));
     connect(m_movie, SIGNAL(frameChanged(int)), this, SLOT(movieFrameChanged()));
@@ -1347,18 +1359,15 @@ qreal AnimationContent::setWidthAndGetHeight(qreal width)
 {
     m_currentWidth = width;
     QPixmap pixmap = m_graphicsPixmap.pixmap();
-    if(pixmap.width() > m_currentWidth)
-    {
-      qreal scaleFactor = m_currentWidth / pixmap.width();
-      m_graphicsPixmap.setScale(scaleFactor);
-      return pixmap.height() * scaleFactor;
+    if (pixmap.width() > m_currentWidth) {
+        qreal scaleFactor = m_currentWidth / pixmap.width();
+        m_graphicsPixmap.setScale(scaleFactor);
+        return pixmap.height() * scaleFactor;
+    } else {
+        m_graphicsPixmap.setScale(1.0);
+        return pixmap.height();
     }
-    else
-    {
-      m_graphicsPixmap.setScale(1.0);
-      return pixmap.height();
-    }
-    
+
     return 0;
 }
 
@@ -1376,7 +1385,7 @@ bool AnimationContent::finishLazyLoad()
     if (basket()->loadFromFile(fullPath(), &content)) {
         m_buffer->setData(content);
         startMovie();
-	contentChanged(16);
+        contentChanged(16);
         return true;
     }
     m_buffer->setData(0);
@@ -1389,17 +1398,23 @@ bool AnimationContent::saveToFile()
     return false;
 }
 
-
 QString AnimationContent::messageWhenOpening(OpenMessage where)
 {
     switch (where) {
-    case OpenOne:               return i18n("Opening animation...");
-    case OpenSeveral:           return i18n("Opening animations...");
-    case OpenOneWith:           return i18n("Opening animation with...");
-    case OpenSeveralWith:       return i18n("Opening animations with...");
-    case OpenOneWithDialog:     return i18n("Open animation with:");
-    case OpenSeveralWithDialog: return i18n("Open animations with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening animation...");
+    case OpenSeveral:
+        return i18n("Opening animations...");
+    case OpenOneWith:
+        return i18n("Opening animation with...");
+    case OpenSeveralWith:
+        return i18n("Opening animations with...");
+    case OpenOneWithDialog:
+        return i18n("Open animation with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open animations with:");
+    default:
+        return "";
     }
 }
 
@@ -1419,7 +1434,7 @@ void AnimationContent::movieUpdated()
 
 void AnimationContent::movieResized()
 {
-     m_graphicsPixmap.setPixmap(m_movie->currentPixmap());
+    m_graphicsPixmap.setPixmap(m_movie->currentPixmap());
 }
 
 void AnimationContent::movieFrameChanged()
@@ -1430,29 +1445,29 @@ void AnimationContent::movieFrameChanged()
 void AnimationContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 {
     exporter->stream << QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
-    .arg(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true),
-         QString::number(m_movie->currentPixmap().size().width()),
-         QString::number(m_movie->currentPixmap().size().height()));
+                            .arg(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true), QString::number(m_movie->currentPixmap().size().width()), QString::number(m_movie->currentPixmap().size().height()));
 }
 
 /** class FileContent:
  */
 
 FileContent::FileContent(Note *parent, const QString &fileName)
-        : NoteContent(parent, fileName), m_linkDisplayItem(parent), m_previewJob(0)
+    : NoteContent(parent, fileName)
+    , m_linkDisplayItem(parent)
+    , m_previewJob(0)
 {
     basket()->addWatchedFile(fullPath());
     setFileName(fileName); // FIXME: TO THAT HERE BECAUSE NoteContent() constructor seems to don't be able to call virtual methods???
-    if(parent)
-    {
-      parent->addToGroup(&m_linkDisplayItem);
-      m_linkDisplayItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_linkDisplayItem);
+        m_linkDisplayItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 }
 
 FileContent::~FileContent()
 {
-    if(note()) note()->removeFromGroup(&m_linkDisplayItem);
+    if (note())
+        note()->removeFromGroup(&m_linkDisplayItem);
 }
 
 qreal FileContent::setWidthAndGetHeight(qreal width)
@@ -1483,20 +1498,16 @@ void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
         values->append(mime.comment());
     }
 
-
     MetaDataExtractionResult result(fullPath(), mime.name());
     KFileMetaData::ExtractorCollection extractorCollection;
 
-    for (KFileMetaData::Extractor* ex : extractorCollection.fetchExtractors(mime.name()))
-    {
+    for (KFileMetaData::Extractor *ex : extractorCollection.fetchExtractors(mime.name())) {
         ex->extract(&result);
         auto groups = result.preferredGroups();
         DEBUG_WIN << "Metadata Extractor result has " << QString::number(groups.count()) << " groups";
 
         int i = 0;
-        for (auto it = groups.begin();
-                i < 6 && it != groups.end();
-                ++it) {
+        for (auto it = groups.begin(); i < 6 && it != groups.end(); ++it) {
             if (!it->second.isEmpty()) {
                 keys->append(it->first);
                 values->append(it->second);
@@ -1511,7 +1522,7 @@ int FileContent::zoneAt(const QPointF &pos)
     return (m_linkDisplayItem.linkDisplay().iconButtonAt(pos) ? 0 : Note::Custom0);
 }
 
-QRectF FileContent::zoneRect(int zone, const QPointF &/*pos*/)
+QRectF FileContent::zoneRect(int zone, const QPointF & /*pos*/)
 {
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
@@ -1535,23 +1546,28 @@ Qt::CursorShape FileContent::cursorFromZone(int zone) const
     return Qt::ArrowCursor;
 }
 
-
 int FileContent::xEditorIndent()
 {
     return m_linkDisplayItem.linkDisplay().iconButtonRect().width() + 2;
 }
 
-
 QString FileContent::messageWhenOpening(OpenMessage where)
 {
     switch (where) {
-    case OpenOne:               return i18n("Opening file...");
-    case OpenSeveral:           return i18n("Opening files...");
-    case OpenOneWith:           return i18n("Opening file with...");
-    case OpenSeveralWith:       return i18n("Opening files with...");
-    case OpenOneWithDialog:     return i18n("Open file with:");
-    case OpenSeveralWithDialog: return i18n("Open files with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening file...");
+    case OpenSeveral:
+        return i18n("Opening files...");
+    case OpenOneWith:
+        return i18n("Opening file with...");
+    case OpenSeveralWith:
+        return i18n("Opening files with...");
+    case OpenOneWithDialog:
+        return i18n("Open file with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open files with:");
+    default:
+        return "";
     }
 }
 
@@ -1560,7 +1576,7 @@ void FileContent::setFileName(const QString &fileName)
     NoteContent::setFileName(fileName);
     QUrl url = QUrl::fromLocalFile(fullPath());
     if (linkLook()->previewEnabled())
-        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url),            linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
+        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
     else
         m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), linkLook(), note()->font());
     startFetchingUrlPreview();
@@ -1570,18 +1586,18 @@ void FileContent::setFileName(const QString &fileName)
 void FileContent::linkLookChanged()
 {
     fontChanged();
-    //setFileName(fileName());
-    //startFetchingUrlPreview();
+    // setFileName(fileName());
+    // startFetchingUrlPreview();
 }
 
-void FileContent::newPreview(const KFileItem&, const QPixmap &preview)
+void FileContent::newPreview(const KFileItem &, const QPixmap &preview)
 {
     LinkLook *linkLook = this->linkLook();
     m_linkDisplayItem.linkDisplay().setLink(fileName(), NoteFactory::iconForURL(QUrl::fromLocalFile(fullPath())), (linkLook->previewEnabled() ? preview : QPixmap()), linkLook, note()->font());
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
 
-void FileContent::removePreview(const KFileItem& ki)
+void FileContent::removePreview(const KFileItem &ki)
 {
     newPreview(ki, QPixmap());
 }
@@ -1615,7 +1631,7 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
  */
 
 SoundContent::SoundContent(Note *parent, const QString &fileName)
-        : FileContent(parent, fileName)
+    : FileContent(parent, fileName)
 {
     setFileName(fileName);
     music = new Phonon::MediaObject(this);
@@ -1642,30 +1658,35 @@ void SoundContent::setHoveredZone(int oldZone, int newZone)
         if (oldZone != Note::Custom0 && oldZone != Note::Content) { // Don't restart if it was already in one of those zones
             if (music->state() == 1) {
                 music->play();
-
             }
         }
     } else {
-//       Stop the sound preview, if it was started:
+        //       Stop the sound preview, if it was started:
         if (music->state() != 1) {
             music->stop();
-//          delete music;//TODO implement this in slot connected with music alted signal
-//          music = 0;
+            //          delete music;//TODO implement this in slot connected with music alted signal
+            //          music = 0;
         }
     }
 }
 
-
 QString SoundContent::messageWhenOpening(OpenMessage where)
 {
     switch (where) {
-    case OpenOne:               return i18n("Opening sound...");
-    case OpenSeveral:           return i18n("Opening sounds...");
-    case OpenOneWith:           return i18n("Opening sound with...");
-    case OpenSeveralWith:       return i18n("Opening sounds with...");
-    case OpenOneWithDialog:     return i18n("Open sound with:");
-    case OpenSeveralWithDialog: return i18n("Open sounds with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening sound...");
+    case OpenSeveral:
+        return i18n("Opening sounds...");
+    case OpenOneWith:
+        return i18n("Opening sound with...");
+    case OpenSeveralWith:
+        return i18n("Opening sounds with...");
+    case OpenOneWithDialog:
+        return i18n("Open sound with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open sounds with:");
+    default:
+        return "";
     }
 }
 
@@ -1673,18 +1694,22 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
  */
 
 LinkContent::LinkContent(Note *parent, const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
-    : NoteContent(parent), m_linkDisplayItem(parent), m_access_manager(0), m_acceptingData(false), m_previewJob(0)
+    : NoteContent(parent)
+    , m_linkDisplayItem(parent)
+    , m_access_manager(0)
+    , m_acceptingData(false)
+    , m_previewJob(0)
 {
     setLink(url, title, icon, autoTitle, autoIcon);
-    if(parent)
-    {
-      parent->addToGroup(&m_linkDisplayItem);
-      m_linkDisplayItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_linkDisplayItem);
+        m_linkDisplayItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 }
 LinkContent::~LinkContent()
 {
-    if(note()) note()->removeFromGroup(&m_linkDisplayItem);
+    if (note())
+        note()->removeFromGroup(&m_linkDisplayItem);
     delete m_access_manager;
 }
 
@@ -1694,17 +1719,16 @@ qreal LinkContent::setWidthAndGetHeight(qreal width)
     return m_linkDisplayItem.linkDisplay().height();
 }
 
-void LinkContent::saveToNode(QXmlStreamWriter& stream)
+void LinkContent::saveToNode(QXmlStreamWriter &stream)
 {
     stream.writeStartElement("content");
-    stream.writeAttribute("title",      title());
-    stream.writeAttribute("icon",       icon());
-    stream.writeAttribute("autoIcon", (autoIcon()  ? "true" : "false"));
+    stream.writeAttribute("title", title());
+    stream.writeAttribute("icon", icon());
+    stream.writeAttribute("autoIcon", (autoIcon() ? "true" : "false"));
     stream.writeAttribute("autoTitle", (autoTitle() ? "true" : "false"));
     stream.writeCharacters(url().toDisplayString());
     stream.writeEndElement();
 }
-
 
 void LinkContent::toolTipInfos(QStringList *keys, QStringList *values)
 {
@@ -1717,7 +1741,7 @@ int LinkContent::zoneAt(const QPointF &pos)
     return (m_linkDisplayItem.linkDisplay().iconButtonAt(pos) ? 0 : Note::Custom0);
 }
 
-QRectF LinkContent::zoneRect(int zone, const QPointF &/*pos*/)
+QRectF LinkContent::zoneRect(int zone, const QPointF & /*pos*/)
 {
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
@@ -1749,10 +1773,9 @@ QString LinkContent::statusBarMessage(int zone)
         return "";
 }
 
-
 QUrl LinkContent::urlToOpen(bool /*with*/)
 {
-    return NoteFactory::filteredURL(url());//KURIFilter::self()->filteredURI(url());
+    return NoteFactory::filteredURL(url()); // KURIFilter::self()->filteredURI(url());
 }
 
 QString LinkContent::messageWhenOpening(OpenMessage where)
@@ -1761,27 +1784,34 @@ QString LinkContent::messageWhenOpening(OpenMessage where)
         return i18n("Link have no URL to open.");
 
     switch (where) {
-    case OpenOne:               return i18n("Opening link target...");
-    case OpenSeveral:           return i18n("Opening link targets...");
-    case OpenOneWith:           return i18n("Opening link target with...");
-    case OpenSeveralWith:       return i18n("Opening link targets with...");
-    case OpenOneWithDialog:     return i18n("Open link target with:");
-    case OpenSeveralWithDialog: return i18n("Open link targets with:");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening link target...");
+    case OpenSeveral:
+        return i18n("Opening link targets...");
+    case OpenOneWith:
+        return i18n("Opening link target with...");
+    case OpenSeveralWith:
+        return i18n("Opening link targets with...");
+    case OpenOneWithDialog:
+        return i18n("Open link target with:");
+    case OpenSeveralWithDialog:
+        return i18n("Open link targets with:");
+    default:
+        return "";
     }
 }
 
 void LinkContent::setLink(const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
 {
     m_autoTitle = autoTitle;
-    m_autoIcon  = autoIcon;
-    m_url       = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
-    m_title     = (autoTitle ? NoteFactory::titleForURL(m_url) : title);
-    m_icon      = (autoIcon  ? NoteFactory::iconForURL(m_url)  : icon);
+    m_autoIcon = autoIcon;
+    m_url = NoteFactory::filteredURL(url); // KURIFilter::self()->filteredURI(url);
+    m_title = (autoTitle ? NoteFactory::titleForURL(m_url) : title);
+    m_icon = (autoIcon ? NoteFactory::iconForURL(m_url) : icon);
 
     LinkLook *look = LinkLook::lookForURL(m_url);
     if (look->previewEnabled())
-        m_linkDisplayItem.linkDisplay().setLink(m_title, m_icon,            look, note()->font());
+        m_linkDisplayItem.linkDisplay().setLink(m_title, m_icon, look, note()->font());
     else
         m_linkDisplayItem.linkDisplay().setLink(m_title, m_icon, QPixmap(), look, note()->font());
     startFetchingUrlPreview();
@@ -1795,14 +1825,14 @@ void LinkContent::linkLookChanged()
     fontChanged();
 }
 
-void LinkContent::newPreview(const KFileItem&, const QPixmap &preview)
+void LinkContent::newPreview(const KFileItem &, const QPixmap &preview)
 {
     LinkLook *linkLook = LinkLook::lookForURL(url());
     m_linkDisplayItem.linkDisplay().setLink(title(), icon(), (linkLook->previewEnabled() ? preview : QPixmap()), linkLook, note()->font());
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
 
-void LinkContent::removePreview(const KFileItem& ki)
+void LinkContent::removePreview(const KFileItem &ki)
 {
     newPreview(ki, QPixmap());
 }
@@ -1813,7 +1843,7 @@ void LinkContent::httpReadyRead()
     if (!m_acceptingData)
         return;
 
-    //Check for availability
+    // Check for availability
     qint64 bytesAvailable = m_reply->bytesAvailable();
     if (bytesAvailable <= 0)
         return;
@@ -1822,20 +1852,21 @@ void LinkContent::httpReadyRead()
     m_httpBuff.append(buf);
 
     // Stop at 10k bytes
-    if (m_httpBuff.length() > 10000)   {
+    if (m_httpBuff.length() > 10000) {
         m_acceptingData = false;
         m_reply->abort();
         endFetchingLinkTitle();
     }
 }
 
-void LinkContent::httpDone(QNetworkReply* reply) {
+void LinkContent::httpDone(QNetworkReply *reply)
+{
     if (m_acceptingData) {
         m_acceptingData = false;
         endFetchingLinkTitle();
     }
 
-    //If all done, close and delete the reply.
+    // If all done, close and delete the reply.
     reply->deleteLater();
 }
 
@@ -1843,24 +1874,23 @@ void LinkContent::startFetchingLinkTitle()
 {
     QUrl newUrl = this->url();
 
-    //If this is not an HTTP request, just ignore it.
+    // If this is not an HTTP request, just ignore it.
     if (newUrl.scheme() == "http") {
-
-        //If we have no access_manager, create one.
+        // If we have no access_manager, create one.
         if (m_access_manager == 0) {
             m_access_manager = new KIO::Integration::AccessManager(this);
-            connect(m_access_manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(httpDone(QNetworkReply*)));
+            connect(m_access_manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(httpDone(QNetworkReply *)));
         }
 
-        //If no explicit port, default to port 80.
+        // If no explicit port, default to port 80.
         if (newUrl.port() == 0)
             newUrl.setPort(80);
 
-        //If no path or query part, default to /
+        // If no path or query part, default to /
         if ((newUrl.path() + newUrl.query()).isEmpty())
             newUrl = QUrl::fromLocalFile("/");
 
-        //Issue request
+        // Issue request
         m_reply = m_access_manager->get(QNetworkRequest(newUrl));
         m_acceptingData = true;
         connect(m_reply, SIGNAL(readyRead()), this, SLOT(httpReadyRead()));
@@ -1873,14 +1903,14 @@ void LinkContent::startFetchingUrlPreview()
     QUrl url = this->url();
     LinkLook *linkLook = LinkLook::lookForURL(this->url());
 
-//  delete m_previewJob;
+    //  delete m_previewJob;
     if (!url.isEmpty() && linkLook->previewSize() > 0) {
-        QUrl filteredUrl = NoteFactory::filteredURL(url);//KURIFilter::self()->filteredURI(url);
+        QUrl filteredUrl = NoteFactory::filteredURL(url); // KURIFilter::self()->filteredURI(url);
         QList<QUrl> urlList;
         urlList.append(filteredUrl);
         m_previewJob = KIO::filePreview(urlList, linkLook->previewSize(), linkLook->previewSize(), linkLook->iconSize());
-        connect(m_previewJob, SIGNAL(gotPreview(const KFileItem&, const QPixmap&)), this, SLOT(newPreview(const KFileItem&, const QPixmap&)));
-        connect(m_previewJob, SIGNAL(failed(const KFileItem&)),                     this, SLOT(removePreview(const KFileItem&)));
+        connect(m_previewJob, SIGNAL(gotPreview(const KFileItem &, const QPixmap &)), this, SLOT(newPreview(const KFileItem &, const QPixmap &)));
+        connect(m_previewJob, SIGNAL(failed(const KFileItem &)), this, SLOT(removePreview(const KFileItem &)));
     }
 }
 
@@ -1897,16 +1927,16 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString linkTitle = title();
 
-// TODO:
-//  // Append address (useful for print version of the page/basket):
-//  if (exportData.formatForImpression && (!autoTitle() && title() != NoteFactory::titleForURL(url().toDisplayString()))) {
-//      // The address is on a new line, unless title is empty (empty lines was replaced by &nbsp;):
-//      if (linkTitle == " "/*"&nbsp;"*/)
-//          linkTitle = url().toDisplayString()/*""*/;
-//      else
-//          linkTitle = linkTitle + " <" + url().toDisplayString() + ">"/*+ "<br>"*/;
-//      //linkTitle += "<i>" + url().toDisplayString() + "</i>";
-//  }
+    // TODO:
+    //  // Append address (useful for print version of the page/basket):
+    //  if (exportData.formatForImpression && (!autoTitle() && title() != NoteFactory::titleForURL(url().toDisplayString()))) {
+    //      // The address is on a new line, unless title is empty (empty lines was replaced by &nbsp;):
+    //      if (linkTitle == " "/*"&nbsp;"*/)
+    //          linkTitle = url().toDisplayString()/*""*/;
+    //      else
+    //          linkTitle = linkTitle + " <" + url().toDisplayString() + ">"/*+ "<br>"*/;
+    //      //linkTitle += "<i>" + url().toDisplayString() + "</i>";
+    //  }
 
     QUrl linkURL;
     /*
@@ -1936,15 +1966,18 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
  */
 
 CrossReferenceContent::CrossReferenceContent(Note *parent, const QUrl &url, const QString &title, const QString &icon)
-        : NoteContent(parent), m_linkDisplayItem(parent)
+    : NoteContent(parent)
+    , m_linkDisplayItem(parent)
 {
     this->setCrossReference(url, title, icon);
-    if(parent) parent->addToGroup(&m_linkDisplayItem);
+    if (parent)
+        parent->addToGroup(&m_linkDisplayItem);
 }
 
 CrossReferenceContent::~CrossReferenceContent()
 {
-    if(note()) note()->removeFromGroup(&m_linkDisplayItem);
+    if (note())
+        note()->removeFromGroup(&m_linkDisplayItem);
 }
 
 qreal CrossReferenceContent::setWidthAndGetHeight(qreal width)
@@ -1956,8 +1989,8 @@ qreal CrossReferenceContent::setWidthAndGetHeight(qreal width)
 void CrossReferenceContent::saveToNode(QXmlStreamWriter &stream)
 {
     stream.writeStartElement("content");
-    stream.writeAttribute("title",      title());
-    stream.writeAttribute("icon",       icon());
+    stream.writeAttribute("title", title());
+    stream.writeAttribute("icon", icon());
     stream.writeCharacters(url().toDisplayString());
     stream.writeEndElement();
 }
@@ -1973,7 +2006,7 @@ int CrossReferenceContent::zoneAt(const QPointF &pos)
     return (m_linkDisplayItem.linkDisplay().iconButtonAt(pos) ? 0 : Note::Custom0);
 }
 
-QRectF CrossReferenceContent::zoneRect(int zone, const QPointF &/*pos*/)
+QRectF CrossReferenceContent::zoneRect(int zone, const QPointF & /*pos*/)
 {
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
@@ -2016,8 +2049,10 @@ QString CrossReferenceContent::messageWhenOpening(OpenMessage where)
         return i18n("Link has no basket to open.");
 
     switch (where) {
-    case OpenOne:               return i18n("Opening basket...");
-    default:                    return "";
+    case OpenOne:
+        return i18n("Opening basket...");
+    default:
+        return "";
     }
 }
 
@@ -2036,7 +2071,6 @@ void CrossReferenceContent::setCrossReference(const QUrl &url, const QString &ti
     m_linkDisplayItem.linkDisplay().setLink(m_title, m_icon, look, note()->font());
 
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
-
 }
 
 void CrossReferenceContent::linkLookChanged()
@@ -2049,34 +2083,32 @@ void CrossReferenceContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     QString url = m_url.url();
     QString title;
 
-    if(url.startsWith(QLatin1String("basket://")))
-        url = url.mid(9, url.length() -9);
-    if(url.endsWith('/'))
+    if (url.startsWith(QLatin1String("basket://")))
+        url = url.mid(9, url.length() - 9);
+    if (url.endsWith('/'))
         url = url.left(url.length() - 1);
 
-    BasketScene* basket = Global::bnpView->basketForFolderName(url);
+    BasketScene *basket = Global::bnpView->basketForFolderName(url);
 
-    if(!basket)
+    if (!basket)
         title = "unknown basket";
     else
         title = basket->basketName();
 
-    //if the basket we're trying to link to is the basket that was exported then
-    //we have to use a special way to refer to it for the links.
-    if(basket == exporter->exportedBasket)
+    // if the basket we're trying to link to is the basket that was exported then
+    // we have to use a special way to refer to it for the links.
+    if (basket == exporter->exportedBasket)
         url = "../../" + exporter->fileName;
     else {
-        //if we're in the exported basket then the links have to include
+        // if we're in the exported basket then the links have to include
         // the sub directories.
-        if(exporter->currentBasket == exporter->exportedBasket)
+        if (exporter->currentBasket == exporter->exportedBasket)
             url.prepend(exporter->basketsFolderName);
         url.append(".html");
     }
 
-    QString linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon,
-                                                 LinkLook::crossReferenceLook->iconSize());
-    linkIcon = QString("<img src=\"%1\" alt=\"\">")
-               .arg(linkIcon);
+    QString linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon, LinkLook::crossReferenceLook->iconSize());
+    linkIcon = QString("<img src=\"%1\" alt=\"\">").arg(linkIcon);
 
     exporter->stream << QString("<a href=\"%1\">%2 %3</a>").arg(url, linkIcon, title);
 }
@@ -2085,20 +2117,21 @@ void CrossReferenceContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
  */
 
 LauncherContent::LauncherContent(Note *parent, const QString &fileName)
-        : NoteContent(parent, fileName), m_linkDisplayItem(parent)
+    : NoteContent(parent, fileName)
+    , m_linkDisplayItem(parent)
 {
     basket()->addWatchedFile(fullPath());
     loadFromFile(/*lazyLoad=*/false);
-    if(parent)
-    {
-      parent->addToGroup(&m_linkDisplayItem);
-      m_linkDisplayItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_linkDisplayItem);
+        m_linkDisplayItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 }
 
 LauncherContent::~LauncherContent()
 {
-    if(note()) note()->removeFromGroup(&m_linkDisplayItem);
+    if (note())
+        note()->removeFromGroup(&m_linkDisplayItem);
 }
 
 qreal LauncherContent::setWidthAndGetHeight(qreal width)
@@ -2114,7 +2147,6 @@ bool LauncherContent::loadFromFile(bool /*lazyLoad*/) // TODO: saveToFile() ?? I
     setLauncher(service.name(), service.icon(), service.exec());
     return true;
 }
-
 
 void LauncherContent::toolTipInfos(QStringList *keys, QStringList *values)
 {
@@ -2138,7 +2170,7 @@ int LauncherContent::zoneAt(const QPointF &pos)
     return (m_linkDisplayItem.linkDisplay().iconButtonAt(pos) ? 0 : Note::Custom0);
 }
 
-QRectF LauncherContent::zoneRect(int zone, const QPointF &/*pos*/)
+QRectF LauncherContent::zoneRect(int zone, const QPointF & /*pos*/)
 {
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
@@ -2176,13 +2208,16 @@ QString LauncherContent::messageWhenOpening(OpenMessage where)
         return i18n("The launcher have no command to run.");
 
     switch (where) {
-    case OpenOne:               return i18n("Launching application...");
-    case OpenSeveral:           return i18n("Launching applications...");
+    case OpenOne:
+        return i18n("Launching application...");
+    case OpenSeveral:
+        return i18n("Launching applications...");
     case OpenOneWith:
     case OpenSeveralWith:
     case OpenOneWithDialog:
-    case OpenSeveralWithDialog:            // TODO: "Open this application with this file as parameter"?
-    default:                    return "";
+    case OpenSeveralWithDialog: // TODO: "Open this application with this file as parameter"?
+    default:
+        return "";
     }
 }
 
@@ -2208,10 +2243,10 @@ void LauncherContent::exportToHTML(HTMLExporter *exporter, int indent)
 const int ColorItem::RECT_MARGIN = 2;
 
 ColorItem::ColorItem(Note *parent, const QColor &color)
-  :QGraphicsItem(parent)
-  , m_note(parent)
+    : QGraphicsItem(parent)
+    , m_note(parent)
 {
-  setColor(color);
+    setColor(color);
 }
 
 void ColorItem::setColor(const QColor &color)
@@ -2223,15 +2258,15 @@ void ColorItem::setColor(const QColor &color)
 QRectF ColorItem::boundingRect() const
 {
     qreal rectHeight = (m_textRect.height() + 2) * 3 / 2;
-    qreal rectWidth  = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
+    qreal rectWidth = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
     return QRectF(0, 0, rectWidth + RECT_MARGIN + m_textRect.width() + RECT_MARGIN, rectHeight);
 }
 
-void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
+void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     QRectF boundingRect = this->boundingRect();
     qreal rectHeight = (m_textRect.height() + 2) * 3 / 2;
-    qreal rectWidth  = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
+    qreal rectWidth = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
 
     // FIXME: Duplicate from CommonColorSelector::drawColorRect:
     // Fill:
@@ -2239,14 +2274,14 @@ void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidge
     // Stroke:
     QColor stroke = color().dark(125);
     painter->setPen(stroke);
-    painter->drawLine(1,             0,              rectWidth - 2, 0);
-    painter->drawLine(0,             1,              0,             rectHeight - 2);
-    painter->drawLine(1,             rectHeight - 1, rectWidth - 2, rectHeight - 1);
-    painter->drawLine(rectWidth - 1, 1,              rectWidth - 1, rectHeight - 2);
+    painter->drawLine(1, 0, rectWidth - 2, 0);
+    painter->drawLine(0, 1, 0, rectHeight - 2);
+    painter->drawLine(1, rectHeight - 1, rectWidth - 2, rectHeight - 1);
+    painter->drawLine(rectWidth - 1, 1, rectWidth - 1, rectHeight - 2);
     // Round corners:
     painter->setPen(Tools::mixColor(color(), stroke));
-    painter->drawPoint(1,             1);
-    painter->drawPoint(1,             rectHeight - 2);
+    painter->drawPoint(1, 1);
+    painter->drawPoint(1, rectHeight - 2);
     painter->drawPoint(rectWidth - 2, rectHeight - 2);
     painter->drawPoint(rectWidth - 2, 1);
 
@@ -2260,18 +2295,19 @@ void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidge
  */
 
 ColorContent::ColorContent(Note *parent, const QColor &color)
-        : NoteContent(parent), m_colorItem(parent, color)
+    : NoteContent(parent)
+    , m_colorItem(parent, color)
 {
-    if(parent)
-    {
-      parent->addToGroup(&m_colorItem);
-      m_colorItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_colorItem);
+        m_colorItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 }
 
 ColorContent::~ColorContent()
 {
-  if(note()) note()->removeFromGroup(&m_colorItem);
+    if (note())
+        note()->removeFromGroup(&m_colorItem);
 }
 
 qreal ColorContent::setWidthAndGetHeight(qreal /*width*/) // We do not need width because we can't word-break, and width is always >= minWidth()
@@ -2297,157 +2333,263 @@ void ColorContent::toolTipInfos(QStringList *keys, QStringList *values)
     keys->append(i18nc("HSV Colorspace: Hue/Saturation/Value", "HSV"));
     values->append(i18n("<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,", QString::number(hue), QString::number(saturation), QString::number(value)));
 
-    static QString cssColors[] = {
-        "aqua",    "00ffff",
-        "black",   "000000",
-        "blue",    "0000ff",
-        "fuchsia", "ff00ff",
-        "gray",    "808080",
-        "green",   "008000",
-        "lime",    "00ff00",
-        "maroon",  "800000",
-        "navy",    "000080",
-        "olive",   "808000",
-        "purple",  "800080",
-        "red",     "ff0000",
-        "silver",  "c0c0c0",
-        "teal",    "008080",
-        "white",   "ffffff",
-        "yellow",  "ffff00"
-    };
+    static QString cssColors[] = {"aqua", "00ffff", "black", "000000", "blue",   "0000ff", "fuchsia", "ff00ff", "gray",   "808080", "green", "008000", "lime",  "00ff00", "maroon", "800000",
+                                  "navy", "000080", "olive", "808000", "purple", "800080", "red",     "ff0000", "silver", "c0c0c0", "teal",  "008080", "white", "ffffff", "yellow", "ffff00"};
 
-    static QString cssExtendedColors[] = {
-        "aliceblue",            "f0f8ff",
-        "antiquewhite",         "faebd7",
-        "aquamarine",           "7fffd4",
-        "azure",                "f0ffff",
-        "beige",                "f5f5dc",
-        "bisque",               "ffe4c4",
-        "blanchedalmond",       "ffebcd",
-        "blueviolet",           "8a2be2",
-        "brown",                "a52a2a",
-        "burlywood",            "deb887",
-        "cadetblue",            "5f9ea0",
-        "chartreuse",           "7fff00",
-        "chocolate",            "d2691e",
-        "coral",                "ff7f50",
-        "cornflowerblue",       "6495ed",
-        "cornsilk",             "fff8dc",
-        "crimson",              "dc1436",
-        "cyan",                 "00ffff",
-        "darkblue",             "00008b",
-        "darkcyan",             "008b8b",
-        "darkgoldenrod",        "b8860b",
-        "darkgray",             "a9a9a9",
-        "darkgreen",            "006400",
-        "darkkhaki",            "bdb76b",
-        "darkmagenta",          "8b008b",
-        "darkolivegreen",       "556b2f",
-        "darkorange",           "ff8c00",
-        "darkorchid",           "9932cc",
-        "darkred",              "8b0000",
-        "darksalmon",           "e9967a",
-        "darkseagreen",         "8fbc8f",
-        "darkslateblue",        "483d8b",
-        "darkslategray",        "2f4f4f",
-        "darkturquoise",        "00ced1",
-        "darkviolet",           "9400d3",
-        "deeppink",             "ff1493",
-        "deepskyblue",          "00bfff",
-        "dimgray",              "696969",
-        "dodgerblue",           "1e90ff",
-        "firebrick",            "b22222",
-        "floralwhite",          "fffaf0",
-        "forestgreen",          "228b22",
-        "gainsboro",            "dcdcdc",
-        "ghostwhite",           "f8f8ff",
-        "gold",                 "ffd700",
-        "goldenrod",            "daa520",
-        "greenyellow",          "adff2f",
-        "honeydew",             "f0fff0",
-        "hotpink",              "ff69b4",
-        "indianred",            "cd5c5c",
-        "indigo",               "4b0082",
-        "ivory",                "fffff0",
-        "khaki",                "f0e68c",
-        "lavender",             "e6e6fa",
-        "lavenderblush",        "fff0f5",
-        "lawngreen",            "7cfc00",
-        "lemonchiffon",         "fffacd",
-        "lightblue",            "add8e6",
-        "lightcoral",           "f08080",
-        "lightcyan",            "e0ffff",
-        "lightgoldenrodyellow", "fafad2",
-        "lightgreen",           "90ee90",
-        "lightgrey",            "d3d3d3",
-        "lightpink",            "ffb6c1",
-        "lightsalmon",          "ffa07a",
-        "lightseagreen",        "20b2aa",
-        "lightskyblue",         "87cefa",
-        "lightslategray",       "778899",
-        "lightsteelblue",       "b0c4de",
-        "lightyellow",          "ffffe0",
-        "limegreen",            "32cd32",
-        "linen",                "faf0e6",
-        "magenta",              "ff00ff",
-        "mediumaquamarine",     "66cdaa",
-        "mediumblue",           "0000cd",
-        "mediumorchid",         "ba55d3",
-        "mediumpurple",         "9370db",
-        "mediumseagreen",       "3cb371",
-        "mediumslateblue",      "7b68ee",
-        "mediumspringgreen",    "00fa9a",
-        "mediumturquoise",      "48d1cc",
-        "mediumvioletred",      "c71585",
-        "midnightblue",         "191970",
-        "mintcream",            "f5fffa",
-        "mistyrose",            "ffe4e1",
-        "moccasin",             "ffe4b5",
-        "navajowhite",          "ffdead",
-        "oldlace",              "fdf5e6",
-        "olivedrab",            "6b8e23",
-        "orange",               "ffa500",
-        "orangered",            "ff4500",
-        "orchid",               "da70d6",
-        "palegoldenrod",        "eee8aa",
-        "palegreen",            "98fb98",
-        "paleturquoise",        "afeeee",
-        "palevioletred",        "db7093",
-        "papayawhip",           "ffefd5",
-        "peachpuff",            "ffdab9",
-        "peru",                 "cd853f",
-        "pink",                 "ffc0cb",
-        "plum",                 "dda0dd",
-        "powderblue",           "b0e0e6",
-        "rosybrown",            "bc8f8f",
-        "royalblue",            "4169e1",
-        "saddlebrown",          "8b4513",
-        "salmon",               "fa8072",
-        "sandybrown",           "f4a460",
-        "seagreen",             "2e8b57",
-        "seashell",             "fff5ee",
-        "sienna",               "a0522d",
-        "skyblue",              "87ceeb",
-        "slateblue",            "6a5acd",
-        "slategray",            "708090",
-        "snow",                 "fffafa",
-        "springgreen",          "00ff7f",
-        "steelblue",            "4682b4",
-        "tan",                  "d2b48c",
-        "thistle",              "d8bfd8",
-        "tomato",               "ff6347",
-        "turquoise",            "40e0d0",
-        "violet",               "ee82ee",
-        "wheat",                "f5deb3",
-        "whitesmoke",           "f5f5f5",
-        "yellowgreen",          "9acd32"
-    };
+    static QString cssExtendedColors[] = {"aliceblue",
+                                          "f0f8ff",
+                                          "antiquewhite",
+                                          "faebd7",
+                                          "aquamarine",
+                                          "7fffd4",
+                                          "azure",
+                                          "f0ffff",
+                                          "beige",
+                                          "f5f5dc",
+                                          "bisque",
+                                          "ffe4c4",
+                                          "blanchedalmond",
+                                          "ffebcd",
+                                          "blueviolet",
+                                          "8a2be2",
+                                          "brown",
+                                          "a52a2a",
+                                          "burlywood",
+                                          "deb887",
+                                          "cadetblue",
+                                          "5f9ea0",
+                                          "chartreuse",
+                                          "7fff00",
+                                          "chocolate",
+                                          "d2691e",
+                                          "coral",
+                                          "ff7f50",
+                                          "cornflowerblue",
+                                          "6495ed",
+                                          "cornsilk",
+                                          "fff8dc",
+                                          "crimson",
+                                          "dc1436",
+                                          "cyan",
+                                          "00ffff",
+                                          "darkblue",
+                                          "00008b",
+                                          "darkcyan",
+                                          "008b8b",
+                                          "darkgoldenrod",
+                                          "b8860b",
+                                          "darkgray",
+                                          "a9a9a9",
+                                          "darkgreen",
+                                          "006400",
+                                          "darkkhaki",
+                                          "bdb76b",
+                                          "darkmagenta",
+                                          "8b008b",
+                                          "darkolivegreen",
+                                          "556b2f",
+                                          "darkorange",
+                                          "ff8c00",
+                                          "darkorchid",
+                                          "9932cc",
+                                          "darkred",
+                                          "8b0000",
+                                          "darksalmon",
+                                          "e9967a",
+                                          "darkseagreen",
+                                          "8fbc8f",
+                                          "darkslateblue",
+                                          "483d8b",
+                                          "darkslategray",
+                                          "2f4f4f",
+                                          "darkturquoise",
+                                          "00ced1",
+                                          "darkviolet",
+                                          "9400d3",
+                                          "deeppink",
+                                          "ff1493",
+                                          "deepskyblue",
+                                          "00bfff",
+                                          "dimgray",
+                                          "696969",
+                                          "dodgerblue",
+                                          "1e90ff",
+                                          "firebrick",
+                                          "b22222",
+                                          "floralwhite",
+                                          "fffaf0",
+                                          "forestgreen",
+                                          "228b22",
+                                          "gainsboro",
+                                          "dcdcdc",
+                                          "ghostwhite",
+                                          "f8f8ff",
+                                          "gold",
+                                          "ffd700",
+                                          "goldenrod",
+                                          "daa520",
+                                          "greenyellow",
+                                          "adff2f",
+                                          "honeydew",
+                                          "f0fff0",
+                                          "hotpink",
+                                          "ff69b4",
+                                          "indianred",
+                                          "cd5c5c",
+                                          "indigo",
+                                          "4b0082",
+                                          "ivory",
+                                          "fffff0",
+                                          "khaki",
+                                          "f0e68c",
+                                          "lavender",
+                                          "e6e6fa",
+                                          "lavenderblush",
+                                          "fff0f5",
+                                          "lawngreen",
+                                          "7cfc00",
+                                          "lemonchiffon",
+                                          "fffacd",
+                                          "lightblue",
+                                          "add8e6",
+                                          "lightcoral",
+                                          "f08080",
+                                          "lightcyan",
+                                          "e0ffff",
+                                          "lightgoldenrodyellow",
+                                          "fafad2",
+                                          "lightgreen",
+                                          "90ee90",
+                                          "lightgrey",
+                                          "d3d3d3",
+                                          "lightpink",
+                                          "ffb6c1",
+                                          "lightsalmon",
+                                          "ffa07a",
+                                          "lightseagreen",
+                                          "20b2aa",
+                                          "lightskyblue",
+                                          "87cefa",
+                                          "lightslategray",
+                                          "778899",
+                                          "lightsteelblue",
+                                          "b0c4de",
+                                          "lightyellow",
+                                          "ffffe0",
+                                          "limegreen",
+                                          "32cd32",
+                                          "linen",
+                                          "faf0e6",
+                                          "magenta",
+                                          "ff00ff",
+                                          "mediumaquamarine",
+                                          "66cdaa",
+                                          "mediumblue",
+                                          "0000cd",
+                                          "mediumorchid",
+                                          "ba55d3",
+                                          "mediumpurple",
+                                          "9370db",
+                                          "mediumseagreen",
+                                          "3cb371",
+                                          "mediumslateblue",
+                                          "7b68ee",
+                                          "mediumspringgreen",
+                                          "00fa9a",
+                                          "mediumturquoise",
+                                          "48d1cc",
+                                          "mediumvioletred",
+                                          "c71585",
+                                          "midnightblue",
+                                          "191970",
+                                          "mintcream",
+                                          "f5fffa",
+                                          "mistyrose",
+                                          "ffe4e1",
+                                          "moccasin",
+                                          "ffe4b5",
+                                          "navajowhite",
+                                          "ffdead",
+                                          "oldlace",
+                                          "fdf5e6",
+                                          "olivedrab",
+                                          "6b8e23",
+                                          "orange",
+                                          "ffa500",
+                                          "orangered",
+                                          "ff4500",
+                                          "orchid",
+                                          "da70d6",
+                                          "palegoldenrod",
+                                          "eee8aa",
+                                          "palegreen",
+                                          "98fb98",
+                                          "paleturquoise",
+                                          "afeeee",
+                                          "palevioletred",
+                                          "db7093",
+                                          "papayawhip",
+                                          "ffefd5",
+                                          "peachpuff",
+                                          "ffdab9",
+                                          "peru",
+                                          "cd853f",
+                                          "pink",
+                                          "ffc0cb",
+                                          "plum",
+                                          "dda0dd",
+                                          "powderblue",
+                                          "b0e0e6",
+                                          "rosybrown",
+                                          "bc8f8f",
+                                          "royalblue",
+                                          "4169e1",
+                                          "saddlebrown",
+                                          "8b4513",
+                                          "salmon",
+                                          "fa8072",
+                                          "sandybrown",
+                                          "f4a460",
+                                          "seagreen",
+                                          "2e8b57",
+                                          "seashell",
+                                          "fff5ee",
+                                          "sienna",
+                                          "a0522d",
+                                          "skyblue",
+                                          "87ceeb",
+                                          "slateblue",
+                                          "6a5acd",
+                                          "slategray",
+                                          "708090",
+                                          "snow",
+                                          "fffafa",
+                                          "springgreen",
+                                          "00ff7f",
+                                          "steelblue",
+                                          "4682b4",
+                                          "tan",
+                                          "d2b48c",
+                                          "thistle",
+                                          "d8bfd8",
+                                          "tomato",
+                                          "ff6347",
+                                          "turquoise",
+                                          "40e0d0",
+                                          "violet",
+                                          "ee82ee",
+                                          "wheat",
+                                          "f5deb3",
+                                          "whitesmoke",
+                                          "f5f5f5",
+                                          "yellowgreen",
+                                          "9acd32"};
 
     QString colorHex = color().name().mid(1); // Take the hexadecimal name of the color, without the '#'.
 
     bool cssColorFound = false;
-    for (int i = 0; i < 2*16; i += 2) {
-        if (colorHex == cssColors[i+1]) {
+    for (int i = 0; i < 2 * 16; i += 2) {
+        if (colorHex == cssColors[i + 1]) {
             keys->append(i18n("CSS Color Name"));
             values->append(cssColors[i]);
             cssColorFound = true;
@@ -2456,8 +2598,8 @@ void ColorContent::toolTipInfos(QStringList *keys, QStringList *values)
     }
 
     if (!cssColorFound)
-        for (int i = 0; i < 2*124; i += 2) {
-            if (colorHex == cssExtendedColors[i+1]) {
+        for (int i = 0; i < 2 * 124; i += 2) {
+            if (colorHex == cssExtendedColors[i + 1]) {
                 keys->append(i18n("CSS Extended Color Name"));
                 values->append(cssExtendedColors[i]);
                 break;
@@ -2466,7 +2608,6 @@ void ColorContent::toolTipInfos(QStringList *keys, QStringList *values)
 
     keys->append(i18n("Is Web Color"));
     values->append(Tools::isWebColor(color()) ? i18n("Yes") : i18n("No"));
-
 }
 
 void ColorContent::setColor(const QColor &color)
@@ -2485,17 +2626,16 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     // FIXME: Duplicate from setColor(): TODO: rectSize()
     QRectF textRect = QFontMetrics(note()->font()).boundingRect(color().name());
     int rectHeight = (textRect.height() + 2) * 3 / 2;
-    int rectWidth  = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
+    int rectWidth = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
 
-    QString fileName = /*Tools::fileNameForNewFile(*/QString("color_%1.png").arg(color().name().toLower().mid(1))/*, exportData.iconsFolderPath)*/;
+    QString fileName = /*Tools::fileNameForNewFile(*/ QString("color_%1.png").arg(color().name().toLower().mid(1)) /*, exportData.iconsFolderPath)*/;
     QString fullPath = exporter->iconsFolderPath + fileName;
     QPixmap colorIcon(rectWidth, rectHeight);
     QPainter painter(&colorIcon);
     painter.setBrush(color());
     painter.drawRoundedRect(0, 0, rectWidth, rectHeight, 2, 2);
     colorIcon.save(fullPath, "PNG");
-    QString iconHtml = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
-                       .arg(exporter->iconsFolderName + fileName, QString::number(colorIcon.width()), QString::number(colorIcon.height()));
+    QString iconHtml = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(exporter->iconsFolderName + fileName, QString::number(colorIcon.width()), QString::number(colorIcon.height()));
 
     exporter->stream << iconHtml + ' ' + color().name();
 }
@@ -2506,17 +2646,17 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 const qreal UnknownItem::DECORATION_MARGIN = 2;
 
 UnknownItem::UnknownItem(Note *parent)
-  :QGraphicsItem(parent)
-  , m_note(parent)
+    : QGraphicsItem(parent)
+    , m_note(parent)
 {
 }
 
 QRectF UnknownItem::boundingRect() const
 {
-    return QRectF(0, 0, m_textRect.width()+2*DECORATION_MARGIN, m_textRect.height()+2*DECORATION_MARGIN);
+    return QRectF(0, 0, m_textRect.width() + 2 * DECORATION_MARGIN, m_textRect.height() + 2 * DECORATION_MARGIN);
 }
 
-void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
+void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     QPalette palette = m_note->basket()->palette();
     qreal width = boundingRect().width();
@@ -2526,20 +2666,19 @@ void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWid
     // Stroke:
     QColor stroke = Tools::mixColor(palette.color(QPalette::Active, QPalette::Background), palette.color(QPalette::Active, QPalette::WindowText));
     painter->setPen(stroke);
-    painter->drawLine(1,         0,          width - 2, 0);
-    painter->drawLine(0,         1,          0,         height - 2);
-    painter->drawLine(1,         height - 1, width - 2, height - 1);
-    painter->drawLine(width - 1, 1,          width - 1, height - 2);
+    painter->drawLine(1, 0, width - 2, 0);
+    painter->drawLine(0, 1, 0, height - 2);
+    painter->drawLine(1, height - 1, width - 2, height - 1);
+    painter->drawLine(width - 1, 1, width - 1, height - 2);
     // Round corners:
     painter->setPen(Tools::mixColor(palette.color(QPalette::Active, QPalette::Background), stroke));
-    painter->drawPoint(1,         1);
-    painter->drawPoint(1,         height - 2);
+    painter->drawPoint(1, 1);
+    painter->drawPoint(1, height - 2);
     painter->drawPoint(width - 2, height - 2);
     painter->drawPoint(width - 2, 1);
 
     painter->setPen(palette.color(QPalette::Active, QPalette::WindowText));
-    painter->drawText(DECORATION_MARGIN, DECORATION_MARGIN, width - 2*DECORATION_MARGIN, height - 2*DECORATION_MARGIN,
-                      Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap, m_mimeTypes);
+    painter->drawText(DECORATION_MARGIN, DECORATION_MARGIN, width - 2 * DECORATION_MARGIN, height - 2 * DECORATION_MARGIN, Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap, m_mimeTypes);
 }
 
 void UnknownItem::setMimeTypes(QString mimeTypes)
@@ -2551,20 +2690,19 @@ void UnknownItem::setMimeTypes(QString mimeTypes)
 void UnknownItem::setWidth(qreal width)
 {
     prepareGeometryChange();
-    m_textRect = QFontMetrics(m_note->font()).boundingRect(0, 0, width, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_mimeTypes);  
+    m_textRect = QFontMetrics(m_note->font()).boundingRect(0, 0, width, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_mimeTypes);
 }
 
 /** class UnknownContent:
  */
 
 UnknownContent::UnknownContent(Note *parent, const QString &fileName)
-        : NoteContent(parent, fileName)
-	, m_unknownItem(parent)
+    : NoteContent(parent, fileName)
+    , m_unknownItem(parent)
 {
-    if(parent)
-    {
-      parent->addToGroup(&m_unknownItem);
-      m_unknownItem.setPos(parent->contentX(),Note::NOTE_MARGIN);
+    if (parent) {
+        parent->addToGroup(&m_unknownItem);
+        m_unknownItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
 
     basket()->addWatchedFile(fullPath());
@@ -2573,7 +2711,8 @@ UnknownContent::UnknownContent(Note *parent, const QString &fileName)
 
 UnknownContent::~UnknownContent()
 {
-    if(note()) note()->removeFromGroup(&m_unknownItem);
+    if (note())
+        note()->removeFromGroup(&m_unknownItem);
 }
 
 qreal UnknownContent::setWidthAndGetHeight(qreal width)
@@ -2606,7 +2745,7 @@ bool UnknownContent::loadFromFile(bool /*lazyLoad*/)
     }
 
     m_unknownItem.setMimeTypes(mimeTypes);
-    contentChanged( m_unknownItem.boundingRect().width()+1 );
+    contentChanged(m_unknownItem.boundingRect().width() + 1);
 
     return true;
 }
@@ -2627,8 +2766,8 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
             }
         } while (!line.isEmpty() && !stream.atEnd());
         // Add the streams:
-        quint64     size; // TODO: It was quint32 in version 0.5.0 !
-        QByteArray  *array;
+        quint64 size; // TODO: It was quint32 in version 0.5.0 !
+        QByteArray *array;
         for (int i = 0; i < mimes.count(); ++i) {
             // Get the size:
             stream >> size;
@@ -2650,31 +2789,35 @@ void UnknownContent::exportToHTML(HTMLExporter *exporter, int indent)
     exporter->stream << "<div class=\"unknown\">" << mimeTypes().replace("\n", '\n' + spaces.fill(' ', indent + 1 + 1)) << "</div>";
 }
 
-
-
-
 void NoteFactory__loadNode(const QDomElement &content, const QString &lowerTypeName, Note *parent, bool lazyLoad)
 {
-    if (lowerTypeName == "text")      new TextContent(parent, content.text(), lazyLoad);
-    else if (lowerTypeName == "html")      new HtmlContent(parent, content.text(), lazyLoad);
-    else if (lowerTypeName == "image")     new ImageContent(parent, content.text(), lazyLoad);
-    else if (lowerTypeName == "animation") new AnimationContent(parent, content.text(), lazyLoad);
-    else if (lowerTypeName == "sound")     new SoundContent(parent, content.text());
-    else if (lowerTypeName == "file")      new FileContent(parent, content.text());
+    if (lowerTypeName == "text")
+        new TextContent(parent, content.text(), lazyLoad);
+    else if (lowerTypeName == "html")
+        new HtmlContent(parent, content.text(), lazyLoad);
+    else if (lowerTypeName == "image")
+        new ImageContent(parent, content.text(), lazyLoad);
+    else if (lowerTypeName == "animation")
+        new AnimationContent(parent, content.text(), lazyLoad);
+    else if (lowerTypeName == "sound")
+        new SoundContent(parent, content.text());
+    else if (lowerTypeName == "file")
+        new FileContent(parent, content.text());
     else if (lowerTypeName == "link") {
         bool autoTitle = content.attribute("title") == content.text();
-        bool autoIcon  = content.attribute("icon")  == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
+        bool autoIcon = content.attribute("icon") == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
         autoTitle = XMLWork::trueOrFalse(content.attribute("autoTitle"), autoTitle);
-        autoIcon  = XMLWork::trueOrFalse(content.attribute("autoIcon"),  autoIcon);
+        autoIcon = XMLWork::trueOrFalse(content.attribute("autoIcon"), autoIcon);
         new LinkContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"), autoTitle, autoIcon);
     } else if (lowerTypeName == "cross_reference") {
         new CrossReferenceContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"));
-    } else if (lowerTypeName == "launcher")  new LauncherContent(parent, content.text());
-    else if (lowerTypeName == "color")     new ColorContent(parent, QColor(content.text()));
-    else if (lowerTypeName == "unknown")   new UnknownContent(parent, content.text());
+    } else if (lowerTypeName == "launcher")
+        new LauncherContent(parent, content.text());
+    else if (lowerTypeName == "color")
+        new ColorContent(parent, QColor(content.text()));
+    else if (lowerTypeName == "unknown")
+        new UnknownContent(parent, content.text());
 }
-
-
 
 void LinkContent::decodeHtmlTitle()
 {
@@ -2682,9 +2825,10 @@ void LinkContent::decodeHtmlTitle()
     prober.feed(m_httpBuff);
 
     // Fallback scheme: KEncodingProber - QTextCodec::codecForHtml - UTF-8
-    QTextCodec* textCodec;
+    QTextCodec *textCodec;
     if (prober.confidence() > 0.5)
-        textCodec = QTextCodec::codecForName(prober.encoding()); else
+        textCodec = QTextCodec::codecForName(prober.encoding());
+    else
         textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
 
     QString httpBuff = textCodec->toUnicode(m_httpBuff.data(), m_httpBuff.size());
@@ -2692,7 +2836,7 @@ void LinkContent::decodeHtmlTitle()
     // todo: this should probably strip odd html tags like &nbsp; etc
     QRegExp reg("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>", Qt::CaseInsensitive);
     reg.setMinimal(true);
-    //qDebug() << *m_httpBuff << " bytes: " << bytes_read;
+    // qDebug() << *m_httpBuff << " bytes: " << bytes_read;
 
     if (reg.indexIn(httpBuff) >= 0) {
         m_title = reg.cap(2);

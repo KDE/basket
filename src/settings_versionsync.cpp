@@ -1,15 +1,14 @@
 #include "settings_versionsync.h"
-#include "ui_settings_versionsync.h"
-#include <QLocale>
-#include <QtConcurrent/QtConcurrentRun>
-#include <QPointer>
-#include <QDir>
-#include <KMessageBox>
-#include <KLocalizedString>
 #include "aboutdata.h"
 #include "settings.h"
 #include "tools.h"
-
+#include "ui_settings_versionsync.h"
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <QDir>
+#include <QLocale>
+#include <QPointer>
+#include <QtConcurrent/QtConcurrentRun>
 
 //! Compute size of .git folder and invoke VersionSyncPage::setHistorySize
 void showHistorySize(QPointer<VersionSyncPage> versionSyncPage)
@@ -20,23 +19,23 @@ void showHistorySize(QPointer<VersionSyncPage> versionSyncPage)
         QMetaObject::invokeMethod(versionSyncPage.data(), "setHistorySize", Qt::QueuedConnection, Q_ARG(qint64, size));
 }
 
-VersionSyncPage::VersionSyncPage(QWidget* parent, const char* name) :
-    KCModule(parent),
-    ui(new Ui::VersionSyncPage)
+VersionSyncPage::VersionSyncPage(QWidget *parent, const char *name)
+    : KCModule(parent)
+    , ui(new Ui::VersionSyncPage)
 {
-    KAboutData* about = new AboutData();
+    KAboutData *about = new AboutData();
     about->setComponentName(name);
     setAboutData(about);
 
     ui->setupUi(this);
 
-    #ifdef WITH_LIBGIT2
+#ifdef WITH_LIBGIT2
     ui->labelWithoutVersionControlSupport->setVisible(false);
     QtConcurrent::run(showHistorySize, this);
-    #else
+#else
     ui->checkBoxEnable->setEnabled(false);
     ui->groupBoxControl->setVisible(false);
-    #endif
+#endif
 
     connect(ui->checkBoxEnable, SIGNAL(toggled(bool)), this, SLOT(changed()));
     load();
@@ -50,9 +49,9 @@ VersionSyncPage::~VersionSyncPage()
 void VersionSyncPage::load()
 {
     ui->checkBoxEnable->setChecked(Settings::versionSyncEnabled());
-    #ifdef WITH_LIBGIT2
+#ifdef WITH_LIBGIT2
     on_checkBoxEnable_clicked();
-    #endif
+#endif
 }
 
 void VersionSyncPage::save()
@@ -72,12 +71,11 @@ void VersionSyncPage::on_checkBoxEnable_clicked()
 
 void VersionSyncPage::on_buttonClearHistory_clicked()
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you really want to remove old versions for all baskets?"),
-                                   i18n("Version Sync")) == KMessageBox::Yes) {
+    if (KMessageBox::questionYesNo(this, i18n("Do you really want to remove old versions for all baskets?"), i18n("Version Sync")) == KMessageBox::Yes) {
         Tools::deleteRecursively(Global::gitFolder());
         ui->buttonClearHistory->setEnabled(false);
         setHistorySize(0);
-        Global::initializeGitIfNeeded(Global::savesFolder()); //restore .git
+        Global::initializeGitIfNeeded(Global::savesFolder()); // restore .git
     }
 }
 

@@ -19,32 +19,43 @@
 
 #include "tag.h"
 
-#include <KIconLoader>
 #include <KActionCollection>
+#include <KIconLoader>
 #include <KLocalizedString>
 
+#include <QLocale>
 #include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QTextStream>
 #include <QtGui/QFont>
 #include <QtXml/QDomDocument>
-#include <QLocale>
 
-#include "xmlwork.h"
-#include "global.h"
-#include "debugwindow.h"
-#include "bnpview.h"
-#include "tools.h"
 #include "basketscene.h"
+#include "bnpview.h"
+#include "debugwindow.h"
 #include "gitwrapper.h"
-
+#include "global.h"
+#include "tools.h"
+#include "xmlwork.h"
 
 /** class State: */
 
 State::State(const QString &id, Tag *tag)
-        : m_id(id), m_name(), m_emblem(), m_bold(false), m_italic(false), m_underline(false),
-        m_strikeOut(false), m_textColor(), m_fontName(), m_fontSize(-1), m_backgroundColor(),
-        m_textEquivalent(), m_onAllTextLines(false), m_allowCrossReferences(true), m_parentTag(tag)
+    : m_id(id)
+    , m_name()
+    , m_emblem()
+    , m_bold(false)
+    , m_italic(false)
+    , m_underline(false)
+    , m_strikeOut(false)
+    , m_textColor()
+    , m_fontName()
+    , m_fontSize(-1)
+    , m_backgroundColor()
+    , m_textEquivalent()
+    , m_onAllTextLines(false)
+    , m_allowCrossReferences(true)
+    , m_parentTag(tag)
 {
 }
 
@@ -52,7 +63,7 @@ State::~State()
 {
 }
 
-State* State::nextState(bool cycle /*= true*/)
+State *State::nextState(bool cycle /*= true*/)
 {
     if (!parentTag())
         return 0;
@@ -133,8 +144,8 @@ QString State::toCSS(const QString &gradientFolderPath, const QString &gradientF
 
 void State::merge(const List &states, State *result, int *emblemsCount, bool *haveInvisibleTags, const QColor &backgroundColor)
 {
-    *result            = State(); // Reset to default values.
-    *emblemsCount      = 0;
+    *result = State(); // Reset to default values.
+    *emblemsCount = 0;
     *haveInvisibleTags = false;
 
     for (List::const_iterator it = states.begin(); it != states.end(); ++it) {
@@ -175,7 +186,7 @@ void State::merge(const List &states, State *result, int *emblemsCount, bool *ha
             isVisible = true;
         }
         if (state->backgroundColor().isValid() && !result->backgroundColor().isValid() && state->backgroundColor() != backgroundColor) { // vv
-            result->setBackgroundColor(state->backgroundColor()); // This is particular: if the note background color is the same as the basket one, don't use that.
+            result->setBackgroundColor(state->backgroundColor());                                                                        // This is particular: if the note background color is the same as the basket one, don't use that.
             isVisible = true;
         }
         // If it's not visible, well, at least one tag is not visible: the note will display "..." at the tags arrow place to show that:
@@ -186,21 +197,21 @@ void State::merge(const List &states, State *result, int *emblemsCount, bool *ha
 
 void State::copyTo(State *other)
 {
-    other->m_id              = m_id;
-    other->m_name            = m_name;
-    other->m_emblem          = m_emblem;
-    other->m_bold            = m_bold;
-    other->m_italic          = m_italic;
-    other->m_underline       = m_underline;
-    other->m_strikeOut       = m_strikeOut;
-    other->m_textColor       = m_textColor;
-    other->m_fontName        = m_fontName;
-    other->m_fontSize        = m_fontSize;
+    other->m_id = m_id;
+    other->m_name = m_name;
+    other->m_emblem = m_emblem;
+    other->m_bold = m_bold;
+    other->m_italic = m_italic;
+    other->m_underline = m_underline;
+    other->m_strikeOut = m_strikeOut;
+    other->m_textColor = m_textColor;
+    other->m_fontName = m_fontName;
+    other->m_fontSize = m_fontSize;
     other->m_backgroundColor = m_backgroundColor;
-    other->m_textEquivalent  = m_textEquivalent;
-    other->m_onAllTextLines  = m_onAllTextLines; // TODO
+    other->m_textEquivalent = m_textEquivalent;
+    other->m_onAllTextLines = m_onAllTextLines; // TODO
     other->m_allowCrossReferences = m_allowCrossReferences;
-    //TODO: other->m_parentTag;
+    // TODO: other->m_parentTag;
 }
 
 /** class Tag: */
@@ -221,8 +232,7 @@ Tag::Tag()
     QString sAction = "tag_shortcut_number_" + QString::number(tagNumber);
 
     KActionCollection *ac = Global::bnpView->actionCollection();
-    m_action = ac->addAction(sAction, Global::bnpView,
-                             SLOT(activatedTagShortcut()));
+    m_action = ac->addAction(sAction, Global::bnpView, SLOT(activatedTagShortcut()));
     m_action->setText("FAKE TEXT");
     m_action->setIcon(QIcon::fromTheme("FAKE ICON"));
 
@@ -242,7 +252,7 @@ void Tag::setName(const QString &name)
     m_action->setText("TAG SHORTCUT: " + name); // TODO: i18n  (for debug purpose only by now).
 }
 
-State* Tag::stateForId(const QString &id)
+State *Tag::stateForId(const QString &id)
 {
     for (List::iterator it = all.begin(); it != all.end(); ++it)
         for (State::List::iterator it2 = (*it)->states().begin(); it2 != (*it)->states().end(); ++it2)
@@ -251,7 +261,7 @@ State* Tag::stateForId(const QString &id)
     return 0;
 }
 
-Tag* Tag::tagForKAction(QAction *action)
+Tag *Tag::tagForKAction(QAction *action)
 {
     for (List::iterator it = all.begin(); it != all.end(); ++it)
         if ((*it)->m_action == action)
@@ -259,13 +269,13 @@ Tag* Tag::tagForKAction(QAction *action)
     return 0;
 }
 
-QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool merge = false*/)
+QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bool merge = false*/)
 {
     QMap<QString, QString> mergedStates;
 
     bool merge = !path.isEmpty();
     QString fullPath = (merge ? path : Global::savesFolder() + "tags.xml");
-    QString doctype  = "basketTags";
+    QString doctype = "basketTags";
 
     QDir dir;
     if (!dir.exists(fullPath)) {
@@ -291,8 +301,8 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
         if ((!element.isNull()) && element.tagName() == "tag") {
             Tag *tag = new Tag();
             // Load properties:
-            QString name      = XMLWork::getElementText(element, "name");
-            QString shortcut  = XMLWork::getElementText(element, "shortcut");
+            QString name = XMLWork::getElementText(element, "name");
+            QString shortcut = XMLWork::getElementText(element, "shortcut");
             QString inherited = XMLWork::getElementText(element, "inherited", "false");
             tag->setName(name);
             tag->setShortcut(QKeySequence(shortcut));
@@ -306,8 +316,8 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
                     state->setName(XMLWork::getElementText(subElement, "name"));
                     state->setEmblem(XMLWork::getElementText(subElement, "emblem"));
                     QDomElement textElement = XMLWork::getElement(subElement, "text");
-                    state->setBold(XMLWork::trueOrFalse(textElement.attribute("bold",      "false")));
-                    state->setItalic(XMLWork::trueOrFalse(textElement.attribute("italic",    "false")));
+                    state->setBold(XMLWork::trueOrFalse(textElement.attribute("bold", "false")));
+                    state->setItalic(XMLWork::trueOrFalse(textElement.attribute("italic", "false")));
                     state->setUnderline(XMLWork::trueOrFalse(textElement.attribute("underline", "false")));
                     state->setStrikeOut(XMLWork::trueOrFalse(textElement.attribute("strikeOut", "false")));
                     QString textColor = textElement.attribute("color", "");
@@ -345,7 +355,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
                         // We are merging the new states, so we should choose new and unique (on that computer) ids for those states:
                         for (State::List::iterator it = tag->states().begin(); it != tag->states().end(); ++it) {
                             State *state = *it;
-                            QString uid    = state->id();
+                            QString uid = state->id();
                             QString newUid = "tag_state_" + QString::number(getNextStateUid());
                             state->setId(newUid);
                             mergedStates[uid] = newUid;
@@ -356,9 +366,9 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
                     } else {
                         State::List::iterator it2 = similarTag->states().begin();
                         for (State::List::iterator it = tag->states().begin(); it != tag->states().end(); ++it, ++it2) {
-                            State *state        = *it;
+                            State *state = *it;
                             State *similarState = *it2;
-                            QString uid    = state->id();
+                            QString uid = state->id();
                             QString newUid = similarState->id();
                             if (uid != newUid)
                                 mergedStates[uid] = newUid;
@@ -374,7 +384,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path/* = QString()*//*, bool
     return mergedStates;
 }
 
-Tag* Tag::tagSimilarTo(Tag *tagToTest)
+Tag *Tag::tagSimilarTo(Tag *tagToTest)
 {
     // Tags are considered similar if they have the same name, the same number of states, in the same order, and the same look.
     // Keyboard shortcut, text equivalent and onEveryLines are user settings, and thus not considered during the comparison.
@@ -396,40 +406,49 @@ Tag* Tag::tagSimilarTo(Tag *tagToTest)
         // We found a tag with same name, check if every states/look are same too:
         State::List::iterator itTest = tagToTest->states().begin();
         for (State::List::iterator it2 = (*it)->states().begin(); it2 != (*it)->states().end(); ++it2, ++itTest) {
-            State *state       = *it2;
+            State *state = *it2;
             State *stateToTest = *itTest;
             if (state->id().startsWith(QLatin1String("tag_state_")) || stateToTest->id().startsWith(QLatin1String("tag_state_"))) {
                 defaultTag = false;
             }
-            if (state->name()            != stateToTest->name())            {
+            if (state->name() != stateToTest->name()) {
                 sameName = false;
             }
-            if (state->emblem()          != stateToTest->emblem())          {
-                same = false; break;
+            if (state->emblem() != stateToTest->emblem()) {
+                same = false;
+                break;
             }
-            if (state->bold()            != stateToTest->bold())            {
-                same = false; break;
+            if (state->bold() != stateToTest->bold()) {
+                same = false;
+                break;
             }
-            if (state->italic()          != stateToTest->italic())          {
-                same = false; break;
+            if (state->italic() != stateToTest->italic()) {
+                same = false;
+                break;
             }
-            if (state->underline()       != stateToTest->underline())       {
-                same = false; break;
+            if (state->underline() != stateToTest->underline()) {
+                same = false;
+                break;
             }
-            if (state->strikeOut()       != stateToTest->strikeOut())       {
-                same = false; break;
+            if (state->strikeOut() != stateToTest->strikeOut()) {
+                same = false;
+                break;
             }
-            if (state->textColor()       != stateToTest->textColor())       {
-                same = false; break;
+            if (state->textColor() != stateToTest->textColor()) {
+                same = false;
+                break;
             }
-            if (state->fontName()        != stateToTest->fontName())        {
-                same = false; break;
+            if (state->fontName() != stateToTest->fontName()) {
+                same = false;
+                break;
             }
-            if (state->fontSize()        != stateToTest->fontSize())        {
-                same = false; break;
+            if (state->fontSize() != stateToTest->fontSize()) {
+                same = false;
+                break;
             }
             if (state->backgroundColor() != stateToTest->backgroundColor()) {
-                same = false; break;
+                same = false;
+                break;
             }
             // Text equivalent (as well as onAllTextLines) is also a user setting!
         }
@@ -450,7 +469,7 @@ void Tag::saveTags()
     GitWrapper::commitTagsXml();
 }
 
-void Tag::saveTagsTo(QList<Tag*> &list, const QString &fullPath)
+void Tag::saveTagsTo(QList<Tag *> &list, const QString &fullPath)
 {
     // Create Document:
     QDomDocument document(/*doctype=*/"basketTags");
@@ -465,7 +484,7 @@ void Tag::saveTagsTo(QList<Tag*> &list, const QString &fullPath)
         QDomElement tagNode = document.createElement("tag");
         root.appendChild(tagNode);
         // Save tag properties:
-        XMLWork::addElement(document, tagNode, "name",      tag->name());
+        XMLWork::addElement(document, tagNode, "name", tag->name());
         XMLWork::addElement(document, tagNode, "shortcut", tag->shortcut().toString());
         XMLWork::addElement(document, tagNode, "inherited", XMLWork::trueOrFalse(tag->inheritedBySiblings()));
         // Save all states:
@@ -476,16 +495,16 @@ void Tag::saveTagsTo(QList<Tag*> &list, const QString &fullPath)
             tagNode.appendChild(stateNode);
             // Save state properties:
             stateNode.setAttribute("id", state->id());
-            XMLWork::addElement(document, stateNode, "name",   state->name());
+            XMLWork::addElement(document, stateNode, "name", state->name());
             XMLWork::addElement(document, stateNode, "emblem", state->emblem());
             QDomElement textNode = document.createElement("text");
             stateNode.appendChild(textNode);
             QString textColor = (state->textColor().isValid() ? state->textColor().name() : "");
-            textNode.setAttribute("bold",      XMLWork::trueOrFalse(state->bold()));
-            textNode.setAttribute("italic",    XMLWork::trueOrFalse(state->italic()));
+            textNode.setAttribute("bold", XMLWork::trueOrFalse(state->bold()));
+            textNode.setAttribute("italic", XMLWork::trueOrFalse(state->italic()));
             textNode.setAttribute("underline", XMLWork::trueOrFalse(state->underline()));
             textNode.setAttribute("strikeOut", XMLWork::trueOrFalse(state->strikeOut()));
-            textNode.setAttribute("color",     textColor);
+            textNode.setAttribute("color", textColor);
             QDomElement fontNode = document.createElement("font");
             stateNode.appendChild(fontNode);
             fontNode.setAttribute("name", state->fontName());
@@ -494,7 +513,7 @@ void Tag::saveTagsTo(QList<Tag*> &list, const QString &fullPath)
             XMLWork::addElement(document, stateNode, "backgroundColor", backgroundColor);
             QDomElement textEquivalentNode = document.createElement("textEquivalent");
             stateNode.appendChild(textEquivalentNode);
-            textEquivalentNode.setAttribute("string",         state->textEquivalent());
+            textEquivalentNode.setAttribute("string", state->textEquivalent());
             textEquivalentNode.setAttribute("onAllTextLines", XMLWork::trueOrFalse(state->onAllTextLines()));
             XMLWork::addElement(document, stateNode, "allowCrossReferences", XMLWork::trueOrFalse(state->allowCrossReferences()));
         }
@@ -509,7 +528,7 @@ void Tag::copyTo(Tag *other)
 {
     other->m_name = m_name;
     other->m_action->setShortcut(m_action->shortcut());
-    other->m_inheritedBySiblings =  m_inheritedBySiblings;
+    other->m_inheritedBySiblings = m_inheritedBySiblings;
 }
 
 void Tag::createDefaultTagsSet(const QString &fullPath)
@@ -570,151 +589,153 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
                       "    </state>\n"
                       "  </tag>\n"
                       "\n")
-                  .arg(i18n("To Do"),     i18n("Unchecked"),      i18n("Done"))           // %1 %2 %3
-                  .arg(i18n("Progress"),  i18n("0 %"),            i18n("25 %"))           // %4 %5 %6
-                  .arg(i18n("50 %"),      i18n("75 %"),           i18n("100 %"))          // %7 %8 %9
-                  + QString(
-                      "  <tag>\n"
-                      "    <name>%1</name>\n" // "Priority"
-                      "    <shortcut>Ctrl+3</shortcut>\n"
-                      "    <inherited>true</inherited>\n"
-                      "    <state id=\"priority_low\">\n"
-                      "      <name>%2</name>\n" // "Low"
-                      "      <emblem>tag_priority_low</emblem>\n"
-                      "      <textEquivalent string=\"{1}\" />\n"
-                      "    </state>\n"
-                      "    <state id=\"priority_medium\">\n"
-                      "      <name>%3</name>\n" // "Medium
-                      "      <emblem>tag_priority_medium</emblem>\n"
-                      "      <textEquivalent string=\"{2}\" />\n"
-                      "    </state>\n"
-                      "    <state id=\"priority_high\">\n"
-                      "      <name>%4</name>\n" // "High"
-                      "      <emblem>tag_priority_high</emblem>\n"
-                      "      <textEquivalent string=\"{3}\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%5</name>\n" // "Preference"
-                      "    <shortcut>Ctrl+4</shortcut>\n"
-                      "    <inherited>true</inherited>\n"
-                      "    <state id=\"preference_bad\">\n"
-                      "      <name>%6</name>\n" // "Bad"
-                      "      <emblem>tag_preference_bad</emblem>\n"
-                      "      <textEquivalent string=\"(*  )\" />\n"
-                      "    </state>\n"
-                      "    <state id=\"preference_good\">\n"
-                      "      <name>%7</name>\n" // "Good"
-                      "      <emblem>tag_preference_good</emblem>\n"
-                      "      <textEquivalent string=\"(** )\" />\n"
-                      "    </state>\n"
-                      "    <state id=\"preference_excellent\">\n"
-                      "      <name>%8</name>\n" // "Excellent"
-                      "      <emblem>tag_preference_excellent</emblem>\n" 
-                      "      <textEquivalent string=\"(***)\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%9</name>\n" // "Highlight"
-                      "    <shortcut>Ctrl+5</shortcut>\n"
-                      "    <state id=\"highlight\">\n"
-                      "      <backgroundColor>#ffffcc</backgroundColor>\n"
-                      "      <textEquivalent string=\"=>\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n")
-                  .arg(i18n("Priority"),  i18n("Low"),            i18n("Medium"))         // %1 %2 %3
-                  .arg(i18n("High"),      i18n("Preference"),     i18n("Bad"))            // %4 %5 %6
-                  .arg(i18n("Good"),      i18n("Excellent"),      i18n("Highlight"))      // %7 %8 %9
-                  + QString(
-                      "  <tag>\n"
-                      "    <name>%1</name>\n" // "Important"
-                      "    <shortcut>Ctrl+6</shortcut>\n"
-                      "    <state id=\"important\">\n"
-                      "      <emblem>tag_important</emblem>\n"
-                      "      <backgroundColor>#ffcccc</backgroundColor>\n"
-                      "      <textEquivalent string=\"!!\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%2</name>\n" // "Very Important"
-                      "    <shortcut>Ctrl+7</shortcut>\n"
-                      "    <state id=\"very_important\">\n"
-                      "      <emblem>tag_important</emblem>\n"
-                      "      <text color=\"#ffffff\" />\n"
-                      "      <backgroundColor>#ff0000</backgroundColor>\n"
-                      "      <textEquivalent string=\"/!\\\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%3</name>\n" // "Information"
-                      "    <shortcut>Ctrl+8</shortcut>\n"
-                      "    <state id=\"information\">\n"
-                      "      <emblem>dialog-information</emblem>\n"
-                      "      <textEquivalent string=\"(i)\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%4</name>\n" // "Idea"
-                      "    <shortcut>Ctrl+9</shortcut>\n"
-                      "    <state id=\"idea\">\n"
-                      "      <emblem>ktip</emblem>\n"
-                      "      <textEquivalent string=\"%5\" />\n" // I.
-                      "    </state>\n"
-                      "  </tag>""\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%6</name>\n" // "Title"
-                      "    <shortcut>Ctrl+0</shortcut>\n"
-                      "    <state id=\"title\">\n"
-                      "      <text bold=\"true\" />\n"
-                      "      <textEquivalent string=\"##\" />\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <name>%7</name>\n" // "Code"
-                      "    <state id=\"code\">\n"
-                      "      <font name=\"monospace\" />\n"
-                      "      <textEquivalent string=\"|\" onAllTextLines=\"true\" />\n"
-                      "      <allowCrossReferences>false</allowCrossReferences>\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <state id=\"work\">\n"
-                      "      <name>%8</name>\n" // "Work"
-                      "      <text color=\"#ff8000\" />\n"
-                      "      <textEquivalent string=\"%9\" />\n" // W.
-                      "    </state>\n"
-                      "  </tag>""\n"
-                      "\n")
-                  .arg(i18n("Important"), i18n("Very Important"),              i18n("Information"))                   // %1 %2 %3
-                  .arg(i18n("Idea"),      i18nc("The initial of 'Idea'", "I."), i18n("Title"))                         // %4 %5 %6
-                  .arg(i18n("Code"),      i18n("Work"),                        i18nc("The initial of 'Work'", "W."))   // %7 %8 %9
-                  + QString(
-                      "  <tag>\n"
-                      "    <state id=\"personal\">\n"
-                      "      <name>%1</name>\n" // "Personal"
-                      "      <text color=\"#008000\" />\n"
-                      "      <textEquivalent string=\"%2\" />\n" // P.
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "\n"
-                      "  <tag>\n"
-                      "    <state id=\"funny\">\n"
-                      "      <name>%3</name>\n" // "Funny"
-                      "      <emblem>tag_fun</emblem>\n"
-                      "    </state>\n"
-                      "  </tag>\n"
-                      "</basketTags>\n"
-                      "")
-                  .arg(i18n("Personal"), i18nc("The initial of 'Personal'", "P."), i18n("Funny"));   // %1 %2 %3
+                      .arg(i18n("To Do"), i18n("Unchecked"), i18n("Done")) // %1 %2 %3
+                      .arg(i18n("Progress"), i18n("0 %"), i18n("25 %"))    // %4 %5 %6
+                      .arg(i18n("50 %"), i18n("75 %"), i18n("100 %"))      // %7 %8 %9
+        + QString(
+              "  <tag>\n"
+              "    <name>%1</name>\n" // "Priority"
+              "    <shortcut>Ctrl+3</shortcut>\n"
+              "    <inherited>true</inherited>\n"
+              "    <state id=\"priority_low\">\n"
+              "      <name>%2</name>\n" // "Low"
+              "      <emblem>tag_priority_low</emblem>\n"
+              "      <textEquivalent string=\"{1}\" />\n"
+              "    </state>\n"
+              "    <state id=\"priority_medium\">\n"
+              "      <name>%3</name>\n" // "Medium
+              "      <emblem>tag_priority_medium</emblem>\n"
+              "      <textEquivalent string=\"{2}\" />\n"
+              "    </state>\n"
+              "    <state id=\"priority_high\">\n"
+              "      <name>%4</name>\n" // "High"
+              "      <emblem>tag_priority_high</emblem>\n"
+              "      <textEquivalent string=\"{3}\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%5</name>\n" // "Preference"
+              "    <shortcut>Ctrl+4</shortcut>\n"
+              "    <inherited>true</inherited>\n"
+              "    <state id=\"preference_bad\">\n"
+              "      <name>%6</name>\n" // "Bad"
+              "      <emblem>tag_preference_bad</emblem>\n"
+              "      <textEquivalent string=\"(*  )\" />\n"
+              "    </state>\n"
+              "    <state id=\"preference_good\">\n"
+              "      <name>%7</name>\n" // "Good"
+              "      <emblem>tag_preference_good</emblem>\n"
+              "      <textEquivalent string=\"(** )\" />\n"
+              "    </state>\n"
+              "    <state id=\"preference_excellent\">\n"
+              "      <name>%8</name>\n" // "Excellent"
+              "      <emblem>tag_preference_excellent</emblem>\n"
+              "      <textEquivalent string=\"(***)\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%9</name>\n" // "Highlight"
+              "    <shortcut>Ctrl+5</shortcut>\n"
+              "    <state id=\"highlight\">\n"
+              "      <backgroundColor>#ffffcc</backgroundColor>\n"
+              "      <textEquivalent string=\"=>\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n")
+              .arg(i18n("Priority"), i18n("Low"), i18n("Medium"))      // %1 %2 %3
+              .arg(i18n("High"), i18n("Preference"), i18n("Bad"))      // %4 %5 %6
+              .arg(i18n("Good"), i18n("Excellent"), i18n("Highlight")) // %7 %8 %9
+        + QString(
+              "  <tag>\n"
+              "    <name>%1</name>\n" // "Important"
+              "    <shortcut>Ctrl+6</shortcut>\n"
+              "    <state id=\"important\">\n"
+              "      <emblem>tag_important</emblem>\n"
+              "      <backgroundColor>#ffcccc</backgroundColor>\n"
+              "      <textEquivalent string=\"!!\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%2</name>\n" // "Very Important"
+              "    <shortcut>Ctrl+7</shortcut>\n"
+              "    <state id=\"very_important\">\n"
+              "      <emblem>tag_important</emblem>\n"
+              "      <text color=\"#ffffff\" />\n"
+              "      <backgroundColor>#ff0000</backgroundColor>\n"
+              "      <textEquivalent string=\"/!\\\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%3</name>\n" // "Information"
+              "    <shortcut>Ctrl+8</shortcut>\n"
+              "    <state id=\"information\">\n"
+              "      <emblem>dialog-information</emblem>\n"
+              "      <textEquivalent string=\"(i)\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%4</name>\n" // "Idea"
+              "    <shortcut>Ctrl+9</shortcut>\n"
+              "    <state id=\"idea\">\n"
+              "      <emblem>ktip</emblem>\n"
+              "      <textEquivalent string=\"%5\" />\n" // I.
+              "    </state>\n"
+              "  </tag>"
+              "\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%6</name>\n" // "Title"
+              "    <shortcut>Ctrl+0</shortcut>\n"
+              "    <state id=\"title\">\n"
+              "      <text bold=\"true\" />\n"
+              "      <textEquivalent string=\"##\" />\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <name>%7</name>\n" // "Code"
+              "    <state id=\"code\">\n"
+              "      <font name=\"monospace\" />\n"
+              "      <textEquivalent string=\"|\" onAllTextLines=\"true\" />\n"
+              "      <allowCrossReferences>false</allowCrossReferences>\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <state id=\"work\">\n"
+              "      <name>%8</name>\n" // "Work"
+              "      <text color=\"#ff8000\" />\n"
+              "      <textEquivalent string=\"%9\" />\n" // W.
+              "    </state>\n"
+              "  </tag>"
+              "\n"
+              "\n")
+              .arg(i18n("Important"), i18n("Very Important"), i18n("Information"))    // %1 %2 %3
+              .arg(i18n("Idea"), i18nc("The initial of 'Idea'", "I."), i18n("Title")) // %4 %5 %6
+              .arg(i18n("Code"), i18n("Work"), i18nc("The initial of 'Work'", "W."))  // %7 %8 %9
+        + QString(
+              "  <tag>\n"
+              "    <state id=\"personal\">\n"
+              "      <name>%1</name>\n" // "Personal"
+              "      <text color=\"#008000\" />\n"
+              "      <textEquivalent string=\"%2\" />\n" // P.
+              "    </state>\n"
+              "  </tag>\n"
+              "\n"
+              "  <tag>\n"
+              "    <state id=\"funny\">\n"
+              "      <name>%3</name>\n" // "Funny"
+              "      <emblem>tag_fun</emblem>\n"
+              "    </state>\n"
+              "  </tag>\n"
+              "</basketTags>\n"
+              "")
+              .arg(i18n("Personal"), i18nc("The initial of 'Personal'", "P."), i18n("Funny")); // %1 %2 %3
 
     // Write to Disk:
     QFile file(fullPath);
@@ -729,9 +750,9 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
 }
 
 // StateAction
-StateAction::StateAction(State *state, const QKeySequence &shortcut, QWidget* parent, bool withTagName)
-        : KToggleAction(parent)
-        , m_state(state)
+StateAction::StateAction(State *state, const QKeySequence &shortcut, QWidget *parent, bool withTagName)
+    : KToggleAction(parent)
+    , m_state(state)
 {
     setText(m_state->name());
 
@@ -744,9 +765,7 @@ StateAction::StateAction(State *state, const QKeySequence &shortcut, QWidget* pa
                                             KIconLoader::DefaultState,
                                             QStringList(),
                                             /*path_store=*/0L,
-                                            /*canReturnNull=*/true
-                                           )
-           );
+                                            /*canReturnNull=*/true));
 
     setShortcut(shortcut);
 }

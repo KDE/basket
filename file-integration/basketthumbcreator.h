@@ -18,12 +18,12 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <qstring.h>
-#include <qimage.h>
 #include <kio/thumbcreator.h>
+#include <qimage.h>
+#include <qstring.h>
 
 class BasketThumbCreator : public ThumbCreator
 {
-	bool create(const QString &path, int width, int height, QImage &image) override;
-	Flags flags() const override;
+    bool create(const QString &path, int width, int height, QImage &image) override;
+    Flags flags() const override;
 };

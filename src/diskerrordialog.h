@@ -26,18 +26,19 @@ class QCloseEvent;
 class QKeyEvent;
 
 /** Provide a dialog to avert the user the disk is full.
-  * This dialog is modal and is shown until the user has made space on the disk.
-  * @author Sébastien Laoût
-  */
+ * This dialog is modal and is shown until the user has made space on the disk.
+ * @author Sébastien Laoût
+ */
 class DiskErrorDialog : public QDialog
 {
     Q_OBJECT
 public:
     DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent = 0);
     ~DiskErrorDialog() override;
+
 protected:
     void closeEvent(QCloseEvent *event) override;
-    void keyPressEvent(QKeyEvent*) override;
+    void keyPressEvent(QKeyEvent *) override;
 };
 
 #endif // DISKERRORDIALOG_H

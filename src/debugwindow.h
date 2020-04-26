@@ -28,8 +28,8 @@ class QString;
 class QCloseEvent;
 
 /**A simple window that display text through debugging messages.
-  *@author Sébastien Laoût
-  */
+ *@author Sébastien Laoût
+ */
 
 class DebugWindow : public QWidget
 {
@@ -40,15 +40,19 @@ public:
     ~DebugWindow() override;
     /** Methods to post a message to the debug window */
     Q_INVOKABLE void postMessage(const QString msg);
-    DebugWindow& operator<<(const QString msg);
+    DebugWindow &operator<<(const QString msg);
     void insertHLine();
+
 protected:
     void closeEvent(QCloseEvent *event) override;
+
 private:
-    QVBoxLayout  *layout;
+    QVBoxLayout *layout;
     QTextBrowser *textBrowser;
 };
 
-#define DEBUG_WIN if (Global::debugWindow) *Global::debugWindow
+#define DEBUG_WIN                                                                                                                                                                                                                              \
+    if (Global::debugWindow)                                                                                                                                                                                                                   \
+    *Global::debugWindow
 
 #endif // DEBUGWINDOW_H

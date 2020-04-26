@@ -22,27 +22,26 @@
 
 #ifdef HAVE_LIBGPGME
 
+#include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QLocale>
-#include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KConfigGroup>
-
 
 #include "basketscene.h"
 #include "kgpgme.h"
 
 PasswordDlg::PasswordDlg(QWidget *parent)
-        : QDialog(parent)
-        , w(0)
+    : QDialog(parent)
+    , w(0)
 {
     // QDialog options
     setWindowTitle(i18n("Password Protection"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QWidget *mainWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -56,7 +55,7 @@ PasswordDlg::PasswordDlg(QWidget *parent)
     okButton->setDefault(true);
     setModal(true);
 
-    QHBoxLayout* toplayout = new QHBoxLayout(mainWidget);
+    QHBoxLayout *toplayout = new QHBoxLayout(mainWidget);
     w = new Password;
     toplayout->addWidget(w, 1);
 }
@@ -97,7 +96,7 @@ int PasswordDlg::type() const
     return -1;
 }
 
-void PasswordDlg::setKey(const QString& key)
+void PasswordDlg::setKey(const QString &key)
 {
     for (int i = 0; i < w->keyCombo->count(); ++i) {
         if (w->keyCombo->itemText(i).contains(key)) {
@@ -118,7 +117,7 @@ void PasswordDlg::setType(int type)
 }
 
 Password::Password(QWidget *parent)
-        : QWidget(parent)
+    : QWidget(parent)
 {
     // Setup from the UI file
     setupUi(this);
@@ -135,10 +134,8 @@ Password::Password(QWidget *parent)
     keyCombo->setEnabled(keyCombo->count() > 0);
 }
 
-
 Password::~Password()
 {
 }
-
 
 #endif

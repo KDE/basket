@@ -20,9 +20,9 @@
 #ifndef BASKETLISTVIEW_H
 #define BASKETLISTVIEW_H
 
-#include <QtCore/QTimer>
-#include <QTreeWidget>
 #include <QStyledItemDelegate>
+#include <QTreeWidget>
+#include <QtCore/QTimer>
 
 class QPixmap;
 class QResizeEvent;
@@ -34,7 +34,6 @@ class QDragLeaveEvent;
 
 class BasketScene;
 
-
 class BasketListViewItem : public QTreeWidgetItem
 {
 public:
@@ -45,11 +44,12 @@ public:
     BasketListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem *after, BasketScene *basket);
     ~BasketListViewItem() override;
 
-    BasketScene *basket() {
+    BasketScene *basket()
+    {
         return m_basket;
     }
     void setup();
-    BasketListViewItem* lastChild();
+    BasketListViewItem *lastChild();
     QStringList childNamesTree(int deep = 0);
     void moveChildsBaskets();
     void ensureVisible();
@@ -71,7 +71,7 @@ public:
 
 private:
     BasketScene *m_basket;
-    int     m_width;
+    int m_width;
     bool m_isUnderDrag;
     bool m_isAbbreviated;
 };
@@ -94,49 +94,51 @@ public:
 
     /*! Retrieve a basket from the tree
      *  @see BasketListViewItem::basket() */
-    BasketListViewItem* getBasketInTree(const QModelIndex &index) const;
-
+    BasketListViewItem *getBasketInTree(const QModelIndex &index) const;
 
     static QString TREE_ITEM_MIME_STRING;
+
 protected:
     QStringList mimeTypes() const override;
-    QMimeData* mimeData(const QList<QTreeWidgetItem *> items) const override;
+    QMimeData *mimeData(const QList<QTreeWidgetItem *> items) const override;
     bool event(QEvent *e) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
-    void focusInEvent(QFocusEvent*) override;
+    void focusInEvent(QFocusEvent *) override;
+
 private:
-    QTimer         m_autoOpenTimer;
+    QTimer m_autoOpenTimer;
     QTreeWidgetItem *m_autoOpenItem;
 signals:
     void contextMenuRequested(const QPoint &);
 private slots:
     void autoOpen();
+
 private:
-    void setItemUnderDrag(BasketListViewItem* item);
-    BasketListViewItem* m_itemUnderDrag;
+    void setItemUnderDrag(BasketListViewItem *item);
+    BasketListViewItem *m_itemUnderDrag;
     QPoint m_dragStartPosition;
 };
-
 
 /** @class FoundCountIcon
  *  Custom-drawn "little numbers" shown on Filter all */
 class FoundCountIcon : public QStyledItemDelegate
 {
 public:
-    FoundCountIcon(BasketTreeListView* basketTree, QObject* parent = NULL) :
-        QStyledItemDelegate(parent), m_basketTree(basketTree) {}
+    FoundCountIcon(BasketTreeListView *basketTree, QObject *parent = NULL)
+        : QStyledItemDelegate(parent)
+        , m_basketTree(basketTree)
+    {
+    }
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    QPixmap circledTextPixmap(const QString& text, int height, const QFont& font, const QColor &color) const;
+    QPixmap circledTextPixmap(const QString &text, int height, const QFont &font, const QColor &color) const;
 
     //! @returns Rect-with-number, or null pixmap if nothing was found / basket is loading
-    QPixmap foundCountPixmap(bool isLoading, int countFound, bool childrenAreLoading, int countChildsFound,
-                             const QFont& font, int height) const;
+    QPixmap foundCountPixmap(bool isLoading, int countFound, bool childrenAreLoading, int countChildsFound, const QFont &font, int height) const;
 
-
-    BasketTreeListView* m_basketTree;
+    BasketTreeListView *m_basketTree;
 };
 
 #endif // BASKETLISTVIEW_H

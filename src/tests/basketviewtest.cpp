@@ -20,12 +20,12 @@
 #include <QObject>
 #include <QtTest/QtTest>
 
-#include "note.h"
 #include "basketview.h"
+#include "note.h"
 
-class BasketViewTest: public QObject
+class BasketViewTest : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 private Q_SLOTS:
     void testCreation();
 };
@@ -34,7 +34,6 @@ QTEST_MAIN(BasketViewTest)
 
 void BasketViewTest::testCreation()
 {
-
 }
 #include "basketviewtest.moc"
 /* vim: set et sts=4 sw=4 ts=8 tw=0 : */

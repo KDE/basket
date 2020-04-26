@@ -20,15 +20,15 @@
 #ifndef BNPVIEW_H
 #define BNPVIEW_H
 
-#include <QtCore/QList>
-#include <QtGui/QClipboard>
 #include <QSplitter>
 #include <QXmlStreamWriter>
+#include <QtCore/QList>
+#include <QtGui/QClipboard>
 
 #include <KXMLGUIClient>
 
-#include "global.h"
 #include "basket_export.h"
+#include "global.h"
 
 class QDomElement;
 
@@ -67,29 +67,29 @@ class BASKET_EXPORT BNPView : public QSplitter
 {
     Q_OBJECT
     Q_CLASSINFO("D Bus Interface", "org.kde.basket.dbus");
+
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
-    BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient,
-            KActionCollection *actionCollection, BasketStatusBar *bar);
+    BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, KActionCollection *actionCollection, BasketStatusBar *bar);
     ~BNPView() override;
     /// MANAGE CONFIGURATION EVENTS!:
     void setTreePlacement(bool onLeft);
     void relayoutAllBaskets();
     void recomputeAllStyles();
-    void removedStates(const QList<State*> &deletedStates);
+    void removedStates(const QList<State *> &deletedStates);
     void linkLookChanged();
     void filterPlacementChanged(bool onTop);
     /// MANAGE BASKETS:
-    BasketListViewItem* listViewItemForBasket(BasketScene *basket);
-    BasketScene* currentBasket();
-    BasketScene* parentBasketOf(BasketScene *basket);
+    BasketListViewItem *listViewItemForBasket(BasketScene *basket);
+    BasketScene *currentBasket();
+    BasketScene *parentBasketOf(BasketScene *basket);
     void setCurrentBasket(BasketScene *basket);
     void setCurrentBasketInHistory(BasketScene *basket);
     void removeBasket(BasketScene *basket);
     /// For NewBasketDialog (and later some other classes):
     int topLevelItemCount();
     ///
-    BasketListViewItem* topLevelItem(int i);
+    BasketListViewItem *topLevelItem(int i);
     int basketCount(QTreeWidgetItem *parent = 0);
     bool canFold();
     bool canExpand();
@@ -105,7 +105,7 @@ public slots:
 
     void updateBasketListViewItem(BasketScene *basket);
     void save();
-    void save(QTreeWidget* listView, QTreeWidgetItem *firstItem, QXmlStreamWriter &stream);
+    void save(QTreeWidget *listView, QTreeWidgetItem *firstItem, QXmlStreamWriter &stream);
     void saveSubHierarchy(QTreeWidgetItem *item, QXmlStreamWriter &stream, bool recursive);
     void load();
     void load(QTreeWidgetItem *item, const QDomElement &baskets);
@@ -279,7 +279,7 @@ private:
     QAction *m_actUnselectAll;
     QAction *m_actInvertSelection;
     // Insert actions :
-//      QAction *m_actInsertText;
+    //      QAction *m_actInsertText;
     QAction *m_actInsertHtml;
     QAction *m_actInsertLink;
     QAction *m_actInsertCrossReference;
@@ -298,19 +298,19 @@ private:
     QAction *m_actNextBasket;
     QAction *m_actFoldBasket;
     QAction *m_actExpandBasket;
-//      QAction *m_convertTexts; // FOR_BETA_PURPOSE
+    //      QAction *m_convertTexts; // FOR_BETA_PURPOSE
 
     void setupActions();
     void setupGlobalShortcuts();
-    DecoratedBasket* currentDecoratedBasket();
+    DecoratedBasket *currentDecoratedBasket();
 
 public:
-    BasketScene* loadBasket(const QString &folderName); // Public only for class Archive
-    BasketListViewItem* appendBasket(BasketScene *basket, QTreeWidgetItem *parentItem); // Public only for class Archive
+    BasketScene *loadBasket(const QString &folderName);                                 // Public only for class Archive
+    BasketListViewItem *appendBasket(BasketScene *basket, QTreeWidgetItem *parentItem); // Public only for class Archive
 
-    BasketScene* basketForFolderName(const QString &folderName);
-    Note* noteForFileName(const QString &fileName, BasketScene &basket, Note* note = 0);
-    QMenu* popupMenu(const QString &menuName);
+    BasketScene *basketForFolderName(const QString &folderName);
+    Note *noteForFileName(const QString &fileName, BasketScene &basket, Note *note = 0);
+    QMenu *popupMenu(const QString &menuName);
     bool isPart();
     bool isMainWindowActive();
     void showMainWindow();
@@ -330,11 +330,12 @@ public slots:
     void updateStatusBarHint();
     void setSelectionStatus(QString s);
     void setLockStatus(bool isLocked);
-    void postStatusbarMessage(const QString&);
-    void setStatusBarHint(const QString&);
+    void postStatusbarMessage(const QString &);
+    void setStatusBarHint(const QString &);
     void setUnsavedStatus(bool isUnsaved);
     void setActive(bool active = true);
-    KActionCollection *actionCollection() {
+    KActionCollection *actionCollection()
+    {
         return m_actionCollection;
     };
 
@@ -343,15 +344,17 @@ public slots:
     void connectTagsMenu();
     void disconnectTagsMenu();
     void disconnectTagsMenuDelayed();
+
 protected:
-    void showEvent(QShowEvent*) override;
-    void hideEvent(QHideEvent*) override;
+    void showEvent(QShowEvent *) override;
+    void hideEvent(QHideEvent *) override;
+
 private:
     QMenu *m_lastOpenedTagsMenu;
 
 private slots:
     void slotPressed(QTreeWidgetItem *item, int column);
-    void needSave(QTreeWidgetItem*);
+    void needSave(QTreeWidgetItem *);
     void slotContextMenu(const QPoint &pos);
     void slotShowProperties(QTreeWidgetItem *item);
     void initialize();
@@ -362,8 +365,8 @@ signals:
     void showPart();
 
 protected:
-    void enterEvent(QEvent*) override;
-    void leaveEvent(QEvent*) override;
+    void enterEvent(QEvent *) override;
+    void leaveEvent(QEvent *) override;
 
 protected:
     void hideMainWindow();
@@ -371,21 +374,21 @@ protected:
 private:
     BasketTreeListView *m_tree;
     QStackedWidget *m_stack;
-    bool          m_loading;
-    bool          m_newBasketPopup;
-    bool          m_firstShow;
+    bool m_loading;
+    bool m_newBasketPopup;
+    bool m_firstShow;
     DesktopColorPicker *m_colorPicker;
-    bool                m_colorPickWasShown;
-    bool                m_colorPickWasGlobal;
-    RegionGrabber      *m_regionGrabber;
+    bool m_colorPickWasShown;
+    bool m_colorPickWasGlobal;
+    RegionGrabber *m_regionGrabber;
     QString m_passiveDroppedTitle;
     NoteSelection *m_passiveDroppedSelection;
     static const int c_delayTooltipTime;
     KActionCollection *m_actionCollection;
     KXMLGUIClient *m_guiClient;
     BasketStatusBar *m_statusbar;
-    QTimer             *m_tryHideTimer;
-    QTimer             *m_hideTimer;
+    QTimer *m_tryHideTimer;
+    QTimer *m_hideTimer;
 
     QUndoStack *m_history;
     KMainWindow *m_HiddenMainWindow;

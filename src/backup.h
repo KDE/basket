@@ -44,6 +44,7 @@ private slots:
     void backup();
     void restore();
     void populateLastBackup();
+
 private:
     QLabel *m_lastBackup;
 };
@@ -66,8 +67,10 @@ class BackupThread : public QThread
 {
 public:
     BackupThread(const QString &tarFile, const QString &folderToBackup);
+
 protected:
     void run() override;
+
 private:
     QString m_tarFile;
     QString m_folderToBackup;
@@ -77,11 +80,14 @@ class RestoreThread : public QThread
 {
 public:
     RestoreThread(const QString &tarFile, const QString &destFolder);
-    inline bool success() {
+    inline bool success()
+    {
         return m_success;
     }
+
 protected:
     void run() override;
+
 private:
     QString m_tarFile;
     QString m_destFolder;

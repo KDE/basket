@@ -42,20 +42,20 @@ class LikeBackPrivate
 public:
     LikeBackPrivate();
     ~LikeBackPrivate();
-    LikeBackBar             *bar;
-    KConfig                 *config;
-    const KAboutData        *aboutData;
-    LikeBack::Button         buttons;
-    QString                  hostName;
-    QString                  remotePath;
-    quint16                 hostPort;
-    QStringList              acceptedLocales;
-    QString                  acceptedLanguagesMessage;
-    LikeBack::WindowListing  windowListing;
-    bool                     showBarByDefault;
-    bool                     showBar;
-    int                      disabledCount;
-    QString                  fetchedEmail;
+    LikeBackBar *bar;
+    KConfig *config;
+    const KAboutData *aboutData;
+    LikeBack::Button buttons;
+    QString hostName;
+    QString remotePath;
+    quint16 hostPort;
+    QStringList acceptedLocales;
+    QString acceptedLanguagesMessage;
+    LikeBack::WindowListing windowListing;
+    bool showBarByDefault;
+    bool showBar;
+    int disabledCount;
+    QString fetchedEmail;
     QAction *action;
 };
 
@@ -74,9 +74,10 @@ private slots:
     void clickedDislike();
     void clickedBug();
     void clickedFeature();
+
 private:
-    LikeBack    *m_likeBack;
-    QTimer       m_timer;
+    LikeBack *m_likeBack;
+    QTimer m_timer;
     QToolButton *m_likeButton;
     QToolButton *m_dislikeButton;
     QToolButton *m_bugButton;
@@ -89,16 +90,17 @@ class LikeBackDialog : public QDialog
 public:
     LikeBackDialog(LikeBack::Button reason, const QString &initialComment, const QString &windowPath, const QString &context, LikeBack *likeBack);
     ~LikeBackDialog() override;
+
 private:
-    LikeBack     *m_likeBack;
-    QString       m_windowPath;
-    QString       m_context;
-    KTextEdit    *m_comment;
+    LikeBack *m_likeBack;
+    QString m_windowPath;
+    QString m_context;
+    KTextEdit *m_comment;
     QRadioButton *likeButton;
     QRadioButton *dislikeButton;
     QRadioButton *bugButton;
     QRadioButton *featureButton;
-    QCheckBox    *m_showButtons;
+    QCheckBox *m_showButtons;
     QDialogButtonBox *buttonBox;
     QString introductionText();
 private slots:
@@ -108,7 +110,7 @@ private slots:
     void changeButtonBarVisible();
     void commentChanged();
     void send();
-    void requestFinished(QNetworkReply* reply);
+    void requestFinished(QNetworkReply *reply);
 };
 
 #endif // LIKEBACK_PRIVATE_H

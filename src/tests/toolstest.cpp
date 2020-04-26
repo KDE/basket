@@ -22,21 +22,21 @@
 
 #include "tools.h"
 
-class ToolsTest: public QObject
+class ToolsTest : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 private Q_SLOTS:
     void testHtmlToText();
 
 private:
-    bool readAll(QString fileName, QString& text);
+    bool readAll(QString fileName, QString &text);
 };
 
 QTEST_MAIN(ToolsTest)
 
 void ToolsTest::testHtmlToText()
 {
-    //Test the function on files from htmltotext/
+    // Test the function on files from htmltotext/
 
     for (int i = 1; i <= 5; i++) {
         QString html, text;
@@ -49,7 +49,7 @@ void ToolsTest::testHtmlToText()
     }
 }
 
-bool ToolsTest::readAll(QString fileName, QString& text)
+bool ToolsTest::readAll(QString fileName, QString &text)
 {
     QFile f(fileName);
     if (!f.open(QFile::ReadOnly | QFile::Text)) {
@@ -62,4 +62,3 @@ bool ToolsTest::readAll(QString fileName, QString& text)
 }
 
 #include "toolstest.moc"
-

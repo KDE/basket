@@ -35,10 +35,9 @@ namespace KSettings
 class Dialog;
 };
 
-
 /** The window that contain baskets, organized by tabs.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class MainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -46,12 +45,13 @@ public:
     /** Constructor, initializer and destructor */
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+
 private:
     void setupActions();
 public slots:
     bool askForQuit();
     /** Settings **/
-//  void toggleToolBar();
+    //  void toggleToolBar();
     void toggleStatusBar();
     void showShortcutsSettingsDialog();
     void configureToolbars() override;
@@ -64,26 +64,26 @@ public slots:
 protected:
     bool queryExit();
     bool queryClose() override;
-    void resizeEvent(QResizeEvent*) override;
-    void moveEvent(QMoveEvent*) override;
+    void resizeEvent(QResizeEvent *) override;
+    void moveEvent(QMoveEvent *) override;
 
 public:
     void ensurePolished();
 
 private:
     // Settings actions :
-//  KToggleAction *m_actShowToolbar;
+    //  KToggleAction *m_actShowToolbar;
     KToggleAction *m_actShowStatusbar;
     QAction *actQuit;
     QAction *actAppConfig;
     QList<QAction *> actBasketsList;
 
 private:
-    QVBoxLayout        *m_layout;
-    BNPView            *m_baskets;
-    bool                m_startDocked;
-    KSettings::Dialog  *m_settings;
-    bool                m_quit;
+    QVBoxLayout *m_layout;
+    BNPView *m_baskets;
+    bool m_startDocked;
+    KSettings::Dialog *m_settings;
+    bool m_quit;
 };
 
 #endif // CONTAINER_H

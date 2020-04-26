@@ -26,18 +26,12 @@ class QString;
 class BasketScene;
 
 /** Methods to create various baskets (mkdir, init the properties and load it).
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 namespace BasketFactory
 {
 /** You should use this method to create a new basket: */
-void newBasket(const QString &icon,
-               const QString &name,
-               const QString &backgroundImage,
-               const QColor  &backgroundColor,
-               const QColor  &textColor,
-               const QString &templateName,
-               BasketScene *parent);
+void newBasket(const QString &icon, const QString &name, const QString &backgroundImage, const QColor &backgroundColor, const QColor &textColor, const QString &templateName, BasketScene *parent);
 /** Internal tool methods to process the method above: */
 QString newFolderName();
 QString unpackTemplate(const QString &templateName);

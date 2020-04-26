@@ -19,29 +19,29 @@
 
 #include "global.h"
 
-#include <KMainWindow>
 #include <KConfig>
+#include <KMainWindow>
 
-#include <QtCore/QString>
-#include <QtCore/QDir>
-#include <QStandardPaths>
 #include <QApplication>
+#include <QStandardPaths>
+#include <QtCore/QDir>
+#include <QtCore/QString>
 
-#include "gitwrapper.h"
 #include "bnpview.h"
+#include "gitwrapper.h"
 #include "settings.h"
 
 /** Define initial values for global variables : */
 
-QString            Global::s_customSavesFolder = "";
-LikeBack          *Global::likeBack            = 0L;
-DebugWindow       *Global::debugWindow         = 0L;
-BackgroundManager *Global::backgroundManager   = 0L;
-SystemTray        *Global::systemTray          = 0L;
-BNPView           *Global::bnpView             = 0L;
+QString Global::s_customSavesFolder = "";
+LikeBack *Global::likeBack = 0L;
+DebugWindow *Global::debugWindow = 0L;
+BackgroundManager *Global::backgroundManager = 0L;
+SystemTray *Global::systemTray = 0L;
+BNPView *Global::bnpView = 0L;
 KSharedConfig::Ptr Global::basketConfig;
-QCommandLineParser* Global::commandLineOpts    = NULL;
-MainWindow*        Global::mainWnd             = NULL;
+QCommandLineParser *Global::commandLineOpts = NULL;
+MainWindow *Global::mainWnd = NULL;
 
 void Global::setCustomSavesFolder(const QString &folder)
 {
@@ -52,7 +52,7 @@ QString Global::savesFolder()
 {
     static QString *folder = 0L; // Memorize the folder to do not have to re-compute it each time it's needed
 
-    if (folder == 0L) {          // Initialize it if not yet done
+    if (folder == 0L) {                       // Initialize it if not yet done
         if (!s_customSavesFolder.isEmpty()) { // Passed by command line (for development & debug purpose)
             QDir dir;
             dir.mkdir(s_customSavesFolder);
@@ -100,12 +100,12 @@ QString Global::openNoteIcon() // FIXME: Now an edit icon
     return QVariant(Global::bnpView->m_actEditNote->icon()).toString();
 }
 
-KMainWindow* Global::activeMainWindow()
+KMainWindow *Global::activeMainWindow()
 {
-    QWidget* res = qApp->activeWindow();
+    QWidget *res = qApp->activeWindow();
 
     if (res && res->inherits("KMainWindow")) {
-        return static_cast<KMainWindow*>(res);
+        return static_cast<KMainWindow *>(res);
     }
     return 0;
 }
@@ -115,8 +115,8 @@ MainWindow *Global::mainWindow()
     return mainWnd;
 }
 
-KConfig* Global::config()
+KConfig *Global::config()
 {
-    //The correct solution is to go and replace all KConfig* with KSharedConfig::Ptr, but that seems awfully annoying to do right now
+    // The correct solution is to go and replace all KConfig* with KSharedConfig::Ptr, but that seems awfully annoying to do right now
     return Global::basketConfig.data();
 }

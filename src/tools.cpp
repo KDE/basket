@@ -19,41 +19,41 @@
 
 #include "tools.h"
 
-#include <QtCore/QString>
-#include <QtCore/QRegExp>
-#include <QtCore/QList>
-#include <QtCore/QFileInfo>
+#include <QDebug>
+#include <QGuiApplication>
 #include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtCore/QList>
 #include <QtCore/QMimeData>
 #include <QtCore/QObject>
+#include <QtCore/QRegExp>
+#include <QtCore/QString>
 #include <QtCore/QTime>
-#include <QtGui/QPixmap>
-#include <QtGui/QImage>
 #include <QtGui/QFont>
 #include <QtGui/QFontInfo>
-#include <QGuiApplication>
-#include <QDebug>
+#include <QtGui/QImage>
+#include <QtGui/QPixmap>
 
-#include <QtGui/QTextDocument>
 #include <QTextBlock>
+#include <QtGui/QTextDocument>
 
+#include <KIO/CopyJob> //For KIO::trash
 #include <KLocalizedString>
-#include <KIO/CopyJob>      //For KIO::trash
 
-#include "debugwindow.h"
 #include "config.h"
+#include "debugwindow.h"
 
-//cross reference
-#include "global.h"
+// cross reference
 #include "bnpview.h"
+#include "global.h"
 #include "htmlexporter.h"
 #include "linklabel.h"
 
 #include <langinfo.h>
 
-QVector<QTime>  StopWatch::starts;
+QVector<QTime> StopWatch::starts;
 QVector<double> StopWatch::totals;
-QVector<uint>   StopWatch::counts;
+QVector<uint> StopWatch::counts;
 
 void StopWatch::start(int id)
 {
@@ -76,29 +76,29 @@ void StopWatch::check(int id)
     double time = starts[id].msecsTo(QTime::currentTime()) / 1000.0;
     totals[id] += time;
     counts[id]++;
-    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" <<  endl;
+    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" << endl;
 }
-
 
 /** @namespace HTM
  *  @brief HTML tags constants */
-namespace HTM {
-static const char* BR = "<br/>";
-static const char* PAR = "<p>";
-static const char* _PAR = "</p>";
+namespace HTM
+{
+static const char *BR = "<br/>";
+static const char *PAR = "<p>";
+static const char *_PAR = "</p>";
 
-//Styles
-static const char* FONT_FAMILY = "font-family: %1; ";
-static const char* FONT_STYLE = "font-style: %1; ";
-static const char* TEXT_DECORATION = "text-decoration: %1; ";
+// Styles
+static const char *FONT_FAMILY = "font-family: %1; ";
+static const char *FONT_STYLE = "font-style: %1; ";
+static const char *TEXT_DECORATION = "text-decoration: %1; ";
 
-static const char* ITALIC = "italic";
-static const char* UNDERLINE = "underline";
-static const char* LINE_THROUGH = "line-through";
+static const char *ITALIC = "italic";
+static const char *UNDERLINE = "underline";
+static const char *LINE_THROUGH = "line-through";
 
-//static const char* FONT_WEIGHT = "font-weight: %1; ";
-static const char* FONT_SIZE = "font-size: %1pt; ";
-static const char* COLOR = "color: %1; ";
+// static const char* FONT_WEIGHT = "font-weight: %1; ";
+static const char *FONT_SIZE = "font-size: %1pt; ";
+static const char *COLOR = "color: %1; ";
 }
 
 QString Tools::textToHTML(const QString &text)
@@ -162,20 +162,20 @@ QString Tools::tagURLs(const QString &text)
     while ((urlPos = urlEx.indexIn(richText, urlPos)) >= 0) {
         urlLen = urlEx.matchedLength();
 
-        //if this match is already a link don't convert it.
-        if(richText.mid(urlPos - 6, 6) == "href=\"") {
+        // if this match is already a link don't convert it.
+        if (richText.mid(urlPos - 6, 6) == "href=\"") {
             urlPos += urlLen;
             continue;
         }
 
         QString href = richText.mid(urlPos, urlLen);
-        //we handle basket links separately...
-        if(href.contains("basket://")) {
+        // we handle basket links separately...
+        if (href.contains("basket://")) {
             urlPos += urlLen;
             continue;
         }
         // Qt doesn't support (?<=pattern) so we do it here
-        if ((urlPos > 0) && richText[urlPos-1].isLetterOrNumber()) {
+        if ((urlPos > 0) && richText[urlPos - 1].isLetterOrNumber()) {
             urlPos++;
             continue;
         }
@@ -203,20 +203,18 @@ QString Tools::tagCrossReferences(const QString &text, bool userLink, HTMLExport
         QStringList hrefParts = href.split('|');
         QString anchor;
 
-        if(exporter) // if we're exporting this basket to html.
+        if (exporter) // if we're exporting this basket to html.
             anchor = crossReferenceForHtml(hrefParts, exporter);
-        else if(userLink) //the link is manually created (ie [[/top level/sub]] )
+        else if (userLink) // the link is manually created (ie [[/top level/sub]] )
             anchor = crossReferenceForConversion(hrefParts);
         else // otherwise it's a standard link (ie. [[basket://basket107]] )
             anchor = crossReferenceForBasket(hrefParts);
-
 
         richText.replace(urlPos, urlLen, anchor);
         urlPos += anchor.length();
     }
     return richText;
 }
-
 
 QString Tools::crossReferenceForBasket(QStringList linkParts)
 {
@@ -225,22 +223,20 @@ QString Tools::crossReferenceForBasket(QStringList linkParts)
 
     bool linkIsEmpty = false;
 
-    if(basketLink == "basket://" || basketLink.isEmpty())
+    if (basketLink == "basket://" || basketLink.isEmpty())
         linkIsEmpty = true;
 
     title = linkParts.last().trimmed();
 
     QString css = LinkLook::crossReferenceLook->toCSS("cross_reference", QColor());
-    QString classes =  "cross_reference";
+    QString classes = "cross_reference";
     classes += (linkIsEmpty ? " xref_empty" : "");
 
-    css += (linkIsEmpty ?
-        " a.xref_empty { display: block; width: 100%; text-decoration: underline; color: #CC2200; }"
-        " a:hover.xref_empty { color: #A55858; }"
-        : "");
+    css += (linkIsEmpty ? " a.xref_empty { display: block; width: 100%; text-decoration: underline; color: #CC2200; }"
+                          " a:hover.xref_empty { color: #A55858; }"
+                        : "");
 
-    QString anchor = "<style>" + css + "</style><a href=\"" + basketLink + "\" class=\"" + classes + "\">"
-                + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
+    QString anchor = "<style>" + css + "</style><a href=\"" + basketLink + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
 }
 
@@ -251,40 +247,39 @@ QString Tools::crossReferenceForHtml(QStringList linkParts, HTMLExporter *export
 
     bool linkIsEmpty = false;
 
-    if(basketLink == "basket://" || basketLink.isEmpty())
+    if (basketLink == "basket://" || basketLink.isEmpty())
         linkIsEmpty = true;
 
     title = linkParts.last().trimmed();
 
     QString url;
-    if(basketLink.startsWith(QLatin1String("basket://")))
-    url = basketLink.mid(9, basketLink.length() - 9);
+    if (basketLink.startsWith(QLatin1String("basket://")))
+        url = basketLink.mid(9, basketLink.length() - 9);
 
     BasketScene *basket = Global::bnpView->basketForFolderName(url);
 
-    //remove the trailing slash.
+    // remove the trailing slash.
     url = url.left(url.length() - 1);
 
-    //if the basket we're trying to link to is the basket that was exported then
-    //we have to use a special way to refer to it for the links.
-    if(basket == exporter->exportedBasket)
+    // if the basket we're trying to link to is the basket that was exported then
+    // we have to use a special way to refer to it for the links.
+    if (basket == exporter->exportedBasket)
         url = "../../" + exporter->fileName;
     else {
-        //if we're in the exported basket then the links have to include
+        // if we're in the exported basket then the links have to include
         // the sub directories.
-        if(exporter->currentBasket == exporter->exportedBasket)
+        if (exporter->currentBasket == exporter->exportedBasket)
             url.prepend(exporter->basketsFolderName);
-        if(!url.isEmpty())
+        if (!url.isEmpty())
             url.append(".html");
     }
 
-    QString classes =  "cross_reference";
+    QString classes = "cross_reference";
     classes += (linkIsEmpty ? " xref_empty" : "");
 
-    QString css = (linkIsEmpty ?
-            " a.xref_empty { display: block; width: 100%; text-decoration: underline; color: #CC2200; }"
-            " a:hover.xref_empty { color: #A55858; }"
-            : "");
+    QString css = (linkIsEmpty ? " a.xref_empty { display: block; width: 100%; text-decoration: underline; color: #CC2200; }"
+                                 " a:hover.xref_empty { color: #A55858; }"
+                               : "");
 
     QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
@@ -295,15 +290,15 @@ QString Tools::crossReferenceForConversion(QStringList linkParts)
     QString basketLink = linkParts.first();
     QString title;
 
-    if(basketLink.startsWith(QLatin1String("basket://")))
+    if (basketLink.startsWith(QLatin1String("basket://")))
         return QString("[[%1|%2]]").arg(basketLink, linkParts.last());
 
-    if(basketLink.endsWith('/'))
+    if (basketLink.endsWith('/'))
         basketLink = basketLink.left(basketLink.length() - 1);
 
     QStringList pages = basketLink.split('/');
 
-    if(linkParts.count()<= 1)
+    if (linkParts.count() <= 1)
         title = pages.last();
     else
         title = linkParts.last().trimmed();
@@ -313,11 +308,11 @@ QString Tools::crossReferenceForConversion(QStringList linkParts)
     url.prepend("basket://");
     QString anchor;
 
-    //if we don't change the link return it back exactly
-    //as it came in because it may not be a link.
-    if(url == "basket://" || url.isEmpty()) {
+    // if we don't change the link return it back exactly
+    // as it came in because it may not be a link.
+    if (url == "basket://" || url.isEmpty()) {
         QString returnValue = "";
-        foreach(QString s, linkParts)
+        foreach (QString s, linkParts)
             returnValue.append(s);
         anchor = returnValue.prepend("[[").append("]]");
     } else
@@ -339,14 +334,14 @@ QString Tools::htmlToText(const QString &html)
     text.replace("</li>", "\n");
     text.replace("</dt>", "\n");
     text.replace("</dd>", "\n");
-    text.replace("<dd>",  "   ");
+    text.replace("<dd>", "   ");
     text.replace("</div>", "\n");
     text.replace("</blockquote>", "\n");
     text.replace("</caption>", "\n");
     text.replace("</tr>", "\n");
     text.replace("</th>", "  ");
     text.replace("</td>", "  ");
-    text.replace("<br>",  "\n");
+    text.replace("<br>", "\n");
     text.replace("<br />", "\n");
     text.replace("</p>", "\n");
     // FIXME: Format <table> tags better, if possible
@@ -357,13 +352,13 @@ QString Tools::htmlToText(const QString &html)
     int pos2;
     QString tag, tag3;
     // To manage lists:
-    int deep = 0;            // The deep of the current line in imbriqued lists
-    QList<bool> ul;    // true if current list is a <ul> one, false if it's an <ol> one
-    QList<int>  lines; // The line number if it is an <ol> list
+    int deep = 0;     // The deep of the current line in imbriqued lists
+    QList<bool> ul;   // true if current list is a <ul> one, false if it's an <ol> one
+    QList<int> lines; // The line number if it is an <ol> list
     // We're removing every other tags, or replace them in the case of li:
     while ((pos = text.indexOf("<"), pos) != -1) {
         // What is the current tag?
-        tag  = text.mid(pos + 1, 2);
+        tag = text.mid(pos + 1, 2);
         tag3 = text.mid(pos + 1, 3);
         // Lists work:
         if (tag == "ul") {
@@ -406,11 +401,11 @@ QString Tools::htmlToText(const QString &html)
         ++pos;
     }
 
-    text.replace("&gt;",   ">");
-    text.replace("&lt;",   "<");
+    text.replace("&gt;", ">");
+    text.replace("&lt;", "<");
     text.replace("&quot;", "\"");
     text.replace("&nbsp;", " ");
-    text.replace("&amp;",  "&"); // CONVERT IN LAST!!
+    text.replace("&amp;", "&"); // CONVERT IN LAST!!
 
     // HtmlContent produces "\n" for empty note
     if (text == "\n")
@@ -419,19 +414,18 @@ QString Tools::htmlToText(const QString &html)
     return text;
 }
 
-QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
-
+QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
+{
     QString result =
-            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
-            "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style type=\"text/css\">\n"
-            "p, li { white-space: pre-wrap; margin: 0px; }\n"
-            "</style></head><body>\n";
+        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
+        "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style type=\"text/css\">\n"
+        "p, li { white-space: pre-wrap; margin: 0px; }\n"
+        "</style></head><body>\n";
     QFont defaultFont;
     int fragCount, blockCount = 0;
     bool leadingBrNeeded = false;
 
     for (QTextBlock blockIt = document->begin(); blockIt != document->end(); blockIt = blockIt.next(), ++blockCount) {
-
         result += HTM::PAR;
 
         // Prepare to detect empty blocks
@@ -441,17 +435,15 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
             QTextFragment currentFragment = subIt.fragment();
 
             if (currentFragment.isValid()) {
-
                 // Dealing with need to add leading linebreak (see later for
                 // further notes)
-                if (leadingBrNeeded)
-                {
+                if (leadingBrNeeded) {
                     result += HTM::BR;
                     leadingBrNeeded = false;
                 }
 
                 QTextCharFormat charFmt = currentFragment.charFormat();
-                const QColor& textColor = charFmt.foreground().color();
+                const QColor &textColor = charFmt.foreground().color();
                 bool isTextBlack = (textColor == QColor() || textColor == QColor(Qt::black));
 
                 if (charFmt.font() == defaultFont && isTextBlack) {
@@ -459,18 +451,17 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                     continue;
                 }
 
-                //If we use charFmt.fontWeight, setting a tag overrides it and all characters become non-bold.
-                //So we use <b> </b> instead
+                // If we use charFmt.fontWeight, setting a tag overrides it and all characters become non-bold.
+                // So we use <b> </b> instead
                 bool bold = (charFmt.fontWeight() >= QFont::Bold);
                 if (bold)
                     result += "<b>";
 
-                //Compose style string (font and color)
+                // Compose style string (font and color)
                 result += "<span style=\"";
 
                 if (charFmt.fontFamily() != defaultFont.family() && !charFmt.fontFamily().isEmpty())
                     result += QString(HTM::FONT_FAMILY).arg(charFmt.fontFamily());
-
 
                 if (charFmt.fontItalic())
                     result += QString(HTM::FONT_STYLE).arg(HTM::ITALIC);
@@ -478,7 +469,6 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                     result += QString(HTM::TEXT_DECORATION).arg(HTM::UNDERLINE);
                 if (charFmt.fontStrikeOut())
                     result += QString(HTM::TEXT_DECORATION).arg(HTM::LINE_THROUGH);
-
 
                 /*if (charFmt.fontWeight() != defaultFont.weight()) {
                     QFont::Weight weight = (charFmt.fontWeight() >= QFont::Bold) ? QFont::Bold : QFont::Normal;
@@ -491,7 +481,6 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
                 if (!isTextBlack)
                     result += QString(HTM::COLOR).arg(textColor.name());
 
-
                 result += "\">" + currentFragment.text().toHtmlEscaped() + "</span>";
 
                 if (bold)
@@ -502,16 +491,15 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
         // Detecting empty blocks (Qt4 fails to generate a fragment from an empty line)
         // Inserting a linebreak directly here seems to cause the renderer to render
         // two breaks, so have to append it to the contents of the previous paragraph...
-        if (!fragCount)
-        {
+        if (!fragCount) {
             // If the first fragment is an empty fragment, the linebreak must be
             // added to the next fragment otherwise you get the above double breaks
-            if(!blockCount) leadingBrNeeded = true;
+            if (!blockCount)
+                leadingBrNeeded = true;
 
             // Deal with the problem only when the last block is not affected,
             // otherwise you get double breaks again... Blocks counted from 0
-            else if (blockCount != (document->blockCount() - 1))
-            {
+            else if (blockCount != (document->blockCount() - 1)) {
                 result.chop(7);
                 result = result + HTM::BR + HTM::_PAR + HTM::PAR;
             }
@@ -527,9 +515,7 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument* document) {
 QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
 {
     // The font definition:
-    QString definition = QString(font.italic() ? "italic " : "") +
-                         QString(font.bold()   ? "bold "   : "") +
-                         QString::number(QFontInfo(font).pixelSize()) + "px ";
+    QString definition = QString(font.italic() ? "italic " : "") + QString(font.bold() ? "bold " : "") + QString::number(QFontInfo(font).pixelSize()) + "px ";
 
     // Then, try to match the font name with a standard CSS font family:
     QString genericFont = "";
@@ -538,9 +524,8 @@ QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
     // No "else if" because "sans serif" must be counted as "sans". So, the order between "serif" and "sans" is important
     if (definition.contains("sans", Qt::CaseInsensitive) || definition.contains("arial", Qt::CaseInsensitive) || definition.contains("helvetica", Qt::CaseInsensitive))
         genericFont = "sans-serif";
-    if (definition.contains("mono", Qt::CaseInsensitive) || definition.contains("courier", Qt::CaseInsensitive) ||
-            definition.contains("typewriter", Qt::CaseInsensitive) || definition.contains("console", Qt::CaseInsensitive) ||
-            definition.contains("terminal", Qt::CaseInsensitive) || definition.contains("news", Qt::CaseInsensitive))
+    if (definition.contains("mono", Qt::CaseInsensitive) || definition.contains("courier", Qt::CaseInsensitive) || definition.contains("typewriter", Qt::CaseInsensitive) || definition.contains("console", Qt::CaseInsensitive) ||
+        definition.contains("terminal", Qt::CaseInsensitive) || definition.contains("news", Qt::CaseInsensitive))
         genericFont = "monospace";
 
     // Eventually add the generic font family to the definition:
@@ -559,7 +544,7 @@ QString Tools::stripEndWhiteSpaces(const QString &string)
     uint length = string.length();
     uint i;
     for (i = length; i > 0; --i)
-        if (!string[i-1].isSpace())
+        if (!string[i - 1].isSpace())
             break;
     if (i == 0)
         return "";
@@ -567,28 +552,19 @@ QString Tools::stripEndWhiteSpaces(const QString &string)
         return string.left(i);
 }
 
-
-
 bool Tools::isWebColor(const QColor &color)
 {
     int r = color.red();   // The 216 web colors are those colors whose RGB (Red, Green, Blue)
     int g = color.green(); //  values are all in the set (0, 51, 102, 153, 204, 255).
     int b = color.blue();
 
-    return ((r ==   0 || r ==  51 || r == 102 ||
-             r == 153 || r == 204 || r == 255) &&
-            (g ==   0 || g ==  51 || g == 102 ||
-             g == 153 || g == 204 || g == 255) &&
-            (b ==   0 || b ==  51 || b == 102 ||
-             b == 153 || b == 204 || b == 255));
+    return ((r == 0 || r == 51 || r == 102 || r == 153 || r == 204 || r == 255) && (g == 0 || g == 51 || g == 102 || g == 153 || g == 204 || g == 255) && (b == 0 || b == 51 || b == 102 || b == 153 || b == 204 || b == 255));
 }
 
 QColor Tools::mixColor(const QColor &color1, const QColor &color2, const float ratio)
 {
     QColor mixedColor;
-    mixedColor.setRgb((color1.red() * ratio  + color2.red())   / (1 + ratio),
-                      (color1.green() * ratio + color2.green()) / (1 + ratio),
-                      (color1.blue() * ratio  + color2.blue())  / (1 + ratio));
+    mixedColor.setRgb((color1.red() * ratio + color2.red()) / (1 + ratio), (color1.green() * ratio + color2.green()) / (1 + ratio), (color1.blue() * ratio + color2.blue()) / (1 + ratio));
     return mixedColor;
 }
 
@@ -596,7 +572,6 @@ bool Tools::tooDark(const QColor &color)
 {
     return color.value() < 175;
 }
-
 
 // TODO: Use it for all indentPixmap()
 QPixmap Tools::normalizePixmap(const QPixmap &pixmap, int width, int height)
@@ -689,27 +664,26 @@ void Tools::trashRecursively(const QString &folderOrFile)
     if (folderOrFile.isEmpty())
         return;
 
-    KIO::trash( QUrl::fromLocalFile(folderOrFile), KIO::HideProgressInfo );
+    KIO::trash(QUrl::fromLocalFile(folderOrFile), KIO::HideProgressInfo);
 }
-
 
 QString Tools::fileNameForNewFile(const QString &wantedName, const QString &destFolder)
 {
-    QString fileName  = wantedName;
-    QString fullName  = destFolder + fileName;
+    QString fileName = wantedName;
+    QString fullName = destFolder + fileName;
     QString extension = "";
-    int     number    = 2;
-    QDir    dir;
+    int number = 2;
+    QDir dir;
 
     // First check if the file do not exists yet (simplier and more often case)
     dir = QDir(fullName);
-    if (! dir.exists(fullName))
+    if (!dir.exists(fullName))
         return fileName;
 
     // Find the file extension, if it exists : Split fileName in fileName and extension
     // Example : fileName == "note5-3.txt" => fileName = "note5-3" and extension = ".txt"
     int extIndex = fileName.lastIndexOf('.');
-    if (extIndex != -1 && extIndex != int(fileName.length() - 1))  { // Extension found and fileName do not ends with '.' !
+    if (extIndex != -1 && extIndex != int(fileName.length() - 1)) { // Extension found and fileName do not ends with '.' !
         extension = fileName.mid(extIndex);
         fileName.truncate(extIndex);
     } // else fileName = fileName and extension = ""
@@ -717,28 +691,28 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
     // Find the file number, if it exists : Split fileName in fileName and number
     // Example : fileName == "note5-3" => fileName = "note5" and number = 3
     int extNumber = fileName.lastIndexOf('-');
-    if (extNumber != -1 && extNumber != int(fileName.length() - 1))  { // Number found and fileName do not ends with '-' !
+    if (extNumber != -1 && extNumber != int(fileName.length() - 1)) { // Number found and fileName do not ends with '-' !
         bool isANumber;
-        int  theNumber = fileName.mid(extNumber + 1).toInt(&isANumber);
+        int theNumber = fileName.mid(extNumber + 1).toInt(&isANumber);
         if (isANumber) {
             number = theNumber;
             fileName.truncate(extNumber);
         } // else :
-    } // else fileName = fileName and number = 2 (because if the file already exists, the genereated name is at last the 2nd)
+    }     // else fileName = fileName and number = 2 (because if the file already exists, the genereated name is at last the 2nd)
 
     QString finalName;
-    for (/*int number = 2*/; ; ++number) { // TODO: FIXME: If overflow ???
+    for (/*int number = 2*/;; ++number) { // TODO: FIXME: If overflow ???
         finalName = fileName + '-' + QString::number(number) + extension;
         fullName = destFolder + finalName;
         dir = QDir(fullName);
-        if (! dir.exists(fullName))
+        if (!dir.exists(fullName))
             break;
     }
 
     return finalName;
 }
 
-qint64 Tools::computeSizeRecursively(const QString& path)
+qint64 Tools::computeSizeRecursively(const QString &path)
 {
     qint64 result = 0;
 
@@ -746,7 +720,7 @@ qint64 Tools::computeSizeRecursively(const QString& path)
     result += file.size();
     if (file.isDir()) {
         QFileInfoList children = QDir(path).entryInfoList(QDir::Dirs | QDir::Files | QDir::NoSymLinks | QDir::NoDotAndDotDot | QDir::Hidden);
-        foreach (const QFileInfo& child, children)
+        foreach (const QFileInfo &child, children)
             result += computeSizeRecursively(child.absoluteFilePath());
     }
     return result;
@@ -770,26 +744,25 @@ bool Tools::isAFileCut(const QMimeData *source)
         return false;
 }
 
-void Tools::printChildren(QObject* parent)
+void Tools::printChildren(QObject *parent)
 {
     const QObjectList objs = parent->children();
-    QObject * obj;
-    for (int i = 0 ; i < objs.size() ; i++) {
+    QObject *obj;
+    for (int i = 0; i < objs.size(); i++) {
         obj = objs.at(i);
         qDebug() << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << endl;
     }
-
 }
 
-QString Tools::makeStandardCaption(const QString& userCaption)
+QString Tools::makeStandardCaption(const QString &userCaption)
 {
     QString caption = QGuiApplication::applicationDisplayName();
 
     if (!userCaption.isEmpty())
-        return userCaption + i18nc("Document/application separator in titlebar", " – ") + caption; else
+        return userCaption + i18nc("Document/application separator in titlebar", " – ") + caption;
+    else
         return caption;
 }
-
 
 QByteArray Tools::systemCodeset()
 {

@@ -23,8 +23,9 @@
 
 #include <KontactInterface/Plugin>
 
-namespace KParts {
-    class ReadOnlyPart;
+namespace KParts
+{
+class ReadOnlyPart;
 }
 
 class BasketPlugin : public KontactInterface::Plugin

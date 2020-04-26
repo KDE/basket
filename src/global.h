@@ -36,30 +36,28 @@ class QCommandLineParser;
 
 class MainWindow;
 
-
 /** Handle all global variables of the application.
-  * This file only declare classes : developer should include
-  * the .h files of variables he use.
-  * @author Sébastien Laoût
-  */
+ * This file only declare classes : developer should include
+ * the .h files of variables he use.
+ * @author Sébastien Laoût
+ */
 class BASKET_EXPORT Global
 {
 private:
     static QString s_customSavesFolder;
 
     static void initializeGitRepository(QString folder);
+
 public:
     // Global Variables:
-    static LikeBack          *likeBack;
-    static DebugWindow       *debugWindow;
+    static LikeBack *likeBack;
+    static DebugWindow *debugWindow;
     static BackgroundManager *backgroundManager;
-    static SystemTray        *systemTray;
-    static BNPView           *bnpView;
+    static SystemTray *systemTray;
+    static BNPView *bnpView;
     static KSharedConfig::Ptr basketConfig;
-    static QCommandLineParser* commandLineOpts;
-    static MainWindow*        mainWnd;
-
-
+    static QCommandLineParser *commandLineOpts;
+    static MainWindow *mainWnd;
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
@@ -74,10 +72,10 @@ public:
     /** Initialize git repository if Version sync is enabled
         @param savesFolder Path returned by savesFolder()  */
     static void initializeGitIfNeeded(QString savesFolder);
-    static QString openNoteIcon();      /// << @return the icon used for the "Open" action on notes.
-    static KMainWindow* activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
-    static MainWindow* mainWindow(); /// << @returns Main window (always not NULL after it has been actually created)
-    static KConfig* config();
+    static QString openNoteIcon();          /// << @return the icon used for the "Open" action on notes.
+    static KMainWindow *activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
+    static MainWindow *mainWindow();        /// << @returns Main window (always not NULL after it has been actually created)
+    static KConfig *config();
 };
 
 #endif // GLOBAL_H

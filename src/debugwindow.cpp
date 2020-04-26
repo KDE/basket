@@ -19,9 +19,9 @@
 
 #include "debugwindow.h"
 
+#include <QVBoxLayout>
 #include <QtCore/QString>
 #include <QtGui/QCloseEvent>
-#include <QVBoxLayout>
 
 #include <QLocale>
 #include <QTextBrowser>
@@ -31,12 +31,12 @@
 #include "global.h"
 
 DebugWindow::DebugWindow(QWidget *parent)
-        : QWidget(parent)
+    : QWidget(parent)
 {
     Global::debugWindow = this;
     setWindowTitle(i18n("Debug Window"));
 
-    layout      = new QVBoxLayout(this);
+    layout = new QVBoxLayout(this);
     textBrowser = new QTextBrowser(this);
 
     textBrowser->setWordWrapMode(QTextOption::NoWrap);
@@ -56,9 +56,9 @@ void DebugWindow::postMessage(const QString msg)
     textBrowser->append(msg);
 }
 
-DebugWindow& DebugWindow::operator<<(const QString msg)
+DebugWindow &DebugWindow::operator<<(const QString msg)
 {
-    //This can be used from a different thread
+    // This can be used from a different thread
     QMetaObject::invokeMethod(this, "postMessage", Qt::QueuedConnection, Q_ARG(QString, msg));
     return *this;
 }
@@ -73,4 +73,3 @@ void DebugWindow::closeEvent(QCloseEvent *event)
     Global::debugWindow = 0L;
     QWidget::closeEvent(event);
 }
-

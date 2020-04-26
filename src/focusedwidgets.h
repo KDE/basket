@@ -20,8 +20,8 @@
 #ifndef FOCUSEDWIDGETS_H
 #define FOCUSEDWIDGETS_H
 
-#include <QClipboard>
 #include <KTextEdit>
+#include <QClipboard>
 
 class QEvent;
 class QKeyEvent;
@@ -42,14 +42,14 @@ protected:
     void keyPressEvent(QKeyEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
     void enterEvent(QEvent *event) override;
-    void insertFromMimeData (const QMimeData *source) override;
+    void insertFromMimeData(const QMimeData *source) override;
 signals:
     void escapePressed();
     void mouseEntered();
+
 private:
     bool m_disableUpdatesOnKeyPress;
 };
-
 
 /** class FocusWidgetFilter
  * @author Kelvie Wong
@@ -72,7 +72,9 @@ public:
      * @param watched The widget to install the event filter on; also becomes
      * the parent of this object. */
     explicit FocusWidgetFilter(QWidget *watched = nullptr);
-    ~FocusWidgetFilter() override {}
+    ~FocusWidgetFilter() override
+    {
+    }
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

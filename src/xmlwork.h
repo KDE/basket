@@ -20,28 +20,28 @@
 #ifndef XMLWORKXMLWORK_H
 #define XMLWORKXMLWORK_H
 
-#include <QtCore/QString>
 #include <QXmlStreamWriter>
+#include <QtCore/QString>
 
 class QDomDocument;
 class QDomElement;
 
 /** All related functions to manage XML files and trees
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 namespace XMLWork
 {
 // Manage XML files :
-QDomDocument* openFile(const QString &name, const QString &filePath);
+QDomDocument *openFile(const QString &name, const QString &filePath);
 // Manage XML trees :
-QDomElement   getElement(const QDomElement &startElement, const QString &elementPath);
-QString       getElementText(const QDomElement &startElement, const QString &elementPath, const QString &defaultTxt = "");
-void          addElement(QDomDocument &document, QDomElement &parent, const QString &name, const QString &text);
-QString       innerXml(QDomElement &element);
-void          setupXmlStream(QXmlStreamWriter& stream, QString startElement); ///< Set XML options and write document start
+QDomElement getElement(const QDomElement &startElement, const QString &elementPath);
+QString getElementText(const QDomElement &startElement, const QString &elementPath, const QString &defaultTxt = "");
+void addElement(QDomDocument &document, QDomElement &parent, const QString &name, const QString &text);
+QString innerXml(QDomElement &element);
+void setupXmlStream(QXmlStreamWriter &stream, QString startElement); ///< Set XML options and write document start
 // Not directly related to XML :
-bool          trueOrFalse(const QString &value, bool defaultValue = true);
-QString       trueOrFalse(bool value);
+bool trueOrFalse(const QString &value, bool defaultValue = true);
+QString trueOrFalse(bool value);
 }
 
 #endif // XMLWORKXMLWORK_H

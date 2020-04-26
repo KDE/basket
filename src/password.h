@@ -47,7 +47,7 @@ public:
 
     QString key() const;
     int type() const;
-    void setKey(const QString& key);
+    void setKey(const QString &key);
     void setType(int type);
 
     /** Reimplemented from {K,Q}Dialog
@@ -55,10 +55,9 @@ public:
     void accept();
 
 private:
-    Password* w;
+    Password *w;
 };
 
 #endif // HAVE_LIBGPGME
 
 #endif // PASSWORD_H
-

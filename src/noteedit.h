@@ -50,19 +50,19 @@ class FocusWidgetFilter;
 class BasketListViewItem;
 
 /** The base class for every note editor.
-  * Scenario:
-  *  The Basket class calls NoteEditor::editNoteContent() with the NoteContent to edit.
-  *  This method create the good child NoteEditor depending
-  *  on the note content type and return it to the Basket.
-  *  This custom NoteEditor have two choices regarding what to do in its constructor:
-  *   - Display a dialog and then call cancel() if the user canceled the dialog;
-  *   - Create an inline editor and call setInlineEditor() with that editor as parameter.
-  *     When the user exit the edition, validate() is called by the Basket.
-  *     You should then call setEmpty() is the user cleared the content.
-  *  The custom editor SHOULD call the NoteEditor constructor.
-  *  If the user cleared the content OR if the user canceled the dialog whereas he/she
-  *  JUST ADDED the note, then the note will be deleted by the Basket.
-  */
+ * Scenario:
+ *  The Basket class calls NoteEditor::editNoteContent() with the NoteContent to edit.
+ *  This method create the good child NoteEditor depending
+ *  on the note content type and return it to the Basket.
+ *  This custom NoteEditor have two choices regarding what to do in its constructor:
+ *   - Display a dialog and then call cancel() if the user canceled the dialog;
+ *   - Create an inline editor and call setInlineEditor() with that editor as parameter.
+ *     When the user exit the edition, validate() is called by the Basket.
+ *     You should then call setEmpty() is the user cleared the content.
+ *  The custom editor SHOULD call the NoteEditor constructor.
+ *  If the user cleared the content OR if the user canceled the dialog whereas he/she
+ *  JUST ADDED the note, then the note will be deleted by the Basket.
+ */
 class NoteEditor : public QObject
 {
     Q_OBJECT
@@ -70,22 +70,28 @@ public:
     explicit NoteEditor(NoteContent *noteContent);
     ~NoteEditor() override;
 
-    bool        isEmpty()  {
+    bool isEmpty()
+    {
         return m_isEmpty;
     }
-    bool        canceled() {
+    bool canceled()
+    {
         return m_canceled;
     }
-    bool        isInline() {
+    bool isInline()
+    {
         return m_widget != 0;
     }
-    QGraphicsProxyWidget*    graphicsWidget()   {
+    QGraphicsProxyWidget *graphicsWidget()
+    {
         return m_widget;
     }
-    KTextEdit*  textEdit() {
+    KTextEdit *textEdit()
+    {
         return m_textEdit;
     }
-    QLineEdit*  lineEdit() {
+    QLineEdit *lineEdit()
+    {
         return m_lineEdit;
     }
 
@@ -93,40 +99,49 @@ public:
     void connectActions(BasketScene *scene);
     void startSelection(const QPointF &pos);
     void updateSelection(const QPointF &pos);
-    void endSelection(const QPointF &pos);    
+    void endSelection(const QPointF &pos);
     void paste(const QPointF &pos, QClipboard::Mode mode);
-    
+
 private:
-    bool         m_isEmpty;
-    bool         m_canceled;
-    QGraphicsProxyWidget     *m_widget;
-    KTextEdit   *m_textEdit;
-    QLineEdit   *m_lineEdit;
+    bool m_isEmpty;
+    bool m_canceled;
+    QGraphicsProxyWidget *m_widget;
+    KTextEdit *m_textEdit;
+    QLineEdit *m_lineEdit;
     NoteContent *m_noteContent;
 
 public:
-    NoteContent* noteContent() {
+    NoteContent *noteContent()
+    {
         return m_noteContent;
     }
-    Note*        note();
+    Note *note();
+
 protected:
-    void setEmpty() {
-        m_isEmpty  = true;
+    void setEmpty()
+    {
+        m_isEmpty = true;
     }
-    void cancel()   {
+    void cancel()
+    {
         m_canceled = true;
     }
     void setInlineEditor(QWidget *inlineEditor);
+
 public:
-    virtual void validate() {}
-    virtual void autoSave(bool /*toFileToo*/) {} // Same as validate(), but does not precede editor close and is triggered either while the editor widget changed size or after 3 seconds of inactivity.
+    virtual void validate()
+    {
+    }
+    virtual void autoSave(bool /*toFileToo*/)
+    {
+    } // Same as validate(), but does not precede editor close and is triggered either while the editor widget changed size or after 3 seconds of inactivity.
 
 signals:
     void askValidation();
     void mouseEnteredEditorWidget();
 
 public:
-    static NoteEditor* editNoteContent(NoteContent *noteContent, QWidget *parent);
+    static NoteEditor *editNoteContent(NoteContent *noteContent, QWidget *parent);
 };
 
 class TextEditor : public NoteEditor
@@ -137,6 +152,7 @@ public:
     ~TextEditor() override;
     void validate() override;
     void autoSave(bool toFileToo) override;
+
 protected:
     TextContent *m_textContent;
 };
@@ -149,6 +165,7 @@ public:
     ~HtmlEditor() override;
     void validate() override;
     void autoSave(bool toFileToo) override;
+
 protected:
     HtmlContent *m_htmlContent;
 public slots:
@@ -161,7 +178,7 @@ protected slots:
     void setCentered();
     void setRight();
     void setBlock();
-    void onFontSelectionChanged(const QFont& font); //!< When a font is selected from combo box
+    void onFontSelectionChanged(const QFont &font); //!< When a font is selected from combo box
 };
 
 class ImageEditor : public NoteEditor
@@ -186,6 +203,7 @@ public:
     ~FileEditor() override;
     void validate() override;
     void autoSave(bool toFileToo) override;
+
 protected:
     FileContent *m_fileContent;
 };
@@ -225,10 +243,9 @@ public:
     UnknownEditor(UnknownContent *unknownContent, QWidget *parent);
 };
 
-
 /** The dialog to edit Link Note content.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class LinkEditDialog : public QDialog
 {
     Q_OBJECT
@@ -239,24 +256,25 @@ public:
 
 protected slots:
     void slotOk();
-    void urlChanged(const QString&);
-    void doNotAutoTitle(const QString&);
+    void urlChanged(const QString &);
+    void doNotAutoTitle(const QString &);
     void doNotAutoIcon(QString);
     void guessTitle();
     void guessIcon();
+
 private:
-    LinkContent   *m_noteContent;
-    bool           m_isAutoModified;
+    LinkContent *m_noteContent;
+    bool m_isAutoModified;
     KUrlRequester *m_url;
-    QLineEdit     *m_title;
-    KIconButton   *m_icon;
-    QPushButton   *m_autoTitle;
-    QPushButton   *m_autoIcon;
+    QLineEdit *m_title;
+    KIconButton *m_icon;
+    QPushButton *m_autoTitle;
+    QPushButton *m_autoIcon;
 };
 
 /** The dialog to edit cross reference content.
-  * @author Brian C. Milco
-  */
+ * @author Brian C. Milco
+ */
 class CrossReferenceEditDialog : public QDialog
 {
     Q_OBJECT
@@ -267,16 +285,18 @@ public:
 protected slots:
     void slotOk();
     void urlChanged(const int index);
+
 protected:
     void generateBasketList(KComboBox *targetList, BasketListViewItem *item = nullptr, int indent = 0);
+
 private:
-    CrossReferenceContent   *m_noteContent;
-    KComboBox     *m_targetBasket;
+    CrossReferenceContent *m_noteContent;
+    KComboBox *m_targetBasket;
 };
 
 /** The dialog to edit Launcher Note content.
-  * @author Sébastien Laoût
-  */
+ * @author Sébastien Laoût
+ */
 class LauncherEditDialog : public QDialog
 {
     Q_OBJECT
@@ -287,18 +307,19 @@ public:
 protected slots:
     void slotOk();
     void guessIcon();
+
 private:
-    LauncherContent     *m_noteContent;
+    LauncherContent *m_noteContent;
     RunCommandRequester *m_command;
-    QLineEdit           *m_name;
-    KIconButton         *m_icon;
+    QLineEdit *m_name;
+    KIconButton *m_icon;
 };
 
 /** This class manage toolbars for the inline editors.
-  * The toolbars should be created once at the application startup,
-  * then KXMLGUI can manage them and save their state and position...
-  * @author Sébastien Laoût
-  */
+ * The toolbars should be created once at the application startup,
+ * then KXMLGUI can manage them and save their state and position...
+ * @author Sébastien Laoût
+ */
 class InlineEditors : public QObject
 {
     Q_OBJECT
@@ -306,26 +327,26 @@ public:
     InlineEditors();
     ~InlineEditors() override;
     void initToolBars(KActionCollection *ac);
-    static InlineEditors* instance();
+    static InlineEditors *instance();
 
 public:
     // Rich Text ToolBar:
-    KToolBar* richTextToolBar();
+    KToolBar *richTextToolBar();
     void enableRichTextToolBar();
     void disableRichTextToolBar();
     QPalette palette() const;
-    QFontComboBox     *richTextFont;
-    FontSizeCombo     *richTextFontSize;
-    KColorCombo       *richTextColor;
-    KToggleAction     *richTextBold;
-    KToggleAction     *richTextItalic;
-    KToggleAction     *richTextUnderline;
-//  KToggleAction     *richTextSuper;
-//  KToggleAction     *richTextSub;
-    KToggleAction     *richTextLeft;
-    KToggleAction     *richTextCenter;
-    KToggleAction     *richTextRight;
-    KToggleAction     *richTextJustified;
+    QFontComboBox *richTextFont;
+    FontSizeCombo *richTextFontSize;
+    KColorCombo *richTextColor;
+    KToggleAction *richTextBold;
+    KToggleAction *richTextItalic;
+    KToggleAction *richTextUnderline;
+    //  KToggleAction     *richTextSuper;
+    //  KToggleAction     *richTextSub;
+    KToggleAction *richTextLeft;
+    KToggleAction *richTextCenter;
+    KToggleAction *richTextRight;
+    KToggleAction *richTextJustified;
     QAction *richTextUndo;
     QAction *richTextRedo;
     FocusWidgetFilter *focusWidgetFilter;
