@@ -153,8 +153,8 @@ install(FILES  basket_part.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 endif(BUILD_KPARTS)
 
-install(FILES  org.kde.basket.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES  basket_config_general.desktop  	basket_config_baskets.desktop  	basket_config_new_notes.desktop  	basket_config_notes_appearance.desktop  	basket_config_apps.desktop	basket_config_version_sync.desktop  	DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES  basketui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/basket)
-
+install(FILES org.kde.basket.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES org.kde.basket.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES basket_config_general.desktop  	basket_config_baskets.desktop  	basket_config_new_notes.desktop  	basket_config_notes_appearance.desktop  	basket_config_apps.desktop	basket_config_version_sync.desktop  	DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES basketui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/basket)
 

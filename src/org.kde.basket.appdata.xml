@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.basket</id>
+  <launchable type="desktop-id">org.kde.basket.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <developer_name>KDE Community</developer_name>
+  <name>Basket</name>
+  <summary>Notes and to-dos organizer</summary>
+  <description>
+    <p>This application provides as many baskets as you wish, and you can drag and drop.</p>
+    <p>Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
+    <p>It allows to arrange notes, track to-dos and much more.</p>
+  </description>
+  <categories>
+    <category>Office</category>
+  </categories>
+  <project_group>KDE</project_group>
+  <content_rating type="oars-1.1"/>
+</component>
+
+
+
+
