@@ -74,7 +74,6 @@ Note::Note(BasketScene *parent)
     , m_lastModificationDate(QDateTime::currentDateTime())
     , m_computedAreas(false)
     , m_onTop(false)
-    , m_animation(0)
     , m_hovered(false)
     , m_hoveredZone(Note::None)
     , m_focused(false)
@@ -100,7 +99,6 @@ Note::~Note()
         m_basket->removeItem(this);
     }
     delete m_content;
-    delete m_animation;
     deleteChilds();
 }
 
@@ -874,73 +872,6 @@ Qt::CursorShape Note::cursorFromZone(Zone zone) const
             return Qt::PointingHandCursor;
         else
             return Qt::ArrowCursor;
-    }
-}
-
-bool Note::initAnimationLoad(QTimeLine *timeLine)
-{
-    bool needAnimation = false;
-
-    if (!isColumn()) {
-        qreal x, y;
-        switch (rand() % 4) {
-        case 0: // Put it on top:
-            x = basket()->sceneRect().x() + rand() % (int)basket()->sceneRect().width();
-            y = -height();
-            break;
-        case 1: // Put it on bottom:
-            x = basket()->sceneRect().x() + rand() % (int)basket()->sceneRect().width();
-            y = basket()->sceneRect().y() + basket()->graphicsView()->viewport()->height();
-            break;
-        case 2: // Put it on left:
-            x = -width() - (hasResizer() ? Note::RESIZER_WIDTH : 0);
-            y = basket()->sceneRect().y() + rand() % basket()->graphicsView()->viewport()->height();
-            break;
-        case 3:  // Put it on right:
-        default: // In the case of...
-            x = basket()->sceneRect().x() + basket()->graphicsView()->viewport()->width();
-            y = basket()->sceneRect().y() + rand() % basket()->graphicsView()->viewport()->height();
-            break;
-        }
-
-        m_animation = new QGraphicsItemAnimation;
-        m_animation->setItem(this);
-        m_animation->setTimeLine(timeLine);
-
-        for (int i = 0; i <= 100; i++) {
-            m_animation->setPosAt(i / 100.0, QPointF(this->x() - x * (100 - i) / 100, this->y() - y * (100 - i) / 100));
-        }
-
-        needAnimation = true;
-    }
-
-    if (isGroup()) {
-        const qreal viewHeight = basket()->sceneRect().y() + basket()->graphicsView()->viewport()->height();
-        Note *child = firstChild();
-        bool first = true;
-        while (child) {
-            if (child->y() < viewHeight) {
-                if ((showSubNotes() || first) && child->matching())
-                    needAnimation |= child->initAnimationLoad(timeLine);
-            } else
-                break; // 'child' are not a free notes (because child of at least one note, 'this'), so 'child' is ordered vertically.
-            child = child->next();
-            first = false;
-        }
-    }
-
-    return needAnimation;
-}
-
-void Note::animationFinished()
-{
-    unbufferize();
-    delete m_animation;
-    m_animation = 0;
-    Note *child = firstChild();
-    while (child) {
-        child->animationFinished();
-        child = child->next();
     }
 }
 

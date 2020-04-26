@@ -205,16 +205,6 @@ private slots:
 protected:
     void helpEvent(QGraphicsSceneHelpEvent *event) override;
 
-    /// ANIMATIONS:
-private:
-    QTimeLine *m_animationTimeLine;
-    static const int ANIMATION_DELAY;
-
-public slots:
-    void animationFrameChanged(int);
-    void animateLoad();
-    void finishAnimation();
-
     /// LOAD AND SAVE:
 private:
     bool m_loaded;

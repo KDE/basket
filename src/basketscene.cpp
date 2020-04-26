@@ -89,8 +89,6 @@
 #include "kgpgme.h"
 #endif
 
-const int BasketScene::ANIMATION_DELAY = 2000;
-
 void debugZone(int zone)
 {
     QString s;
@@ -965,10 +963,8 @@ void BasketScene::aboutToBeActivated()
         // relayoutNotes(/*animate=*/false);
         setFocusedNote(0); // So that during the focusInEvent that will come shortly, the FIRST note is focused.
 
-        if (Settings::playAnimations() && !decoration()->filterBar()->filterData().isFiltering && Global::bnpView->currentBasket() == this) // No animation when filtering all!
-            animateLoad();                                                                                                                  // QTimer::singleShot( 0, this, SLOT(animateLoad()) );
-
         m_finishLoadOnFirstShow = false;
+        m_loaded = true;
     }
 }
 
@@ -1057,10 +1053,7 @@ void BasketScene::load()
         setFocus();
     focusANote();
 
-    if (Settings::playAnimations() && !decoration()->filterBar()->filterData().isFiltering && Global::bnpView->currentBasket() == this) // No animation when filtering all!
-        animateLoad();                                                                                                                  // QTimer::singleShot( 0, this, SLOT(animateLoad()) );
-    else
-        m_loaded = true;
+    m_loaded = true;
     enableActions();
 }
 
@@ -1169,7 +1162,6 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_posToInsert(-1, -1)
     , m_isInsertPopupMenu(false)
     , m_insertMenuTitle(0)
-    , m_animationTimeLine(0)
     , m_loaded(false)
     , m_loadingLaunched(false)
     , m_locked(false)
@@ -2958,54 +2950,6 @@ BasketScene::~BasketScene()
 
     if (m_view)
         delete m_view;
-}
-
-void BasketScene::animateLoad()
-{
-    const int viewHeight = sceneRect().y() + m_view->viewport()->height();
-
-    QTime t = QTime::currentTime(); // Set random seed
-    srand(t.hour() * 12 + t.minute() * 60 + t.second() * 60);
-
-    bool needAnimation = false;
-    m_animationTimeLine = new QTimeLine(ANIMATION_DELAY);
-    m_animationTimeLine->setFrameRange(0, 100);
-    connect(m_animationTimeLine, SIGNAL(frameChanged(int)), this, SLOT(animationFrameChanged(int)));
-    connect(m_animationTimeLine, SIGNAL(finished()), this, SLOT(finishAnimation()));
-
-    Note *note = firstNote();
-    while (note) {
-        if ((note->y() < viewHeight) && note->matching()) {
-            needAnimation |= note->initAnimationLoad(m_animationTimeLine);
-        }
-        note = note->next();
-    }
-
-    if (needAnimation) {
-        m_animationTimeLine->start();
-    } else {
-        m_loaded = true;
-        delete m_animationTimeLine;
-        m_animationTimeLine = 0;
-    }
-}
-
-void BasketScene::animationFrameChanged(int /*frame*/)
-{
-    FOR_EACH_NOTE(note) note->unbufferizeAll();
-
-    if (!m_loaded) {
-        m_loaded = true;
-        update();
-    }
-}
-
-void BasketScene::finishAnimation()
-{
-    m_animationTimeLine->deleteLater();
-    m_animationTimeLine = 0;
-    FOR_EACH_NOTE(note) note->animationFinished();
-    update();
 }
 
 QColor BasketScene::selectionRectInsideColor()
