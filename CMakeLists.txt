@@ -40,6 +40,7 @@ find_package(Qt5 REQUIRED COMPONENTS
   Xml
 )
 
+include(KDEClangFormat)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
 include(ECMInstallIcons)
@@ -101,5 +102,9 @@ add_subdirectory(images)
 add_subdirectory(file-integration)
 
 ki18n_install(po)
+
+# add clang-format target for all our real source files
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
