@@ -7,10 +7,10 @@
 #include "tag.h"
 
 #include <KActionCollection>
-#include <KIconLoader>
 #include <KLocalizedString>
 
 #include <QLocale>
+#include <QIcon>
 #include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QTextStream>
@@ -746,13 +746,7 @@ StateAction::StateAction(State *state, const QKeySequence &shortcut, QWidget *pa
     if (withTagName && m_state->parentTag())
         setText(m_state->parentTag()->name());
 
-    setIcon(KIconLoader::global()->loadIcon(m_state->emblem(),
-                                            KIconLoader::Small,
-                                            16,
-                                            KIconLoader::DefaultState,
-                                            QStringList(),
-                                            /*path_store=*/0L,
-                                            /*canReturnNull=*/true));
+    setIcon(QIcon(m_state->emblem()));
 
     setShortcut(shortcut);
 }
