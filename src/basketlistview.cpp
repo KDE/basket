@@ -505,7 +505,7 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
     if (drawRoundRect) {
         QPixmap roundRectBmp;
         QColor background = basket->backgroundColor();
-        int textWidth = m_basketTree->fontMetrics().width(basketInTree->text(/*column=*/0));
+        int textWidth = m_basketTree->fontMetrics().horizontalAdvance(basketInTree->text(/*column=*/0));
         int iconTextMargin = m_basketTree->style()->pixelMetric(QStyle::PM_FocusFrameHMargin); ///< Space between icon and text
 
         // Don't forget to update the key computation if parameters
