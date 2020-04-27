@@ -129,7 +129,7 @@ void Crash::crashHandler(int /*signal*/)
         bt.remove("(no debugging symbols found)...");
         bt.remove("(no debugging symbols found)\n");
         bt.replace(QRegExp("\n{2,}"), "\n"); // clean up multiple \n characters
-        bt.trimmed();
+        bt = bt.trimmed();
 
         /// analyze usefulness
         bool useful = true;
