@@ -511,12 +511,7 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
         // Don't forget to update the key computation if parameters
         // affecting the rendering logic change
         QString key = QString("BLIRR::%1.%2.%3.%4").arg(option.rect.width()).arg(option.rect.size().height()).arg(textWidth).arg(background.rgb());
-
-        if (QPixmap *cached = QPixmapCache::find(key)) {
-            // Qt's documentation recommends copying the pointer
-            // into a QPixmap immediately
-            roundRectBmp = *cached;
-        } else {
+        if (!QPixmapCache::find(key, &roundRectBmp)) {
             // Draw first time
 
             roundRectBmp = QPixmap(option.rect.size());
@@ -562,8 +557,9 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
 QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const QFont &font, const QColor &color) const
 {
     QString key = QString("BLI-%1.%2.%3.%4").arg(text).arg(height).arg(font.toString()).arg(color.rgb());
-    if (QPixmap *cached = QPixmapCache::find(key)) {
-        return *cached;
+    QPixmap cached;
+    if (QPixmapCache::find(key, &cached)) {
+        return cached;
     }
 
     // Compute the sizes of the image components:
