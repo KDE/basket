@@ -221,12 +221,13 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
 
     QListWidget *iconView = new UndraggableKIconView(page);
 
-    m_size16 = new QListWidgetItem(DesktopIcon(icon, 16), i18n("16 by 16 pixels"), iconView);
-    m_size22 = new QListWidgetItem(DesktopIcon(icon, 22), i18n("22 by 22 pixels"), iconView);
-    m_size32 = new QListWidgetItem(DesktopIcon(icon, 32), i18n("32 by 32 pixels"), iconView);
-    m_size48 = new QListWidgetItem(DesktopIcon(icon, 48), i18n("48 by 48 pixels"), iconView);
-    m_size64 = new QListWidgetItem(DesktopIcon(icon, 64), i18n("64 by 64 pixels"), iconView);
-    m_size128 = new QListWidgetItem(DesktopIcon(icon, 128), i18n("128 by 128 pixels"), iconView);
+    QIcon desktopIcon = QIcon::fromTheme(icon);
+    m_size16 = new QListWidgetItem(desktopIcon.pixmap(QSize(16, 16)), i18n("16 by 16 pixels"), iconView);
+    m_size22 = new QListWidgetItem(desktopIcon.pixmap(QSize(22, 2)), i18n("22 by 22 pixels"), iconView);
+    m_size32 = new QListWidgetItem(desktopIcon.pixmap(QSize(32, 32)), i18n("32 by 32 pixels"), iconView);
+    m_size48 = new QListWidgetItem(desktopIcon.pixmap(QSize(48, 48)), i18n("48 by 48 pixels"), iconView);
+    m_size64 = new QListWidgetItem(desktopIcon.pixmap(QSize(64, 64)), i18n("64 by 64 pixels"), iconView);
+    m_size128 = new QListWidgetItem(desktopIcon.pixmap(QSize(128, 128)), i18n("128 by 128 pixels"), iconView);
     iconView->setIconSize(QSize(128, 128));
     iconView->setMinimumSize(QSize(128 * 6 + (6 + 2) * iconView->spacing() + 20, m_size128->sizeHint().height() + 2 * iconView->spacing() + 20));
     topLayout->addWidget(iconView);
