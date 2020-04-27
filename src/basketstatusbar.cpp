@@ -92,7 +92,7 @@ void BasketStatusBar::setupStatusBar()
     //  addWidget( m_lockStatus, 0, true );
     m_lockStatus->installEventFilter(this);
 
-    m_savedStatusPixmap = SmallIcon("document-save");
+    m_savedStatusPixmap = QIcon::fromTheme("document-save").pixmap(KIconLoader::SizeSmall);
     m_savedStatus = new QLabel(parent);
     m_savedStatus->setPixmap(m_savedStatusPixmap);
     m_savedStatus->setFixedSize(m_savedStatus->sizeHint());
@@ -146,7 +146,8 @@ void BasketStatusBar::setLockStatus(bool isLocked)
         return;
 
     if (isLocked) {
-        m_lockStatus->setPixmap(SmallIcon("encrypted.png"));
+        QPixmap encryptedIcon = QIcon::fromTheme("encrypted.png").pixmap(KIconLoader::SizeSmall);
+        m_lockStatus->setPixmap(encryptedIcon);
         m_lockStatus->setToolTip(i18n("<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(QChar(' '), "&nbsp;"));
     } else {
         m_lockStatus->clear();
