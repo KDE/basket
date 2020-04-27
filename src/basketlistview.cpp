@@ -593,7 +593,7 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     QImage resultImage = background.toImage();
 
     // resultImage.setAlphaBuffer(true);
-    resultImage.convertToFormat(QImage::Format_ARGB32);
+    //resultImage.convertToFormat(QImage::Format_ARGB32);
 
     // Scale down the image smoothly to get anti-aliasing:
     QPixmap pmScaled = QPixmap::fromImage(resultImage.scaled(width, height, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
