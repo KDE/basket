@@ -58,8 +58,8 @@ void SingleSelectionKIconView::slotSelectionChanged(QListWidgetItem *cur)
 /** class NewBasketDefaultProperties: */
 
 NewBasketDefaultProperties::NewBasketDefaultProperties()
-    : icon("")
-    , backgroundImage("")
+    : icon(QString())
+    , backgroundImage(QString())
     , backgroundColor()
     , textColor()
     , freeLayout(false)

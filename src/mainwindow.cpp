@@ -73,7 +73,7 @@ void MainWindow::setupActions()
     QAction *a = NULL;
     a = actionCollection()->addAction("minimizeRestore", this, SLOT(minimizeRestore()));
     a->setText(i18n("Minimize"));
-    a->setIcon(QIcon::fromTheme(""));
+    a->setIcon(QIcon::fromTheme(QString()));
     a->setShortcut(0);
 
     /** Settings : ************************************************************/

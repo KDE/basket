@@ -318,7 +318,7 @@ QString BackgroundManager::pathForImageName(const QString &image)
 {
     BackgroundEntry *entry = backgroundEntryFor(image);
     if (entry == 0)
-        return "";
+        return QString();
     else
         return entry->location;
 }
@@ -327,12 +327,12 @@ QString BackgroundManager::previewPathForImageName(const QString &image)
 {
     BackgroundEntry *entry = backgroundEntryFor(image);
     if (entry == 0)
-        return "";
+        return QString();
     else {
         QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/backgrounds/previews/" + entry->name);
         QDir dir;
         if (!dir.exists(previewPath))
-            return "";
+            return QString();
         else
             return previewPath;
     }

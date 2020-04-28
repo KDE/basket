@@ -120,7 +120,7 @@ void FormatImporter::importBaskets()
                                           "modifying one will not modify the other anymore as they are now separate entities.</p>",
                                           folderName),
                                      i18n("Folder Mirror Import"),
-                                     "",
+                                     QString(),
                                      KMessageBox::AllowLink);
             // Also modify folderName to be only the folder name and not the full path anymore:
             QString newFolderName = folderName;
@@ -209,7 +209,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
             }
             // Import annotations as folded groups:
             QDomElement parentE = column;
-            QString annotations = XMLWork::getElementText(e, "annotations", "");
+            QString annotations = XMLWork::getElementText(e, "annotations", QString());
             if (!annotations.isEmpty()) {
                 QDomElement annotGroup = document->createElement("group");
                 column.insertBefore(annotGroup, e);
@@ -236,8 +236,8 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
             runCommand = XMLWork::getElementText(e, "action", runCommand); // Keep compatibility with 0.3.x versions
             if (!runCommand.isEmpty()) {                                   // An import should be done
                 // Prepare the launcher note:
-                QString title = content.attribute("title", "");
-                QString icon = content.attribute("icon", "");
+                QString title = content.attribute("title", QString());
+                QString icon = content.attribute("icon", QString());
                 if (title.isEmpty())
                     title = runCommand;
                 if (icon.isEmpty())

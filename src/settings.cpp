@@ -66,7 +66,7 @@ bool Settings::s_soundUseProg = false;
 QString Settings::s_htmlProg = "quanta";
 QString Settings::s_imageProg = "kolourpaint";
 QString Settings::s_animationProg = "gimp";
-QString Settings::s_soundProg = "";
+QString Settings::s_soundProg = QString();
 // Addictive Features:
 bool Settings::s_groupOnInsertionLine = false;
 int Settings::s_middleAction = 0;
@@ -81,7 +81,7 @@ bool Settings::s_blinkedFilter = false;
 bool Settings::s_startDocked = false;
 int Settings::s_basketTreeWidth = -1;
 bool Settings::s_welcomeBasketsAdded = false;
-QString Settings::s_dataFolder = "";
+QString Settings::s_dataFolder = QString();
 QDate Settings::s_lastBackup = QDate();
 QPoint Settings::s_mainWindowPosition = QPoint();
 QSize Settings::s_mainWindowSize = QSize();
@@ -140,7 +140,7 @@ void Settings::loadConfig()
     setBasketTreeWidth(config.readEntry("basketTreeWidth", -1));
     setUsePassivePopup(config.readEntry("usePassivePopup", true));
     setWelcomeBasketsAdded(config.readEntry("welcomeBasketsAdded", false));
-    setDataFolder(config.readEntry("dataFolder", ""));
+    setDataFolder(config.readEntry("dataFolder", QString()));
     setLastBackup(config.readEntry("lastBackup", QDate()));
     setMainWindowPosition(config.readEntry("position", QPoint()));
     setMainWindowSize(config.readEntry("size", QSize()));
@@ -156,7 +156,7 @@ void Settings::loadConfig()
     setHtmlProg(config.readEntry("htmlProg", "quanta"));
     setImageProg(config.readEntry("imageProg", "kolourpaint"));
     setAnimationProg(config.readEntry("animationProg", "gimp"));
-    setSoundProg(config.readEntry("soundProg", ""));
+    setSoundProg(config.readEntry("soundProg", QString()));
 
     config = Global::config()->group("Note Addition");
     setNewNotesPlace(config.readEntry("newNotesPlace", 1));
@@ -914,7 +914,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const char *name)
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     m_htmlUseProg = new QCheckBox(i18n("Open &text notes with a custom application:"), this);
-    m_htmlProg = new RunCommandRequester("", i18n("Open text notes with:"), this);
+    m_htmlProg = new RunCommandRequester(QString(), i18n("Open text notes with:"), this);
     QHBoxLayout *hLayH = new QHBoxLayout;
     hLayH->insertSpacing(-1, 20);
     hLayH->addWidget(m_htmlProg);
@@ -922,7 +922,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const char *name)
     connect(m_htmlProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
 
     m_imageUseProg = new QCheckBox(i18n("Open &image notes with a custom application:"), this);
-    m_imageProg = new RunCommandRequester("", i18n("Open image notes with:"), this);
+    m_imageProg = new RunCommandRequester(QString(), i18n("Open image notes with:"), this);
     QHBoxLayout *hLayI = new QHBoxLayout;
     hLayI->insertSpacing(-1, 20);
     hLayI->addWidget(m_imageProg);
@@ -930,7 +930,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const char *name)
     connect(m_imageProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
 
     m_animationUseProg = new QCheckBox(i18n("Open a&nimation notes with a custom application:"), this);
-    m_animationProg = new RunCommandRequester("", i18n("Open animation notes with:"), this);
+    m_animationProg = new RunCommandRequester(QString(), i18n("Open animation notes with:"), this);
     QHBoxLayout *hLayA = new QHBoxLayout;
     hLayA->insertSpacing(-1, 20);
     hLayA->addWidget(m_animationProg);
@@ -938,7 +938,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const char *name)
     connect(m_animationProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
 
     m_soundUseProg = new QCheckBox(i18n("Open so&und notes with a custom application:"), this);
-    m_soundProg = new RunCommandRequester("", i18n("Open sound notes with:"), this);
+    m_soundProg = new RunCommandRequester(QString(), i18n("Open sound notes with:"), this);
     QHBoxLayout *hLayS = new QHBoxLayout;
     hLayS->insertSpacing(-1, 20);
     hLayS->addWidget(m_soundProg);

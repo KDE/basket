@@ -573,7 +573,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
                 note->toggleFolded();
             // Tags:
             if (note->content()) {
-                QString tagsString = XMLWork::getElementText(e, "tags", "");
+                QString tagsString = XMLWork::getElementText(e, QStringLiteral("tags"), QString());
                 QStringList tagsId = tagsString.split(';');
                 for (QStringList::iterator it = tagsId.begin(); it != tagsId.end(); ++it) {
                     State *state = Tag::stateForId(*it);
@@ -614,8 +614,9 @@ void BasketScene::saveNotes(QXmlStreamWriter &stream, Note *parent)
             // Save Tags:
             if (note->states().count() > 0) {
                 QString tags;
-                for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it)
-                    tags += (tags.isEmpty() ? "" : ";") + (*it)->id();
+                for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it) {
+                    tags += (tags.isEmpty() ? QString() : QStringLiteral(";")) + (*it)->id();
+                }
                 stream.writeTextElement("tags", tags);
             }
         } else {
@@ -631,8 +632,8 @@ void BasketScene::saveNotes(QXmlStreamWriter &stream, Note *parent)
 void BasketScene::loadProperties(const QDomElement &properties)
 {
     // Compute Default Values for When Loading the Properties:
-    QString defaultBackgroundColor = (backgroundColorSetting().isValid() ? backgroundColorSetting().name() : "");
-    QString defaultTextColor = (textColorSetting().isValid() ? textColorSetting().name() : "");
+    QString defaultBackgroundColor = (backgroundColorSetting().isValid() ? backgroundColorSetting().name() : QString());
+    QString defaultTextColor = (textColorSetting().isValid() ? textColorSetting().name() : QString());
 
     // Load the Properties:
     QString icon = XMLWork::getElementText(properties, "icon", this->icon());
@@ -681,9 +682,9 @@ void BasketScene::saveProperties(QXmlStreamWriter &stream)
     stream.writeTextElement("icon", icon());
 
     stream.writeStartElement("appearance");
-    stream.writeAttribute("backgroundColor", backgroundColorSetting().isValid() ? backgroundColorSetting().name() : "");
+    stream.writeAttribute("backgroundColor", backgroundColorSetting().isValid() ? backgroundColorSetting().name() : QString());
     stream.writeAttribute("backgroundImage", backgroundImageName());
-    stream.writeAttribute("textColor", textColorSetting().isValid() ? textColorSetting().name() : "");
+    stream.writeAttribute("textColor", textColorSetting().isValid() ? textColorSetting().name() : QString());
     stream.writeEndElement();
 
     stream.writeStartElement("disposition");
@@ -1731,7 +1732,7 @@ void BasketScene::clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked
     if (event->button() == Qt::MidButton)
         note = NoteFactory::dropNote(QApplication::clipboard()->mimeData(QClipboard::Selection), this);
     else
-        note = NoteFactory::createNoteText("", this);
+        note = NoteFactory::createNoteText(QString(), this);
 
     if (!note)
         return;
@@ -2781,7 +2782,7 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
         case Note::TagsArrow:
             message = i18n("Assign or remove tags from this note");
             if (note->states().count() > 0) {
-                QString tagsString = "";
+                QString tagsString;
                 for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it) {
                     QString tagName = "<nobr>" + Tools::textToHTMLWithoutP((*it)->fullName()) + "</nobr>";
                     if (tagsString.isEmpty())
@@ -2822,7 +2823,7 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
             if (zone >= Note::Emblem0)
                 message = note->stateForEmblemNumber(zone - Note::Emblem0)->fullName();
             else
-                message = "";
+                message = QString();
             break;
         }
 
@@ -4103,7 +4104,7 @@ void BasketScene::noteOpen(Note *note)
  */
 bool KRun__displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles, const QString &text)
 {
-    if (qApp && !KAuthorized::authorizeKAction("openwith")) {
+    if (qApp && !KAuthorized::authorizeAction("openwith")) {
         KMessageBox::sorry(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
         return false;
     }
@@ -4111,7 +4112,7 @@ bool KRun__displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
     if (l.exec()) {
         KService::Ptr service = l.service();
         if (!!service)
-            return KRun::run(*service, lst, window, tempFiles);
+            return KRun::runApplication(*service, lst, window, tempFiles ? KRun::DeleteTemporaryFiles : KRun::RunFlags());
         // qDebug(250) << "No service set, running " << l.text() << endl;
         return KRun::run(l.text(), lst, window); // TODO handle tempFiles
     }
@@ -4444,7 +4445,7 @@ void BasketScene::slotCopyingDone2(KIO::Job *job, const QUrl & /*from*/, const Q
         return;
     }
     Note *note = noteForFullPath(to.path());
-    DEBUG_WIN << "Copy finished, load note: " + to.path() + (note ? "" : " --- NO CORRESPONDING NOTE");
+    DEBUG_WIN << "Copy finished, load note: " + to.path() + (note ? QString() : " --- NO CORRESPONDING NOTE");
     if (note != 0L) {
         note->content()->loadFromFile(/*lazyLoad=*/false);
         if (isEncrypted())
@@ -5121,7 +5122,7 @@ bool BasketScene::saveToFile(const QString &fullPath, const QByteArray &array)
 
 #ifdef HAVE_LIBGPGME
     if (isEncrypted()) {
-        QString key = QString();
+        QString key;
 
         // We only use gpg-agent for private key encryption and saving without
         // public key doesn't need one.
@@ -5129,7 +5130,7 @@ bool BasketScene::saveToFile(const QString &fullPath, const QByteArray &array)
         if (m_encryptionType == PrivateKeyEncryption) {
             key = m_encryptionKey;
             // public key doesn't need password
-            m_gpg->setText("", false);
+            m_gpg->setText(QString(), false);
         } else
             m_gpg->setText(i18n("Please assign a password to the basket <b>%1</b>:", basketName()), true); // Used when defining a new password
 

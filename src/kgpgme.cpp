@@ -105,7 +105,7 @@ public:
 
         if (item)
             return item->text(2);
-        return "";
+        return QString();
     }
 };
 
@@ -212,7 +212,7 @@ QString KGpgMe::selectKey(QString previous)
 
     if (dlg->exec())
         return dlg->key();
-    return "";
+    return QString();
 }
 
 // Rest of the code is mainly based in gpgme examples

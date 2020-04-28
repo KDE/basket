@@ -176,14 +176,14 @@ void Crash::crashHandler(int /*signal*/)
 
             // TODO startup notification
             KToolInvocation::invokeMailer(
-                /*to*/ "kde.basket@gmx.com",
-                /*cc*/ QString(),
-                /*bcc*/ QString(),
-                /*subject*/ subject,
-                /*body*/ body,
-                /*messageFile*/ QString(),
-                /*attachURLs*/ QStringList(),
-                /*startup_id*/ "");
+                QStringLiteral("kde.basket@gmx.com"), /*to*/
+                QString(),                            /*cc*/
+                QString(),                            /*bcc*/
+                subject,                              /*subject*/
+                body,                                 /*body*/
+                QString(),                            /*messageFile*/
+                QStringList(),                        /*attachURLs*/
+                QByteArray());                        /*startup_id*/
         } else {
             qDebug() << '\n' +
                     i18n("%1 has crashed! We're sorry about this.\n\n"

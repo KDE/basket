@@ -199,7 +199,7 @@ public:
     QFont labelFont(QFont font, bool isIconButtonHovered) const; /// << @return the font for this link, according to parent font AND LinkLook!
     qreal heightForWidth(qreal width) const;                     /// << @return the needed height to display the link in function of a width.
     QString toHtml(const QString &imageName) const;              /// << Convert the link to HTML code, using the LinkLook to style it.
-    QString toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title = "");
+    QString toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title = QString());
 
 private:
     QString m_title;

@@ -110,7 +110,7 @@ void SystemTray::updateDisplay()
 
         setIconByPixmap(QPixmap::fromImage(bgImage));
     }
-    setOverlayIconByName(basket->isLocked() ? IconNames::LOCKED : "");
+    setOverlayIconByName(basket->isLocked() ? IconNames::LOCKED : QString());
 
     // update the tooltip
     QString tip = "<p><nobr>";

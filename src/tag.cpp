@@ -124,7 +124,7 @@ QString State::toCSS(const QString &gradientFolderPath, const QString &gradientF
     }
 
     if (css.isEmpty())
-        return "";
+        return QString();
     else
         return "   .tag_" + id() + " {" + css + " }\n";
 }
@@ -307,16 +307,16 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
                     state->setItalic(XMLWork::trueOrFalse(textElement.attribute("italic", "false")));
                     state->setUnderline(XMLWork::trueOrFalse(textElement.attribute("underline", "false")));
                     state->setStrikeOut(XMLWork::trueOrFalse(textElement.attribute("strikeOut", "false")));
-                    QString textColor = textElement.attribute("color", "");
+                    QString textColor = textElement.attribute("color", QString());
                     state->setTextColor(textColor.isEmpty() ? QColor() : QColor(textColor));
                     QDomElement fontElement = XMLWork::getElement(subElement, "font");
-                    state->setFontName(fontElement.attribute("name", ""));
-                    QString fontSize = fontElement.attribute("size", "");
+                    state->setFontName(fontElement.attribute("name", QString()));
+                    QString fontSize = fontElement.attribute("size", QString());
                     state->setFontSize(fontSize.isEmpty() ? -1 : fontSize.toInt());
-                    QString backgroundColor = XMLWork::getElementText(subElement, "backgroundColor", "");
+                    QString backgroundColor = XMLWork::getElementText(subElement, "backgroundColor", QString());
                     state->setBackgroundColor(backgroundColor.isEmpty() ? QColor() : QColor(backgroundColor));
                     QDomElement textEquivalentElement = XMLWork::getElement(subElement, "textEquivalent");
-                    state->setTextEquivalent(textEquivalentElement.attribute("string", ""));
+                    state->setTextEquivalent(textEquivalentElement.attribute("string", QString()));
                     state->setOnAllTextLines(XMLWork::trueOrFalse(textEquivalentElement.attribute("onAllTextLines", "false")));
                     QString allowXRef = XMLWork::getElementText(subElement, "allowCrossReferences", "true");
                     state->setAllowCrossReferences(XMLWork::trueOrFalse(allowXRef));
@@ -486,7 +486,7 @@ void Tag::saveTagsTo(QList<Tag *> &list, const QString &fullPath)
             XMLWork::addElement(document, stateNode, "emblem", state->emblem());
             QDomElement textNode = document.createElement("text");
             stateNode.appendChild(textNode);
-            QString textColor = (state->textColor().isValid() ? state->textColor().name() : "");
+            QString textColor = (state->textColor().isValid() ? state->textColor().name() : QString());
             textNode.setAttribute("bold", XMLWork::trueOrFalse(state->bold()));
             textNode.setAttribute("italic", XMLWork::trueOrFalse(state->italic()));
             textNode.setAttribute("underline", XMLWork::trueOrFalse(state->underline()));
@@ -496,7 +496,7 @@ void Tag::saveTagsTo(QList<Tag *> &list, const QString &fullPath)
             stateNode.appendChild(fontNode);
             fontNode.setAttribute("name", state->fontName());
             fontNode.setAttribute("size", state->fontSize());
-            QString backgroundColor = (state->backgroundColor().isValid() ? state->backgroundColor().name() : "");
+            QString backgroundColor = (state->backgroundColor().isValid() ? state->backgroundColor().name() : QString());
             XMLWork::addElement(document, stateNode, "backgroundColor", backgroundColor);
             QDomElement textEquivalentNode = document.createElement("textEquivalent");
             stateNode.appendChild(textEquivalentNode);

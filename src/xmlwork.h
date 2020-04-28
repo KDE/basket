@@ -22,7 +22,7 @@ namespace XMLWork
 QDomDocument *openFile(const QString &name, const QString &filePath);
 // Manage XML trees :
 QDomElement getElement(const QDomElement &startElement, const QString &elementPath);
-QString getElementText(const QDomElement &startElement, const QString &elementPath, const QString &defaultTxt = "");
+QString getElementText(const QDomElement &startElement, const QString &elementPath, const QString &defaultTxt = QString());
 void addElement(QDomDocument &document, QDomElement &parent, const QString &name, const QString &text);
 QString innerXml(QDomElement &element);
 void setupXmlStream(QXmlStreamWriter &stream, QString startElement); ///< Set XML options and write document start

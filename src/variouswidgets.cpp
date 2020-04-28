@@ -76,12 +76,12 @@ void RunCommandRequester::setRunCommand(const QString &runCommand)
 IconSizeCombo::IconSizeCombo(QWidget *parent)
     : KComboBox(parent)
 {
-    addItem(i18n("16 by 16 pixels"));
-    addItem(i18n("22 by 22 pixels"));
-    addItem(i18n("32 by 32 pixels"));
-    addItem(i18n("48 by 48 pixels"));
-    addItem(i18n("64 by 64 pixels"));
-    addItem(i18n("128 by 128 pixels"));
+    addItem(i18n("%1 by %1 pixels", KIconLoader::SizeSmall));
+    addItem(i18n("%1 by %1 pixels", KIconLoader::SizeSmallMedium));
+    addItem(i18n("%1 by %1 pixels", KIconLoader::SizeMedium));
+    addItem(i18n("%1 by %1 pixels", KIconLoader::SizeLarge));
+    addItem(i18n("%1 by %1 pixels", KIconLoader::SizeHuge));
+    addItem(i18n("%1 by %1 pixels", KIconLoader::SizeEnormous));
     setCurrentIndex(2);
 }
 
@@ -94,17 +94,17 @@ int IconSizeCombo::iconSize()
     switch (currentIndex()) {
     default:
     case 0:
-        return 16;
+        return KIconLoader::SizeSmall;
     case 1:
-        return 22;
+        return KIconLoader::SizeSmallMedium;
     case 2:
-        return 32;
+        return KIconLoader::SizeMedium;
     case 3:
-        return 48;
+        return KIconLoader::SizeLarge;
     case 4:
-        return 64;
+        return KIconLoader::SizeHuge;
     case 5:
-        return 128;
+        return KIconLoader::SizeEnormous;
     }
 }
 
@@ -112,22 +112,22 @@ void IconSizeCombo::setSize(int size)
 {
     switch (size) {
     default:
-    case 16:
+    case KIconLoader::SizeSmall:
         setCurrentIndex(0);
         break;
-    case 22:
+    case KIconLoader::SizeSmallMedium:
         setCurrentIndex(1);
         break;
-    case 32:
+    case KIconLoader::SizeMedium:
         setCurrentIndex(2);
         break;
-    case 48:
+    case KIconLoader::SizeLarge:
         setCurrentIndex(3);
         break;
-    case 64:
+    case KIconLoader::SizeHuge:
         setCurrentIndex(4);
         break;
-    case 128:
+    case KIconLoader::SizeEnormous:
         setCurrentIndex(5);
         break;
     }
@@ -222,40 +222,40 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     QListWidget *iconView = new UndraggableKIconView(page);
 
     QIcon desktopIcon = QIcon::fromTheme(icon);
-    m_size16 = new QListWidgetItem(desktopIcon.pixmap(QSize(16, 16)), i18n("16 by 16 pixels"), iconView);
-    m_size22 = new QListWidgetItem(desktopIcon.pixmap(QSize(22, 2)), i18n("22 by 22 pixels"), iconView);
-    m_size32 = new QListWidgetItem(desktopIcon.pixmap(QSize(32, 32)), i18n("32 by 32 pixels"), iconView);
-    m_size48 = new QListWidgetItem(desktopIcon.pixmap(QSize(48, 48)), i18n("48 by 48 pixels"), iconView);
-    m_size64 = new QListWidgetItem(desktopIcon.pixmap(QSize(64, 64)), i18n("64 by 64 pixels"), iconView);
-    m_size128 = new QListWidgetItem(desktopIcon.pixmap(QSize(128, 128)), i18n("128 by 128 pixels"), iconView);
-    iconView->setIconSize(QSize(128, 128));
+    m_size16 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeSmall),       i18n("%1 by %1 pixels", KIconLoader::SizeSmall),       iconView);
+    m_size22 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeSmallMedium), i18n("%1 by %1 pixels", KIconLoader::SizeSmallMedium), iconView);
+    m_size32 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeMedium),      i18n("%1 by %1 pixels", KIconLoader::SizeMedium),      iconView);
+    m_size48 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeLarge),       i18n("%1 by %1 pixels", KIconLoader::SizeLarge),       iconView);
+    m_size64 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeHuge),        i18n("%1 by %1 pixels", KIconLoader::SizeHuge),        iconView);
+    m_size128 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeEnormous),   i18n("%1 by %1 pixels", KIconLoader::SizeEnormous),    iconView);
+    iconView->setIconSize(QSize(KIconLoader::SizeEnormous, KIconLoader::SizeEnormous));  //128x128
     iconView->setMinimumSize(QSize(128 * 6 + (6 + 2) * iconView->spacing() + 20, m_size128->sizeHint().height() + 2 * iconView->spacing() + 20));
     topLayout->addWidget(iconView);
     switch (iconSize) {
-    case 16:
+    case KIconLoader::SizeSmall:
         m_size16->setSelected(true);
-        m_iconSize = 16;
+        m_iconSize = KIconLoader::SizeSmall;
         break;
-    case 22:
+    case KIconLoader::SizeSmallMedium:
         m_size22->setSelected(true);
-        m_iconSize = 22;
+        m_iconSize = KIconLoader::SizeSmallMedium;
         break;
     default:
-    case 32:
+    case KIconLoader::SizeMedium:
         m_size32->setSelected(true);
-        m_iconSize = 32;
+        m_iconSize = KIconLoader::SizeMedium;
         break;
-    case 48:
+    case KIconLoader::SizeLarge:
         m_size48->setSelected(true);
-        m_iconSize = 48;
+        m_iconSize = KIconLoader::SizeLarge;
         break;
-    case 64:
+    case KIconLoader::SizeHuge:
         m_size64->setSelected(true);
-        m_iconSize = 64;
+        m_iconSize = KIconLoader::SizeHuge;
         break;
-    case 128:
+    case KIconLoader::SizeEnormous:
         m_size128->setSelected(true);
-        m_iconSize = 128;
+        m_iconSize = KIconLoader::SizeEnormous;
         break;
     }
 
@@ -283,57 +283,57 @@ void IconSizeDialog::slotSelectionChanged()
 {
     // Change m_iconSize to the new selected one:
     if (m_size16->isSelected()) {
-        m_iconSize = 16;
+        m_iconSize = KIconLoader::SizeSmall;
         return;
     }
     if (m_size22->isSelected()) {
-        m_iconSize = 22;
+        m_iconSize = KIconLoader::SizeSmallMedium;
         return;
     }
     if (m_size32->isSelected()) {
-        m_iconSize = 32;
+        m_iconSize = KIconLoader::SizeMedium;
         return;
     }
     if (m_size48->isSelected()) {
-        m_iconSize = 48;
+        m_iconSize = KIconLoader::SizeLarge;
         return;
     }
     if (m_size64->isSelected()) {
-        m_iconSize = 64;
+        m_iconSize = KIconLoader::SizeHuge;
         return;
     }
     if (m_size128->isSelected()) {
-        m_iconSize = 128;
+        m_iconSize = KIconLoader::SizeEnormous;
         return;
     }
 
     // But if user unselected the item (by eg. right clicking a free space), reselect the last one:
     switch (m_iconSize) {
-    case 16:
-        m_size16->setSelected(true);
-        m_iconSize = 16;
-        break;
-    case 22:
-        m_size22->setSelected(true);
-        m_iconSize = 22;
-        break;
-    default:
-    case 32:
-        m_size32->setSelected(true);
-        m_iconSize = 32;
-        break;
-    case 48:
-        m_size48->setSelected(true);
-        m_iconSize = 48;
-        break;
-    case 64:
-        m_size64->setSelected(true);
-        m_iconSize = 64;
-        break;
-    case 128:
-        m_size128->setSelected(true);
-        m_iconSize = 128;
-        break;
+        case KIconLoader::SizeSmall:
+            m_size16->setSelected(true);
+            m_iconSize = KIconLoader::SizeSmall;
+            break;
+        case KIconLoader::SizeSmallMedium:
+            m_size22->setSelected(true);
+            m_iconSize = KIconLoader::SizeSmallMedium;
+            break;
+        default:
+        case KIconLoader::SizeMedium:
+            m_size32->setSelected(true);
+            m_iconSize = KIconLoader::SizeMedium;
+            break;
+        case KIconLoader::SizeLarge:
+            m_size48->setSelected(true);
+            m_iconSize = KIconLoader::SizeLarge;
+            break;
+        case KIconLoader::SizeHuge:
+            m_size64->setSelected(true);
+            m_iconSize = KIconLoader::SizeHuge;
+            break;
+        case KIconLoader::SizeEnormous:
+            m_size128->setSelected(true);
+            m_iconSize = KIconLoader::SizeEnormous;
+            break;
     }
 }
 

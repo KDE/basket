@@ -217,11 +217,11 @@ QString Tools::crossReferenceForBasket(QStringList linkParts)
 
     QString css = LinkLook::crossReferenceLook->toCSS("cross_reference", QColor());
     QString classes = "cross_reference";
-    classes += (linkIsEmpty ? " xref_empty" : "");
+    classes += (linkIsEmpty ? " xref_empty" : QString());
 
     css += (linkIsEmpty ? " a.xref_empty { display: block; width: 100%; text-decoration: underline; color: #CC2200; }"
                           " a:hover.xref_empty { color: #A55858; }"
-                        : "");
+                        : QString());
 
     QString anchor = "<style>" + css + "</style><a href=\"" + basketLink + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
@@ -262,11 +262,11 @@ QString Tools::crossReferenceForHtml(QStringList linkParts, HTMLExporter *export
     }
 
     QString classes = "cross_reference";
-    classes += (linkIsEmpty ? " xref_empty" : "");
+    classes += (linkIsEmpty ? " xref_empty" : QString());
 
     QString css = (linkIsEmpty ? " a.xref_empty { display: block; width: 100%; text-decoration: underline; color: #CC2200; }"
                                  " a:hover.xref_empty { color: #A55858; }"
-                               : "");
+                               : QString());
 
     QString anchor = "<style>" + css + "</style><a href=\"" + url + "\" class=\"" + classes + "\">" + QUrl::fromPercentEncoding(title.toUtf8()) + "</a>";
     return anchor;
@@ -293,19 +293,14 @@ QString Tools::crossReferenceForConversion(QStringList linkParts)
     QString url = Global::bnpView->folderFromBasketNameLink(pages);
 
     url.prepend("basket://");
-    QString anchor;
 
     // if we don't change the link return it back exactly
     // as it came in because it may not be a link.
     if (url == "basket://" || url.isEmpty()) {
-        QString returnValue = "";
-        foreach (QString s, linkParts)
-            returnValue.append(s);
-        anchor = returnValue.prepend("[[").append("]]");
-    } else
-        anchor = QString("[[%1|%2]]").arg(url, title);
-
-    return anchor;
+        return linkParts.join(QString()).prepend("[[").append("]]");
+    } else {
+        return QString("[[%1|%2]]").arg(url, title);
+    }
 }
 
 QString Tools::htmlToText(const QString &html)
@@ -369,9 +364,9 @@ QString Tools::htmlToText(const QString &html)
             // And replace li with "* ", "x. "... without forbidding to indent that:
             if (tag == "li") {
                 // How many spaces before the line (indentation):
-                QString spaces = "";
+                QString spaces;
                 for (int i = 1; i < deep; i++)
-                    spaces += "  ";
+                    spaces += QStringLiteral("  ");
                 // The bullet or number of the line:
                 QString bullet = "* ";
                 if (ul.back() == false) {
@@ -396,7 +391,7 @@ QString Tools::htmlToText(const QString &html)
 
     // HtmlContent produces "\n" for empty note
     if (text == "\n")
-        text = "";
+        text = QString();
 
     return text;
 }
@@ -502,21 +497,34 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
 QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
 {
     // The font definition:
-    QString definition = QString(font.italic() ? "italic " : "") + QString(font.bold() ? "bold " : "") + QString::number(QFontInfo(font).pixelSize()) + "px ";
+    QString definition = font.key()
+                         + (font.italic() ? QStringLiteral("italic ") : QString())
+                         + (font.bold() ? QStringLiteral("bold ") : QString())
+                         + QString::number(QFontInfo(font).pixelSize()) + QStringLiteral("px ");
 
     // Then, try to match the font name with a standard CSS font family:
-    QString genericFont = "";
-    if (definition.contains("serif", Qt::CaseInsensitive) || definition.contains("roman", Qt::CaseInsensitive))
-        genericFont = "serif";
+    QString genericFont;
+    if (definition.contains("serif", Qt::CaseInsensitive)
+            || definition.contains("roman", Qt::CaseInsensitive)) {
+        genericFont = QStringLiteral("serif");
+    }
     // No "else if" because "sans serif" must be counted as "sans". So, the order between "serif" and "sans" is important
-    if (definition.contains("sans", Qt::CaseInsensitive) || definition.contains("arial", Qt::CaseInsensitive) || definition.contains("helvetica", Qt::CaseInsensitive))
-        genericFont = "sans-serif";
-    if (definition.contains("mono", Qt::CaseInsensitive) || definition.contains("courier", Qt::CaseInsensitive) || definition.contains("typewriter", Qt::CaseInsensitive) || definition.contains("console", Qt::CaseInsensitive) ||
-        definition.contains("terminal", Qt::CaseInsensitive) || definition.contains("news", Qt::CaseInsensitive))
-        genericFont = "monospace";
+    if (definition.contains("sans", Qt::CaseInsensitive)
+            || definition.contains("arial", Qt::CaseInsensitive)
+            || definition.contains("helvetica", Qt::CaseInsensitive)) {
+        genericFont = QStringLiteral("sans-serif");
+    }
+    if (definition.contains("mono", Qt::CaseInsensitive)
+            || definition.contains("courier", Qt::CaseInsensitive)
+            || definition.contains("typewriter", Qt::CaseInsensitive)
+            || definition.contains("console", Qt::CaseInsensitive)
+            || definition.contains("terminal", Qt::CaseInsensitive)
+            || definition.contains("news", Qt::CaseInsensitive)) {
+        genericFont = QStringLiteral("monospace");
+    }
 
     // Eventually add the generic font family to the definition:
-    QString fontDefinition = "\"" + font.family() + "\"";
+    QString fontDefinition = QStringLiteral("\"%1\"").arg(font.family());
     if (!genericFont.isEmpty())
         fontDefinition += ", " + genericFont;
 
@@ -534,7 +542,7 @@ QString Tools::stripEndWhiteSpaces(const QString &string)
         if (!string[i - 1].isSpace())
             break;
     if (i == 0)
-        return "";
+        return QString();
     else
         return string.left(i);
 }
@@ -658,7 +666,7 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
 {
     QString fileName = wantedName;
     QString fullName = destFolder + fileName;
-    QString extension = "";
+    QString extension = QString();
     int number = 2;
     QDir dir;
 
@@ -673,7 +681,7 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
     if (extIndex != -1 && extIndex != int(fileName.length() - 1)) { // Extension found and fileName do not ends with '.' !
         extension = fileName.mid(extIndex);
         fileName.truncate(extIndex);
-    } // else fileName = fileName and extension = ""
+    } // else fileName = fileName and extension = QString()
 
     // Find the file number, if it exists : Split fileName in fileName and number
     // Example : fileName == "note5-3" => fileName = "note5" and number = 3

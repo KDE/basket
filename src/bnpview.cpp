@@ -202,7 +202,13 @@ void BNPView::lateInit()
         }
         if (topLevelItemCount() <= 0) {
             // Create first basket:
-            BasketFactory::newBasket(/*icon=*/"", /*name=*/i18n("General"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+            BasketFactory::newBasket(QString(),                 //icon
+                                     i18n("General"),           //name
+                                     QString(),                 //backgroundImage
+                                     QColor(),                  //backgroundColor
+                                     QColor(),                  //textColor
+                                     QStringLiteral("1column"), //templateName
+                                     0);                        //createIn
             GitWrapper::commitBasket(currentBasket());
             GitWrapper::commitTagsXml();
         }
@@ -1378,7 +1384,13 @@ void BNPView::removeBasket(BasketScene *basket)
 
     // If there is no basket anymore, add a new one:
     if (!nextBasketItem)
-        BasketFactory::newBasket(/*icon=*/"", /*name=*/i18n("General"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+        BasketFactory::newBasket(QString(),                //icon
+                                i18n("General"),           //name
+                                QString(),                 //backgroundImage
+                                QColor(),                  //backgroundColor
+                                QColor(),                  //textColor
+                                QStringLiteral("1column"), //templateName
+                                0);                        //createIn
     else // No need to save two times if we add a basket
         save();
 }
@@ -1684,7 +1696,7 @@ void BNPView::checkCleanup()
     QFileInfo fileInfo;
     QDir topDir(Global::basketsFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
     foreach (topDirEntry, topDir.entryList()) {
-        if (topDirEntry != "." && topDirEntry != "..") {
+        if (topDirEntry != QLatin1String(".") && topDirEntry != QLatin1String("..")) {
             fileInfo.setFile(Global::basketsFolder() + '/' + topDirEntry);
             if (fileInfo.isDir()) {
                 dirList << topDirEntry + '/';
@@ -2232,14 +2244,14 @@ void BNPView::saveAsArchive()
     Archive::save(basket, withSubBaskets, destination);
 }
 
-QString BNPView::s_fileToOpen = "";
+QString BNPView::s_fileToOpen;
 
 void BNPView::delayedOpenArchive()
 {
     Archive::open(s_fileToOpen);
 }
 
-QString BNPView::s_basketToOpen = "";
+QString BNPView::s_basketToOpen;
 
 void BNPView::delayedOpenBasket()
 {
@@ -2249,10 +2261,11 @@ void BNPView::delayedOpenBasket()
 
 void BNPView::openArchive()
 {
-    QString filter = "*.baskets|" + i18n("Basket Archives") + "\n*|" + i18n("All Files");
+    QString filter = QStringLiteral("*.baskets|") + i18n("Basket Archives") + QStringLiteral("\n*|") + i18n("All Files");
     QString path = QFileDialog::getOpenFileName(this, i18n("Open Basket Archive"), QString(), filter);
-    if (!path.isEmpty()) // User has not canceled
+    if (!path.isEmpty()) { // User has not canceled
         Archive::open(path);
+    }
 }
 
 void BNPView::activatedTagShortcut()
@@ -2370,14 +2383,14 @@ void BNPView::showPassiveDroppedDelayed()
     QString title = m_passiveDroppedTitle;
 
     QImage contentsImage = NoteDrag::feedbackPixmap(m_passiveDroppedSelection).toImage();
-    QResource::registerResource(contentsImage.bits(), ":/images/passivepopup_image");
+    QResource::registerResource(contentsImage.bits(), QStringLiteral(":/images/passivepopup_image"));
 
     if (Settings::useSystray()) {
         /*Uncomment after switching to QSystemTrayIcon or port to KStatusNotifierItem
          See also other occurrences of Global::systemTray below*/
         /*KPassivePopup::message(KPassivePopup::Boxed,
             title.arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-            (contentsImage.isNull() ? "" : "<img src=\":/images/passivepopup_image\">"),
+            (contentsImage.isNull() ? QString() : QStringLiteral("<img src=\":/images/passivepopup_image\">")),
             KIconLoader::global()->loadIcon(
                 currentBasket()->icon(), KIconLoader::NoGroup, 16,
                 KIconLoader::DefaultState, QStringList(), 0L, true
@@ -2386,7 +2399,7 @@ void BNPView::showPassiveDroppedDelayed()
     } else {
         KPassivePopup::message(KPassivePopup::Boxed,
                                title.arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-                               (contentsImage.isNull() ? "" : "<img src=\":/images/passivepopup_image\">"),
+                               (contentsImage.isNull() ? QString() : QStringLiteral("<img src=\":/images/passivepopup_image\">")),
                                KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true),
                                (QWidget *)this);
     }
@@ -2934,7 +2947,7 @@ void BNPView::loadCrossReference(QString link)
 
 QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent)
 {
-    QString found = "";
+    QString found;
 
     QString page = pages.first();
 
@@ -2982,7 +2995,7 @@ QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *pa
                     }
                 }
             } else
-                found = "";
+                found = QString();
         }
     }
 

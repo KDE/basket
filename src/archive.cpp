@@ -60,7 +60,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     QString tempDestination = tempFolder + "temp-archive.tar.gz";
     KTar tar(tempDestination, "application/x-gzip");
     tar.open(QIODevice::WriteOnly);
-    tar.writeDir("baskets", "", "");
+    tar.writeDir(QStringLiteral("baskets"), QString(), QString());
 
     dialog.setValue(dialog.value() + 1); // Preparation finished
 
@@ -274,7 +274,7 @@ void Archive::open(const QString &path)
                 value = line.right(line.length() - index - 1);
             } else {
                 key = line;
-                value = "";
+                value = QString();
             }
             if (key == "version") {
                 version = value;

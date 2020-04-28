@@ -125,7 +125,7 @@ void BasketStatusBar::setStatusBarHint(const QString &hint)
 
 void BasketStatusBar::updateStatusBarHint()
 {
-    QString message = "";
+    QString message;
 
     if (Global::bnpView->currentBasket()->isDuringDrag())
         message = i18n("Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link.");

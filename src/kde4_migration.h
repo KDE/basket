@@ -138,7 +138,7 @@ private:
     {
         KSharedConfig::Ptr basketConfig = KSharedConfig::openConfig(BASKET_RC);
         KConfigGroup config = basketConfig->group("Main window");
-        return config.readEntry("dataFolder", "");
+        return config.readEntry("dataFolder", QString());
     }
 };
 

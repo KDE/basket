@@ -64,10 +64,10 @@ QString PasswordDlg::key() const
 {
     QString s = w->keyCombo->currentText();
     if (s.length() < 16)
-        return "";
+        return QString();
     int n = s.lastIndexOf(' ');
     if (n < 0)
-        return "";
+        return QString();
     return s.mid(n + 1);
 }
 

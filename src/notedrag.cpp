@@ -108,7 +108,7 @@ void NoteDrag::serializeNotes(NoteSelection *noteList, QDataStream &stream, bool
                 } else
                     stream << content->fullPath();
             } else
-                stream << QString("");
+                stream << QString(QString());
             stream << content->note()->addedDate() << content->note()->lastModificationDate();
             content->serialize(stream);
             State::List states = node->note->states();
@@ -127,7 +127,7 @@ void NoteDrag::serializeText(NoteSelection *noteList, QDrag *multipleDrag)
     for (NoteSelection *node = noteList->firstStacked(); node; node = node->nextStacked()) {
         text = node->note->toText(node->fullPath); // note->toText() and not note->content()->toText() because the first one will also export the tags as text.
         if (!text.isEmpty())
-            textEquivalent += (!textEquivalent.isEmpty() ? "\n" : "") + text;
+            textEquivalent += (!textEquivalent.isEmpty() ? "\n" : QString()) + text;
     }
     if (!textEquivalent.isEmpty()) {
         QMimeData *mimeData = new QMimeData;
@@ -141,9 +141,9 @@ void NoteDrag::serializeHtml(NoteSelection *noteList, QDrag *multipleDrag)
     QString htmlEquivalent;
     QString html;
     for (NoteSelection *node = noteList->firstStacked(); node; node = node->nextStacked()) {
-        html = node->note->content()->toHtml("", node->fullPath);
+        html = node->note->content()->toHtml(QString(), node->fullPath);
         if (!html.isEmpty())
-            htmlEquivalent += (!htmlEquivalent.isEmpty() ? "<br>\n" : "") + html;
+            htmlEquivalent += (!htmlEquivalent.isEmpty() ? "<br>\n" : QString()) + html;
     }
     if (!htmlEquivalent.isEmpty()) {
         // Add HTML flavour:
@@ -218,7 +218,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
         // FIXME: If no, only provide that if there is only ONE URL.
         QString xMozUrl;
         for (int i = 0; i < urls.count(); ++i)
-            xMozUrl += (xMozUrl.isEmpty() ? "" : "\n") + urls[i].toDisplayString() + '\n' + titles[i];
+            xMozUrl += (xMozUrl.isEmpty() ? QString() : "\n") + urls[i].toDisplayString() + '\n' + titles[i];
         /*      Code for only one: ===============
                 xMozUrl = note->title() + "\n" + note->url().toDisplayString();*/
         QByteArray baMozUrl;
@@ -262,7 +262,7 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
     static const int SPACING = 1;
 
     QColor textColor = noteList->firstStacked()->note->basket()->textColor();
-    QColor backgroundColor = noteList->firstStacked()->note->basket()->backgroundColor().dark(NoteContent::FEEDBACK_DARKING);
+    QColor backgroundColor = noteList->firstStacked()->note->basket()->backgroundColor().darker(NoteContent::FEEDBACK_DARKING);
 
     QList<QPixmap> pixmaps;
     QList<QColor> backgrounds;
@@ -315,14 +315,14 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
         int i = 0;
         for (it = pixmaps.begin(), it2 = backgrounds.begin(), it3 = spaces.begin(); it != pixmaps.end(); ++it, ++it2, ++it3, ++i) {
             if (i != 0 && (*it3)) {
-                painter.fillRect(MARGIN, height, result.width() - 2 * MARGIN, SPACING, (*it2).dark(NoteContent::FEEDBACK_DARKING));
+                painter.fillRect(MARGIN, height, result.width() - 2 * MARGIN, SPACING, (*it2).darker(NoteContent::FEEDBACK_DARKING));
                 ++height;
             }
             painter.drawPixmap(MARGIN, height, *it);
             if ((*it).width() < width)
-                painter.fillRect(MARGIN + (*it).width(), height, width - (*it).width(), (*it).height(), (*it2).dark(NoteContent::FEEDBACK_DARKING));
+                painter.fillRect(MARGIN + (*it).width(), height, width - (*it).width(), (*it).height(), (*it2).darker(NoteContent::FEEDBACK_DARKING));
             if (*it3) {
-                painter.fillRect(MARGIN, height + (*it).height(), result.width() - 2 * MARGIN, SPACING, (*it2).dark(NoteContent::FEEDBACK_DARKING));
+                painter.fillRect(MARGIN, height + (*it).height(), result.width() - 2 * MARGIN, SPACING, (*it2).darker(NoteContent::FEEDBACK_DARKING));
                 ++height;
             }
             painter.fillRect(MARGIN, height + (*it).height(), result.width() - 2 * MARGIN, SPACING, Tools::mixColor(textColor, backgroundColor));
@@ -497,7 +497,7 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                 // (while dropping several files at once a filename cannot be used by two of them).
                 // Later on, file_copy/file_move will copy/move the file to the new location.
                 QString newFileName = Tools::fileNameForNewFile(fileName, parent->fullPath());
-                // NoteFactory::createFileForNewNote(parent, "", fileName);
+                // NoteFactory::createFileForNewNote(parent, QString(), fileName);
                 KIO::CopyJob *copyJob;
                 if (moveFiles) {
                     copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);

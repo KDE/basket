@@ -93,7 +93,7 @@ class NoteContent
 {
 public:
     // Constructor and destructor:
-    explicit NoteContent(Note *parent, const QString &fileName = ""); /// << Constructor. Inherited notes should call it to initialize the parent note.
+    explicit NoteContent(Note *parent, const QString &fileName = QString()); /// << Constructor. Inherited notes should call it to initialize the parent note.
     virtual ~NoteContent()
     {
     } /// << Virtual destructor. Reimplement it if you should destroy some data your custom types.
@@ -130,8 +130,8 @@ public:
     } /// << Save the content to the file. The default implementation does nothing. @see fileName().
     virtual QString linkAt(const QPointF & /*pos*/)
     {
-        return "";
-    }                                                  /// << @return the link anchor at position @p pos or "" if there is no link.
+        return QString();
+    }                                                  /// << @return the link anchor at position @p pos or QString() if there is no link.
     virtual void saveToNode(QXmlStreamWriter &stream); /// << Save the note in the basket XML file. By default it store the filename if a file is used.
     virtual void fontChanged() = 0;                    /// << If your content display textual data, called when the font have changed (from tags or basket font)
     virtual void linkLookChanged()
@@ -149,7 +149,7 @@ public:
     virtual QRectF zoneRect(int /*zone*/, const QPointF & /*pos*/); /// << Idem, @return the rect of the custom zone
     virtual QString zoneTip(int /*zone*/)
     {
-        return "";
+        return QString();
     } /// << Idem, @return the toolTip of the custom zone
     virtual Qt::CursorShape cursorFromZone(int /*zone*/) const
     {
@@ -160,8 +160,8 @@ public:
     } /// << If your note type need some feedback, you get notified of hovering changes here.
     virtual QString statusBarMessage(int /*zone*/)
     {
-        return "";
-    } /// << @return the statusBar message to show for zone @p zone, or "" if nothing special have to be said.
+        return QString();
+    } /// << @return the statusBar message to show for zone @p zone, or QString() if nothing special have to be said.
     // Drag and Drop Content:
     virtual void serialize(QDataStream & /*stream*/)
     {

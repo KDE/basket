@@ -132,10 +132,10 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     filesFolderPath = i18nc("HTML export folder (files)", "%1_files", filePath) + '/';
     if (isSubBasket) {
         basketFilePath = basketsFolderPath + basket->folderName().left(basket->folderName().length() - 1) + ".html";
-        filesFolderName = "../";
+        filesFolderName = QStringLiteral("../");
         dataFolderName = basket->folderName().left(basket->folderName().length() - 1) + '-' + i18nc("HTML export folder (data)", "data") + '/';
         dataFolderPath = basketsFolderPath + dataFolderName;
-        basketsFolderName = "";
+        basketsFolderName = QString();
     } else {
         basketFilePath = filePath;
         filesFolderName = i18nc("HTML export folder (files)", "%1_files", QUrl::fromLocalFile(filePath).fileName()) + '/';
@@ -143,8 +143,10 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         dataFolderPath = filesFolderPath + i18nc("HTML export folder (data)", "data") + '/';
         basketsFolderName = filesFolderName + i18nc("HTML export folder (baskets)", "baskets") + '/';
     }
-    iconsFolderName = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (icons)", "icons") + '/';    // eg.: "foo.html_files/icons/"   or "../icons/"
-    imagesFolderName = (isSubBasket ? "../" : filesFolderName) + i18nc("HTML export folder (images)", "images") + '/'; // eg.: "foo.html_files/images/"  or "../images/"
+    iconsFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName)
+                       + i18nc("HTML export folder (icons)", "icons") + QLatin1Char('/');    // eg.: "foo.html_files/icons/"   or "../icons/"
+    imagesFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName)
+                        + i18nc("HTML export folder (images)", "images")  + QLatin1Char('/'); // eg.: "foo.html_files/images/"  or "../images/"
 
     qDebug() << "Exporting ================================================";
     qDebug() << "  filePath:" << filePath;
@@ -327,7 +329,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
     QString spaces;
 
     if (note->isColumn()) {
-        QString width = "";
+        QString width;
         if (false /*TODO: DEBUG AND REENABLE: hasResizer()*/) {
             // As we cannot be precise in CSS (say eg. "width: 50%-40px;"),
             // we output a percentage that is approximately correct.
@@ -421,7 +423,7 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
 {
     // Compute variable HTML code:
     QString spaces;
-    QString cssClass = (basket == currentBasket ? " class=\"current\"" : "");
+    QString cssClass = (basket == currentBasket ? QStringLiteral(" class=\"current\"") : QString());
     QString link('#');
     if (currentBasket != basket) {
         if (currentBasket == exportedBasket) {
@@ -432,7 +434,7 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
             link = basket->folderName().left(basket->folderName().length() - 1) + ".html";
         }
     }
-    QString spanStyle = "";
+    QString spanStyle;
     if (basket->backgroundColorSetting().isValid() || basket->textColorSetting().isValid()) {
         spanStyle = " style=\"background-color: " + basket->backgroundColor().name() + "; color: " + basket->textColor().name() + "\"";
     }
@@ -466,15 +468,17 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
  */
 QString HTMLExporter::copyIcon(const QString &iconName, int size)
 {
-    if (iconName.isEmpty())
-        return "";
+    if (iconName.isEmpty()) {
+        return QString();
+    }
 
     // Sometimes icon can be "favicons/www.kde.org", we replace the '/' with a '_'
     QString fileName = iconName; // QString::replace() isn't const, so I must copy the string before
     fileName = "ico" + QString::number(size) + '_' + fileName.replace('/', '_') + ".png";
     QString fullPath = iconsFolderPath + fileName;
-    if (!QFile::exists(fullPath))
-        DesktopIcon(iconName, size).save(fullPath, "PNG");
+    if (!QFile::exists(fullPath)) {
+        QIcon::fromTheme(iconName).pixmap(size, KIconLoader::Desktop).save(fullPath, "PNG");
+    }
     return fileName;
 }
 

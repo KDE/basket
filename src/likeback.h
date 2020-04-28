@@ -269,7 +269,7 @@ public slots:
      *                       is commenting a thing he found/thinked about in a sub-dialog.
      * @param context        Not used for the moment. Will allow more fine-grained application status report.
      */
-    void execCommentDialog(Button type = AllButtons, const QString &initialComment = "", const QString &windowPath = "", const QString &context = "");
+    void execCommentDialog(Button type = AllButtons, const QString &initialComment = QString(), const QString &windowPath = QString(), const QString &context = QString());
 
     /**
      * Popups the dialog for the user to set his email address.

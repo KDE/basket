@@ -192,7 +192,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
 
             // And create the Url note (or launcher if URL point a .desktop file)
             list.append(*it);
-            list.append(""); // We don't have any title
+            list.append(QString()); // We don't have any title
         } else
             return QStringList(); // FAILED: treat the text as a text, and not as a URL list!
     }
@@ -249,7 +249,7 @@ Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
 Note *NoteFactory::createNoteLauncher(const QUrl &url, BasketScene *parent)
 {
     if (url.isEmpty())
-        return createNoteLauncher("", "", "", parent);
+        return createNoteLauncher(QString(), QString(), QString(), parent);
     else
         return copyFileAndLoad(url, parent);
 }
@@ -491,7 +491,7 @@ Note *NoteFactory::createNoteUnknown(const QMimeData *source, BasketScene *paren
         stream << QString(formats[i]); // Output the '\0'-terminated format name string
 
     // Echo end of MIME types list delimiter:
-    stream << "";
+    stream << QString();
 
     // Echo the length (in bytes) and then the data, and then same for next MIME type:
     for (int i = 0; formats.size(); ++i) {
@@ -925,7 +925,7 @@ QString NoteFactory::titleForURL(const QUrl &url)
             title.truncate(title.length() - 11); // 11 == QString("/index.php5").length()
     }
 
-    if (title.length() > 2 && title.endsWith('/')) // length > 2 because "/" and "~/" shouldn't be transformed to "" and "~"
+    if (title.length() > 2 && title.endsWith('/')) // length > 2 because "/" and "~/" shouldn't be transformed to QString() and "~"
         title.truncate(title.length() - 1);        // eg. transform "www.kde.org/" to "www.kde.org"
 
     return title;
@@ -933,12 +933,11 @@ QString NoteFactory::titleForURL(const QUrl &url)
 
 QString NoteFactory::iconForURL(const QUrl &url)
 {
-    QString icon = "";
-    if (url.scheme() == "mailto")
-        icon = "message";
-    //    else
-    //        icon = KMimeType::iconNameForUrl(url.url());
-    return icon;
+    if (url.scheme() == "mailto") {
+        return QStringLiteral("message");
+    }
+    // return KMimeType::iconNameForUrl(url.url());
+    return QString();
 }
 
 // TODO: Can I add "autoTitle" and "autoIcon" entries to .desktop files? or just store them in basket, as now...
@@ -977,9 +976,9 @@ Note *NoteFactory::createEmptyNote(NoteType::Id type, BasketScene *parent)
     QPixmap *pixmap;
     switch (type) {
     case NoteType::Text:
-        return NoteFactory::createNoteText("", parent, /*reallyPlainText=*/true);
+        return NoteFactory::createNoteText(QString(), parent, /*reallyPlainText=*/true);
     case NoteType::Html:
-        return NoteFactory::createNoteHtml("", parent);
+        return NoteFactory::createNoteHtml(QString(), parent);
     case NoteType::Image:
         pixmap = new QPixmap(QSize(Settings::defImageX(), Settings::defImageY()));
         pixmap->fill();
@@ -1027,7 +1026,7 @@ Note *NoteFactory::importIcon(BasketScene *parent)
         if (dialog->iconSize() > 0) {
             Settings::setDefIconSize(dialog->iconSize());
             Settings::saveConfig();
-            return createNoteImage(DesktopIcon(iconName, dialog->iconSize()), parent); // TODO: wantedName = iconName !
+            return createNoteImage(QIcon::fromTheme(iconName).pixmap(dialog->iconSize()), parent); // TODO: wantedName = iconName !
         }
     }
     return 0;
@@ -1035,7 +1034,7 @@ Note *NoteFactory::importIcon(BasketScene *parent)
 
 Note *NoteFactory::importFileContent(BasketScene *parent)
 {
-    QUrl url = QFileDialog::getOpenFileUrl(parent->graphicsView(), i18n("Load File Content into a Note"), QUrl(), "");
+    QUrl url = QFileDialog::getOpenFileUrl(parent->graphicsView(), i18n("Load File Content into a Note"), QUrl(), QString());
     if (!url.isEmpty())
         return copyFileAndLoad(url, parent);
     return 0;

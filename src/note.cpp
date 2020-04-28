@@ -170,13 +170,13 @@ QString Note::toText(const QString &cuttedFullPath)
         if (otherLines.isEmpty())
             return firstLine + text;
         QStringList lines = text.split('\n');
-        QString result = firstLine + lines[0] + (lines.count() > 1 ? "\n" : "");
+        QString result = firstLine + lines[0] + (lines.count() > 1 ? "\n" : QString());
         for (int i = 1 /*Skip the first line*/; i < lines.count(); ++i)
-            result += otherLines + lines[i] + (i < lines.count() - 1 ? "\n" : "");
+            result += otherLines + lines[i] + (i < lines.count() - 1 ? "\n" : QString());
 
         return result;
     } else
-        return "";
+        return QString();
 }
 
 bool Note::computeMatching(const FilterData &data)
@@ -299,7 +299,7 @@ QString Note::fullPath()
     if (content())
         return basket()->fullPath() + content()->fileName();
     else
-        return "";
+        return QString();
 }
 
 /*void Note::update()
@@ -1215,8 +1215,8 @@ QColor expanderBackground(qreal height, qreal y, const QColor &foreground)
     if (height <= 3 || y <= 0 || y >= height - 1)
         return foreground;
 
-    QColor dark = foreground.dark(110);   // 1/1.1 of brightness
-    QColor light = foreground.light(150); // 50% brighter
+    const QColor dark = foreground.darker(110);   // 1/1.1 of brightness
+    const QColor light = foreground.lighter(150); // 50% brighter
 
     qreal h1, h2, s1, s2, v1, v2;
     int ng;
@@ -1377,7 +1377,7 @@ void Note::drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal h
 void Note::drawInactiveResizer(QPainter *painter, qreal x, qreal y, qreal height, const QColor &background, bool column)
 {
     // If background color is too dark, we compute a lighter color instead of a darker:
-    QColor darkBgColor = (Tools::tooDark(background) ? background.light(120) : background.dark(105));
+    QColor darkBgColor = (Tools::tooDark(background) ? background.lighter(120) : background.darker(105));
     painter->fillRect(x, y, RESIZER_WIDTH, height, Tools::mixColor(background, darkBgColor, 2));
 }
 
@@ -1714,9 +1714,9 @@ void Note::draw(QPainter *painter, const QRectF & /*clipRect*/)
         QColor textColor = notePalette.color(QPalette::Text);
         QColor light = Tools::mixColor(textColor, background);
         QColor mid = Tools::mixColor(textColor, light);
-        painter2.setPen(light); // QPen(basket()->colorGroup().dark().light(150)));
+        painter2.setPen(light); // QPen(basket()->colorGroup().darker().lighter(150)));
         painter2.drawLine(xIcon, yIcon + 6, xIcon + 4, yIcon + 6);
-        painter2.setPen(mid); // QPen(basket()->colorGroup().dark()));
+        painter2.setPen(mid); // QPen(basket()->colorGroup().darker()));
         painter2.drawLine(xIcon + 1, yIcon + 7, xIcon + 3, yIcon + 7);
         painter2.setPen(textColor); // QPen(basket()->colorGroup().foreground()));
         painter2.drawPoint(xIcon + 2, yIcon + 8);
@@ -2285,7 +2285,7 @@ void Note::debug()
     else if (isGroup())
         qDebug() << ": Group";
     else
-        qDebug() << ": Content[" << content()->lowerTypeName() << "]: " << toText("");
+        qDebug() << ": Content[" << content()->lowerTypeName() << "]: " << toText(QString());
     qDebug();
 }
 
@@ -2496,7 +2496,7 @@ bool Note::saveAgain()
             result = false;
     }
     if (!result)
-        DEBUG_WIN << QString("Note::saveAgain returned false for %1:%2").arg((content() != NULL) ? content()->typeName() : "null", toText(""));
+        DEBUG_WIN << QString("Note::saveAgain returned false for %1:%2").arg((content() != NULL) ? content()->typeName() : "null", toText(QString()));
     return result;
 }
 

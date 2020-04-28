@@ -87,7 +87,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     setTabOrder(m_textColor, columnForm);
 
     backgroundImage->addItem(i18n("(None)"));
-    m_backgroundImagesMap.insert(0, "");
+    m_backgroundImagesMap.insert(0, QString());
     backgroundImage->setIconSize(QSize(100, 75));
     QStringList backgrounds = Global::backgroundManager->imageNames();
     int index = 1;

@@ -173,7 +173,7 @@ QString TextFileImportDialog::separator()
     else if (m_anotherSeparator->isChecked())
         return m_customSeparator->toPlainText();
     else if (m_all_in_one_choice->isChecked())
-        return "";
+        return QString();
     else
         return "\n\n";
 }
@@ -237,8 +237,8 @@ QString SoftwareImporters::fromTomboy(QString tomboy)
     tomboy.replace("</size:huge>", "</span>");
 
     // Internal links to other notes aren't supported yet by BasKet Note Pads:
-    tomboy.replace("<link:internal>", "");
-    tomboy.replace("</link:internal>", "");
+    tomboy.replace("<link:internal>", QString());
+    tomboy.replace("</link:internal>", QString());
 
     // Bullets
     tomboy.replace("<list>", "<ul>");
@@ -322,7 +322,7 @@ void SoftwareImporters::importKJots()
     if (list.isEmpty())
         return;
 
-    BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/i18n("From KJots"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+    BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/i18n("From KJots"), /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
     BasketScene *kjotsBasket = Global::bnpView->currentBasket();
 
     for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) { // For each file
@@ -335,7 +335,7 @@ void SoftwareImporters::importKJots()
             if (!buf.isNull() && buf.left(9) == "\\NewEntry") {
                 // First create a basket for it:
                 BasketFactory::newBasket(
-                    /*icon=*/"kjots", /*name=*/QUrl::fromLocalFile(file.fileName()).fileName(), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
+                    /*icon=*/"kjots", /*name=*/QUrl::fromLocalFile(file.fileName()).fileName(), /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
                 BasketScene *basket = Global::bnpView->currentBasket();
                 basket->load();
 
@@ -346,7 +346,7 @@ void SoftwareImporters::importKJots()
                         if (haveAnEntry) // Do not add note the first time
                             insertTitledNote(basket, title, Tools::stripEndWhiteSpaces(body));
                         title = buf.mid(10, buf.length()); // Problem : basket will be saved
-                        body = "";                         // New note will then be created //  EACH time a note is imported
+                        body = QString();                         // New note will then be created //  EACH time a note is imported
                         haveAnEntry = true;
                     } else if (buf.left(3) != "\\ID") { // Don't care of the ID
                         // Remove escaped '\' characters and append the text to the body
@@ -374,7 +374,7 @@ void SoftwareImporters::importKJots()
                 QString bookTitle = XMLWork::getElementText(doc->documentElement(), "KJotsBook/Title");
 
                 // First create a basket for it:
-                BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/bookTitle, /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
+                BasketFactory::newBasket(/*icon=*/"kjots", /*name=*/bookTitle, /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/kjotsBasket);
                 BasketScene *basket = Global::bnpView->currentBasket();
                 basket->load();
 
@@ -407,7 +407,7 @@ void SoftwareImporters::importKNotes()
             stream.setCodec("UTF-8");
 
             // First create a basket for it:
-            BasketFactory::newBasket(/*icon=*/"knotes", /*name=*/i18n("From KNotes"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+            BasketFactory::newBasket(/*icon=*/"knotes", /*name=*/i18n("From KNotes"), /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
             BasketScene *basket = Global::bnpView->currentBasket();
             basket->load();
 
@@ -437,8 +437,8 @@ void SoftwareImporters::importKNotes()
                     inVJournal = false;
                     inDescription = false;
                     isRichText = false;
-                    title = "";
-                    body = "";
+                    title = QString();
+                    body = QString();
                 } else
                     inDescription = false;
             }
@@ -477,7 +477,7 @@ void SoftwareImporters::importStickyNotes()
             continue;
 
         // First create a basket for it:
-        BasketFactory::newBasket(/*icon=*/"gnome", /*name=*/i18n("From Sticky Notes"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+        BasketFactory::newBasket(/*icon=*/"gnome", /*name=*/i18n("From Sticky Notes"), /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
         BasketScene *basket = Global::bnpView->currentBasket();
         basket->load();
 
@@ -504,7 +504,7 @@ QString loadUtf8FileToString(const QString &fileName)
         file.close();
         return text;
     } else
-        return "";
+        return QString();
 }
 
 void SoftwareImporters::importTomboy()
@@ -533,7 +533,7 @@ void SoftwareImporters::importTomboy()
 
             if (basketFromTomboy == 0) {
                 // First create a basket for it:
-                BasketFactory::newBasket(/*icon=*/IconNames::TOMBOY, /*name=*/i18n("From Tomboy"), /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+                BasketFactory::newBasket(/*icon=*/IconNames::TOMBOY, /*name=*/i18n("From Tomboy"), /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
                 basketFromTomboy = Global::bnpView->currentBasket();
                 basketFromTomboy->load();
             }
@@ -547,7 +547,7 @@ void SoftwareImporters::importTomboy()
                 if (subBuskets.contains(notebook))
                     subBasket = subBuskets[notebook];
                 else {
-                    BasketFactory::newBasket(IconNames::TOMBOY, notebook, "", QColor(), QColor(), "1column", /*createIn=*/basketFromTomboy);
+                    BasketFactory::newBasket(IconNames::TOMBOY, notebook, QString(), QColor(), QColor(), "1column", /*createIn=*/basketFromTomboy);
                     subBasket = Global::bnpView->currentBasket(); // TODO: ? change newBasket() so that it returns pointer and we don't have to load it
                     subBasket->load();
 
@@ -597,7 +597,7 @@ void SoftwareImporters::importJreepadFile()
     BasketScene *basket = 0;
     BasketFactory::newBasket(/*icon=*/"xml",
                              /*name=*/doc->documentElement().attribute("title"),
-                             /*backgroundImage=*/"",
+                             /*backgroundImage=*/QString(),
                              /*backgroundColor=*/QColor(),
                              /*textColor=*/QColor(),
                              /*templateName=*/"1column",
@@ -619,7 +619,7 @@ void SoftwareImporters::importJreepadFile()
             } else if (n.isElement()) {
                 BasketFactory::newBasket(/*icon=*/"xml",
                                          /*name=*/n.toElement().attribute("title"),
-                                         /*backgroundImage=*/"",
+                                         /*backgroundImage=*/QString(),
                                          /*backgroundColor=*/QColor(),
                                          /*textColor=*/QColor(),
                                          /*templateName=*/"1column",
@@ -658,7 +658,7 @@ void SoftwareImporters::importTextFile()
 
         // First create a basket for it:
         QString title = i18nc("From TextFile.txt", "From %1", QUrl::fromLocalFile(fileName).fileName());
-        BasketFactory::newBasket(/*icon=*/"txt", title, /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
+        BasketFactory::newBasket(/*icon=*/"txt", title, /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", /*createIn=*/0);
         BasketScene *basket = Global::bnpView->currentBasket();
         basket->load();
 
@@ -677,7 +677,7 @@ void SoftwareImporters::importTextFile()
  */
 void SoftwareImporters::importKnowIt()
 {
-    QUrl url = QFileDialog::getOpenFileUrl(NULL, "", QUrl("kfiledialog:///:ImportKnowIt"), "*.kno|KnowIt files\n*|All files");
+    QUrl url = QFileDialog::getOpenFileUrl(NULL, QString(), QUrl("kfiledialog:///:ImportKnowIt"), "*.kno|KnowIt files\n*|All files");
     if (!url.isEmpty()) {
         QFile file(url.path());
         QFileInfo info(url.path());
@@ -694,7 +694,7 @@ void SoftwareImporters::importKnowIt()
 
         BasketFactory::newBasket(/*icon=*/"knowit",
                                  /*name=*/info.baseName(),
-                                 /*backgroundImage=*/"",
+                                 /*backgroundImage=*/QString(),
                                  /*backgroundColor=*/QColor(),
                                  /*textColor=*/QColor(),
                                  /*templateName=*/"1column",
@@ -725,7 +725,7 @@ void SoftwareImporters::importKnowIt()
                         if ((level == 0 && hierarchy == 1) || (hierarchy == 0)) {
                             BasketFactory::newBasket(/*icon=*/"knowit",
                                                      /*name=*/name,
-                                                     /*backgroundImage=*/"",
+                                                     /*backgroundImage=*/QString(),
                                                      /*backgroundColor=*/QColor(),
                                                      /*textColor=*/QColor(),
                                                      /*templateName=*/"1column",
@@ -754,14 +754,14 @@ void SoftwareImporters::importKnowIt()
                     int n = line.indexOf(' ', i);
                     level = line.mid(i, n - i).toInt();
                     name = line.mid(n + 1);
-                    text = "";
+                    text = QString();
                     links.clear();
                     descriptions.clear();
                 } else if (line.startsWith(QLatin1String("\\Link"))) {
                     links.append(line.mid(6));
                 } else if (line.startsWith(QLatin1String("\\Descr"))) {
                     while (descriptions.count() < links.count() - 1)
-                        descriptions.append("");
+                        descriptions.append(QString());
                     descriptions.append(line.mid(7));
                 } else {
                     text += line + '\n';
@@ -820,7 +820,7 @@ void SoftwareImporters::importTuxCardsNode(const QDomElement &element, BasketSce
         }
 
         if (remainingHierarchy > 0) {
-            BasketFactory::newBasket(icon, name, /*backgroundImage=*/"", /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", parentBasket);
+            BasketFactory::newBasket(icon, name, /*backgroundImage=*/QString(), /*backgroundColor=*/QColor(), /*textColor=*/QColor(), /*templateName=*/"1column", parentBasket);
             BasketScene *basket = Global::bnpView->currentBasket();
             basket->load();
 

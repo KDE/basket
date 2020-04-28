@@ -130,7 +130,7 @@ QString NoteContent::fullPath()
     if (note() && useFile())
         return note()->fullPath();
     else
-        return "";
+        return QString();
 }
 
 void NoteContent::contentChanged(qreal newMinWidth)
@@ -312,7 +312,7 @@ QString LinkContent::toText(const QString & /*cuttedFullPath*/)
     if (autoTitle())
         return url().toDisplayString();
     else if (title().isEmpty() && url().isEmpty())
-        return "";
+        return QString();
     else if (url().isEmpty())
         return title();
     else if (title().isEmpty())
@@ -323,7 +323,7 @@ QString LinkContent::toText(const QString & /*cuttedFullPath*/)
 QString CrossReferenceContent::toText(const QString & /*cuttedFullPath*/)
 {
     if (title().isEmpty() && url().isEmpty())
-        return "";
+        return QString();
     else if (url().isEmpty())
         return title();
     else if (title().isEmpty())
@@ -337,7 +337,7 @@ QString ColorContent::toText(const QString & /*cuttedFullPath*/)
 }
 QString UnknownContent::toText(const QString & /*cuttedFullPath*/)
 {
-    return "";
+    return QString();
 }
 
 // TODO: If imageName.isEmpty() return fullPath() because it's for external use, else return fileName() because it's to display in a tooltip
@@ -396,7 +396,7 @@ QString ColorContent::toHtml(const QString & /*imageName*/, const QString & /*cu
 
 QString UnknownContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return "";
+    return QString();
 }
 
 QPixmap ImageContent::toPixmap()
@@ -568,11 +568,11 @@ QString LauncherContent::saveAsFilters() const
 }
 QString ColorContent::saveAsFilters() const
 {
-    return "";
+    return QString();
 }
 QString UnknownContent::saveAsFilters() const
 {
-    return "";
+    return QString();
 }
 
 bool TextContent::match(const FilterData &data)
@@ -581,7 +581,7 @@ bool TextContent::match(const FilterData &data)
 }
 bool HtmlContent::match(const FilterData &data)
 {
-    return m_textEquivalent /*toText("")*/.contains(data.string);
+    return m_textEquivalent /*toText(QString())*/.contains(data.string);
 } // OPTIM_FILTER
 bool ImageContent::match(const FilterData & /*data*/)
 {
@@ -667,19 +667,19 @@ QString UnknownContent::editToolTipText() const
 
 QString TextContent::cssClass() const
 {
-    return "";
+    return QString();
 }
 QString HtmlContent::cssClass() const
 {
-    return "";
+    return QString();
 }
 QString ImageContent::cssClass() const
 {
-    return "";
+    return QString();
 }
 QString AnimationContent::cssClass() const
 {
-    return "";
+    return QString();
 }
 QString SoundContent::cssClass() const
 {
@@ -703,11 +703,11 @@ QString LauncherContent::cssClass() const
 }
 QString ColorContent::cssClass() const
 {
-    return "";
+    return QString();
 }
 QString UnknownContent::cssClass() const
 {
-    return "";
+    return QString();
 }
 
 void TextContent::fontChanged()
@@ -790,7 +790,7 @@ QPixmap TextContent::feedbackPixmap(qreal width, qreal height)
 {
     QRectF textRect = QFontMetrics(note()->font()).boundingRect(0, 0, width, height, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, text());
     QPixmap pixmap(qMin(width, textRect.width()), qMin(height, textRect.height()));
-    pixmap.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
+    pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
     painter.setPen(note()->textColor());
     painter.setFont(note()->font());
@@ -809,9 +809,9 @@ QPixmap HtmlContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::Text, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPixmap pixmap(qMin(width, richText.idealWidth()), qMin(height, richText.size().height()));
-    pixmap.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
+    pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
     painter.setPen(note()->textColor());
     painter.translate(0, 0);
@@ -826,7 +826,7 @@ QPixmap ImageContent::feedbackPixmap(qreal width, qreal height)
     if (width >= m_pixmapItem.pixmap().width() && height >= m_pixmapItem.pixmap().height()) { // Full size
         if (m_pixmapItem.pixmap().hasAlpha()) {
             QPixmap opaque(m_pixmapItem.pixmap().width(), m_pixmapItem.pixmap().height());
-            opaque.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
+            opaque.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
             QPainter painter(&opaque);
             painter.drawPixmap(0, 0, m_pixmapItem.pixmap());
             painter.end();
@@ -840,7 +840,7 @@ QPixmap ImageContent::feedbackPixmap(qreal width, qreal height)
         pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height, Qt::KeepAspectRatio));
         if (pmScaled.hasAlpha()) {
             QPixmap opaque(pmScaled.width(), pmScaled.height());
-            opaque.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
+            opaque.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
             QPainter painter(&opaque);
             painter.drawPixmap(0, 0, pmScaled);
             painter.end();
@@ -869,7 +869,7 @@ QPixmap LinkContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -878,7 +878,7 @@ QPixmap CrossReferenceContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -890,10 +890,10 @@ QPixmap ColorContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
-    pixmap.fill(note()->backgroundColor().dark(FEEDBACK_DARKING));
+    pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
     m_colorItem.paint(&painter, 0, 0); //, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.end();
@@ -906,7 +906,7 @@ QPixmap FileContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -915,7 +915,7 @@ QPixmap LauncherContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -926,12 +926,12 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().dark(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     QPainter painter(&pixmap);
     m_unknownItem.paint(&painter, 0, 0); //, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
-    painter.setPen(note()->backgroundColor().dark(FEEDBACK_DARKING));
+    painter.setPen(note()->backgroundColor().darker(FEEDBACK_DARKING));
     painter.drawPoint(0, 0);
     painter.drawPoint(pixmap.width() - 1, 0);
     painter.drawPoint(0, pixmap.height() - 1);
@@ -979,7 +979,7 @@ bool TextContent::loadFromFile(bool lazyLoad)
         setText(content, lazyLoad);
     else {
         qDebug() << "FAILED TO LOAD TextContent: " << fullPath();
-        setText("", lazyLoad);
+        setText(QString(), lazyLoad);
         if (!QFile::exists(fullPath()))
             saveToFile(); // Reserve the fileName so no new note will have the same name!
     }
@@ -1000,11 +1000,11 @@ bool TextContent::saveToFile()
 
 QString TextContent::linkAt(const QPointF & /*pos*/)
 {
-    return "";
+    return QString();
     /*    if (m_simpleRichText)
             return m_simpleRichText->documentLayout()->anchorAt(pos);
         else
-            return ""; // Lazy loaded*/
+            return QString(); // Lazy loaded*/
 }
 
 QString TextContent::messageWhenOpening(OpenMessage where)
@@ -1023,7 +1023,7 @@ QString TextContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open plain texts with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1085,7 +1085,7 @@ bool HtmlContent::loadFromFile(bool lazyLoad)
     if (success)
         setHtml(content, lazyLoad);
     else {
-        setHtml("", lazyLoad);
+        setHtml(QString(), lazyLoad);
         if (!QFile::exists(fullPath()))
             saveToFile(); // Reserve the fileName so no new note will have the same name!
     }
@@ -1142,7 +1142,7 @@ QString HtmlContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open texts with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1155,7 +1155,7 @@ void HtmlContent::setHtml(const QString &html, bool lazyLoad)
     while (m_html.contains(rx)) {
         m_html.replace( rx.cap().unicode()[0], QString("&#%1;").arg(rx.cap().unicode()[0].unicode()) );
     }*/
-    m_textEquivalent = toText(""); // OPTIM_FILTER
+    m_textEquivalent = toText(QString()); // OPTIM_FILTER
     if (!lazyLoad)
         finishLazyLoad();
     else
@@ -1281,7 +1281,7 @@ QString ImageContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open images with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1401,7 +1401,7 @@ QString AnimationContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open animations with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1554,7 +1554,7 @@ QString FileContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open files with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1611,7 +1611,7 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class SoundContent:
@@ -1673,7 +1673,7 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open sounds with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1757,7 +1757,7 @@ QString LinkContent::statusBarMessage(int zone)
     if (zone == Note::Custom0 || zone == Note::Content)
         return m_url.toDisplayString();
     else
-        return "";
+        return QString();
 }
 
 QUrl LinkContent::urlToOpen(bool /*with*/)
@@ -1784,7 +1784,7 @@ QString LinkContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open link targets with:");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -1919,7 +1919,7 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
     //  if (exportData.formatForImpression && (!autoTitle() && title() != NoteFactory::titleForURL(url().toDisplayString()))) {
     //      // The address is on a new line, unless title is empty (empty lines was replaced by &nbsp;):
     //      if (linkTitle == " "/*"&nbsp;"*/)
-    //          linkTitle = url().toDisplayString()/*""*/;
+    //          linkTitle = url().toDisplayString()/*QString()*/;
     //      else
     //          linkTitle = linkTitle + " <" + url().toDisplayString() + ">"/*+ "<br>"*/;
     //      //linkTitle += "<i>" + url().toDisplayString() + "</i>";
@@ -2022,7 +2022,7 @@ QString CrossReferenceContent::statusBarMessage(int zone)
     if (zone == Note::Custom0 || zone == Note::Content)
         return i18n("Link to %1", this->title());
     else
-        return "";
+        return QString();
 }
 
 QUrl CrossReferenceContent::urlToOpen(bool /*with*/)
@@ -2039,7 +2039,7 @@ QString CrossReferenceContent::messageWhenOpening(OpenMessage where)
     case OpenOne:
         return i18n("Opening basket...");
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -2204,7 +2204,7 @@ QString LauncherContent::messageWhenOpening(OpenMessage where)
     case OpenOneWithDialog:
     case OpenSeveralWithDialog: // TODO: "Open this application with this file as parameter"?
     default:
-        return "";
+        return QString();
     }
 }
 
@@ -2222,7 +2222,7 @@ void LauncherContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), /*createIt=*/true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), "").replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }
 
 /** class ColorItem:
@@ -2259,7 +2259,7 @@ void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
     // Fill:
     painter->fillRect(1, 1, rectWidth - 2, rectHeight - 2, color());
     // Stroke:
-    QColor stroke = color().dark(125);
+    QColor stroke = color().darker(125);
     painter->setPen(stroke);
     painter->drawLine(1, 0, rectWidth - 2, 0);
     painter->drawLine(0, 1, 0, rectHeight - 2);

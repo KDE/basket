@@ -67,7 +67,7 @@ bool maybeAnimation(const QMimeType &mimeType);
 bool maybeSound(const QMimeType &mimeType);
 bool maybeLauncher(const QMimeType &mimeType);
 QString fileNameForNewNote(BasketScene *parent, const QString &wantedName);
-QString createFileForNewNote(BasketScene *parent, const QString &extension, const QString &wantedName = "");
+QString createFileForNewNote(BasketScene *parent, const QString &extension, const QString &wantedName = QString());
 QUrl filteredURL(const QUrl &url);
 QString titleForURL(const QUrl &url);
 QString iconForURL(const QUrl &url);

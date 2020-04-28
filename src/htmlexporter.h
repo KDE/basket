@@ -52,7 +52,7 @@ public: // TODO: make private?
     QString dataFolderPath;    // eg.: "/home/seb/foo.html_files/data/" or "/home/seb/foo.html_files/baskets/basketN-data/"
     QString dataFolderName;    // eg.: "foo.html_files/data/" or "basketN-data/"
     QString basketsFolderPath; // eg.: "/home/seb/foo.html_files/baskets/"
-    QString basketsFolderName; // eg.: "foo.html_files/baskets/" or ""
+    QString basketsFolderName; // eg.: "foo.html_files/baskets/" or QString()
 
     // Various properties of the currently exporting basket:
     QString backgroundColorName;

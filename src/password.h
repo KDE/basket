@@ -38,7 +38,7 @@ public:
 
     /** Reimplemented from {K,Q}Dialog
      */
-    void accept();
+    void accept() override;
 
 private:
     Password *w;

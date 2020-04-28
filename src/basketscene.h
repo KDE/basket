@@ -443,7 +443,7 @@ private:
 signals:
     void postMessage(const QString &message);      /// << Post a temporary message in the statusBar.
     void setStatusBarText(const QString &message); /// << Set the permanent statusBar text or reset it if message isEmpty().
-    void resetStatusBarText();                     /// << Equivalent to setStatusBarText("").
+    void resetStatusBarText();                     /// << Equivalent to setStatusBarText(QString()).
     void propertiesChanged(BasketScene *basket);
     void countsChanged(BasketScene *basket);
 public slots:

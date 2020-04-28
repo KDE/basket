@@ -696,7 +696,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     label3->setBuddy(m_icon);
 
     if (m_noteContent->url().isEmpty()) {
-        m_url = new KUrlRequester(QUrl(""), wid);
+        m_url = new KUrlRequester(QUrl(QString()), wid);
         m_url->setMode(KFile::File | KFile::ExistingOnly);
     } else {
         m_url = new KUrlRequester(m_noteContent->url().toDisplayString(), wid);
@@ -704,7 +704,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     }
 
     if (m_noteContent->title().isEmpty()) {
-        m_title->setText("");
+        m_title->setText(QString());
     } else {
         m_title->setText(m_noteContent->title());
     }
@@ -773,7 +773,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     mainLayout->addWidget(buttonBox);
 
-    // urlChanged("");
+    // urlChanged(QString());
 
     //  if (ke)
     //      qApp->postEvent(m_url->lineEdit(), ke);

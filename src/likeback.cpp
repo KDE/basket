@@ -348,7 +348,7 @@ void LikeBack::execCommentDialog(Button type, const QString &initialComment, con
 
 void LikeBack::execCommentDialogFromHelp()
 {
-    execCommentDialog(AllButtons, /*initialComment=*/"", /*windowPath=*/"HelpMenuAction");
+    execCommentDialog(AllButtons, /*initialComment=*/QString(), /*windowPath=*/"HelpMenuAction");
 }
 
 LikeBack::Button LikeBack::buttons()
@@ -431,12 +431,12 @@ void LikeBack::showInformationMessage()
                                                                             "please click the broken-object icon below the window title-bar, "
                                                                             "briefly describe the mis-behaviour and click Send.")) +
                      "</p>"
-                                     : "") +
+                                     : QString()) +
             "<p>" + i18np("Example:", "Examples:", nbButtons) + "</p>" +
-            (buttons & LikeBack::Like ? "<p><img source=\":images/16-actions-likeback_like.png\"> &nbsp;" + i18n("<b>I like</b> the new artwork. Very refreshing.") + "</p>" : "") +
-            (buttons & LikeBack::Dislike ? "<p><img source=\":images/16-actions-likeback_dislike.png\"> &nbsp;" + i18n("<b>I dislike</b> the welcome page of that assistant. Too time consuming.") + "</p>" : "") +
-            (buttons & LikeBack::Bug ? "<p><img source=\":images/16-actions-likeback_bug.png\"> &nbsp;" + i18n("<b>The application has an improper behaviour</b> when clicking the Add button. Nothing happens.") + "</p>" : "") +
-            (buttons & LikeBack::Feature ? "<p><img source=\":images/16-actions-likeback_feature.png\"> &nbsp;" + i18n("<b>I desire a new feature</b> allowing me to send my work by email.") + "</p>" : "") + "</tr></table>",
+            (buttons & LikeBack::Like ? "<p><img source=\":images/16-actions-likeback_like.png\"> &nbsp;" + i18n("<b>I like</b> the new artwork. Very refreshing.") + "</p>" : QString()) +
+            (buttons & LikeBack::Dislike ? "<p><img source=\":images/16-actions-likeback_dislike.png\"> &nbsp;" + i18n("<b>I dislike</b> the welcome page of that assistant. Too time consuming.") + "</p>" : QString()) +
+            (buttons & LikeBack::Bug ? "<p><img source=\":images/16-actions-likeback_bug.png\"> &nbsp;" + i18n("<b>The application has an improper behaviour</b> when clicking the Add button. Nothing happens.") + "</p>" : QString()) +
+            (buttons & LikeBack::Feature ? "<p><img source=\":images/16-actions-likeback_feature.png\"> &nbsp;" + i18n("<b>I desire a new feature</b> allowing me to send my work by email.") + "</p>" : QString()) + "</tr></table>",
         i18n("Help Improve the Application"));
 }
 
@@ -479,7 +479,7 @@ QString LikeBack::emailAddress()
         askEmailAddress();
 
     KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
-    return configGroup.readEntry("emailAddress", "");
+    return configGroup.readEntry("emailAddress", QString());
 }
 
 void LikeBack::setEmailAddress(const QString &address, bool userProvided)
@@ -494,7 +494,7 @@ void LikeBack::askEmailAddress()
 {
     KConfigGroup configGroup = KSharedConfig::openConfig()->group("LikeBack");
 
-    QString currentEmailAddress = configGroup.readEntry("emailAddress", "");
+    QString currentEmailAddress = configGroup.readEntry("emailAddress", QString());
     if (!emailAddressAlreadyProvided() && !d->fetchedEmail.isEmpty())
         currentEmailAddress = d->fetchedEmail;
 
@@ -696,23 +696,26 @@ QString LikeBackDialog::introductionText()
 {
     QString text = "<p>" + i18n("Please provide a brief description of your opinion of %1.", QGuiApplication::applicationDisplayName()) + ' ';
 
-    QString languagesMessage = "";
+    QString languagesMessage;
     if (!m_likeBack->acceptedLocales().isEmpty() && !m_likeBack->acceptedLanguagesMessage().isEmpty()) {
         languagesMessage = m_likeBack->acceptedLanguagesMessage();
         QStringList locales = m_likeBack->acceptedLocales();
         for (QStringList::Iterator it = locales.begin(); it != locales.end(); ++it) {
             QString locale = *it;
             if (QLocale().language() == QLocale(locale).language())
-                languagesMessage = "";
+                languagesMessage = QString();
         }
     } else {
-        if (!QLocale().language() == QLocale::English)
+        if (QLocale().language() != QLocale::English)
             languagesMessage = i18n("Please write in English.");
     }
 
     if (!languagesMessage.isEmpty())
         // TODO: Replace the URL with a localized one:
-        text += languagesMessage + ' ' + i18n("You may be able to use an <a href=\"%1\">online translation tool</a>.", "https://www.google.com/language_tools?hl=" + QLocale().language()) + ' ';
+        text += languagesMessage + ' '
+                + i18n("You may be able to use an <a href=\"%1\">online translation tool</a>.",
+                        "https://www.google.com/language_tools?hl=" + QString::number(QLocale().language()))
+                + ' ';
 
     // If both "I Like" and "I Dislike" buttons are shown and one is clicked:
     if ((m_likeBack->buttons() & LikeBack::Like) && (m_likeBack->buttons() & LikeBack::Dislike))

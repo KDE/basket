@@ -350,7 +350,7 @@ void KColorCombo2::init()
     d = new KColorCombo2Private();
 
     setDefaultColor(m_defaultColor);
-    insertItem(/*index=*/0, "");
+    insertItem(/*index=*/0, QString());
     updateComboBox(); // It need an item of index 0 to exists, so we created it.
     setAcceptDrops(true);
 
@@ -571,7 +571,7 @@ void KColorCombo2::drawColorRect(QPainter &painter, int x, int y, const QColor &
     // Stroke:
     int dontCare, value;
     color.getHsv(/*hue:*/ &dontCare, /*saturation:*/ &dontCare, &value);
-    QColor stroke = (color.isValid() ? color.dark(125) : palette().color(QPalette::Text));
+    QColor stroke = (color.isValid() ? color.darker(125) : palette().color(QPalette::Text));
     painter.setPen(/*color);//*/ stroke);
     painter.drawLine(x + 1, y, x + width - 2, y);
     painter.drawLine(x, y + 1, x, y + height - 2);

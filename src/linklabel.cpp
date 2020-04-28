@@ -215,7 +215,7 @@ void LinkLabel::setLink(const QString &title, const QString &icon, LinkLook *loo
     if (icon.isEmpty())
         m_icon->clear();
     else {
-        QPixmap pixmap = DesktopIcon(icon, m_look->iconSize(), m_look->iconSize());
+        QPixmap pixmap = QIcon::fromTheme(icon).pixmap(m_look->iconSize());
         if (!pixmap.isNull())
             m_icon->setPixmap(pixmap);
     }
@@ -557,7 +557,7 @@ qreal LinkDisplay::heightForWidth(qreal width) const
 QString LinkDisplay::toHtml(const QString & /*imageName*/) const
 {
     // TODO
-    return "";
+    return QString();
 }
 
 QString LinkDisplay::toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title)

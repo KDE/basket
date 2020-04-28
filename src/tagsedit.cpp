@@ -342,18 +342,18 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_tags = new TagListView(mainWidget);
     m_tags->header()->hide();
     m_tags->setRootIsDecorated(false);
-    // m_tags->addColumn("");
+    // m_tags->addColumn(QString());
     // m_tags->setSorting(-1); // Sort column -1, so disabled sorting
     // m_tags->setResizeMode(QTreeWidget::LastColumn);
 
     m_tags->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_moveUp = new QPushButton(mainWidget);
-    KGuiItem::assign(m_moveUp, KGuiItem("", "arrow-up"));
+    KGuiItem::assign(m_moveUp, KGuiItem(QString(), "arrow-up"));
     m_moveDown = new QPushButton(mainWidget);
-    KGuiItem::assign(m_moveDown, KGuiItem("", "arrow-down"));
+    KGuiItem::assign(m_moveDown, KGuiItem(QString(), "arrow-down"));
     m_deleteTag = new QPushButton(mainWidget);
-    KGuiItem::assign(m_deleteTag, KGuiItem("", "edit-delete"));
+    KGuiItem::assign(m_deleteTag, KGuiItem(QString(), "edit-delete"));
 
     m_moveUp->setToolTip(i18n("Move Up (Ctrl+Shift+Up)"));
     m_moveDown->setToolTip(i18n("Move Down (Ctrl+Shift+Down)"));
@@ -461,26 +461,26 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     backgroundColorLayout->addStretch();
 
     QIcon boldIconSet = QIcon::fromTheme("format-text-bold");
-    m_bold = new QPushButton(boldIconSet, "", stateWidget);
+    m_bold = new QPushButton(boldIconSet, QString(), stateWidget);
     m_bold->setCheckable(true);
     int size = qMax(m_bold->sizeHint().width(), m_bold->sizeHint().height());
     m_bold->setFixedSize(size, size); // Make it square!
     m_bold->setToolTip(i18n("Bold"));
 
     QIcon underlineIconSet = QIcon::fromTheme("format-text-underline");
-    m_underline = new QPushButton(underlineIconSet, "", stateWidget);
+    m_underline = new QPushButton(underlineIconSet, QString(), stateWidget);
     m_underline->setCheckable(true);
     m_underline->setFixedSize(size, size); // Make it square!
     m_underline->setToolTip(i18n("Underline"));
 
     QIcon italicIconSet = QIcon::fromTheme("format-text-italic");
-    m_italic = new QPushButton(italicIconSet, "", stateWidget);
+    m_italic = new QPushButton(italicIconSet, QString(), stateWidget);
     m_italic->setCheckable(true);
     m_italic->setFixedSize(size, size); // Make it square!
     m_italic->setToolTip(i18n("Italic"));
 
     QIcon strikeIconSet = QIcon::fromTheme("format-text-strikethrough");
-    m_strike = new QPushButton(strikeIconSet, "", stateWidget);
+    m_strike = new QPushButton(strikeIconSet, QString(), stateWidget);
     m_strike->setCheckable(true);
     m_strike->setFixedSize(size, size); // Make it square!
     m_strike->setToolTip(i18n("Strike Through"));
@@ -793,7 +793,7 @@ void TagsEditDialog::newState()
     StateCopy *newStateCopy = new StateCopy();
     firstState->copyTo(newStateCopy->newState);
     newStateCopy->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
-    newStateCopy->newState->setName("");                                                   // We copied it too but it's likely the name will not be the same
+    newStateCopy->newState->setName(QString());                                                   // We copied it too but it's likely the name will not be the same
     tagItem->tagCopy()->stateCopies.append(newStateCopy);
     m_addedStates.append(newStateCopy->newState);
 
@@ -1096,7 +1096,7 @@ void TagsEditDialog::currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem *
             loadStateFrom(tagItem->tagCopy()->stateCopies[0]->newState);
             m_stateBox->setEnabled(true);
             m_stateBox->setTitle(i18n("Appearance"));
-            m_stateName->setText("");
+            m_stateName->setText(QString());
             m_stateNameLabel->setEnabled(false);
             m_stateName->setEnabled(false);
         }
@@ -1138,7 +1138,7 @@ void TagsEditDialog::ensureCurrentItemVisible()
 void TagsEditDialog::loadBlankState()
 {
     QFont defaultFont;
-    m_stateName->setText("");
+    m_stateName->setText(QString());
     m_emblem->resetIcon();
     m_removeEmblem->setEnabled(false);
     m_backgroundColor->setColor(QColor());
@@ -1150,7 +1150,7 @@ void TagsEditDialog::loadBlankState()
     // m_font->setCurrentIndex(0);
     m_font->setCurrentFont(defaultFont.family());
     m_fontSize->setCurrentIndex(0);
-    m_textEquivalent->setText("");
+    m_textEquivalent->setText(QString());
     m_onEveryLines->setChecked(false);
     m_allowCrossRefernce->setChecked(false);
 }
@@ -1209,7 +1209,7 @@ void TagsEditDialog::saveStateTo(State *state)
     state->setAllowCrossReferences(m_allowCrossRefernce->isChecked());
 
     if (m_font->currentIndex() == 0)
-        state->setFontName("");
+        state->setFontName(QString());
     else
         state->setFontName(m_font->currentFont().family());
 

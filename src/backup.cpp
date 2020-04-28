@@ -110,7 +110,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
 
     QPushButton *backupButton = new QPushButton(i18n("&Backup..."), backupWidget);
     QPushButton *restoreButton = new QPushButton(i18n("&Restore a Backup..."), backupWidget);
-    m_lastBackup = new QLabel("", backupWidget);
+    m_lastBackup = new QLabel(QString(), backupWidget);
     backupLayout->addWidget(backupButton);
     backupLayout->addWidget(restoreButton);
     backupLayout->addWidget(m_lastBackup);
@@ -317,7 +317,7 @@ void BackupDialog::restore()
 
 /** class Backup: */
 
-QString Backup::binaryPath = "";
+QString Backup::binaryPath;
 
 void Backup::figureOutBinaryPath(const char *argv0, QApplication &app)
 {
@@ -368,7 +368,7 @@ QString Backup::newSafetyFolder()
             return fullPath;
     }
 
-    return "";
+    return QString();
 }
 
 /** class BackupThread: */
