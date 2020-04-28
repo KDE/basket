@@ -202,13 +202,7 @@ void BNPView::lateInit()
         }
         if (topLevelItemCount() <= 0) {
             // Create first basket:
-            BasketFactory::newBasket(QString(),                 // icon
-                                     i18n("General"),           // name
-                                     QString(),                 // backgroundImage
-                                     QColor(),                  // backgroundColor
-                                     QColor(),                  // textColor
-                                     QStringLiteral("1column"), // templateName
-                                     nullptr);                  // createIn
+            BasketFactory::newBasket(QString(), i18n("General"));
             GitWrapper::commitBasket(currentBasket());
             GitWrapper::commitTagsXml();
         }
@@ -1383,16 +1377,11 @@ void BNPView::removeBasket(BasketScene *basket)
     //  delete basket;
 
     // If there is no basket anymore, add a new one:
-    if (!nextBasketItem)
-        BasketFactory::newBasket(QString(),                 // icon
-                                 i18n("General"),           // name
-                                 QString(),                 // backgroundImage
-                                 QColor(),                  // backgroundColor
-                                 QColor(),                  // textColor
-                                 QStringLiteral("1column"), // templateName
-                                 nullptr);                  // createIn
-    else                                                    // No need to save two times if we add a basket
+    if (!nextBasketItem) {
+        BasketFactory::newBasket(QString(), i18n("General"));
+    } else {    // No need to save two times if we add a basket
         save();
+    }
 }
 
 void BNPView::setTreePlacement(bool onLeft)

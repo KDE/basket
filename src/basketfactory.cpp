@@ -86,7 +86,13 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
     }
 }
 
-void BasketFactory::newBasket(const QString &icon, const QString &name, const QString &backgroundImage, const QColor &backgroundColor, const QColor &textColor, const QString &templateName, BasketScene *parent)
+void BasketFactory::newBasket(const QString &icon,
+                              const QString &name,
+                              BasketScene *parent,
+                              const QString &backgroundImage,
+                              const QColor &backgroundColor,
+                              const QColor &textColor,
+                              const QString &templateName)
 {
     // Unpack the templateName file to a new basket folder:
     QString folderName = unpackTemplate(templateName);

@@ -333,7 +333,13 @@ void NewBasketDialog::slotOk()
         textColor = m_defaultProperties.textColor;
     }
 
-    BasketFactory::newBasket(m_icon->icon(), m_name->text(), backgroundImage, m_backgroundColor->color(), textColor, templateName, m_basketsMap[m_createIn->currentIndex()]);
+    BasketFactory::newBasket(m_icon->icon(),
+                             m_name->text(),
+                             m_basketsMap[m_createIn->currentIndex()],
+                             backgroundImage,
+                             m_backgroundColor->color(),
+                             textColor,
+                             templateName);
 
     if (Global::activeMainWindow())
         Global::activeMainWindow()->show();

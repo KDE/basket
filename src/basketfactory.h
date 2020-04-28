@@ -6,8 +6,8 @@
 #ifndef BASKETFACTORY_H
 #define BASKETFACTORY_H
 
-class QColor;
-class QString;
+#include <QColor>
+#include <QString>
 
 class BasketScene;
 
@@ -17,7 +17,13 @@ class BasketScene;
 namespace BasketFactory
 {
 /** You should use this method to create a new basket: */
-void newBasket(const QString &icon, const QString &name, const QString &backgroundImage, const QColor &backgroundColor, const QColor &textColor, const QString &templateName, BasketScene *parent);
+void newBasket(const QString &icon,
+               const QString &name,
+               BasketScene *parent = nullptr,
+               const QString &backgroundImage = QString(),
+               const QColor &backgroundColor = QColor(),
+               const QColor &textColor = QColor(),
+               const QString &templateName = QStringLiteral("1column"));
 /** Internal tool methods to process the method above: */
 QString newFolderName();
 QString unpackTemplate(const QString &templateName);
