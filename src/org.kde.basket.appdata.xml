@@ -6,38 +6,52 @@
   <project_license>GPL-2.0-or-later</project_license>
   <developer_name>KDE Community</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
+  <developer_name xml:lang="et">KDE kogukond</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
+  <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
+  <developer_name xml:lang="sk">KDE komunita</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
   <name>Basket</name>
   <name xml:lang="ca">Basket</name>
+  <name xml:lang="et">Basket</name>
   <name xml:lang="nl">Basket</name>
+  <name xml:lang="pt">Basket</name>
+  <name xml:lang="sk">Basket</name>
   <name xml:lang="sv">Basket</name>
   <name xml:lang="uk">Basket</name>
   <name xml:lang="x-test">xxBasketxx</name>
   <summary>Notes and to-dos organizer</summary>
   <summary xml:lang="ca">Organitzador de notes i tasques pendents</summary>
+  <summary xml:lang="et">Märkmete ja ülesannete korraldaja</summary>
   <summary xml:lang="nl">Organisator van notities en te-doens</summary>
+  <summary xml:lang="pt">Organizador de notas e tarefas</summary>
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
   <summary xml:lang="uk">Програма для впорядкування нотаток і завдань</summary>
   <summary xml:lang="x-test">xxNotes and to-dos organizerxx</summary>
   <description>
     <p>This application provides as many baskets as you wish, and you can drag and drop.</p>
     <p xml:lang="ca">Aquesta aplicació proporciona tantes cistelles com desitgeu, i les podeu arrossegar i deixar anar.</p>
+    <p xml:lang="et">See rakendus pakub nii palju korve, kui vähegi vaja, ning siin saab ka lohistada.</p>
     <p xml:lang="nl">Deze toepassing levert zoveel baskets als u wilt en u kunt slepen en loslaten.</p>
+    <p xml:lang="pt">Esta aplicação oferece tantos cestos quantos desejar, podendo depois arrastar e largar conteúdos neles.</p>
     <p xml:lang="sv">Programmet tillhandahåller så många korgar som du vill, och du kan dra och släppa.</p>
     <p xml:lang="uk">Ця програма створює довільну кількість кошиків, які ви можете перетягувати і скидати.</p>
     <p xml:lang="x-test">xxThis application provides as many baskets as you wish, and you can drag and drop.xx</p>
     <p>Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
     <p xml:lang="ca">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
+    <p xml:lang="et">Objekte saad muuta, kopeerida, lohistada ... Sõnaga, kõike saab korraldada just oma maitse järgi!</p>
     <p xml:lang="nl">Objecten kunnen bewerkt, gekopieerd, versleept worden... U kunt ze dus arrangeren zoals u wilt!</p>
+    <p xml:lang="pt">Os objectos poderão ser editados, copiados, arrastados... Por isso, pode organizá-los como desejar !</p>
     <p xml:lang="sv">Objekt kan redigeras, kopieras, dras, ... Så du kan arrangera dem som du vill.</p>
     <p xml:lang="uk">Об'єкти можна редагувати, копіювати, перетягувати… Отже, ви можете впорядкувати їх так, як вам заманеться!</p>
     <p xml:lang="x-test">xxObjects can be edited, copied, dragged... So, you can arrange them as you want !xx</p>
     <p>It allows to arrange notes, track to-dos and much more.</p>
     <p xml:lang="ca">Permet organitzar notes, seguir tasques pendents i molt més.</p>
+    <p xml:lang="et">See võimaldab korraldada märkmeid, hoida silma peal ülesannetel ja veel palju muud.</p>
     <p xml:lang="nl">Het biedt het arrangeren van notities, het volgen van te-doens en veel meer.</p>
+    <p xml:lang="pt">Permite organizar as notas, acompanhar as tarefas e muito mais.</p>
     <p xml:lang="sv">Den gör det möjligt att arrangera anteckningar, följa uppgifter, med mera.</p>
     <p xml:lang="uk">Програма уможливлює упорядкування нотаток, стеження за завданнями та виконання багатьох інших завдань.</p>
     <p xml:lang="x-test">xxIt allows to arrange notes, track to-dos and much more.xx</p>
