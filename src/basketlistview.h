@@ -111,7 +111,7 @@ private:
 class FoundCountIcon : public QStyledItemDelegate
 {
 public:
-    FoundCountIcon(BasketTreeListView *basketTree, QObject *parent = NULL)
+    FoundCountIcon(BasketTreeListView *basketTree, QObject *parent = nullptr)
         : QStyledItemDelegate(parent)
         , m_basketTree(basketTree)
     {

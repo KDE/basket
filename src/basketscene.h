@@ -89,7 +89,7 @@ public:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
     void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
-    void clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked = 0, int zone = 0);
+    void clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked = nullptr, int zone = 0);
 private slots:
     void setFocusIfNotInPopupMenu();
 signals:
@@ -282,7 +282,7 @@ private:
 public:
     inline bool hasBackgroundImage()
     {
-        return m_backgroundPixmap != 0;
+        return m_backgroundPixmap != nullptr;
     }
     inline const QPixmap *backgroundPixmap()
     {
@@ -307,7 +307,7 @@ public:
     QColor backgroundColor() const;
     QColor textColor() const;
     void setAppearance(const QString &icon, const QString &name, const QString &backgroundImage, const QColor &backgroundColor, const QColor &textColor);
-    void blendBackground(QPainter &painter, const QRectF &rect, qreal xPainter = -1, qreal yPainter = -1, bool opaque = false, QPixmap *bg = 0);
+    void blendBackground(QPainter &painter, const QRectF &rect, qreal xPainter = -1, qreal yPainter = -1, bool opaque = false, QPixmap *bg = nullptr);
     void blendBackground(QPainter &painter, const QRectF &rect, bool opaque, QPixmap *bg);
     void unbufferizeAll();
     void subscribeBackgroundImages();
@@ -515,14 +515,14 @@ private:
 
     /// ACTIONS ON SELECTED NOTES FROM THE INTERFACE:
 public slots:
-    void noteEdit(Note *note = 0L, bool justAdded = false, const QPointF &clickedPoint = QPointF());
+    void noteEdit(Note *note = nullptr, bool justAdded = false, const QPointF &clickedPoint = QPointF());
     void showEditedNoteWhileFiltering();
     void noteDelete();
     void noteDeleteWithoutConfirmation(bool deleteFilesToo = true);
     void noteCopy();
     void noteCut();
-    void noteOpen(Note *note = 0L);
-    void noteOpenWith(Note *note = 0L);
+    void noteOpen(Note *note = nullptr);
+    void noteOpenWith(Note *note = nullptr);
     void noteSaveAs();
     void noteGroup();
     void noteUngroup();

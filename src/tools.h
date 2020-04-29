@@ -49,7 +49,7 @@ QString tagURLs(const QString &test);
 QString cssFontDefinition(const QFont &font, bool onlyFontFamily = false);
 
 // Cross Reference tools:
-QString tagCrossReferences(const QString &text, bool userLink = false, HTMLExporter *exporter = 0);
+QString tagCrossReferences(const QString &text, bool userLink = false, HTMLExporter *exporter = nullptr);
 // private functions:
 QString crossReferenceForBasket(QStringList linkParts);
 QString crossReferenceForHtml(QStringList linkParts, HTMLExporter *exporter);

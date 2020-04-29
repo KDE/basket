@@ -17,12 +17,12 @@
 #include <KWindowSystem>
 
 RegionGrabber::RegionGrabber()
-    : QWidget(0)
+    : QWidget(nullptr)
     , selection()
     , mouseDown(false)
     , newSelection(false)
     , handleSize(10)
-    , mouseOverHandle(0)
+    , mouseOverHandle(nullptr)
     , idleTimer()
     , showHelp(true)
     , grabbing(false)
@@ -192,7 +192,7 @@ void RegionGrabber::mouseMoveEvent(QMouseEvent *e)
             QPoint p = e->pos();
             QRect r = rect();
             selection = QRect(dragStartPoint, limitPointToRect(p, r)).normalized();
-        } else if (mouseOverHandle == 0) { // moving the whole selection
+        } else if (mouseOverHandle == nullptr) { // moving the whole selection
             QRect r = rect().normalized(), s = selectionBeforeDrag.normalized();
             QPoint p = s.topLeft() + e->pos() - dragStartPoint;
             r.setBottomRight(r.bottomRight() - QPoint(s.width(), s.height()));
@@ -235,7 +235,7 @@ void RegionGrabber::mouseMoveEvent(QMouseEvent *e)
             }
         }
         if (!found) {
-            mouseOverHandle = 0;
+            mouseOverHandle = nullptr;
             if (selection.contains(e->pos()))
                 setCursor(Qt::OpenHandCursor);
             else
@@ -258,7 +258,7 @@ void RegionGrabber::mouseReleaseEvent(QMouseEvent *e)
     mouseDown = false;
     newSelection = false;
     idleTimer.start();
-    if (mouseOverHandle == 0 && selection.contains(e->pos()))
+    if (mouseOverHandle == nullptr && selection.contains(e->pos()))
         setCursor(Qt::OpenHandCursor);
     update();
 }

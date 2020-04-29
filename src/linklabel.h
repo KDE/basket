@@ -126,12 +126,12 @@ class LinkLabel : public QFrame
 {
     Q_OBJECT
 public:
-    LinkLabel(int hAlign, int vAlign, QWidget *parent = 0, Qt::WindowFlags f = 0);
-    LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign, QWidget *parent = 0, Qt::WindowFlags f = 0);
+    LinkLabel(int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = nullptr);
+    LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = nullptr);
     ~LinkLabel() override;
 
 public:
-    void setLink(const QString &title, const QString &icon, LinkLook *look = 0);
+    void setLink(const QString &title, const QString &icon, LinkLook *look = nullptr);
     void setLook(LinkLook *look);
     void setAlign(int hAlign, int vAlign);
     void setSelected(bool selected);
@@ -220,7 +220,7 @@ class LinkLookEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    LinkLookEditWidget(KCModule *module, const QString exTitle, const QString exIcon, QWidget *parent = 0, Qt::WindowFlags fl = 0);
+    LinkLookEditWidget(KCModule *module, const QString exTitle, const QString exIcon, QWidget *parent = nullptr, Qt::WindowFlags fl = nullptr);
     ~LinkLookEditWidget() override;
     void saveChanges();
     void saveToLook(LinkLook *look);

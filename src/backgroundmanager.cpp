@@ -22,8 +22,8 @@ BackgroundEntry::BackgroundEntry(const QString &location)
     this->location = location;
     name = QUrl::fromLocalFile(location).fileName();
     tiled = false;
-    pixmap = 0;
-    preview = 0;
+    pixmap = nullptr;
+    preview = nullptr;
     customersCount = 0;
 }
 
@@ -39,7 +39,7 @@ OpaqueBackgroundEntry::OpaqueBackgroundEntry(const QString &name, const QColor &
 {
     this->name = name;
     this->color = color;
-    pixmap = 0;
+    pixmap = nullptr;
     customersCount = 0;
 }
 
@@ -87,7 +87,7 @@ BackgroundEntry *BackgroundManager::backgroundEntryFor(const QString &image)
     for (BackgroundsList::Iterator it = m_backgroundsList.begin(); it != m_backgroundsList.end(); ++it)
         if ((*it)->name == image)
             return *it;
-    return 0;
+    return nullptr;
 }
 
 OpaqueBackgroundEntry *BackgroundManager::opaqueBackgroundEntryFor(const QString &image, const QColor &color)
@@ -95,7 +95,7 @@ OpaqueBackgroundEntry *BackgroundManager::opaqueBackgroundEntryFor(const QString
     for (OpaqueBackgroundsList::Iterator it = m_opaqueBackgroundsList.begin(); it != m_opaqueBackgroundsList.end(); ++it)
         if ((*it)->name == image && (*it)->color == color)
             return *it;
-    return 0;
+    return nullptr;
 }
 
 bool BackgroundManager::subscribe(const QString &image)
@@ -189,7 +189,7 @@ QPixmap *BackgroundManager::pixmap(const QString &image)
 
     if (!entry || !entry->pixmap || entry->pixmap->isNull()) {
         ///     qDebug() << "BackgroundManager: Requested an unexisting or unsubscribed image: " << image;
-        return 0;
+        return nullptr;
     }
 
     return entry->pixmap;
@@ -201,7 +201,7 @@ QPixmap *BackgroundManager::opaquePixmap(const QString &image, const QColor &col
 
     if (!entry || !entry->pixmap || entry->pixmap->isNull()) {
         ///     qDebug() << "BackgroundManager: Requested an unexisting or unsubscribed colored image: (" << image << "," << color.name() << ")";
-        return 0;
+        return nullptr;
     }
 
     return entry->pixmap;
@@ -245,7 +245,7 @@ QPixmap *BackgroundManager::preview(const QString &image)
 
     if (!entry) {
         ///     qDebug() << "BackgroundManager: Requested the preview of an unexisting image: " << image;
-        return 0;
+        return nullptr;
     }
 
     // The easiest way: already computed:
@@ -281,7 +281,7 @@ QPixmap *BackgroundManager::preview(const QString &image)
 
     // The image cannot be loaded, we failed:
     if (entry->pixmap->isNull())
-        return 0;
+        return nullptr;
 
     // Good that we are still alive: entry->pixmap contains the pixmap to rescale down for the preview:
     // Compute new size:
@@ -317,18 +317,18 @@ QPixmap *BackgroundManager::preview(const QString &image)
 QString BackgroundManager::pathForImageName(const QString &image)
 {
     BackgroundEntry *entry = backgroundEntryFor(image);
-    if (entry == 0)
+    if (entry == nullptr) {
         return QString();
-    else
+    } else
         return entry->location;
 }
 
 QString BackgroundManager::previewPathForImageName(const QString &image)
 {
     BackgroundEntry *entry = backgroundEntryFor(image);
-    if (entry == 0)
+    if (entry == nullptr) {
         return QString();
-    else {
+    } else {
         QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/backgrounds/previews/" + entry->name);
         QDir dir;
         if (!dir.exists(previewPath))
@@ -359,7 +359,7 @@ void BackgroundManager::doGarbage()
         if (entry->customersCount <= 0 && entry->pixmap) {
             ///         qDebug() << " [Deleted cached pixmap]";
             delete entry->pixmap;
-            entry->pixmap = 0;
+            entry->pixmap = nullptr;
         }
         ///     qDebug();
     }
@@ -371,7 +371,7 @@ void BackgroundManager::doGarbage()
         if (entry->customersCount <= 0) {
             ///         qDebug() << " [Deleted entry]";
             delete entry->pixmap;
-            entry->pixmap = 0;
+            entry->pixmap = nullptr;
             it = m_opaqueBackgroundsList.erase(it);
         } else
             ++it;

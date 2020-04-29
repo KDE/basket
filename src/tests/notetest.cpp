@@ -20,11 +20,11 @@ QTEST_MAIN(NoteTest)
 
 void NoteTest::testCreation()
 {
-    Note *n = new Note(0);
-    QVERIFY(n->basket() == 0);
-    QVERIFY(n->next() == 0);
-    QVERIFY(n->prev() == 0);
-    QVERIFY(n->content() == 0);
+    Note *n = new Note(nullptr);
+    QVERIFY(n->basket() == nullptr);
+    QVERIFY(n->next() == nullptr);
+    QVERIFY(n->prev() == nullptr);
+    QVERIFY(n->content() == nullptr);
     QCOMPARE(n->x(), 0.0);
     QCOMPARE(n->y(), 0.0);
     QCOMPARE(n->width(), Note::GROUP_WIDTH);

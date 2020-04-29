@@ -38,7 +38,7 @@
 
 SingleSelectionKIconView::SingleSelectionKIconView(QWidget *parent)
     : QListWidget(parent)
-    , m_lastSelected(0)
+    , m_lastSelected(nullptr)
 {
     setViewMode(QListView::IconMode);
     connect(this, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(slotSelectionChanged(QListWidgetItem *)));
@@ -46,7 +46,7 @@ SingleSelectionKIconView::SingleSelectionKIconView(QWidget *parent)
 
 QMimeData *SingleSelectionKIconView::dragObject()
 {
-    return 0;
+    return nullptr;
 }
 
 void SingleSelectionKIconView::slotSelectionChanged(QListWidgetItem *cur)
@@ -141,7 +141,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     // *
     m_templates = new SingleSelectionKIconView(page);
     m_templates->setSelectionMode(QAbstractItemView::SingleSelection);
-    QListWidgetItem *lastTemplate = 0;
+    QListWidgetItem *lastTemplate = nullptr;
     QPixmap icon(40, 53);
 
     QPainter painter(&icon);
@@ -277,7 +277,7 @@ int NewBasketDialog::populateBasketsList(QTreeWidgetItem *item, int indent, int 
                                                    ICON_SIZE,
                                                    KIconLoader::DefaultState,
                                                    QStringList(),
-                                                   0L,
+                                                   nullptr,
                                                    /*canReturnNull=*/false);
     icon = Tools::indentPixmap(icon, indent, 2 * ICON_SIZE / 3);
     m_createIn->addItem(icon, basket->basketName());

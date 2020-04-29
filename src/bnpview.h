@@ -76,7 +76,7 @@ public:
     int topLevelItemCount();
     ///
     BasketListViewItem *topLevelItem(int i);
-    int basketCount(QTreeWidgetItem *parent = 0);
+    int basketCount(QTreeWidgetItem *parent = nullptr);
     bool canFold();
     bool canExpand();
     void enableActions();
@@ -199,7 +199,7 @@ public slots:
     void timeoutHide();
 
     void loadCrossReference(QString link);
-    QString folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent = 0);
+    QString folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent = nullptr);
 
     void sortChildrenAsc();
     void sortChildrenDesc();
@@ -295,7 +295,7 @@ public:
     BasketListViewItem *appendBasket(BasketScene *basket, QTreeWidgetItem *parentItem); // Public only for class Archive
 
     BasketScene *basketForFolderName(const QString &folderName);
-    Note *noteForFileName(const QString &fileName, BasketScene &basket, Note *note = 0);
+    Note *noteForFileName(const QString &fileName, BasketScene &basket, Note *note = nullptr);
     QMenu *popupMenu(const QString &menuName);
     bool isPart();
     bool isMainWindowActive();

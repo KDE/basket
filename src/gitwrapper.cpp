@@ -33,7 +33,7 @@ void GitWrapper::initializeGitRepository(QString folder)
     GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     // this is not thread safe, we use locking elsewhere
-    git_repository *repo = NULL;
+    git_repository *repo = nullptr;
     QByteArray ba = folder.toUtf8();
 
     const char *cString = ba.data();
@@ -44,18 +44,18 @@ void GitWrapper::initializeGitRepository(QString folder)
         qDebug() << e->message;
     }
 
-    git_signature *sig = NULL;
-    git_index *index = NULL;
+    git_signature *sig = nullptr;
+    git_index *index = nullptr;
     git_oid tree_id;
     git_oid commit_id;
-    git_tree *tree = NULL;
+    git_tree *tree = nullptr;
 
     // no error handling at the moment
     git_signature_now(&sig, "AutoGit", "auto@localhost");
     git_repository_index(&index, repo);
     git_index_write_tree(&tree_id, index);
     git_tree_lookup(&tree, repo, &tree_id);
-    git_commit_create_v(&commit_id, repo, "HEAD", sig, sig, NULL, "Initial commit", tree, 0);
+    git_commit_create_v(&commit_id, repo, "HEAD", sig, sig, nullptr, "Initial commit", tree, 0);
 
     git_signature_free(sig);
     git_index_free(index);
@@ -72,7 +72,7 @@ void GitWrapper::commitBasketView()
     QMutexLocker l(&gitMutex);
 
     git_repository *repo = openRepository();
-    if (repo == 0)
+    if (repo == nullptr)
         return;
 
     const QDateTime gitdate = getLastCommitDate(repo);
@@ -100,7 +100,7 @@ void GitWrapper::commitCreateBasket()
     GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     git_repository *repo = openRepository();
-    if (repo == 0)
+    if (repo == nullptr)
         return;
 
     const QDateTime gitdate = getLastCommitDate(repo);
@@ -109,7 +109,7 @@ void GitWrapper::commitCreateBasket()
     const QFileInfo basketxmlinfo(basketxml);
 
     if (gitdate <= basketxmlinfo.lastModified()) {
-        git_index *index = NULL;
+        git_index *index = nullptr;
         int error = git_repository_index(&index, repo);
         if (error < 0) {
             gitErrorHandling();
@@ -138,10 +138,10 @@ void GitWrapper::commitTagsXml()
     GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     git_repository *repo = openRepository();
-    if (repo == 0)
+    if (repo == nullptr)
         return;
 
-    git_index *index = NULL;
+    git_index *index = nullptr;
     int error = git_repository_index(&index, repo);
     if (error < 0) {
         gitErrorHandling();
@@ -164,9 +164,9 @@ void GitWrapper::commitDeleteBasket(QString basketFolderName)
     GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
 
-    git_index *index = NULL;
+    git_index *index = nullptr;
     git_repository *repo = openRepository();
-    if (repo == 0)
+    if (repo == nullptr)
         return;
 
     int error = git_repository_index(&index, repo);
@@ -207,7 +207,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
     GIT_RETURN_IF_DISABLED()
     QMutexLocker l(&gitMutex);
     git_repository *repo = openRepository();
-    if (repo == 0)
+    if (repo == nullptr)
         return;
 
     const QDateTime gitdate = getLastCommitDate(repo);
@@ -225,7 +225,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
     }
 
     if (changed) {
-        git_index *index = NULL;
+        git_index *index = nullptr;
 
         int error = git_repository_index(&index, repo);
         if (error < 0) {
@@ -238,7 +238,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
         QByteArray patternba = pattern.toUtf8();
         char *patternCString = patternba.data();
         git_strarray arr = {&patternCString, 1};
-        error = git_index_add_all(index, &arr, 0, 0, 0);
+        error = git_index_add_all(index, &arr, 0, nullptr, nullptr);
         if (error < 0) {
             gitErrorHandling();
             return;
@@ -264,7 +264,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
 
 bool GitWrapper::commitPattern(git_repository *repo, QString pattern, QString message)
 {
-    git_index *index = NULL;
+    git_index *index = nullptr;
     int error = git_repository_index(&index, repo);
     if (error < 0) {
         gitErrorHandling();
@@ -274,7 +274,7 @@ bool GitWrapper::commitPattern(git_repository *repo, QString pattern, QString me
     QByteArray patternba = pattern.toUtf8();
     char *patternCString = patternba.data();
     git_strarray arr = {&patternCString, 1};
-    error = git_index_add_all(index, &arr, 0, 0, 0);
+    error = git_index_add_all(index, &arr, 0, nullptr, nullptr);
     if (error < 0) {
         gitErrorHandling();
         return false;
@@ -290,10 +290,10 @@ bool GitWrapper::commitPattern(git_repository *repo, QString pattern, QString me
 bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString message)
 {
     //  write git index
-    git_signature *sig = NULL;
+    git_signature *sig = nullptr;
     git_oid tree_id;
     git_oid commit_id;
-    git_tree *tree = NULL;
+    git_tree *tree = nullptr;
 
     int error = git_signature_now(&sig, "AutoGit", "auto@localhost");
     if (error < 0) {
@@ -307,8 +307,8 @@ bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString mes
         return false;
     }
 
-    git_commit *commit = NULL; /* parent */
-    git_oid oid_parent_commit; /* the SHA1 for last commit */
+    git_commit *commit = nullptr; /* parent */
+    git_oid oid_parent_commit;    /* the SHA1 for last commit */
 
     error = git_reference_name_to_id(&oid_parent_commit, repo, "HEAD");
     if (error < 0) {
@@ -343,7 +343,7 @@ bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString mes
     const git_commit *parentarray[] = {commit};
     QByteArray commitmessageba = message.toUtf8();
     const char *commitmessageCString = commitmessageba.data();
-    error = git_commit_create(&commit_id, repo, "HEAD", sig, sig, NULL, commitmessageCString, tree, 1, parentarray);
+    error = git_commit_create(&commit_id, repo, "HEAD", sig, sig, nullptr, commitmessageCString, tree, 1, parentarray);
     if (error < 0) {
         gitErrorHandling();
         return false;
@@ -373,7 +373,7 @@ git_repository *GitWrapper::openRepository()
     QString pathtosave = Global::savesFolder();
     QByteArray pathba = pathtosave.toUtf8();
     const char *pathCString = pathba.data();
-    git_repository *repo = NULL;
+    git_repository *repo = nullptr;
 
     int error = git_repository_open(&repo, pathCString);
     if (error < 0) {
@@ -385,14 +385,14 @@ git_repository *GitWrapper::openRepository()
 
 QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
 {
-    if (repo == 0)
+    if (repo == nullptr)
         return QDateTime();
     git_oid oid_parent_commit; /* the SHA1 for last commit */
     int error = git_reference_name_to_id(&oid_parent_commit, repo, "HEAD");
     if (error < 0)
         return QDateTime();
 
-    git_commit *head = NULL;
+    git_commit *head = nullptr;
     error = git_commit_lookup(&head, repo, &oid_parent_commit);
     if (error < 0)
         return QDateTime();

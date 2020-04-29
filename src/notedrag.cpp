@@ -41,7 +41,7 @@ void NoteDrag::createAndEmptyCuttingTmpFolder()
 QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *source)
 {
     if (noteList->count() <= 0)
-        return 0;
+        return nullptr;
 
     QDrag *multipleDrag = new QDrag(source);
 
@@ -255,7 +255,7 @@ void NoteDrag::setFeedbackPixmap(NoteSelection *noteList, QDrag *multipleDrag)
 
 QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
 {
-    if (noteList == 0)
+    if (noteList == nullptr)
         return QPixmap();
 
     static const int MARGIN = 2;
@@ -369,7 +369,7 @@ BasketScene *NoteDrag::basketOf(const QMimeData *source)
         stream >> (quint64 &)basketPointer;
         return (BasketScene *)basketPointer;
     } else
-        return 0;
+        return nullptr;
 }
 
 QList<Note *> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
@@ -401,7 +401,7 @@ QList<Note *> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
 
 void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
 {
-    for (NoteSelection *sel = selection->firstStacked(); sel != NULL; sel = sel->nextStacked()) {
+    for (NoteSelection *sel = selection->firstStacked(); sel != nullptr; sel = sel->nextStacked()) {
         if (sel->note->isGroup())
             saveNoteSelectionToList(sel);
         else
@@ -426,7 +426,7 @@ Note *NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFi
         basket->save();               //  new position yet, and the call to ensureNoteVisible would make the interface flicker!!
         return hierarchy;
     } else
-        return 0;
+        return nullptr;
 }
 
 Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool moveFiles, bool moveNotes, BasketScene *originalBasket)
@@ -438,8 +438,8 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
     QDateTime addedDate;
     QDateTime lastModificationDate;
 
-    Note *firstNote = 0; // TODO: class NoteTreeChunk
-    Note *lastInserted = 0;
+    Note *firstNote = nullptr; // TODO: class NoteTreeChunk
+    Note *lastInserted = nullptr;
 
     do {
         stream >> notePointer;
@@ -447,7 +447,7 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
             return firstNote;
         Note *oldNote = (Note *)notePointer;
 
-        Note *note = 0;
+        Note *note = nullptr;
         quint64 groupWidth;
         stream >> type >> groupWidth;
         if (type == NoteType::Group) {
@@ -483,9 +483,9 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                     parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
                 }
                 note->setGroupWidth(groupWidth);
-                note->setParentNote(0);
-                note->setPrev(0);
-                note->setNext(0);
+                note->setParentNote(nullptr);
+                note->setPrev(nullptr);
+                note->setNext(nullptr);
                 note->setParentBasket(parent);
                 NoteFactory::consumeContent(stream, (NoteType::Id)type);
             } else if ((note = NoteFactory::decodeContent(stream, (NoteType::Id)type, parent))) {

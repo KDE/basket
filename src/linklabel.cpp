@@ -167,7 +167,7 @@ LinkLabel::LinkLabel(int hAlign, int vAlign, QWidget *parent, Qt::WindowFlags f)
     : QFrame(parent, f)
     , m_isSelected(false)
     , m_isHovered(false)
-    , m_look(0)
+    , m_look(nullptr)
 {
     initLabel(hAlign, vAlign);
 }
@@ -176,7 +176,7 @@ LinkLabel::LinkLabel(const QString &title, const QString &icon, LinkLook *look, 
     : QFrame(parent, f)
     , m_isSelected(false)
     , m_isHovered(false)
-    , m_look(0)
+    , m_look(nullptr)
 {
     initLabel(hAlign, vAlign);
     setLink(title, icon, look);
@@ -389,7 +389,7 @@ LinkDisplay::LinkDisplay()
     : m_title()
     , m_icon()
     , m_preview()
-    , m_look(0)
+    , m_look(nullptr)
     , m_font()
     , m_minWidth(0)
     , m_width(0)
@@ -460,7 +460,7 @@ void LinkDisplay::paint(QPainter *painter, qreal x, qreal y, qreal width, qreal 
         qreal iconSize = m_look->iconSize();
         QString iconName = (isHovered ? Global::openNoteIcon() : m_icon);
         KIconLoader::States iconState = (isIconButtonHovered ? KIconLoader::ActiveState : KIconLoader::DefaultState);
-        pixmap = KIconLoader::global()->loadIcon(iconName, KIconLoader::Desktop, iconSize, iconState, QStringList(), 0L, /*canReturnNull=*/false);
+        pixmap = KIconLoader::global()->loadIcon(iconName, KIconLoader::Desktop, iconSize, iconState, QStringList(), nullptr, /*canReturnNull=*/false);
     }
     qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
     qreal pixmapX = (iconPreviewWidth - pixmap.width()) / 2;
@@ -621,7 +621,7 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     gl->addWidget(label, 2, 0);
     gl->addWidget(m_hoverColor, 2, 1);
 
-    QHBoxLayout *icoLay = new QHBoxLayout(0);
+    QHBoxLayout *icoLay = new QHBoxLayout(nullptr);
     m_iconSize = new IconSizeCombo(this);
     icoLay->addWidget(m_iconSize);
     label = new QLabel(this);

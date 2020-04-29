@@ -29,8 +29,8 @@ public:
     {
         isFiltering = false;
         tagFilterType = DontCareTagsFilter;
-        tag = 0;
-        state = 0;
+        tag = nullptr;
+        state = nullptr;
     }
     ~FilterData()
     {

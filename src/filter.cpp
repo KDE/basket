@@ -151,7 +151,7 @@ void FilterBar::repopulateTagsCombo()
             text = state->name();
             icon = state->emblem();
         }
-        emblem = KIconLoader::global()->loadIcon(icon, KIconLoader::Desktop, ICON_SIZE, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/true);
+        emblem = KIconLoader::global()->loadIcon(icon, KIconLoader::Desktop, ICON_SIZE, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
         m_tagsBox->insertItem(index, emblem, text);
         // Update the mapping:
         m_tagsMap.insert(index, tag);
@@ -168,7 +168,7 @@ void FilterBar::repopulateTagsCombo()
                                                          ICON_SIZE,
                                                          KIconLoader::DefaultState,
                                                          QStringList(),
-                                                         0L,
+                                                         nullptr,
                                                          /*canReturnNull=*/true);
                 // Indent the emblem to show the hierarchy relation:
                 if (!emblem.isNull())
@@ -262,8 +262,8 @@ void FilterBar::changeFilter()
 
 void FilterBar::tagChanged(int index)
 {
-    m_data.tag = 0;
-    m_data.state = 0;
+    m_data.tag = nullptr;
+    m_data.state = nullptr;
     switch (index) {
     case 0:
         m_data.tagFilterType = FilterData::DontCareTagsFilter;

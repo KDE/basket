@@ -103,14 +103,14 @@ public:
      *                      But if @p color is invalid and there is no default color, the result is undefined.
      * @param defaultColor  The color to return if the user choose the default one. If it is not valid, the user willn't be allowed to choose a default one.
      */
-    KColorCombo2(const QColor &color, const QColor &defaultColor, QWidget *parent = 0);
+    KColorCombo2(const QColor &color, const QColor &defaultColor, QWidget *parent = nullptr);
 
     /**
      * Constructs a color combobox with parent @p parent.\n
      * The user is not allowed to choose a default color, unless you call setDefaultColor() later.
      * @param color         The initial selected color. If it is invalid, the result is undefined.
      */
-    explicit KColorCombo2(const QColor &color, QWidget *parent = 0L);
+    explicit KColorCombo2(const QColor &color, QWidget *parent = nullptr);
 
     /**
      * Destroys the combobox.

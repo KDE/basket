@@ -142,7 +142,7 @@ private slots:
     void removeShortcut();
     void removeEmblem();
     void modified();
-    void currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem *next = 0);
+    void currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem *next = nullptr);
     void slotCancel();
     void slotOk();
     void selectUp();

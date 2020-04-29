@@ -52,7 +52,7 @@
 /****************************************/
 
 LikeBackBar::LikeBackBar(LikeBack *likeBack)
-    : QWidget(0, Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint)
+    : QWidget(nullptr, Qt::X11BypassWindowManagerHint | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint)
     , m_likeBack(likeBack)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
@@ -115,7 +115,7 @@ void LikeBackBar::stopTimer()
 
 void LikeBackBar::autoMove()
 {
-    static QWidget *lastWindow = 0;
+    static QWidget *lastWindow = nullptr;
 
     QWidget *window = qApp->activeWindow();
     // When a Kicker applet has the focus, like the Commandline QLineEdit,
@@ -170,9 +170,9 @@ void LikeBackBar::clickedFeature()
 /********************************************/
 
 LikeBackPrivate::LikeBackPrivate()
-    : bar(0)
-    , config(0)
-    , aboutData(0)
+    : bar(nullptr)
+    , config(nullptr)
+    , aboutData(nullptr)
     , buttons(LikeBack::DefaultButtons)
     , hostName()
     , remotePath()
@@ -183,7 +183,7 @@ LikeBackPrivate::LikeBackPrivate()
     , showBar(false)
     , disabledCount(0)
     , fetchedEmail()
-    , action(0)
+    , action(nullptr)
 {
 }
 
@@ -192,8 +192,8 @@ LikeBackPrivate::~LikeBackPrivate()
     delete bar;
     delete action;
 
-    config = 0;
-    aboutData = 0;
+    config = nullptr;
+    aboutData = nullptr;
 }
 
 /*************************************/
@@ -211,9 +211,9 @@ LikeBack::LikeBack(Button buttons, bool showBarByDefault, KConfig *config, const
     d->showBarByDefault = showBarByDefault;
 
     // Use default KApplication config and aboutData if not provided:
-    if (d->config == 0)
+    if (d->config == nullptr)
         d->config = KSharedConfig::openConfig().data();
-    if (d->aboutData == 0)
+    if (d->aboutData == nullptr)
         d->aboutData = new KAboutData(KAboutData::applicationData());
 
     // Initialize properties (2/2) [Needs aboutData to be set]:
@@ -368,7 +368,7 @@ KConfig *LikeBack::config()
 
 QAction *LikeBack::sendACommentAction(KActionCollection *parent)
 {
-    if (d->action == 0) {
+    if (d->action == nullptr) {
         d->action = parent->addAction("likeback_send_a_comment", this, SLOT(execCommentDialog()));
         d->action->setText(i18n("&Send a Comment to Developers"));
         d->action->setIcon(QIcon::fromTheme("mail-message-new"));
@@ -406,7 +406,7 @@ void LikeBack::showInformationMessage()
     Button buttons = d->buttons;
     int nbButtons = (buttons & Like ? 1 : 0) + (buttons & Dislike ? 1 : 0) + (buttons & Bug ? 1 : 0) + (buttons & Feature ? 1 : 0);
     KMessageBox::information(
-        0,
+        nullptr,
         "<p><b>" + (isDevelopmentVersion(d->aboutData->version()) ? i18n("Welcome to this testing version of %1.", QGuiApplication::applicationDisplayName()) : i18n("Welcome to %1.", QGuiApplication::applicationDisplayName())) +
             "</b></p>"
             "<p>" +
@@ -625,7 +625,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
     // QGridLayout *buttonsGrid = new QGridLayout(buttons, /*nbRows=*/4, /*nbColumns=*/2, /*margin=*/0, spacingHint());
     QGridLayout *buttonsGrid = new QGridLayout(buttons);
     if (m_likeBack->buttons() & LikeBack::Like) {
-        QPixmap likePixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_like.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true);
+        QPixmap likePixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_like.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true);
         QLabel *likeIcon = new QLabel(buttons);
         likeIcon->setPixmap(likePixmap);
         likeIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -634,7 +634,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
         buttonsGrid->addWidget(likeButton, /*row=*/0, /*column=*/1);
     }
     if (m_likeBack->buttons() & LikeBack::Dislike) {
-        QPixmap dislikePixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_dislike.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true);
+        QPixmap dislikePixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_dislike.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true);
         QLabel *dislikeIcon = new QLabel(buttons);
         dislikeIcon->setPixmap(dislikePixmap);
         dislikeIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -643,7 +643,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
         buttonsGrid->addWidget(dislikeButton, /*row=*/1, /*column=*/1);
     }
     if (m_likeBack->buttons() & LikeBack::Bug) {
-        QPixmap bugPixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_bug.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true);
+        QPixmap bugPixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_bug.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true);
         QLabel *bugIcon = new QLabel(buttons);
         bugIcon->setPixmap(bugPixmap);
         bugIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -652,7 +652,7 @@ LikeBackDialog::LikeBackDialog(LikeBack::Button reason, const QString &initialCo
         buttonsGrid->addWidget(bugButton, /*row=*/2, /*column=*/1);
     }
     if (m_likeBack->buttons() & LikeBack::Feature) {
-        QPixmap featurePixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_feature.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true);
+        QPixmap featurePixmap = KIconLoader::global()->loadIcon(":images/16-actions-likeback_feature.png", KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true);
         QLabel *featureIcon = new QLabel(buttons);
         featureIcon->setPixmap(featurePixmap);
         featureIcon->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -712,10 +712,7 @@ QString LikeBackDialog::introductionText()
 
     if (!languagesMessage.isEmpty())
         // TODO: Replace the URL with a localized one:
-        text += languagesMessage + ' '
-                + i18n("You may be able to use an <a href=\"%1\">online translation tool</a>.",
-                        "https://www.google.com/language_tools?hl=" + QString::number(QLocale().language()))
-                + ' ';
+        text += languagesMessage + ' ' + i18n("You may be able to use an <a href=\"%1\">online translation tool</a>.", "https://www.google.com/language_tools?hl=" + QString::number(QLocale().language())) + ' ';
 
     // If both "I Like" and "I Dislike" buttons are shown and one is clicked:
     if ((m_likeBack->buttons() & LikeBack::Like) && (m_likeBack->buttons() & LikeBack::Dislike))

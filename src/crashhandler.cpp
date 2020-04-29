@@ -175,15 +175,14 @@ void Crash::crashHandler(int /*signal*/)
                         //                body += kBacktrace();
 
             // TODO startup notification
-            KToolInvocation::invokeMailer(
-                QStringLiteral("kde.basket@gmx.com"), /*to*/
-                QString(),                            /*cc*/
-                QString(),                            /*bcc*/
-                subject,                              /*subject*/
-                body,                                 /*body*/
-                QString(),                            /*messageFile*/
-                QStringList(),                        /*attachURLs*/
-                QByteArray());                        /*startup_id*/
+            KToolInvocation::invokeMailer(QStringLiteral("kde.basket@gmx.com"), /*to*/
+                                          QString(),                            /*cc*/
+                                          QString(),                            /*bcc*/
+                                          subject,                              /*subject*/
+                                          body,                                 /*body*/
+                                          QString(),                            /*messageFile*/
+                                          QStringList(),                        /*attachURLs*/
+                                          QByteArray());                        /*startup_id*/
         } else {
             qDebug() << '\n' +
                     i18n("%1 has crashed! We're sorry about this.\n\n"
@@ -203,7 +202,7 @@ void Crash::crashHandler(int /*signal*/)
         ::alarm(0);
 
         // wait for child to exit
-        ::waitpid(pid, NULL, 0);
+        ::waitpid(pid, nullptr, 0);
         ::_exit(253);
     }
 #endif //#ifndef Q_OS_WIN

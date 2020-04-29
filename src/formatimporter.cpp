@@ -82,7 +82,7 @@ void FormatImporter::importBaskets()
 
     // Read the 0.5.0 baskets order:
     QDomDocument *doc = XMLWork::openFile("container", Global::savesFolder() + "container.baskets");
-    if (doc != 0) {
+    if (doc != nullptr) {
         QDomElement docElem = doc->documentElement();
         QDomElement basketsElem = XMLWork::getElement(docElem, "baskets");
         QDomNode n = basketsElem.firstChild();
@@ -114,7 +114,7 @@ void FormatImporter::importBaskets()
         // Move the folder to the new repository (normal basket) or copy the folder (mirrored folder):
         QString folderName = *it;
         if (folderName.startsWith('/')) { // It was a folder mirror:
-            KMessageBox::information(0,
+            KMessageBox::information(nullptr,
                                      i18n("<p>Folder mirroring is not possible anymore (see <a href='https://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"
                                           "<p>The folder <b>%1</b> has been copied for the basket needs. You can either delete this folder or delete the basket, or use both. But remember that "
                                           "modifying one will not modify the other anymore as they are now separate entities.</p>",

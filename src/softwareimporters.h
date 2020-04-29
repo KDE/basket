@@ -73,7 +73,7 @@ QString fromICS(const QString &ics);
 QString fromTomboy(QString tomboy);
 //! Get first of the <tags> to be used as basket name. Strip 'system:notebook:' part
 QString getFirstTomboyTag(const QDomElement &docElem);
-Note *insertTitledNote(BasketScene *parent, const QString &title, const QString &content, Qt::TextFormat format = Qt::PlainText, Note *parentNote = 0);
+Note *insertTitledNote(BasketScene *parent, const QString &title, const QString &content, Qt::TextFormat format = Qt::PlainText, Note *parentNote = nullptr);
 void finishImport(BasketScene *basket);
 
 // The importers in themselves:

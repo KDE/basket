@@ -108,7 +108,7 @@ public:
      *                         The version is used to store the button-bar visibility per version (can be shown in a development version but not in a final one...)
      *                         and to send with the comment, so you can filter per version and know if a comment refers the latest version of the application or not.
      */
-    explicit LikeBack(Button buttons = DefaultButtons, bool showBarByDefault = false, KConfig *config = 0, const KAboutData *aboutData = 0);
+    explicit LikeBack(Button buttons = DefaultButtons, bool showBarByDefault = false, KConfig *config = nullptr, const KAboutData *aboutData = nullptr);
 
     /**
      * Destructor.
@@ -204,7 +204,7 @@ public:
      *       <Action name="likeback_send_a_comment" />
      * @endcode
      */
-    QAction *sendACommentAction(KActionCollection *parent = 0);
+    QAction *sendACommentAction(KActionCollection *parent = nullptr);
 
     /**
      * @Returns The path of the currently active window. Each windows are separated with "~~".

@@ -89,18 +89,18 @@ const int BNPView::c_delayTooltipTime = 275;
 
 BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, KActionCollection *actionCollection, BasketStatusBar *bar)
     : QSplitter(Qt::Horizontal, parent)
-    , m_actLockBasket(0)
-    , m_actPassBasket(0)
+    , m_actLockBasket(nullptr)
+    , m_actPassBasket(nullptr)
     , m_loading(true)
     , m_newBasketPopup(false)
     , m_firstShow(true)
-    , m_regionGrabber(0)
-    , m_passiveDroppedSelection(0)
+    , m_regionGrabber(nullptr)
+    , m_passiveDroppedSelection(nullptr)
     , m_actionCollection(actionCollection)
     , m_guiClient(aGUIClient)
     , m_statusbar(bar)
-    , m_tryHideTimer(0)
-    , m_hideTimer(0)
+    , m_tryHideTimer(nullptr)
+    , m_hideTimer(nullptr)
 {
     // new BNPViewAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -133,14 +133,14 @@ BNPView::~BNPView()
 
     Settings::saveConfig();
 
-    Global::bnpView = 0;
+    Global::bnpView = nullptr;
 
     delete Global::systemTray;
-    Global::systemTray = 0;
+    Global::systemTray = nullptr;
     delete m_colorPicker;
     delete m_statusbar;
     delete m_history;
-    m_history = 0;
+    m_history = nullptr;
 
     NoteDrag::createAndEmptyCuttingTmpFolder(); // Clean the temporary folder we used
 }
@@ -202,13 +202,13 @@ void BNPView::lateInit()
         }
         if (topLevelItemCount() <= 0) {
             // Create first basket:
-            BasketFactory::newBasket(QString(),                 //icon
-                                     i18n("General"),           //name
-                                     QString(),                 //backgroundImage
-                                     QColor(),                  //backgroundColor
-                                     QColor(),                  //textColor
-                                     QStringLiteral("1column"), //templateName
-                                     0);                        //createIn
+            BasketFactory::newBasket(QString(),                 // icon
+                                     i18n("General"),           // name
+                                     QString(),                 // backgroundImage
+                                     QColor(),                  // backgroundColor
+                                     QColor(),                  // textColor
+                                     QStringLiteral("1column"), // templateName
+                                     nullptr);                  // createIn
             GitWrapper::commitBasket(currentBasket());
             GitWrapper::commitTagsXml();
         }
@@ -303,7 +303,7 @@ void BNPView::onFirstShow()
 void BNPView::setupGlobalShortcuts()
 {
     KActionCollection *ac = new KActionCollection(this);
-    QAction *a = NULL;
+    QAction *a = nullptr;
 
     // Ctrl+Shift+W only works when started standalone:
     QWidget *basketMainWindow = qobject_cast<KMainWindow *>(Global::bnpView->parent());
@@ -477,7 +477,7 @@ void BNPView::initialize()
 
 void BNPView::setupActions()
 {
-    QAction *a = NULL;
+    QAction *a = nullptr;
     KActionCollection *ac = actionCollection();
 
     a = ac->addAction("basket_export_basket_archive", this, SLOT(saveAsArchive()));
@@ -844,7 +844,7 @@ void BNPView::setupActions()
     // m_actRedo     = KStandardAction::redo(  this, SLOT(redo()),                 actionCollection() );
     // m_actRedo->setEnabled(false); // Not yet implemented !
 
-    KToggleAction *toggleAct = NULL;
+    KToggleAction *toggleAct = nullptr;
     toggleAct = new KToggleAction(i18n("&Filter"), ac);
     ac->addAction("edit_filter", toggleAct);
     toggleAct->setIcon(QIcon::fromTheme("view-filter"));
@@ -958,7 +958,7 @@ void BNPView::save()
     XMLWork::setupXmlStream(stream, "basketTree");
 
     // Save Basket Tree:
-    save(m_tree, 0, stream);
+    save(m_tree, nullptr, stream);
 
     stream.writeEndElement();
     stream.writeEndDocument();
@@ -971,8 +971,8 @@ void BNPView::save()
 
 void BNPView::save(QTreeWidget *listView, QTreeWidgetItem *item, QXmlStreamWriter &stream)
 {
-    if (item == 0) {
-        if (listView == NULL) {
+    if (item == nullptr) {
+        if (listView == nullptr) {
             // This should not happen: we call either save(listView, 0) or save(0, item)
             DEBUG_WIN << "BNPView::save error: listView=NULL and item=NULL";
             return;
@@ -981,7 +981,7 @@ void BNPView::save(QTreeWidget *listView, QTreeWidgetItem *item, QXmlStreamWrite
         // For each basket:
         for (int i = 0; i < listView->topLevelItemCount(); i++) {
             item = listView->topLevelItem(i);
-            save(0, item, stream);
+            save(nullptr, item, stream);
         }
     } else {
         saveSubHierarchy(item, stream, true);
@@ -1022,9 +1022,9 @@ void BNPView::load()
     if (!doc)
         doc.reset(XMLWork::openFile("basketsTree", Global::basketsFolder() + "baskets.xml"));
     // END
-    if (doc != 0) {
+    if (doc != nullptr) {
         QDomElement docElem = doc->documentElement();
-        load(0L, docElem);
+        load(nullptr, docElem);
     }
     m_loading = false;
 }
@@ -1054,7 +1054,7 @@ void BNPView::load(QTreeWidgetItem *item, const QDomElement &baskets)
 BasketScene *BNPView::loadBasket(const QString &folderName)
 {
     if (folderName.isEmpty())
-        return 0;
+        return nullptr;
 
     DecoratedBasket *decoBasket = new DecoratedBasket(m_stack, folderName);
     BasketScene *basket = decoBasket->basket();
@@ -1073,7 +1073,7 @@ BasketScene *BNPView::loadBasket(const QString &folderName)
 int BNPView::basketCount(QTreeWidgetItem *parent)
 {
     int count = 1;
-    if (parent == NULL)
+    if (parent == nullptr)
         return 0;
 
     for (int i = 0; i < parent->childCount(); i++) {
@@ -1114,7 +1114,7 @@ BasketListViewItem *BNPView::appendBasket(BasketScene *basket, QTreeWidgetItem *
 void BNPView::loadNewBasket(const QString &folderName, const QDomElement &properties, BasketScene *parent)
 {
     BasketScene *basket = loadBasket(folderName);
-    appendBasket(basket, (basket ? listViewItemForBasket(parent) : 0));
+    appendBasket(basket, (basket ? listViewItemForBasket(parent) : nullptr));
     basket->loadProperties(properties);
     setCurrentBasketInHistory(basket);
     //  save();
@@ -1143,13 +1143,13 @@ void BNPView::foldBasket()
     if (item && item->childCount() <= 0)
         item->setExpanded(false); // If Alt+Left is hit and there is nothing to close, make sure the focus will go to the parent basket
 
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, 0, 0);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, nullptr, nullptr);
     QApplication::postEvent(m_tree, keyEvent);
 }
 
 void BNPView::expandBasket()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, 0, 0);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, nullptr, nullptr);
     QApplication::postEvent(m_tree, keyEvent);
 }
 
@@ -1292,7 +1292,7 @@ BasketListViewItem *BNPView::listViewItemForBasket(BasketScene *basket)
             return item;
         ++it;
     }
-    return 0L;
+    return nullptr;
 }
 
 BasketScene *BNPView::currentBasket()
@@ -1301,7 +1301,7 @@ BasketScene *BNPView::currentBasket()
     if (decoBasket)
         return decoBasket->basket();
     else
-        return 0;
+        return nullptr;
 }
 
 BasketScene *BNPView::parentBasketOf(BasketScene *basket)
@@ -1310,7 +1310,7 @@ BasketScene *BNPView::parentBasketOf(BasketScene *basket)
     if (item)
         return item->basket();
     else
-        return 0;
+        return nullptr;
 }
 
 void BNPView::setCurrentBasketInHistory(BasketScene *basket)
@@ -1384,14 +1384,14 @@ void BNPView::removeBasket(BasketScene *basket)
 
     // If there is no basket anymore, add a new one:
     if (!nextBasketItem)
-        BasketFactory::newBasket(QString(),                //icon
-                                i18n("General"),           //name
-                                QString(),                 //backgroundImage
-                                QColor(),                  //backgroundColor
-                                QColor(),                  //textColor
-                                QStringLiteral("1column"), //templateName
-                                0);                        //createIn
-    else // No need to save two times if we add a basket
+        BasketFactory::newBasket(QString(),                 // icon
+                                 i18n("General"),           // name
+                                 QString(),                 // backgroundImage
+                                 QColor(),                  // backgroundColor
+                                 QColor(),                  // textColor
+                                 QStringLiteral("1column"), // templateName
+                                 nullptr);                  // createIn
+    else                                                    // No need to save two times if we add a basket
         save();
 }
 
@@ -1488,16 +1488,16 @@ void BNPView::slotPressed(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
     BasketScene *basket = currentBasket();
-    if (basket == 0)
+    if (basket == nullptr)
         return;
 
     // Impossible to Select no Basket:
     if (!item)
         m_tree->setCurrentItem(listViewItemForBasket(basket), true);
 
-    else if (dynamic_cast<BasketListViewItem *>(item) != 0 && currentBasket() != ((BasketListViewItem *)item)->basket()) {
+    else if (dynamic_cast<BasketListViewItem *>(item) != nullptr && currentBasket() != ((BasketListViewItem *)item)->basket()) {
         setCurrentBasketInHistory(((BasketListViewItem *)item)->basket());
-        needSave(0);
+        needSave(nullptr);
     }
     basket->graphicsView()->viewport()->setFocus();
 }
@@ -1507,7 +1507,7 @@ DecoratedBasket *BNPView::currentDecoratedBasket()
     if (currentBasket())
         return currentBasket()->decoration();
     else
-        return 0;
+        return nullptr;
 }
 
 // Redirected actions :
@@ -1797,7 +1797,7 @@ void BNPView::updateNotesActions()
     //                               currentBasket()->areSelectedNotesChecked() &&
     //                               currentBasket()->showCheckBoxes()             );
 
-    Note *selectedGroup = (severalSelected ? currentBasket()->selectedGroup() : 0);
+    Note *selectedGroup = (severalSelected ? currentBasket()->selectedGroup() : nullptr);
 
     m_actEditNote->setEnabled(!isLocked && oneSelected && !currentBasket()->isDuringEdit());
     if (currentBasket()->redirectEditActions()) {
@@ -1922,7 +1922,7 @@ void BNPView::slotConvertTexts()
 
 QMenu *BNPView::popupMenu(const QString &menuName)
 {
-    QMenu *menu = 0;
+    QMenu *menu = nullptr;
     bool hack = false; // TODO fix this
     // When running in kontact and likeback Information message is shown
     // factory is 0. Don't show error then and don't crash either :-)
@@ -1934,7 +1934,7 @@ QMenu *BNPView::popupMenu(const QString &menuName)
         } else
             hack = isPart();
     }
-    if (menu == 0) {
+    if (menu == nullptr) {
         if (!hack) {
             QString basketDataPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/";
 
@@ -2038,7 +2038,7 @@ void BNPView::grabScreenshotGlobal()
 void BNPView::screenshotGrabbed(const QPixmap &pixmap)
 {
     delete m_regionGrabber;
-    m_regionGrabber = 0;
+    m_regionGrabber = nullptr;
 
     // Cancelled (pressed Escape):
     if (pixmap.isNull()) {
@@ -2081,7 +2081,7 @@ BasketScene *BNPView::basketForFolderName(const QString &folderName)
         ++it;
     }
 
-    return 0;
+    return nullptr;
 }
 
 Note *BNPView::noteForFileName(const QString &fileName, BasketScene &basket, Note *note)
@@ -2098,7 +2098,7 @@ Note *BNPView::noteForFileName(const QString &fileName, BasketScene &basket, Not
             return found;
         child = child->next();
     }
-    return 0;
+    return nullptr;
 }
 
 void BNPView::setFiltering(bool filtering)
@@ -2223,7 +2223,7 @@ void BNPView::saveAsArchive()
     QString filter = "*.baskets|" + i18n("Basket Archives") + "\n*|" + i18n("All Files");
     QString destination = url;
     for (bool askAgain = true; askAgain;) {
-        destination = QFileDialog::getSaveFileName(NULL, i18n("Save as Basket Archive"), destination, filter);
+        destination = QFileDialog::getSaveFileName(nullptr, i18n("Save as Basket Archive"), destination, filter);
         if (destination.isEmpty()) // User canceled
             return;
         if (dir.exists(destination)) {
@@ -2310,7 +2310,7 @@ void BNPView::isLockedChanged()
 
 void BNPView::askNewBasket()
 {
-    askNewBasket(0, 0);
+    askNewBasket(nullptr, nullptr);
 
     GitWrapper::commitCreateBasket();
 }
@@ -2377,7 +2377,7 @@ void BNPView::showPassiveDropped(const QString &title)
 
 void BNPView::showPassiveDroppedDelayed()
 {
-    if (isMainWindowActive() || m_passiveDroppedSelection == 0)
+    if (isMainWindowActive() || m_passiveDroppedSelection == nullptr)
         return;
 
     QString title = m_passiveDroppedTitle;
@@ -2400,7 +2400,7 @@ void BNPView::showPassiveDroppedDelayed()
         KPassivePopup::message(KPassivePopup::Boxed,
                                title.arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
                                (contentsImage.isNull() ? QString() : QStringLiteral("<img src=\":/images/passivepopup_image\">")),
-                               KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true),
+                               KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true),
                                (QWidget *)this);
     }
 }
@@ -2464,7 +2464,7 @@ void BNPView::showPassiveContent(bool forceShow /* = false*/)
                                    Tools::makeStandardCaption(currentBasket()->isLocked() ? QString("%1 <font color=gray30>%2</font>").arg(Tools::textToHTMLWithoutP(currentBasket()->basketName()), i18n("(Locked)"))
                                                                                           : Tools::textToHTMLWithoutP(currentBasket()->basketName())),
                                message,
-                               KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true),
+                               KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true),
                                (QWidget *)this);
     }
 }
@@ -2487,7 +2487,7 @@ void BNPView::showPassiveLoading(BasketScene *basket)
         KPassivePopup::message(KPassivePopup::Boxed,
                                Tools::textToHTMLWithoutP(basket->basketName()),
                                i18n("Loading..."),
-                               KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true),
+                               KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true),
                                (QWidget *)this);
     }
 }
@@ -2730,10 +2730,10 @@ void BNPView::leaveEvent(QEvent *)
 void BNPView::timeoutTryHide()
 {
     // If a menu is displayed, do nothing for the moment
-    if (qApp->activePopupWidget() != 0L)
+    if (qApp->activePopupWidget() != nullptr)
         return;
 
-    if (qApp->widgetAt(QCursor::pos()) != 0L)
+    if (qApp->widgetAt(QCursor::pos()) != nullptr)
         m_hideTimer->stop();
     else if (!m_hideTimer->isActive()) { // Start only one time
         m_hideTimer->setSingleShot(true);
@@ -2741,7 +2741,7 @@ void BNPView::timeoutTryHide()
     }
 
     // If a subdialog is opened, we mustn't hide the main window:
-    if (qApp->activeWindow() != 0L && qApp->activeWindow() != Global::activeMainWindow())
+    if (qApp->activeWindow() != nullptr && qApp->activeWindow() != Global::activeMainWindow())
         m_hideTimer->stop();
 }
 
@@ -2785,7 +2785,7 @@ void BNPView::showMainWindow()
 {
     if (m_HiddenMainWindow) {
         m_HiddenMainWindow->show();
-        m_HiddenMainWindow = NULL;
+        m_HiddenMainWindow = nullptr;
     } else {
         KMainWindow *win = Global::activeMainWindow();
 
@@ -2801,7 +2801,7 @@ void BNPView::showMainWindow()
 void BNPView::populateTagsMenu()
 {
     QMenu *menu = (QMenu *)(popupMenu("tags"));
-    if (menu == 0 || currentBasket() == 0) // TODO: Display a messagebox. [menu is 0, surely because on first launch, the XMLGUI does not work!]
+    if (menu == nullptr || currentBasket() == nullptr) // TODO: Display a messagebox. [menu is 0, surely because on first launch, the XMLGUI does not work!]
         return;
     menu->clear();
 
@@ -2819,7 +2819,7 @@ void BNPView::populateTagsMenu()
 
 void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 {
-    if (currentBasket() == 0)
+    if (currentBasket() == nullptr)
         return;
 
     currentBasket()->m_tagPopupNote = referenceNote;

@@ -19,18 +19,18 @@ class NoteSelection
 {
 public:
     NoteSelection()
-        : note(0)
-        , parent(0)
-        , firstChild(0)
-        , next(0)
+        : note(nullptr)
+        , parent(nullptr)
+        , firstChild(nullptr)
+        , next(nullptr)
         , fullPath()
     {
     }
     NoteSelection(Note *n)
         : note(n)
-        , parent(0)
-        , firstChild(0)
-        , next(0)
+        , parent(nullptr)
+        , firstChild(nullptr)
+        , next(nullptr)
         , fullPath()
     {
     }

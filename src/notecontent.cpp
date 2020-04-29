@@ -147,7 +147,7 @@ BasketScene *NoteContent::basket()
     if (note())
         return note()->basket();
     else
-        return 0;
+        return nullptr;
 }
 
 void NoteContent::setEdited()
@@ -895,7 +895,7 @@ QPixmap ColorContent::feedbackPixmap(qreal width, qreal height)
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
-    m_colorItem.paint(&painter, 0, 0); //, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
+    m_colorItem.paint(&painter, nullptr, nullptr); //, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.end();
 
     return pixmap;
@@ -930,7 +930,7 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     QPainter painter(&pixmap);
-    m_unknownItem.paint(&painter, 0, 0); //, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
+    m_unknownItem.paint(&painter, nullptr, nullptr); //, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.setPen(note()->backgroundColor().darker(FEEDBACK_DARKING));
     painter.drawPoint(0, 0);
     painter.drawPoint(pixmap.width() - 1, 0);
@@ -1049,7 +1049,7 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 
 HtmlContent::HtmlContent(Note *parent, const QString &fileName, bool lazyLoad)
     : NoteContent(parent, fileName)
-    , m_simpleRichText(0)
+    , m_simpleRichText(nullptr)
     , m_graphicsTextItem(parent)
 {
     if (parent) {
@@ -1375,7 +1375,7 @@ bool AnimationContent::finishLazyLoad()
         contentChanged(16);
         return true;
     }
-    m_buffer->setData(0);
+    m_buffer->setData(nullptr);
     return false;
 }
 
@@ -1441,7 +1441,7 @@ void AnimationContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 FileContent::FileContent(Note *parent, const QString &fileName)
     : NoteContent(parent, fileName)
     , m_linkDisplayItem(parent)
-    , m_previewJob(0)
+    , m_previewJob(nullptr)
 {
     basket()->addWatchedFile(fullPath());
     setFileName(fileName); // FIXME: TO THAT HERE BECAUSE NoteContent() constructor seems to don't be able to call virtual methods???
@@ -1683,9 +1683,9 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
 LinkContent::LinkContent(Note *parent, const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
     : NoteContent(parent)
     , m_linkDisplayItem(parent)
-    , m_access_manager(0)
+    , m_access_manager(nullptr)
     , m_acceptingData(false)
-    , m_previewJob(0)
+    , m_previewJob(nullptr)
 {
     setLink(url, title, icon, autoTitle, autoIcon);
     if (parent) {
@@ -1864,7 +1864,7 @@ void LinkContent::startFetchingLinkTitle()
     // If this is not an HTTP request, just ignore it.
     if (newUrl.scheme() == "http") {
         // If we have no access_manager, create one.
-        if (m_access_manager == 0) {
+        if (m_access_manager == nullptr) {
             m_access_manager = new KIO::Integration::AccessManager(this);
             connect(m_access_manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(httpDone(QNetworkReply *)));
         }

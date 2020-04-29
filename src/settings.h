@@ -34,7 +34,7 @@ class BASKET_EXPORT GeneralPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit GeneralPage(QWidget *parent = 0, const char *name = 0);
+    explicit GeneralPage(QWidget *parent = nullptr, const char *name = nullptr);
     ~GeneralPage() override
     {
     }
@@ -63,7 +63,7 @@ class BASKET_EXPORT BasketsPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit BasketsPage(QWidget *parent = 0, const char *name = 0);
+    explicit BasketsPage(QWidget *parent = nullptr, const char *name = nullptr);
 
     void load() override;
     void save() override;
@@ -94,7 +94,7 @@ class BASKET_EXPORT NewNotesPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit NewNotesPage(QWidget *parent = 0, const char *name = 0);
+    explicit NewNotesPage(QWidget *parent = nullptr, const char *name = nullptr);
 
     void load() override;
     void save() override;
@@ -121,7 +121,7 @@ class BASKET_EXPORT NotesAppearancePage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit NotesAppearancePage(QWidget *parent = 0, const char *name = 0);
+    explicit NotesAppearancePage(QWidget *parent = nullptr, const char *name = nullptr);
 
     void load() override;
     void save() override;
@@ -141,7 +141,7 @@ class BASKET_EXPORT ApplicationsPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit ApplicationsPage(QWidget *parent = 0, const char *name = 0);
+    explicit ApplicationsPage(QWidget *parent = nullptr, const char *name = nullptr);
 
     void load() override;
     void save() override;
@@ -446,7 +446,7 @@ public: /* And the following methods are just getter / setters */
     {
         if (s_useSystray != useSystray) {
             s_useSystray = useSystray;
-            if (Global::systemTray != 0L) {
+            if (Global::systemTray != nullptr) {
                 if (Settings::useSystray())
                     Global::systemTray->setStatus(KStatusNotifierItem::Active);
                 else {

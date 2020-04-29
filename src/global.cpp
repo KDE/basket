@@ -21,14 +21,14 @@
 /** Define initial values for global variables : */
 
 QString Global::s_customSavesFolder;
-LikeBack *Global::likeBack = 0L;
-DebugWindow *Global::debugWindow = 0L;
-BackgroundManager *Global::backgroundManager = 0L;
-SystemTray *Global::systemTray = 0L;
-BNPView *Global::bnpView = 0L;
+LikeBack *Global::likeBack = nullptr;
+DebugWindow *Global::debugWindow = nullptr;
+BackgroundManager *Global::backgroundManager = nullptr;
+SystemTray *Global::systemTray = nullptr;
+BNPView *Global::bnpView = nullptr;
 KSharedConfig::Ptr Global::basketConfig;
-QCommandLineParser *Global::commandLineOpts = NULL;
-MainWindow *Global::mainWnd = NULL;
+QCommandLineParser *Global::commandLineOpts = nullptr;
+MainWindow *Global::mainWnd = nullptr;
 
 void Global::setCustomSavesFolder(const QString &folder)
 {
@@ -37,9 +37,9 @@ void Global::setCustomSavesFolder(const QString &folder)
 
 QString Global::savesFolder()
 {
-    static QString *folder = 0L; // Memorize the folder to do not have to re-compute it each time it's needed
+    static QString *folder = nullptr; // Memorize the folder to do not have to re-compute it each time it's needed
 
-    if (folder == 0L) {                       // Initialize it if not yet done
+    if (folder == nullptr) {                  // Initialize it if not yet done
         if (!s_customSavesFolder.isEmpty()) { // Passed by command line (for development & debug purpose)
             QDir dir;
             dir.mkdir(s_customSavesFolder);
@@ -94,7 +94,7 @@ KMainWindow *Global::activeMainWindow()
     if (res && res->inherits("KMainWindow")) {
         return static_cast<KMainWindow *>(res);
     }
-    return 0;
+    return nullptr;
 }
 
 MainWindow *Global::mainWindow()

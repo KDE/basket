@@ -45,7 +45,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     QProgressDialog dialog;
     dialog.setWindowTitle(i18n("Save as Basket Archive"));
     dialog.setLabelText(i18n("Saving as basket archive. Please wait..."));
-    dialog.setCancelButton(NULL);
+    dialog.setCancelButton(nullptr);
     dialog.setAutoClose(true);
 
     dialog.setRange(0, /*Preparation:*/ 1 + /*Finishing:*/ 1 + /*Basket:*/ 1 + /*SubBaskets:*/ (withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
@@ -94,7 +94,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         State::List states = (*it)->states();
         for (State::List::iterator it2 = states.begin(); it2 != states.end(); ++it2) {
             State *state = (*it2);
-            QPixmap icon = KIconLoader::global()->loadIcon(state->emblem(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), 0L, true);
+            QPixmap icon = KIconLoader::global()->loadIcon(state->emblem(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), nullptr, true);
             if (!icon.isNull()) {
                 icon.save(tempIconFile, "PNG");
                 QString iconFileName = state->emblem().replace('/', '_');
@@ -116,8 +116,8 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     NoteSelection *selection = previewBasket->selectedNotes();
     previewBasket->unselectAll();
     Note *focusedNote = previewBasket->focusedNote();
-    previewBasket->setFocusedNote(0);
-    previewBasket->doHoverEffects(0, Note::None);
+    previewBasket->setFocusedNote(nullptr);
+    previewBasket->doHoverEffects(nullptr, Note::None);
     // Take the screenshot:
     previewBasket->render(&painter);
     // Go back to the old look:
@@ -165,7 +165,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         }
         // Clean Up:
         delete[] buffer;
-        buffer = 0;
+        buffer = nullptr;
         file.close();
     }
 
@@ -192,7 +192,7 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
     // Save basket icon:
     QString tempIconFile = tempFolder + "icon.png";
     if (!basket->icon().isEmpty() && basket->icon() != "basket") {
-        QPixmap icon = KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), /*path_store=*/0L, /*canReturnNull=*/true);
+        QPixmap icon = KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), /*path_store=*/nullptr, /*canReturnNull=*/true);
         if (!icon.isNull()) {
             icon.save(tempIconFile, "PNG");
             QString iconFileName = basket->icon().replace('/', '_');
@@ -255,7 +255,7 @@ void Archive::open(const QString &path)
         stream.setCodec("ISO-8859-1");
         QString line = stream.readLine();
         if (line != "BasKetNP:archive") {
-            KMessageBox::error(0, i18n("This file is not a basket archive."), i18n("Basket Archive Error"));
+            KMessageBox::error(nullptr, i18n("This file is not a basket archive."), i18n("Basket Archive Error"));
             file.close();
             Tools::deleteRecursively(tempFolder);
             return;
@@ -286,7 +286,7 @@ void Archive::open(const QString &path)
                 bool ok;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
-                    KMessageBox::error(0, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
+                    KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
                     file.close();
                     Tools::deleteRecursively(tempFolder);
                     return;
@@ -298,7 +298,7 @@ void Archive::open(const QString &path)
                 stream.seek(stream.pos() + size);
             } else if (key == "archive*") {
                 if (version != "0.6.1" && readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    KMessageBox::information(0,
+                    KMessageBox::information(nullptr,
                                              i18n("This file was created with a recent version of %1. "
                                                   "It can be opened but not every information will be available to you. "
                                                   "For instance, some notes may be missing because they are of a type only available in new versions. "
@@ -307,7 +307,8 @@ void Archive::open(const QString &path)
                                              i18n("Basket Archive Error"));
                 }
                 if (version != "0.6.1" && !readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    KMessageBox::error(0, i18n("This file was created with a recent version of %1. Please upgrade to a newer version to be able to open that file.", QGuiApplication::applicationDisplayName()), i18n("Basket Archive Error"));
+                    KMessageBox::error(
+                        nullptr, i18n("This file was created with a recent version of %1. Please upgrade to a newer version to be able to open that file.", QGuiApplication::applicationDisplayName()), i18n("Basket Archive Error"));
                     file.close();
                     Tools::deleteRecursively(tempFolder);
                     return;
@@ -316,7 +317,7 @@ void Archive::open(const QString &path)
                 bool ok;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
-                    KMessageBox::error(0, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
+                    KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
                     file.close();
                     Tools::deleteRecursively(tempFolder);
                     return;
@@ -368,7 +369,7 @@ void Archive::open(const QString &path)
                 bool ok;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
-                    KMessageBox::error(0, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
+                    KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
                     file.close();
                     Tools::deleteRecursively(tempFolder);
                     return;
@@ -400,7 +401,7 @@ void Archive::open(const QString &path)
 void Archive::importTagEmblems(const QString &extractionFolder)
 {
     QDomDocument *document = XMLWork::openFile("basketTags", extractionFolder + "tags.xml");
-    if (document == 0)
+    if (document == nullptr)
         return;
     QDomElement docElem = document->documentElement();
 
@@ -418,7 +419,7 @@ void Archive::importTagEmblems(const QString &extractionFolder)
                 if ((!subElement.isNull()) && subElement.tagName() == "state") {
                     QString emblemName = XMLWork::getElementText(subElement, "emblem");
                     if (!emblemName.isEmpty()) {
-                        QPixmap emblem = KIconLoader::global()->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/true);
+                        QPixmap emblem = KIconLoader::global()->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
                         // The icon does not exists on that computer, import it:
                         if (emblem.isNull()) {
                             // Of the emblem path was eg. "/home/seb/emblem.png", it was exported as "tag-emblems/_home_seb_emblem.png".
@@ -480,12 +481,12 @@ void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 void Archive::renameBasketFolders(const QString &extractionFolder, QMap<QString, QString> &mergedStates)
 {
     QDomDocument *doc = XMLWork::openFile("basketTree", extractionFolder + "baskets/baskets.xml");
-    if (doc != 0) {
+    if (doc != nullptr) {
         QMap<QString, QString> folderMap;
         QDomElement docElem = doc->documentElement();
         QDomNode node = docElem.firstChild();
         renameBasketFolder(extractionFolder, node, folderMap, mergedStates);
-        loadExtractedBaskets(extractionFolder, node, folderMap, 0);
+        loadExtractedBaskets(extractionFolder, node, folderMap, nullptr);
     }
 }
 
@@ -519,7 +520,7 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
 void Archive::renameMergedStatesAndBasketIcon(const QString &fullPath, QMap<QString, QString> &mergedStates, const QString &extractionFolder)
 {
     QDomDocument *doc = XMLWork::openFile("basket", fullPath);
-    if (doc == 0)
+    if (doc == nullptr)
         return;
     QDomElement docElem = doc->documentElement();
     QDomElement properties = XMLWork::getElement(docElem, "properties");
@@ -534,7 +535,7 @@ void Archive::importBasketIcon(QDomElement properties, const QString &extraction
 {
     QString iconName = XMLWork::getElementText(properties, "icon");
     if (!iconName.isEmpty() && iconName != "basket") {
-        QPixmap icon = KIconLoader::global()->loadIcon(iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/true);
+        QPixmap icon = KIconLoader::global()->loadIcon(iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
         // The icon does not exists on that computer, import it:
         if (icon.isNull()) {
             QDir dir;
@@ -589,7 +590,7 @@ void Archive::renameMergedStates(QDomNode notes, QMap<QString, QString> &mergedS
 
 void Archive::loadExtractedBaskets(const QString &extractionFolder, QDomNode &basketNode, QMap<QString, QString> &folderMap, BasketScene *parent)
 {
-    bool basketSetAsCurrent = (parent != 0);
+    bool basketSetAsCurrent = (parent != nullptr);
     QDomNode n = basketNode;
     while (!n.isNull()) {
         QDomElement element = n.toElement();
@@ -605,7 +606,7 @@ void Archive::loadExtractedBaskets(const QString &extractionFolder, QDomNode &ba
                 copier.moveFolder(extractionFolder + "baskets/" + folderName, Global::basketsFolder() + newFolderName);
                 // Append and load the basket in the tree:
                 BasketScene *basket = Global::bnpView->loadBasket(newFolderName);
-                BasketListViewItem *basketItem = Global::bnpView->appendBasket(basket, (basket && parent ? Global::bnpView->listViewItemForBasket(parent) : 0));
+                BasketListViewItem *basketItem = Global::bnpView->appendBasket(basket, (basket && parent ? Global::bnpView->listViewItemForBasket(parent) : nullptr));
                 basketItem->setExpanded(!XMLWork::trueOrFalse(element.attribute("folded", "false"), false));
                 QDomElement properties = XMLWork::getElement(element, "properties");
                 importBasketIcon(properties, extractionFolder); // Rename the icon fileName if necessary

@@ -497,29 +497,19 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
 QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
 {
     // The font definition:
-    QString definition = font.key()
-                         + (font.italic() ? QStringLiteral("italic ") : QString())
-                         + (font.bold() ? QStringLiteral("bold ") : QString())
-                         + QString::number(QFontInfo(font).pixelSize()) + QStringLiteral("px ");
+    QString definition = font.key() + (font.italic() ? QStringLiteral("italic ") : QString()) + (font.bold() ? QStringLiteral("bold ") : QString()) + QString::number(QFontInfo(font).pixelSize()) + QStringLiteral("px ");
 
     // Then, try to match the font name with a standard CSS font family:
     QString genericFont;
-    if (definition.contains("serif", Qt::CaseInsensitive)
-            || definition.contains("roman", Qt::CaseInsensitive)) {
+    if (definition.contains("serif", Qt::CaseInsensitive) || definition.contains("roman", Qt::CaseInsensitive)) {
         genericFont = QStringLiteral("serif");
     }
     // No "else if" because "sans serif" must be counted as "sans". So, the order between "serif" and "sans" is important
-    if (definition.contains("sans", Qt::CaseInsensitive)
-            || definition.contains("arial", Qt::CaseInsensitive)
-            || definition.contains("helvetica", Qt::CaseInsensitive)) {
+    if (definition.contains("sans", Qt::CaseInsensitive) || definition.contains("arial", Qt::CaseInsensitive) || definition.contains("helvetica", Qt::CaseInsensitive)) {
         genericFont = QStringLiteral("sans-serif");
     }
-    if (definition.contains("mono", Qt::CaseInsensitive)
-            || definition.contains("courier", Qt::CaseInsensitive)
-            || definition.contains("typewriter", Qt::CaseInsensitive)
-            || definition.contains("console", Qt::CaseInsensitive)
-            || definition.contains("terminal", Qt::CaseInsensitive)
-            || definition.contains("news", Qt::CaseInsensitive)) {
+    if (definition.contains("mono", Qt::CaseInsensitive) || definition.contains("courier", Qt::CaseInsensitive) || definition.contains("typewriter", Qt::CaseInsensitive) || definition.contains("console", Qt::CaseInsensitive) ||
+        definition.contains("terminal", Qt::CaseInsensitive) || definition.contains("news", Qt::CaseInsensitive)) {
         genericFont = QStringLiteral("monospace");
     }
 

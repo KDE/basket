@@ -132,7 +132,7 @@ class FontSizeCombo : public KComboBox
 {
     Q_OBJECT
 public:
-    FontSizeCombo(bool rw, bool withDefault, QWidget *parent = 0);
+    FontSizeCombo(bool rw, bool withDefault, QWidget *parent = nullptr);
     ~FontSizeCombo() override;
     void setFontSize(qreal size);
     qreal fontSize();

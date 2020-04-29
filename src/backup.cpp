@@ -143,7 +143,7 @@ void BackupDialog::populateLastBackup()
 
 void BackupDialog::moveToAnotherFolder()
 {
-    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/0,
+    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/nullptr,
                                                             /*caption=*/i18n("Choose a Folder Where to Move Baskets"),
                                                             /*startDir=*/Global::savesFolder());
 
@@ -155,7 +155,7 @@ void BackupDialog::moveToAnotherFolder()
             // Get the content of the folder:
             QStringList content = dir.entryList();
             if (content.count() > 2) { // "." and ".."
-                int result = KMessageBox::questionYesNo(0, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to override it?", folder), i18n("Override Folder?"), KGuiItem(i18n("&Override"), "document-save"));
+                int result = KMessageBox::questionYesNo(nullptr, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to override it?", folder), i18n("Override Folder?"), KGuiItem(i18n("&Override"), "document-save"));
                 if (result == KMessageBox::No)
                     return;
             }
@@ -169,7 +169,7 @@ void BackupDialog::moveToAnotherFolder()
 
 void BackupDialog::useAnotherExistingFolder()
 {
-    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/0,
+    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/nullptr,
                                                             /*caption=*/i18n("Choose an Existing Folder to Store Baskets"),
                                                             /*startDir=*/Global::savesFolder());
 
@@ -194,14 +194,14 @@ void BackupDialog::backup()
     QString destination = url;
     for (bool askAgain = true; askAgain;) {
         // Ask:
-        destination = QFileDialog::getSaveFileName(NULL, i18n("Backup Baskets"), destination, filter);
+        destination = QFileDialog::getSaveFileName(nullptr, i18n("Backup Baskets"), destination, filter);
         // User canceled?
         if (destination.isEmpty())
             return;
         // File already existing? Ask for overriding:
         if (dir.exists(destination)) {
             int result = KMessageBox::questionYesNoCancel(
-                0, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?", QUrl::fromLocalFile(destination).fileName()), i18n("Override File?"), KGuiItem(i18n("&Override"), "document-save"));
+                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?", QUrl::fromLocalFile(destination).fileName()), i18n("Override File?"), KGuiItem(i18n("&Override"), "document-save"));
             if (result == KMessageBox::Cancel)
                 return;
             else if (result == KMessageBox::Yes)
@@ -214,7 +214,7 @@ void BackupDialog::backup()
     dialog.setWindowTitle(i18n("Backup Baskets"));
     dialog.setLabelText(i18n("Backing up baskets. Please wait..."));
     dialog.setModal(true);
-    dialog.setCancelButton(NULL);
+    dialog.setCancelButton(nullptr);
     dialog.setAutoClose(true);
 
     dialog.setRange(0, 0 /*Busy/Undefined*/);
@@ -276,7 +276,7 @@ void BackupDialog::restore()
     dialog->setWindowTitle(i18n("Restore Baskets"));
     dialog->setLabelText(message);
     dialog->setModal(/*modal=*/true);
-    dialog->setCancelButton(NULL);
+    dialog->setCancelButton(nullptr);
     dialog->setAutoClose(true);
 
     dialog->setRange(0, 0 /*Busy/Undefined*/);
@@ -292,9 +292,9 @@ void BackupDialog::restore()
         usleep(300); // Not too long because if the restore process is finished, we wait for nothing
     }
 
-    dialog->hide(); // The restore is finished, do not continue to show it while telling the user the application is going to be restarted
-    delete dialog;  // If we only hidden it, it reappeared just after having restored a small backup... Very strange.
-    dialog = 0;     // This was annoying since it is modal and the "BasKet Note Pads is going to be restarted" message was not reachable.
+    dialog->hide();   // The restore is finished, do not continue to show it while telling the user the application is going to be restarted
+    delete dialog;    // If we only hidden it, it reappeared just after having restored a small backup... Very strange.
+    dialog = nullptr; // This was annoying since it is modal and the "BasKet Note Pads is going to be restarted" message was not reachable.
     // qApp->processEvents();
 
     // Check for errors:
@@ -304,7 +304,7 @@ void BackupDialog::restore()
         dir.remove(readmePath);
         copier.moveFolder(safetyPath, Global::savesFolder());
         // Tell the user:
-        KMessageBox::error(0, i18n("This archive is either not a backup of baskets or is corrupted. It cannot be imported. Your old baskets have been preserved instead."), i18n("Restore Error"));
+        KMessageBox::error(nullptr, i18n("This archive is either not a backup of baskets or is corrupted. It cannot be imported. Your old baskets have been preserved instead."), i18n("Restore Error"));
         return;
     }
 
@@ -346,10 +346,10 @@ void Backup::setFolderAndRestart(const QString &folder, const QString &message)
 
     // Reassure the user that the application main window disappearance is not a crash, but a normal restart.
     // This is important for users to trust the application in such a critical phase and understands what's happening:
-    KMessageBox::information(0, "<qt>" + message.arg((folder.endsWith('/') ? folder.left(folder.length() - 1) : folder), QGuiApplication::applicationDisplayName()), i18n("Restart"));
+    KMessageBox::information(nullptr, "<qt>" + message.arg((folder.endsWith('/') ? folder.left(folder.length() - 1) : folder), QGuiApplication::applicationDisplayName()), i18n("Restart"));
 
     // Restart the application:
-    KRun::runCommand(binaryPath, QCoreApplication::applicationName(), QCoreApplication::applicationName(), 0);
+    KRun::runCommand(binaryPath, QCoreApplication::applicationName(), QCoreApplication::applicationName(), nullptr);
     exit(0);
 }
 

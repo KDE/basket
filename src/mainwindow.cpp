@@ -34,7 +34,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
-    , m_settings(0)
+    , m_settings(nullptr)
     , m_quit(false)
 {
     BasketStatusBar *bar = new BasketStatusBar(statusBar());
@@ -70,7 +70,7 @@ MainWindow::~MainWindow()
 void MainWindow::setupActions()
 {
     actQuit = KStandardAction::quit(this, SLOT(quit()), actionCollection());
-    QAction *a = NULL;
+    QAction *a = nullptr;
     a = actionCollection()->addAction("minimizeRestore", this, SLOT(minimizeRestore()));
     a->setText(i18n("Minimize"));
     a->setIcon(QIcon::fromTheme(QString()));
@@ -144,7 +144,7 @@ void MainWindow::slotNewToolbarConfig() // This is called when OK or Apply is cl
 
 void MainWindow::showSettingsDialog()
 {
-    if (m_settings == 0)
+    if (m_settings == nullptr)
         m_settings = new KSettings::Dialog(qApp->activeWindow());
     if (Global::activeMainWindow()) {
         // Help, RestoreDefaults buttons not implemented!

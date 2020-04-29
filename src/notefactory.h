@@ -51,7 +51,7 @@ Note *moveFileAndLoad(const QUrl &url, BasketScene *parent);
 Note *loadFile(const QString &fileName, BasketScene *parent);                    /// << Determine the content of the file (the file SHOULD exists) and return a note of the good type.
 Note *loadFile(const QString &fileName, NoteType::Id type, BasketScene *parent); /// <<  Create a note of type @p type. The file is not obliged to exist.
 /** Functions to create a new note from a drop or paste event */
-Note *dropNote(const QMimeData *source, BasketScene *parent, bool fromDrop = false, Qt::DropAction action = Qt::CopyAction, Note *noteSource = 0);
+Note *dropNote(const QMimeData *source, BasketScene *parent, bool fromDrop = false, Qt::DropAction action = Qt::CopyAction, Note *noteSource = nullptr);
 bool movingNotesInTheSameBasket(const QMimeData *source, BasketScene *parent, Qt::DropAction action);
 Note *dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropAction action, bool fromDrop);
 Note *decodeContent(QDataStream &stream, NoteType::Id type, BasketScene *parent); /// << Decode the @p stream to a note or return 0 if a general loadFile() is sufficient.

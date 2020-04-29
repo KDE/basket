@@ -33,7 +33,7 @@ class BasketPropertiesDialog : public QDialog, private Ui::BasketPropertiesUi
 {
     Q_OBJECT
 public:
-    explicit BasketPropertiesDialog(BasketScene *basket, QWidget *parent = 0);
+    explicit BasketPropertiesDialog(BasketScene *basket, QWidget *parent = nullptr);
     ~BasketPropertiesDialog() override;
     void ensurePolished();
 

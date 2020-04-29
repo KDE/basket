@@ -22,7 +22,7 @@ class BackupDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit BackupDialog(QWidget *parent = 0, const char *name = 0);
+    explicit BackupDialog(QWidget *parent = nullptr, const char *name = nullptr);
     ~BackupDialog() override;
 private slots:
     void moveToAnotherFolder();

@@ -67,7 +67,7 @@ public:
     }
     bool isInline()
     {
-        return m_widget != 0;
+        return m_widget != nullptr;
     }
     QGraphicsProxyWidget *graphicsWidget()
     {

@@ -51,14 +51,14 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
     QString destination = url;
     for (bool askAgain = true; askAgain;) {
         // Ask:
-        destination = QFileDialog::getSaveFileName(NULL, i18n("Export to HTML"), destination, filter);
+        destination = QFileDialog::getSaveFileName(nullptr, i18n("Export to HTML"), destination, filter);
         // User canceled?
         if (destination.isEmpty())
             return;
         // File already existing? Ask for overriding:
         if (dir.exists(destination)) {
             int result = KMessageBox::questionYesNoCancel(
-                0, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?", QUrl::fromLocalFile(destination).fileName()), i18n("Override File?"), KGuiItem(i18n("&Override"), "document-save"));
+                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?", QUrl::fromLocalFile(destination).fileName()), i18n("Override File?"), KGuiItem(i18n("&Override"), "document-save"));
             if (result == KMessageBox::Cancel)
                 return;
             else if (result == KMessageBox::Yes)
@@ -70,7 +70,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
     // Create the progress dialog that will always be shown during the export:
     dialog->setWindowTitle(i18n("Export to HTML"));
     dialog->setLabelText(i18n("Exporting to HTML. Please wait..."));
-    dialog->setCancelButton(NULL);
+    dialog->setCancelButton(nullptr);
     dialog->setAutoClose(true);
     dialog->show();
 
@@ -98,7 +98,7 @@ void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
     filePath = fullPath;
     fileName = QUrl::fromLocalFile(fullPath).fileName();
     exportedBasket = basket;
-    currentBasket = 0;
+    currentBasket = nullptr;
 
     BasketListViewItem *item = Global::bnpView->listViewItemForBasket(basket);
     withBasketTree = (item->childCount() >= 0);
@@ -143,10 +143,8 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         dataFolderPath = filesFolderPath + i18nc("HTML export folder (data)", "data") + '/';
         basketsFolderName = filesFolderName + i18nc("HTML export folder (baskets)", "baskets") + '/';
     }
-    iconsFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName)
-                       + i18nc("HTML export folder (icons)", "icons") + QLatin1Char('/');    // eg.: "foo.html_files/icons/"   or "../icons/"
-    imagesFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName)
-                        + i18nc("HTML export folder (images)", "images")  + QLatin1Char('/'); // eg.: "foo.html_files/images/"  or "../images/"
+    iconsFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (icons)", "icons") + QLatin1Char('/');    // eg.: "foo.html_files/icons/"   or "../icons/"
+    imagesFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (images)", "images") + QLatin1Char('/'); // eg.: "foo.html_files/images/"  or "../images/"
 
     qDebug() << "Exporting ================================================";
     qDebug() << "  filePath:" << filePath;
@@ -312,7 +310,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
               "</html>\n";
 
     file.close();
-    stream.setDevice(0);
+    stream.setDevice(nullptr);
     dialog->setValue(dialog->value() + 1); // Basket exportation finished
 
     // Recursively export child baskets:

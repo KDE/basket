@@ -31,7 +31,7 @@ public:
 
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
-    explicit State(const QString &id = QString(), Tag *tag = 0);
+    explicit State(const QString &id = QString(), Tag *tag = nullptr);
     ~State();
     /// SET PROPERTIES:
     void setId(const QString &id)
@@ -228,7 +228,7 @@ public:
     void removeState(State *state)
     {
         m_states.removeOne(state);
-        state->setParentTag(0);
+        state->setParentTag(nullptr);
     }
     /// GET PROPERTIES:
     QString name() const

@@ -24,21 +24,21 @@
 
 BasketStatusBar::BasketStatusBar(QStatusBar *bar)
     : m_bar(bar)
-    , m_extension(0)
-    , m_selectionStatus(0)
-    , m_lockStatus(0)
-    , m_basketStatus(0)
-    , m_savedStatus(0)
+    , m_extension(nullptr)
+    , m_selectionStatus(nullptr)
+    , m_lockStatus(nullptr)
+    , m_basketStatus(nullptr)
+    , m_savedStatus(nullptr)
 {
 }
 
 BasketStatusBar::BasketStatusBar(KParts::StatusBarExtension *extension)
-    : m_bar(0)
+    : m_bar(nullptr)
     , m_extension(extension)
-    , m_selectionStatus(0)
-    , m_lockStatus(0)
-    , m_basketStatus(0)
-    , m_savedStatus(0)
+    , m_selectionStatus(nullptr)
+    , m_lockStatus(nullptr)
+    , m_basketStatus(nullptr)
+    , m_savedStatus(nullptr)
 {
 }
 
@@ -86,7 +86,7 @@ void BasketStatusBar::setupStatusBar()
     m_selectionStatus = new QLabel(i18n("Loading..."), parent);
     addWidget(m_selectionStatus, 0, true);
 
-    m_lockStatus = new QLabel(0 /*this*/);
+    m_lockStatus = new QLabel(nullptr /*this*/);
     m_lockStatus->setMinimumSize(18, 18);
     m_lockStatus->setAlignment(Qt::AlignCenter);
     //  addWidget( m_lockStatus, 0, true );
@@ -167,7 +167,7 @@ void BasketStatusBar::setUnsavedStatus(bool isUnsaved)
         return;
 
     if (isUnsaved) {
-        if (m_savedStatus->pixmap() == 0)
+        if (m_savedStatus->pixmap() == nullptr)
             m_savedStatus->setPixmap(m_savedStatusPixmap);
     } else
         m_savedStatus->clear();

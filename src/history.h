@@ -14,7 +14,7 @@ class BasketScene;
 class HistorySetBasket : public QUndoCommand
 {
 public:
-    explicit HistorySetBasket(BasketScene *basket, QUndoCommand *parent = 0);
+    explicit HistorySetBasket(BasketScene *basket, QUndoCommand *parent = nullptr);
     void undo() override;
     void redo() override;
 

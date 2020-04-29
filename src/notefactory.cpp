@@ -211,8 +211,8 @@ Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
     if (!uriList.isEmpty()) {
         // TODO: This code is almost duplicated from fropURLs()!
         Note *note;
-        Note *firstNote = 0;
-        Note *lastInserted = 0;
+        Note *firstNote = nullptr;
+        Note *lastInserted = nullptr;
         QStringList::iterator it;
         for (it = uriList.begin(); it != uriList.end(); ++it) {
             QString url = (*it);
@@ -258,7 +258,7 @@ Note *NoteFactory::createNoteLauncher(const QString &command, const QString &nam
 {
     QString fileName = createNoteLauncherFile(command, name, icon, parent);
     if (fileName.isEmpty())
-        return 0L;
+        return nullptr;
     else
         return loadFile(fileName, parent);
 }
@@ -315,11 +315,11 @@ bool NoteFactory::movingNotesInTheSameBasket(const QMimeData *source, BasketScen
 
 Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool fromDrop, Qt::DropAction action, Note * /*noteSource*/)
 {
-    if (source == 0) {
-        return 0;
+    if (source == nullptr) {
+        return nullptr;
     }
 
-    Note *note = 0L;
+    Note *note = nullptr;
 
     QStringList formats = source->formats();
     /* No data */
@@ -327,7 +327,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         // TODO: add a parameter to say if it's from a clipboard paste, a selection paste, or a drop
         //       To be able to say "The clipboard/selection/drop is empty".
         //      KMessageBox::error(parent, i18n("There is no data to insert."), i18n("No Data"));
-        return 0;
+        return nullptr;
     }
 
     /* Debug */
@@ -419,7 +419,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
                 *Global::debugWindow << QString("'") + QChar(mozilla[i]) + "' " + QString::number(int(mozilla[i]));
         // text/x-moz-url give the URL followed by the link title and separated by OxOA (10 decimal: new line?)
         uint size = 0;
-        QChar *name = 0L;
+        QChar *name = nullptr;
         // For each little endian mozilla chars, copy it to the array of QChars
         for (int i = 0; i < mozilla.count(); i += 2) {
             chars[i / 2] = QChar(mozilla[i], mozilla[i + 1]);
@@ -429,7 +429,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
             }
         }
         // Create a QString that take the address of the first QChar and a length
-        if (name == 0L) { // We haven't found name (FIXME: Is it possible ?)
+        if (name == nullptr) { // We haven't found name (FIXME: Is it possible ?)
             QString normalHtml(&(chars[0]), chars.size());
             return createNoteLink(normalHtml, parent);
         } else {
@@ -482,7 +482,7 @@ Note *NoteFactory::createNoteUnknown(const QMimeData *source, BasketScene *paren
     QString fileName = createFileForNewNote(parent, "unknown");
     QFile file(parent->fullPath() + fileName);
     if (!file.open(QIODevice::WriteOnly))
-        return 0L;
+        return nullptr;
     QDataStream stream(&file);
 
     // Echo MIME types:
@@ -546,7 +546,7 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
                 action = Qt::LinkAction;
                 break;
             default:
-                return 0;
+                return nullptr;
             }
             modified = true;
         }
@@ -574,8 +574,8 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
     *   - View as File
     */
     Note *note;
-    Note *firstNote = 0;
-    Note *lastInserted = 0;
+    Note *firstNote = nullptr;
+    Note *lastInserted = nullptr;
     for (QList<QUrl>::iterator it = urls.begin(); it != urls.end(); ++it) {
         if (((*it).scheme() == "mailto") || (action == Qt::LinkAction))
             note = createNoteLinkOrLauncher(*it, parent);
@@ -664,7 +664,7 @@ Note *NoteFactory::decodeContent(QDataStream &stream, NoteType::Id type, BasketS
         stream >> color;
         return NoteFactory::createNoteColor(color, parent);
     } else
-        return 0; // NoteFactory::loadFile() is sufficient
+        return nullptr; // NoteFactory::loadFile() is sufficient
 }
 
 bool NoteFactory::maybeText(const QMimeType &mimeType)
@@ -742,7 +742,7 @@ Note *NoteFactory::loadFile(const QString &fileName, BasketScene *parent)
     // The file MUST exists
     QFileInfo file(QUrl::fromLocalFile(parent->fullPathForFileName(fileName)).path());
     if (!file.exists())
-        return 0L;
+        return nullptr;
 
     NoteType::Id type = typeForURL(parent->fullPathForFileName(fileName), parent);
     Note *note = loadFile(fileName, type, parent);
@@ -782,7 +782,7 @@ Note *NoteFactory::loadFile(const QString &fileName, NoteType::Id type, BasketSc
     case NoteType::Link:
     case NoteType::CrossReference:
     case NoteType::Color:
-        return 0;
+        return nullptr;
     }
 
     return note;
@@ -968,7 +968,7 @@ QString NoteFactory::iconForCommand(const QString &command)
 
 bool NoteFactory::isIconExist(const QString &icon)
 {
-    return !KIconLoader::global()->loadIcon(icon, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, true).isNull();
+    return !KIconLoader::global()->loadIcon(icon, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true).isNull();
 }
 
 Note *NoteFactory::createEmptyNote(NoteType::Id type, BasketScene *parent)
@@ -997,7 +997,7 @@ Note *NoteFactory::createEmptyNote(NoteType::Id type, BasketScene *parent)
     case NoteType::Sound:
     case NoteType::File:
     case NoteType::Unknown:
-        return 0; // Not possible!
+        return nullptr; // Not possible!
     }
 }
 
@@ -1014,14 +1014,14 @@ Note *NoteFactory::importKMenuLauncher(BasketScene *parent)
             serviceFilePath = dialog->service()->locateLocal();
         return createNoteLauncher(QUrl::fromUserInput(serviceFilePath), parent);
     }
-    return 0;
+    return nullptr;
 }
 
 Note *NoteFactory::importIcon(BasketScene *parent)
 {
     QString iconName = KIconDialog::getIcon(KIconLoader::Desktop, KIconLoader::Application, false, Settings::defIconSize());
     if (!iconName.isEmpty()) {
-        QPointer<IconSizeDialog> dialog = new IconSizeDialog(i18n("Import Icon as Image"), i18n("Choose the size of the icon to import as an image:"), iconName, Settings::defIconSize(), 0);
+        QPointer<IconSizeDialog> dialog = new IconSizeDialog(i18n("Import Icon as Image"), i18n("Choose the size of the icon to import as an image:"), iconName, Settings::defIconSize(), nullptr);
         dialog->exec();
         if (dialog->iconSize() > 0) {
             Settings::setDefIconSize(dialog->iconSize());
@@ -1029,7 +1029,7 @@ Note *NoteFactory::importIcon(BasketScene *parent)
             return createNoteImage(QIcon::fromTheme(iconName).pixmap(dialog->iconSize()), parent); // TODO: wantedName = iconName !
         }
     }
-    return 0;
+    return nullptr;
 }
 
 Note *NoteFactory::importFileContent(BasketScene *parent)
@@ -1037,5 +1037,5 @@ Note *NoteFactory::importFileContent(BasketScene *parent)
     QUrl url = QFileDialog::getOpenFileUrl(parent->graphicsView(), i18n("Load File Content into a Note"), QUrl(), QString());
     if (!url.isEmpty())
         return copyFileAndLoad(url, parent);
-    return 0;
+    return nullptr;
 }

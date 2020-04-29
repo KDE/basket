@@ -63,7 +63,7 @@ public:
                 qDebug() << "KIO::CopyJob finished with result" << error;
                 if (error != 0) {
                     qDebug() << job->errorString();
-                    QMessageBox::critical(NULL,
+                    QMessageBox::critical(nullptr,
                                           QGuiApplication::applicationDisplayName(),
                                           i18n("Failed to migrate Basket data from KDE4. You will need to close Basket and copy the basket folder manually.\n"
                                                "Source: %1\nDestination: %2\nReason: %3",

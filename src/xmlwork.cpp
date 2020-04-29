@@ -18,13 +18,13 @@ QDomDocument *XMLWork::openFile(const QString &name, const QString &filePath)
     if (!file.open(QIODevice::ReadOnly)) {
         // QMessageBox::information(this, "Load an XML file", "Error : un-openable file");
         delete doc;
-        return 0;
+        return nullptr;
     }
     if (!doc->setContent(&file)) {
         // QMessageBox::information(this, "Load an XML file", "Error : malformed content");
         file.close();
         delete doc;
-        return 0;
+        return nullptr;
     }
     file.close();
     return doc;

@@ -56,6 +56,6 @@ void DebugWindow::insertHLine()
 
 void DebugWindow::closeEvent(QCloseEvent *event)
 {
-    Global::debugWindow = 0L;
+    Global::debugWindow = nullptr;
     QWidget::closeEvent(event);
 }

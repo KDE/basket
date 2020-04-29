@@ -97,7 +97,7 @@ void BasketListViewItem::setup()
 {
     setText(/*column=*/0, escapedName(m_basket->basketName()));
 
-    QPixmap icon = KIconLoader::global()->loadIcon(m_basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, /*canReturnNull=*/false);
+    QPixmap icon = KIconLoader::global()->loadIcon(m_basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/false);
 
     setIcon(/*column=*/0, icon);
     /*
@@ -114,7 +114,7 @@ BasketListViewItem *BasketListViewItem::lastChild()
 {
     int count = childCount();
     if (count <= 0)
-        return 0;
+        return nullptr;
     return (BasketListViewItem *)(child(count - 1));
 }
 
@@ -261,8 +261,8 @@ QString BasketTreeListView::TREE_ITEM_MIME_STRING = "application/x-basket-item";
 
 BasketTreeListView::BasketTreeListView(QWidget *parent)
     : QTreeWidget(parent)
-    , m_autoOpenItem(0)
-    , m_itemUnderDrag(0)
+    , m_autoOpenItem(nullptr)
+    , m_itemUnderDrag(nullptr)
 {
     connect(&m_autoOpenTimer, SIGNAL(timeout()), this, SLOT(autoOpen()));
     setItemDelegate(new FoundCountIcon(this));
@@ -366,9 +366,9 @@ void BasketTreeListView::removeExpands()
 void BasketTreeListView::dragLeaveEvent(QDragLeaveEvent *event)
 {
     qDebug() << "BasketTreeListView::dragLeaveEvent";
-    m_autoOpenItem = 0;
+    m_autoOpenItem = nullptr;
     m_autoOpenTimer.stop();
-    setItemUnderDrag(0);
+    setItemUnderDrag(nullptr);
     removeExpands();
     QTreeWidget::dragLeaveEvent(event);
 }
@@ -390,9 +390,9 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
         }
     }
 
-    m_autoOpenItem = 0;
+    m_autoOpenItem = nullptr;
     m_autoOpenTimer.stop();
-    setItemUnderDrag(0);
+    setItemUnderDrag(nullptr);
     removeExpands();
 
     Global::bnpView->save(); // TODO: Don't save if it was not a basket drop...
@@ -477,7 +477,7 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
 
     // Get access to basket pointer
     BasketListViewItem *basketInTree = m_basketTree->getBasketInTree(index);
-    if (basketInTree == NULL)
+    if (basketInTree == nullptr)
         return;
 
     const int BASKET_ICON_SIZE = 16; // [replace with m_basketTree->iconSize()]
@@ -593,7 +593,7 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     QImage resultImage = background.toImage();
 
     // resultImage.setAlphaBuffer(true);
-    //resultImage.convertToFormat(QImage::Format_ARGB32);
+    // resultImage.convertToFormat(QImage::Format_ARGB32);
 
     // Scale down the image smoothly to get anti-aliasing:
     QPixmap pmScaled = QPixmap::fromImage(resultImage.scaled(width, height, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));

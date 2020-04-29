@@ -55,9 +55,9 @@ NoteEditor::NoteEditor(NoteContent *noteContent)
 {
     m_isEmpty = false;
     m_canceled = false;
-    m_widget = 0;
-    m_textEdit = 0;
-    m_lineEdit = 0;
+    m_widget = nullptr;
+    m_textEdit = nullptr;
+    m_lineEdit = nullptr;
     m_noteContent = noteContent;
 }
 
@@ -178,7 +178,7 @@ NoteEditor *NoteEditor::editNoteContent(NoteContent *noteContent, QWidget *paren
     if (unknownContent)
         return new UnknownEditor(unknownContent, parent);
 
-    return 0;
+    return nullptr;
 }
 
 void NoteEditor::setInlineEditor(QWidget *inlineEditor)
@@ -191,8 +191,8 @@ void NoteEditor::setInlineEditor(QWidget *inlineEditor)
     // m_widget->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
     m_widget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    m_textEdit = 0;
-    m_lineEdit = 0;
+    m_textEdit = nullptr;
+    m_lineEdit = nullptr;
     KTextEdit *textEdit = dynamic_cast<KTextEdit *>(inlineEditor);
     if (textEdit) {
         m_textEdit = textEdit;
@@ -489,7 +489,7 @@ void HtmlEditor::validate()
     if (graphicsWidget()) {
         note()->setZValue(1);
         delete graphicsWidget()->widget();
-        setInlineEditor(0);
+        setInlineEditor(nullptr);
     }
 }
 
@@ -1124,7 +1124,7 @@ InlineEditors::~InlineEditors()
 
 InlineEditors *InlineEditors::instance()
 {
-    static InlineEditors *instance = 0;
+    static InlineEditors *instance = nullptr;
     if (!instance)
         instance = new InlineEditors();
     return instance;
@@ -1167,7 +1167,7 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     action->setDefaultWidget(richTextColor);
     action->setText(i18n("Color"));
 
-    KToggleAction *ta = NULL;
+    KToggleAction *ta = nullptr;
     ta = new KToggleAction(ac);
     ac->addAction("richtext_bold", ta);
     ta->setText(i18n("Bold"));
@@ -1254,7 +1254,7 @@ KToolBar *InlineEditors::richTextToolBar()
         Global::activeMainWindow()->toolBar(); // Make sure we create the main toolbar FIRST, so it will be on top of the edit toolbar!
         return Global::activeMainWindow()->toolBar("richTextEditToolBar");
     } else
-        return 0;
+        return nullptr;
 }
 
 void InlineEditors::enableRichTextToolBar()

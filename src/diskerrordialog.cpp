@@ -33,7 +33,7 @@ DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &mes
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
-    QPixmap icon = KIconLoader::global()->loadIcon("drive-harddisk", KIconLoader::NoGroup, 64, KIconLoader::DefaultState, QStringList(), /*path_store=*/0L, /*canReturnNull=*/true);
+    QPixmap icon = KIconLoader::global()->loadIcon("drive-harddisk", KIconLoader::NoGroup, 64, KIconLoader::DefaultState, QStringList(), /*path_store=*/nullptr, /*canReturnNull=*/true);
     QLabel *iconLabel = new QLabel(mainWidget);
     iconLabel->setPixmap(icon);
     iconLabel->setFixedSize(iconLabel->sizeHint());

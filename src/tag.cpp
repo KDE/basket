@@ -9,8 +9,8 @@
 #include <KActionCollection>
 #include <KLocalizedString>
 
-#include <QLocale>
 #include <QIcon>
+#include <QLocale>
 #include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QTextStream>
@@ -53,12 +53,12 @@ State::~State()
 State *State::nextState(bool cycle /*= true*/)
 {
     if (!parentTag())
-        return 0;
+        return nullptr;
 
     List states = parentTag()->states();
     // The tag contains only one state:
     if (states.count() == 1)
-        return 0;
+        return nullptr;
     // Find the next state:
     for (List::iterator it = states.begin(); it != states.end(); ++it)
         // Found the current state in the list:
@@ -71,7 +71,7 @@ State *State::nextState(bool cycle /*= true*/)
         }
     // Should not happens:
     Q_ASSERT(false);
-    return 0;
+    return nullptr;
 }
 
 QString State::fullName()
@@ -245,7 +245,7 @@ State *Tag::stateForId(const QString &id)
         for (State::List::iterator it2 = (*it)->states().begin(); it2 != (*it)->states().end(); ++it2)
             if ((*it2)->id() == id)
                 return *it2;
-    return 0;
+    return nullptr;
 }
 
 Tag *Tag::tagForKAction(QAction *action)
@@ -253,7 +253,7 @@ Tag *Tag::tagForKAction(QAction *action)
     for (List::iterator it = all.begin(); it != all.end(); ++it)
         if ((*it)->m_action == action)
             return *it;
-    return 0;
+    return nullptr;
 }
 
 QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bool merge = false*/)
@@ -338,7 +338,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
                 } else {
                     Tag *similarTag = tagSimilarTo(tag);
                     // Tag does not exists, add it:
-                    if (similarTag == 0) {
+                    if (similarTag == nullptr) {
                         // We are merging the new states, so we should choose new and unique (on that computer) ids for those states:
                         for (State::List::iterator it = tag->states().begin(); it != tag->states().end(); ++it) {
                             State *state = *it;
@@ -445,7 +445,7 @@ Tag *Tag::tagSimilarTo(Tag *tagToTest)
     }
 
     // Not found:
-    return 0;
+    return nullptr;
 }
 
 void Tag::saveTags()

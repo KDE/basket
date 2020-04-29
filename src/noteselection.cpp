@@ -41,13 +41,13 @@ NoteSelection *NoteSelection::nextStacked()
             node = node->parent;
     }
     // Not found:
-    return 0;
+    return nullptr;
 }
 
 NoteSelection *NoteSelection::firstStacked()
 {
     if (!this)
-        return 0;
+        return nullptr;
 
     if (note && note->content())
         return this;

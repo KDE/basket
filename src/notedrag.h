@@ -50,7 +50,7 @@ protected:
 
 public:
     static QPixmap feedbackPixmap(NoteSelection *noteList);
-    static QDrag *dragObject(NoteSelection *noteList, bool cutting, QWidget *source = 0);
+    static QDrag *dragObject(NoteSelection *noteList, bool cutting, QWidget *source = nullptr);
     static bool canDecode(const QMimeData *source);
     static Note *decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes);
     static BasketScene *basketOf(const QMimeData *source);

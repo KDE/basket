@@ -37,9 +37,9 @@ const int KColorPopup::MARGIN = 1;
 const int KColorPopup::FRAME_WIDTH = 1;
 
 KColorPopup::KColorPopup(KColorCombo2 *parent)
-    : QWidget(/*parent=*/0, Qt::Popup)
+    : QWidget(/*parent=*/nullptr, Qt::Popup)
     , m_selector(parent)
-    , m_pixmap(0)
+    , m_pixmap(nullptr)
 {
     hide();
     setMouseTracking(true);
@@ -346,7 +346,7 @@ KColorCombo2::KColorCombo2(const QColor &color, QWidget *parent)
 
 void KColorCombo2::init()
 {
-    m_colorArray = 0;
+    m_colorArray = nullptr;
     d = new KColorCombo2Private();
 
     setDefaultColor(m_defaultColor);
@@ -623,7 +623,7 @@ void KColorCombo2::deleteColorArray()
         for (int i = 0; i < m_columnCount; ++i)
             delete[] m_colorArray[i];
         delete[] m_colorArray;
-        m_colorArray = 0;
+        m_colorArray = nullptr;
     }
 }
 

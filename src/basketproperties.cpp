@@ -140,7 +140,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
                                               "<p><strong>Show vs Switch</strong>:<br>"
                                               "The last option makes this basket the current one without opening the main window. "
                                               "It is useful in addition to the configurable global shortcuts, eg. to paste the clipboard or the selection into the current basket from anywhere.</p>"),
-                                         0);
+                                         nullptr);
 
     shortcutLayout->addWidget(helpLabel);
     connect(shortcut, SIGNAL(shortcutChanged(const QList<QKeySequence> &)), this, SLOT(capturedShortcut(const QList<QKeySequence> &)));

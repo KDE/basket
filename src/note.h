@@ -105,7 +105,7 @@ private:
 public:
     inline bool isGroup() const
     {
-        return m_content == 0L;
+        return m_content == nullptr;
     }
     inline bool isFolded()
     {
@@ -361,7 +361,7 @@ public:
     /**
      * @return true if this note could be deleted
      **/
-    void deleteSelectedNotes(bool deleteFilesToo = true, QSet<Note *> *notesToBeDeleted = 0);
+    void deleteSelectedNotes(bool deleteFilesToo = true, QSet<Note *> *notesToBeDeleted = nullptr);
     int count();
     int countDirectChilds();
 

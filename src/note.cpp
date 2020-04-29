@@ -39,8 +39,8 @@ class NotePrivate
 {
 public:
     NotePrivate()
-        : prev(0)
-        , next(0)
+        : prev(nullptr)
+        , next(nullptr)
         , width(-1)
         , height(Note::MIN_HEIGHT)
     {
@@ -66,10 +66,10 @@ Note::Note(BasketScene *parent)
     : d(new NotePrivate)
     , m_groupWidth(250)
     , m_isFolded(false)
-    , m_firstChild(0L)
-    , m_parentNote(0)
+    , m_firstChild(nullptr)
+    , m_parentNote(nullptr)
     , m_basket(parent)
-    , m_content(0)
+    , m_content(nullptr)
     , m_addedDate(QDateTime::currentDateTime())
     , m_lastModificationDate(QDateTime::currentDateTime())
     , m_computedAreas(false)
@@ -487,7 +487,7 @@ Note *Note::theSelectedNote()
         child = child->next();
     }
 
-    return 0;
+    return nullptr;
 }
 
 NoteSelection *Note::selectedNotes()
@@ -496,7 +496,7 @@ NoteSelection *Note::selectedNotes()
         if (isSelected())
             return new NoteSelection(this);
         else
-            return 0;
+            return nullptr;
     }
 
     NoteSelection *selection = new NoteSelection(this);
@@ -514,18 +514,18 @@ NoteSelection *Note::selectedNotes()
             NoteSelection *reducedSelection = selection->firstChild;
             //          delete selection; // TODO: Cut all connections of 'selection' before deleting it!
             for (NoteSelection *node = reducedSelection; node; node = node->next)
-                node->parent = 0;
+                node->parent = nullptr;
             return reducedSelection;
         }
     } else {
         delete selection;
-        return 0;
+        return nullptr;
     }
 }
 
 bool Note::isAfter(Note *note)
 {
-    if (this == 0 || note == 0)
+    if (this == nullptr || note == nullptr)
         return true;
 
     Note *next = this;
@@ -563,7 +563,7 @@ Note *Note::firstRealChild()
         child = child->firstChild();
     }
     // Empty group:
-    return 0;
+    return nullptr;
 }
 
 Note *Note::lastRealChild()
@@ -577,7 +577,7 @@ Note *Note::lastRealChild()
             return possibleChild;
         child = child->prev();
     }
-    return 0;
+    return nullptr;
 }
 
 Note *Note::lastChild()
@@ -612,18 +612,18 @@ qreal Note::yExpander()
 
 bool Note::isFree() const
 {
-    return parentNote() == 0 && basket() && basket()->isFreeLayout();
+    return parentNote() == nullptr && basket() && basket()->isFreeLayout();
 }
 
 bool Note::isColumn() const
 {
-    return parentNote() == 0 && basket() && basket()->isColumnsLayout();
+    return parentNote() == nullptr && basket() && basket()->isColumnsLayout();
 }
 
 bool Note::hasResizer() const
 {
     // "isFree" || "isColumn but not the last"
-    return parentNote() == 0 && ((basket() && basket()->isFreeLayout()) || d->next != 0L);
+    return parentNote() == nullptr && ((basket() && basket()->isFreeLayout()) || d->next != nullptr);
 }
 
 qreal Note::resizerHeight() const
@@ -1010,7 +1010,7 @@ Note *Note::noteAt(QPointF pos)
                 if (rect.contains(pos.x(), pos.y()))
                     return this;
             }
-            return NULL;
+            return nullptr;
         }
         Note *child = firstChild();
         Note *found;
@@ -1032,10 +1032,10 @@ Note *Note::noteAt(QPointF pos)
             if (rect.contains(pos.x(), pos.y()))
                 return this;
         }
-        return NULL;
+        return nullptr;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 QRectF Note::boundingRect() const
@@ -1171,7 +1171,7 @@ qreal Note::groupWidth() const
 
 qreal Note::rightLimit() const
 {
-    if (isColumn() && d->next == 0L) // The last column
+    if (isColumn() && d->next == nullptr) // The last column
         return qMax((x() + minWidth()), (qreal)basket()->graphicsView()->viewport()->width());
     else if (parentNote())
         return parentNote()->rightLimit();
@@ -1181,7 +1181,7 @@ qreal Note::rightLimit() const
 
 qreal Note::finalRightLimit() const
 {
-    if (isColumn() && d->next == 0L) // The last column
+    if (isColumn() && d->next == nullptr) // The last column
         return qMax(x() + minWidth(), (qreal)basket()->graphicsView()->viewport()->width());
     else if (parentNote())
         return parentNote()->finalRightLimit();
@@ -1695,7 +1695,7 @@ void Note::draw(QPainter *painter, const QRectF & /*clipRect*/)
     qreal xIcon = HANDLE_WIDTH + NOTE_MARGIN;
     for (State::List::Iterator it = m_states.begin(); it != m_states.end(); ++it) {
         if (!(*it)->emblem().isEmpty()) {
-            QPixmap stateEmblem = KIconLoader::global()->loadIcon((*it)->emblem(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), 0L, false);
+            QPixmap stateEmblem = KIconLoader::global()->loadIcon((*it)->emblem(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, false);
 
             painter2.drawPixmap(xIcon, yIcon, stateEmblem);
             xIcon += NOTE_MARGIN + EMBLEM_SIZE;
@@ -2002,7 +2002,7 @@ State *Note::stateOfTag(Tag *tag)
     for (State::List::iterator it = m_states.begin(); it != m_states.end(); ++it)
         if ((*it)->parentTag() == tag)
             return *it;
-    return 0;
+    return nullptr;
 }
 
 bool Note::allowCrossReferences()
@@ -2022,7 +2022,7 @@ State *Note::stateForEmblemNumber(int number) const
             if (i == number)
                 return *it;
         }
-    return 0;
+    return nullptr;
 }
 
 bool Note::stateForTagFromSelectedNotes(Tag *tag, State **state)
@@ -2031,15 +2031,15 @@ bool Note::stateForTagFromSelectedNotes(Tag *tag, State **state)
         // What state is the tag on this note?
         State *stateOfTag = this->stateOfTag(tag);
         // This tag is not assigned to this note, the action will assign it, then:
-        if (stateOfTag == 0)
-            *state = 0;
+        if (stateOfTag == nullptr)
+            *state = nullptr;
         else {
             // Take the LOWEST state of all the selected notes:
             // Say the two selected notes have the state "Done" and "To Do".
             // The first note set *state to "Done".
             // When reaching the second note, we should recognize "To Do" is first in the tag states, then take it
             // Because pressing the tag shortcut key should first change state before removing the tag!
-            if (*state == 0)
+            if (*state == nullptr)
                 *state = stateOfTag;
             else {
                 bool stateIsFirst = true;
@@ -2057,7 +2057,7 @@ bool Note::stateForTagFromSelectedNotes(Tag *tag, State **state)
     FOR_EACH_CHILD(child)
     {
         bool encountered = child->stateForTagFromSelectedNotes(tag, state);
-        if (encountered && *state == 0)
+        if (encountered && *state == nullptr)
             return true;
         if (encountered)
             encounteredSelectedNote = true;
@@ -2155,7 +2155,7 @@ Note *Note::noteForFullPath(const QString &path)
             return found;
         child = child->next();
     }
-    return 0;
+    return nullptr;
 }
 
 void Note::listUsedTags(QList<Tag *> &list)
@@ -2209,7 +2209,7 @@ Note *Note::nextInStack()
             note = note->parentNote();
 
     // Not found:
-    return 0;
+    return nullptr;
 }
 
 Note *Note::prevInStack()
@@ -2228,7 +2228,7 @@ Note *Note::prevInStack()
     if (parentNote())
         return parentNote()->prevInStack();
     else
-        return 0;
+        return nullptr;
 }
 
 Note *Note::nextShownInStack()
@@ -2294,7 +2294,7 @@ Note *Note::firstSelected()
     if (isSelected())
         return this;
 
-    Note *first = 0;
+    Note *first = nullptr;
     FOR_EACH_CHILD(child)
     {
         first = child->firstSelected();
@@ -2309,7 +2309,7 @@ Note *Note::lastSelected()
     if (isSelected())
         return this;
 
-    Note *last = 0, *tmp = 0;
+    Note *last = nullptr, *tmp = nullptr;
     FOR_EACH_CHILD(child)
     {
         tmp = child->lastSelected();
@@ -2331,7 +2331,7 @@ Note *Note::selectedGroup()
             return selectedGroup;
     }
 
-    return 0;
+    return nullptr;
 }
 
 void Note::groupIn(Note *group)
@@ -2495,8 +2495,9 @@ bool Note::saveAgain()
         if (!child->saveAgain())
             result = false;
     }
-    if (!result)
-        DEBUG_WIN << QString("Note::saveAgain returned false for %1:%2").arg((content() != NULL) ? content()->typeName() : "null", toText(QString()));
+    if (!result) {
+        DEBUG_WIN << QString("Note::saveAgain returned false for %1:%2").arg((content() != nullptr) ? content()->typeName() : "null", toText(QString()));
+    }
     return result;
 }
 
