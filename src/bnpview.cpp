@@ -94,6 +94,7 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     , m_loading(true)
     , m_newBasketPopup(false)
     , m_firstShow(true)
+    , m_colorPicker(new DesktopColorPicker())
     , m_regionGrabber(nullptr)
     , m_passiveDroppedSelection(nullptr)
     , m_actionCollection(actionCollection)
@@ -137,7 +138,6 @@ BNPView::~BNPView()
 
     delete Global::systemTray;
     Global::systemTray = nullptr;
-    delete m_colorPicker;
     delete m_statusbar;
     delete m_history;
     m_history = nullptr;
@@ -719,15 +719,12 @@ void BNPView::setupActions()
     insertWizardMapper->setMapping(m_actImportIcon, 2);
     insertWizardMapper->setMapping(m_actLoadFile, 3);
 
-    m_colorPicker = new DesktopColorPicker();
-
-    a = ac->addAction("insert_screen_color", this, SLOT(slotColorFromScreen()));
+    a = ac->addAction("insert_screen_color", this, &BNPView::slotColorFromScreen);
     a->setText(i18n("C&olor from Screen"));
     a->setIcon(QIcon::fromTheme("kcolorchooser"));
     m_actColorPicker = a;
 
-    connect(m_colorPicker, SIGNAL(pickedColor(const QColor &)), this, SLOT(colorPicked(const QColor &)));
-    connect(m_colorPicker, SIGNAL(canceledPick()), this, SLOT(colorPickingCanceled()));
+    connect(m_colorPicker.get(), &DesktopColorPicker::pickedColor, this, &BNPView::colorPicked);
 
     a = ac->addAction("insert_screen_capture", this, SLOT(grabScreenshot()));
     a->setText(i18n("Grab Screen &Zone"));
@@ -1840,14 +1837,9 @@ void BNPView::updateNotesActions()
 void BNPView::slotColorFromScreen(bool global)
 {
     m_colorPickWasGlobal = global;
-    hideMainWindow();
 
     currentBasket()->saveInsertionData();
     m_colorPicker->pickColor();
-
-    /*  m_gettingColorFromScreen = true;
-            qApp->processEvents();
-            QTimer::singleShot( 100, this, SLOT(grabColorFromScreen()) );*/
 }
 
 void BNPView::slotColorFromScreenGlobal()
@@ -1863,17 +1855,9 @@ void BNPView::colorPicked(const QColor &color)
     }
     currentBasket()->insertColor(color);
 
-    if (m_colorPickWasShown)
-        showMainWindow();
-
-    if (Settings::usePassivePopup())
+    if (Settings::usePassivePopup()) {
         showPassiveDropped(i18n("Picked color to basket <i>%1</i>"));
-}
-
-void BNPView::colorPickingCanceled()
-{
-    if (m_colorPickWasShown)
-        showMainWindow();
+    }
 }
 
 void BNPView::slotConvertTexts()

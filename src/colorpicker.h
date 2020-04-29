@@ -20,7 +20,7 @@ class DesktopColorPicker : public QDesktopWidget
 public:
     /** Constructor, initializer and destructor */
     DesktopColorPicker();
-    ~DesktopColorPicker() override;
+    ~DesktopColorPicker() override = default;
 public slots:
     /** Begin color picking.
      * This function returns immediately, and pickedColor() is emitted if user has

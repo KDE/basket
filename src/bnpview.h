@@ -15,6 +15,7 @@
 
 #include "basket_export.h"
 #include "global.h"
+#include <memory>
 
 class QDomElement;
 
@@ -142,7 +143,6 @@ public slots:
     void slotColorFromScreen(bool global = false);
     void slotColorFromScreenGlobal();
     void colorPicked(const QColor &color);
-    void colorPickingCanceled();
     void slotConvertTexts();
 
     /** Global shortcuts */
@@ -363,7 +363,7 @@ private:
     bool m_loading;
     bool m_newBasketPopup;
     bool m_firstShow;
-    DesktopColorPicker *m_colorPicker;
+    std::unique_ptr<DesktopColorPicker> m_colorPicker;
     bool m_colorPickWasShown;
     bool m_colorPickWasGlobal;
     RegionGrabber *m_regionGrabber;

@@ -6,10 +6,9 @@
 #include "colorpicker.h"
 
 #include <QApplication>
-#include <QColorDialog>
-#include <QtCore/QTimer>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QMouseEvent>
+#include <QKeyEvent>
+#include <QScreen>
+#include <QTimer>
 
 /// ///
 
@@ -30,19 +29,15 @@ DesktopColorPicker::DesktopColorPicker()
     m_gettingColorFromScreen = false;
 }
 
-DesktopColorPicker::~DesktopColorPicker()
-{
-}
-
 void DesktopColorPicker::pickColor()
 {
     m_gettingColorFromScreen = true;
     //  Global::mainContainer->setActive(false);
-    QTimer::singleShot(50, this, SLOT(slotDelayedPick()));
+    QTimer::singleShot(50, this, &DesktopColorPicker::slotDelayedPick);
 }
 
 /* When firered from basket context menu, and not from menu, grabMouse doesn't work!
- * It's perhapse because context menu call slotColorFromScreen() and then
+ * It's perhaps because context menu call slotColorFromScreen() and then
  * ungrab the mouse (since menus grab the mouse).
  * But why isn't there such bug with normal menus?...
  * By calling this method with a QTimer::singleShot, we are sure context menu code is
@@ -52,6 +47,7 @@ void DesktopColorPicker::slotDelayedPick()
 {
     grabKeyboard();
     grabMouse(Qt::CrossCursor);
+    setMouseTracking(true);
 }
 
 /* Validate the color
@@ -62,27 +58,31 @@ void DesktopColorPicker::mouseReleaseEvent(QMouseEvent *event)
         m_gettingColorFromScreen = false;
         releaseMouse();
         releaseKeyboard();
+        setMouseTracking(false);
 
-        // Grab color of pixel
-        QPoint p = event->globalPos();
-        QPixmap pixmap = QPixmap::grabWindow(QApplication::desktop()->winId(), p.x(), p.y(), 1, 1);
-        QColor color(pixmap.toImage().pixel(0, 0));
-
-        emit pickedColor(color);
-    } else
+        // copied logic from https://code.woboq.org/qt5/qtbase/src/widgets/dialogs/qcolordialog.cpp.html
+        const QPoint globalPos = QCursor::pos();
+        const QDesktopWidget *desktop = QApplication::desktop();
+        const QPixmap pixmap = QGuiApplication::primaryScreen()->grabWindow(desktop->winId(), globalPos.x(), globalPos.y(), 1, 1);
+        QImage i = pixmap.toImage();
+        Q_EMIT pickedColor(i.pixel(0, 0));
+    } else {
         QDesktopWidget::mouseReleaseEvent(event);
+    }
 }
 
 /* Cancel the mode
  */
 void DesktopColorPicker::keyPressEvent(QKeyEvent *event)
 {
-    if (m_gettingColorFromScreen)
+    if (m_gettingColorFromScreen) {
         if (event->key() == Qt::Key_Escape) {
             m_gettingColorFromScreen = false;
             releaseMouse();
             releaseKeyboard();
+            setMouseTracking(false);
             emit canceledPick();
         }
+    }
     QDesktopWidget::keyPressEvent(event);
 }
