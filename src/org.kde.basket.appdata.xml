@@ -8,6 +8,7 @@
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
   <developer_name xml:lang="et">KDE kogukond</developer_name>
+  <developer_name xml:lang="fr">Communauté KDE</developer_name>
   <developer_name xml:lang="nl">KDE gemeenschap</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="ru">Сообщество KDE</developer_name>
@@ -19,6 +20,7 @@
   <name xml:lang="ca">Basket</name>
   <name xml:lang="ca-valencia">Basket</name>
   <name xml:lang="et">Basket</name>
+  <name xml:lang="fr">Basket</name>
   <name xml:lang="nl">Basket</name>
   <name xml:lang="pt">Basket</name>
   <name xml:lang="sk">Basket</name>
@@ -29,6 +31,7 @@
   <summary xml:lang="ca">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="ca-valencia">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="et">Märkmete ja ülesannete korraldaja</summary>
+  <summary xml:lang="fr">Notes et organisateur de tâches à faire</summary>
   <summary xml:lang="nl">Organisator van notities en te-doens</summary>
   <summary xml:lang="pt">Organizador de notas e tarefas</summary>
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
@@ -39,6 +42,7 @@
     <p xml:lang="ca">Aquesta aplicació proporciona tantes cistelles com desitgeu, i les podeu arrossegar i deixar anar.</p>
     <p xml:lang="ca-valencia">Aquesta aplicació proporciona tantes cistelles com desitgeu, i les podeu arrossegar i deixar anar.</p>
     <p xml:lang="et">See rakendus pakub nii palju korve, kui vähegi vaja, ning siin saab ka lohistada.</p>
+    <p xml:lang="fr">Cette application fournit autant de paniers que vous désirez et que vous pouvez utiliser par glisser/déposer.</p>
     <p xml:lang="nl">Deze toepassing levert zoveel baskets als u wilt en u kunt slepen en loslaten.</p>
     <p xml:lang="pt">Esta aplicação oferece tantos cestos quantos desejar, podendo depois arrastar e largar conteúdos neles.</p>
     <p xml:lang="sv">Programmet tillhandahåller så många korgar som du vill, och du kan dra och släppa.</p>
@@ -48,6 +52,7 @@
     <p xml:lang="ca">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
     <p xml:lang="ca-valencia">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
     <p xml:lang="et">Objekte saad muuta, kopeerida, lohistada ... Sõnaga, kõike saab korraldada just oma maitse järgi!</p>
+    <p xml:lang="fr">Les objets peuvent être modifiés, copiés, glissés... Par conséquent, vous pouvez les arranger comme vous le souhaitez !</p>
     <p xml:lang="nl">Objecten kunnen bewerkt, gekopieerd, versleept worden... U kunt ze dus arrangeren zoals u wilt!</p>
     <p xml:lang="pt">Os objectos poderão ser editados, copiados, arrastados... Por isso, pode organizá-los como desejar !</p>
     <p xml:lang="sv">Objekt kan redigeras, kopieras, dras, ... Så du kan arrangera dem som du vill.</p>
@@ -57,6 +62,7 @@
     <p xml:lang="ca">Permet organitzar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="ca-valencia">Permet organitzar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="et">See võimaldab korraldada märkmeid, hoida silma peal ülesannetel ja veel palju muud.</p>
+    <p xml:lang="fr">Cela vous permet d'arranger vos notes et de suivre vos tâches à faire et bien d'autres choses.</p>
     <p xml:lang="nl">Het biedt het arrangeren van notities, het volgen van te-doens en veel meer.</p>
     <p xml:lang="pt">Permite organizar as notas, acompanhar as tarefas e muito mais.</p>
     <p xml:lang="sv">Den gör det möjligt att arrangera anteckningar, följa uppgifter, med mera.</p>
