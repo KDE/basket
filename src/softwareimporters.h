@@ -68,26 +68,10 @@ private:
  */
 namespace SoftwareImporters
 {
-// Useful methods to design importers:
-QString fromICS(const QString &ics);
-QString fromTomboy(QString tomboy);
-//! Get first of the <tags> to be used as basket name. Strip 'system:notebook:' part
-QString getFirstTomboyTag(const QDomElement &docElem);
-Note *insertTitledNote(BasketScene *parent, const QString &title, const QString &content, Qt::TextFormat format = Qt::PlainText, Note *parentNote = nullptr);
 void finishImport(BasketScene *basket);
 
 // The importers in themselves:
-void importKNotes();
-void importKJots();
-void importKnowIt();
-void importTuxCards();
-void importStickyNotes();
-void importTomboy();
-void importJreepadFile();
 void importTextFile();
-
-//
-void importTuxCardsNode(const QDomElement &element, BasketScene *parentBasket, Note *parentNote, int remainingHierarchy);
 }
 
 #endif // SOFTWAREIMPORTERS_H

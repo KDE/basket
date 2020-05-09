@@ -499,42 +499,7 @@ void BNPView::setupActions()
     a->setShortcut(0);
     m_actExportToHtml = a;
 
-    a = ac->addAction("basket_import_knotes", this, SLOT(importKNotes()));
-    a->setText(i18n("K&Notes"));
-    a->setIcon(QIcon::fromTheme("knotes"));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_kjots", this, SLOT(importKJots()));
-    a->setText(i18n("K&Jots"));
-    a->setIcon(QIcon::fromTheme("kjots"));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_knowit", this, SLOT(importKnowIt()));
-    a->setText(i18n("&KnowIt..."));
-    a->setIcon(QIcon::fromTheme("knowit"));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_tuxcards", this, SLOT(importTuxCards()));
-    a->setText(i18n("Tux&Cards..."));
-    a->setIcon(QIcon::fromTheme("tuxcards"));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_sticky_notes", this, SLOT(importStickyNotes()));
-    a->setText(i18n("&Sticky Notes"));
-    a->setIcon(QIcon::fromTheme("gnome"));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_tomboy", this, SLOT(importTomboy()));
-    a->setText(i18n("&Tomboy"));
-    a->setIcon(QIcon::fromTheme(IconNames::TOMBOY));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_jreepad_file", this, SLOT(importJreepadFile()));
-    a->setText(i18n("J&reepad XML File..."));
-    a->setIcon(QIcon::fromTheme("text-xml"));
-    a->setShortcut(0);
-
-    a = ac->addAction("basket_import_text_file", this, SLOT(importTextFile()));
+    a = ac->addAction("basket_import_text_file", this, &BNPView::importTextFile);
     a->setText(i18n("Text &File..."));
     a->setIcon(QIcon::fromTheme("text-plain"));
     a->setShortcut(0);
@@ -1571,34 +1536,6 @@ void BNPView::slotResetFilter()
     currentDecoratedBasket()->resetFilter();
 }
 
-void BNPView::importKJots()
-{
-    SoftwareImporters::importKJots();
-}
-void BNPView::importKNotes()
-{
-    SoftwareImporters::importKNotes();
-}
-void BNPView::importKnowIt()
-{
-    SoftwareImporters::importKnowIt();
-}
-void BNPView::importTuxCards()
-{
-    SoftwareImporters::importTuxCards();
-}
-void BNPView::importStickyNotes()
-{
-    SoftwareImporters::importStickyNotes();
-}
-void BNPView::importTomboy()
-{
-    SoftwareImporters::importTomboy();
-}
-void BNPView::importJreepadFile()
-{
-    SoftwareImporters::importJreepadFile();
-}
 void BNPView::importTextFile()
 {
     SoftwareImporters::importTextFile();

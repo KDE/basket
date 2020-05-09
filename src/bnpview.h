@@ -108,13 +108,6 @@ public slots:
     void newFilterFromFilterBar();
     bool isFilteringAllBaskets();
     // From main window
-    void importKNotes();
-    void importKJots();
-    void importKnowIt();
-    void importTuxCards();
-    void importStickyNotes();
-    void importTomboy();
-    void importJreepadFile();
     void importTextFile();
     void backupRestore();
     void checkCleanup();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<gui name="basket" version="1.7">
+<gui name="basket" version="2">
  <MenuBar noMerge="1" >
   <Menu name="file" >
    <text>&amp;Basket</text>
@@ -27,16 +27,6 @@
    <Menu name="fileimport" icon="fileimport" >
     <text>&amp;Import</text>
     <Action name="basket_import_basket_archive" />
-    <Separator/>
-    <Action name="basket_import_knotes" />
-    <Action name="basket_import_kjots" />
-    <Action name="basket_import_knowit" />
-    <Action name="basket_import_tuxcards" />
-    <Separator/>
-    <Action name="basket_import_sticky_notes" />
-    <Action name="basket_import_tomboy" />
-    <Separator/>
-    <Action name="basket_import_jreepad_file" />
     <Action name="basket_import_text_file" />
    </Menu>
    <Action name="basket_backup_restore" />
@@ -188,16 +178,6 @@
   <Menu icon="fileimport" >
    <text>&amp;Import</text>
    <Action name="basket_import_basket_archive" />
-   <Separator/>
-   <Action name="basket_import_knotes" />
-   <Action name="basket_import_kjots" />
-   <Action name="basket_import_knowit" />
-   <Action name="basket_import_tuxcards" />
-   <Separator/>
-   <Action name="basket_import_sticky_notes" />
-   <Action name="basket_import_tomboy" />
-   <Separator/>
-   <Action name="basket_import_jreepad_file" />
    <Action name="basket_import_text_file" />
   </Menu>
   <Action name="basket_backup_restore" />
@@ -209,16 +189,6 @@
   <Menu icon="fileimport" >
    <text>&amp;Import</text>
    <Action name="basket_import_basket_archive" />
-   <Separator/>
-   <Action name="basket_import_knotes" />
-   <Action name="basket_import_kjots" />
-   <Action name="basket_import_knowit" />
-   <Action name="basket_import_tuxcards" />
-   <Separator/>
-   <Action name="basket_import_sticky_notes" />
-   <Action name="basket_import_tomboy" />
-   <Separator/>
-   <Action name="basket_import_jreepad_file" />
    <Action name="basket_import_text_file" />
   </Menu>
   <Action name="basket_backup_restore" />
