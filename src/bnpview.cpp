@@ -1334,7 +1334,7 @@ void BNPView::setCurrentBasket(BasketScene *basket)
         // If the window has changed size, only the current basket receive the event,
         // the others will receive ony one just before they are shown.
         // But this triggers unwanted animations, so we eliminate it:
-        basket->relayoutNotes(/*animate=*/false);
+        basket->relayoutNotes();
         basket->openBasket();
         setWindowTitle(item->basket()->basketName());
         countsChanged(basket);
@@ -1398,7 +1398,7 @@ void BNPView::relayoutAllBaskets()
         BasketListViewItem *item = ((BasketListViewItem *)*it);
         // item->basket()->unbufferizeAll();
         item->basket()->unsetNotesWidth();
-        item->basket()->relayoutNotes(true);
+        item->basket()->relayoutNotes();
         ++it;
     }
 }
@@ -1410,7 +1410,7 @@ void BNPView::recomputeAllStyles()
         BasketListViewItem *item = ((BasketListViewItem *)*it);
         item->basket()->recomputeAllStyles();
         item->basket()->unsetNotesWidth();
-        item->basket()->relayoutNotes(true);
+        item->basket()->relayoutNotes();
         ++it;
     }
 }

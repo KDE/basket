@@ -913,7 +913,7 @@ void Note::requestRelayout()
 
     d->width = 0;
     unbufferize();
-    basket()->relayoutNotes(true); // TODO: A signal that will relayout ONCE and DELAYED if called several times
+    basket()->relayoutNotes(); // TODO: A signal that will relayout ONCE and DELAYED if called several times
 }
 
 void Note::setWidth(qreal width) // TODO: inline ?
@@ -1056,7 +1056,7 @@ bool Note::showSubNotes()
     return !m_isFolded || basket()->isFiltering();
 }
 
-void Note::relayoutAt(qreal ax, qreal ay, bool animate)
+void Note::relayoutAt(qreal ax, qreal ay)
 {
     if (!matching())
         return;
@@ -1087,7 +1087,7 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
         bool first = true;
         while (child) {
             if (child->matching() && (!m_isFolded || first || basket()->isFiltering())) { // Don't use showSubNotes() but use !m_isFolded because we don't want a relayout for the animated collapsing notes
-                child->relayoutAt(ax + width(), ay + h, animate);
+                child->relayoutAt(ax + width(), ay + h);
                 h += child->height();
                 if (!child->isVisible())
                     child->show();
@@ -2364,7 +2364,7 @@ bool Note::tryExpandParent()
             return false;
         if (parent->isFolded()) {
             parent->toggleFolded();
-            basket()->relayoutNotes(true);
+            basket()->relayoutNotes();
             return true;
         }
         child = parent;
@@ -2384,7 +2384,7 @@ bool Note::tryFoldParent() // TODO: withCtrl  ? withShift  ?
             return false;
         if (!parent->isFolded()) {
             parent->toggleFolded();
-            basket()->relayoutNotes(true);
+            basket()->relayoutNotes();
             return true;
         }
         child = parent;

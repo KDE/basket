@@ -112,7 +112,7 @@ public:
 
 public:
     void unsetNotesWidth();
-    void relayoutNotes(bool animate);
+    void relayoutNotes();
     Note *noteAt(QPointF pos);
     inline Note *firstNote()
     {

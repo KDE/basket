@@ -78,5 +78,5 @@ void DecoratedBasket::resetFilter()
 void DecoratedBasket::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
-    m_basket->relayoutNotes(true);
+    m_basket->relayoutNotes();
 }

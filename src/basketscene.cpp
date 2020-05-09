@@ -833,7 +833,7 @@ void BasketScene::setDisposition(int disposition, int columnCount)
         }
         unselectAll();
         m_mindMap = (disposition == MINDMAPS_LAYOUT);
-        relayoutNotes(true);
+        relayoutNotes();
     } else if ((currentDisposition == FREE_LAYOUT || currentDisposition == MINDMAPS_LAYOUT) && disposition == COLUMNS_LAYOUT) {
         if (firstNote()) {
             // TODO: Reorder notes!
@@ -878,7 +878,7 @@ void BasketScene::equalizeColumnSizes()
         return;
 
     // Necessary to know the available space;
-    relayoutNotes(true);
+    relayoutNotes();
 
     int availableSpace = m_view->viewport()->width();
     int columnWidth = (availableSpace - (columnsCount() - 1) * Note::GROUP_WIDTH) / columnsCount();
@@ -904,7 +904,7 @@ void BasketScene::equalizeColumnSizes()
         column = column->next();
     }
 
-    relayoutNotes(true);
+    relayoutNotes();
 }
 
 void BasketScene::enableActions()
@@ -1047,7 +1047,7 @@ void BasketScene::load()
         m_columnsCount = columnsCount;
     }
 
-    relayoutNotes(false);
+    relayoutNotes();
 
     // On application start, the current basket is not focused yet, so the focus rectangle is not shown when calling focusANote():
     if (Global::bnpView->currentBasket() == this)
@@ -1079,7 +1079,7 @@ void BasketScene::newFilter(const FilterData &data, bool andEnsureVisible /* = t
     for (Note *note = firstNote(); note; note = note->next())
         m_countFounds += note->newFilter(data);
 
-    relayoutNotes(true);
+    relayoutNotes();
     signalCountsChanged();
 
     if (hasFocus())   // if (!hasFocus()), focusANote() will be called at focusInEvent()
@@ -1420,7 +1420,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 qWarning() << "Folding animation to be done";
             }
 
-            relayoutNotes(true);
+            relayoutNotes();
             m_noActionOnMouseRelease = true;
 
             return;
@@ -1666,27 +1666,27 @@ void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF 
     if (clicked && zone == Note::BottomColumn) {
         note->setWidth(clicked->rightLimit() - clicked->x());
         Note *lastChild = clicked->lastChild();
-        if (!animateNewPosition || !Settings::playAnimations())
-            for (Note *n = note; n; n = n->next()) {
-                n->setXRecursively(clicked->x());
-                n->setYRecursively((lastChild ? lastChild : clicked)->bottom() + 1);
-            }
+        for (Note *n = note; n; n = n->next()) {
+            n->setXRecursively(clicked->x());
+            n->setYRecursively((lastChild ? lastChild : clicked)->bottom() + 1);
+        }
         appendNoteIn(note, clicked);
 
         /// Insertion relative to a note (top/bottom, insert/group):
     } else if (clicked) {
         note->setWidth(clicked->width());
-        if (!animateNewPosition || !Settings::playAnimations())
-            for (Note *n = note; n; n = n->next()) {
-                if (zone == Note::TopGroup || zone == Note::BottomGroup)
-                    n->setXRecursively(clicked->x() + Note::GROUP_WIDTH);
-                else
-                    n->setXRecursively(clicked->x());
-                if (zone == Note::TopInsert || zone == Note::TopGroup)
-                    n->setYRecursively(clicked->y());
-                else
-                    n->setYRecursively(clicked->bottom() + 1);
+        for (Note *n = note; n; n = n->next()) {
+            if (zone == Note::TopGroup || zone == Note::BottomGroup) {
+                n->setXRecursively(clicked->x() + Note::GROUP_WIDTH);
+            } else {
+                n->setXRecursively(clicked->x());
             }
+            if (zone == Note::TopInsert || zone == Note::TopGroup) {
+                n->setYRecursively(clicked->y());
+            } else {
+                n->setYRecursively(clicked->bottom() + 1);
+            }
+        }
 
         if (zone == Note::TopInsert) {
             appendNoteBefore(note, clicked);
@@ -1714,16 +1714,12 @@ void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF 
         if (note->isGroup() && note->firstChild())
             note->setInitialHeight(note->firstChild()->height());
         // note->setGroupWidth(initialWidth);
-        /*if (animateNewPosition && Settings::playAnimations())
-            note->setFinalPosition(pos.x(), pos.y());
-        else {*/
         note->setXRecursively(pos.x());
         note->setYRecursively(pos.y());
-        //}
         appendNoteAfter(note, lastNote());
     }
 
-    relayoutNotes(true);
+    relayoutNotes();
 }
 
 void BasketScene::clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked, /*Note::Zone*/ int zone)
@@ -2388,7 +2384,7 @@ void BasketScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
                 column->setGroupWidth(column->groupWidth() - delta);
             }
         }
-        relayoutNotes(true);
+        relayoutNotes();
     }
 
     // Moving a Note:
@@ -3156,13 +3152,10 @@ void BasketScene::unsetNotesWidth()
     }
 }
 
-void BasketScene::relayoutNotes(bool animate)
+void BasketScene::relayoutNotes()
 {
     if (Global::bnpView->currentBasket() != this)
         return; // Optimize load time, and basket will be relaid out when activated, anyway
-
-    if (!Settings::playAnimations())
-        animate = false;
 
     int h = 0;
     tmpWidth = 0;
@@ -3170,12 +3163,12 @@ void BasketScene::relayoutNotes(bool animate)
     Note *note = m_firstNote;
     while (note) {
         if (note->matching()) {
-            note->relayoutAt(0, h, animate);
+            note->relayoutAt(0, h);
             if (note->hasResizer()) {
                 int minGroupWidth = note->minRight() - note->x();
                 if (note->groupWidth() < minGroupWidth) {
                     note->setGroupWidth(minGroupWidth);
-                    relayoutNotes(animate); // Redo the thing, but this time it should not recurse
+                    relayoutNotes(); // Redo the thing, but this time it should not recurse
                     return;
                 }
             }
@@ -3823,7 +3816,7 @@ void BasketScene::showEditedNoteWhileFiltering()
         Note *note = m_editor->note();
         filterAgain();
         note->setSelected(true);
-        relayoutNotes(false);
+        relayoutNotes();
         note->setX(note->x());
         note->setY(note->y());
         filterAgainDelayed();
@@ -3996,7 +3989,7 @@ void BasketScene::noteDeleteWithoutConfirmation(bool deleteFilesToo)
         doCleanUp();
     }
 
-    relayoutNotes(true); // FIXME: filterAgain()?
+    relayoutNotes(); // FIXME: filterAgain()?
     save();
 }
 
@@ -4278,7 +4271,7 @@ void BasketScene::noteGroup()
     unselectAll();
     group->setSelectedRecursively(true); // Notes were unselected by unplugging
 
-    relayoutNotes(true);
+    relayoutNotes();
     save();
 }
 
@@ -4287,7 +4280,7 @@ void BasketScene::noteUngroup()
     Note *group = selectedGroup();
     if (group && !group->isColumn()) {
         ungroupNote(group);
-        relayoutNotes(true);
+        relayoutNotes();
     }
     save();
 }
@@ -4353,7 +4346,7 @@ void BasketScene::noteMoveOnTop()
     unplugNote(fakeNote);
     delete fakeNote;
     selectSelection(selection);
-    relayoutNotes(true);
+    relayoutNotes();
     save();
 }
 
@@ -4378,7 +4371,7 @@ void BasketScene::noteMoveOnBottom()
     unplugNote(fakeNote);
     delete fakeNote;
     selectSelection(selection);
-    relayoutNotes(true);
+    relayoutNotes();
     save();
 }
 
@@ -4398,7 +4391,7 @@ void BasketScene::moveSelectionTo(Note *here, bool below /* = true*/)
     unplugNote(fakeNote);
     delete fakeNote;
     selectSelection(selection);
-    relayoutNotes(true);
+    relayoutNotes();
     save();
 }
 
@@ -4435,7 +4428,7 @@ void BasketScene::linkLookChanged()
         note->linkLookChanged();
         note = note->next();
     }
-    relayoutNotes(true);
+    relayoutNotes();
 }
 
 void BasketScene::slotCopyingDone2(KIO::Job *job, const QUrl & /*from*/, const QUrl &to)

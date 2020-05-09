@@ -18,5 +18,5 @@ BasketView::~BasketView()
 
 void BasketView::resizeEvent(QResizeEvent *)
 {
-    static_cast<BasketScene *>(scene())->relayoutNotes(true);
+    static_cast<BasketScene *>(scene())->relayoutNotes();
 }

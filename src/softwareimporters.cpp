@@ -308,7 +308,7 @@ void SoftwareImporters::finishImport(BasketScene *basket)
 
     // Relayout every notes at their new place and simulate a load animation (because already loaded just after the creation).
     // Without a relayouting, notes on the bottom would comes from the top (because they were inserted on top) and clutter the animation load:
-    basket->relayoutNotes(/*animate=*/false);
+    basket->relayoutNotes();
     basket->save();
 }
 

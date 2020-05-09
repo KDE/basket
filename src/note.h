@@ -73,7 +73,7 @@ public:
     QRectF visibleRect();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-    void relayoutAt(qreal ax, qreal ay, bool animate);
+    void relayoutAt(qreal ax, qreal ay);
     qreal contentX() const;
     qreal minWidth() const;
     qreal minRight();
