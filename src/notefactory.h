@@ -79,6 +79,8 @@ Note *createEmptyNote(NoteType::Id type, BasketScene *parent); // Insert empty i
 Note *importKMenuLauncher(BasketScene *parent);
 Note *importIcon(BasketScene *parent);
 Note *importFileContent(BasketScene *parent);
+
+void loadNode(const QDomElement &content, const QString &lowerTypeName, Note *parent, bool lazyLoad);
 }
 
 #endif // NOTEFACTORY_H

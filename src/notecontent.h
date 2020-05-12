@@ -944,6 +944,4 @@ private:
     UnknownItem m_unknownItem;
 };
 
-void NoteFactory__loadNode(const QDomElement &content, const QString &lowerTypeName, Note *parent, bool lazyLoad);
-
 #endif // NOTECONTENT_H

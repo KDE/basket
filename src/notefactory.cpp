@@ -6,6 +6,7 @@
 
 #include "notefactory.h"
 
+#include <QDomElement>
 #include <QFileDialog>
 #include <QGraphicsView>
 #include <QGuiApplication>
@@ -51,6 +52,7 @@
 #include "settings.h"
 #include "tools.h"
 #include "variouswidgets.h" //For IconSizeDialog
+#include "xmlwork.h"
 
 #include "debugwindow.h"
 
@@ -1038,4 +1040,35 @@ Note *NoteFactory::importFileContent(BasketScene *parent)
     if (!url.isEmpty())
         return copyFileAndLoad(url, parent);
     return nullptr;
+}
+
+void NoteFactory::loadNode(const QDomElement &content, const QString &lowerTypeName, Note *parent, bool lazyLoad)
+{
+    if (lowerTypeName == "text") {
+        new TextContent(parent, content.text(), lazyLoad);
+    } else if (lowerTypeName == "html") {
+        new HtmlContent(parent, content.text(), lazyLoad);
+    } else if (lowerTypeName == "image") {
+        new ImageContent(parent, content.text(), lazyLoad);
+    } else if (lowerTypeName == "animation") {
+        new AnimationContent(parent, content.text(), lazyLoad);
+    } else if (lowerTypeName == "sound") {
+        new SoundContent(parent, content.text());
+    } else if (lowerTypeName == "file")  {
+        new FileContent(parent, content.text());
+    } else if (lowerTypeName == "link") {
+        bool autoTitle = content.attribute("title") == content.text();
+        bool autoIcon = content.attribute("icon") == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
+        autoTitle = XMLWork::trueOrFalse(content.attribute("autoTitle"), autoTitle);
+        autoIcon = XMLWork::trueOrFalse(content.attribute("autoIcon"), autoIcon);
+        new LinkContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"), autoTitle, autoIcon);
+    } else if (lowerTypeName == "cross_reference") {
+        new CrossReferenceContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"));
+    } else if (lowerTypeName == "launcher") {
+        new LauncherContent(parent, content.text());
+    } else if (lowerTypeName == "color") {
+        new ColorContent(parent, QColor(content.text()));
+    } else if (lowerTypeName == "unknown") {
+        new UnknownContent(parent, content.text());
+    }
 }

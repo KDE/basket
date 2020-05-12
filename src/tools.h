@@ -60,6 +60,9 @@ QString stripEndWhiteSpaces(const QString &string);
 QString makeStandardCaption(const QString &userCaption); //!< Replacement for KDialog::makeStandardCaption
 
 // Pixmap Manipulations:
+/** @Return the CSS color name for the given @p colorHex in #rrggbb format, or empty string if none matches
+ */
+QString cssColorName(const QString &colorHex);
 /** @Return true if it is a Web color
  */
 bool isWebColor(const QColor &color);
