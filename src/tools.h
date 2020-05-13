@@ -7,6 +7,8 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
+#include "basket_export.h"
+
 #include <QtCore/QVector>
 
 class QColor;
@@ -36,7 +38,7 @@ private:
 /** Some useful functions for that application.
  * @author Sébastien Laoût
  */
-namespace Tools
+namespace BASKET_EXPORT Tools
 {
 // Text <-> HTML Conversions and Tools:
 QString textToHTML(const QString &text);

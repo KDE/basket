@@ -16,6 +16,7 @@
 
 #include <phonon/phononnamespace.h>
 
+#include "basket_export.h"
 #include "linklabel.h"
 
 class QDomElement;
@@ -89,7 +90,7 @@ enum Id { Group = 255, Text = 1, Html, Image, Animation, Sound, File, Link, Cros
  * It's a base class to represent those types: Text, Html, Image, Animation, Sound, File, Link, Launcher, Color, Unknown.
  * @author Sébastien Laoût
  */
-class NoteContent
+class BASKET_EXPORT NoteContent
 {
 public:
     // Constructor and destructor:
@@ -239,7 +240,7 @@ public:
 /** Real implementation of plain text notes:
  * @author Sébastien Laoût
  */
-class TextContent : public NoteContent
+class BASKET_EXPORT TextContent : public NoteContent
 {
 public:
     // Constructor and destructor:
@@ -291,7 +292,7 @@ protected:
 /** Real implementation of rich text (HTML) notes:
  * @author Sébastien Laoût
  */
-class HtmlContent : public NoteContent
+class BASKET_EXPORT HtmlContent : public NoteContent
 {
 public:
     // Constructor and destructor:
@@ -343,7 +344,7 @@ protected:
 /** Real implementation of image notes:
  * @author Sébastien Laoût
  */
-class ImageContent : public NoteContent
+class BASKET_EXPORT ImageContent : public NoteContent
 {
 public:
     // Constructor and destructor:
@@ -398,7 +399,7 @@ protected:
 /** Real implementation of animated image (GIF, MNG) notes:
  * @author Sébastien Laoût
  */
-class AnimationContent : public QObject, public NoteContent // QObject to be able to receive QMovie signals
+class BASKET_EXPORT AnimationContent : public QObject, public NoteContent // QObject to be able to receive QMovie signals
 {
     Q_OBJECT
 public:
@@ -456,7 +457,7 @@ protected:
 /** Real implementation of file notes:
  * @author Sébastien Laoût
  */
-class FileContent : public QObject, public NoteContent
+class BASKET_EXPORT FileContent : public QObject, public NoteContent
 {
     Q_OBJECT
 public:
@@ -518,7 +519,7 @@ protected:
 /** Real implementation of sound notes:
  * @author Sébastien Laoût
  */
-class SoundContent : public FileContent // A sound is a file with just a bit different user interaction
+class BASKET_EXPORT SoundContent : public FileContent // A sound is a file with just a bit different user interaction
 {
     Q_OBJECT
 public:
@@ -555,7 +556,7 @@ private slots:
 /** Real implementation of link notes:
  * @author Sébastien Laoût
  */
-class LinkContent : public QObject, public NoteContent
+class BASKET_EXPORT LinkContent : public QObject, public NoteContent
 {
     Q_OBJECT
 public:
@@ -653,7 +654,7 @@ private:
  * Copied and modified from LinkContent.
  * @author Brian C. Milco
  */
-class CrossReferenceContent : public QObject, public NoteContent
+class BASKET_EXPORT CrossReferenceContent : public QObject, public NoteContent
 {
     Q_OBJECT
 public:
@@ -723,7 +724,7 @@ protected:
 /** Real implementation of launcher notes:
  * @author Sébastien Laoût
  */
-class LauncherContent : public NoteContent
+class BASKET_EXPORT LauncherContent : public NoteContent
 {
 public:
     // Constructor and destructor:
@@ -788,7 +789,7 @@ protected:
 /**
  *
  */
-class ColorItem : public QGraphicsItem
+class BASKET_EXPORT ColorItem : public QGraphicsItem
 {
 public:
     ColorItem(Note *parent, const QColor &color);
@@ -813,7 +814,7 @@ private:
 /** Real implementation of color notes:
  * @author Sébastien Laoût
  */
-class ColorContent : public NoteContent
+class BASKET_EXPORT ColorContent : public NoteContent
 {
 public:
     // Constructor and destructor:
@@ -863,7 +864,7 @@ protected:
 /**
  *
  */
-class UnknownItem : public QGraphicsItem
+class BASKET_EXPORT UnknownItem : public QGraphicsItem
 {
 public:
     UnknownItem(Note *parent);
@@ -889,7 +890,7 @@ private:
 /** Real implementation of unknown MIME-types dropped notes:
  * @author Sébastien Laoût
  */
-class UnknownContent : public NoteContent
+class BASKET_EXPORT UnknownContent : public NoteContent
 {
 public:
     // Constructor and destructor:

@@ -6,8 +6,8 @@
 #include <QObject>
 #include <QtTest/QtTest>
 
-#include "basketview.h"
-#include "note.h"
+#include <basketview.h>
+#include <note.h>
 
 class NoteTest : public QObject
 {

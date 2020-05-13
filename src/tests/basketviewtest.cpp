@@ -1,13 +1,14 @@
 /**
  * SPDX-FileCopyrightText: (C) 2009 Matt Rogers <mattr@kde.org>
+ *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
 #include <QObject>
 #include <QtTest/QtTest>
 
-#include "basketview.h"
-#include "note.h"
+#include <basketview.h>
+#include <note.h>
 
 class BasketViewTest : public QObject
 {

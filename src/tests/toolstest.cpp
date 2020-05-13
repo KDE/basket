@@ -6,7 +6,7 @@
 #include <QObject>
 #include <QtTest/QtTest>
 
-#include "tools.h"
+#include <tools.h>
 
 class ToolsTest : public QObject
 {
