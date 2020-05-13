@@ -64,7 +64,6 @@
 #include "history.h"
 #include "htmlexporter.h"
 #include "icon_names.h"
-#include "likeback.h"
 #include "newbasketdialog.h"
 #include "notedrag.h"
 #include "noteedit.h" // To launch InlineEditors::initToolBars()
@@ -159,20 +158,6 @@ void BNPView::lateInit()
         }
     */
 
-#if 0
-    // This is the logic to show or hide Basket when it is started up; ideally,
-    // it will take on its last state when KDE's session restore kicks in.
-    if (!isPart()) {
-        if (Settings::useSystray() && KCmdLineArgs::parsedArgs() && KCmdLineArgs::parsedArgs()->isSet("start-hidden")) {
-            if (Global::mainWindow()) Global::mainWindow()->hide();
-        } else if (Settings::useSystray() && qApp->isSessionRestored()) {
-            if (Global::mainWindow()) Global::mainWindow()->setShown(!Settings::startDocked());
-        }
-    }
-#else
-#pragma message("Proper fix for the systray problem")
-#endif
-
     // If the main window is hidden when session is saved, Container::queryClose()
     //  isn't called and the last value would be kept
     Settings::setStartDocked(true);
@@ -260,29 +245,8 @@ void BNPView::addWelcomeBaskets()
 
 void BNPView::onFirstShow()
 {
-    // Don't enable LikeBack until bnpview is shown. This way it works better with kontact.
-    /* LikeBack */
-    /*  Global::likeBack = new LikeBack(LikeBack::AllButtons, / *showBarByDefault=* /true, Global::config());
-        Global::likeBack->setServer("basket.linux62.org", "/likeback/send.php");
-        Global:likeBack->setAcceptedLanguages(QStringList::split(";", "en;fr"), i18n("Only english and french languages are accepted."));
-        if (isPart())
-            Global::likeBack->disableBar(); // See BNPView::shown() and BNPView::hide().
-    */
-
-    if (isPart())
-        Global::likeBack->disableBar(); // See BNPView::shown() and BNPView::hide().
-
-    /*
-        LikeBack::init(Global::config(), Global::about(), LikeBack::AllButtons);
-        LikeBack::setServer("basket.linux62.org", "/likeback/send.php");
-    //  LikeBack::setServer("localhost", "/~seb/basket/likeback/send.php");
-        LikeBack::setCustomLanguageMessage(i18n("Only english and french languages are accepted."));
-    //  LikeBack::setWindowNamesListing(LikeBack:: / *NoListing* / / *WarnUnnamedWindows* / AllWindows);
-    */
-
     // In late init, because we need qApp->mainWidget() to be set!
-    if (!isPart())
-        connectTagsMenu();
+    connectTagsMenu();
 
     m_statusbar->setupStatusBar();
 
@@ -445,17 +409,6 @@ void BNPView::initialize()
     connect(m_history, SIGNAL(canRedoChanged(bool)), this, SLOT(canUndoRedoChanged()));
     connect(m_history, SIGNAL(canUndoChanged(bool)), this, SLOT(canUndoRedoChanged()));
 
-    /* LikeBack */
-    Global::likeBack = new LikeBack(LikeBack::AllButtons, /*showBarByDefault=*/false, Global::config());
-    Global::likeBack->setServer("basket.linux62.org", "/likeback/send.php");
-
-    // There are too much comments, and people reading comments are more and more international, so we accept only English:
-    //  Global::likeBack->setAcceptedLanguages(QStringList::split(";", "en;fr"), i18n("Please write in English or French."));
-
-    //  if (isPart())
-    //      Global::likeBack->disableBar(); // See BNPView::shown() and BNPView::hide().
-
-    Global::likeBack->sendACommentAction(actionCollection()); // Just create it!
     setupActions();
 
     /// What's This Help for the tree:
@@ -1833,43 +1786,35 @@ void BNPView::slotConvertTexts()
 QMenu *BNPView::popupMenu(const QString &menuName)
 {
     QMenu *menu = nullptr;
-    bool hack = false; // TODO fix this
-    // When running in kontact and likeback Information message is shown
-    // factory is 0. Don't show error then and don't crash either :-)
 
     if (m_guiClient) {
+        qDebug() << "m_guiClient";
         KXMLGUIFactory *factory = m_guiClient->factory();
         if (factory) {
             menu = (QMenu *)factory->container(menuName, m_guiClient);
-        } else
-            hack = isPart();
+        }
     }
     if (menu == nullptr) {
-        if (!hack) {
-            QString basketDataPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/";
+        QString basketDataPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/";
 
-            KMessageBox::error(this,
-                               i18n("<p><b>The file basketui.rc seems to not exist or is too old.<br>"
-                                    "%1 cannot run without it and will stop.</b></p>"
-                                    "<p>Please check your installation of %2.</p>"
-                                    "<p>If you do not have administrator access to install the application "
-                                    "system wide, you can copy the file basketui.rc from the installation "
-                                    "archive to the folder <a href='file://%3'>%4</a>.</p>"
-                                    "<p>As last resort, if you are sure the application is correctly installed "
-                                    "but you had a preview version of it, try to remove the "
-                                    "file %5basketui.rc</p>",
-                                    QGuiApplication::applicationDisplayName(),
-                                    QGuiApplication::applicationDisplayName(),
-                                    basketDataPath,
-                                    basketDataPath,
-                                    basketDataPath),
-                               i18n("Resource not Found"),
-                               KMessageBox::AllowLink);
-        }
-        if (!isPart())
-            exit(1); // We SHOULD exit right now and aboard everything because the caller except menu != 0 to not crash.
-        else
-            menu = new QMenu; // When running in kpart we cannot exit
+        KMessageBox::error(this,
+                           i18n("<p><b>The file basketui.rc seems to not exist or is too old.<br>"
+                                "%1 cannot run without it and will stop.</b></p>"
+                                "<p>Please check your installation of %2.</p>"
+                                "<p>If you do not have administrator access to install the application "
+                                "system wide, you can copy the file basketui.rc from the installation "
+                                "archive to the folder <a href='file://%3'>%4</a>.</p>"
+                                "<p>As last resort, if you are sure the application is correctly installed "
+                                "but you had a preview version of it, try to remove the "
+                                "file %5basketui.rc</p>",
+                                QGuiApplication::applicationDisplayName(),
+                                QGuiApplication::applicationDisplayName(),
+                                basketDataPath,
+                                basketDataPath,
+                                basketDataPath),
+                           i18n("Resource not Found"),
+                           KMessageBox::AllowLink);
+        exit(1); // We SHOULD exit right now and aboard everything because the caller except menu != 0 to not crash.
     }
     return menu;
 }
@@ -2501,11 +2446,6 @@ void BNPView::hideOnEscape()
         setActive(false);
 }
 
-bool BNPView::isPart()
-{
-    return objectName() == "BNPViewPart";
-}
-
 bool BNPView::isMainWindowActive()
 {
     KMainWindow *main = Global::activeMainWindow();
@@ -2795,38 +2735,12 @@ void BNPView::connectTagsMenu()
     connect(popupMenu("tags"), SIGNAL(aboutToHide()), this, SLOT(disconnectTagsMenu()));
 }
 
-/*
- * The Tags menu is ONLY created once the BasKet KPart is first shown.
- * So we can use this menu only from then?
- * When the KPart is changed in Kontact, and then the BasKet KPart is shown again,
- * Kontact created a NEW Tags menu. So we should connect again.
- * But when Kontact main window is hidden and then re-shown, the menu does not change.
- * So we disconnect at hide event to ensure only one connection: the next show event will not connects another time.
- */
-
 void BNPView::showEvent(QShowEvent *)
 {
-    if (isPart())
-        QTimer::singleShot(0, this, SLOT(connectTagsMenu()));
-
     if (m_firstShow) {
         m_firstShow = false;
         onFirstShow();
     }
-    if (isPart() /*TODO: && !LikeBack::enabledBar()*/) {
-        Global::likeBack->enableBar();
-    }
-}
-
-void BNPView::hideEvent(QHideEvent *)
-{
-    if (isPart()) {
-        disconnect(popupMenu("tags"), SIGNAL(aboutToShow()), this, SLOT(populateTagsMenu()));
-        disconnect(popupMenu("tags"), SIGNAL(aboutToHide()), this, SLOT(disconnectTagsMenu()));
-    }
-
-    if (isPart())
-        Global::likeBack->disableBar();
 }
 
 void BNPView::disconnectTagsMenu()

@@ -134,8 +134,6 @@ void MainWindow::slotNewToolbarConfig() // This is called when OK or Apply is cl
 {
     // ...if you use any action list, use plugActionList on each here...
     createGUI("basketui.rc"); // TODO: Reconnect tags menu aboutToShow() ??
-    if (!Global::bnpView->isPart())
-        Global::bnpView->connectTagsMenu(); // The Tags menu was created again!
     // TODO: Does this do anything?
     plugActionList(QString::fromLatin1("go_baskets_list"), actBasketsList);
     KConfigGroup group = KSharedConfig::openConfig()->group(autoSaveGroup());

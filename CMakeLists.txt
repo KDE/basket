@@ -12,7 +12,6 @@ set(REQUIRED_QT5_VERSION "5.12.0")
 
 # Options
 option(ENABLE_GPG "Enabled GPG Support" OFF)
-option(ENABLE_KPARTS "Add Kontact integration (currently broken)" OFF)
 
 # ECM
 include(FeatureSummary)
@@ -54,11 +53,6 @@ endif()
 
 # TODO make X11 optional
 find_package(X11 REQUIRED)
-
-if (ENABLE_KPARTS)
-    find_package(KdepimLibs REQUIRED)
-    include_directories(${KDEPIMLIBS_INCLUDE_DIRS})
-endif()
 
 find_package(Qt5 ${REQUIRED_QT5_VERSION} REQUIRED COMPONENTS
     Concurrent

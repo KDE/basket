@@ -29,7 +29,6 @@ set(libbasket_SRCS
     history.cpp
     kcolorcombo2.cpp
     kgpgme.cpp
-    likeback.cpp
     linklabel.cpp
     newbasketdialog.cpp
     note.cpp
@@ -123,36 +122,6 @@ add_library(kcm_basket MODULE ${kcm_basket_PART_SRCS})
 target_link_libraries(kcm_basket LibBasket)
 
 install(TARGETS kcm_basket DESTINATION ${PLUGIN_INSTALL_DIR})
-
-if (ENABLE_KPARTS)
-
-    ########### next target ###############
-
-    set(basketpart_PART_SRCS basket_part.cpp)
-
-    set_target_properties(basketpart PROPERTIES PREFIX "${CMAKE_SHARED_LIBRARY_PREFIX}")
-    add_library(basketpart MODULE ${basketpart_PART_SRCS})
-
-    target_link_libraries(basketpart LibBasket Kparts KDEUI)
-
-    install(TARGETS basketpart DESTINATION ${PLUGIN_INSTALL_DIR})
-
-    set(kontact_basket_PLUGIN_SRCS basket_plugin.cpp)
-
-    add_library(kontact_basketplugin MODULE ${kontact_basket_PLUGIN_SRCS})
-
-    add_dependencies(kontact_basketplugin basket)
-
-    target_link_libraries(kontact_basketplugin basketcommon)
-
-    install(TARGETS kontact_basketplugin DESTINATION ${PLUGIN_INSTALL_DIR})
-    install(FILES basket_plugin.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kontact)
-
-    ########### install files ###############
-
-    install(FILES basket_part.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/basket)
-    install(FILES basket_part.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-endif()
 
 set(DESKTOP_FILES
     basket_config_general.desktop

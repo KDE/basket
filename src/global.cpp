@@ -21,7 +21,6 @@
 /** Define initial values for global variables : */
 
 QString Global::s_customSavesFolder;
-LikeBack *Global::likeBack = nullptr;
 DebugWindow *Global::debugWindow = nullptr;
 BackgroundManager *Global::backgroundManager = nullptr;
 SystemTray *Global::systemTray = nullptr;

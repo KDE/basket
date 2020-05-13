@@ -27,7 +27,6 @@ class QTreeWidgetItem;
 class QUndoStack;
 
 class QEvent;
-class QHideEvent;
 class QShowEvent;
 
 class QAction;
@@ -40,7 +39,6 @@ class RegionGrabber;
 
 class BasketScene;
 class DecoratedBasket;
-class BasketListView;
 class BasketListViewItem;
 class BasketTreeListView;
 class NoteSelection;
@@ -290,7 +288,6 @@ public:
     BasketScene *basketForFolderName(const QString &folderName);
     Note *noteForFileName(const QString &fileName, BasketScene &basket, Note *note = nullptr);
     QMenu *popupMenu(const QString &menuName);
-    bool isPart();
     bool isMainWindowActive();
     void showMainWindow();
 
@@ -326,7 +323,6 @@ public slots:
 
 protected:
     void showEvent(QShowEvent *) override;
-    void hideEvent(QHideEvent *) override;
 
 private:
     QMenu *m_lastOpenedTagsMenu;

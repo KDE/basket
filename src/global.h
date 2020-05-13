@@ -14,7 +14,6 @@ class QString;
 
 class KMainWindow;
 
-class LikeBack;
 class DebugWindow;
 class BackgroundManager;
 class SystemTray;
@@ -37,7 +36,6 @@ private:
 
 public:
     // Global Variables:
-    static LikeBack *likeBack;
     static DebugWindow *debugWindow;
     static BackgroundManager *backgroundManager;
     static SystemTray *systemTray;
