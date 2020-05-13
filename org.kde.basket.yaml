@@ -24,5 +24,6 @@ modules:
  - name: basket
    buildsystem: cmake-ninja
    sources:
-     - type: git
-       url: https://anongit.kde.org/basket.git
+     - type: dir
+       path: .
+       skip: [".git"]
