@@ -16,9 +16,6 @@
 
 void setupCmdLineOptions(QCommandLineParser *opts)
 {
-    opts->addHelpOption();
-    opts->addVersionOption();
-
     opts->addOption(QCommandLineOption(QStringList() << "d"
                                                      << "debug",
                                        i18n("Show the debug window")));
