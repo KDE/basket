@@ -17,7 +17,6 @@
 #include <QtCore/QEvent>
 #include <QtCore/QList>
 #include <QtCore/QRegExp>
-#include <QtCore/QSignalMapper>
 #include <QtGui/QHideEvent>
 #include <QtGui/QImage>
 #include <QtGui/QKeyEvent>
@@ -555,11 +554,6 @@ void BNPView::setupActions()
 
     /** Insert : **************************************************************/
 
-    QSignalMapper *insertEmptyMapper = new QSignalMapper(this);
-    QSignalMapper *insertWizardMapper = new QSignalMapper(this);
-    connect(insertEmptyMapper, SIGNAL(mapped(int)), this, SLOT(insertEmpty(int)));
-    connect(insertWizardMapper, SIGNAL(mapped(int)), this, SLOT(insertWizard(int)));
-
 #if 0
     a = ac->addAction("insert_text");
     a->setText(i18n("Plai&n Text"));
@@ -615,27 +609,17 @@ void BNPView::setupActions()
     a->setIcon(QIcon::fromTheme(IconNames::DOCUMENT_IMPORT));
     m_actLoadFile = a;
 
-    //  connect( m_actInsertText,     SIGNAL(triggered()), insertEmptyMapper, SLOT(map()) );
-    connect(m_actInsertHtml, SIGNAL(triggered()), insertEmptyMapper, SLOT(map()));
-    connect(m_actInsertImage, SIGNAL(triggered()), insertEmptyMapper, SLOT(map()));
-    connect(m_actInsertLink, SIGNAL(triggered()), insertEmptyMapper, SLOT(map()));
-    connect(m_actInsertCrossReference, SIGNAL(triggered()), insertEmptyMapper, SLOT(map()));
-    connect(m_actInsertColor, SIGNAL(triggered()), insertEmptyMapper, SLOT(map()));
-    connect(m_actInsertLauncher, SIGNAL(triggered()), insertEmptyMapper, SLOT(map()));
-    //  insertEmptyMapper->setMapping(m_actInsertText,     NoteType::Text    );
-    insertEmptyMapper->setMapping(m_actInsertHtml, NoteType::Html);
-    insertEmptyMapper->setMapping(m_actInsertImage, NoteType::Image);
-    insertEmptyMapper->setMapping(m_actInsertLink, NoteType::Link);
-    insertEmptyMapper->setMapping(m_actInsertCrossReference, NoteType::CrossReference);
-    insertEmptyMapper->setMapping(m_actInsertColor, NoteType::Color);
-    insertEmptyMapper->setMapping(m_actInsertLauncher, NoteType::Launcher);
+    //  connect( m_actInsertText, QAction::triggered, this, [this] () { insertEmpty(NoteType::Text); });
+    connect(m_actInsertHtml, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Html); });
+    connect(m_actInsertImage, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Image); });
+    connect(m_actInsertLink, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Link); });
+    connect(m_actInsertCrossReference, &QAction::triggered, this, [this] () { insertEmpty(NoteType::CrossReference); });
+    connect(m_actInsertColor, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Color); });
+    connect(m_actInsertLauncher, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Launcher); });
 
-    connect(m_actImportKMenu, SIGNAL(triggered()), insertWizardMapper, SLOT(map()));
-    connect(m_actImportIcon, SIGNAL(triggered()), insertWizardMapper, SLOT(map()));
-    connect(m_actLoadFile, SIGNAL(triggered()), insertWizardMapper, SLOT(map()));
-    insertWizardMapper->setMapping(m_actImportKMenu, 1);
-    insertWizardMapper->setMapping(m_actImportIcon, 2);
-    insertWizardMapper->setMapping(m_actLoadFile, 3);
+    connect(m_actImportKMenu, &QAction::triggered, this, [this] () { insertWizard(1); });
+    connect(m_actImportIcon, &QAction::triggered, this, [this] () { insertWizard(2); });
+    connect(m_actLoadFile, &QAction::triggered, this, [this] () { insertWizard(3); });
 
     a = ac->addAction("insert_screen_color", this, &BNPView::slotColorFromScreen);
     a->setText(i18n("C&olor from Screen"));
