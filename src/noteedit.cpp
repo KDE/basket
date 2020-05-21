@@ -126,7 +126,7 @@ void NoteEditor::connectActions(BasketScene *scene)
     if (m_textEdit) {
         connect(m_textEdit, SIGNAL(textChanged()), scene, SLOT(selectionChangedInEditor()));
         connect(m_textEdit, SIGNAL(textChanged()), scene, SLOT(contentChangedInEditor()));
-        connect(m_textEdit, SIGNAL(textChanged()), scene, SLOT(placeEditorAndEnsureVisible()));
+        connect(m_textEdit, &KTextEdit::textChanged, scene, &BasketScene::placeEditorAndEnsureVisible);
         connect(m_textEdit, SIGNAL(selectionChanged()), scene, SLOT(selectionChangedInEditor()));
 
     } else if (m_lineEdit) {
@@ -231,10 +231,10 @@ TextEditor::TextEditor(TextContent *textContent, QWidget *parent)
     textEdit->moveCursor(QTextCursor::End);
     textEdit->verticalScrollBar()->setCursor(Qt::ArrowCursor);
     setInlineEditor(textEdit);
-    connect(textEdit, SIGNAL(escapePressed()), this, SIGNAL(askValidation()));
-    connect(textEdit, SIGNAL(mouseEntered()), this, SIGNAL(mouseEnteredEditorWidget()));
+    connect(textEdit, &FocusedTextEdit::escapePressed, this, &TextEditor::askValidation);
+    connect(textEdit, &FocusedTextEdit::mouseEntered, this, &TextEditor::mouseEnteredEditorWidget);
 
-    connect(textEdit, SIGNAL(cursorPositionChanged()), textContent->note()->basket(), SLOT(editorCursorPositionChanged()));
+    connect(textEdit, &FocusedTextEdit::cursorPositionChanged, textContent->note()->basket(), &BasketScene::editorCursorPositionChanged);
     // In case it is a very big note, the top is displayed and Enter is pressed: the cursor is on bottom, we should enure it visible:
     QTimer::singleShot(0, textContent->note()->basket(), SLOT(editorCursorPositionChanged()));
 }
@@ -306,12 +306,12 @@ HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget *parent)
     textEdit->verticalScrollBar()->setCursor(Qt::ArrowCursor);
     setInlineEditor(textEdit);
 
-    connect(textEdit, SIGNAL(mouseEntered()), this, SIGNAL(mouseEnteredEditorWidget()));
-    connect(textEdit, SIGNAL(escapePressed()), this, SIGNAL(askValidation()));
+    connect(textEdit, &FocusedTextEdit::mouseEntered, this, &HtmlEditor::mouseEnteredEditorWidget);
+    connect(textEdit, &FocusedTextEdit::escapePressed, this, &HtmlEditor::askValidation);
 
-    connect(InlineEditors::instance()->richTextFont, SIGNAL(currentFontChanged(const QFont &)), this, SLOT(onFontSelectionChanged(const QFont &)));
-    connect(InlineEditors::instance()->richTextFontSize, SIGNAL(sizeChanged(qreal)), textEdit, SLOT(setFontPointSize(qreal)));
-    connect(InlineEditors::instance()->richTextColor, SIGNAL(activated(const QColor &)), textEdit, SLOT(setTextColor(const QColor &)));
+    connect(InlineEditors::instance()->richTextFont, &QFontComboBox::currentFontChanged, this, &HtmlEditor::onFontSelectionChanged);
+    connect(InlineEditors::instance()->richTextFontSize, &FontSizeCombo::sizeChanged, textEdit, &FocusedTextEdit::setFontPointSize);
+    connect(InlineEditors::instance()->richTextColor, &KColorCombo::activated, textEdit, &FocusedTextEdit::setTextColor);
 
     connect(InlineEditors::instance()->focusWidgetFilter, SIGNAL(escapePressed()), textEdit, SLOT(setFocus()));
     connect(InlineEditors::instance()->focusWidgetFilter, SIGNAL(returnPressed()), textEdit, SLOT(setFocus()));

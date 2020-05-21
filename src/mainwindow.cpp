@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //  m_actShowToolbar->setChecked(   toolBar()->isVisible()   );
     m_actShowStatusbar->setChecked(statusBar()->isVisible());
-    connect(m_baskets, SIGNAL(setWindowCaption(const QString &)), this, SLOT(setWindowTitle(const QString &)));
+    connect(m_baskets, &BNPView::setWindowCaption, this, &MainWindow::setWindowTitle);
 
     //  InlineEditors::instance()->richTextToolBar();
     setStandardToolBarMenuEnabled(true);
@@ -119,7 +119,7 @@ void MainWindow::configureToolbars()
     saveMainWindowSettings(group);
 
     KEditToolBar dlg(actionCollection());
-    connect(&dlg, SIGNAL(newToolbarConfig()), this, SLOT(slotNewToolbarConfig()));
+    connect(&dlg, &KEditToolBar::newToolbarConfig, this, &MainWindow::slotNewToolbarConfig);
     dlg.exec();
 }
 

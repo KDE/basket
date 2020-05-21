@@ -78,8 +78,8 @@ TreeImportDialog::TreeImportDialog(QWidget *parent)
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &TreeImportDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &TreeImportDialog::reject);
     mainLayout->addWidget(buttonBox);
 }
 
@@ -143,7 +143,7 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     m_emptyline_choice->setChecked(true);
     topLayout->addWidget(m_choices);
 
-    connect(m_customSeparator, SIGNAL(textChanged()), this, SLOT(customSeparatorChanged()));
+    connect(m_customSeparator, &KTextEdit::textChanged, this, &TextFileImportDialog::customSeparatorChanged);
 
     mainLayout->addWidget(page);
 
@@ -151,8 +151,8 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &TextFileImportDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &TextFileImportDialog::reject);
     mainLayout->addWidget(buttonBox);
 }
 

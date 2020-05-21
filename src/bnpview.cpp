@@ -165,7 +165,7 @@ void BNPView::lateInit()
     /* System tray icon */
     Global::systemTray = new SystemTray(Global::activeMainWindow());
     Global::systemTray->setIconByName(":/images/22-apps-basket");
-    connect(Global::systemTray, SIGNAL(showPart()), this, SIGNAL(showPart()));
+    connect(Global::systemTray, &SystemTray::showPart, this, &BNPView::showPart);
     /*if (Settings::useSystray())
         Global::systemTray->show();*/
 
@@ -201,8 +201,8 @@ void BNPView::lateInit()
 
     m_tryHideTimer = new QTimer(this);
     m_hideTimer = new QTimer(this);
-    connect(m_tryHideTimer, SIGNAL(timeout()), this, SLOT(timeoutTryHide()));
-    connect(m_hideTimer, SIGNAL(timeout()), this, SLOT(timeoutHide()));
+    connect(m_tryHideTimer, &QTimer::timeout, this, &BNPView::timeoutTryHide);
+    connect(m_hideTimer, &QTimer::timeout, this, &BNPView::timeoutHide);
 
     // Preload every baskets for instant filtering:
     /*StopWatch::start(100);
@@ -391,22 +391,22 @@ void BNPView::initialize()
     setStretchFactor(indexOf(m_stack), 1);
 
     /// Configure the List View Signals:
-    connect(m_tree, SIGNAL(itemActivated(QTreeWidgetItem *, int)), this, SLOT(slotPressed(QTreeWidgetItem *, int)));
-    connect(m_tree, SIGNAL(itemPressed(QTreeWidgetItem *, int)), this, SLOT(slotPressed(QTreeWidgetItem *, int)));
-    connect(m_tree, SIGNAL(itemClicked(QTreeWidgetItem *, int)), this, SLOT(slotPressed(QTreeWidgetItem *, int)));
+    connect(m_tree, &BasketTreeListView::itemActivated, this, &BNPView::slotPressed);
+    connect(m_tree, &BasketTreeListView::itemPressed, this, &BNPView::slotPressed);
+    connect(m_tree, &BasketTreeListView::itemClicked, this, &BNPView::slotPressed);
 
-    connect(m_tree, SIGNAL(itemExpanded(QTreeWidgetItem *)), this, SLOT(needSave(QTreeWidgetItem *)));
-    connect(m_tree, SIGNAL(itemCollapsed(QTreeWidgetItem *)), this, SLOT(needSave(QTreeWidgetItem *)));
-    connect(m_tree, SIGNAL(contextMenuRequested(const QPoint &)), this, SLOT(slotContextMenu(const QPoint &)));
-    connect(m_tree, SIGNAL(itemDoubleClicked(QTreeWidgetItem *, int)), this, SLOT(slotShowProperties(QTreeWidgetItem *)));
+    connect(m_tree, &BasketTreeListView::itemExpanded, this, &BNPView::needSave);
+    connect(m_tree, &BasketTreeListView::itemCollapsed, this, &BNPView::needSave);
+    connect(m_tree, &BasketTreeListView::contextMenuRequested, this, &BNPView::slotContextMenu);
+    connect(m_tree, &BasketTreeListView::itemDoubleClicked, this, &BNPView::slotShowProperties);
 
-    connect(m_tree, SIGNAL(itemExpanded(QTreeWidgetItem *)), this, SIGNAL(basketChanged()));
-    connect(m_tree, SIGNAL(itemCollapsed(QTreeWidgetItem *)), this, SIGNAL(basketChanged()));
+    connect(m_tree, &BasketTreeListView::itemExpanded, this, &BNPView::basketChanged);
+    connect(m_tree, &BasketTreeListView::itemCollapsed, this, &BNPView::basketChanged);
 
-    connect(this, SIGNAL(basketChanged()), this, SLOT(slotBasketChanged()));
+    connect(this, &BNPView::basketChanged, this, &BNPView::slotBasketChanged);
 
-    connect(m_history, SIGNAL(canRedoChanged(bool)), this, SLOT(canUndoRedoChanged()));
-    connect(m_history, SIGNAL(canUndoChanged(bool)), this, SLOT(canUndoRedoChanged()));
+    connect(m_history, &QUndoStack::canRedoChanged, this, &BNPView::canUndoRedoChanged);
+    connect(m_history, &QUndoStack::canUndoChanged, this, &BNPView::canUndoRedoChanged);
 
     setupActions();
 
@@ -633,9 +633,9 @@ void BNPView::setupActions()
     a->setIcon(QIcon::fromTheme("ksnapshot"));
     m_actGrabScreenshot = a;
 
-    // connect( m_actGrabScreenshot, SIGNAL(regionGrabbed(const QPixmap&)), this, SLOT(screenshotGrabbed(const QPixmap&)) );
-    // connect( m_colorPicker, SIGNAL(canceledPick()),             this, SLOT(colorPickingCanceled())     );
-
+    //connect(m_actGrabScreenshot, SIGNAL(regionGrabbed(const QPixmap&)), this, SLOT(screenshotGrabbed(const QPixmap&)));
+    //connect(m_colorPicker, SIGNAL(canceledPick()), this, SLOT(colorPickingCanceled()));
+    
     //  m_insertActions.append( m_actInsertText     );
     m_insertActions.append(m_actInsertHtml);
     m_insertActions.append(m_actInsertLink);
@@ -753,7 +753,7 @@ void BNPView::setupActions()
     m_actionCollection->setDefaultShortcut(toggleAct, QKeySequence("Ctrl+Shift+F"));
     m_actFilterAllBaskets = toggleAct;
 
-    connect(m_actFilterAllBaskets, SIGNAL(toggled(bool)), this, SLOT(toggleFilterAllBaskets(bool)));
+    connect(m_actFilterAllBaskets, &KToggleAction::toggled, this, &BNPView::toggleFilterAllBaskets);
 
     a = ac->addAction("edit_filter_reset", this, SLOT(slotResetFilter()));
     a->setText(i18n("&Reset Filter"));
@@ -836,7 +836,7 @@ void BNPView::slotContextMenu(const QPoint &pos)
     }
 
     QMenu *menu = popupMenu(menuName);
-    connect(menu, SIGNAL(aboutToHide()), this, SLOT(aboutToHideNewBasketPopup()));
+    connect(menu, &QMenu::aboutToHide, this, &BNPView::aboutToHideNewBasketPopup);
     menu->exec(m_tree->mapToGlobal(pos));
 }
 
@@ -953,12 +953,12 @@ BasketScene *BNPView::loadBasket(const QString &folderName)
     BasketScene *basket = decoBasket->basket();
     m_stack->addWidget(decoBasket);
 
-    connect(basket, SIGNAL(countsChanged(BasketScene *)), this, SLOT(countsChanged(BasketScene *)));
+    connect(basket, &BasketScene::countsChanged, this, &BNPView::countsChanged);
     // Important: Create listViewItem and connect signal BEFORE loadProperties(), so we get the listViewItem updated without extra work:
-    connect(basket, SIGNAL(propertiesChanged(BasketScene *)), this, SLOT(updateBasketListViewItem(BasketScene *)));
+    connect(basket, &BasketScene::propertiesChanged, this, &BNPView::updateBasketListViewItem);
 
-    connect(basket->decoration()->filterBar(), SIGNAL(newFilter(const FilterData &)), this, SLOT(newFilterFromFilterBar()));
-    connect(basket, SIGNAL(crossReference(QString)), this, SLOT(loadCrossReference(QString)));
+    connect(basket->decoration()->filterBar(), &FilterBar::newFilter, this, &BNPView::newFilterFromFilterBar);
+    connect(basket, &BasketScene::crossReference, this, &BNPView::loadCrossReference);
 
     return basket;
 }
@@ -1854,7 +1854,7 @@ void BNPView::grabScreenshot(bool global)
     currentBasket()->saveInsertionData();
     usleep(delay * 1000);
     m_regionGrabber = new RegionGrabber;
-    connect(m_regionGrabber, SIGNAL(regionGrabbed(const QPixmap &)), this, SLOT(screenshotGrabbed(const QPixmap &)));
+    connect(m_regionGrabber, &RegionGrabber::regionGrabbed, this, &BNPView::screenshotGrabbed);
 }
 
 void BNPView::hideMainWindow()
@@ -2648,7 +2648,7 @@ void BNPView::populateTagsMenu()
     populateTagsMenu(*menu, referenceNote);
 
     m_lastOpenedTagsMenu = menu;
-    //  connect( menu, SIGNAL(aboutToHide()), this, SLOT(disconnectTagsMenu()) );
+    //connect(menu, &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
 }
 
 void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
@@ -2715,8 +2715,8 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
 void BNPView::connectTagsMenu()
 {
-    connect(popupMenu("tags"), SIGNAL(aboutToShow()), this, SLOT(populateTagsMenu()));
-    connect(popupMenu("tags"), SIGNAL(aboutToHide()), this, SLOT(disconnectTagsMenu()));
+    connect(popupMenu("tags"), SIGNAL(aboutToShow()), this, SLOT(populateTagsMenu()));  
+    connect(popupMenu("tags"), &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
 }
 
 void BNPView::showEvent(QShowEvent *)

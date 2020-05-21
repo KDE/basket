@@ -29,9 +29,9 @@ DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName, Qt:
 
     connect(m_filter, SIGNAL(newFilter(const FilterData &)), m_basket, SLOT(newFilter(const FilterData &)));
 
-    connect(m_basket, SIGNAL(postMessage(const QString &)), Global::bnpView, SLOT(postStatusbarMessage(const QString &)));
-    connect(m_basket, SIGNAL(setStatusBarText(const QString &)), Global::bnpView, SLOT(setStatusBarHint(const QString &)));
-    connect(m_basket, SIGNAL(resetStatusBarText()), Global::bnpView, SLOT(updateStatusBarHint()));
+    connect(m_basket, &BasketScene::postMessage, Global::bnpView, &BNPView::postStatusbarMessage);
+    connect(m_basket, &BasketScene::setStatusBarText, Global::bnpView, &BNPView::setStatusBarHint);
+    connect(m_basket, &BasketScene::resetStatusBarText, Global::bnpView, &BNPView::updateStatusBarHint);
 }
 
 DecoratedBasket::~DecoratedBasket()

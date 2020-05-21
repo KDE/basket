@@ -320,14 +320,14 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &TagsEditDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &TagsEditDialog::reject);
     mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setObjectName("CustomizeTags");
     setModal(true);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
-    connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(slotCancel()));
+    connect(okButton, &QPushButton::clicked, this, &TagsEditDialog::slotOk);
+    connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &TagsEditDialog::slotCancel);
 
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
 
@@ -336,8 +336,8 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QPushButton *newTag = new QPushButton(i18n("Ne&w Tag"), mainWidget);
     QPushButton *newState = new QPushButton(i18n("New St&ate"), mainWidget);
 
-    connect(newTag, SIGNAL(clicked()), this, SLOT(newTag()));
-    connect(newState, SIGNAL(clicked()), this, SLOT(newState()));
+    connect(newTag, &QPushButton::clicked, this, &TagsEditDialog::newTag);
+    connect(newState, &QPushButton::clicked, this, &TagsEditDialog::newState);
 
     m_tags = new TagListView(mainWidget);
     m_tags->header()->hide();
@@ -359,9 +359,9 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_moveDown->setToolTip(i18n("Move Down (Ctrl+Shift+Down)"));
     m_deleteTag->setToolTip(i18n("Delete"));
 
-    connect(m_moveUp, SIGNAL(clicked()), this, SLOT(moveUp()));
-    connect(m_moveDown, SIGNAL(clicked()), this, SLOT(moveDown()));
-    connect(m_deleteTag, SIGNAL(clicked()), this, SLOT(deleteTag()));
+    connect(m_moveUp, &QPushButton::clicked, this, &TagsEditDialog::moveUp);
+    connect(m_moveDown, &QPushButton::clicked, this, &TagsEditDialog::moveDown);
+    connect(m_deleteTag, &QPushButton::clicked, this, &TagsEditDialog::deleteTag);
 
     QHBoxLayout *topLeftLayout = new QHBoxLayout;
     topLeftLayout->addWidget(m_moveUp);
@@ -395,8 +395,8 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_removeShortcut = new QPushButton(i18nc("Remove tag shortcut", "&Remove"), tagWidget);
     QLabel *shortcutLabel = new QLabel(i18n("S&hortcut:"), tagWidget);
     shortcutLabel->setBuddy(m_shortcut);
-    // connect( m_shortcut,       SIGNAL(shortcutChanged(const QKeySequence&)), this, SLOT(capturedShortcut(const QKeySequence&)) );
-    connect(m_removeShortcut, SIGNAL(clicked()), this, SLOT(removeShortcut()));
+    //connect(m_shortcut, &KShortcutWidget::shortcutChanged, this, &TagsEditDialog::capturedShortcut);
+    connect(m_removeShortcut, &QPushButton::clicked, this, &TagsEditDialog::removeShortcut);
 
     m_inherit = new QCheckBox(i18n("&Inherited by new sibling notes"), tagWidget);
 
@@ -438,7 +438,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_removeEmblem = new QPushButton(i18nc("Remove tag emblem", "Remo&ve"), emblemWidget);
     QLabel *emblemLabel = new QLabel(i18n("&Emblem:"), stateWidget);
     emblemLabel->setBuddy(m_emblem);
-    connect(m_removeEmblem, SIGNAL(clicked()), this, SLOT(removeEmblem())); // m_emblem.resetIcon() is not a slot!
+    connect(m_removeEmblem, &QPushButton::clicked, this, &TagsEditDialog::removeEmblem); // m_emblem.resetIcon() is not a slot!
 
     // Make the icon button and the remove button the same height:
     int height = qMax(m_emblem->sizeHint().width(), m_emblem->sizeHint().height());
@@ -618,22 +618,22 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     }
 
     // Connect Signals:
-    connect(m_tagName, SIGNAL(textChanged(const QString &)), this, SLOT(modified()));
-    connect(m_shortcut, SIGNAL(shortcutChanged(const QList<QKeySequence> &)), this, SLOT(modified()));
-    connect(m_inherit, SIGNAL(stateChanged(int)), this, SLOT(modified()));
-    connect(m_allowCrossRefernce, SIGNAL(clicked(bool)), this, SLOT(modified()));
-    connect(m_stateName, SIGNAL(textChanged(const QString &)), this, SLOT(modified()));
-    connect(m_emblem, SIGNAL(iconChanged(QString)), this, SLOT(modified()));
-    connect(m_backgroundColor, SIGNAL(changed(const QColor &)), this, SLOT(modified()));
-    connect(m_bold, SIGNAL(toggled(bool)), this, SLOT(modified()));
-    connect(m_underline, SIGNAL(toggled(bool)), this, SLOT(modified()));
-    connect(m_italic, SIGNAL(toggled(bool)), this, SLOT(modified()));
-    connect(m_strike, SIGNAL(toggled(bool)), this, SLOT(modified()));
-    connect(m_textColor, SIGNAL(activated(int)), this, SLOT(modified()));
-    connect(m_font, SIGNAL(editTextChanged(const QString &)), this, SLOT(modified()));
-    connect(m_fontSize, SIGNAL(editTextChanged(const QString &)), this, SLOT(modified()));
-    connect(m_textEquivalent, SIGNAL(textChanged(const QString &)), this, SLOT(modified()));
-    connect(m_onEveryLines, SIGNAL(stateChanged(int)), this, SLOT(modified()));
+    connect(m_tagName, &QLineEdit::textChanged, this, &TagsEditDialog::modified);
+    connect(m_shortcut, &KShortcutWidget::shortcutChanged, this, &TagsEditDialog::modified);
+    connect(m_inherit, &QCheckBox::stateChanged, this, &TagsEditDialog::modified);
+    connect(m_allowCrossRefernce, &QCheckBox::clicked, this, &TagsEditDialog::modified);
+    connect(m_stateName, &QLineEdit::textChanged, this, &TagsEditDialog::modified);
+    connect(m_emblem, &KIconButton::iconChanged, this, &TagsEditDialog::modified);
+    connect(m_backgroundColor, &KColorCombo2::changed, this, &TagsEditDialog::modified);
+    connect(m_bold, &QPushButton::toggled, this, &TagsEditDialog::modified);
+    connect(m_underline, &QPushButton::toggled, this, &TagsEditDialog::modified);
+    connect(m_italic, &QPushButton::toggled, this, &TagsEditDialog::modified);
+    connect(m_strike, &QPushButton::toggled, this, &TagsEditDialog::modified);
+    connect(m_textColor, &KColorCombo2::changed, this, &TagsEditDialog::modified);
+    connect(m_font, &QFontComboBox::editTextChanged, this, &TagsEditDialog::modified);
+    connect(m_fontSize, &FontSizeCombo::editTextChanged, this, &TagsEditDialog::modified);
+    connect(m_textEquivalent, &QLineEdit::textChanged, this, &TagsEditDialog::modified);
+    connect(m_onEveryLines, &QCheckBox::stateChanged, this, &TagsEditDialog::modified);
 
     connect(m_tags, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)));
     connect(m_tags, SIGNAL(deletePressed()), this, SLOT(deleteTag()));
@@ -668,31 +668,31 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     // Some keyboard shortcuts:       // Ctrl+arrows instead of Alt+arrows (same as Go menu in the main window) because Alt+Down is for combo boxes
     QAction *selectAbove = new QAction(this);
     selectAbove->setShortcut(Qt::CTRL + Qt::Key_Up);
-    connect(selectAbove, SIGNAL(triggered()), this, SLOT(selectUp()));
+    connect(selectAbove, &QAction::triggered, this, &TagsEditDialog::selectUp);
 
     QAction *selectBelow = new QAction(this);
     selectBelow->setShortcut(Qt::CTRL + Qt::Key_Down);
-    connect(selectBelow, SIGNAL(triggered()), this, SLOT(selectDown()));
+    connect(selectBelow, &QAction::triggered, this, &TagsEditDialog::selectDown);
 
     QAction *selectLeft = new QAction(this);
     selectLeft->setShortcut(Qt::CTRL + Qt::Key_Left);
-    connect(selectLeft, SIGNAL(triggered()), this, SLOT(selectLeft()));
+    connect(selectLeft, &QAction::triggered, this, &TagsEditDialog::selectLeft);
 
     QAction *selectRight = new QAction(this);
     selectRight->setShortcut(Qt::CTRL + Qt::Key_Right);
-    connect(selectRight, SIGNAL(triggered()), this, SLOT(selectRight()));
+    connect(selectRight, &QAction::triggered, this, &TagsEditDialog::selectRight);
 
     QAction *moveAbove = new QAction(this);
     moveAbove->setShortcut(Qt::CTRL + Qt::Key_Up);
-    connect(moveAbove, SIGNAL(triggered()), this, SLOT(moveUp()));
+    connect(moveAbove, &QAction::triggered, this, &TagsEditDialog::moveUp);
 
     QAction *moveBelow = new QAction(this);
     moveBelow->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_Down);
-    connect(moveBelow, SIGNAL(triggered()), this, SLOT(moveDown()));
+    connect(moveBelow, &QAction::triggered, this, &TagsEditDialog::moveDown);
 
     QAction *rename = new QAction(this);
     rename->setShortcut(Qt::Key_F2);
-    connect(rename, SIGNAL(triggered()), this, SLOT(renameIt()));
+    connect(rename, &QAction::triggered, this, &TagsEditDialog::renameIt);
 
     m_tags->setMinimumSize(m_tags->sizeHint().width() * 2, m_tagBox->sizeHint().height() + m_stateBox->sizeHint().height());
 

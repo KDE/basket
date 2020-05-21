@@ -356,7 +356,7 @@ void KColorCombo2::init()
 
     m_popup = new KColorPopup(this);
     m_popup->installEventFilter(this);
-    connect(m_popup, SIGNAL(closed()), SLOT(popupClosed()));
+    connect(m_popup, &KColorPopup::closed, this, &KColorCombo2::popupClosed);
 
     // By default, the array is filled with setRainbowPreset().
     // But we allocate it on demand (the later as possible) to avoid performances issues if the developer set another array.

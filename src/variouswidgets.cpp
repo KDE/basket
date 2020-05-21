@@ -46,7 +46,7 @@ RunCommandRequester::RunCommandRequester(const QString &runCommand, const QStrin
     layout->addWidget(m_runCommand);
     layout->addWidget(pb);
 
-    connect(pb, SIGNAL(clicked()), this, SLOT(slotSelCommand()));
+    connect(pb, &QPushButton::clicked, this, &RunCommandRequester::slotSelCommand);
 }
 
 RunCommandRequester::~RunCommandRequester()
@@ -260,8 +260,8 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     }
 
     connect(iconView, SIGNAL(executed(QListWidgetItem *)), this, SLOT(choose(QListWidgetItem *)));
-    connect(iconView, SIGNAL(itemActivated(QListWidgetItem *)), this, SLOT(choose(QListWidgetItem *)));
-    connect(iconView, SIGNAL(itemSelectionChanged()), this, SLOT(slotSelectionChanged()));
+    connect(iconView, &QListWidget::itemActivated, this, &IconSizeDialog::choose);
+    connect(iconView, &QListWidget::itemSelectionChanged, this, &IconSizeDialog::slotSelectionChanged);
 
     mainLayout->addWidget(page);
 
@@ -269,10 +269,10 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &IconSizeDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &IconSizeDialog::reject);
     mainLayout->addWidget(buttonBox);
-    connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()), SLOT(slotCancel()));
+    connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &IconSizeDialog::slotCancel);
 }
 
 IconSizeDialog::~IconSizeDialog()
@@ -361,8 +361,8 @@ FontSizeCombo::FontSizeCombo(bool rw, bool withDefault, QWidget *parent)
     for (QList<int>::Iterator it = sizes.begin(); it != sizes.end(); ++it)
         addItem(QString::number(*it));
 
-    //  connect( this, SIGNAL(activated(const QString&)), this, SLOT(textChangedInCombo(const QString&)) );
-    connect(this, SIGNAL(editTextChanged(const QString &)), this, SLOT(textChangedInCombo(const QString &)));
+    //connect(this, &FontSizeCombo::activated, this, &FontSizeCombo::textChangedInCombo);
+    connect(this, &FontSizeCombo::editTextChanged, this, &FontSizeCombo::textChangedInCombo);
 
     // TODO: 01617 void KFontSizeAction::setFontSize( int size )
 }

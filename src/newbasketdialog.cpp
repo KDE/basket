@@ -41,7 +41,7 @@ SingleSelectionKIconView::SingleSelectionKIconView(QWidget *parent)
     , m_lastSelected(nullptr)
 {
     setViewMode(QListView::IconMode);
-    connect(this, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)), this, SLOT(slotSelectionChanged(QListWidgetItem *)));
+    connect(this, &SingleSelectionKIconView::currentItemChanged, this, &SingleSelectionKIconView::slotSelectionChanged);
 }
 
 QMimeData *SingleSelectionKIconView::dragObject()
@@ -101,7 +101,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     m_icon->setToolTip(i18n("Icon"));
     m_name = new QLineEdit(/*i18n("Basket"), */ page);
     m_name->setMinimumWidth(m_name->fontMetrics().maxWidth() * 20);
-    connect(m_name, SIGNAL(textChanged(const QString &)), this, SLOT(nameChanged(const QString &)));
+    connect(m_name, &QLineEdit::textChanged, this, &NewBasketDialog::nameChanged);
 
     m_name->setToolTip(i18n("Name"));
     m_backgroundColor = new KColorCombo2(QColor(), palette().color(QPalette::Base), page);
@@ -117,7 +117,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     QHBoxLayout *layout = new QHBoxLayout;
     QPushButton *button = new QPushButton(page);
     KGuiItem::assign(button, KGuiItem(i18n("&Manage Templates..."), "configure"));
-    connect(button, SIGNAL(clicked()), this, SLOT(manageTemplates()));
+    connect(button, &QPushButton::clicked, this, &NewBasketDialog::manageTemplates);
     button->hide();
 
     // Compute the right template to use as the default:
@@ -227,8 +227,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
         index = populateBasketsList(Global::bnpView->topLevelItem(i), /*indent=*/1, /*index=*/index);
     }
 
-    connect(m_templates, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotOk()));
-    connect(m_templates, SIGNAL(itemActivated(QListWidgetItem *)), this, SLOT(returnPressed()));
+    connect(m_templates, &QListWidget::itemDoubleClicked, this, &NewBasketDialog::slotOk);
+    connect(m_templates, &QListWidget::itemActivated, this, &NewBasketDialog::returnPressed);
 
     mainLayout->addWidget(page);
 
@@ -236,7 +236,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
+    connect(okButton, &QPushButton::clicked, this, &NewBasketDialog::slotOk);
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     mainLayout->addWidget(buttonBox);

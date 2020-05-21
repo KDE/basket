@@ -27,7 +27,7 @@ FocusedTextEdit::FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent)
     : KTextEdit(parent)
     , m_disableUpdatesOnKeyPress(disableUpdatesOnKeyPress)
 {
-    connect(this, SIGNAL(selectionChanged()), this, SLOT(onSelectionChanged()));
+    connect(this, &FocusedTextEdit::selectionChanged, this, &FocusedTextEdit::onSelectionChanged);
 }
 
 FocusedTextEdit::~FocusedTextEdit()

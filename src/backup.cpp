@@ -94,8 +94,8 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     folderLayout->addWidget(useFolder);
     folderLayout->addWidget(helpLabel);
     folderLayout->addStretch();
-    connect(moveFolder, SIGNAL(clicked()), this, SLOT(moveToAnotherFolder()));
-    connect(useFolder, SIGNAL(clicked()), this, SLOT(useAnotherExistingFolder()));
+    connect(moveFolder, &QPushButton::clicked, this, &BackupDialog::moveToAnotherFolder);
+    connect(useFolder, &QPushButton::clicked, this, &BackupDialog::useAnotherExistingFolder);
 
     QGroupBox *backupGroup = new QGroupBox(i18n("Backups"), page);
     pageVBoxLayout->addWidget(backupGroup);
@@ -115,15 +115,15 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     backupLayout->addWidget(restoreButton);
     backupLayout->addWidget(m_lastBackup);
     backupLayout->addStretch();
-    connect(backupButton, SIGNAL(clicked()), this, SLOT(backup()));
-    connect(restoreButton, SIGNAL(clicked()), this, SLOT(restore()));
+    connect(backupButton, &QPushButton::clicked, this, &BackupDialog::backup);
+    connect(restoreButton, &QPushButton::clicked, this, &BackupDialog::restore);
 
     populateLastBackup();
 
     (new QWidget(page))->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &BackupDialog::reject);
     mainLayout->addWidget(buttonBox);
     buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 }

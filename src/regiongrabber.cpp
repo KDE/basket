@@ -40,7 +40,7 @@ RegionGrabber::RegionGrabber()
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     int timeout = KWindowSystem::compositingActive() ? 200 : 50;
     QTimer::singleShot(timeout, this, SLOT(init()));
-    connect(&idleTimer, SIGNAL(timeout()), this, SLOT(displayHelp()));
+    connect(&idleTimer, &QTimer::timeout, this, &RegionGrabber::displayHelp);
     idleTimer.start(3000);
 }
 

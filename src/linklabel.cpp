@@ -669,8 +669,8 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     m_exTitle = exTitle;
     m_exIcon = exIcon;
 
-    connect(m_italic, SIGNAL(stateChanged(int)), this, SLOT(slotChangeLook()));
-    connect(m_bold, SIGNAL(stateChanged(int)), this, SLOT(slotChangeLook()));
+    connect(m_italic, &QCheckBox::stateChanged, this, &LinkLookEditWidget::slotChangeLook);
+    connect(m_bold, &QCheckBox::stateChanged, this, &LinkLookEditWidget::slotChangeLook);
     connect(m_underlining, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
     connect(m_color, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
     connect(m_hoverColor, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));

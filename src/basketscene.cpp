@@ -1213,7 +1213,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     m_view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_action = new QAction(this);
-    connect(m_action, SIGNAL(triggered()), this, SLOT(activatedShortcut()));
+    connect(m_action, &QAction::triggered, this, &BasketScene::activatedShortcut);
     m_action->setObjectName(folderName);
     KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
     // We do this in the basket properties dialog (and keep it in sync with the
@@ -1238,15 +1238,15 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     // File Watcher:
     m_watcher = new KDirWatch(this);
 
-    connect(m_watcher, SIGNAL(dirty(const QString &)), this, SLOT(watchedFileModified(const QString &)));
-    // connect(m_watcher,       SIGNAL(deleted(const QString&)), this, SLOT(watchedFileDeleted(const QString&)));
-    connect(&m_watcherTimer, SIGNAL(timeout()), this, SLOT(updateModifiedNotes()));
+    connect(m_watcher, &KDirWatch::dirty, this, &BasketScene::watchedFileModified);
+    //connect(m_watcher, &KDirWatch::deleted, this, &BasketScene::watchedFileDeleted);
+    connect(&m_watcherTimer, &QTimer::timeout, this, &BasketScene::updateModifiedNotes);
 
     // Various Connections:
-    connect(&m_autoScrollSelectionTimer, SIGNAL(timeout()), this, SLOT(doAutoScrollSelection()));
-    connect(&m_timerCountsChanged, SIGNAL(timeout()), this, SLOT(countsChangedTimeOut()));
-    connect(&m_inactivityAutoSaveTimer, SIGNAL(timeout()), this, SLOT(inactivityAutoSaveTimeout()));
-    connect(&m_inactivityAutoLockTimer, SIGNAL(timeout()), this, SLOT(inactivityAutoLockTimeout()));
+    connect(&m_autoScrollSelectionTimer, &QTimer::timeout, this, &BasketScene::doAutoScrollSelection);
+    connect(&m_timerCountsChanged, &QTimer::timeout, this, &BasketScene::countsChangedTimeOut);
+    connect(&m_inactivityAutoSaveTimer, &QTimer::timeout, this, &BasketScene::inactivityAutoSaveTimeout);
+    connect(&m_inactivityAutoLockTimer, &QTimer::timeout, this, &BasketScene::inactivityAutoLockTimeout);
 
 #ifdef HAVE_LIBGPGME
     m_gpg = new KGpgMe();
@@ -1255,7 +1255,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
 
     // setup the delayed commit timer
     m_commitdelay.setSingleShot(true);
-    connect(&m_commitdelay, SIGNAL(timeout()), this, SLOT(commitEdit()));
+    connect(&m_commitdelay, &QTimer::timeout, this, &BasketScene::commitEdit);
 }
 
 void BasketScene::enterEvent(QEvent *)
@@ -1463,10 +1463,10 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             m_insertMenuTitle = menu.insertSection(first, i18n("Insert"));
 
         setInsertPopupMenu();
-        connect(&menu, SIGNAL(aboutToHide()), this, SLOT(delayedCancelInsertPopupMenu()));
-        connect(&menu, SIGNAL(aboutToHide()), this, SLOT(unlockHovering()));
-        connect(&menu, SIGNAL(aboutToHide()), this, SLOT(disableNextClick()));
-        connect(&menu, SIGNAL(aboutToHide()), this, SLOT(hideInsertPopupMenu()));
+        connect(&menu, &QMenu::aboutToHide, this, &BasketScene::delayedCancelInsertPopupMenu);
+        connect(&menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
+        connect(&menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
+        connect(&menu, &QMenu::aboutToHide, this, &BasketScene::hideInsertPopupMenu);
         doHoverEffects(clicked, zone); // In the case where another popup menu was open, we should do that manually!
         m_lockedHovering = true;
         menu.exec(QCursor::pos());
@@ -1485,8 +1485,8 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         }
         m_startOfShiftSelectionNote = (clicked->isGroup() ? clicked->firstRealChild() : clicked);
         QMenu *menu = Global::bnpView->popupMenu("note_popup");
-        connect(menu, SIGNAL(aboutToHide()), this, SLOT(unlockHovering()));
-        connect(menu, SIGNAL(aboutToHide()), this, SLOT(disableNextClick()));
+        connect(menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
+        connect(menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
         doHoverEffects(clicked, zone); // In the case where another popup menu was open, we should do that manually!
         m_lockedHovering = true;
         menu->exec(QCursor::pos());
@@ -1565,9 +1565,9 @@ void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
         if (countFounds /*countShown*/ () == 0) { // TODO: Count shown!!
             QMenu *menu = Global::bnpView->popupMenu("insert_popup");
             setInsertPopupMenu();
-            connect(menu, SIGNAL(aboutToHide()), this, SLOT(delayedCancelInsertPopupMenu()));
-            connect(menu, SIGNAL(aboutToHide()), this, SLOT(unlockHovering()));
-            connect(menu, SIGNAL(aboutToHide()), this, SLOT(disableNextClick()));
+            connect(menu, &QMenu::aboutToHide, this, &BasketScene::delayedCancelInsertPopupMenu);
+            connect(menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
+            connect(menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
             removeInserter();
             m_lockedHovering = true;
             menu->exec(m_view->mapToGlobal(QPoint(0, 0)));
@@ -1578,8 +1578,8 @@ void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
             m_startOfShiftSelectionNote = (m_focusedNote->isGroup() ? m_focusedNote->firstRealChild() : m_focusedNote);
             // Popup at bottom (or top) of the focused note, if visible :
             QMenu *menu = Global::bnpView->popupMenu("note_popup");
-            connect(menu, SIGNAL(aboutToHide()), this, SLOT(unlockHovering()));
-            connect(menu, SIGNAL(aboutToHide()), this, SLOT(disableNextClick()));
+            connect(menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
+            connect(menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
             doHoverEffects(m_focusedNote, Note::Content); // In the case where another popup menu was open, we should do that manually!
             m_lockedHovering = true;
             menu->exec(noteVisibleRect(m_focusedNote).bottomLeft().toPoint());
@@ -3019,7 +3019,7 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
             m_button = new QPushButton(m_decryptBox);
             m_button->setText(i18n("&Unlock"));
             layout->addWidget(m_button, 1, 2);
-            connect(m_button, SIGNAL(clicked()), this, SLOT(unlock()));
+            connect(m_button, &QButton::clicked, this, &BasketScene::unlock);
 #endif
             QLabel *label = new QLabel(m_decryptBox);
             QString text = "<b>" + i18n("Password protected basket.") + "</b><br/>";
@@ -3265,9 +3265,9 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
         menu.addAction(act);
     }
 
-    connect(&menu, SIGNAL(triggered(QAction *)), this, SLOT(toggledStateInMenu(QAction *)));
-    connect(&menu, SIGNAL(aboutToHide()), this, SLOT(unlockHovering()));
-    connect(&menu, SIGNAL(aboutToHide()), this, SLOT(disableNextClick()));
+    connect(&menu, &QMenu::triggered, this, &BasketScene::toggledStateInMenu);
+    connect(&menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
+    connect(&menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
 
     m_lockedHovering = true;
     menu.exec(QCursor::pos());
@@ -3663,13 +3663,13 @@ bool BasketScene::closeEditor(bool deleteEmptyNote /* =true*/)
 
     if (m_redirectEditActions) {
         if (m_editor->textEdit()) {
-            disconnect(m_editor->textEdit(), SIGNAL(selectionChanged()), this, SLOT(selectionChangedInEditor()));
-            disconnect(m_editor->textEdit(), SIGNAL(textChanged()), this, SLOT(selectionChangedInEditor()));
-            disconnect(m_editor->textEdit(), SIGNAL(textChanged()), this, SLOT(contentChangedInEditor()));
+            disconnect(m_editor->textEdit(), &KTextEdit::selectionChanged, this, &BasketScene::selectionChangedInEditor);
+            disconnect(m_editor->textEdit(), &KTextEdit::textChanged, this, &BasketScene::selectionChangedInEditor);
+            disconnect(m_editor->textEdit(), &KTextEdit::textChanged, this, &BasketScene::contentChangedInEditor);
         } else if (m_editor->lineEdit()) {
-            disconnect(m_editor->lineEdit(), SIGNAL(selectionChanged()), this, SLOT(selectionChangedInEditor()));
-            disconnect(m_editor->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(selectionChangedInEditor()));
-            disconnect(m_editor->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(contentChangedInEditor()));
+            disconnect(m_editor->lineEdit(), &QLineEdit::selectionChanged, this, &BasketScene::selectionChangedInEditor);
+            disconnect(m_editor->lineEdit(), &QLineEdit::textChanged, this, &BasketScene::selectionChangedInEditor);
+            disconnect(m_editor->lineEdit(), &QLineEdit::textChanged, this, &BasketScene::contentChangedInEditor);
         }
     }
     m_editorTrackMouseEvent = false;
@@ -3861,8 +3861,8 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
         }
 
         m_editor->graphicsWidget()->setFocus();
-        connect(m_editor, SIGNAL(askValidation()), this, SLOT(closeEditorDelayed()));
-        connect(m_editor, SIGNAL(mouseEnteredEditorWidget()), this, SLOT(mouseEnteredEditorWidget()));
+        connect(m_editor, &NoteEditor::askValidation, this, &BasketScene::closeEditorDelayed);
+        connect(m_editor, &NoteEditor::mouseEnteredEditorWidget, this, &BasketScene::mouseEnteredEditorWidget);
 
         if (clickedPoint != QPoint()) {
             m_editor->setCursorTo(clickedPoint);

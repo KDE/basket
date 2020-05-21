@@ -53,8 +53,8 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &BasketPropertiesDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &BasketPropertiesDialog::reject);
     mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setObjectName("BasketProperties");
@@ -112,7 +112,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     columnCount->setRange(1, 20);
     columnCount->setValue(m_basket->columnsCount());
     connect(columnCount, SIGNAL(valueChanged(int)), this, SLOT(selectColumnsLayout()));
-
+    
     int height = qMax(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equally-spaced!
     mindMap->setMinimumSize(mindMap->sizeHint().width(), height);                      // Because the m_columnCount can be higher, and make radio1 and radio2 more spaced than radio2 and radio3.
 
@@ -143,7 +143,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
                                          nullptr);
 
     shortcutLayout->addWidget(helpLabel);
-    connect(shortcut, SIGNAL(shortcutChanged(const QList<QKeySequence> &)), this, SLOT(capturedShortcut(const QList<QKeySequence> &)));
+    connect(shortcut, &KShortcutWidget::shortcutChanged, this, &BasketPropertiesDialog::capturedShortcut);
 
     setTabOrder(columnCount, shortcut);
     setTabOrder(shortcut, helpLabel);
@@ -163,8 +163,8 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     }
 
     // Connect the Ok and Apply buttons to actually apply the changes
-    connect(okButton, SIGNAL(clicked()), SLOT(applyChanges()));
-    connect(buttonBox->button(QDialogButtonBox::Apply), SIGNAL(clicked()), SLOT(applyChanges()));
+    connect(okButton, &QPushButton::clicked, this, &BasketPropertiesDialog::applyChanges);
+    connect(buttonBox->button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &BasketPropertiesDialog::applyChanges);
 }
 
 BasketPropertiesDialog::~BasketPropertiesDialog()

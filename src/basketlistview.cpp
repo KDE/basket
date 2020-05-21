@@ -264,7 +264,7 @@ BasketTreeListView::BasketTreeListView(QWidget *parent)
     , m_autoOpenItem(nullptr)
     , m_itemUnderDrag(nullptr)
 {
-    connect(&m_autoOpenTimer, SIGNAL(timeout()), this, SLOT(autoOpen()));
+    connect(&m_autoOpenTimer, &QTimer::timeout, this, &BasketTreeListView::autoOpen);
     setItemDelegate(new FoundCountIcon(this));
 }
 
