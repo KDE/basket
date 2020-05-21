@@ -332,7 +332,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
             // As we cannot be precise in CSS (say eg. "width: 50%-40px;"),
             // we output a percentage that is approximately correct.
             // For instance, we compute the currently used percentage of width in the basket
-            // and try make make it the same on a 1024*768 display in a Web browser:
+            // and try make it the same on a 1024*768 display in a Web browser:
             int availableSpaceForColumnsInThisBasket = note->basket()->sceneRect().width() - (note->basket()->columnsCount() - 1) * Note::RESIZER_WIDTH;
             int availableSpaceForColumnsInBrowser = 1024 /* typical screen width */
                 - 25                                     /* window border and scrollbar width */
@@ -497,7 +497,7 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
             QFile file(QUrl::fromLocalFile(fullPath).path());
             if (file.open(QIODevice::WriteOnly))
                 file.close();
-            // And then we copy the file AND overwriting the file we juste created:
+            // And then we copy the file AND overwriting the file we just created:
             KIO::file_copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), 0666, KIO::HideProgressInfo | KIO::Resume | KIO::Overwrite);
         } else {
             /*KIO::CopyJob *copyJob = */ KIO::copy(QUrl::fromLocalFile(srcPath), QUrl::fromLocalFile(fullPath), KIO::DefaultFlags); // Do it as before

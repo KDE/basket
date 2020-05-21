@@ -63,7 +63,7 @@ private:
     KTextEdit *m_customSeparator;
 };
 
-/** Functions that import data from other softwares.
+/** Functions that import data from other software.
  * @author Sébastien Laoût
  */
 namespace SoftwareImporters

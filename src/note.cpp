@@ -1064,7 +1064,7 @@ void Note::relayoutAt(qreal ax, qreal ay)
     m_computedAreas = false;
     m_areas.clear();
 
-    // Don't relayout free notes one under the other, because by definition they are freely positionned!
+    // Don't relayout free notes one under the other, because by definition they are freely positioned!
     if (isFree()) {
         ax = x();
         ay = y();

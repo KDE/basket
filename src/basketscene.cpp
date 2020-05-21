@@ -2338,7 +2338,7 @@ void BasketScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     // Drag the notes:
     if (m_canDrag && (m_pressPos - event->scenePos()).manhattanLength() > QApplication::startDragDistance()) {
         m_canDrag = false;
-        m_isSelecting = false; // Don't draw selection rectangle ater drag!
+        m_isSelecting = false; // Don't draw selection rectangle after drag!
         m_selectionStarted = false;
 
         NoteSelection *selection = selectedNotes();
@@ -3593,7 +3593,7 @@ void BasketScene::placeEditor(bool /*andEnsureVisible*/ /*= false*/)
     qreal height, width;
 
     if (textEdit) {
-        // Need to do it 2 times, because it's wrong overwise
+        // Need to do it 2 times, because it's wrong otherwise
         // (sometimes, width depends on height, and sometimes, height depends on with):
         for (int i = 0; i < 2; i++) {
             // FIXME: CRASH: Select all text, press Del or [<--] and editor->removeSelectedText() is called:

@@ -227,7 +227,7 @@ TextEditor::TextEditor(TextContent *textContent, QWidget *parent)
     textEdit->setPlainText(m_textContent->text());
 
     // Not sure if the following comment is still true
-    // FIXME: Sometimes, the cursor flicker at ends before being positionned where clicked (because qApp->processEvents() I think)
+    // FIXME: Sometimes, the cursor flicker at ends before being positioned where clicked (because qApp->processEvents() I think)
     textEdit->moveCursor(QTextCursor::End);
     textEdit->verticalScrollBar()->setCursor(Qt::ArrowCursor);
     setInlineEditor(textEdit);

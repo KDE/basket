@@ -308,7 +308,7 @@ void BackupDialog::restore()
         return;
     }
 
-    // Note: The safety backup is not removed now because the code can has been wrong, somehow, or the user perhapse restored an older backup by error...
+    // Note: The safety backup is not removed now because the code can has been wrong, somehow, or the user perhaps restored an older backup by error...
     //       The restore process will not be called very often (it is possible it will only be called once or twice around the world during the next years).
     //       So it is rare enough to force the user to remove the safety folder, but keep him in control and let him safely recover from restoration errors.
 

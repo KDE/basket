@@ -813,7 +813,7 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
     int number = 2;
     QDir dir;
 
-    // First check if the file do not exists yet (simplier and more often case)
+    // First check if the file do not exists yet (simpler and more often case)
     dir = QDir(fullName);
     if (!dir.exists(fullName))
         return fileName;
@@ -836,7 +836,7 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
             number = theNumber;
             fileName.truncate(extNumber);
         } // else :
-    }     // else fileName = fileName and number = 2 (because if the file already exists, the genereated name is at last the 2nd)
+    }     // else fileName = fileName and number = 2 (because if the file already exists, the generated name is at last the 2nd)
 
     QString finalName;
     for (/*int number = 2*/;; ++number) { // TODO: FIXME: If overflow ???
