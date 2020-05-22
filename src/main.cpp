@@ -21,6 +21,10 @@ int main(int argc, char *argv[])
 {
     const char *argv0 = (argc >= 1 ? argv[0] : "");
 
+    // enable high dpi support
+    Application::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+    Application::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+
     Global::commandLineOpts = new QCommandLineParser();
     Application app(argc, argv);
 
