@@ -3,7 +3,7 @@ Type=Application
 
 Exec=basket %f
 MimeType=application/x-basket-archive;application/x-basket-template;application/x-basket-item;
-Icon=basket
+Icon=org.kde.basket
 Categories=Qt;KDE;Office;
 
 X-DBUS-StartupType=Unique
