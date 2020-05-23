@@ -1,17 +1,20 @@
 /*
- * SPDX-FileCopyrightText: 2020 by Ismael Asensio <isma.af@gmail.com>
+ * SPDX-FileCopyrightText: (C) 2020 by Ismael Asensio <isma.af@gmail.com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
 #include "basketscenemodel.h"
+#include "basketscene.h"
 
 #include <QDebug>
 
 
 BasketSceneModel::BasketSceneModel(QObject *parent)
     : QAbstractItemModel(parent)
-    , m_root(new NoteItem(nullptr))
+    , m_root(new NoteItem())
 {
+    qRegisterMetaType<NoteContent *>();
+    qRegisterMetaType<NoteItem::EditInfo>();
 }
 
 BasketSceneModel::~BasketSceneModel()
@@ -66,8 +69,8 @@ QHash<int, QByteArray> BasketSceneModel::roleNames() const
     static const auto roles = QHash<int, QByteArray> {
         { ContentRole,  "content"   },
         { TypeRole,     "type"      },
-        { GroupRole,    "isGroup"   },
-        { AddressRole,  "address"   }
+        { GeometryRole, "geometry"  },
+        { EditionRole,  "edition"   }
     }.unite(QAbstractItemModel::roleNames());
     return roles;
 }
@@ -80,33 +83,30 @@ QVariant BasketSceneModel::data(const QModelIndex &index, int role) const
     }
 
     const NoteItem *item = itemAtIndex(index);
-    const NotePtr note = item->note();
 
     switch (role) {
         case Qt::DisplayRole:
             return item->displayText();
         case Qt::DecorationRole:
             return item->decoration();
-        case Qt::ToolTipRole:
-            return item->fullAddress();  // To ease debugging
+        case Qt::ToolTipRole:       // To ease debugging
+            return item->toolTipInfo();
         case BasketSceneModel::ContentRole:
-            return QVariant::fromValue(note->content());
+            return QVariant::fromValue(item->content());
         case BasketSceneModel::TypeRole:
-            return note->content()->type();
-        case BasketSceneModel::GroupRole:
-            return note->isGroup();
-        case BasketSceneModel::AddressRole:
-            return item->address();
+            return item->type();
+        case BasketSceneModel::GeometryRole:
+            return item->bounds();
+        case BasketSceneModel::EditionRole: {
+            QVariant info;
+            info.setValue(item->editInformation());
+            return info;
+        }
     }
 
     return QVariant();
 }
 
-
-void BasketSceneModel::clear()
-{
-    qDeleteAll(m_root->children());
-}
 
 NoteItem *BasketSceneModel::itemAtIndex(const QModelIndex &index) const
 {
@@ -124,21 +124,6 @@ QModelIndex BasketSceneModel::indexOfItem(NoteItem *item) const
     return createIndex(item->row(), 0, item);
 }
 
-QModelIndex BasketSceneModel::findNote(NotePtr note) const
-{
-    if (!note || m_root->childrenCount() == 0) {
-        return QModelIndex();
-    }
-    const QModelIndexList matchResult = match(indexOfItem(m_root->children().at(0)),
-                                              BasketSceneModel::AddressRole,
-                                              NoteItem::formatAddress(note), 1,
-                                              Qt::MatchExactly | Qt::MatchWrap | Qt::MatchRecursive);
-    if (matchResult.isEmpty()) {
-        return QModelIndex();
-    }
-    return matchResult[0];
-}
-
 
 bool BasketSceneModel::insertRows(int row, int count, const QModelIndex& parent)
 {
@@ -148,7 +133,7 @@ bool BasketSceneModel::insertRows(int row, int count, const QModelIndex& parent)
 
     beginInsertRows(parent, row, row + count - 1);
     for (int i = 0; i < count; i++) {
-        itemAtIndex(parent)->insertAt(row + i, new NoteItem(nullptr));
+        itemAtIndex(parent)->insertAt(row + i, new NoteItem());
     }
     endInsertRows();
     return true;
@@ -188,103 +173,18 @@ bool BasketSceneModel::moveRows(const QModelIndex& sourceParent, int sourceRow, 
 }
 
 
-void BasketSceneModel::insertNote(NotePtr note, NotePtr parentNote, int row)
+void BasketSceneModel::clear()
 {
-    if (!note) {
-        return;
-    }
-
-    const QModelIndex parentIndex = findNote(parentNote);
-    if (!checkIndex(parentIndex)) {
-        return;
-    }
-
-    if (row < 0 || row >= rowCount(parentIndex)) {  // row == -1 : insert at the end
-        row = rowCount(parentIndex);
-    }
-
-    qDebug() << "BasketSceneModel::insertNote " << NoteItem::formatAddress(note)
-             << " at " << itemAtIndex(parentIndex)->address()
-             << "[" << row << "]";
-
-    // Protection against adding the same Note * twice (same pointer)
-    // This should not be necessary once the old code in BasketScene has been cleaned-up
-    if (findNote(note).isValid()) {
-        QModelIndex prevIndex = findNote(note);
-        qDebug() << " · Note " << itemAtIndex(prevIndex)->address()
-                 << " was alreadyPresent at " << itemAtIndex(parentIndex)->address()
-                 << "[" << prevIndex.row() << "]"
-                 << ". Moving it instead to new location";
-        moveNoteTo(note, parentNote, row);
-        return;
-    }
-
-    if (insertRow(row, parentIndex)) {
-        itemAtIndex(parentIndex)->children().at(row)->setNote(note);
-        connect(note, &QObject::destroyed, this, [=](QObject *note) {
-            BasketSceneModel::removeNote(static_cast<Note *>(note));
-        });
-    }
+    beginResetModel();
+    qDeleteAll(m_root->children());
+    endResetModel();
 }
 
-void BasketSceneModel::removeNote(NotePtr note)
+void BasketSceneModel::loadFromXML(const QDomElement &node)
 {
-    if (!note) {
-        return;
-    }
-    const QModelIndex index = findNote(note);
-    const QModelIndex parentIndex = index.parent();
-
-    qDebug() << "BasketSceneModel::removeNote " << itemAtIndex(index)->address();
-
-    removeRow(index.row(), parentIndex);
-}
-
-void BasketSceneModel::moveNoteTo(NotePtr note, NotePtr parentNote, int row)
-{
-    if (!note) {
-        return;
-    }
-    const QModelIndex currentIndex = findNote(note);
-    const QModelIndex srcParentIndex = currentIndex.parent();
-    const QModelIndex destParentIndex = findNote(parentNote);
-
-    if (!checkIndex(currentIndex, CheckIndexOption::IndexIsValid)) {
-        return;
-    }
-
-    if (row < 0 || row >= rowCount(destParentIndex)) {
-        row = rowCount(destParentIndex);    // row == -1 : insert at the end
-    }
-
-    qDebug() << "BasketSceneModel::moveNote " << itemAtIndex(currentIndex)->address()
-             << "\n  from: " << itemAtIndex(srcParentIndex)->address() << "[" << currentIndex.row() << "]"
-             << "\n    to: " << itemAtIndex(destParentIndex)->address() << "[" << row << "]";
-
-    moveRow(srcParentIndex, currentIndex.row(), destParentIndex, row);
-}
-
-
-void BasketSceneModel::collapseItem(const QModelIndex &index)
-{
-    if (hasChildren(index)) {
-        itemAtIndex(index)->children().at(0)->note()->tryFoldParent();
-    }
-}
-
-void BasketSceneModel::expandItem(const QModelIndex &index)
-{
-    if (hasChildren(index)) {
-        itemAtIndex(index)->children().at(0)->note()->tryExpandParent();
-    }
-}
-
-void BasketSceneModel::changeSelection(const QItemSelection& selected, const QItemSelection& deselected)
-{
-    for (const auto index : deselected.indexes()) {
-        itemAtIndex(index)->note()->setSelected(false);
-    }
-    for (const auto index : selected.indexes()) {
-        itemAtIndex(index)->note()->setSelected(true);
-    }
+    beginResetModel();
+    qDeleteAll(m_root->children());
+    NoteItem::setBasketParent(qobject_cast<BasketScene *>(qobject_cast<QObject *>(this)->parent()));
+    m_root->loadFromXMLNode(node);
+    endResetModel();
 }

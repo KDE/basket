@@ -1215,12 +1215,6 @@ void BNPView::setUpModel(BasketSceneModel* model)
 {
     m_modelView->setModel(model);
     m_modelView->update();
-
-    connect(m_modelView, &QTreeView::expanded, model, &BasketSceneModel::expandItem);
-    connect(m_modelView, &QTreeView::collapsed, model, &BasketSceneModel::collapseItem);
-
-    connect(m_modelView->selectionModel(), &QItemSelectionModel::selectionChanged,
-            qobject_cast<BasketSceneModel *>(m_modelView->model()), &BasketSceneModel::changeSelection);
 }
 
 

@@ -8,8 +8,10 @@
 #include "note.h"
 #include "notecontent.h"
 
+#include <QMetaType>
 
-Q_DECLARE_METATYPE(NoteContent *)
+
+class QDomElement;
 
 typedef Note * NotePtr;
 
@@ -19,9 +21,17 @@ typedef Note * NotePtr;
 class NoteItem
 {
 public:
-    explicit NoteItem(NotePtr note);
+    struct EditInfo
+    {
+        QDateTime created;
+        QDateTime modified;
+    };
+
+public:
+    explicit NoteItem();
     ~NoteItem();
 
+    // Tree structure
     int row() const;
 
     NoteItem *parent() const;
@@ -33,21 +43,38 @@ public:
     void removeAt(int row);
     NoteItem *takeAt(int row);
 
+    // Accesors for compatibility with current code
     NotePtr note() const;
-    void setNote(NotePtr note);
+    static void setBasketParent(BasketScene *basket);
 
+    // NoteItem property getters
     QString displayText() const;
     QIcon decoration() const;
+    NoteContent *content() const;
+    NoteType::Id type() const;
+    QRect bounds() const;
+    EditInfo editInformation() const;
 
-    // Find and debug Notes by its pointer address
+    // Recursive loader from an XML node
+    void loadFromXMLNode(const QDomElement &node);
+
+    // Useful methods to debug
     QString address() const;
-    QString fullAddress() const;
-    static QString formatAddress(void *ptr);
+    QString toolTipInfo() const;
+
 
 private:
     NoteItem *m_parent;
     QVector<NoteItem *> m_children;
 
-    NotePtr m_note;
+    NotePtr m_helperNote;         // Dummy note to help with the code transition.
+    static BasketScene *s_basket; // Stored to set a parent to the notes (and avoid crashes)
+
+//     NoteContent *m_content;
+//     QRect m_bounds;
+//     EditInfo m_editInfo;
+//     QVector<State> m_tags;
 };
 
+Q_DECLARE_METATYPE(NoteContent *)
+Q_DECLARE_METATYPE(NoteItem::EditInfo)

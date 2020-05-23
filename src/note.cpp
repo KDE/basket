@@ -1611,7 +1611,10 @@ void Note::draw(QPainter *painter, const QRectF & /*clipRect*/)
 
     /** Initialise buffer painter: */
     m_bufferedPixmap = QPixmap(width(), height());
-    Q_ASSERT(!m_bufferedPixmap.isNull());
+    if(m_bufferedPixmap.isNull()) {
+        return;
+    }
+
     QPainter painter2(&m_bufferedPixmap);
 
     /** Initialise colors: */

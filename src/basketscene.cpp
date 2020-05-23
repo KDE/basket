@@ -152,9 +152,6 @@ void BasketScene::appendNoteIn(Note *note, Note *in)
         return;
 
     if (in) {
-        // INSERT IN MODEL
-        m_model.insertNote(note, in);
-
         // The normal case:
         preparePlug(note);
 
@@ -192,9 +189,6 @@ void BasketScene::appendNoteAfter(Note *note, Note *after)
     if (m_loaded && after && !after->isFree() && !after->isColumn())
         for (Note *n = note; n; n = n->next())
             n->inheritTagsOf(after);
-
-    // INSERT IN MODEL
-    m_model.insertNote(note, after? after->parentNote() : nullptr);
 
     //  if (!alreadyInBasket)
     preparePlug(note);
@@ -236,9 +230,6 @@ void BasketScene::appendNoteBefore(Note *note, Note *before)
     if (m_loaded && before && !before->isFree() && !before->isColumn())
         for (Note *n = note; n; n = n->next())
             n->inheritTagsOf(before);
-
-    // INSERT IN MODEL
-    m_model.insertNote(note, before? before->parentNote() : nullptr, 0);
 
     preparePlug(note);
 
@@ -384,8 +375,6 @@ void BasketScene::ungroupNote(Note *group)
     while (note) {
         nextNote = note->next();
 
-        m_model.moveNoteTo(note, group->parentNote());
-
         if (lastGroupedNote->next())
             lastGroupedNote->next()->setPrev(note);
         note->setNext(lastGroupedNote->next());
@@ -425,7 +414,6 @@ void BasketScene::groupNoteBefore(Note *note, Note *with)
     Note *last = note->lastSibling();
 
     Note *group = new Note(this);
-    m_model.insertNote(group, with->parentNote(), 0);
 
     group->setPrev(with->prev());
     group->setNext(with->next());
@@ -448,12 +436,10 @@ void BasketScene::groupNoteBefore(Note *note, Note *with)
     with->setNext(nullptr);
 
     for (Note *n = note; n; n = n->next()) {
-        m_model.moveNoteTo(n, group);
         n->setParentNote(group);
     }
     //  note->setPrev(0L);
     last->setNext(with);
-    m_model.moveNoteTo(with, group);
 
     if (m_loaded)
         signalCountsChanged();
@@ -474,7 +460,6 @@ void BasketScene::groupNoteAfter(Note *note, Note *with)
     //  Note *last = note->lastSibling();
 
     Note *group = new Note(this);
-    m_model.insertNote(group, with->parentNote());
 
     group->setPrev(with->prev());
     group->setNext(with->next());
@@ -497,12 +482,10 @@ void BasketScene::groupNoteAfter(Note *note, Note *with)
     with->setNext(note);
 
     for (Note *n = note; n; n = n->next()) {
-        m_model.moveNoteTo(n, group);
         n->setParentNote(group);
     }
     note->setPrev(with);
     //  last->setNext(0L);
-    m_model.moveNoteTo(with, group, 0);
 
     if (m_loaded)
         signalCountsChanged();
@@ -528,10 +511,6 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
         // Load a Group:
         if (e.tagName() == "group") {
             note = new Note(this); // 1. Create the group...
-            // MODEL -> Because Group is inserted later, child nodes cannot find it's parent :(
-            //  So we insert the group before the childre
-            //  (insertNote is protected anyway against double insertions)
-            m_model.insertNote(note, parent);
             loadNotes(e, note);    // 3. ... And populate it with child notes.
             int noteCount = note->count();
             if (noteCount > 0 || (parent == nullptr && !isFreeLayout())) { // But don't remove columns!
@@ -1031,6 +1010,9 @@ void BasketScene::load()
     if (m_shouldConvertPlainTextNotes)
         convertTexts();
     m_watcher->startScan();
+
+    // Load model
+    m_model.loadFromXML(notes);
 
     signalCountsChanged();
     if (isColumnsLayout()) {
@@ -3873,7 +3855,6 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
                 m_hoveredNote = nullptr;
             if (m_focusedNote == editor->note())
                 m_focusedNote = nullptr;
-            m_model.removeNote(editor->note());
             delete editor->note();
             save();
         }
