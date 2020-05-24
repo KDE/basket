@@ -84,6 +84,11 @@ private:
 namespace NoteType
 {
 enum Id { Group = 255, Text = 1, Html, Image, Animation, Sound, File, Link, CrossReference, Launcher, Color, Unknown }; // Always positive
+
+QString typeToName(const NoteType::Id noteType);
+QString typeToLowerName(const NoteType::Id noteType);
+NoteType::Id typeFromLowerName(const QString &lowerTypeName);
+
 }
 
 /** Abstract base class for every content type of basket note.
@@ -94,14 +99,13 @@ class BASKET_EXPORT NoteContent
 {
 public:
     // Constructor and destructor:
-    explicit NoteContent(Note *parent, const QString &fileName = QString()); /// << Constructor. Inherited notes should call it to initialize the parent note.
-    virtual ~NoteContent()
-    {
-    } /// << Virtual destructor. Reimplement it if you should destroy some data your custom types.
+    explicit NoteContent(Note *parent, const NoteType::Id type, const QString &fileName = QString());
+    virtual ~NoteContent() {}
+    // Note Type Information
+    NoteType::Id type() const { return m_type; }                                         /// << @return the internal number that identify that note type.
+    QString typeName() const { return NoteType::typeToName(type()); }                    /// << @return the translated type name to display in the user interface.
+    QString lowerTypeName() const { return NoteType::typeToLowerName(type()); }          /// << @return the type name in lowercase without space, for eg. saving.
     // Simple Abstract Generic Methods:
-    virtual NoteType::Id type() const = 0;                                               /// << @return the internal number that identify that note type.
-    virtual QString typeName() const = 0;                                                /// << @return the translated type name to display in the user interface.
-    virtual QString lowerTypeName() const = 0;                                           /// << @return the type name in lowercase without space, for eg. saving.
     virtual QString toText(const QString &cuttedFullPath);                               /// << @return a plain text equivalent of the content.
     virtual QString toHtml(const QString &imageName, const QString &cuttedFullPath) = 0; /// << @return an HTML text equivalent of the content. @param imageName Save image in this Qt resource.
     virtual QPixmap toPixmap()
@@ -228,6 +232,7 @@ public:
     void setEdited(); /// << Mark the note as edited NOW: change the "last modification time and time" AND save the basket to XML file.
 protected:
     void contentChanged(qreal newMinWidth); /// << When the content has changed, inherited classes should call this to specify its new minimum size and trigger a basket relayout.
+    NoteType::Id m_type = NoteType::Unknown;
 private:
     Note *m_note;
     QString m_fileName;
@@ -247,9 +252,6 @@ public:
     TextContent(Note *parent, const QString &fileName, bool lazyLoad = false);
     ~TextContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     bool useFile() const override;
@@ -299,9 +301,6 @@ public:
     HtmlContent(Note *parent, const QString &fileName, bool lazyLoad = false);
     ~HtmlContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     bool useFile() const override;
@@ -351,9 +350,6 @@ public:
     ImageContent(Note *parent, const QString &fileName, bool lazyLoad = false);
     ~ImageContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     QPixmap toPixmap() override;
     bool useFile() const override;
@@ -407,9 +403,6 @@ public:
     AnimationContent(Note *parent, const QString &fileName, bool lazyLoad = false);
     ~AnimationContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     QPixmap toPixmap() override;
     bool useFile() const override;
@@ -465,9 +458,6 @@ public:
     FileContent(Note *parent, const QString &fileName);
     ~FileContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     bool useFile() const override;
     bool canBeSavedAs() const override;
@@ -526,9 +516,6 @@ public:
     // Constructor and destructor:
     SoundContent(Note *parent, const QString &fileName);
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     bool useFile() const override;
     bool canBeSavedAs() const override;
@@ -564,9 +551,6 @@ public:
     LinkContent(Note *parent, const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon);
     ~LinkContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
@@ -662,9 +646,6 @@ public:
     CrossReferenceContent(Note *parent, const QUrl &url, const QString &title, const QString &icon);
     ~CrossReferenceContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
@@ -731,9 +712,6 @@ public:
     LauncherContent(Note *parent, const QString &fileName);
     ~LauncherContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
     bool useFile() const override;
@@ -821,9 +799,6 @@ public:
     ColorContent(Note *parent, const QColor &color);
     ~ColorContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     bool useFile() const override;
@@ -897,9 +872,6 @@ public:
     UnknownContent(Note *parent, const QString &fileName);
     ~UnknownContent() override;
     // Simple Generic Methods:
-    NoteType::Id type() const override;
-    QString typeName() const override;
-    QString lowerTypeName() const override;
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
     void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;

@@ -74,15 +74,112 @@ void LinkDisplayItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
     m_linkDisplay.paint(painter, 0, 0, rect.width(), rect.height(), m_note->palette(), true, m_note->isSelected(), m_note->hovered(), m_note->hovered() && m_note->hoveredZone() == Note::Custom0);
 }
 
+//** NoteType functions
+QString NoteType::typeToName(const NoteType::Id noteType)
+{
+    switch (noteType) {
+    case NoteType::Group:
+        return i18n("Group");
+    case NoteType::Text:
+        return i18n("Plain Text");
+    case NoteType::Html:
+        return i18n("Text");
+    case NoteType::Image:
+        return i18n("Image");
+    case NoteType::Animation:
+        return i18n("Animation");
+    case NoteType::Sound:
+        return i18n("Sound");
+    case NoteType::File:
+        return i18n("File");
+    case NoteType::Link:
+        return i18n("Link");
+    case NoteType::CrossReference:
+        return i18n("Cross Reference");
+    case NoteType::Launcher:
+        return i18n("Launcher");
+    case NoteType::Color:
+        return i18n("Color");
+    case NoteType::Unknown:
+        return i18n("Unknown");
+    }
+    return i18n("Unknown");
+}
+
+QString NoteType::typeToLowerName(const NoteType::Id noteType)
+{
+    switch (noteType) {
+    case NoteType::Group:
+        return "group";
+    case NoteType::Text:
+        return "text";
+    case NoteType::Html:
+        return "html";
+    case NoteType::Image:
+        return "image";
+    case NoteType::Animation:
+        return "animation";
+    case NoteType::Sound:
+        return "sound";
+    case NoteType::File:
+        return "file";
+    case NoteType::Link:
+        return "link";
+    case NoteType::CrossReference:
+        return "cross_reference";
+    case NoteType::Launcher:
+        return "launcher";
+    case NoteType::Color:
+        return "color";
+    case NoteType::Unknown:
+        return "unknown";
+    }
+    return "unknown";
+}
+
+NoteType::Id NoteType::typeFromLowerName(const QString& lowerTypeName)
+{
+    if (lowerTypeName == "group") {
+        return NoteType::Group;
+    } else if (lowerTypeName == "text") {
+        return NoteType::Text;
+    } else if (lowerTypeName == "html") {
+        return NoteType::Html;
+    } else if (lowerTypeName == "image") {
+        return NoteType::Image;
+    } else if (lowerTypeName == "animation") {
+        return NoteType::Animation;
+    } else if (lowerTypeName == "sound") {
+        return NoteType::Sound;
+    } else if (lowerTypeName == "file")  {
+        return NoteType::File;
+    } else if (lowerTypeName == "link") {
+        return NoteType::Link;
+    } else if (lowerTypeName == "cross_reference") {
+        return NoteType::CrossReference;
+    } else if (lowerTypeName == "launcher") {
+        return NoteType::Launcher;
+    } else if (lowerTypeName == "color") {
+        return NoteType::Color;
+    } else if (lowerTypeName == "unknown") {
+        return NoteType::Unknown;
+    }
+    return NoteType::Unknown;
+}
+
+
 /** class NoteContent:
  */
 
 const int NoteContent::FEEDBACK_DARKING = 105;
 
-NoteContent::NoteContent(Note *parent, const QString &fileName)
-    : m_note(parent)
+NoteContent::NoteContent(Note *parent, const NoteType::Id type, const QString &fileName)
+    : m_type(type)
+    , m_note(parent)
 {
-    parent->setContent(this);
+    if (parent) {
+        parent->setContent(this);
+    }
     setFileName(fileName);
 }
 
@@ -158,141 +255,6 @@ void NoteContent::setEdited()
 
 /** All the Content Classes:
  */
-
-NoteType::Id TextContent::type() const
-{
-    return NoteType::Text;
-}
-NoteType::Id HtmlContent::type() const
-{
-    return NoteType::Html;
-}
-NoteType::Id ImageContent::type() const
-{
-    return NoteType::Image;
-}
-NoteType::Id AnimationContent::type() const
-{
-    return NoteType::Animation;
-}
-NoteType::Id SoundContent::type() const
-{
-    return NoteType::Sound;
-}
-NoteType::Id FileContent::type() const
-{
-    return NoteType::File;
-}
-NoteType::Id LinkContent::type() const
-{
-    return NoteType::Link;
-}
-NoteType::Id CrossReferenceContent::type() const
-{
-    return NoteType::CrossReference;
-}
-NoteType::Id LauncherContent::type() const
-{
-    return NoteType::Launcher;
-}
-NoteType::Id ColorContent::type() const
-{
-    return NoteType::Color;
-}
-NoteType::Id UnknownContent::type() const
-{
-    return NoteType::Unknown;
-}
-
-QString TextContent::typeName() const
-{
-    return i18n("Plain Text");
-}
-QString HtmlContent::typeName() const
-{
-    return i18n("Text");
-}
-QString ImageContent::typeName() const
-{
-    return i18n("Image");
-}
-QString AnimationContent::typeName() const
-{
-    return i18n("Animation");
-}
-QString SoundContent::typeName() const
-{
-    return i18n("Sound");
-}
-QString FileContent::typeName() const
-{
-    return i18n("File");
-}
-QString LinkContent::typeName() const
-{
-    return i18n("Link");
-}
-QString CrossReferenceContent::typeName() const
-{
-    return i18n("Cross Reference");
-}
-QString LauncherContent::typeName() const
-{
-    return i18n("Launcher");
-}
-QString ColorContent::typeName() const
-{
-    return i18n("Color");
-}
-QString UnknownContent::typeName() const
-{
-    return i18n("Unknown");
-}
-
-QString TextContent::lowerTypeName() const
-{
-    return "text";
-}
-QString HtmlContent::lowerTypeName() const
-{
-    return "html";
-}
-QString ImageContent::lowerTypeName() const
-{
-    return "image";
-}
-QString AnimationContent::lowerTypeName() const
-{
-    return "animation";
-}
-QString SoundContent::lowerTypeName() const
-{
-    return "sound";
-}
-QString FileContent::lowerTypeName() const
-{
-    return "file";
-}
-QString LinkContent::lowerTypeName() const
-{
-    return "link";
-}
-QString CrossReferenceContent::lowerTypeName() const
-{
-    return "cross_reference";
-}
-QString LauncherContent::lowerTypeName() const
-{
-    return "launcher";
-}
-QString ColorContent::lowerTypeName() const
-{
-    return "color";
-}
-QString UnknownContent::lowerTypeName() const
-{
-    return "unknown";
-}
 
 QString NoteContent::toText(const QString &cuttedFullPath)
 {
@@ -945,7 +907,7 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
  */
 
 TextContent::TextContent(Note *parent, const QString &fileName, bool lazyLoad)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::Text, fileName)
     , m_graphicsTextItem(parent)
 {
     if (parent) {
@@ -1048,7 +1010,7 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
  */
 
 HtmlContent::HtmlContent(Note *parent, const QString &fileName, bool lazyLoad)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::Html, fileName)
     , m_simpleRichText(nullptr)
     , m_graphicsTextItem(parent)
 {
@@ -1176,7 +1138,7 @@ void HtmlContent::exportToHTML(HTMLExporter *exporter, int indent)
  */
 
 ImageContent::ImageContent(Note *parent, const QString &fileName, bool lazyLoad)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::Image, fileName)
     , m_pixmapItem(parent)
     , m_format()
 {
@@ -1317,7 +1279,7 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
  */
 
 AnimationContent::AnimationContent(Note *parent, const QString &fileName, bool lazyLoad)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::Animation, fileName)
     , m_buffer(new QBuffer(this))
     , m_movie(new QMovie(this))
     , m_currentWidth(0)
@@ -1439,7 +1401,7 @@ void AnimationContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
  */
 
 FileContent::FileContent(Note *parent, const QString &fileName)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::File, fileName)
     , m_linkDisplayItem(parent)
     , m_previewJob(nullptr)
 {
@@ -1681,7 +1643,7 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
  */
 
 LinkContent::LinkContent(Note *parent, const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon)
-    : NoteContent(parent)
+    : NoteContent(parent, NoteType::Link)
     , m_linkDisplayItem(parent)
     , m_access_manager(nullptr)
     , m_acceptingData(false)
@@ -1953,7 +1915,7 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
  */
 
 CrossReferenceContent::CrossReferenceContent(Note *parent, const QUrl &url, const QString &title, const QString &icon)
-    : NoteContent(parent)
+    : NoteContent(parent, NoteType::CrossReference)
     , m_linkDisplayItem(parent)
 {
     this->setCrossReference(url, title, icon);
@@ -2104,7 +2066,7 @@ void CrossReferenceContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
  */
 
 LauncherContent::LauncherContent(Note *parent, const QString &fileName)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::Launcher, fileName)
     , m_linkDisplayItem(parent)
 {
     basket()->addWatchedFile(fullPath());
@@ -2282,7 +2244,7 @@ void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
  */
 
 ColorContent::ColorContent(Note *parent, const QColor &color)
-    : NoteContent(parent)
+    : NoteContent(parent, NoteType::Color)
     , m_colorItem(parent, color)
 {
     if (parent) {
@@ -2417,7 +2379,7 @@ void UnknownItem::setWidth(qreal width)
  */
 
 UnknownContent::UnknownContent(Note *parent, const QString &fileName)
-    : NoteContent(parent, fileName)
+    : NoteContent(parent, NoteType::Unknown, fileName)
     , m_unknownItem(parent)
 {
     if (parent) {
