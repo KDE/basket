@@ -2708,14 +2708,14 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
     act->setData(3);
     menu.addAction(act);
 
-    connect(&menu, SIGNAL(triggered(QAction *)), currentBasket(), SLOT(toggledTagInMenu(QAction *)));
-    connect(&menu, SIGNAL(aboutToHide()), currentBasket(), SLOT(unlockHovering()));
-    connect(&menu, SIGNAL(aboutToHide()), currentBasket(), SLOT(disableNextClick()));
+    connect(&menu, &QMenu::triggered, currentBasket(), &BasketScene::toggledTagInMenu);
+    connect(&menu, &QMenu::aboutToHide, currentBasket(), &BasketScene::unlockHovering);
+    connect(&menu, &QMenu::aboutToHide, currentBasket(), &BasketScene::disableNextClick);
 }
 
 void BNPView::connectTagsMenu()
 {
-    connect(popupMenu("tags"), SIGNAL(aboutToShow()), this, SLOT(populateTagsMenu()));  
+    connect(popupMenu("tags"), &QMenu::aboutToShow, this, [this]() { this->populateTagsMenu(); });  
     connect(popupMenu("tags"), &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
 }
 

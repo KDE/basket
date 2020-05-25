@@ -22,7 +22,7 @@ class DecoratedBasket : public QWidget
 {
     Q_OBJECT
 public:
-    DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl = nullptr);
+    DecoratedBasket(QWidget *parent, const QString &folderName);
     ~DecoratedBasket() override;
     void setFilterBarPosition(bool onTop);
     void resetFilter();

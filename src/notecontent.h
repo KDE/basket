@@ -48,7 +48,7 @@ class MediaObject;
 }
 
 class BasketScene;
-class FilterData;
+struct FilterData;
 class Note;
 
 /**

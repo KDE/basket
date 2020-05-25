@@ -16,7 +16,7 @@
 #include "tag.h"
 
 class BasketScene;
-class FilterData;
+struct FilterData;
 
 class NoteContent;
 class NoteSelection;

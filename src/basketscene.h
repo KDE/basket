@@ -387,7 +387,6 @@ public slots:
     void activatedTagShortcut(Tag *tag);
     void recomputeAllStyles();
     void removedStates(const QList<State *> &deletedStates);
-private slots:
     void toggledTagInMenu(QAction *act);
     void toggledStateInMenu(QAction *act);
     void unlockHovering();

@@ -119,7 +119,7 @@ void MainWindow::configureToolbars()
     saveMainWindowSettings(group);
 
     KEditToolBar dlg(actionCollection());
-    connect(&dlg, &KEditToolBar::newToolbarConfig, this, &MainWindow::slotNewToolbarConfig);
+    connect(&dlg, &KEditToolBar::newToolBarConfig, this, &MainWindow::slotNewToolbarConfig);
     dlg.exec();
 }
 

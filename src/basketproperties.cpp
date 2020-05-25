@@ -173,7 +173,7 @@ BasketPropertiesDialog::~BasketPropertiesDialog()
 
 void BasketPropertiesDialog::ensurePolished()
 {
-    ensurePolished();
+    QWidget::ensurePolished();
     Ui::BasketPropertiesUi *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this);
     propsUi->name->setFocus();
 }

@@ -381,7 +381,7 @@ void KColorCombo2::setColor(const QColor &color)
     if (m_color != color) {
         m_color = color;
         updateComboBox();
-        emit changed(color);
+        emit colorChanged(color);
     }
 }
 
@@ -520,8 +520,10 @@ void KColorCombo2::setColorAt(int column, int row, const QColor &color)
 void KColorCombo2::setDefaultColor(const QColor &color)
 {
     m_defaultColor = color;
-    if (!m_defaultColor.isValid() && !m_color.isValid())
+    if (!m_defaultColor.isValid() && !m_color.isValid()) {
         m_color = Qt::white; // FIXME: Use the first one.
+        Q_EMIT defaultColorChanged(color);
+    }
 }
 
 QPixmap KColorCombo2::colorRectPixmap(const QColor &color, bool isDefault, int width, int height)

@@ -55,7 +55,7 @@ void VersionSyncPage::load()
 {
     ui->checkBoxEnable->setChecked(Settings::versionSyncEnabled());
 #ifdef WITH_LIBGIT2
-    on_checkBoxEnable_clicked();
+    onCheckBoxEnableClicked();
 #endif
 }
 
@@ -69,12 +69,12 @@ void VersionSyncPage::defaults()
     ui->checkBoxEnable->setChecked(false);
 }
 
-void VersionSyncPage::on_checkBoxEnable_clicked()
+void VersionSyncPage::onCheckBoxEnableClicked()
 {
     ui->groupBoxControl->setEnabled(ui->checkBoxEnable->isChecked());
 }
 
-void VersionSyncPage::on_buttonClearHistory_clicked()
+void VersionSyncPage::onButtonClearHistoryClicked()
 {
     if (KMessageBox::questionYesNo(this, i18n("Do you really want to remove old versions for all baskets?"), i18n("Version Sync")) == KMessageBox::Yes) {
         Tools::deleteRecursively(Global::gitFolder());

@@ -31,8 +31,8 @@ public slots:
     void setHistorySize(qint64 size_bytes);
 
 private slots:
-    void on_checkBoxEnable_clicked();
-    void on_buttonClearHistory_clicked();
+    void onCheckBoxEnableClicked();
+    void onButtonClearHistoryClicked();
 
 private:
     Ui::VersionSyncPage *ui;

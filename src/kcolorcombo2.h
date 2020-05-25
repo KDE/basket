@@ -69,8 +69,8 @@ class KColorPopup;
 class KColorCombo2 : public KComboBox
 {
     Q_OBJECT
-    Q_PROPERTY(QColor color READ color WRITE setColor)
-    Q_PROPERTY(QColor defaultColor READ defaultColor WRITE setDefaultColor)
+    Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
+    Q_PROPERTY(QColor defaultColor READ defaultColor WRITE setDefaultColor NOTIFY defaultColorChanged)
 
 public slots:
     /**
@@ -94,7 +94,13 @@ signals:
      * Emitted when the color of the widget is changed, either with setColor() or via user selection.
      * @see color() to know the content of @p newColor.
      */
-    void changed(const QColor &newColor);
+    void colorChanged(const QColor &newColor);
+
+    /**
+     * Emitted when the default color of the widget is changed with setDefaultColor()
+     * @see defaultColor() to know the content of @p newDefaultColor.
+     */
+    void defaultColorChanged(const QColor &newDefaultColor);
 
 public:
     /**

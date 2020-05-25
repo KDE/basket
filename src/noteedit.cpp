@@ -313,8 +313,8 @@ HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget *parent)
     connect(InlineEditors::instance()->richTextFontSize, &FontSizeCombo::sizeChanged, textEdit, &FocusedTextEdit::setFontPointSize);
     connect(InlineEditors::instance()->richTextColor, &KColorCombo::activated, textEdit, &FocusedTextEdit::setTextColor);
 
-    connect(InlineEditors::instance()->focusWidgetFilter, SIGNAL(escapePressed()), textEdit, SLOT(setFocus()));
-    connect(InlineEditors::instance()->focusWidgetFilter, SIGNAL(returnPressed()), textEdit, SLOT(setFocus()));
+    connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::escapePressed, textEdit, [&textEdit]() { textEdit->setFocus(); });
+    connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::returnPressed, textEdit, [&textEdit]() { textEdit->setFocus(); });
     connect(InlineEditors::instance()->richTextFont, SIGNAL(activated(int)), textEdit, SLOT(setFocus()));
 
     connect(InlineEditors::instance()->richTextFontSize, SIGNAL(activated(int)), textEdit, SLOT(setFocus()));
@@ -750,11 +750,11 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     layout->addWidget(wid, 2, 1, Qt::AlignVCenter);
 
     m_isAutoModified = false;
-    connect(m_url, SIGNAL(textChanged(const QString &)), this, SLOT(urlChanged(const QString &)));
-    connect(m_title, SIGNAL(textChanged(const QString &)), this, SLOT(doNotAutoTitle(const QString &)));
-    connect(m_icon, SIGNAL(iconChanged(QString)), this, SLOT(doNotAutoIcon(QString)));
-    connect(m_autoTitle, SIGNAL(clicked()), this, SLOT(guessTitle()));
-    connect(m_autoIcon, SIGNAL(clicked()), this, SLOT(guessIcon()));
+    connect(m_url, &KUrlRequester::textChanged, this, &LinkEditDialog::urlChanged);
+    connect(m_title, &QLineEdit::textChanged, this, &LinkEditDialog::doNotAutoTitle);
+    connect(m_icon, &KIconButton::iconChanged, this, &LinkEditDialog::doNotAutoIcon);
+    connect(m_autoTitle, &QPushButton::clicked, this, [this](bool) { guessTitle(); });
+    connect(m_autoIcon, &QPushButton::clicked, this, [this](bool) { guessIcon(); });
 
     QWidget *stretchWidget = new QWidget(page);
     mainLayout->addWidget(stretchWidget);

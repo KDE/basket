@@ -63,7 +63,7 @@ void StopWatch::check(int id)
     double time = starts[id].msecsTo(QTime::currentTime()) / 1000.0;
     totals[id] += time;
     counts[id]++;
-    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" << endl;
+    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" << Qt::endl;
 }
 
 /** @namespace HTM

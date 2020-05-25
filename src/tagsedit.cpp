@@ -624,12 +624,12 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     connect(m_allowCrossRefernce, &QCheckBox::clicked, this, &TagsEditDialog::modified);
     connect(m_stateName, &QLineEdit::textChanged, this, &TagsEditDialog::modified);
     connect(m_emblem, &KIconButton::iconChanged, this, &TagsEditDialog::modified);
-    connect(m_backgroundColor, &KColorCombo2::changed, this, &TagsEditDialog::modified);
+    connect(m_backgroundColor, &KColorCombo2::colorChanged, this, &TagsEditDialog::modified);
     connect(m_bold, &QPushButton::toggled, this, &TagsEditDialog::modified);
     connect(m_underline, &QPushButton::toggled, this, &TagsEditDialog::modified);
     connect(m_italic, &QPushButton::toggled, this, &TagsEditDialog::modified);
     connect(m_strike, &QPushButton::toggled, this, &TagsEditDialog::modified);
-    connect(m_textColor, &KColorCombo2::changed, this, &TagsEditDialog::modified);
+    connect(m_textColor, &KColorCombo2::colorChanged, this, &TagsEditDialog::modified);
     connect(m_font, &QFontComboBox::editTextChanged, this, &TagsEditDialog::modified);
     connect(m_fontSize, &FontSizeCombo::editTextChanged, this, &TagsEditDialog::modified);
     connect(m_textEquivalent, &QLineEdit::textChanged, this, &TagsEditDialog::modified);

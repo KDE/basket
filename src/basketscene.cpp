@@ -321,14 +321,15 @@ void BasketScene::preparePlug(Note *note)
 
     // If some notes don't match (are hidden), tell it to the user:
     if (m_loaded && founds < count) {
-        if (count == 1)
-            postMessage(i18n("The new note does not match the filter and is hidden."));
-        else if (founds == count - 1)
-            postMessage(i18n("A new note does not match the filter and is hidden."));
-        else if (founds > 0)
-            postMessage(i18n("Some new notes do not match the filter and are hidden."));
-        else
-            postMessage(i18n("The new notes do not match the filter and are hidden."));
+        if (count == 1) {
+            Q_EMIT postMessage(i18n("The new note does not match the filter and is hidden."));
+        } else if (founds == count - 1) {
+            Q_EMIT postMessage(i18n("A new note does not match the filter and is hidden."));
+        } else if (founds > 0) {
+            Q_EMIT postMessage(i18n("Some new notes do not match the filter and are hidden."));
+        } else {
+            Q_EMIT postMessage(i18n("The new notes do not match the filter and are hidden."));
+        }
     }
 }
 
@@ -2233,16 +2234,16 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     }
 
     // Insert note or past clipboard:
-    QString text;
-    //  Note *note;
     QString link;
-    // int zone = zone;
-    if (event->button() == Qt::MidButton && zone == Note::Resizer)
+    if (event->button() == Qt::MidButton && zone == Note::Resizer) {
         return; // zone = clicked->zoneAt( event->pos() - QPoint(clicked->x(), clicked->y()), true );
-    if (event->button() == Qt::RightButton && (clicked->isColumn() || zone == Note::Resizer))
+    }
+    if (event->button() == Qt::RightButton && (clicked->isColumn() || zone == Note::Resizer)) {
         return;
-    if (clicked->isGroup() && zone == Note::None)
+    }
+    if (clicked->isGroup() && zone == Note::None) {
         return;
+    }
     switch (zone) {
     case Note::Handle:
     case Note::Group:
@@ -2455,7 +2456,7 @@ void BasketScene::doAutoScrollSelection()
     // FIXME: It's still flickering
 
     //    QRectF insideRect(AUTO_SCROLL_MARGIN, AUTO_SCROLL_MARGIN, visibleWidth() - 2*AUTO_SCROLL_MARGIN, visibleHeight() - 2*AUTO_SCROLL_MARGIN);
-    QRectF insideRect(AUTO_SCROLL_MARGIN, AUTO_SCROLL_MARGIN, m_view->viewport()->width() - 2 * AUTO_SCROLL_MARGIN, m_view->viewport()->height() - 2 * AUTO_SCROLL_MARGIN);
+    // QRectF insideRect(AUTO_SCROLL_MARGIN, AUTO_SCROLL_MARGIN, m_view->viewport()->width() - 2 * AUTO_SCROLL_MARGIN, m_view->viewport()->height() - 2 * AUTO_SCROLL_MARGIN);
 
     int dx = 0;
     int dy = 0;
