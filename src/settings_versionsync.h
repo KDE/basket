@@ -27,10 +27,10 @@ public:
     void save() override;
     void defaults() override;
 
-public slots:
+public Q_SLOTS:
     void setHistorySize(qint64 size_bytes);
 
-private slots:
+private Q_SLOTS:
     void onCheckBoxEnableClicked();
     void onButtonClearHistoryClicked();
 

@@ -1247,7 +1247,7 @@ void BNPView::setCurrentBasket(BasketScene *basket)
         item->basket()->setFocus();
     }
     m_tree->viewport()->update();
-    emit basketChanged();
+    Q_EMIT basketChanged();
 }
 
 void BNPView::removeBasket(BasketScene *basket)
@@ -1555,13 +1555,13 @@ void BNPView::checkCleanup()
     QString subDirEntry;
     QFileInfo fileInfo;
     QDir topDir(Global::basketsFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
-    foreach (topDirEntry, topDir.entryList()) {
+    Q_FOREACH (topDirEntry, topDir.entryList()) {
         if (topDirEntry != QLatin1String(".") && topDirEntry != QLatin1String("..")) {
             fileInfo.setFile(Global::basketsFolder() + '/' + topDirEntry);
             if (fileInfo.isDir()) {
                 dirList << topDirEntry + '/';
                 QDir basketDir(Global::basketsFolder() + '/' + topDirEntry, QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
-                foreach (subDirEntry, basketDir.entryList()) {
+                Q_FOREACH (subDirEntry, basketDir.entryList()) {
                     if (subDirEntry != "." && subDirEntry != "..") {
                         fileList << topDirEntry + '/' + subDirEntry;
                     }
@@ -1582,13 +1582,13 @@ void BNPView::checkCleanup()
     DEBUG_WIN << "Directories remaining (not in any basket): " + QString::number(dirList.count());
     DEBUG_WIN << "Files remaining (not in any basket): " + QString::number(fileList.count());
 
-    foreach (topDirEntry, dirList) {
+    Q_FOREACH (topDirEntry, dirList) {
         DEBUG_WIN << "<font color='red'>" + topDirEntry + " does not belong to any basket!</font>";
         // Tools::deleteRecursively(Global::basketsFolder() + '/' + topDirEntry);
         // DEBUG_WIN << "<font color='red'>\t" + topDirEntry + " removed!</font>";
         Tools::trashRecursively(Global::basketsFolder() + "/" + topDirEntry);
         DEBUG_WIN << "<font color='red'>\t" + topDirEntry + " trashed!</font>";
-        foreach (subDirEntry, fileList) {
+        Q_FOREACH (subDirEntry, fileList) {
             fileInfo.setFile(Global::basketsFolder() + '/' + subDirEntry);
             if (!fileInfo.isFile()) {
                 fileList.removeAll(subDirEntry);
@@ -1596,7 +1596,7 @@ void BNPView::checkCleanup()
             }
         }
     }
-    foreach (subDirEntry, fileList) {
+    Q_FOREACH (subDirEntry, fileList) {
         DEBUG_WIN << "<font color='red'>" + subDirEntry + " does not belong to any note!</font>";
         // Tools::deleteRecursively(Global::basketsFolder() + '/' + subDirEntry);
         // DEBUG_WIN << "<font color='red'>\t" + subDirEntry + " removed!</font>";
@@ -2379,7 +2379,7 @@ void BNPView::setNewBasketPopup()
 
 void BNPView::setWindowTitle(QString s)
 {
-    emit setWindowCaption(s);
+    Q_EMIT setWindowCaption(s);
 }
 
 void BNPView::updateStatusBarHint()
@@ -2629,7 +2629,7 @@ void BNPView::showMainWindow()
     }
 
     setActive(true);
-    emit showPart();
+    Q_EMIT showPart();
 }
 
 void BNPView::populateTagsMenu()

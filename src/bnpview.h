@@ -83,7 +83,7 @@ public:
 private:
     //! Create <basket> element with <properties>
     void writeBasketElement(QTreeWidgetItem *item, QXmlStreamWriter &steam);
-public slots:
+public Q_SLOTS:
     void countsChanged(BasketScene *basket);
     void notesStateChanged();
     bool convertTexts();
@@ -201,9 +201,9 @@ public:
     static QString s_fileToOpen;
     static QString s_basketToOpen;
 
-public slots:
+public Q_SLOTS:
     void addWelcomeBaskets();
-private slots:
+private Q_SLOTS:
     void updateNotesActions();
     void slotBasketChanged();
     void canUndoRedoChanged();
@@ -301,7 +301,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool createNoteFromFile(const QString url, const QString basket);
     Q_SCRIPTABLE bool changeNoteHtml(const QString content, const QString basket, const QString noteName);
 
-public slots:
+public Q_SLOTS:
     void setWindowTitle(QString s);
     void updateStatusBarHint();
     void setSelectionStatus(QString s);
@@ -327,14 +327,14 @@ protected:
 private:
     QMenu *m_lastOpenedTagsMenu;
 
-private slots:
+private Q_SLOTS:
     void slotPressed(QTreeWidgetItem *item, int column);
     void needSave(QTreeWidgetItem *);
     void slotContextMenu(const QPoint &pos);
     void slotShowProperties(QTreeWidgetItem *item);
     void initialize();
 
-signals:
+Q_SIGNALS:
     void basketChanged();
     void setWindowCaption(const QString &s);
     void showPart();

@@ -95,9 +95,9 @@ protected:
 private:
     QTimer m_autoOpenTimer;
     QTreeWidgetItem *m_autoOpenItem;
-signals:
+Q_SIGNALS:
     void contextMenuRequested(const QPoint &);
-private slots:
+private Q_SLOTS:
     void autoOpen();
 
 private:

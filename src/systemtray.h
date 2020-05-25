@@ -24,10 +24,10 @@ public:
     explicit SystemTray(QWidget *parent = nullptr);
     ~SystemTray() override;
 
-public slots:
+public Q_SLOTS:
     void updateDisplay();
 
-signals:
+Q_SIGNALS:
     void showPart();
 };
 

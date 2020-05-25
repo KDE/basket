@@ -107,7 +107,7 @@ public:
     TagListViewItem *currentItem() const; // Reimplemented to cast the return value
     TagListViewItem *firstChild() const;  // Reimplemented to cast the return value
     TagListViewItem *lastItem() const;    // Reimplemented to cast the return value
-signals:
+Q_SIGNALS:
     void deletePressed();
     void doubleClickedItem();
 };
@@ -131,7 +131,7 @@ public:
     }
     TagListViewItem *itemForState(State *state);
 
-private slots:
+private Q_SLOTS:
     void newTag();
     void newState();
     void moveUp();

@@ -256,7 +256,7 @@ TagListView::~TagListView()
 void TagListView::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Delete)
-        emit deletePressed();
+        Q_EMIT deletePressed();
     else if (event->key() != Qt::Key_Left || (currentItem() && currentItem()->parent()))
         // Do not allow to open/close first-level items
         QTreeWidget::keyPressEvent(event);
@@ -268,7 +268,7 @@ void TagListView::mouseDoubleClickEvent(QMouseEvent *event)
 
     // But trigger edit (change focus to name) when double-click an item:
     if (itemAt(event->pos()) != nullptr)
-        emit doubleClickedItem();
+        Q_EMIT doubleClickedItem();
 }
 
 void TagListView::mousePressEvent(QMouseEvent *event)

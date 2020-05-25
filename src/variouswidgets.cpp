@@ -376,15 +376,15 @@ void FontSizeCombo::textChangedInCombo(const QString &text)
     bool ok = false;
     int size = text.toInt(&ok);
     if (ok)
-        emit sizeChanged(size);
+        Q_EMIT sizeChanged(size);
 }
 
 void FontSizeCombo::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape)
-        emit escapePressed();
+        Q_EMIT escapePressed();
     else if (event->key() == Qt::Key_Return)
-        emit returnPressed2();
+        Q_EMIT returnPressed2();
     else
         KComboBox::keyPressEvent(event);
 }

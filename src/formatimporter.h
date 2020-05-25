@@ -28,7 +28,7 @@ public:
 
     void copyFolder(const QString &folder, const QString &newFolder);
     void moveFolder(const QString &folder, const QString &newFolder);
-private slots:
+private Q_SLOTS:
     void slotCopyingDone(KIO::Job *);
 
 private:

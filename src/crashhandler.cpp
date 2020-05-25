@@ -223,7 +223,7 @@ QString Crash::getOSVersionInfo()
     QStringList versionFileMasks = QStringList() << "*release"
                                                  << "*version";
     QFileInfoList versionFiles = QDir("/etc").entryInfoList(versionFileMasks, QDir::Files);
-    foreach (const QFileInfo &versionFile, versionFiles) {
+    Q_FOREACH (const QFileInfo &versionFile, versionFiles) {
         result += versionFile.absoluteFilePath() + ":\n";
         QFile file(versionFile.absoluteFilePath());
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {

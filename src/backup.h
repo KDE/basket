@@ -24,7 +24,7 @@ class BackupDialog : public QDialog
 public:
     explicit BackupDialog(QWidget *parent = nullptr, const char *name = nullptr);
     ~BackupDialog() override;
-private slots:
+private Q_SLOTS:
     void moveToAnotherFolder();
     void useAnotherExistingFolder();
     void backup();

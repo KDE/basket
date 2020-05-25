@@ -227,7 +227,7 @@ void RegionGrabber::mouseMoveEvent(QMouseEvent *e)
         if (selection.isNull())
             return;
         bool found = false;
-        foreach (QRect *r, handles) {
+        Q_FOREACH (QRect *r, handles) {
             if (r->contains(e->pos())) {
                 mouseOverHandle = r;
                 found = true;
@@ -271,7 +271,7 @@ void RegionGrabber::mouseDoubleClickEvent(QMouseEvent *)
 void RegionGrabber::keyPressEvent(QKeyEvent *e)
 {
     if (e->key() == Qt::Key_Escape) {
-        emit regionGrabbed(QPixmap());
+        Q_EMIT regionGrabbed(QPixmap());
     } else if (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return) {
         grabRect();
     } else {
@@ -284,7 +284,7 @@ void RegionGrabber::grabRect()
     QRect r = selection.normalized();
     if (!r.isNull() && r.isValid()) {
         grabbing = true;
-        emit regionGrabbed(pixmap.copy(r));
+        Q_EMIT regionGrabbed(pixmap.copy(r));
     }
 }
 
@@ -308,7 +308,7 @@ QRegion RegionGrabber::handleMask() const
 {
     // note: not normalized QRects are bad here, since they will not be drawn
     QRegion mask;
-    foreach (QRect *rect, handles)
+    Q_FOREACH (QRect *rect, handles)
         mask += QRegion(*rect);
     return mask;
 }

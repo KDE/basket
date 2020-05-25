@@ -229,7 +229,7 @@ void SystemTray::mouseReleaseEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton)   // Show / hide main window
         if (rect().contains(event->pos())) { // Accept only if released in systemTray
             toggleActive();
-            emit showPart();
+            Q_EMIT showPart();
             event->accept();
         } else
             event->ignore();

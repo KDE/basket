@@ -90,9 +90,9 @@ public:
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
     void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override;
     void clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked = nullptr, int zone = 0);
-private slots:
+private Q_SLOTS:
     void setFocusIfNotInPopupMenu();
-signals:
+Q_SIGNALS:
     void crossReference(QString link);
 
     /// LAYOUT:
@@ -161,7 +161,7 @@ public:
     void unplugSelection(NoteSelection *selection);
     void insertSelection(NoteSelection *selection, Note *after);
     void selectSelection(NoteSelection *selection);
-protected slots:
+protected Q_SLOTS:
     void doCleanUp();
 
 private:
@@ -181,7 +181,7 @@ public:
     void saveInsertionData();
     void restoreInsertionData();
     void resetInsertionData();
-public slots:
+public Q_SLOTS:
     void insertEmptyNote(int type);
     void insertWizard(int type);
     void insertColor(const QColor &color);
@@ -196,7 +196,7 @@ public slots:
     {
         m_isInsertPopupMenu = false;
     }
-private slots:
+private Q_SLOTS:
     void hideInsertPopupMenu();
     void timeoutHideInsertPopupMenu();
 
@@ -221,13 +221,13 @@ private:
     QTimer m_commitdelay;
     void enableActions();
 
-private slots:
+private Q_SLOTS:
     void loadNotes(const QDomElement &notes, Note *parent);
     void saveNotes(QXmlStreamWriter &stream, Note *parent);
     void unlock();
-protected slots:
+protected Q_SLOTS:
     void inactivityAutoLockTimeout();
-public slots:
+public Q_SLOTS:
     void load();
     void loadProperties(const QDomElement &properties);
     void saveProperties(QXmlStreamWriter &stream);
@@ -318,7 +318,7 @@ public:
 
 private:
     int m_shortcutAction;
-private slots:
+private Q_SLOTS:
     void activatedShortcut();
 
 public:
@@ -356,7 +356,7 @@ public:
     {
         return m_inserterGroup;
     }
-public slots:
+public Q_SLOTS:
     void doHoverEffects(Note *note, Note::Zone zone, const QPointF &pos = QPointF(0, 0)); /// << @p pos is optional and only used to show the link target in the statusbar
     void doHoverEffects(const QPointF &pos);
     void doHoverEffects(); // The same, but using the current cursor position
@@ -382,7 +382,7 @@ public:
     void drawInserter(QPainter &painter, qreal xPainter, qreal yPainter);
     DecoratedBasket *decoration();
     State *stateForTagFromSelectedNotes(Tag *tag);
-public slots:
+public Q_SLOTS:
     void activatedTagShortcut(Tag *tag);
     void recomputeAllStyles();
     void removedStates(const QList<State *> &deletedStates);
@@ -408,7 +408,7 @@ private:
     QRectF m_selectionRect;
     QTimer m_autoScrollSelectionTimer;
     void stopAutoScrollSelection();
-private slots:
+private Q_SLOTS:
     void doAutoScrollSelection();
 
 public:
@@ -438,19 +438,19 @@ private:
     QWidget *m_cornerWidget;
 
     /// COMMUNICATION WITH ITS CONTAINER:
-signals:
+Q_SIGNALS:
     void postMessage(const QString &message);      /// << Post a temporary message in the statusBar.
     void setStatusBarText(const QString &message); /// << Set the permanent statusBar text or reset it if message isEmpty().
     void resetStatusBarText();                     /// << Equivalent to setStatusBarText(QString()).
     void propertiesChanged(BasketScene *basket);
     void countsChanged(BasketScene *basket);
-public slots:
+public Q_SLOTS:
     void linkLookChanged();
     void signalCountsChanged();
 
 private:
     QTimer m_timerCountsChanged;
-private slots:
+private Q_SLOTS:
     void countsChangedTimeOut();
 
     /// NOTES COUNTING:
@@ -512,7 +512,7 @@ private:
     QString m_folderName;
 
     /// ACTIONS ON SELECTED NOTES FROM THE INTERFACE:
-public slots:
+public Q_SLOTS:
     void noteEdit(Note *note = nullptr, bool justAdded = false, const QPointF &clickedPoint = QPointF());
     void showEditedNoteWhileFiltering();
     void noteDelete();
@@ -565,17 +565,17 @@ public:
     bool hasSelectedTextInEditor();
     bool selectedAllTextInEditor();
     Note *editedNote();
-protected slots:
+protected Q_SLOTS:
     void selectionChangedInEditor();
     void contentChangedInEditor();
     void inactivityAutoSaveTimeout();
-public slots:
+public Q_SLOTS:
     void editorCursorPositionChanged();
 
 private:
     qreal m_editorX;
     qreal m_editorY;
-public slots:
+public Q_SLOTS:
     void placeEditor(bool andEnsureVisible = false);
     void placeEditorAndEnsureVisible();
     bool closeEditor(bool deleteEmptyNote = true);
@@ -586,7 +586,7 @@ public slots:
     void closeBasket();
 
     /// FILTERING:
-public slots:
+public Q_SLOTS:
     void newFilter(const FilterData &data, bool andEnsureVisible = true);
     void filterAgain(bool andEnsureVisible = true);
     void filterAgainDelayed();
@@ -615,7 +615,7 @@ protected:
     void dragEnterEvent(QGraphicsSceneDragDropEvent *) override;
     void dragMoveEvent(QGraphicsSceneDragDropEvent *event) override;
     void dragLeaveEvent(QGraphicsSceneDragDropEvent *) override;
-public slots:
+public Q_SLOTS:
     void slotCopyingDone2(KIO::Job *job, const QUrl &from, const QUrl &to);
 
 public:
@@ -680,14 +680,14 @@ private:
 public:
     void addWatchedFile(const QString &fullPath);
     void removeWatchedFile(const QString &fullPath);
-private slots:
+private Q_SLOTS:
     void watchedFileModified(const QString &fullPath);
     void watchedFileDeleted(const QString &fullPath);
     void updateModifiedNotes();
 
     /// FROM OLD ARCHITECTURE **********************
 
-public slots:
+public Q_SLOTS:
 
     void showFrameInsertTo()
     {

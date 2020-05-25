@@ -44,7 +44,7 @@ void FocusedTextEdit::paste(QClipboard::Mode mode)
 void FocusedTextEdit::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
-        emit escapePressed();
+        Q_EMIT escapePressed();
         return;
     }
 
@@ -55,7 +55,7 @@ void FocusedTextEdit::keyPressEvent(QKeyEvent *event)
 
     // Workaround (for ensuring the cursor to be visible): signal not emitted when pressing those keys:
     if (event->key() == Qt::Key_Home || event->key() == Qt::Key_End || event->key() == Qt::Key_PageUp || event->key() == Qt::Key_PageDown)
-        emit cursorPositionChanged();
+        Q_EMIT cursorPositionChanged();
 
     if (m_disableUpdatesOnKeyPress) {
         setUpdatesEnabled(true);
@@ -77,7 +77,7 @@ void FocusedTextEdit::wheelEvent(QWheelEvent *event)
 
 void FocusedTextEdit::enterEvent(QEvent *event)
 {
-    emit mouseEntered();
+    Q_EMIT mouseEntered();
     KTextEdit::enterEvent(event);
 }
 
@@ -117,17 +117,17 @@ bool FocusWidgetFilter::eventFilter(QObject *, QEvent *e)
         QKeyEvent *ke = static_cast<QKeyEvent *>(e);
         switch (ke->key()) {
         case Qt::Key_Return:
-            emit returnPressed();
+            Q_EMIT returnPressed();
             return true;
         case Qt::Key_Escape:
-            emit escapePressed();
+            Q_EMIT escapePressed();
             return true;
         default:
             return false;
         };
     }
     case QEvent::Enter:
-        emit mouseEntered();
+        Q_EMIT mouseEntered();
         // pass through
     default:
         return false;

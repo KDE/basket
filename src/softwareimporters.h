@@ -48,7 +48,7 @@ public:
     explicit TextFileImportDialog(QWidget *parent = nullptr);
     ~TextFileImportDialog() override;
     QString separator();
-protected slots:
+protected Q_SLOTS:
     void customSeparatorChanged();
 
 private:

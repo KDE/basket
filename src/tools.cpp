@@ -858,7 +858,7 @@ qint64 Tools::computeSizeRecursively(const QString &path)
     result += file.size();
     if (file.isDir()) {
         QFileInfoList children = QDir(path).entryInfoList(QDir::Dirs | QDir::Files | QDir::NoSymLinks | QDir::NoDotAndDotDot | QDir::Hidden);
-        foreach (const QFileInfo &child, children)
+        Q_FOREACH (const QFileInfo &child, children)
             result += computeSizeRecursively(child.absoluteFilePath());
     }
     return result;

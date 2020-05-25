@@ -741,7 +741,7 @@ void BasketScene::setAppearance(const QString &icon, const QString &name, const 
         m_editor->graphicsWidget()->setPalette(palette);
     }
 
-    emit propertiesChanged(this);
+    Q_EMIT propertiesChanged(this);
 }
 
 void BasketScene::setDisposition(int disposition, int columnCount)
@@ -1113,7 +1113,7 @@ void BasketScene::signalCountsChanged()
 
 void BasketScene::countsChangedTimeOut()
 {
-    emit countsChanged(this);
+    Q_EMIT countsChanged(this);
 }
 
 BasketScene::BasketScene(QWidget *parent, const QString &folderName)
@@ -1769,7 +1769,7 @@ void BasketScene::dragLeaveEvent(QGraphicsSceneDragDropEvent *)
     m_draggedNotes.clear();
     NoteDrag::selectedNotes.clear();
     m_noActionOnMouseRelease = true;
-    emit resetStatusBarText();
+    Q_EMIT resetStatusBarText();
     doHoverEffects();
 }
 
@@ -1779,7 +1779,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
     qDebug() << "Drop Event at position " << pos.x() << ":" << pos.y();
 
     m_isDuringDrag = false;
-    emit resetStatusBarText();
+    Q_EMIT resetStatusBarText();
 
     //  if (isLocked())
     //      return;
@@ -2252,7 +2252,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
                 QMenu *menu = Global::bnpView->popupMenu("fileimport");
                 menu->exec(event->screenPos());
             } else if (link.startsWith("basket://")) {
-                emit crossReference(link);
+                Q_EMIT crossReference(link);
             } else {
                 KRun *run = new KRun(QUrl::fromUserInput(link), m_view->window()); //  open the URL.
                 run->setAutoDelete(true);
@@ -2322,7 +2322,7 @@ void BasketScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
             // Never delete because URL is dragged and the file must be available for the extern application
             //      if (shouldRemove && d->target() == 0) // If target is another application that request to remove the note
-            //          emit wantDelete(this);
+            //          Q_EMIT wantDelete(this);
         }
         return;
     }
@@ -2575,9 +2575,9 @@ void BasketScene::doHoverEffects(Note *note, Note::Zone zone, const QPointF &pos
         }
         // If we are hovering an embedded link in a rich text element, show the destination in the statusbar:
         if (zone == Note::Link)
-            emit setStatusBarText(m_hoveredNote->linkAt(pos - QPoint(m_hoveredNote->x(), m_hoveredNote->y())));
+            Q_EMIT setStatusBarText(m_hoveredNote->linkAt(pos - QPoint(m_hoveredNote->x(), m_hoveredNote->y())));
         else if (m_hoveredNote->content())
-            emit setStatusBarText(m_hoveredNote->content()->statusBarMessage(m_hoveredZone)); // resetStatusBarText();
+            Q_EMIT setStatusBarText(m_hoveredNote->content()->statusBarMessage(m_hoveredZone)); // resetStatusBarText();
         // If we aren't hovering a note, reset all:
     } else {
         if (isFreeLayout() && !isSelecting())
@@ -2586,7 +2586,7 @@ void BasketScene::doHoverEffects(Note *note, Note::Zone zone, const QPointF &pos
             m_view->viewport()->unsetCursor();
         m_hoveredZone = Note::None;
         removeInserter();
-        emit resetStatusBarText();
+        Q_EMIT resetStatusBarText();
     }
 }
 
@@ -2859,8 +2859,8 @@ void BasketScene::deleteNotes()
     m_countFounds = 0;
     m_countSelecteds = 0;
 
-    emit resetStatusBarText();
-    emit countsChanged(this);
+    Q_EMIT resetStatusBarText();
+    Q_EMIT countsChanged(this);
 }
 
 Note *BasketScene::noteAt(QPointF pos)
@@ -3690,7 +3690,7 @@ bool BasketScene::closeEditor(bool deleteEmptyNote /* =true*/)
 
     Global::bnpView->m_actEditNote->setEnabled(!isLocked() && countSelecteds() == 1 /*&& !isDuringEdit()*/);
 
-    emit resetStatusBarText(); // Remove the "Editing. ... to validate." text.
+    Q_EMIT resetStatusBarText(); // Remove the "Editing. ... to validate." text.
 
     // if (qApp->activeWindow() == Global::mainContainer)
 
@@ -3845,7 +3845,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
         //      qApp->processEvents();     // Show the editor toolbar before ensuring the note is visible
         ensureNoteVisible(note);                //  because toolbar can create a new line and then partially hide the note
         m_editor->graphicsWidget()->setFocus(); // When clicking in the basket, a QTimer::singleShot(0, ...) focus the basket! So we focus the widget after qApp->processEvents()
-        emit resetStatusBarText();              // Display "Editing. ... to validate."
+        Q_EMIT resetStatusBarText();              // Display "Editing. ... to validate."
     } else {
         // Delete the note user have canceled the addition:
         if ((justAdded && editor->canceled()) || editor->isEmpty() /*) && editor->note()->states().count() <= 0*/) {
@@ -3989,13 +3989,13 @@ void BasketScene::doCopy(CopyMode copyMode)
         switch (copyMode) {
         default:
         case CopyToClipboard:
-            emit postMessage(i18np("Copied note to clipboard.", "Copied notes to clipboard.", countCopied));
+            Q_EMIT postMessage(i18np("Copied note to clipboard.", "Copied notes to clipboard.", countCopied));
             break;
         case CutToClipboard:
-            emit postMessage(i18np("Cut note to clipboard.", "Cut notes to clipboard.", countCopied));
+            Q_EMIT postMessage(i18np("Cut note to clipboard.", "Cut notes to clipboard.", countCopied));
             break;
         case CopyToSelection:
-            emit postMessage(i18np("Copied note to selection.", "Copied notes to selection.", countCopied));
+            Q_EMIT postMessage(i18np("Copied note to selection.", "Copied notes to selection.", countCopied));
             break;
         }
     }
@@ -4042,19 +4042,19 @@ void BasketScene::noteOpen(Note *note)
     QString message = note->content()->messageWhenOpening(NoteContent::OpenOne /*NoteContent::OpenSeveral*/);
     if (url.isEmpty()) {
         if (message.isEmpty())
-            emit postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
+            Q_EMIT postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
         else {
             int result = KMessageBox::warningContinueCancel(m_view, message, /*caption=*/QString(), KGuiItem(i18n("&Edit"), "edit"));
             if (result == KMessageBox::Continue)
                 noteEdit(note);
         }
     } else {
-        emit postMessage(message); // "Opening link target..." / "Launching application..." / "Opening note file..."
+        Q_EMIT postMessage(message); // "Opening link target..." / "Launching application..." / "Opening note file..."
         // Finally do the opening job:
         QString customCommand = note->content()->customOpenCommand();
 
         if (url.url().startsWith("basket://")) {
-            emit crossReference(url.url());
+            Q_EMIT crossReference(url.url());
         } else if (customCommand.isEmpty()) {
             KRun *run = new KRun(url, m_view->window());
             run->setAutoDelete(true);
@@ -4096,11 +4096,11 @@ void BasketScene::noteOpenWith(Note *note)
     QString message = note->content()->messageWhenOpening(NoteContent::OpenOneWith /*NoteContent::OpenSeveralWith*/);
     QString text = note->content()->messageWhenOpening(NoteContent::OpenOneWithDialog /*NoteContent::OpenSeveralWithDialog*/);
     if (url.isEmpty()) {
-        emit postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
+        Q_EMIT postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
     } else {
         QList<QUrl> urls {url};
         if (KRun__displayOpenWithDialog(urls, m_view->window(), false, text))
-            emit postMessage(message); // "Opening link target with..." / "Opening note file with..."
+            Q_EMIT postMessage(message); // "Opening link target with..." / "Opening note file with..."
     }
 }
 
@@ -4966,7 +4966,7 @@ bool BasketScene::setProtection(int type, QString key)
         m_gpg->clearCache();
 
         if (saveAgain()) {
-            emit propertiesChanged(this);
+            Q_EMIT propertiesChanged(this);
         } else {
             m_encryptionType = savedType;
             m_encryptionKey = savedKey;

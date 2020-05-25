@@ -21,20 +21,20 @@ public:
     /** Constructor, initializer and destructor */
     DesktopColorPicker();
     ~DesktopColorPicker() override = default;
-public slots:
+public Q_SLOTS:
     /** Begin color picking.
      * This function returns immediately, and pickedColor() is emitted if user has
      * chosen a color, and not canceled the process (by pressing Escape).
      */
     void pickColor();
-signals:
+Q_SIGNALS:
     /** When user picked a color, this signal is emitted.
      */
     void pickedColor(const QColor &color);
     /** When user cancel a picking (by pressing Escape), this signal is emitted.
      */
     void canceledPick();
-protected slots:
+protected Q_SLOTS:
     void slotDelayedPick();
 
 protected:

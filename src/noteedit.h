@@ -123,7 +123,7 @@ public:
     {
     } // Same as validate(), but does not precede editor close and is triggered either while the editor widget changed size or after 3 seconds of inactivity.
 
-signals:
+Q_SIGNALS:
     void askValidation();
     void mouseEnteredEditorWidget();
 
@@ -155,11 +155,11 @@ public:
 
 protected:
     HtmlContent *m_htmlContent;
-public slots:
+public Q_SLOTS:
     void cursorPositionChanged();
     void editTextChanged();
     void charFormatChanged(const QTextCharFormat &format);
-protected slots:
+protected Q_SLOTS:
     void setBold(bool isChecked);
     void setLeft();
     void setCentered();
@@ -241,7 +241,7 @@ public:
     ~LinkEditDialog() override;
     void ensurePolished();
 
-protected slots:
+protected Q_SLOTS:
     void slotOk();
     void urlChanged(const QString &);
     void doNotAutoTitle(const QString &);
@@ -269,7 +269,7 @@ public:
     explicit CrossReferenceEditDialog(CrossReferenceContent *contentNote, QWidget *parent = nullptr);
     ~CrossReferenceEditDialog() override;
 
-protected slots:
+protected Q_SLOTS:
     void slotOk();
     void urlChanged(const int index);
 
@@ -291,7 +291,7 @@ public:
     explicit LauncherEditDialog(LauncherContent *contentNote, QWidget *parent = nullptr);
     ~LauncherEditDialog() override;
     void ensurePolished();
-protected slots:
+protected Q_SLOTS:
     void slotOk();
     void guessIcon();
 

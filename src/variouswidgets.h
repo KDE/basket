@@ -35,7 +35,7 @@ public:
     {
         return m_runCommand;
     }
-private slots:
+private Q_SLOTS:
     void slotSelCommand();
 
 private:
@@ -85,7 +85,7 @@ public:
     {
         return m_message;
     }
-public slots:
+public Q_SLOTS:
     void setMessage(const QString &message)
     {
         m_message = message;
@@ -109,7 +109,7 @@ public:
     {
         return m_iconSize;
     } /// << @return the chosen icon size (16, 32, ...) or -1 if canceled!
-protected slots:
+protected Q_SLOTS:
     void slotCancel();
     void slotSelectionChanged();
     void choose(QListWidgetItem *);
@@ -139,11 +139,11 @@ public:
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
-signals:
+Q_SIGNALS:
     void sizeChanged(qreal size);
     void escapePressed();
     void returnPressed2();
-private slots:
+private Q_SLOTS:
     void textChangedInCombo(const QString &text);
 
 private:

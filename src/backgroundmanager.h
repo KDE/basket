@@ -114,7 +114,7 @@ private:
     BackgroundsList m_backgroundsList;
     OpaqueBackgroundsList m_opaqueBackgroundsList;
     QTimer m_garbageTimer;
-private slots:
+private Q_SLOTS:
     void requestDelayedGarbage();
     void doGarbage();
 };

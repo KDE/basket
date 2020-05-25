@@ -53,9 +53,9 @@ public:
     explicit FilterBar(QWidget *parent = nullptr);
     ~FilterBar() override;
     const FilterData &filterData();
-signals:
+Q_SIGNALS:
     void newFilter(const FilterData &data);
-public slots:
+public Q_SLOTS:
     void repopulateTagsCombo();
     void reset();
     void inAllBaskets();
@@ -70,7 +70,7 @@ public:
     {
         return m_lineEdit;
     }
-private slots:
+private Q_SLOTS:
     void changeFilter();
     void tagChanged(int index);
 

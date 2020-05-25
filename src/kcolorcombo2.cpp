@@ -178,7 +178,7 @@ void KColorPopup::validate()
 {
     hide();
     close();
-    emit closed();
+    Q_EMIT closed();
 
     if (m_selectedRow != m_selector->rowCount()) // A normal row:
         m_selector->setColor(m_selector->colorAt(m_selectedColumn, m_selectedRow));
@@ -199,7 +199,7 @@ void KColorPopup::mousePressEvent(QMouseEvent *event)
     if (x < 0 || y < 0 || x >= width() || y >= height()) {
         hide();
         close();
-        emit closed();
+        Q_EMIT closed();
     } else
         validate();
 
@@ -381,7 +381,7 @@ void KColorCombo2::setColor(const QColor &color)
     if (m_color != color) {
         m_color = color;
         updateComboBox();
-        emit colorChanged(color);
+        Q_EMIT colorChanged(color);
     }
 }
 

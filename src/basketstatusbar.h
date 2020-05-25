@@ -30,7 +30,7 @@ public:
     BasketStatusBar(KParts::StatusBarExtension *extension);
     ~BasketStatusBar() override;
 
-public slots:
+public Q_SLOTS:
     /** GUI Main Window actions **/
     void setStatusBarHint(const QString &hint); /// << Set a specific message or update if hint is empty
     void updateStatusBarHint();                 /// << Display the current state message (dragging, editing) or reset the startsbar message

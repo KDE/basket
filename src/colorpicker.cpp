@@ -81,7 +81,7 @@ void DesktopColorPicker::keyPressEvent(QKeyEvent *event)
             releaseMouse();
             releaseKeyboard();
             setMouseTracking(false);
-            emit canceledPick();
+            Q_EMIT canceledPick();
         }
     }
     QDesktopWidget::keyPressEvent(event);

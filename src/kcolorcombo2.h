@@ -72,7 +72,7 @@ class KColorCombo2 : public KComboBox
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(QColor defaultColor READ defaultColor WRITE setDefaultColor NOTIFY defaultColorChanged)
 
-public slots:
+public Q_SLOTS:
     /**
      * Change the selected color.\n
      * If the popup is open, it will not reflect the change. FIXME: Should it?
@@ -87,9 +87,9 @@ public slots:
      * @see defaultColor() to get it.
      */
     void setDefaultColor(const QColor &color);
-private slots:
+private Q_SLOTS:
     void popupClosed();
-signals:
+Q_SIGNALS:
     /**
      * Emitted when the color of the widget is changed, either with setColor() or via user selection.
      * @see color() to know the content of @p newColor.
@@ -310,7 +310,7 @@ public:
     explicit KColorPopup(KColorCombo2 *parent);
     ~KColorPopup() override;
     void relayout(); // updateGeometry() ??
-signals:
+Q_SIGNALS:
     void closed();
 
 protected:

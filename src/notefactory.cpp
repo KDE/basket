@@ -531,7 +531,7 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
             actList << new QAction(QIcon::fromTheme("go-jump"), i18n("&Move Here\tShift"), &menu) << new QAction(QIcon::fromTheme("edit-copy"), i18n("&Copy Here\tCtrl"), &menu)
                     << new QAction(QIcon::fromTheme("insert-link"), i18n("&Link Here\tCtrl+Shift"), &menu);
 
-            foreach (QAction *a, actList)
+            Q_FOREACH (QAction *a, actList)
                 menu.addAction(a);
 
             menu.addSeparator();

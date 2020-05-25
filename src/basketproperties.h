@@ -37,10 +37,10 @@ public:
     ~BasketPropertiesDialog() override;
     void ensurePolished();
 
-public slots:
+public Q_SLOTS:
     void applyChanges();
 
-protected slots:
+protected Q_SLOTS:
     void capturedShortcut(const QList<QKeySequence> &shortcut);
     void selectColumnsLayout();
 

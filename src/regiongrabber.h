@@ -25,11 +25,11 @@ public:
     RegionGrabber();
     ~RegionGrabber() override;
 
-protected slots:
+protected Q_SLOTS:
     void init();
     void displayHelp();
 
-signals:
+Q_SIGNALS:
     void regionGrabbed(const QPixmap &);
 
 protected:

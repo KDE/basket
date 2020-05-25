@@ -225,7 +225,7 @@ public:
     void saveChanges();
     void saveToLook(LinkLook *look);
     void set(LinkLook *look);
-private slots:
+private Q_SLOTS:
     void slotChangeLook();
 
 protected:

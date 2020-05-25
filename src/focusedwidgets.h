@@ -22,14 +22,14 @@ public:
     explicit FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent = nullptr);
     ~FocusedTextEdit() override;
     void paste(QClipboard::Mode mode);
-public slots:
+public Q_SLOTS:
     void onSelectionChanged(); //!< Put selected text into the global mouse selection
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
     void enterEvent(QEvent *event) override;
     void insertFromMimeData(const QMimeData *source) override;
-signals:
+Q_SIGNALS:
     void escapePressed();
     void mouseEntered();
 
@@ -65,7 +65,7 @@ public:
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
 
-signals:
+Q_SIGNALS:
     void escapePressed();
     void returnPressed();
     void mouseEntered();

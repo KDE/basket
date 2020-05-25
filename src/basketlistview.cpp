@@ -270,7 +270,7 @@ BasketTreeListView::BasketTreeListView(QWidget *parent)
 
 void BasketTreeListView::contextMenuEvent(QContextMenuEvent *e)
 {
-    emit contextMenuRequested(e->pos());
+    Q_EMIT contextMenuRequested(e->pos());
 }
 
 QStringList BasketTreeListView::mimeTypes() const

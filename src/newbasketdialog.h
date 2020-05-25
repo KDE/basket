@@ -36,7 +36,7 @@ public:
     {
         return m_lastSelected;
     }
-private slots:
+private Q_SLOTS:
     void slotSelectionChanged(QListWidgetItem *cur);
 
 private:
@@ -71,7 +71,7 @@ public:
     NewBasketDialog(BasketScene *parentBasket, const NewBasketDefaultProperties &defaultProperties, QWidget *parent = nullptr);
     ~NewBasketDialog() override;
     void ensurePolished();
-protected slots:
+protected Q_SLOTS:
     void slotOk();
     void returnPressed();
     void manageTemplates();

@@ -35,7 +35,7 @@ public:
 
 private:
     void setupActions();
-public slots:
+public Q_SLOTS:
     bool askForQuit();
     /** Settings **/
     //  void toggleToolBar();

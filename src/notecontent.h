@@ -435,7 +435,7 @@ public:
     // Content-Specific Methods:
     bool startMovie();
 
-protected slots:
+protected Q_SLOTS:
     void movieUpdated();
     void movieResized();
     void movieFrameChanged();
@@ -497,7 +497,7 @@ public:
 protected:
     LinkDisplayItem m_linkDisplayItem;
     // File Preview Management:
-protected slots:
+protected Q_SLOTS:
     void newPreview(const KFileItem &, const QPixmap &preview);
     void removePreview(const KFileItem &);
     void startFetchingUrlPreview();
@@ -536,7 +536,7 @@ public:
         return LinkLook::soundLook;
     }
     Phonon::MediaObject *music;
-private slots:
+private Q_SLOTS:
     void stateChanged(Phonon::State, Phonon::State);
 };
 
@@ -619,7 +619,7 @@ protected:
     QByteArray m_httpBuff; ///< Accumulator for downloaded HTTP data with yet unknown encoding
     bool m_acceptingData;  ///< When false, don't accept any HTTP data
     // File Preview Management:
-protected slots:
+protected Q_SLOTS:
     void httpReadyRead();
     void httpDone(QNetworkReply *reply);
     void newPreview(const KFileItem &, const QPixmap &preview);

@@ -192,7 +192,7 @@ void FilterBar::reset()
         tagChanged(0);
     }
     hide();
-    emit newFilter(m_data);
+    Q_EMIT newFilter(m_data);
 }
 
 void FilterBar::filterTag(Tag *tag)
@@ -257,7 +257,7 @@ void FilterBar::changeFilter()
     m_data.isFiltering = (!m_data.string.isEmpty() || m_data.tagFilterType != FilterData::DontCareTagsFilter);
     if (hasEditFocus())
         m_data.isFiltering = true;
-    emit newFilter(m_data);
+    Q_EMIT newFilter(m_data);
 }
 
 void FilterBar::tagChanged(int index)
@@ -296,5 +296,5 @@ void FilterBar::tagChanged(int index)
     m_data.isFiltering = (!m_data.string.isEmpty() || m_data.tagFilterType != FilterData::DontCareTagsFilter);
     if (hasEditFocus())
         m_data.isFiltering = true;
-    emit newFilter(m_data);
+    Q_EMIT newFilter(m_data);
 }
