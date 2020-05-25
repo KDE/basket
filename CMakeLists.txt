@@ -107,6 +107,7 @@ endif()
 
 #Make libbasketcommon search for translations in basket.mo
 add_definitions(-DTRANSLATION_DOMAIN=\"basket\")
+add_definitions(-DQT_NO_KEYWORDS)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
