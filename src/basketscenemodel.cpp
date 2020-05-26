@@ -13,8 +13,8 @@ BasketSceneModel::BasketSceneModel(QObject *parent)
     : QAbstractItemModel(parent)
     , m_root(new NoteItem())
 {
-    qRegisterMetaType<NoteContent *>();
-    qRegisterMetaType<NoteItem::EditInfo>();
+    qRegisterMetaType<SimpleContent *>();
+    qRegisterMetaType<NoteItem::EditionDates>();
 }
 
 BasketSceneModel::~BasketSceneModel()
@@ -99,7 +99,7 @@ QVariant BasketSceneModel::data(const QModelIndex &index, int role) const
             return item->bounds();
         case BasketSceneModel::EditionRole: {
             QVariant info;
-            info.setValue(item->editInformation());
+            info.setValue(item->editionDates());
             return info;
         }
     }

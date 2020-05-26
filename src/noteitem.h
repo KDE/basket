@@ -5,15 +5,12 @@
 
 #pragma once
 
-#include "note.h"
-#include "notecontent.h"
-
 #include <QMetaType>
+
+#include "simplecontent.h"
 
 
 class QDomElement;
-
-typedef Note * NotePtr;
 
 /** NoteItem: Container that stores a Note object within a tree model
  * Eventually implement the managing functionallity here and use directly the `NoteContent` object
@@ -21,7 +18,7 @@ typedef Note * NotePtr;
 class NoteItem
 {
 public:
-    struct EditInfo
+    struct EditionDates
     {
         QDateTime created;
         QDateTime modified;
@@ -44,19 +41,19 @@ public:
     NoteItem *takeAt(int row);
 
     // Accesors for compatibility with current code
-    NotePtr note() const;
     static void setBasketParent(BasketScene *basket);
 
     // NoteItem property getters
     QString displayText() const;
     QIcon decoration() const;
-    NoteContent *content() const;
     NoteType::Id type() const;
+    SimpleContent *content() const;
     QRect bounds() const;
-    EditInfo editInformation() const;
+    EditionDates editionDates() const;
 
-    // Recursive loader from an XML node
+    // Loader from XML node (.basket xml format)
     void loadFromXMLNode(const QDomElement &node);
+    void loadPropertiesFromXMLNode(const QDomElement &node);
 
     // Useful methods to debug
     QString address() const;
@@ -67,14 +64,13 @@ private:
     NoteItem *m_parent;
     QVector<NoteItem *> m_children;
 
-    NotePtr m_helperNote;         // Dummy note to help with the code transition.
-    static BasketScene *s_basket; // Stored to set a parent to the notes (and avoid crashes)
+    static BasketScene *s_basket; // Stored to access some basket methods before porting
 
-//     NoteContent *m_content;
-//     QRect m_bounds;
-//     EditInfo m_editInfo;
-//     QVector<State> m_tags;
+    SimpleContent *m_content;
+    QRect m_bounds;
+    EditionDates m_editInfo;
+    QStringList m_tagIds;
 };
 
-Q_DECLARE_METATYPE(NoteContent *)
-Q_DECLARE_METATYPE(NoteItem::EditInfo)
+Q_DECLARE_METATYPE(SimpleContent *)
+Q_DECLARE_METATYPE(NoteItem::EditionDates)

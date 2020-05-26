@@ -42,6 +42,7 @@ set(libbasket_SRCS
     regiongrabber.cpp
     settings.cpp
     settings_versionsync.cpp
+    simplecontent.cpp
     softwareimporters.cpp
         tag.cpp
     tagsedit.cpp

@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "basketscenemodel.h"
-
-#include "notefactory.h"
-#include "xmlwork.h"
+#include "noteitem.h"
 
 #include <QDomElement>
+
+#include "basketscene.h"     // TEMP: to get basket->fullPath()
+#include "xmlwork.h"
 
 
 namespace {
@@ -39,13 +39,13 @@ BasketScene *NoteItem::s_basket;
 
 NoteItem::NoteItem()
     : m_parent(nullptr)
-    , m_helperNote(new Note(s_basket))
+    , m_content(nullptr)
 {
 }
 
 NoteItem::~NoteItem()
 {
-    delete m_helperNote;
+    delete m_content;
     qDeleteAll(m_children);
 }
 
@@ -108,11 +108,6 @@ NoteItem *NoteItem::takeAt(int row)
 }
 
 
-NotePtr NoteItem::note() const
-{
-    return m_helperNote;
-}
-
 void NoteItem::setBasketParent(BasketScene* basket)
 {
     s_basket = basket;
@@ -121,55 +116,34 @@ void NoteItem::setBasketParent(BasketScene* basket)
 
 QString NoteItem::displayText() const
 {
-    if (!note()) { return QStringLiteral("NULL NOTE"); }
     if (type() == NoteType::Group) { return QStringLiteral("GROUP"); }
+    if (!content()) { return QStringLiteral("<no content>"); }
     return content()->toText(QString());
 }
 
 QIcon NoteItem::decoration() const
 {
-    if (!note()) { return QIcon::fromTheme("data-error"); }
-    if (type() == NoteType::Group) { return QIcon::fromTheme("package"); }
-    if (!content()) { return QIcon::fromTheme("empty"); }
-
-    return QIcon::fromTheme(iconNameForType(content()->type()));
+    return QIcon::fromTheme(iconNameForType(type()));
 }
 
-NoteContent *NoteItem::content() const
+SimpleContent *NoteItem::content() const
 {
-    if (!note()) {
-        return nullptr;
-    }
-    return note()->content();
+    return m_content;
 }
 
 NoteType::Id NoteItem::type() const
 {
-    if (!note()) {
-        return NoteType::Unknown;
-    }
-    if (!note()->content()) {
-        return NoteType::Group;
-    }
-    return note()->content()->type();
+    return content()->type();
 }
 
 QRect NoteItem::bounds() const
 {
-    return QRect(
-        note()->x(),
-        note()->y(),
-        note()->width(),
-        note()->height()
-    );
+    return m_bounds;
 }
 
-NoteItem::EditInfo NoteItem::editInformation() const
+NoteItem::EditionDates NoteItem::editionDates() const
 {
-    return EditInfo {
-        note()->addedDate(),
-        note()->lastModificationDate()
-    };
+    return m_editInfo;
 }
 
 QString NoteItem::address() const
@@ -191,7 +165,7 @@ QString NoteItem::toolTipInfo() const
                                 .arg(row());
 
     // type
-    toolTip << QStringLiteral("Type: %1").arg(content() ? content()->typeName() : "Group");
+    toolTip << QStringLiteral("Type: %1").arg(NoteType::typeToName(type()));
 
     // geometry
     const QRect geometry = bounds();
@@ -200,10 +174,19 @@ QString NoteItem::toolTipInfo() const
                                 .arg(geometry.width()).arg(geometry.height());
 
     // edition information
-    const EditInfo info = editInformation();
-    toolTip << QStringLiteral("created: %1\nmodified: %2")
-                                .arg(info.created.toString())
-                                .arg(info.modified.toString());
+    const EditionDates info = editionDates();
+    toolTip << QStringLiteral("created: %1").arg(info.created.toString())
+            << QStringLiteral("modified: %1").arg(info.modified.toString());
+
+    // tags
+    toolTip << QStringLiteral("Tags: %1").arg(m_tagIds.join(QStringLiteral(", ")));
+
+    //attributes
+    const auto attributes = m_content->attributes();
+    for (const QString &attrName : attributes.keys()) {
+        toolTip << QStringLiteral("%1: %2").arg(attrName)
+                                           .arg(attributes.value(attrName).toString());
+    }
 
     return toolTip.join(QStringLiteral("\n"));
 }
@@ -217,55 +200,43 @@ void NoteItem::loadFromXMLNode(const QDomElement& node)
             continue;
         }
 
-        NoteItem *noteItem = new NoteItem();
-        noteItem->setParent(this);
-        m_children.append(noteItem);
+        NoteItem *child = new NoteItem();
+        this->insertAt(-1, child);
 
-        NotePtr note = noteItem->note();    // Helper Note object
-
-        if (e.tagName() == "group") {
-            // Node is a group. Recursively load from this element
-            noteItem->loadFromXMLNode(e);
-        } else if (e.tagName() == "note" || e.tagName() == "item") {      // "item" is to keep compatible with 0.6.0 Alpha 1 (required?)
-            // Load note content
-            NoteFactory::loadNode(XMLWork::getElement(e, "content"),
-                                  e.attribute("type"),
-                                  note,
-                                  true);  //lazyload
-        }
-
-        // Load dates
-        if (e.hasAttribute("added")) {
-            note->setAddedDate(QDateTime::fromString(e.attribute("added"), Qt::ISODate));
-        }
-        if (e.hasAttribute("lastModification")) {
-            note->setLastModificationDate(QDateTime::fromString(e.attribute("lastModification"), Qt::ISODate));
-        }
-        // Free Note Properties:
-        if (note->isFree()) {
-            int x = e.attribute("x").toInt();
-            int y = e.attribute("y").toInt();
-            note->setX(x < 0 ? 0 : x);
-            note->setY(y < 0 ? 0 : y);
-        }
-        // Resizeable Note Properties:
-        if (note->hasResizer() || note->isColumn()) {
-            note->setGroupWidth(e.attribute("width", "200").toInt());
-        }
-        // Group Properties:
-        if (note->isGroup() && !note->isColumn() && XMLWork::trueOrFalse(e.attribute("folded", "false"))) {
-            note->toggleFolded();
-        }
-        // Tags:
-        if (note->content()) {
-            const QString tagsString = XMLWork::getElementText(e, QStringLiteral("tags"), QString());
-            const QStringList tagsId = tagsString.split(';');
-            for (const QString &tagId : tagsId) {
-                State *state = Tag::stateForId(tagId);
-                if (state) {
-                    note->addState(state, /*orReplace=*/true);
-                }
-            }
+        child->loadPropertiesFromXMLNode(e);
+        if (child->type() == NoteType::Group) {
+            child->loadFromXMLNode(e);
         }
     }
+}
+
+void NoteItem::loadPropertiesFromXMLNode(const QDomElement& node)
+{
+    if (node.tagName() == "group") {
+        m_content = new SimpleContent(NoteType::Group);
+        m_content->loadFromXMLNode(node);
+    }
+    if (node.tagName() == "note" || node.tagName() == "item") {      // "item" is to keep compatible with 0.6.0 Alpha 1 (required?)
+        const QDomElement content = XMLWork::getElement(node, "content");
+        NoteType::Id type = NoteType::typeFromLowerName(node.attribute("type"));
+        m_content = new SimpleContent(type, s_basket->fullPath());
+        m_content->loadFromXMLNode(content);
+    }
+
+    // Load dates
+    if (node.hasAttribute("added")) {
+        m_editInfo.created = QDateTime::fromString(node.attribute("added"), Qt::ISODate);
+    }
+    if (node.hasAttribute("lastModification")) {
+        m_editInfo.modified = QDateTime::fromString(node.attribute("lastModification"), Qt::ISODate);
+    }
+
+    m_bounds = QRect(node.attribute("x", "0").toInt(),
+                     node.attribute("y", "0").toInt(),
+                     node.attribute("width", "200").toInt(),
+                     node.attribute("height", "200").toInt());
+
+    // Tags:
+    const QString tagsString = XMLWork::getElementText(node, QStringLiteral("tags"), QString());
+    m_tagIds = tagsString.split(';');
 }
