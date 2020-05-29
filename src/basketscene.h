@@ -146,7 +146,6 @@ public:
     /// NOTES INSERTION AND REMOVAL:
 public:
     /// The following methods assume that the note(s) to insert already all have 'this' as the parent basket:
-    void prependNoteIn(Note *note, Note *in);        /// << Add @p note (and the next linked notes) as the first note(s) of the group @p in.
     void appendNoteIn(Note *note, Note *in);         /// << Add @p note (and the next linked notes) as the last note(s) of the group @p in.
     void appendNoteAfter(Note *note, Note *after);   /// << Add @p note (and the next linked notes) just after (just below) the note @p after.
     void appendNoteBefore(Note *note, Note *before); /// << Add @p note (and the next linked notes) just before (just above) the note @p before.
@@ -156,7 +155,7 @@ public:
     /// <<  After that, you should delete the notes yourself. Do not call prepend/append/group... functions two times: unplug and ok
     void ungroupNote(Note *group); /// << Unplug @p group but put child notes at its place.
     /// And this one do almost all the above methods depending on the context:
-    void insertNote(Note *note, Note *clicked, int zone, const QPointF &pos = QPointF(), bool animateNewPosition = false);
+    void insertNote(Note *note, Note *clicked, int zone, const QPointF &pos = QPointF());
     void insertCreatedNote(Note *note);
     /// And working with selections:
     void unplugSelection(NoteSelection *selection);

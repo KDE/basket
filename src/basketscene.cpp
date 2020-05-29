@@ -144,34 +144,6 @@ void debugZone(int zone)
 
 #define FOR_EACH_NOTE(noteVar) for (Note *noteVar = firstNote(); noteVar; noteVar = noteVar->next())
 
-void BasketScene::prependNoteIn(Note *note, Note *in)
-{
-    if (!note)
-        // No note to prepend:
-        return;
-
-    if (in) {
-        // The normal case:
-        preparePlug(note);
-
-        Note *last = note->lastSibling();
-
-        for (Note *n = note; n; n = n->next())
-            n->setParentNote(in);
-        //      note->setPrev(0L);
-        last->setNext(in->firstChild());
-
-        if (in->firstChild())
-            in->firstChild()->setPrev(last);
-
-        in->setFirstChild(note);
-
-        if (m_loaded)
-            signalCountsChanged();
-    } else
-        // Prepend it directly in the basket:
-        appendNoteBefore(note, firstNote());
-}
 
 void BasketScene::appendNoteIn(Note *note, Note *in)
 {
@@ -785,7 +757,7 @@ void BasketScene::setDisposition(int disposition, int columnCount)
             // Insert each new columns:
             for (int i = m_columnsCount; i < columnCount; ++i) {
                 Note *newColumn = new Note(this);
-                insertNote(newColumn, /*clicked=*/lastNote(), /*zone=*/Note::BottomInsert, QPointF(), /*animateNewPosition=*/false);
+                insertNote(newColumn, /*clicked=*/lastNote(), /*zone=*/Note::BottomInsert);
             }
         } else if (firstNote() && columnCount < m_columnsCount) {
             Note *column = firstNote();
@@ -816,7 +788,7 @@ void BasketScene::setDisposition(int disposition, int columnCount)
             }
             // Paste the content in the last column:
             if (cuttedNotes)
-                insertNote(cuttedNotes, /*clicked=*/lastNote(), /*zone=*/Note::BottomColumn, QPointF(), /*animateNewPosition=*/true);
+                insertNote(cuttedNotes, /*clicked=*/lastNote(), /*zone=*/Note::BottomColumn);
             unselectAll();
         }
         if (columnCount != m_columnsCount) {
@@ -848,13 +820,13 @@ void BasketScene::setDisposition(int disposition, int columnCount)
             for (int i = 0; i < columnCount; ++i) {
                 Note *column = new Note(this);
                 if (lastInsertedColumn)
-                    insertNote(column, /*clicked=*/lastInsertedColumn, /*zone=*/Note::BottomInsert, QPointF(), /*animateNewPosition=*/false);
+                    insertNote(column, /*clicked=*/lastInsertedColumn, /*zone=*/Note::BottomInsert);
                 else
                     m_firstNote = column;
                 lastInsertedColumn = column;
             }
             // Reinsert the old notes in the first column:
-            insertNote(notes, /*clicked=*/firstNote(), /*zone=*/Note::BottomColumn, QPointF(), /*animateNewPosition=*/true);
+            insertNote(notes, /*clicked=*/firstNote(), /*zone=*/Note::BottomColumn);
             unselectAll();
         } else {
             // Insert the number of columns that is needed:
@@ -862,7 +834,7 @@ void BasketScene::setDisposition(int disposition, int columnCount)
             for (int i = 0; i < columnCount; ++i) {
                 Note *column = new Note(this);
                 if (lastInsertedColumn)
-                    insertNote(column, /*clicked=*/lastInsertedColumn, /*zone=*/Note::BottomInsert, QPointF(), /*animateNewPosition=*/false);
+                    insertNote(column, /*clicked=*/lastInsertedColumn, /*zone=*/Note::BottomInsert);
                 else
                     m_firstNote = column;
                 lastInsertedColumn = column;
@@ -1646,7 +1618,7 @@ void BasketScene::removedStates(const QList<State *> &deletedStates)
         save();
 }
 
-void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF &pos, bool animateNewPosition)
+void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF &pos)
 {
     if (!note) {
         qDebug() << "Wanted to insert NO note";
@@ -1734,7 +1706,7 @@ void BasketScene::clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked
     if (!note)
         return;
 
-    insertNote(note, clicked, zone, QPointF(event->scenePos()), /*animateNewPosition=*/false);
+    insertNote(note, clicked, zone, QPointF(event->scenePos()));
 
     //  ensureNoteVisible(lastInsertedNote()); // TODO: in insertNote()
 
@@ -1836,7 +1808,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
                 n->setOnTop(true);
         }
 
-        insertNote(note, clicked, zone, pos, animateNewPosition);
+        insertNote(note, clicked, zone, pos);
 
         // If moved a note on bottom, contentsHeight has been diminished, then view scrolled up, and we should re-scroll the view down:
         ensureNoteVisible(note);
@@ -4246,14 +4218,14 @@ void BasketScene::noteGroup()
     // Create and insert the receiving group:
     Note *group = new Note(this);
     if (first->isFree()) {
-        insertNote(group, nullptr, Note::BottomColumn, QPointF(first->x(), first->y()), /*animateNewPosition=*/false);
+        insertNote(group, nullptr, Note::BottomColumn, QPointF(first->x(), first->y()));
     } else {
-        insertNote(group, first, Note::TopInsert, QPointF(), /*animateNewPosition=*/false);
+        insertNote(group, first, Note::TopInsert);
     }
 
     // Put a FAKE UNSELECTED note in the new group, so if the new group is inside an allSelected() group, the parent group is not moved inside the new group!
     Note *fakeNote = NoteFactory::createNoteColor(Qt::red, this);
-    insertNote(fakeNote, group, Note::BottomColumn, QPointF(), /*animateNewPosition=*/false);
+    insertNote(fakeNote, group, Note::BottomColumn);
 
     // Group the notes:
     Note *nextNote;
@@ -4298,9 +4270,9 @@ void BasketScene::insertSelection(NoteSelection *selection, Note *after)
     for (NoteSelection *toUnplug = selection->firstStacked(); toUnplug; toUnplug = toUnplug->nextStacked()) {
         if (toUnplug->note->isGroup()) {
             Note *group = new Note(this);
-            insertNote(group, after, Note::BottomInsert, QPointF(), /*animateNewPosition=*/false);
+            insertNote(group, after, Note::BottomInsert);
             Note *fakeNote = NoteFactory::createNoteColor(Qt::red, this);
-            insertNote(fakeNote, group, Note::BottomColumn, QPointF(), /*animateNewPosition=*/false);
+            insertNote(fakeNote, group, Note::BottomColumn);
             insertSelection(toUnplug->firstChild, fakeNote);
             unplugNote(fakeNote);
             delete fakeNote;
@@ -4309,7 +4281,7 @@ void BasketScene::insertSelection(NoteSelection *selection, Note *after)
             Note *note = toUnplug->note;
             note->setPrev(nullptr);
             note->setNext(nullptr);
-            insertNote(note, after, Note::BottomInsert, QPointF(), /*animateNewPosition=*/true);
+            insertNote(note, after, Note::BottomInsert);
             after = note;
         }
     }
@@ -4336,12 +4308,12 @@ void BasketScene::noteMoveOnTop()
     Note *fakeNote = NoteFactory::createNoteColor(Qt::red, this);
     if (isColumnsLayout()) {
         if (firstNote()->firstChild())
-            insertNote(fakeNote, firstNote()->firstChild(), Note::TopInsert, QPointF(), /*animateNewPosition=*/false);
+            insertNote(fakeNote, firstNote()->firstChild(), Note::TopInsert);
         else
-            insertNote(fakeNote, firstNote(), Note::BottomColumn, QPointF(), /*animateNewPosition=*/false);
+            insertNote(fakeNote, firstNote(), Note::BottomColumn);
     } else {
         // TODO: Also allow to move notes on top of a group!!!!!!!
-        insertNote(fakeNote, nullptr, Note::BottomInsert, QPointF(0, 0), /*animateNewPosition=*/false);
+        insertNote(fakeNote, nullptr, Note::BottomInsert);
     }
     insertSelection(selection, fakeNote);
     unplugNote(fakeNote);
@@ -4363,10 +4335,10 @@ void BasketScene::noteMoveOnBottom()
     // Replug the notes:
     Note *fakeNote = NoteFactory::createNoteColor(Qt::red, this);
     if (isColumnsLayout())
-        insertNote(fakeNote, firstNote(), Note::BottomColumn, QPointF(), /*animateNewPosition=*/false);
+        insertNote(fakeNote, firstNote(), Note::BottomColumn);
     else {
         // TODO: Also allow to move notes on top of a group!!!!!!!
-        insertNote(fakeNote, nullptr, Note::BottomInsert, QPointF(0, 0), /*animateNewPosition=*/false);
+        insertNote(fakeNote, nullptr, Note::BottomInsert);
     }
     insertSelection(selection, fakeNote);
     unplugNote(fakeNote);
@@ -4383,7 +4355,7 @@ void BasketScene::moveSelectionTo(Note *here, bool below /* = true*/)
     // Replug the notes:
     Note *fakeNote = NoteFactory::createNoteColor(Qt::red, this);
     //  if (isColumnsLayout())
-    insertNote(fakeNote, here, (below ? Note::BottomInsert : Note::TopInsert), QPointF(), /*animateNewPosition=*/false);
+    insertNote(fakeNote, here, (below ? Note::BottomInsert : Note::TopInsert));
     //  else {
     //      // TODO: Also allow to move notes on top of a group!!!!!!!
     //      insertNote(fakeNote, 0, Note::BottomInsert, QPoint(0, 0), /*animateNewPosition=*/false);

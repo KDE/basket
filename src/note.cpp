@@ -2341,7 +2341,7 @@ void Note::groupIn(Note *group)
 
     if (allSelected() && !isColumn()) {
         basket()->unplugNote(this);
-        basket()->insertNote(this, group, Note::BottomColumn, QPointF(), /*animateNewPosition=*/true);
+        basket()->insertNote(this, group, Note::BottomColumn);
     } else {
         Note *next;
         Note *child = firstChild();

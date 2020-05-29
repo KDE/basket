@@ -226,7 +226,7 @@ void SoftwareImporters::importTextFile()
         // Import every notes:
         for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {
             Note *note = NoteFactory::createNoteFromText((*it).trimmed(), basket);
-            basket->insertNote(note, basket->firstNote(), Note::BottomColumn, QPoint(), /*animate=*/false);
+            basket->insertNote(note, basket->firstNote(), Note::BottomColumn);
         }
 
         // Finish the export:
