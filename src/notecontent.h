@@ -7,6 +7,7 @@
 #ifndef NOTECONTENT_H
 #define NOTECONTENT_H
 
+#include <QMap>
 #include <QGraphicsItem>
 #include <QUrl>
 #include <QXmlStreamWriter>
@@ -143,9 +144,10 @@ public:
     {
     }                                            /// << If your content use LinkDisplay with preview enabled, reload the preview (can have changed size)
     virtual QString editToolTipText() const = 0; /// << @return "Edit this [text|image|...]" to put in the tooltip for the note's content zone.
-    virtual void toolTipInfos(QStringList * /*keys*/, QStringList * /*values*/)
+    virtual QMap<QString, QString> toolTipInfos()
     {
-    } /// << Get "key: value" couples to put in the tooltip for the note's content zone.
+        return {};
+    } /// << Return "key: value" map to put in the tooltip for the note's content zone.
     // Custom Zones:                                                      ///    Implement this if you want to store custom data.
     virtual int zoneAt(const QPointF & /*pos*/)
     {
@@ -365,7 +367,7 @@ public:
     bool saveToFile() override;
     void fontChanged() override;
     QString editToolTipText() const override;
-    void toolTipInfos(QStringList *keys, QStringList *values) override;
+    QMap<QString, QString> toolTipInfos() override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     bool needSpaceForFeedbackPixmap() override
@@ -471,7 +473,7 @@ public:
     void fontChanged() override;
     void linkLookChanged() override;
     QString editToolTipText() const override;
-    void toolTipInfos(QStringList *keys, QStringList *values) override;
+    QMap<QString, QString> toolTipInfos() override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Custom Zones:
@@ -566,7 +568,7 @@ public:
     void fontChanged() override;
     void linkLookChanged() override;
     QString editToolTipText() const override;
-    void toolTipInfos(QStringList *keys, QStringList *values) override;
+    QMap<QString, QString> toolTipInfos() override;
     // Drag and Drop Content:
     void serialize(QDataStream &stream) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;
@@ -661,7 +663,7 @@ public:
     void fontChanged() override;
     void linkLookChanged() override;
     QString editToolTipText() const override;
-    void toolTipInfos(QStringList *keys, QStringList *values) override;
+    QMap<QString, QString> toolTipInfos() override;
     // Drag and Drop Content:
     void serialize(QDataStream &stream) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;
@@ -725,7 +727,7 @@ public:
     bool loadFromFile(bool /*lazyLoad*/) override;
     void fontChanged() override;
     QString editToolTipText() const override;
-    void toolTipInfos(QStringList *keys, QStringList *values) override;
+    QMap<QString, QString> toolTipInfos() override;
     // Drag and Drop Content:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Custom Zones:
@@ -812,7 +814,7 @@ public:
     void saveToNode(QXmlStreamWriter &stream) override;
     void fontChanged() override;
     QString editToolTipText() const override;
-    void toolTipInfos(QStringList *keys, QStringList *values) override;
+    QMap<QString, QString> toolTipInfos() override;
     // Drag and Drop Content:
     void serialize(QDataStream &stream) override;
     QPixmap feedbackPixmap(qreal width, qreal height) override;

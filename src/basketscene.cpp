@@ -2797,20 +2797,15 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
         }
 
         if (zone == Note::Content || zone == Note::Link || zone == Note::Custom0) {
-            QStringList keys;
-            QStringList values;
-
-            note->content()->toolTipInfos(&keys, &values);
-            keys.append(i18n("Added"));
-            keys.append(i18n("Last Modification"));
-            values.append(note->addedStringDate());
-            values.append(note->lastModificationStringDate());
+            const auto toolTip = QMap<QString, QString> {
+                { i18n("Added"), note->addedStringDate() },
+                { i18n("Last Modification"), note->lastModificationStringDate() }
+            }.unite(note->content()->toolTipInfos());
 
             message = "<qt><nobr>" + message;
-            QStringList::iterator key;
-            QStringList::iterator value;
-            for (key = keys.begin(), value = values.begin(); key != keys.end() && value != values.end(); ++key, ++value)
-                message += "<br>" + i18nc("of the form 'key: value'", "<b>%1</b>: %2", *key, *value);
+            for (const QString &key : toolTip.keys()) {
+                message += "<br>" + i18nc("of the form 'key: value'", "<b>%1</b>: %2", key, toolTip.value(key));
+            }
             message += "</nobr></qt>";
         } else if (m_inserterSplit && (zone == Note::TopInsert || zone == Note::BottomInsert))
             message += '\n' + i18n("Click on the right to group instead of insert");

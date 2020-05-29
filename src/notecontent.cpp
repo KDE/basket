@@ -1222,10 +1222,12 @@ bool ImageContent::saveToFile()
     return FileStorage::saveToFile(fullPath(), ba);
 }
 
-void ImageContent::toolTipInfos(QStringList *keys, QStringList *values)
+QMap<QString, QString> ImageContent::toolTipInfos()
 {
-    keys->append(i18n("Size"));
-    values->append(i18n("%1 by %2 pixels", QString::number(m_pixmapItem.pixmap().width()), QString::number(m_pixmapItem.pixmap().height())));
+    return {
+        {i18n("Size"), i18n("%1 by %2 pixels", QString::number(m_pixmapItem.pixmap().width()),
+                                               QString::number(m_pixmapItem.pixmap().height()))}
+    };
 }
 
 QString ImageContent::messageWhenOpening(OpenMessage where)
@@ -1432,20 +1434,19 @@ bool FileContent::loadFromFile(bool /*lazyLoad*/)
     return true;
 }
 
-void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
+QMap<QString, QString> FileContent::toolTipInfos()
 {
+    QMap<QString, QString> toolTip;
+
     // Get the size of the file:
     uint size = QFileInfo(fullPath()).size();
     QString humanFileSize = KIO::convertSize((KIO::filesize_t)size);
-
-    keys->append(i18n("Size"));
-    values->append(humanFileSize);
+    toolTip.insert(i18n("Size"), humanFileSize);
 
     QMimeDatabase db;
     QMimeType mime = db.mimeTypeForUrl(QUrl::fromLocalFile(fullPath()));
     if (mime.isValid()) {
-        keys->append(i18n("Type"));
-        values->append(mime.comment());
+        toolTip.insert(i18n("Type"), mime.comment());
     }
 
     MetaDataExtractionResult result(fullPath(), mime.name());
@@ -1453,18 +1454,17 @@ void FileContent::toolTipInfos(QStringList *keys, QStringList *values)
 
     for (KFileMetaData::Extractor *ex : extractorCollection.fetchExtractors(mime.name())) {
         ex->extract(&result);
-        auto groups = result.preferredGroups();
+        const auto groups = result.preferredGroups();
         DEBUG_WIN << "Metadata Extractor result has " << QString::number(groups.count()) << " groups";
 
-        int i = 0;
-        for (auto it = groups.begin(); i < 6 && it != groups.end(); ++it) {
-            if (!it->second.isEmpty()) {
-                keys->append(it->first);
-                values->append(it->second);
-                i++;
+        for (const auto &group : groups) {
+            if (!group.second.isEmpty()) {
+                toolTip.insert(group.first, group.second);
             }
         }
     }
+
+    return toolTip;
 }
 
 int FileContent::zoneAt(const QPointF &pos)
@@ -1680,10 +1680,11 @@ void LinkContent::saveToNode(QXmlStreamWriter &stream)
     stream.writeEndElement();
 }
 
-void LinkContent::toolTipInfos(QStringList *keys, QStringList *values)
+QMap<QString, QString> LinkContent::toolTipInfos()
 {
-    keys->append(i18n("Target"));
-    values->append(m_url.toDisplayString());
+    return {
+        { i18n("Target"), m_url.toDisplayString() }
+    };
 }
 
 int LinkContent::zoneAt(const QPointF &pos)
@@ -1945,10 +1946,11 @@ void CrossReferenceContent::saveToNode(QXmlStreamWriter &stream)
     stream.writeEndElement();
 }
 
-void CrossReferenceContent::toolTipInfos(QStringList *keys, QStringList *values)
+QMap<QString, QString> CrossReferenceContent::toolTipInfos()
 {
-    keys->append(i18n("Target"));
-    values->append(m_url.toDisplayString());
+    return {
+        { i18n("Target"), m_url.toDisplayString() }
+    };
 }
 
 int CrossReferenceContent::zoneAt(const QPointF &pos)
@@ -2098,8 +2100,9 @@ bool LauncherContent::loadFromFile(bool /*lazyLoad*/) // TODO: saveToFile() ?? I
     return true;
 }
 
-void LauncherContent::toolTipInfos(QStringList *keys, QStringList *values)
+QMap<QString, QString> LauncherContent::toolTipInfos()
 {
+    QMap<QString, QString> toolTip;
     KService service(fullPath());
 
     QString exec = service.exec();
@@ -2107,12 +2110,11 @@ void LauncherContent::toolTipInfos(QStringList *keys, QStringList *values)
         exec = i18n("%1 <i>(run in terminal)</i>", exec);
 
     if (!service.comment().isEmpty() && service.comment() != service.name()) {
-        keys->append(i18n("Comment"));
-        values->append(service.comment());
+        toolTip.insert(i18n("Comment"), service.comment());
     }
+    toolTip.insert(i18n("Command"), exec);
 
-    keys->append(i18n("Command"));
-    values->append(exec);
+    return toolTip;
 }
 
 int LauncherContent::zoneAt(const QPointF &pos)
@@ -2272,25 +2274,26 @@ void ColorContent::saveToNode(QXmlStreamWriter &stream)
     stream.writeEndElement();
 }
 
-void ColorContent::toolTipInfos(QStringList *keys, QStringList *values)
+QMap<QString, QString> ColorContent::toolTipInfos()
 {
+    QMap<QString, QString> toolTip;
+
     int hue, saturation, value;
     color().getHsv(&hue, &saturation, &value);
 
-    keys->append(i18nc("RGB Colorspace: Red/Green/Blue", "RGB"));
-    values->append(i18n("<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,", QString::number(color().red()), QString::number(color().green()), QString::number(color().blue())));
-
-    keys->append(i18nc("HSV Colorspace: Hue/Saturation/Value", "HSV"));
-    values->append(i18n("<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,", QString::number(hue), QString::number(saturation), QString::number(value)));
+    toolTip.insert(i18nc("RGB Colorspace: Red/Green/Blue", "RGB"),
+                   i18n("<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,", QString::number(color().red()), QString::number(color().green()), QString::number(color().blue())));
+    toolTip.insert(i18nc("HSV Colorspace: Hue/Saturation/Value", "HSV"),
+                   i18n("<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,", QString::number(hue), QString::number(saturation), QString::number(value)));
 
     const QString colorName = Tools::cssColorName(color().name());
     if (!colorName.isEmpty()) {
-        keys->append(i18n("CSS Color Name"));
-        values->append(colorName);
+        toolTip.insert(i18n("CSS Color Name"), colorName);
     }
 
-    keys->append(i18n("Is Web Color"));
-    values->append(Tools::isWebColor(color()) ? i18n("Yes") : i18n("No"));
+    toolTip.insert(i18n("Is Web Color"), Tools::isWebColor(color()) ? i18n("Yes") : i18n("No"));
+
+    return toolTip;
 }
 
 void ColorContent::setColor(const QColor &color)
