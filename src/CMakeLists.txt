@@ -18,7 +18,6 @@ set(libbasket_SRCS
     common.cpp
     debugwindow.cpp
     decoratedbasket.cpp
-    diskerrordialog.cpp
     file_metadata.cpp
     filter.cpp
     focusedwidgets.cpp

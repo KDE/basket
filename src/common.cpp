@@ -11,7 +11,10 @@
 #include <QSaveFile>
 #include <QString>
 
-#include "diskerrordialog.h"
+#include <KLocalizedString>
+
+#include "bnpview.h"
+#include "global.h"
 
 
 bool FileStorage::loadFromFile(const QString &fullPath, QString *string)
@@ -130,7 +133,6 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
     //    until we finally save the file.
 
     // The error dialog is static to make sure we never show the dialog twice,
-    static DiskErrorDialog *dialog = nullptr;
     static const uint maxDelay = 60 * 1000; // ms
     uint retryDelay = 1000;                 // ms
     bool success = false;
@@ -143,12 +145,7 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
         }
 
         if (!success) {
-            if (!dialog) {
-                dialog = new DiskErrorDialog(saveFile.errorString(), qApp->activeWindow());
-            }
-
-            if (!dialog->isVisible())
-                dialog->show();
+            Q_EMIT Global::bnpView->showErrorMessage(i18n("Error while saving: ") + saveFile.errorString());
 
             static const uint sleepDelay = 50; // ms
             for (uint i = 0; i < retryDelay / sleepDelay; ++i) {
@@ -159,10 +156,6 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
             retryDelay = qMin(maxDelay, retryDelay * 2); // ms
         }
     } while (!success);
-
-    if (dialog)
-        dialog->deleteLater();
-    dialog = nullptr;
 
     return true; // Guess we can't really return a fail
 }
