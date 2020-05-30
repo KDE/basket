@@ -17,7 +17,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
-DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent)
+DiskErrorDialog::DiskErrorDialog(const QString &message, QWidget *parent)
     : QDialog(parent)
 {
     setObjectName("DiskError");
@@ -37,7 +37,7 @@ DiskErrorDialog::DiskErrorDialog(const QString &titleMessage, const QString &mes
     QLabel *iconLabel = new QLabel(mainWidget);
     iconLabel->setPixmap(icon);
     iconLabel->setFixedSize(iconLabel->sizeHint());
-    QLabel *label = new QLabel("<p><nobr><b><font size='+1'>" + titleMessage + "</font></b></nobr></p><p>" + message + "</p>", mainWidget);
+    QLabel *label = new QLabel("<p><nobr><b><font size='+1'>" + i18n("Error while saving") + "</font></b></nobr></p><p>" + message + "</p>", mainWidget);
     if (!icon.isNull())
         layout->addWidget(iconLabel);
     layout->addWidget(label);

@@ -23,6 +23,7 @@
 #include <stdlib.h> // rand() function
 
 #include "basketscene.h"
+#include "common.h"
 #include "debugwindow.h"
 #include "filter.h"
 #include "notefactory.h" // For NoteFactory::filteredURL()
@@ -2508,7 +2509,7 @@ bool Note::convertTexts()
     if (content() && content()->lowerTypeName() == "text") {
         QString text = ((TextContent *)content())->text();
         QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" + Tools::textToHTMLWithoutP(text) + "</body></html>";
-        basket()->saveToFile(fullPath(), html);
+        FileStorage::saveToFile(fullPath(), html);
         setContent(new HtmlContent(this, content()->fileName()));
         convertedNotes = true;
     }

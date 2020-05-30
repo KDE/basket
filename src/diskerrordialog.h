@@ -19,7 +19,7 @@ class DiskErrorDialog : public QDialog
 {
     Q_OBJECT
 public:
-    DiskErrorDialog(const QString &titleMessage, const QString &message, QWidget *parent = nullptr);
+    DiskErrorDialog(const QString &message, QWidget *parent = nullptr);
     ~DiskErrorDialog() override;
 
 protected:

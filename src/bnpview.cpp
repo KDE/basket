@@ -4,6 +4,7 @@
  */
 
 #include "bnpview.h"
+#include "common.h"
 
 #include <QAction>
 #include <QApplication>
@@ -857,7 +858,7 @@ void BNPView::save()
     stream.writeEndDocument();
 
     // Write to Disk:
-    BasketScene::safelySaveToFile(Global::basketsFolder() + "baskets.xml", data);
+    FileStorage::safelySaveToFile(Global::basketsFolder() + "baskets.xml", data);
 
     GitWrapper::commitBasketView();
 }

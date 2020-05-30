@@ -9,6 +9,7 @@
 #include "basketlistview.h"
 #include "basketscene.h"
 #include "bnpview.h"
+#include "common.h"
 #include "config.h"
 #include "linklabel.h"
 #include "note.h"
@@ -504,7 +505,7 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
         }
     } else {
         QByteArray array;
-        bool success = currentBasket->loadFromFile(srcPath, &array);
+        bool success = FileStorage::loadFromFile(srcPath, &array);
 
         if (success) {
             saveToFile(fullPath, array);

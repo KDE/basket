@@ -40,6 +40,7 @@
 #include <phonon/MediaObject>
 
 #include "basketscene.h"
+#include "common.h"
 #include "config.h"
 #include "debugwindow.h"
 #include "file_metadata.h"
@@ -935,7 +936,7 @@ bool TextContent::loadFromFile(bool lazyLoad)
     DEBUG_WIN << "Loading TextContent From " + basket()->folderName() + fileName();
 
     QString content;
-    bool success = basket()->loadFromFile(fullPath(), &content);
+    bool success = FileStorage::loadFromFile(fullPath(), &content);
 
     if (success)
         setText(content, lazyLoad);
@@ -957,7 +958,7 @@ bool TextContent::finishLazyLoad()
 
 bool TextContent::saveToFile()
 {
-    return basket()->saveToFile(fullPath(), text());
+    return FileStorage::saveToFile(fullPath(), text());
 }
 
 QString TextContent::linkAt(const QPointF & /*pos*/)
@@ -1042,7 +1043,7 @@ bool HtmlContent::loadFromFile(bool lazyLoad)
     DEBUG_WIN << "Loading HtmlContent From " + basket()->folderName() + fileName();
 
     QString content;
-    bool success = basket()->loadFromFile(fullPath(), &content);
+    bool success = FileStorage::loadFromFile(fullPath(), &content);
 
     if (success)
         setHtml(content, lazyLoad);
@@ -1080,7 +1081,7 @@ bool HtmlContent::finishLazyLoad()
 
 bool HtmlContent::saveToFile()
 {
-    return basket()->saveToFile(fullPath(), html());
+    return FileStorage::saveToFile(fullPath(), html());
 }
 
 QString HtmlContent::linkAt(const QPointF &pos)
@@ -1187,7 +1188,7 @@ bool ImageContent::finishLazyLoad()
     QByteArray content;
     QPixmap pixmap;
 
-    if (basket()->loadFromFile(fullPath(), &content)) {
+    if (FileStorage::loadFromFile(fullPath(), &content)) {
         QBuffer buffer(&content);
 
         buffer.open(QIODevice::ReadOnly);
@@ -1218,7 +1219,7 @@ bool ImageContent::saveToFile()
 
     buffer.open(QIODevice::WriteOnly);
     m_pixmapItem.pixmap().save(&buffer, m_format);
-    return basket()->saveToFile(fullPath(), ba);
+    return FileStorage::saveToFile(fullPath(), ba);
 }
 
 void ImageContent::toolTipInfos(QStringList *keys, QStringList *values)
@@ -1331,7 +1332,7 @@ bool AnimationContent::loadFromFile(bool lazyLoad)
 bool AnimationContent::finishLazyLoad()
 {
     QByteArray content;
-    if (basket()->loadFromFile(fullPath(), &content)) {
+    if (FileStorage::loadFromFile(fullPath(), &content)) {
         m_buffer->setData(content);
         startMovie();
         contentChanged(16);

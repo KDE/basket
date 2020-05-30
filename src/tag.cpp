@@ -19,6 +19,7 @@
 
 #include "basketscene.h"
 #include "bnpview.h"
+#include "common.h"
 #include "debugwindow.h"
 #include "gitwrapper.h"
 #include "global.h"
@@ -507,7 +508,7 @@ void Tag::saveTagsTo(QList<Tag *> &list, const QString &fullPath)
     }
 
     // Write to Disk:
-    if (!BasketScene::safelySaveToFile(fullPath, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + document.toString()))
+    if (!FileStorage::safelySaveToFile(fullPath, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + document.toString()))
         DEBUG_WIN << "<font color=red>FAILED to save tags</font>!";
 }
 

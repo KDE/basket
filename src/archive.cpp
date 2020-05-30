@@ -33,6 +33,7 @@
 #include "basketlistview.h"
 #include "basketscene.h"
 #include "bnpview.h"
+#include "common.h"
 #include "formatimporter.h"
 #include "global.h"
 #include "tag.h"
@@ -77,7 +78,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     Global::bnpView->saveSubHierarchy(Global::bnpView->listViewItemForBasket(basket), stream, withSubBaskets);
     stream.writeEndElement();
     stream.writeEndDocument();
-    BasketScene::safelySaveToFile(tempFolder + "baskets.xml", data);
+    FileStorage::safelySaveToFile(tempFolder + "baskets.xml", data);
     tar.addLocalFile(tempFolder + "baskets.xml", "baskets/baskets.xml");
     dir.remove(tempFolder + "baskets.xml");
 
@@ -442,7 +443,7 @@ void Archive::importTagEmblems(const QString &extractionFolder)
         }
         node = node.nextSibling();
     }
-    BasketScene::safelySaveToFile(extractionFolder + "tags.xml", document->toString());
+    FileStorage::safelySaveToFile(extractionFolder + "tags.xml", document->toString());
 }
 
 void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
@@ -528,7 +529,7 @@ void Archive::renameMergedStatesAndBasketIcon(const QString &fullPath, QMap<QStr
     QDomElement notes = XMLWork::getElement(docElem, "notes");
     if (mergedStates.count() > 0)
         renameMergedStates(notes, mergedStates);
-    BasketScene::safelySaveToFile(fullPath, /*"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + */ doc->toString());
+    FileStorage::safelySaveToFile(fullPath, /*"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + */ doc->toString());
 }
 
 void Archive::importBasketIcon(QDomElement properties, const QString &extractionFolder)
