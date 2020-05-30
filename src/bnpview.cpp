@@ -56,7 +56,6 @@
 #include "basketscene.h"
 #include "basketstatusbar.h"
 #include "colorpicker.h"
-#include "crashhandler.h"
 #include "debugwindow.h"
 #include "decoratedbasket.h"
 #include "formatimporter.h"
@@ -636,7 +635,7 @@ void BNPView::setupActions()
 
     //connect(m_actGrabScreenshot, SIGNAL(regionGrabbed(const QPixmap&)), this, SLOT(screenshotGrabbed(const QPixmap&)));
     //connect(m_colorPicker, SIGNAL(canceledPick()), this, SLOT(colorPickingCanceled()));
-    
+
     //  m_insertActions.append( m_actInsertText     );
     m_insertActions.append(m_actInsertHtml);
     m_insertActions.append(m_actInsertLink);
@@ -2513,12 +2512,6 @@ void BNPView::handleCommandLine()
         new DebugWindow();
         Global::debugWindow->show();
     }
-
-    /* Crash Handler to Mail Developers when Crashing: */
-#ifndef BASKET_USE_DRKONQI
-    if (!parser->isSet("use-drkonqi"))
-        KCrash::setCrashHandler(Crash::crashHandler);
-#endif
 }
 
 void BNPView::reloadBasket(const QString &folderName)
@@ -2716,7 +2709,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
 void BNPView::connectTagsMenu()
 {
-    connect(popupMenu("tags"), &QMenu::aboutToShow, this, [this]() { this->populateTagsMenu(); });  
+    connect(popupMenu("tags"), &QMenu::aboutToShow, this, [this]() { this->populateTagsMenu(); });
     connect(popupMenu("tags"), &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
 }
 

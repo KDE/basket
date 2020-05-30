@@ -16,7 +16,6 @@ set(libbasket_SRCS
     bnpview.cpp
     colorpicker.cpp
     common.cpp
-    crashhandler.cpp
     debugwindow.cpp
     decoratedbasket.cpp
     diskerrordialog.cpp
