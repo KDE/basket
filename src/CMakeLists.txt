@@ -11,6 +11,7 @@ set(libbasket_SRCS
     basketlistview.cpp
     basketproperties.cpp
     basketscene.cpp
+    basketscenemodel.cpp
     basketstatusbar.cpp
     basketview.cpp
     bnpview.cpp
@@ -34,6 +35,7 @@ set(libbasket_SRCS
     notecontent.cpp
     notedrag.cpp
     noteedit.cpp
+    noteitem.cpp
     notefactory.cpp
     noteselection.cpp
     password.cpp

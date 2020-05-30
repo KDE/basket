@@ -101,6 +101,7 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     , m_actionCollection(actionCollection)
     , m_guiClient(aGUIClient)
     , m_statusbar(bar)
+    , m_modelView(nullptr)
 {
     // new BNPViewAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -366,6 +367,14 @@ void BNPView::initialize()
              "You can browse between them by clicking a basket to open it, or reorganize them using drag and drop."));
 
     setTreePlacement(Settings::treeOnLeft());
+
+    // VISUALAIZE AND INTERACT WITH BasketSceneModel using a QTreeView
+    m_modelView = new QTreeView();
+    m_modelView->setMinimumSize(300, 100);
+    m_modelView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+
+    this->addWidget(m_modelView);
+    this->setCollapsible(2, false);
 }
 
 void BNPView::setupActions()
@@ -899,6 +908,8 @@ BasketScene *BNPView::loadBasket(const QString &folderName)
     BasketScene *basket = decoBasket->basket();
     m_stack->addWidget(decoBasket);
 
+    setUpModel(decoBasket->basket()->model());
+
     connect(this, &BNPView::showErrorMessage, decoBasket, &DecoratedBasket::showErrorMessage);
     connect(basket, &BasketScene::countsChanged, this, &BNPView::countsChanged);
 
@@ -1193,8 +1204,25 @@ void BNPView::setCurrentBasket(BasketScene *basket)
         item->basket()->setFocus();
     }
     m_tree->viewport()->update();
+
+    if (basket) {
+        setUpModel(basket->model());
+    }
     Q_EMIT basketChanged();
 }
+
+void BNPView::setUpModel(BasketSceneModel* model)
+{
+    m_modelView->setModel(model);
+    m_modelView->update();
+
+    connect(m_modelView, &QTreeView::expanded, model, &BasketSceneModel::expandItem);
+    connect(m_modelView, &QTreeView::collapsed, model, &BasketSceneModel::collapseItem);
+
+    connect(m_modelView->selectionModel(), &QItemSelectionModel::selectionChanged,
+            qobject_cast<BasketSceneModel *>(m_modelView->model()), &BasketSceneModel::changeSelection);
+}
+
 
 void BNPView::removeBasket(BasketScene *basket)
 {

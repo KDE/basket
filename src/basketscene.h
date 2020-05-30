@@ -14,6 +14,8 @@
 #include <QtGui/QClipboard>
 #include <QtGui/QTextCursor>
 
+#include "basketscenemodel.h"
+
 #include "config.h"
 #include "note.h" // For Note::Zone
 
@@ -69,6 +71,12 @@ public:
     /// CONSTRUCTOR AND DESTRUCTOR:
     BasketScene(QWidget *parent, const QString &folderName);
     ~BasketScene() override;
+
+    /// MODEL
+private:
+    BasketSceneModel m_model;
+public:
+    BasketSceneModel *model() { return &m_model; }
 
     /// USER INTERACTION:
 private:

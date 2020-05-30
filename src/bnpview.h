@@ -10,6 +10,7 @@
 #include <QXmlStreamWriter>
 #include <QtCore/QList>
 #include <QtGui/QClipboard>
+#include <QTreeView>
 
 #include <KXMLGUIClient>
 
@@ -49,6 +50,8 @@ class Note;
 class KMainWindow;
 class KMessageWidget;
 
+class BasketSceneModel;
+
 class BASKET_EXPORT BNPView : public QSplitter
 {
     Q_OBJECT
@@ -80,6 +83,8 @@ public:
     bool canFold();
     bool canExpand();
     void enableActions();
+    /// MODEL INTERACTION
+    void setUpModel(BasketSceneModel *model);
 
 private:
     //! Create <basket> element with <properties>
@@ -356,6 +361,8 @@ private:
     KActionCollection *m_actionCollection;
     KXMLGUIClient *m_guiClient;
     BasketStatusBar *m_statusbar;
+
+    QTreeView *m_modelView;
 
     QUndoStack *m_history;
     KMainWindow *m_HiddenMainWindow;

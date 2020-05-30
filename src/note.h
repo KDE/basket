@@ -39,7 +39,7 @@ class NotePrivate;
  * @endcode
  * @author Sébastien Laoût
  */
-class BASKET_EXPORT Note : public QGraphicsItemGroup
+class BASKET_EXPORT Note :  public QObject, public QGraphicsItemGroup
 {
     /// CONSTRUCTOR AND DESTRUCTOR:
 public:
@@ -55,6 +55,7 @@ public:
     void setPrev(Note *prev);
     Note *next() const;
     Note *prev() const;
+    bool isValid() const { return d != nullptr; }
 
 public:
     void setWidth(qreal width);
