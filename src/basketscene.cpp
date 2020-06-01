@@ -2911,6 +2911,7 @@ BasketScene::~BasketScene()
 #ifdef HAVE_LIBGPGME
     delete m_gpg;
 #endif
+    blockSignals(true);
     deleteNotes();
 
     if (m_view)
