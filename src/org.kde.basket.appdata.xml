@@ -7,6 +7,7 @@
   <developer_name>KDE Community</developer_name>
   <developer_name xml:lang="ca">La comunitat KDE</developer_name>
   <developer_name xml:lang="ca-valencia">La comunitat KDE</developer_name>
+  <developer_name xml:lang="cs">Komunita KDE</developer_name>
   <developer_name xml:lang="es">Comunidad KDE</developer_name>
   <developer_name xml:lang="et">KDE kogukond</developer_name>
   <developer_name xml:lang="fr">Communauté KDE</developer_name>
@@ -22,6 +23,7 @@
   <name>Basket</name>
   <name xml:lang="ca">Basket</name>
   <name xml:lang="ca-valencia">Basket</name>
+  <name xml:lang="cs">Basket</name>
   <name xml:lang="es">Basket</name>
   <name xml:lang="et">Basket</name>
   <name xml:lang="fr">Basket</name>
@@ -36,6 +38,7 @@
   <summary>Notes and to-dos organizer</summary>
   <summary xml:lang="ca">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="ca-valencia">Organitzador de notes i tasques pendents</summary>
+  <summary xml:lang="cs">Shromažďování poznámek a úkolů</summary>
   <summary xml:lang="es">Organizador de notas y tareas pendientes</summary>
   <summary xml:lang="et">Märkmete ja ülesannete korraldaja</summary>
   <summary xml:lang="fr">Notes et organisateur de tâches à faire</summary>
