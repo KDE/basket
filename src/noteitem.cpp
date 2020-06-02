@@ -35,7 +35,7 @@ QString iconNameForType(NoteType::Id type)
 
 }
 
-BasketScene *NoteItem::s_basket;
+QString NoteItem::s_basketPath;
 
 NoteItem::NoteItem()
     : m_parent(nullptr)
@@ -108,9 +108,9 @@ NoteItem *NoteItem::takeAt(int row)
 }
 
 
-void NoteItem::setBasketParent(BasketScene* basket)
+void NoteItem::setBasketPath(QString path)
 {
-    s_basket = basket;
+    s_basketPath = path;
 }
 
 
@@ -219,7 +219,7 @@ void NoteItem::loadPropertiesFromXMLNode(const QDomElement& node)
     if (node.tagName() == "note" || node.tagName() == "item") {      // "item" is to keep compatible with 0.6.0 Alpha 1 (required?)
         const QDomElement content = XMLWork::getElement(node, "content");
         NoteType::Id type = NoteType::typeFromLowerName(node.attribute("type"));
-        m_content = new SimpleContent(type, s_basket->fullPath());
+        m_content = new SimpleContent(type, s_basketPath);
         m_content->loadFromXMLNode(content);
     }
 

@@ -30,17 +30,16 @@ QVariantMap SimpleContent::attributes() const
 QString SimpleContent::toText(const QString& unused) const
 {
     Q_UNUSED(unused)
-/*
+
     switch (m_type) {
     case NoteType::Text:
-    case NoteType::Link:
+    case NoteType::Html:
         return QString::fromUtf8(m_rawData);
     default:
         return m_filePath;
     }
     return QString();
-    */
-    return m_filePath;
+    //return m_filePath;
 }
 
 // Indicates special attributes in the XML for some types
@@ -65,13 +64,11 @@ void SimpleContent::loadFromXMLNode(QDomElement node)
 {
     // Get filename
     m_filePath = node.text();
-/*
+
     //Load data
-    const bool loadedOk = FileStorage::loadFromFile(m_basketPath + m_filePath, &m_rawData);
-    if (!loadedOk) {
-        m_rawData = node.text().toUtf8();
-    }
-*/
+    m_rawData.clear();
+    FileStorage::loadFromFile(m_basketPath + m_filePath, &m_rawData);
+
     // Load Attributes
     m_attributes = defaultAttributes();
     for (const QString &attrName : m_attributes.keys()) {

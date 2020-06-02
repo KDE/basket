@@ -40,8 +40,7 @@ public:
     void removeAt(int row);
     NoteItem *takeAt(int row);
 
-    // Accesors for compatibility with current code
-    static void setBasketParent(BasketScene *basket);
+    static void setBasketPath(QString path);
 
     // NoteItem property getters
     QString displayText() const;
@@ -64,7 +63,7 @@ private:
     NoteItem *m_parent;
     QVector<NoteItem *> m_children;
 
-    static BasketScene *s_basket; // Stored to access some basket methods before porting
+    static QString s_basketPath;
 
     SimpleContent *m_content;
     QRect m_bounds;

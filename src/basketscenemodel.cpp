@@ -4,9 +4,10 @@
  */
 
 #include "basketscenemodel.h"
-#include "basketscene.h"
 
 #include <QDebug>
+
+#include "basketscene.h"
 
 
 BasketSceneModel::BasketSceneModel(QObject *parent)
@@ -184,7 +185,7 @@ void BasketSceneModel::loadFromXML(const QDomElement &node)
 {
     beginResetModel();
     qDeleteAll(m_root->children());
-    NoteItem::setBasketParent(qobject_cast<BasketScene *>(qobject_cast<QObject *>(this)->parent()));
+    NoteItem::setBasketPath(qobject_cast<BasketScene *>(qobject_cast<QObject *>(this)->parent())->fullPath());
     m_root->loadFromXMLNode(node);
     endResetModel();
 }
