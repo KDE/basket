@@ -64,6 +64,8 @@ add_library(LibBasket SHARED ${libbasket_SRCS} ${basket_FORM_HDRS} ${basket_RESO
 target_link_libraries(LibBasket
     ${PHONON_LIBRARY}
     ${GPGME_VANILLA_LIBRARIES}
+    Qt5::Quick
+    Qt5::QuickWidgets
     KF5::Archive
     KF5::ConfigWidgets
     KF5::CoreAddons

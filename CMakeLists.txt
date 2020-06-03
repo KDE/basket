@@ -59,6 +59,8 @@ find_package(Qt5 ${REQUIRED_QT5_VERSION} REQUIRED COMPONENTS
     Core
     DBus
     Gui
+    Quick
+    QuickWidgets
     Widgets
     Xml
 )

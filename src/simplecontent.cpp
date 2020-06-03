@@ -33,6 +33,8 @@ QString SimpleContent::toText() const
     case NoteType::Text:
     case NoteType::Html:
         return QString::fromUtf8(m_rawData);
+    case NoteType::Image:
+        return m_basketPath + m_filePath;
     default:
         return m_filePath;
     }

@@ -26,6 +26,9 @@
 #include <QtGui/QShowEvent>
 #include <QtXml/QDomDocument>
 
+#include <QQuickItem>
+#include <QQuickWidget>
+
 #include <KAboutData>
 #include <KActionCollection>
 #include <KActionMenu>
@@ -102,10 +105,13 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     , m_guiClient(aGUIClient)
     , m_statusbar(bar)
     , m_modelView(nullptr)
+    , m_quickWidget(nullptr)
 {
     // new BNPViewAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject("/BNPView", this);
+
+    qRegisterMetaType<BasketSceneModel *>();
 
     setObjectName(name);
 
@@ -373,7 +379,16 @@ void BNPView::initialize()
     m_modelView->setMinimumSize(300, 100);
     m_modelView->setSelectionMode(QAbstractItemView::ExtendedSelection);
 
+
+    // Create a QQuickView to embed QML display code (I still don't know how to make a plugin)
+    m_quickWidget = new QQuickWidget();
+    m_quickWidget->setSource(QUrl::fromLocalFile("/home/isma/Proyectos/basket_scene.qml"));
+    m_quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    m_quickWidget->setMinimumSize(300, 100);
+
+    this->addWidget(m_quickWidget);
     this->addWidget(m_modelView);
+
     this->setCollapsible(2, false);
 }
 
@@ -1215,6 +1230,8 @@ void BNPView::setUpModel(BasketSceneModel* model)
 {
     m_modelView->setModel(model);
     m_modelView->update();
+
+    m_quickWidget->rootObject()->setProperty("basketModel", QVariant::fromValue(model));
 }
 
 

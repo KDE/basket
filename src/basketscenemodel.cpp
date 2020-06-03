@@ -89,7 +89,7 @@ QVariant BasketSceneModel::data(const QModelIndex &index, int role) const
         case Qt::DisplayRole:
             return item->displayText();
         case Qt::DecorationRole:
-            return item->decoration();
+            return item->decoration().name();
         case Qt::ToolTipRole:       // To ease debugging
             return item->toolTipInfo();
         case BasketSceneModel::ContentRole:

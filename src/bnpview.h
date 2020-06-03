@@ -51,6 +51,7 @@ class KMainWindow;
 class KMessageWidget;
 
 class BasketSceneModel;
+class QQuickWidget;
 
 class BASKET_EXPORT BNPView : public QSplitter
 {
@@ -363,6 +364,7 @@ private:
     BasketStatusBar *m_statusbar;
 
     QTreeView *m_modelView;
+    QQuickWidget *m_quickWidget;
 
     QUndoStack *m_history;
     KMainWindow *m_HiddenMainWindow;

@@ -58,3 +58,5 @@ private:
 private:
     NoteItem *m_root;
 };
+
+Q_DECLARE_METATYPE(BasketSceneModel *)
