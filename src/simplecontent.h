@@ -16,7 +16,7 @@ public:
 
     NoteType::Id type() const;
     QVariantMap attributes() const;
-    QString toText(const QString &unused) const;
+    QString toText() const;
 
     void loadFromXMLNode(QDomElement node);
 

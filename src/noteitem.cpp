@@ -116,9 +116,11 @@ void NoteItem::setBasketPath(QString path)
 
 QString NoteItem::displayText() const
 {
-    if (type() == NoteType::Group) { return QStringLiteral("GROUP"); }
+    if (type() == NoteType::Group) {
+        return QStringLiteral("GROUP (%1)").arg(childrenCount());
+    }
     if (!content()) { return QStringLiteral("<no content>"); }
-    return content()->toText(QString());
+    return content()->toText();
 }
 
 QIcon NoteItem::decoration() const
@@ -157,13 +159,13 @@ QString NoteItem::address() const
 QString NoteItem::toolTipInfo() const
 {
     QStringList toolTip;
-
+/*
     // fullAddress and position within parent (debug)
     toolTip << QStringLiteral("<%1> @<%2>[%3]")
                                 .arg(address())
                                 .arg(m_parent->address())
                                 .arg(row());
-
+*/
     // type
     toolTip << QStringLiteral("Type: %1").arg(NoteType::typeToName(type()));
 
@@ -179,7 +181,9 @@ QString NoteItem::toolTipInfo() const
             << QStringLiteral("modified: %1").arg(info.modified.toString());
 
     // tags
-    toolTip << QStringLiteral("Tags: %1").arg(m_tagIds.join(QStringLiteral(", ")));
+    if (!m_tagIds.isEmpty()) {
+        toolTip << QStringLiteral("Tags: %1").arg(m_tagIds.join(QStringLiteral(", ")));
+    }
 
     //attributes
     const auto attributes = m_content->attributes();
@@ -238,5 +242,5 @@ void NoteItem::loadPropertiesFromXMLNode(const QDomElement& node)
 
     // Tags:
     const QString tagsString = XMLWork::getElementText(node, QStringLiteral("tags"), QString());
-    m_tagIds = tagsString.split(';');
+    m_tagIds = tagsString.split(QLatin1Char(';'));
 }

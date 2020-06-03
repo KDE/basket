@@ -27,10 +27,8 @@ QVariantMap SimpleContent::attributes() const
 }
 
 
-QString SimpleContent::toText(const QString& unused) const
+QString SimpleContent::toText() const
 {
-    Q_UNUSED(unused)
-
     switch (m_type) {
     case NoteType::Text:
     case NoteType::Html:
