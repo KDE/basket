@@ -27,6 +27,7 @@ ListView {
             Loader {
                 id: contentLoader
                 Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
 
                 sourceComponent: {
                     switch (model.type) {
@@ -59,7 +60,7 @@ ListView {
                     Image {
                         source: model.display
                         fillMode: Image.PreserveAspectFit
-                        //Layout.maximumHeight: paintedHeight
+                        Layout.alignment: Qt.AlignTop
                     }
                 }
             }

@@ -177,12 +177,15 @@ QString NoteItem::toolTipInfo() const
 
     // edition information
     const EditionDates info = editionDates();
-    toolTip << QStringLiteral("created: %1").arg(info.created.toString())
-            << QStringLiteral("modified: %1").arg(info.modified.toString());
-
+    if (info.created.isValid()) {
+        toolTip << QStringLiteral("created: %1").arg(info.created.toString());
+    }
+    if (info.modified.isValid()) {
+        toolTip << QStringLiteral("modified: %1").arg(info.modified.toString());
+    }
     // tags
     if (!m_tagIds.isEmpty()) {
-        toolTip << QStringLiteral("Tags: %1").arg(m_tagIds.join(QStringLiteral(", ")));
+        toolTip << QStringLiteral("tags: %1").arg(m_tagIds.join(QStringLiteral(", ")));
     }
 
     //attributes
@@ -242,5 +245,7 @@ void NoteItem::loadPropertiesFromXMLNode(const QDomElement& node)
 
     // Tags:
     const QString tagsString = XMLWork::getElementText(node, QStringLiteral("tags"), QString());
-    m_tagIds = tagsString.split(QLatin1Char(';'));
+    if (!tagsString.isEmpty()) {
+        m_tagIds = tagsString.split(QLatin1Char(';'));
+    }
 }
