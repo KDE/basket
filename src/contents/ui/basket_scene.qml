@@ -26,25 +26,48 @@ ColumnLayout {
 
         Kirigami.Heading {
             level: 5
-            text: "Columnns : " + columnSplitter.count
+            text: "Groups : " + groupRepeater.count
             Layout.alignment: Qt.AlignRight
         }
     }
 
-    QQC2.SplitView {
+    Loader {
+        id: groupLoader
+        property bool isFreeLayout: true
+
+        sourceComponent: (isFreeLayout) ? freeBasketLayout : columnBasketLayout
+
+        Component {
+            id: freeBasketLayout
+            Item {}
+        }
+        Component {
+            id: columnBasketLayout
+            QQC2.SplitView {}
+        }
+
         Layout.fillWidth: true
         Layout.fillHeight: true
-        Repeater {
-            id: columnSplitter
-            model: basketModel
-            delegate: ListView {
-                model: DelegateModel {
-                    id: groupModel
-                    model: basketModel
-                    rootIndex: groupModel.modelIndex(index)
-                    delegate: NoteDelegate {}
-                }
+    }
+
+    Repeater {
+        id: groupRepeater
+        model: basketModel
+        delegate: ListView {
+            parent: groupLoader.item
+            header: NoteDelegate {
+                backgroundColor: Kirigami.Theme.backgroundColor
             }
+            model: DelegateModel {
+                id: groupModel
+                model: basketModel
+                rootIndex: groupModel.modelIndex(index)
+                delegate: NoteDelegate {}
+            }
+            x: geometry.x
+            y: geometry.y
+            width: geometry.width
+            height: contentHeight + headerItem.height
         }
     }
 }

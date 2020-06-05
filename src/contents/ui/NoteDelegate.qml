@@ -14,7 +14,7 @@ Kirigami.AbstractListItem {
 
     RowLayout {
         Kirigami.Icon {
-            source: model.decoration
+            source: decoration
             Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
             Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
         }
@@ -25,7 +25,7 @@ Kirigami.AbstractListItem {
             Layout.alignment: Qt.AlignTop
 
             sourceComponent: {
-                switch (model.type) {
+                switch (type) {
                     case 255: return groupRenderer;
                     case 3: return imageRenderer;
                     default: return textRenderer;
@@ -34,18 +34,14 @@ Kirigami.AbstractListItem {
 
             Component {
                 id: groupRenderer
-                // ERROR: GroupRenderer is instantiated recursively
-                //             GroupRenderer {
-                //                 model: root.model.childrenObjects
-                //             }
                 QQC2.Label {
-                    text: model.display
+                    text: display
                 }
             }
             Component {
                 id: textRenderer
                 TextEdit {
-                    text: model.display
+                    text: display
                     textFormat: TextEdit.RichText
                     wrapMode: TextEdit.WordWrap
                 }
@@ -53,7 +49,7 @@ Kirigami.AbstractListItem {
             Component {
                 id: imageRenderer
                 Image {
-                    source: model.display
+                    source: display
                     fillMode: Image.PreserveAspectFit
                     Layout.alignment: Qt.AlignTop
                 }
@@ -62,7 +58,7 @@ Kirigami.AbstractListItem {
 
         QQC2.ToolTip {
             visible: hovered
-            text: model.toolTip
+            text: toolTip
         }
     }
 }
