@@ -19,6 +19,8 @@ class BASKET_EXPORT BasketSceneModel : public QAbstractItemModel
 {
     Q_OBJECT
 
+    Q_PROPERTY (int layout READ layout NOTIFY layoutChanged)
+
 public:
     enum AdditionalRoles {
         ContentRole = Qt::UserRole + 1, // NoteContent * : the internal NoteContent
@@ -26,6 +28,11 @@ public:
         GeometryRole,       // QRect: the bounds of the Note
         EditionRole,        // NoteItem::EditInfo: the edition information about the Note
     };
+    enum Layout {
+        FreeLayout = 0,
+        ColumnLayout
+    };
+    Q_ENUM(Layout)
 
 public:
     explicit BasketSceneModel(QObject *parent = nullptr);
@@ -49,14 +56,20 @@ public:
     void clear();
 
 public Q_SLOTS:
-    void loadFromXML(const QDomElement &node);
+    void loadFromXML(const QDomElement &doc);
+
+    Layout layout() const;
 
 private:
     NoteItem *itemAtIndex(const QModelIndex &index) const;
     QModelIndex indexOfItem(NoteItem *item) const;
 
+Q_SIGNALS:
+    void layoutChanged();
+
 private:
     NoteItem *m_root;
+    Layout m_layout = FreeLayout;
 };
 
 Q_DECLARE_METATYPE(BasketSceneModel *)

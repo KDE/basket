@@ -991,6 +991,10 @@ void BasketScene::load()
     m_locked = false;
 
     QDomElement docElem = doc->documentElement();
+
+    // Load model from XML doc element
+    m_model.loadFromXML(docElem);
+
     QDomElement properties = XMLWork::getElement(docElem, "properties");
 
     loadProperties(properties); // Since we are loading, this time the background image will also be loaded!
@@ -1010,9 +1014,6 @@ void BasketScene::load()
     if (m_shouldConvertPlainTextNotes)
         convertTexts();
     m_watcher->startScan();
-
-    // Load model
-    m_model.loadFromXML(notes);
 
     signalCountsChanged();
     if (isColumnsLayout()) {

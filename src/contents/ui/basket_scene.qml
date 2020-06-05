@@ -33,13 +33,11 @@ ColumnLayout {
 
     Loader {
         id: groupLoader
-        property bool isFreeLayout: true
-
-        sourceComponent: (isFreeLayout) ? freeBasketLayout : columnBasketLayout
+        sourceComponent: (basketModel.layout === 0) ? freeBasketLayout : columnBasketLayout
 
         Component {
             id: freeBasketLayout
-            Item {}
+            Item {}     //TODO: Replace with a nice resizable component
         }
         Component {
             id: columnBasketLayout

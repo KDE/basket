@@ -6,8 +6,10 @@
 #include "basketscenemodel.h"
 
 #include <QDebug>
+#include <QDomElement>
 
 #include "basketscene.h"
+#include "xmlwork.h"
 
 
 BasketSceneModel::BasketSceneModel(QObject *parent)
@@ -181,11 +183,27 @@ void BasketSceneModel::clear()
     endResetModel();
 }
 
-void BasketSceneModel::loadFromXML(const QDomElement &node)
+void BasketSceneModel::loadFromXML(const QDomElement &doc)
 {
+    QDomElement properties = XMLWork::getElement(doc, "properties");
+    QDomElement notes = XMLWork::getElement(doc, "notes");
+
+    // Load basket properties
+    QDomElement disposition = XMLWork::getElement(properties, "disposition");
+    bool isFree = XMLWork::trueOrFalse(disposition.attribute("free", "true"));
+    m_layout = (isFree) ? Layout::FreeLayout : Layout::ColumnLayout;
+    Q_EMIT layoutChanged();
+
+    // Load notes
     beginResetModel();
     qDeleteAll(m_root->children());
     NoteItem::setBasketPath(qobject_cast<BasketScene *>(qobject_cast<QObject *>(this)->parent())->fullPath());
-    m_root->loadFromXMLNode(node);
+    m_root->loadFromXMLNode(notes);
     endResetModel();
+}
+
+
+BasketSceneModel::Layout BasketSceneModel::layout() const
+{
+    return m_layout;
 }
