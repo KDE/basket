@@ -382,7 +382,7 @@ void BNPView::initialize()
 
     // Create a QQuickView to embed QML display code (I still don't know how to make a plugin)
     m_quickWidget = new QQuickWidget();
-    m_quickWidget->setSource(QUrl::fromLocalFile("/home/isma/Proyectos/basket_scene.qml"));
+    m_quickWidget->setSource(QUrl("qrc:/basket_scene.qml"));
     m_quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     m_quickWidget->setMinimumSize(300, 100);
 

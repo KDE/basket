@@ -51,6 +51,8 @@ set(libbasket_SRCS
     xmlwork.cpp
 )
 
+qt5_add_resources(libbasket_SRCS resources.qrc)
+
 set(PIMO_CPP "") # One of the generated files
 
 ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
