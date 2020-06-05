@@ -13,6 +13,7 @@
 #include <QMenu>
 #include <QProgressDialog>
 #include <QStackedWidget>
+#include <QTabWidget>
 #include <QUndoStack>
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
@@ -79,6 +80,9 @@
 #include "xmlwork.h"
 
 #include <QFileDialog>
+#include <QQuickItem>
+#include <QQuickWidget>
+#include <QQmlEngine>
 #include <QResource>
 #include <QStandardPaths>
 #include <qdbusconnection.h>
@@ -334,15 +338,27 @@ void BNPView::initialize()
     m_tree->setAcceptDrops(true);
     m_tree->viewport()->setAcceptDrops(true);
 
+    /// Just for the QML demo.
+    QTabWidget *tabWidget = new QTabWidget(this);
+
     /// Configure the Splitter:
-    m_stack = new QStackedWidget(this);
+    m_stack = new QStackedWidget(tabWidget);
+
+    // Create a QQuickView to embed QML display code (I still don't know how to make a plugin)
+    m_quickWidget = new QQuickWidget(tabWidget);
+    m_quickWidget->setSource(QUrl("qrc:/basket_scene.qml"));
+    m_quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    m_quickWidget->setMinimumSize(300, 100);
+
+    tabWidget->addTab(m_stack, QStringLiteral("Classic QWidget"));
+    tabWidget->addTab(m_quickWidget, QStringLiteral("BasketView QML Draft"));
 
     setOpaqueResize(true);
 
     setCollapsible(indexOf(m_tree), true);
-    setCollapsible(indexOf(m_stack), false);
+    setCollapsible(indexOf(tabWidget), false);
     setStretchFactor(indexOf(m_tree), 0);
-    setStretchFactor(indexOf(m_stack), 1);
+    setStretchFactor(indexOf(tabWidget), 1);
 
     /// Configure the List View Signals:
     connect(m_tree, &BasketTreeListView::itemActivated, this, &BNPView::slotPressed);
@@ -374,22 +390,11 @@ void BNPView::initialize()
 
     setTreePlacement(Settings::treeOnLeft());
 
+
     // VISUALAIZE AND INTERACT WITH BasketSceneModel using a QTreeView
-    m_modelView = new QTreeView();
+    m_modelView = new QTreeView(this);
     m_modelView->setMinimumSize(300, 100);
     m_modelView->setSelectionMode(QAbstractItemView::ExtendedSelection);
-
-
-    // Create a QQuickView to embed QML display code (I still don't know how to make a plugin)
-    m_quickWidget = new QQuickWidget();
-    m_quickWidget->setSource(QUrl("qrc:/basket_scene.qml"));
-    m_quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    m_quickWidget->setMinimumSize(300, 100);
-
-    this->addWidget(m_quickWidget);
-    this->addWidget(m_modelView);
-
-    this->setCollapsible(2, false);
 }
 
 void BNPView::setupActions()
