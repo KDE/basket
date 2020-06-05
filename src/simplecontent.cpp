@@ -37,7 +37,7 @@ QString SimpleContent::toText() const
         return QStringLiteral("<a href=%1>%2</a>").arg(m_filePath)
                                                   .arg(m_attributes.value(QStringLiteral("title")).toString());
     case NoteType::Image:
-        return m_basketPath + m_filePath;
+        return QStringLiteral("file://") + m_basketPath + m_filePath;
     default:
         return m_filePath;
     }
