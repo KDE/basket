@@ -12,6 +12,8 @@ import org.kde.kirigami 2.12 as Kirigami
 
 Kirigami.AbstractListItem {
 
+    backgroundColor: Kirigami.Theme.backgroundColor
+
     RowLayout {
         Kirigami.Icon {
             source: decoration
@@ -23,6 +25,8 @@ Kirigami.AbstractListItem {
             id: contentLoader
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
+
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
 
             sourceComponent: {
                 switch (type) {
@@ -42,6 +46,7 @@ Kirigami.AbstractListItem {
                 id: textRenderer
                 TextEdit {
                     text: display
+                    color: Kirigami.Theme.textColor
                     textFormat: TextEdit.RichText
                     wrapMode: TextEdit.WordWrap
                 }

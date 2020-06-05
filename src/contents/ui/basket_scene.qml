@@ -14,38 +14,68 @@ import org.kde.kirigami 2.12 as Kirigami
 ColumnLayout {
     property var basketModel;
 
-    RowLayout {
+    spacing: 0
+
+    Rectangle {
         Layout.fillWidth: true
-        Layout.preferredHeight: implicitHeight
+        Layout.preferredHeight: viewHeader.implicitHeight
 
-        Kirigami.Heading {
-            Layout.fillWidth: true
-            level: 3
-            text: "BasketQMLViewDraft"
-        }
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        color: Kirigami.Theme.backgroundColor
 
-        Kirigami.Heading {
-            level: 5
-            text: "Groups : " + groupRepeater.count
-            Layout.alignment: Qt.AlignRight
+        RowLayout {
+            id: viewHeader
+            anchors.fill: parent
+
+            Kirigami.Heading {
+                Layout.fillWidth: true
+                level: 3
+                text: "BasketQMLViewDraft"
+            }
+
+            Kirigami.Heading {
+                level: 5
+                text: "Groups : " + groupRepeater.count
+                Layout.alignment: Qt.AlignRight
+            }
         }
     }
 
-    Loader {
-        id: groupLoader
-        sourceComponent: (basketModel.layout === 0) ? freeBasketLayout : columnBasketLayout
-
-        Component {
-            id: freeBasketLayout
-            Item {}     //TODO: Replace with a nice resizable component
-        }
-        Component {
-            id: columnBasketLayout
-            QQC2.SplitView {}
-        }
-
+    Rectangle {
         Layout.fillWidth: true
         Layout.fillHeight: true
+
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        color: Kirigami.Theme.backgroundColor
+
+        Loader {
+            id: groupLoader
+            anchors.fill: parent
+            sourceComponent: (basketModel.layout === 0) ? freeBasketLayout : columnBasketLayout
+
+            Component {
+                id: freeBasketLayout
+                Item {}     //TODO: Replace with a nice resizable component
+            }
+            Component {
+                id: columnBasketLayout
+                QQC2.SplitView {
+                    handle: Rectangle {
+                        implicitHeight: Kirigami.Units.largeSpacing
+                        implicitWidth: Kirigami.Units.largeSpacing
+                        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                        color: (QQC2.SplitHandle.pressed) ? Kirigami.Theme.highlightColor
+                             : (QQC2.SplitHandle.hovered) ? Kirigami.Theme.hoverColor
+                                                          : Kirigami.Theme.backgroundColor
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.SplitHCursor
+                            acceptedButtons: Qt.NoButton
+                        }
+                    }
+                }
+            }
+        }
     }
 
     Repeater {
@@ -54,18 +84,21 @@ ColumnLayout {
         delegate: ListView {
             parent: groupLoader.item
             header: NoteDelegate {
-                backgroundColor: Kirigami.Theme.backgroundColor
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
             }
             model: DelegateModel {
                 id: groupModel
                 model: basketModel
                 rootIndex: groupModel.modelIndex(index)
-                delegate: NoteDelegate {}
+                delegate: NoteDelegate { Kirigami.Theme.colorSet: Kirigami.Theme.View }
             }
             x: geometry.x
             y: geometry.y
-            width: geometry.width
+            implicitWidth: geometry.width
             height: contentHeight + headerItem.height
+            Component.onCompleted: {
+                currentIndex = -1
+            }
         }
     }
 }
