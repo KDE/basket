@@ -7,21 +7,21 @@
 #include <QtTest/QtTest>
 #include <QAbstractItemModelTester>
 
-#include <basketscenemodel.h>
+#include <basketmodel.h>
 
-class BasketSceneModelTest : public QObject
+class BasketModelTest : public QObject
 {
     Q_OBJECT
 
 private Q_SLOTS:
-    void testBasketSceneModel();
+    void testBasketModel();
 };
 
-QTEST_MAIN(BasketSceneModelTest)
+QTEST_MAIN(BasketModelTest)
 
-void BasketSceneModelTest::testBasketSceneModel()
+void BasketModelTest::testBasketModel()
 {
-    BasketSceneModel *model = new BasketSceneModel(nullptr);
+    BasketModel *model = new BasketModel(nullptr);
     auto tester = new QAbstractItemModelTester(model);
 }
 

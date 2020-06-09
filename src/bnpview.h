@@ -50,7 +50,7 @@ class Note;
 class KMainWindow;
 class KMessageWidget;
 
-class BasketSceneModel;
+class BasketModel;
 class QQuickWidget;
 
 class BASKET_EXPORT BNPView : public QSplitter
@@ -85,7 +85,7 @@ public:
     bool canExpand();
     void enableActions();
     /// MODEL INTERACTION
-    void setUpModel(BasketSceneModel *model);
+    void setUpModel(BasketModel *model);
 
 private:
     //! Create <basket> element with <properties>

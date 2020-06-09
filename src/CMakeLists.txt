@@ -9,9 +9,9 @@ set(libbasket_SRCS
     backup.cpp
     basketfactory.cpp
     basketlistview.cpp
+    basketmodel.cpp
     basketproperties.cpp
     basketscene.cpp
-    basketscenemodel.cpp
     basketstatusbar.cpp
     basketview.cpp
     bnpview.cpp

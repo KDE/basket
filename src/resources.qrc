@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 <RCC>
     <qresource prefix="/">
-        <file alias="basket_scene.qml">contents/ui/basket_scene.qml</file>
+        <file alias="BasketView.qml">contents/ui/BasketView.qml</file>
         <file alias="NoteDelegate.qml">contents/ui/NoteDelegate.qml</file>
     </qresource>
 </RCC>

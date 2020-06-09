@@ -14,7 +14,7 @@
 #include <QtGui/QClipboard>
 #include <QtGui/QTextCursor>
 
-#include "basketscenemodel.h"
+#include "basketmodel.h"
 
 #include "config.h"
 #include "note.h" // For Note::Zone
@@ -74,9 +74,9 @@ public:
 
     /// MODEL
 private:
-    BasketSceneModel m_model;
+    BasketModel m_model;
 public:
-    BasketSceneModel *model() { return &m_model; }
+    BasketModel *model() { return &m_model; }
 
     /// USER INTERACTION:
 private:

@@ -27,9 +27,6 @@
 #include <QtGui/QShowEvent>
 #include <QtXml/QDomDocument>
 
-#include <QQuickItem>
-#include <QQuickWidget>
-
 #include <KAboutData>
 #include <KActionCollection>
 #include <KActionMenu>
@@ -115,7 +112,7 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject("/BNPView", this);
 
-    qRegisterMetaType<BasketSceneModel *>();
+    qRegisterMetaType<BasketModel *>();
 
     setObjectName(name);
 
@@ -346,7 +343,7 @@ void BNPView::initialize()
 
     // Create a QQuickView to embed QML display code (I still don't know how to make a plugin)
     m_quickWidget = new QQuickWidget(tabWidget);
-    m_quickWidget->setSource(QUrl("qrc:/basket_scene.qml"));
+    m_quickWidget->setSource(QUrl("qrc:/BasketView.qml"));
     m_quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
     m_quickWidget->setMinimumSize(300, 100);
 
@@ -1231,7 +1228,7 @@ void BNPView::setCurrentBasket(BasketScene *basket)
     Q_EMIT basketChanged();
 }
 
-void BNPView::setUpModel(BasketSceneModel* model)
+void BNPView::setUpModel(BasketModel* model)
 {
     m_modelView->setModel(model);
     m_modelView->update();

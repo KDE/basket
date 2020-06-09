@@ -15,7 +15,7 @@
 class BasketScene;
 
 
-class BASKET_EXPORT BasketSceneModel : public QAbstractItemModel
+class BASKET_EXPORT BasketModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -35,8 +35,8 @@ public:
     Q_ENUM(Layout)
 
 public:
-    explicit BasketSceneModel(QObject *parent = nullptr);
-    ~BasketSceneModel();
+    explicit BasketModel(QObject *parent = nullptr);
+    ~BasketModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -72,4 +72,4 @@ private:
     Layout m_layout = FreeLayout;
 };
 
-Q_DECLARE_METATYPE(BasketSceneModel *)
+Q_DECLARE_METATYPE(BasketModel *)
