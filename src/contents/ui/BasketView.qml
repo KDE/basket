@@ -55,14 +55,17 @@ ColumnLayout {
 
             Component {
                 id: freeBasketLayout
-                Item {}     //TODO: Replace with a nice resizable component
+                Item {
+                    implicitWidth: childrenRect.width
+                    implicitHeight: childrenRect.height
+                }
             }
             Component {
                 id: columnBasketLayout
                 QQC2.SplitView {
                     handle: Rectangle {
-                        implicitHeight: Kirigami.Units.largeSpacing
                         implicitWidth: Kirigami.Units.largeSpacing
+                        implicitHeight: Kirigami.Units.largeSpacing
                         Kirigami.Theme.colorSet: Kirigami.Theme.Window
                         color: (QQC2.SplitHandle.pressed) ? Kirigami.Theme.highlightColor
                              : (QQC2.SplitHandle.hovered) ? Kirigami.Theme.hoverColor
@@ -81,11 +84,31 @@ ColumnLayout {
     Repeater {
         id: groupRepeater
         model: basketModel
-        delegate: ListView {
-            parent: groupLoader.item
-            header: NoteDelegate {
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        delegate: groupDelegate
+
+        property rect contentRect: {
+            let x = itemMap(Math.min, item => item.x)
+            let y = itemMap(Math.min, item => item.y)
+            let w = itemMap(Math.max, item => item.x + item.width) - x
+            let h = itemMap(Math.max, item => item.y + item.height) - y
+            return Qt.rect(x, y, w, h)
+        }
+
+        function itemMap(operation, itemFunc, initValue) {
+            var acc = null
+            for (var idx = 0; idx < count; idx++) {
+                var item = itemAt(idx)
+                acc = (acc) ? operation(acc, itemFunc(item)) : itemFunc(item)
             }
+            return acc;
+        }
+    }
+
+    Component {
+        id: groupDelegate
+        ListView {
+            parent: groupLoader.item
+
             model: DelegateModel {
                 id: groupModel
                 model: basketModel
@@ -95,7 +118,8 @@ ColumnLayout {
             x: geometry.x
             y: geometry.y
             implicitWidth: geometry.width
-            height: contentHeight + headerItem.height
+            height: contentHeight
+
             Component.onCompleted: {
                 currentIndex = -1
             }
