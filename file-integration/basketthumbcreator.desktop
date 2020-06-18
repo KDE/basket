@@ -15,6 +15,7 @@ Name[nl]=Basket archieven & sjablonen
 Name[pt]=Pacotes & Modelos do Basket
 Name[sv]=Basket arkiv och mallar
 Name[uk]=Архіви і шаблони Basket
+Name[x-test]=xxBasket Archives & Templatesxx
 Name[zh_TW]=筆記封存及模本
 ServiceTypes=ThumbCreator
 MimeTypes=application/x-basket-archive,application/x-basket-template
