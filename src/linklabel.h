@@ -126,8 +126,8 @@ class LinkLabel : public QFrame
 {
     Q_OBJECT
 public:
-    LinkLabel(int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = nullptr);
-    LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = nullptr);
+    LinkLabel(int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     ~LinkLabel() override;
 
 public:
@@ -220,7 +220,7 @@ class LinkLookEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    LinkLookEditWidget(KCModule *module, const QString exTitle, const QString exIcon, QWidget *parent = nullptr, Qt::WindowFlags fl = nullptr);
+    LinkLookEditWidget(KCModule *module, const QString exTitle, const QString exIcon, QWidget *parent = nullptr, Qt::WindowFlags fl = Qt::WindowFlags());
     ~LinkLookEditWidget() override;
     void saveChanges();
     void saveToLook(LinkLook *look);

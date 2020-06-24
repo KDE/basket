@@ -938,25 +938,25 @@ void TagsEditDialog::moveDown()
 
 void TagsEditDialog::selectUp()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Up, nullptr, nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Up, Qt::KeyboardModifiers(), nullptr);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectDown()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Down, nullptr, nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Down, Qt::KeyboardModifiers(), nullptr);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectLeft()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, nullptr, nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, Qt::KeyboardModifiers(), nullptr);
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectRight()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, nullptr, nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, Qt::KeyboardModifiers(), nullptr);
     QApplication::postEvent(m_tags, keyEvent);
 }
 

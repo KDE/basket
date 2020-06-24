@@ -1036,13 +1036,13 @@ void BNPView::foldBasket()
     if (item && item->childCount() <= 0)
         item->setExpanded(false); // If Alt+Left is hit and there is nothing to close, make sure the focus will go to the parent basket
 
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, nullptr, nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, Qt::KeyboardModifiers(), nullptr);
     QApplication::postEvent(m_tree, keyEvent);
 }
 
 void BNPView::expandBasket()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, nullptr, nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, Qt::KeyboardModifiers(), nullptr);
     QApplication::postEvent(m_tree, keyEvent);
 }
 
