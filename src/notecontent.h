@@ -533,6 +533,7 @@ public:
     QString messageWhenOpening(OpenMessage where) override;
     QString customOpenCommand() override;
     // Content-Specific Methods:
+    void setFileName(const QString &fileName) override;
     LinkLook *linkLook() override
     {
         return LinkLook::soundLook;

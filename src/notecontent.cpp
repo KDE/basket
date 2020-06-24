@@ -1526,10 +1526,10 @@ void FileContent::setFileName(const QString &fileName)
 {
     NoteContent::setFileName(fileName);
     QUrl url = QUrl::fromLocalFile(fullPath());
-    if (linkLook()->previewEnabled())
-        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
+    if (FileContent::linkLook()->previewEnabled())
+        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), FileContent::linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
     else
-        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), linkLook(), note()->font());
+        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), FileContent::linkLook(), note()->font());
     startFetchingUrlPreview();
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
@@ -1584,7 +1584,7 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
 SoundContent::SoundContent(Note *parent, const QString &fileName)
     : FileContent(parent, fileName)
 {
-    setFileName(fileName);
+    SoundContent::setFileName(fileName);
     music = new Phonon::MediaObject(this);
     music->setCurrentSource(Phonon::MediaSource(fullPath()));
     Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
@@ -1639,6 +1639,19 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
     default:
         return QString();
     }
+}
+
+
+void SoundContent::setFileName(const QString &fileName)
+{
+    NoteContent::setFileName(fileName);
+    QUrl url = QUrl::fromLocalFile(fullPath());
+    if (SoundContent::linkLook()->previewEnabled())
+        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), SoundContent::linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
+    else
+        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), SoundContent::linkLook(), note()->font());
+    startFetchingUrlPreview();
+    contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
 
 /** class LinkContent:
