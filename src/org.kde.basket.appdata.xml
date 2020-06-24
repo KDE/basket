@@ -18,6 +18,7 @@
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="ru">Сообщество KDE</developer_name>
   <developer_name xml:lang="sk">KDE komunita</developer_name>
+  <developer_name xml:lang="sl">Skupnost KDE</developer_name>
   <developer_name xml:lang="sv">KDE-gemenskapen</developer_name>
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
@@ -34,6 +35,7 @@
   <name xml:lang="nl">Basket</name>
   <name xml:lang="pt">Basket</name>
   <name xml:lang="sk">Basket</name>
+  <name xml:lang="sl">Basket</name>
   <name xml:lang="sv">Basket</name>
   <name xml:lang="uk">Basket</name>
   <name xml:lang="x-test">xxBasketxx</name>
@@ -49,6 +51,7 @@
   <summary xml:lang="it">Gestore di note e cose da fare</summary>
   <summary xml:lang="nl">Organisator van notities en te-doens</summary>
   <summary xml:lang="pt">Organizador de notas e tarefas</summary>
+  <summary xml:lang="sl">Organizator zabeležk in nalog</summary>
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
   <summary xml:lang="uk">Програма для впорядкування нотаток і завдань</summary>
   <summary xml:lang="x-test">xxNotes and to-dos organizerxx</summary>
@@ -64,6 +67,7 @@
     <p xml:lang="it">Questa applicazione ti mette a disposizione tutti i cesti che vuoi, e puoi trascinarvi del contenuto.</p>
     <p xml:lang="nl">Deze toepassing levert zoveel baskets als u wilt en u kunt slepen en loslaten.</p>
     <p xml:lang="pt">Esta aplicação oferece tantos cestos quantos desejar, podendo depois arrastar e largar conteúdos neles.</p>
+    <p xml:lang="sl">Ta aplikacija ponuja toliko košar, kot želite, lahko jih povlečete in spuščate.</p>
     <p xml:lang="sv">Programmet tillhandahåller så många korgar som du vill, och du kan dra och släppa.</p>
     <p xml:lang="uk">Ця програма створює довільну кількість кошиків, які ви можете перетягувати і скидати.</p>
     <p xml:lang="x-test">xxThis application provides as many baskets as you wish, and you can drag and drop.xx</p>
@@ -78,6 +82,7 @@
     <p xml:lang="it">Gli oggetti possono essere modificati, copiati, trascinati... Puoi quindi organizzarli come preferisci!</p>
     <p xml:lang="nl">Objecten kunnen bewerkt, gekopieerd, versleept worden... U kunt ze dus arrangeren zoals u wilt!</p>
     <p xml:lang="pt">Os objectos poderão ser editados, copiados, arrastados... Por isso, pode organizá-los como desejar !</p>
+    <p xml:lang="sl">Predmete lahko urejate, kopirate, vlečete ... Torej jih lahko uredite kot želite!</p>
     <p xml:lang="sv">Objekt kan redigeras, kopieras, dras, ... Så du kan arrangera dem som du vill.</p>
     <p xml:lang="uk">Об'єкти можна редагувати, копіювати, перетягувати… Отже, ви можете впорядкувати їх так, як вам заманеться!</p>
     <p xml:lang="x-test">xxObjects can be edited, copied, dragged... So, you can arrange them as you want !xx</p>
@@ -92,6 +97,7 @@
     <p xml:lang="it">Ti permette di organizzare note, tenere traccia delle cose da fare, e altro ancora.</p>
     <p xml:lang="nl">Het biedt het arrangeren van notities, het volgen van te-doens en veel meer.</p>
     <p xml:lang="pt">Permite organizar as notas, acompanhar as tarefas e muito mais.</p>
+    <p xml:lang="sl">Omogoča urejanje zabeležk, nalog in veliko več.</p>
     <p xml:lang="sv">Den gör det möjligt att arrangera anteckningar, följa uppgifter, med mera.</p>
     <p xml:lang="uk">Програма уможливлює упорядкування нотаток, стеження за завданнями та виконання багатьох інших завдань.</p>
     <p xml:lang="x-test">xxIt allows to arrange notes, track to-dos and much more.xx</p>
