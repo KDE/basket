@@ -1450,9 +1450,10 @@ QMap<QString, QString> FileContent::toolTipInfos()
     }
 
     MetaDataExtractionResult result(fullPath(), mime.name());
-    KFileMetaData::ExtractorCollection extractorCollection;
 
-    for (KFileMetaData::Extractor *ex : extractorCollection.fetchExtractors(mime.name())) {
+    KFileMetaData::ExtractorCollection extractorCollection;
+    const QList<KFileMetaData::Extractor*> exList = extractorCollection.fetchExtractors(mime.name());
+    for (KFileMetaData::Extractor *ex : exList) {
         ex->extract(&result);
         const auto groups = result.preferredGroups();
         DEBUG_WIN << "Metadata Extractor result has " << QString::number(groups.count()) << " groups";
