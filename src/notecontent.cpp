@@ -181,7 +181,7 @@ NoteContent::NoteContent(Note *parent, const NoteType::Id type, const QString &f
     if (parent) {
         parent->setContent(this);
     }
-    setFileName(fileName);
+    NoteContent::setFileName(fileName);
 }
 
 void NoteContent::saveToNode(QXmlStreamWriter &stream)
@@ -917,7 +917,7 @@ TextContent::TextContent(Note *parent, const QString &fileName, bool lazyLoad)
     }
 
     basket()->addWatchedFile(fullPath());
-    loadFromFile(lazyLoad);
+    TextContent::loadFromFile(lazyLoad);
 }
 
 TextContent::~TextContent()
@@ -944,7 +944,7 @@ bool TextContent::loadFromFile(bool lazyLoad)
         qDebug() << "FAILED TO LOAD TextContent: " << fullPath();
         setText(QString(), lazyLoad);
         if (!QFile::exists(fullPath()))
-            saveToFile(); // Reserve the fileName so no new note will have the same name!
+            TextContent::saveToFile(); // Reserve the fileName so no new note will have the same name!
     }
     return success;
 }
@@ -994,7 +994,7 @@ void TextContent::setText(const QString &text, bool lazyLoad)
 {
     m_graphicsTextItem.setText(text);
     if (!lazyLoad)
-        finishLazyLoad();
+        TextContent::finishLazyLoad();
     else
         contentChanged(m_graphicsTextItem.boundingRect().width());
 }
@@ -1020,7 +1020,7 @@ HtmlContent::HtmlContent(Note *parent, const QString &fileName, bool lazyLoad)
         m_graphicsTextItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
     }
     basket()->addWatchedFile(fullPath());
-    loadFromFile(lazyLoad);
+    HtmlContent::loadFromFile(lazyLoad);
 }
 
 HtmlContent::~HtmlContent()
@@ -1050,7 +1050,7 @@ bool HtmlContent::loadFromFile(bool lazyLoad)
     else {
         setHtml(QString(), lazyLoad);
         if (!QFile::exists(fullPath()))
-            saveToFile(); // Reserve the fileName so no new note will have the same name!
+            HtmlContent::saveToFile(); // Reserve the fileName so no new note will have the same name!
     }
     return success;
 }
@@ -1118,9 +1118,9 @@ void HtmlContent::setHtml(const QString &html, bool lazyLoad)
     while (m_html.contains(rx)) {
         m_html.replace( rx.cap().unicode()[0], QString("&#%1;").arg(rx.cap().unicode()[0].unicode()) );
     }*/
-    m_textEquivalent = toText(QString()); // OPTIM_FILTER
+    m_textEquivalent = HtmlContent::toText(QString()); // OPTIM_FILTER
     if (!lazyLoad)
-        finishLazyLoad();
+        HtmlContent::finishLazyLoad();
     else
         contentChanged(10);
 }
@@ -1149,7 +1149,7 @@ ImageContent::ImageContent(Note *parent, const QString &fileName, bool lazyLoad)
     }
 
     basket()->addWatchedFile(fullPath());
-    loadFromFile(lazyLoad);
+    ImageContent::loadFromFile(lazyLoad);
 }
 
 ImageContent::~ImageContent()
@@ -1178,7 +1178,7 @@ bool ImageContent::loadFromFile(bool lazyLoad)
     if (lazyLoad)
         return true;
     else
-        return finishLazyLoad();
+        return ImageContent::finishLazyLoad();
 }
 
 bool ImageContent::finishLazyLoad()
@@ -1208,7 +1208,7 @@ bool ImageContent::finishLazyLoad()
     pixmap.setMask(pixmap.createHeuristicMask());
     setPixmap(pixmap);
     if (!QFile::exists(fullPath()))
-        saveToFile(); // Reserve the fileName so no new note will have the same name!
+        ImageContent::saveToFile(); // Reserve the fileName so no new note will have the same name!
     return false;
 }
 
@@ -1299,7 +1299,7 @@ AnimationContent::AnimationContent(Note *parent, const QString &fileName, bool l
     connect(m_movie, SIGNAL(resized(QSize)), this, SLOT(movieResized()));
     connect(m_movie, SIGNAL(frameChanged(int)), this, SLOT(movieFrameChanged()));
 
-    loadFromFile(lazyLoad);
+    AnimationContent::loadFromFile(lazyLoad);
 }
 
 AnimationContent::~AnimationContent()
@@ -1328,7 +1328,7 @@ bool AnimationContent::loadFromFile(bool lazyLoad)
     if (lazyLoad)
         return true;
     else
-        return finishLazyLoad();
+        return AnimationContent::finishLazyLoad();
 }
 
 bool AnimationContent::finishLazyLoad()
@@ -1409,7 +1409,7 @@ FileContent::FileContent(Note *parent, const QString &fileName)
     , m_previewJob(nullptr)
 {
     basket()->addWatchedFile(fullPath());
-    setFileName(fileName); // FIXME: TO THAT HERE BECAUSE NoteContent() constructor seems to don't be able to call virtual methods???
+    FileContent::setFileName(fileName); // FIXME: TO THAT HERE BECAUSE NoteContent() constructor seems to don't be able to call virtual methods???
     if (parent) {
         parent->addToGroup(&m_linkDisplayItem);
         m_linkDisplayItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
@@ -2074,7 +2074,7 @@ LauncherContent::LauncherContent(Note *parent, const QString &fileName)
     , m_linkDisplayItem(parent)
 {
     basket()->addWatchedFile(fullPath());
-    loadFromFile(/*lazyLoad=*/false);
+    LauncherContent::loadFromFile(/*lazyLoad=*/false);
     if (parent) {
         parent->addToGroup(&m_linkDisplayItem);
         m_linkDisplayItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
@@ -2199,7 +2199,7 @@ ColorItem::ColorItem(Note *parent, const QColor &color)
     : QGraphicsItem(parent)
     , m_note(parent)
 {
-    setColor(color);
+    ColorItem::setColor(color);
 }
 
 void ColorItem::setColor(const QColor &color)
@@ -2393,7 +2393,7 @@ UnknownContent::UnknownContent(Note *parent, const QString &fileName)
     }
 
     basket()->addWatchedFile(fullPath());
-    loadFromFile(/*lazyLoad=*/false);
+    UnknownContent::loadFromFile(/*lazyLoad=*/false);
 }
 
 UnknownContent::~UnknownContent()

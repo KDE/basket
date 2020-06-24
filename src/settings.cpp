@@ -354,7 +354,7 @@ GeneralPage::GeneralPage(QWidget *parent, const char *name)
     layout->addRow(i18n("&Filter bar position:"), m_filterOnTop);
     connect(m_filterOnTop, SIGNAL(activated(int)), this, SLOT(changed()));
 
-    load();
+    GeneralPage::load();
 }
 
 void GeneralPage::load()
@@ -516,7 +516,7 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
 #endif
 
     layout->insertStretch(-1);
-    load();
+    BasketsPage::load();
 }
 
 void BasketsPage::load()
@@ -664,7 +664,7 @@ NewNotesPage::NewNotesPage(QWidget *parent, const char *name)
     connect(m_viewSoundFileContent, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
     layout->insertStretch(-1);
-    load();
+    NewNotesPage::load();
 }
 
 void NewNotesPage::load()
@@ -733,7 +733,7 @@ NotesAppearancePage::NotesAppearancePage(QWidget *parent, const char *name)
     tabs->addTab(m_launcherLook, i18n("Launc&hers"));
     tabs->addTab(m_crossReferenceLook, i18n("&Cross References"));
 
-    load();
+    NotesAppearancePage::load();
 }
 
 void NotesAppearancePage::load()
@@ -876,7 +876,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const char *name)
     connect(m_soundUseProg, SIGNAL(toggled(bool)), m_soundProg, SLOT(setEnabled(bool)));
 
     layout->insertStretch(-1);
-    load();
+    ApplicationsPage::load();
 }
 
 void ApplicationsPage::load()

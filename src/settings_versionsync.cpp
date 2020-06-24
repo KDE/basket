@@ -43,7 +43,7 @@ VersionSyncPage::VersionSyncPage(QWidget *parent, const char *name)
 #endif
 
     connect(ui->checkBoxEnable, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    load();
+    VersionSyncPage::load();
 }
 
 VersionSyncPage::~VersionSyncPage()
