@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: (C) 2003 by Sébastien Laoût <slaout@linux62.org>
+ *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
@@ -7,6 +8,7 @@
 
 #include <QGraphicsView>
 #include <QVBoxLayout>
+#include <KMessageWidget>
 
 #include "basketscene.h"
 #include "filter.h"
@@ -14,28 +16,30 @@
 
 /** Class DecoratedBasket: */
 
-DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName)
+DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl)
     : QWidget(parent)
 {
     m_layout = new QVBoxLayout(this);
     m_filter = new FilterBar(this);
+    m_filter->hide();
+
     m_basket = new BasketScene(this, folderName);
     m_basket->graphicsView()->setParent(this);
     m_layout->addWidget(m_basket->graphicsView());
-    setFilterBarPosition(Settings::filterOnTop());
-
-    m_filter->hide();
     m_basket->setFocus(); // To avoid the filter bar have focus on load
 
-    connect(m_filter, SIGNAL(newFilter(const FilterData &)), m_basket, SLOT(newFilter(const FilterData &)));
+    m_messageWidget = new KMessageWidget(this);
+    m_messageWidget->setCloseButtonVisible(true);
+    m_messageWidget->setMessageType(KMessageWidget::MessageType::Error);
+    m_messageWidget->hide();
+    m_layout->addWidget(m_messageWidget);
 
+    setFilterBarPosition(Settings::filterOnTop());
+
+    connect(m_filter, SIGNAL(newFilter(const FilterData &)), m_basket, SLOT(newFilter(const FilterData &)));
     connect(m_basket, &BasketScene::postMessage, Global::bnpView, &BNPView::postStatusbarMessage);
     connect(m_basket, &BasketScene::setStatusBarText, Global::bnpView, &BNPView::setStatusBarHint);
     connect(m_basket, &BasketScene::resetStatusBarText, Global::bnpView, &BNPView::updateStatusBarHint);
-}
-
-DecoratedBasket::~DecoratedBasket()
-{
 }
 
 void DecoratedBasket::setFilterBarPosition(bool onTop)
@@ -45,12 +49,14 @@ void DecoratedBasket::setFilterBarPosition(bool onTop)
         m_layout->insertWidget(0, m_filter);
         setTabOrder(this /*(QWidget*)parent()*/, m_filter);
         setTabOrder(m_filter, m_basket->graphicsView());
-        setTabOrder(m_basket->graphicsView(), (QWidget *)parent());
+        setTabOrder(m_basket->graphicsView(), m_messageWidget);
+        setTabOrder(m_messageWidget, (QWidget *)parent());
     } else {
         m_layout->addWidget(m_filter);
         setTabOrder(this /*(QWidget*)parent()*/, m_basket->graphicsView());
         setTabOrder(m_basket->graphicsView(), m_filter);
-        setTabOrder(m_filter, (QWidget *)parent());
+        setTabOrder(m_filter, m_messageWidget);
+        setTabOrder(m_messageWidget, (QWidget *)parent());
     }
 }
 
@@ -79,4 +85,10 @@ void DecoratedBasket::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
     m_basket->relayoutNotes();
+}
+
+void DecoratedBasket::showErrorMessage(const QString &errorMessage)
+{
+    m_messageWidget->setText(errorMessage);
+    m_messageWidget->show();
 }

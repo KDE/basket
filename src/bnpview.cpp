@@ -39,6 +39,7 @@
 #include <KToggleAction>
 #include <KWindowSystem>
 #include <KXMLGUIFactory>
+#include <KMessageWidget>
 
 #ifndef BASKET_USE_DRKONQI
 #include <KCrash>
@@ -98,8 +99,6 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     , m_actionCollection(actionCollection)
     , m_guiClient(aGUIClient)
     , m_statusbar(bar)
-    , m_tryHideTimer(nullptr)
-    , m_hideTimer(nullptr)
 {
     // new BNPViewAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
@@ -134,8 +133,6 @@ BNPView::~BNPView()
 
     Global::bnpView = nullptr;
 
-    delete Global::systemTray;
-    Global::systemTray = nullptr;
     delete m_statusbar;
     delete m_history;
     m_history = nullptr;
@@ -145,29 +142,9 @@ BNPView::~BNPView()
 
 void BNPView::lateInit()
 {
-    /*
-        InlineEditors* instance = InlineEditors::instance();
-
-        if(instance)
-        {
-            KToolBar* toolbar = instance->richTextToolBar();
-
-            if(toolbar)
-                toolbar->hide();
-        }
-    */
-
     // If the main window is hidden when session is saved, Container::queryClose()
     //  isn't called and the last value would be kept
-    Settings::setStartDocked(true);
     Settings::saveConfig();
-
-    /* System tray icon */
-    Global::systemTray = new SystemTray(Global::activeMainWindow());
-    Global::systemTray->setIconByName(":/images/22-apps-basket");
-    connect(Global::systemTray, &SystemTray::showPart, this, &BNPView::showPart);
-    /*if (Settings::useSystray())
-        Global::systemTray->show();*/
 
     // Load baskets
     DEBUG_WIN << "Baskets are loaded from " + Global::basketsFolder();
@@ -198,22 +175,6 @@ void BNPView::lateInit()
         Settings::setWelcomeBasketsAdded(true);
         Settings::saveConfig();
     }
-
-    m_tryHideTimer = new QTimer(this);
-    m_hideTimer = new QTimer(this);
-    connect(m_tryHideTimer, &QTimer::timeout, this, &BNPView::timeoutTryHide);
-    connect(m_hideTimer, &QTimer::timeout, this, &BNPView::timeoutHide);
-
-    // Preload every baskets for instant filtering:
-    /*StopWatch::start(100);
-        QListViewItemIterator it(m_tree);
-        while (it.current()) {
-            BasketListViewItem *item = ((BasketListViewItem*)it.current());
-            item->basket()->load();
-            qApp->processEvents();
-            ++it;
-        }
-    StopWatch::check(100);*/
 }
 
 void BNPView::addWelcomeBaskets()
@@ -267,27 +228,12 @@ void BNPView::setupGlobalShortcuts()
 
     int modifier = Qt::CTRL + Qt::ALT + Qt::SHIFT;
 
-    if (basketMainWindow) {
-        a = ac->addAction("global_show_hide_main_window", Global::systemTray, SLOT(toggleActive()));
-        a->setText(i18n("Show/hide main window"));
-        a->setStatusTip(
-            i18n("Allows you to show main Window if it is hidden, and to hide "
-                 "it if it is shown."));
-        KGlobalAccel::self()->setGlobalShortcut(a, (QKeySequence(modifier + Qt::Key_W)));
-    }
-
     a = ac->addAction("global_paste", Global::bnpView, SLOT(globalPasteInCurrentBasket()));
     a->setText(i18n("Paste clipboard contents in current basket"));
     a->setStatusTip(
         i18n("Allows you to paste clipboard contents in the current basket "
              "without having to open the main window."));
     KGlobalAccel::self()->setGlobalShortcut(a, QKeySequence(modifier + Qt::Key_V));
-
-    a = ac->addAction("global_show_current_basket", Global::bnpView, SLOT(showPassiveContentForced()));
-    a->setText(i18n("Show current basket name"));
-    a->setStatusTip(
-        i18n("Allows you to know basket is current without opening "
-             "the main window."));
 
     a = ac->addAction("global_paste_selection", Global::bnpView, SLOT(pasteSelInCurrentBasket()));
     a->setText(i18n("Paste selection in current basket"));
@@ -437,13 +383,6 @@ void BNPView::setupActions()
     a->setIcon(QIcon::fromTheme("baskets"));
     a->setShortcut(0);
     m_actOpenArchive = a;
-
-    a = ac->addAction("window_hide", this, SLOT(hideOnEscape()));
-    a->setText(i18n("&Hide Window"));
-    m_actionCollection->setDefaultShortcut(a, KStandardShortcut::Close);
-    m_actHideWindow = a;
-
-    m_actHideWindow->setEnabled(Settings::useSystray()); // Init here !
 
     a = ac->addAction("basket_export_html", this, SLOT(exportToHTML()));
     a->setText(i18n("&HTML Web Page..."));
@@ -953,7 +892,9 @@ BasketScene *BNPView::loadBasket(const QString &folderName)
     BasketScene *basket = decoBasket->basket();
     m_stack->addWidget(decoBasket);
 
+    connect(this, &BNPView::showErrorMessage, decoBasket, &DecoratedBasket::showErrorMessage);
     connect(basket, &BasketScene::countsChanged, this, &BNPView::countsChanged);
+
     // Important: Create listViewItem and connect signal BEFORE loadProperties(), so we get the listViewItem updated without extra work:
     connect(basket, &BasketScene::propertiesChanged, this, &BNPView::updateBasketListViewItem);
 
@@ -1241,8 +1182,6 @@ void BNPView::setCurrentBasket(BasketScene *basket)
         setWindowTitle(item->basket()->basketName());
         countsChanged(basket);
         updateStatusBarHint();
-        if (Global::systemTray)
-            Global::systemTray->updateDisplay();
         m_tree->scrollToItem(m_tree->currentItem());
         item->basket()->setFocus();
     }
@@ -1356,8 +1295,6 @@ void BNPView::updateBasketListViewItem(BasketScene *basket)
 
     if (basket == currentBasket()) {
         setWindowTitle(basket->basketName());
-        if (Global::systemTray)
-            Global::systemTray->updateDisplay();
     }
 
     // Don't save if we are loading!
@@ -1724,14 +1661,9 @@ void BNPView::slotColorFromScreenGlobal()
 void BNPView::colorPicked(const QColor &color)
 {
     if (!currentBasket()->isLoaded()) {
-        showPassiveLoading(currentBasket());
         currentBasket()->load();
     }
     currentBasket()->insertColor(color);
-
-    if (Settings::usePassivePopup()) {
-        showPassiveDropped(i18n("Picked color to basket <i>%1</i>"));
-    }
 }
 
 void BNPView::slotConvertTexts()
@@ -1772,7 +1704,6 @@ QMenu *BNPView::popupMenu(const QString &menuName)
     QMenu *menu = nullptr;
 
     if (m_guiClient) {
-        qDebug() << "m_guiClient";
         KXMLGUIFactory *factory = m_guiClient->factory();
         if (factory) {
             menu = (QMenu *)factory->container(menuName, m_guiClient);
@@ -1817,7 +1748,6 @@ void BNPView::showHideFilterBar(bool show, bool switchFocus)
 void BNPView::insertEmpty(int type)
 {
     if (currentBasket()->isLocked()) {
-        showPassiveImpossible(i18n("Cannot add note."));
         return;
     }
     currentBasket()->insertEmptyNote(type);
@@ -1826,7 +1756,7 @@ void BNPView::insertEmpty(int type)
 void BNPView::insertWizard(int type)
 {
     if (currentBasket()->isLocked()) {
-        showPassiveImpossible(i18n("Cannot add note."));
+        Q_EMIT showErrorMessage(i18n("Cannot add note."));
         return;
     }
     currentBasket()->insertWizard(type);
@@ -1887,7 +1817,6 @@ void BNPView::screenshotGrabbed(const QPixmap &pixmap)
     }
 
     if (!currentBasket()->isLoaded()) {
-        showPassiveLoading(currentBasket());
         currentBasket()->load();
     }
     currentBasket()->insertImage(pixmap);
@@ -1895,8 +1824,6 @@ void BNPView::screenshotGrabbed(const QPixmap &pixmap)
     if (m_colorPickWasShown)
         showMainWindow();
 
-    if (Settings::usePassivePopup())
-        showPassiveDropped(i18n("Grabbed screen zone to basket <i>%1</i>"));
 }
 
 BasketScene *BNPView::basketForFolderName(const QString &folderName)
@@ -2189,146 +2116,11 @@ void BNPView::globalPasteInCurrentBasket()
 void BNPView::pasteInCurrentBasket()
 {
     currentBasket()->pasteNote();
-
-    if (Settings::usePassivePopup())
-        showPassiveDropped(i18n("Clipboard content pasted to basket <i>%1</i>"));
 }
 
 void BNPView::pasteSelInCurrentBasket()
 {
     currentBasket()->pasteNote(QClipboard::Selection);
-
-    if (Settings::usePassivePopup())
-        showPassiveDropped(i18n("Selection pasted to basket <i>%1</i>"));
-}
-
-void BNPView::showPassiveDropped(const QString &title)
-{
-    if (!currentBasket()->isLocked()) {
-        // TODO: Keep basket, so that we show the message only if something was added to a NOT visible basket
-        m_passiveDroppedTitle = title;
-        m_passiveDroppedSelection = currentBasket()->selectedNotes();
-        QTimer::singleShot(c_delayTooltipTime, this, SLOT(showPassiveDroppedDelayed()));
-        // DELAY IT BELOW:
-    } else
-        showPassiveImpossible(i18n("No note was added."));
-}
-
-void BNPView::showPassiveDroppedDelayed()
-{
-    if (isMainWindowActive() || m_passiveDroppedSelection == nullptr)
-        return;
-
-    QString title = m_passiveDroppedTitle;
-
-    QImage contentsImage = NoteDrag::feedbackPixmap(m_passiveDroppedSelection).toImage();
-    QResource::registerResource(contentsImage.bits(), QStringLiteral(":/images/passivepopup_image"));
-
-    if (Settings::useSystray()) {
-        /*Uncomment after switching to QSystemTrayIcon or port to KStatusNotifierItem
-         See also other occurrences of Global::systemTray below*/
-        /*KPassivePopup::message(KPassivePopup::Boxed,
-            title.arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-            (contentsImage.isNull() ? QString() : QStringLiteral("<img src=\":/images/passivepopup_image\">")),
-            KIconLoader::global()->loadIcon(
-                currentBasket()->icon(), KIconLoader::NoGroup, 16,
-                KIconLoader::DefaultState, QStringList(), 0L, true
-            ),
-            Global::systemTray);*/
-    } else {
-        KPassivePopup::message(KPassivePopup::Boxed,
-                               title.arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-                               (contentsImage.isNull() ? QString() : QStringLiteral("<img src=\":/images/passivepopup_image\">")),
-                               KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true),
-                               (QWidget *)this);
-    }
-}
-
-void BNPView::showPassiveImpossible(const QString &message)
-{
-    if (Settings::useSystray()) {
-        /*KPassivePopup::message(KPassivePopup::Boxed,
-                        QString("<font color=red>%1</font>")
-                        .arg(i18n("Basket <i>%1</i> is locked"))
-                        .arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-                        message,
-                        KIconLoader::global()->loadIcon(
-                            currentBasket()->icon(), KIconLoader::NoGroup, 16,
-                            KIconLoader::DefaultState, QStringList(), 0L, true
-                        ),
-        Global::systemTray);*/
-    } else {
-        /*KPassivePopup::message(KPassivePopup::Boxed,
-                        QString("<font color=red>%1</font>")
-                        .arg(i18n("Basket <i>%1</i> is locked"))
-                        .arg(Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-                        message,
-                        KIconLoader::global()->loadIcon(
-                            currentBasket()->icon(), KIconLoader::NoGroup, 16,
-                            KIconLoader::DefaultState, QStringList(), 0L, true
-                        ),
-        (QWidget*)this);*/
-    }
-}
-
-void BNPView::showPassiveContentForced()
-{
-    showPassiveContent(/*forceShow=*/true);
-}
-
-void BNPView::showPassiveContent(bool forceShow /* = false*/)
-{
-    if (!forceShow && isMainWindowActive())
-        return;
-
-    // FIXME: Duplicate code (2 times)
-    QString message;
-
-    if (Settings::useSystray()) {
-        /*KPassivePopup::message(KPassivePopup::Boxed,
-            "<qt>" + Tools::makeStandardCaption(
-                currentBasket()->isLocked() ? QString("%1 <font color=gray30>%2</font>")
-                .arg(Tools::textToHTMLWithoutP(currentBasket()->basketName()), i18n("(Locked)"))
-                : Tools::textToHTMLWithoutP(currentBasket()->basketName())
-            ),
-            message,
-            KIconLoader::global()->loadIcon(
-                currentBasket()->icon(), KIconLoader::NoGroup, 16,
-                KIconLoader::DefaultState, QStringList(), 0L, true
-            ),
-        Global::systemTray);*/
-    } else {
-        KPassivePopup::message(KPassivePopup::Boxed,
-                               "<qt>" +
-                                   Tools::makeStandardCaption(currentBasket()->isLocked() ? QString("%1 <font color=gray30>%2</font>").arg(Tools::textToHTMLWithoutP(currentBasket()->basketName()), i18n("(Locked)"))
-                                                                                          : Tools::textToHTMLWithoutP(currentBasket()->basketName())),
-                               message,
-                               KIconLoader::global()->loadIcon(currentBasket()->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true),
-                               (QWidget *)this);
-    }
-}
-
-void BNPView::showPassiveLoading(BasketScene *basket)
-{
-    if (isMainWindowActive())
-        return;
-
-    if (Settings::useSystray()) {
-        /*KPassivePopup::message(KPassivePopup::Boxed,
-            Tools::textToHTMLWithoutP(basket->basketName()),
-            i18n("Loading..."),
-            KIconLoader::global()->loadIcon(
-                basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState,
-                QStringList(), 0L, true
-            ),
-            Global::systemTray);*/
-    } else {
-        KPassivePopup::message(KPassivePopup::Boxed,
-                               Tools::textToHTMLWithoutP(basket->basketName()),
-                               i18n("Loading..."),
-                               KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, true),
-                               (QWidget *)this);
-    }
 }
 
 void BNPView::addNoteText()
@@ -2421,13 +2213,6 @@ void BNPView::setActive(bool active)
     if (active == isMainWindowActive())
         return;
     // qApp->updateUserTimestamp(); // If "activate on mouse hovering systray", or "on drag through systray"
-    Global::systemTray->activate();
-}
-
-void BNPView::hideOnEscape()
-{
-    if (Settings::useSystray())
-        setActive(false);
 }
 
 bool BNPView::isMainWindowActive()
@@ -2519,67 +2304,6 @@ void BNPView::reloadBasket(const QString &folderName)
     basketForFolderName(folderName)->reload();
 }
 
-/** Scenario of "Hide main window to system tray icon when mouse move out of the window" :
- * - At enterEvent() we stop m_tryHideTimer
- * - After that and before next, we are SURE cursor is hovering window
- * - At leaveEvent() we restart m_tryHideTimer
- * - Every 'x' ms, timeoutTryHide() seek if cursor hover a widget of the application or not
- * - If yes, we musn't hide the window
- * - But if not, we start m_hideTimer to hide main window after a configured elapsed time
- * - timeoutTryHide() continue to be called and if cursor move again to one widget of the app, m_hideTimer is stopped
- * - If after the configured time cursor hasn't go back to a widget of the application, timeoutHide() is called
- * - It then hide the main window to systray icon
- * - When the user will show it, enterEvent() will be called the first time he enter mouse to it
- * - ...
- */
-
-/** Why do as this ? Problems with the use of only enterEvent() and leaveEvent() :
- * - Resize window or hover titlebar isn't possible : leave/enterEvent
- *   are
- *   > Use the grip or Alt+rightDND to resize window
- *   > Use Alt+DND to move window
- * - Each menu trigger the leavEvent
- */
-
-void BNPView::enterEvent(QEvent *)
-{
-    if (m_tryHideTimer)
-        m_tryHideTimer->stop();
-    if (m_hideTimer)
-        m_hideTimer->stop();
-}
-
-void BNPView::leaveEvent(QEvent *)
-{
-    if (Settings::useSystray() && Settings::hideOnMouseOut() && m_tryHideTimer)
-        m_tryHideTimer->start(50);
-}
-
-void BNPView::timeoutTryHide()
-{
-    // If a menu is displayed, do nothing for the moment
-    if (qApp->activePopupWidget() != nullptr)
-        return;
-
-    if (qApp->widgetAt(QCursor::pos()) != nullptr)
-        m_hideTimer->stop();
-    else if (!m_hideTimer->isActive()) { // Start only one time
-        m_hideTimer->setSingleShot(true);
-        m_hideTimer->start(Settings::timeToHideOnMouseOut() * 100);
-    }
-
-    // If a subdialog is opened, we mustn't hide the main window:
-    if (qApp->activeWindow() != nullptr && qApp->activeWindow() != Global::activeMainWindow())
-        m_hideTimer->stop();
-}
-
-void BNPView::timeoutHide()
-{
-    // We check that because the setting can have been set to off
-    if (Settings::useSystray() && Settings::hideOnMouseOut())
-        setActive(false);
-    m_tryHideTimer->stop();
-}
 
 void BNPView::changedSelectedNotes()
 {

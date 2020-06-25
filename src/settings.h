@@ -15,7 +15,6 @@
 
 #include "basket_export.h"
 #include "bnpview.h"
-#include "systemtray.h"
 
 class KComboBox;
 
@@ -47,16 +46,6 @@ private:
     // General
     KComboBox *m_treeOnLeft;
     KComboBox *m_filterOnTop;
-    QCheckBox *m_usePassivePopup;
-
-    // System Tray Icon
-    QCheckBox *m_useSystray;
-    QWidget *m_systray;
-    QCheckBox *m_showIconInSystray;
-    QCheckBox *m_hideOnMouseOut;
-    QSpinBox *m_timeToHideOnMouseOut;
-    QCheckBox *m_showOnMouseIn;
-    QSpinBox *m_timeToShowOnMouseIn;
 };
 
 class BASKET_EXPORT BasketsPage : public KCModule
@@ -168,7 +157,6 @@ protected:
     /** Main window */
     static bool s_treeOnLeft;
     static bool s_filterOnTop;
-    static bool s_playAnimations;
     static bool s_showNotesToolTip;
     static bool s_confirmNoteDeletion;
     static bool s_bigNotes;
@@ -176,7 +164,6 @@ protected:
     static bool s_pasteAsPlainText;
     static bool s_exportTextTags;
     static bool s_useGnuPGAgent;
-    static bool s_usePassivePopup;
     static int s_middleAction; // O:Nothing ; 1:Paste ; 2:Text ; 3:Html ; 4:Image ; 5:Link ; 6:Launcher ; 7:Color
     static bool s_groupOnInsertionLine;
     static bool s_spellCheckTextNotes;
@@ -196,14 +183,6 @@ protected:
     static int s_viewHtmlFileContent;
     static int s_viewImageFileContent;
     static int s_viewSoundFileContent;
-    /** System tray Icon */
-    static bool s_useSystray;
-    static bool s_showIconInSystray;
-    static bool s_startDocked;
-    static bool s_hideOnMouseOut;
-    static int s_timeToHideOnMouseOut;
-    static bool s_showOnMouseIn;
-    static int s_timeToShowOnMouseIn;
     /** Programs */
     static bool s_htmlUseProg;
     static bool s_imageUseProg;
@@ -229,10 +208,6 @@ public: /* And the following methods are just getter / setters */
     static inline bool filterOnTop()
     {
         return s_filterOnTop;
-    }
-    static inline bool playAnimations()
-    {
-        return s_playAnimations;
     }
     static inline bool showNotesToolTip()
     {
@@ -274,18 +249,6 @@ public: /* And the following methods are just getter / setters */
     {
         return s_reLockTimeoutMinutes;
     }
-    static inline bool useSystray()
-    {
-        return s_useSystray;
-    }
-    static inline bool showIconInSystray()
-    {
-        return s_showIconInSystray;
-    }
-    static inline bool startDocked()
-    {
-        return s_startDocked;
-    }
     static inline int middleAction()
     {
         return s_middleAction;
@@ -298,22 +261,6 @@ public: /* And the following methods are just getter / setters */
     {
         return s_spellCheckTextNotes;
     }
-    static inline bool hideOnMouseOut()
-    {
-        return s_hideOnMouseOut;
-    }
-    static inline int timeToHideOnMouseOut()
-    {
-        return s_timeToHideOnMouseOut;
-    }
-    static inline bool showOnMouseIn()
-    {
-        return s_showOnMouseIn;
-    }
-    static inline int timeToShowOnMouseIn()
-    {
-        return s_timeToShowOnMouseIn;
-    }
     static inline int basketTreeWidth()
     {
         return s_basketTreeWidth;
@@ -322,10 +269,6 @@ public: /* And the following methods are just getter / setters */
     {
         return 7;
     } // TODO: 700 ; TODO: There is certainly a KGlobalConfig ???
-    static inline bool usePassivePopup()
-    {
-        return s_usePassivePopup;
-    }
     static inline bool welcomeBasketsAdded()
     {
         return s_welcomeBasketsAdded;
@@ -442,28 +385,6 @@ public: /* And the following methods are just getter / setters */
     {
         s_showNotesToolTip = show;
     }
-    static void setUseSystray(bool useSystray)
-    {
-        if (s_useSystray != useSystray) {
-            s_useSystray = useSystray;
-            if (Global::systemTray != nullptr) {
-                if (Settings::useSystray())
-                    Global::systemTray->setStatus(KStatusNotifierItem::Active);
-                else {
-                    Global::systemTray->setStatus(KStatusNotifierItem::Passive);
-                    if (Global::activeMainWindow())
-                        Global::activeMainWindow()->show();
-                }
-            }
-            if (Global::bnpView)
-                Global::bnpView->m_actHideWindow->setEnabled(useSystray);
-        }
-    }
-    static void setShowIconInSystray(bool show)
-    {
-        if (s_showIconInSystray != show)
-            s_showIconInSystray = show;
-    }
     static inline void setConfirmNoteDeletion(bool confirm)
     {
         s_confirmNoteDeletion = confirm;
@@ -482,10 +403,6 @@ public: /* And the following methods are just getter / setters */
     {
         s_useGnuPGAgent = yes;
     }
-    static inline void setPlayAnimations(bool play)
-    {
-        s_playAnimations = play;
-    }
     static inline void setBlinkedFilter(bool blinked)
     {
         s_blinkedFilter = blinked;
@@ -497,10 +414,6 @@ public: /* And the following methods are just getter / setters */
     static inline void setReLockTimeoutMinutes(int minutes)
     {
         s_reLockTimeoutMinutes = minutes;
-    }
-    static inline void setStartDocked(bool docked)
-    {
-        s_startDocked = docked;
     }
     static inline void setMiddleAction(int action)
     {
@@ -514,29 +427,9 @@ public: /* And the following methods are just getter / setters */
     {
         s_spellCheckTextNotes = yes;
     }
-    static inline void setHideOnMouseOut(bool hide)
-    {
-        s_hideOnMouseOut = hide;
-    }
-    static inline void setTimeToHideOnMouseOut(int time)
-    {
-        s_timeToHideOnMouseOut = time;
-    }
-    static inline void setShowOnMouseIn(bool show)
-    {
-        s_showOnMouseIn = show;
-    }
-    static inline void setTimeToShowOnMouseIn(int time)
-    {
-        s_timeToShowOnMouseIn = time;
-    }
     static inline void setBasketTreeWidth(int width)
     {
         s_basketTreeWidth = width;
-    }
-    static inline void setUsePassivePopup(bool enable)
-    {
-        s_usePassivePopup = enable;
     }
     static inline void setWelcomeBasketsAdded(bool added)
     {

@@ -47,6 +47,7 @@ class Tag;
 class State;
 class Note;
 class KMainWindow;
+class KMessageWidget;
 
 class BASKET_EXPORT BNPView : public QSplitter
 {
@@ -144,12 +145,6 @@ public Q_SLOTS:
     void addNoteCrossReference();
     void addNoteColor();
     /** Passive Popups for Global Actions */
-    void showPassiveDropped(const QString &title);
-    void showPassiveDroppedDelayed(); // Do showPassiveDropped(), but delayed
-    void showPassiveContent(bool forceShow = false);
-    void showPassiveContentForced();
-    void showPassiveImpossible(const QString &message);
-    void showPassiveLoading(BasketScene *basket);
     // For GUI :
     void setFiltering(bool filtering);
     /** Edit */
@@ -183,11 +178,8 @@ public Q_SLOTS:
     void delayedOpenArchive();
     void delayedOpenBasket();
     void lockBasket();
-    void hideOnEscape();
 
     void changedSelectedNotes();
-    void timeoutTryHide();
-    void timeoutHide();
 
     void loadCrossReference(QString link);
     QString folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent = nullptr);
@@ -223,7 +215,6 @@ public:
     QAction *actNewBasket;
     QAction *actNewSubBasket;
     QAction *actNewSiblingBasket;
-    QAction *m_actHideWindow;
     QAction *m_actExportToHtml;
     QAction *m_actPropBasket;
     QAction *m_actSortChildrenAsc;
@@ -338,10 +329,7 @@ Q_SIGNALS:
     void basketChanged();
     void setWindowCaption(const QString &s);
     void showPart();
-
-protected:
-    void enterEvent(QEvent *) override;
-    void leaveEvent(QEvent *) override;
+    void showErrorMessage(const QString &message);
 
 protected:
     void hideMainWindow();
@@ -362,8 +350,6 @@ private:
     KActionCollection *m_actionCollection;
     KXMLGUIClient *m_guiClient;
     BasketStatusBar *m_statusbar;
-    QTimer *m_tryHideTimer;
-    QTimer *m_hideTimer;
 
     QUndoStack *m_history;
     KMainWindow *m_HiddenMainWindow;

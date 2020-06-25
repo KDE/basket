@@ -15,6 +15,8 @@ class QGraphicsView;
 
 #include "filter.h"
 
+class KMessageWidget;
+
 /** This class handle Basket and add a FilterWidget on top of it.
  * @author Sébastien Laoût
  */
@@ -22,8 +24,8 @@ class DecoratedBasket : public QWidget
 {
     Q_OBJECT
 public:
-    DecoratedBasket(QWidget *parent, const QString &folderName);
-    ~DecoratedBasket() override;
+    DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl = nullptr);
+    ~DecoratedBasket() override  = default;
     void setFilterBarPosition(bool onTop);
     void resetFilter();
     void setFilterBarVisible(bool show, bool switchFocus = true);
@@ -46,9 +48,14 @@ public:
 
     void resizeEvent(QResizeEvent *event) override;
 
+public Q_SLOTS:
+    void showErrorMessage(const QString &errorMessage);
+
 private:
     QVBoxLayout *m_layout;
     FilterBar *m_filter;
+
+    KMessageWidget *m_messageWidget = nullptr;
     BasketScene *m_basket;
 };
 #endif // DECORATEDBASKET_H

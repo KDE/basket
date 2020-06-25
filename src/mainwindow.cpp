@@ -235,26 +235,16 @@ bool MainWindow::queryClose()
         return true;*/
 
     if (qApp->isSavingSession()) {
-        Settings::setStartDocked(false); // If queryClose() is called it's because the window is shown
         Settings::saveConfig();
         return true;
     }
 
-    if (Settings::useSystray() && !m_quit
-        /*&& Global::systemTray->parentWidgetTrayClose()*/) {
-        hide();
-        return false;
-    } else
-        return askForQuit();
+    return askForQuit();
 }
 
 bool MainWindow::askForQuit()
 {
     QString message = i18n("<p>Do you really want to quit %1?</p>", QGuiApplication::applicationDisplayName());
-    if (Settings::useSystray())
-        message += i18n(
-            "<p>Notice that you do not have to quit the application before ending your desktop session. "
-            "If you end your session while the application is still running, the application will be reloaded the next time you log in.</p>");
 
     int really = KMessageBox::warningContinueCancel(this, message, i18n("Quit Confirm"), KStandardGuiItem::quit(), KStandardGuiItem::cancel(), "confirmQuitAsking");
 

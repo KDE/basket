@@ -53,21 +53,7 @@ int main(int argc, char *argv[])
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);
 
-    if (Settings::useSystray()) {
-        // The user wanted to not show the window (but it is already hidden by default, so we do nothing):
-        if (opts->isSet(QCommandLineOption("start-hidden")))
-            ;
-        // When the application is restored by the desktop session, restore its state:
-        else if (app.isSessionRestored()) {
-            if (!Settings::startDocked())
-                win->show();
-        }
-        // Else, the application has been launched explicitly by the user (QMenu, keyboard shortcut...), so he need it, we show it:
-        else
-            win->show();
-    } else
-        // No system tray icon: always show:
-        win->show();
+    win->show();
 
     // Self-test of the presence of basketui.rc (the only required file after basket executable)
     if (Global::bnpView->popupMenu("basket") == nullptr)

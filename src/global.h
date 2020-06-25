@@ -38,7 +38,6 @@ public:
     // Global Variables:
     static DebugWindow *debugWindow;
     static BackgroundManager *backgroundManager;
-    static SystemTray *systemTray;
     static BNPView *bnpView;
     static KSharedConfig::Ptr basketConfig;
     static QCommandLineParser *commandLineOpts;

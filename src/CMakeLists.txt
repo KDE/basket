@@ -42,8 +42,7 @@ set(libbasket_SRCS
     settings.cpp
     settings_versionsync.cpp
     softwareimporters.cpp
-    systemtray.cpp
-    tag.cpp
+        tag.cpp
     tagsedit.cpp
     transparentwidget.cpp
     tools.cpp

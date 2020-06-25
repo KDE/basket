@@ -23,7 +23,6 @@
 QString Global::s_customSavesFolder;
 DebugWindow *Global::debugWindow = nullptr;
 BackgroundManager *Global::backgroundManager = nullptr;
-SystemTray *Global::systemTray = nullptr;
 BNPView *Global::bnpView = nullptr;
 KSharedConfig::Ptr Global::basketConfig;
 QCommandLineParser *Global::commandLineOpts = nullptr;

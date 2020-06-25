@@ -8,6 +8,7 @@
 
 #include <QCheckBox>
 #include <QDate>
+#include <QFormLayout>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QGuiApplication>
@@ -37,9 +38,6 @@
 /** Settings */
 
 // General:                                      // TODO: Use this grouping everywhere!
-bool Settings::s_useSystray = true;
-bool Settings::s_usePassivePopup = true;
-bool Settings::s_playAnimations = true;
 bool Settings::s_showNotesToolTip = true; // TODO: RENAME: useBasketTooltips
 bool Settings::s_confirmNoteDeletion = true;
 bool Settings::s_bigNotes = false;
@@ -70,15 +68,9 @@ QString Settings::s_soundProg = QString();
 // Addictive Features:
 bool Settings::s_groupOnInsertionLine = false;
 int Settings::s_middleAction = 0;
-bool Settings::s_showIconInSystray = false; // TODO: RENAME: basketIconInSystray
-bool Settings::s_hideOnMouseOut = false;
-int Settings::s_timeToHideOnMouseOut = 0;
-bool Settings::s_showOnMouseIn = false;
-int Settings::s_timeToShowOnMouseIn = 1;
 // Rememberings:
 int Settings::s_defIconSize = 32; // TODO: RENAME: importIconSize
 bool Settings::s_blinkedFilter = false;
-bool Settings::s_startDocked = false;
 int Settings::s_basketTreeWidth = -1;
 bool Settings::s_welcomeBasketsAdded = false;
 QString Settings::s_dataFolder = QString();
@@ -116,7 +108,6 @@ void Settings::loadConfig()
     KConfigGroup config = Global::config()->group("Main window"); // TODO: Split with a "System tray icon" group !
     setTreeOnLeft(config.readEntry("treeOnLeft", true));
     setFilterOnTop(config.readEntry("filterOnTop", false));
-    setPlayAnimations(config.readEntry("playAnimations", true));
     setShowNotesToolTip(config.readEntry("showNotesToolTip", true));
     setBigNotes(config.readEntry("bigNotes", false));
     setConfirmNoteDeletion(config.readEntry("confirmNoteDeletion", true));
@@ -127,18 +118,10 @@ void Settings::loadConfig()
     setBlinkedFilter(config.readEntry("blinkedFilter", false));
     setEnableReLockTimeout(config.readEntry("enableReLockTimeout", true));
     setReLockTimeoutMinutes(config.readEntry("reLockTimeoutMinutes", 0));
-    setUseSystray(config.readEntry("useSystray", true));
-    setShowIconInSystray(config.readEntry("showIconInSystray", false));
-    setStartDocked(config.readEntry("startDocked", false));
     setMiddleAction(config.readEntry("middleAction", 0));
     setGroupOnInsertionLine(config.readEntry("groupOnInsertionLine", false));
     setSpellCheckTextNotes(config.readEntry("spellCheckTextNotes", true));
-    setHideOnMouseOut(config.readEntry("hideOnMouseOut", false));
-    setTimeToHideOnMouseOut(config.readEntry("timeToHideOnMouseOut", 0));
-    setShowOnMouseIn(config.readEntry("showOnMouseIn", false));
-    setTimeToShowOnMouseIn(config.readEntry("timeToShowOnMouseIn", 1));
     setBasketTreeWidth(config.readEntry("basketTreeWidth", -1));
-    setUsePassivePopup(config.readEntry("usePassivePopup", true));
     setWelcomeBasketsAdded(config.readEntry("welcomeBasketsAdded", false));
     setDataFolder(config.readEntry("dataFolder", QString()));
     setLastBackup(config.readEntry("lastBackup", QDate()));
@@ -204,7 +187,6 @@ void Settings::saveConfig()
     KConfigGroup config = Global::config()->group("Main window");
     config.writeEntry("treeOnLeft", treeOnLeft());
     config.writeEntry("filterOnTop", filterOnTop());
-    config.writeEntry("playAnimations", playAnimations());
     config.writeEntry("showNotesToolTip", showNotesToolTip());
     config.writeEntry("confirmNoteDeletion", confirmNoteDeletion());
     config.writeEntry("pasteAsPlainText", pasteAsPlainText());
@@ -218,18 +200,10 @@ void Settings::saveConfig()
     config.writeEntry("blinkedFilter", blinkedFilter());
     config.writeEntry("enableReLockTimeout", enableReLockTimeout());
     config.writeEntry("reLockTimeoutMinutes", reLockTimeoutMinutes());
-    config.writeEntry("useSystray", useSystray());
-    config.writeEntry("showIconInSystray", showIconInSystray());
-    config.writeEntry("startDocked", startDocked());
     config.writeEntry("middleAction", middleAction());
     config.writeEntry("groupOnInsertionLine", groupOnInsertionLine());
     config.writeEntry("spellCheckTextNotes", spellCheckTextNotes());
-    config.writeEntry("hideOnMouseOut", hideOnMouseOut());
-    config.writeEntry("timeToHideOnMouseOut", timeToHideOnMouseOut());
-    config.writeEntry("showOnMouseIn", showOnMouseIn());
-    config.writeEntry("timeToShowOnMouseIn", timeToShowOnMouseIn());
     config.writeEntry("basketTreeWidth", basketTreeWidth());
-    config.writeEntry("usePassivePopup", usePassivePopup());
     config.writeEntry("welcomeBasketsAdded", welcomeBasketsAdded());
     config.writePathEntry("dataFolder", dataFolder());
     config.writeEntry("lastBackup", QDate(lastBackup()));
@@ -362,26 +336,14 @@ GeneralPage::GeneralPage(QWidget *parent, const char *name)
     about->setComponentName(name);
     setAboutData(about);
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    QHBoxLayout *hLay;
-    QLabel *label;
-    HelpLabel *hLabel;
-
-    QGridLayout *gl = new QGridLayout;
-    layout->addLayout(gl);
-    gl->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding), 0, 2);
+    QFormLayout *layout = new QFormLayout(this);
 
     // Basket Tree Position:
     m_treeOnLeft = new KComboBox(this);
     m_treeOnLeft->addItem(i18n("On left"));
     m_treeOnLeft->addItem(i18n("On right"));
 
-    label = new QLabel(this);
-    label->setText(i18n("&Basket tree position:"));
-    label->setBuddy(m_treeOnLeft);
-
-    gl->addWidget(label, 0, 0);
-    gl->addWidget(m_treeOnLeft, 0, 1);
+    layout->addRow(i18n("&Basket tree position:"), m_treeOnLeft);
     connect(m_treeOnLeft, SIGNAL(activated(int)), this, SLOT(changed()));
 
     // Filter Bar Position:
@@ -389,81 +351,9 @@ GeneralPage::GeneralPage(QWidget *parent, const char *name)
     m_filterOnTop->addItem(i18n("On top"));
     m_filterOnTop->addItem(i18n("On bottom"));
 
-    label = new QLabel(this);
-    label->setText(i18n("&Filter bar position:"));
-    label->setBuddy(m_filterOnTop);
-
-    gl->addWidget(label, 1, 0);
-    gl->addWidget(m_filterOnTop, 1, 1);
+    layout->addRow(i18n("&Filter bar position:"), m_filterOnTop);
     connect(m_filterOnTop, SIGNAL(activated(int)), this, SLOT(changed()));
 
-    // Use balloons to Report Results of Global Actions:
-    hLay = new QHBoxLayout(nullptr);
-    m_usePassivePopup = new QCheckBox(i18n("&Use balloons to report results of global actions"), this);
-    connect(m_usePassivePopup, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    hLabel = new HelpLabel(i18n("What are global actions?"),
-                           ("<p>" +
-                            i18n("You can configure global shortcuts to do some actions without having to show the main window. For instance, you can paste the clipboard content, take a color from "
-                                 "a point of the screen, etc. You can also use the mouse scroll wheel over the system tray icon to change the current basket. Or use the middle mouse button "
-                                 "on that icon to paste the current selection.") +
-                            "</p>" + "<p>" + i18n("When doing so, %1 pops up a little balloon message to inform you the action has been successfully done. You can disable that balloon.", QGuiApplication::applicationDisplayName()) + "</p>" +
-                            "<p>" + i18n("Note that those messages are smart enough to not appear if the main window is visible. This is because you already see the result of your actions in the main window.") + "</p>"),
-                           this);
-    hLay->addWidget(m_usePassivePopup);
-    hLay->addWidget(hLabel);
-    hLay->addStretch();
-    layout->addLayout(hLay);
-
-    // System Tray Icon:
-    QGroupBox *gbSys = new QGroupBox(i18n("System Tray Icon"), this);
-    layout->addWidget(gbSys);
-    QVBoxLayout *sysLay = new QVBoxLayout(gbSys);
-
-    // Dock in System Tray:
-    m_useSystray = new QCheckBox(i18n("&Dock in system tray"), gbSys);
-    sysLay->addWidget(m_useSystray);
-    connect(m_useSystray, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-
-    m_systray = new QWidget(gbSys);
-    QVBoxLayout *subSysLay = new QVBoxLayout(m_systray);
-    sysLay->addWidget(m_systray);
-
-    // Show Current Basket Icon in System Tray Icon:
-    m_showIconInSystray = new QCheckBox(i18n("&Show current basket icon in system tray icon"), m_systray);
-    subSysLay->addWidget(m_showIconInSystray);
-    connect(m_showIconInSystray, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-
-    QGridLayout *gs = new QGridLayout;
-    subSysLay->addLayout(gs);
-    gs->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding), 0, 2);
-
-    // Hide Main Window when Mouse Goes out of it for Some Time:
-    m_timeToHideOnMouseOut = new QSpinBox();
-    m_hideOnMouseOut = new QCheckBox(i18n("&Hide main window when mouse leaves it for"), m_systray);
-    m_timeToHideOnMouseOut->setRange(0, 600);
-    m_timeToHideOnMouseOut->setSuffix(i18n(" tenths of seconds"));
-    gs->addWidget(m_hideOnMouseOut, 0, 0);
-    gs->addWidget(m_timeToHideOnMouseOut, 0, 1);
-    connect(m_hideOnMouseOut, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_timeToHideOnMouseOut, SIGNAL(valueChanged(int)), this, SLOT(changed()));
-    //  subSysLay->addWidget(
-
-    // Show Main Window when Mouse Hovers over the System Tray Icon for Some Time:
-    m_timeToShowOnMouseIn = new QSpinBox();
-    m_showOnMouseIn = new QCheckBox(i18n("Show &main window when mouse hovers over the system tray icon for"), m_systray);
-    m_timeToShowOnMouseIn->setRange(0, 600);
-    m_timeToShowOnMouseIn->setSuffix(i18n(" tenths of seconds"));
-    gs->addWidget(m_showOnMouseIn, 1, 0);
-    gs->addWidget(m_timeToShowOnMouseIn, 1, 1);
-    connect(m_showOnMouseIn, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_timeToShowOnMouseIn, SIGNAL(valueChanged(int)), this, SLOT(changed()));
-
-    connect(m_hideOnMouseOut, SIGNAL(toggled(bool)), m_timeToHideOnMouseOut, SLOT(setEnabled(bool)));
-    connect(m_showOnMouseIn, SIGNAL(toggled(bool)), m_timeToShowOnMouseIn, SLOT(setEnabled(bool)));
-
-    connect(m_useSystray, SIGNAL(toggled(bool)), m_systray, SLOT(setEnabled(bool)));
-
-    layout->insertStretch(-1);
     load();
 }
 
@@ -472,35 +362,12 @@ void GeneralPage::load()
     m_treeOnLeft->setCurrentIndex((int)!Settings::treeOnLeft());
     m_filterOnTop->setCurrentIndex((int)!Settings::filterOnTop());
 
-    m_usePassivePopup->setChecked(Settings::usePassivePopup());
-
-    m_useSystray->setChecked(Settings::useSystray());
-    m_systray->setEnabled(Settings::useSystray());
-
-    m_showIconInSystray->setChecked(Settings::showIconInSystray());
-
-    m_hideOnMouseOut->setChecked(Settings::hideOnMouseOut());
-    m_timeToHideOnMouseOut->setValue(Settings::timeToHideOnMouseOut());
-    m_timeToHideOnMouseOut->setEnabled(Settings::hideOnMouseOut());
-
-    m_showOnMouseIn->setChecked(Settings::showOnMouseIn());
-    m_timeToShowOnMouseIn->setValue(Settings::timeToShowOnMouseIn());
-    m_timeToShowOnMouseIn->setEnabled(Settings::showOnMouseIn());
 }
 
 void GeneralPage::save()
 {
     Settings::setTreeOnLeft(!m_treeOnLeft->currentIndex());
     Settings::setFilterOnTop(!m_filterOnTop->currentIndex());
-
-    Settings::setUsePassivePopup(m_usePassivePopup->isChecked());
-
-    Settings::setUseSystray(m_useSystray->isChecked());
-    Settings::setShowIconInSystray(m_showIconInSystray->isChecked());
-    Settings::setShowOnMouseIn(m_showOnMouseIn->isChecked());
-    Settings::setTimeToShowOnMouseIn(m_timeToShowOnMouseIn->value());
-    Settings::setHideOnMouseOut(m_hideOnMouseOut->isChecked());
-    Settings::setTimeToHideOnMouseOut(m_timeToHideOnMouseOut->value());
 }
 
 void GeneralPage::defaults()
@@ -527,10 +394,6 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
     QVBoxLayout *appearanceLayout = new QVBoxLayout;
     appearanceBox->setLayout(appearanceLayout);
     layout->addWidget(appearanceBox);
-
-    m_playAnimations = new QCheckBox(i18n("Ani&mate changes in baskets"), appearanceBox);
-    appearanceLayout->addWidget(m_playAnimations);
-    connect(m_playAnimations, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
     m_showNotesToolTip = new QCheckBox(i18n("&Show tooltips in baskets"), appearanceBox);
     appearanceLayout->addWidget(m_showNotesToolTip);
@@ -658,7 +521,6 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
 
 void BasketsPage::load()
 {
-    m_playAnimations->setChecked(Settings::playAnimations());
     m_showNotesToolTip->setChecked(Settings::showNotesToolTip());
     m_bigNotes->setChecked(Settings::bigNotes());
 
@@ -688,7 +550,6 @@ void BasketsPage::load()
 
 void BasketsPage::save()
 {
-    Settings::setPlayAnimations(m_playAnimations->isChecked());
     Settings::setShowNotesToolTip(m_showNotesToolTip->isChecked());
     Settings::setBigNotes(m_bigNotes->isChecked());
 

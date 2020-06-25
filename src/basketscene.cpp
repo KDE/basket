@@ -1389,10 +1389,6 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         if (zone == Note::GroupExpander) {
             clicked->toggleFolded();
 
-            if (/*m_animationTimeLine == 0 && */ Settings::playAnimations()) {
-                qWarning() << "Folding animation to be done";
-            }
-
             relayoutNotes();
             m_noActionOnMouseRelease = true;
 
@@ -1846,7 +1842,6 @@ void BasketScene::blindDrop(QGraphicsSceneDragDropEvent *event)
             m_editor->lineEdit()->paste();
     } else {
         if (!isLoaded()) {
-            Global::bnpView->showPassiveLoading(this);
             load();
         }
         closeEditor();
@@ -1855,8 +1850,6 @@ void BasketScene::blindDrop(QGraphicsSceneDragDropEvent *event)
         if (note) {
             insertCreatedNote(note);
             // unselectAllBut(note);
-            if (Settings::usePassivePopup())
-                Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>", m_basketName));
         }
     }
     save();
@@ -1871,7 +1864,6 @@ void BasketScene::blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction
             m_editor->lineEdit()->paste();
     } else {
         if (!isLoaded()) {
-            Global::bnpView->showPassiveLoading(this);
             load();
         }
         closeEditor();
@@ -1880,8 +1872,6 @@ void BasketScene::blindDrop(const QMimeData *mimeData, Qt::DropAction dropAction
         if (note) {
             insertCreatedNote(note);
             // unselectAllBut(note);
-            if (Settings::usePassivePopup())
-                Global::bnpView->showPassiveDropped(i18n("Dropped to basket <i>%1</i>", m_basketName));
         }
     }
     save();
@@ -1949,7 +1939,6 @@ void BasketScene::pasteNote(QClipboard::Mode mode)
             m_editor->lineEdit()->paste();
     } else {
         if (!isLoaded()) {
-            Global::bnpView->showPassiveLoading(this);
             load();
         }
         closeEditor();
