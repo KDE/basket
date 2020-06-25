@@ -12,6 +12,7 @@
 #include <QToolTip>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPainter>
+#include <QScreen>
 
 #include <KLocalizedString>
 #include <KWindowSystem>
@@ -50,7 +51,7 @@ RegionGrabber::~RegionGrabber()
 
 void RegionGrabber::init()
 {
-    pixmap = QPixmap::grabWindow(QApplication::desktop()->winId());
+    pixmap = QApplication::primaryScreen()->grabWindow(QApplication::desktop()->winId());
     showFullScreen(); // krazy:exclude=qmethods        -- Necessary for proper screenshot capture.
     resize(pixmap.size());
     move(0, 0);
@@ -145,7 +146,7 @@ void RegionGrabber::paintEvent(QPaintEvent *e)
         painter.setPen(handleColor);
         handleColor.setAlpha(60);
         painter.setBrush(handleColor);
-        painter.drawRects(handleMask().rects());
+        painter.drawRects(handleMask().begin(),handleMask().rectCount());
     }
 }
 

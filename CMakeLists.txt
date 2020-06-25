@@ -41,8 +41,8 @@ endif()
 
 # libgit2
 find_package(Libgit2)
-set_package_properties(Kibgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
-    PURPOSE "Add git suppor to Basket"
+set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
+    PURPOSE "Add git support to Basket"
     URL "https://libgit2.org"
     TYPE OPTIONAL
 )
