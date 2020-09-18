@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="200"
+   inkscape:export-xdpi="200"
+   inkscape:export-filename="basket-archive-file-structure.png"
+   sodipodi:docname="basket-archive-file-structure.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 251 20.999998"
+   height="20.999998mm"
+   width="251mm">
+  <defs
+     id="defs2">
+    <rect
+       id="rect845"
+       height="19.669306"
+       width="26.910555"
+       y="0"
+       x="-3.5527137e-15" />
+    <rect
+       x="-3.5527137e-15"
+       y="0"
+       width="44.609516"
+       height="19.475616"
+       id="rect859" />
+    <rect
+       id="rect869"
+       height="19.475616"
+       width="44.609516"
+       y="0"
+       x="-3.5527137e-15" />
+    <rect
+       id="rect883"
+       height="19.514832"
+       width="50.384212"
+       y="0"
+       x="-3.5527137e-15" />
+    <rect
+       x="-3.5527137e-15"
+       y="0"
+       width="71.754601"
+       height="20.105553"
+       id="rect885" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:window-height="2055"
+     inkscape:window-width="3840"
+     fit-margin-bottom="0"
+     fit-margin-right="0"
+     fit-margin-left="0"
+     fit-margin-top="0"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:guide-bbox="true"
+     showguides="true"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="70.558354"
+     inkscape:cx="910.46123"
+     inkscape:zoom="3.959798"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
+    <sodipodi:guide
+       inkscape:color="rgb(0,0,255)"
+       inkscape:locked="false"
+       inkscape:label=""
+       id="guide849"
+       orientation="0,1"
+       position="0.49999999,10.499997" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0.5,0.5)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <rect
+       y="0.057285011"
+       x="0.057285011"
+       height="19.885427"
+       width="249.88544"
+       id="rect833"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:1.11457;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+    <text
+       transform="translate(4.1739233,1.7139271)"
+       y="0"
+       x="11.019145"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect845)"
+       id="text843"
+       xml:space="preserve"><tspan
+         x="7.9188061"
+         y="6.4877325"><tspan
+           style="text-align:center;text-anchor:middle">File
+</tspan></tspan><tspan
+         x="2.0931459"
+         y="15.307183"><tspan
+           style="text-align:center;text-anchor:middle">Header</tspan></tspan></text>
+    <path
+       id="path851"
+       d="M 35.739336,0 V 19.502464 H 35.516"
+       style="fill:none;stroke:#000000;stroke-width:0.995071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       id="text855"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect859)"
+       x="11.019145"
+       y="0"
+       transform="translate(38.440345,1.7139271)"><tspan
+         x="3.5685236"
+         y="6.4877325"><tspan
+           style="text-align:center;text-anchor:middle">Preview File </tspan></tspan><tspan
+         x="10.942755"
+         y="15.307183"><tspan
+           style="text-align:center;text-anchor:middle">Header</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.995071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 86.332953,2.8485331e-8 V 19.502464 h -0.223336"
+       id="path857" />
+    <text
+       transform="translate(82.622639,1.7139271)"
+       y="0"
+       x="11.019145"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect869)"
+       id="text865"
+       xml:space="preserve"><tspan
+         x="9.9798504"
+         y="6.4877325"><tspan
+           style="text-align:center;text-anchor:middle">Preview
+</tspan></tspan><tspan
+         x="16.768415"
+         y="15.307183"><tspan
+           style="text-align:center;text-anchor:middle">File </tspan></tspan></text>
+    <path
+       id="path867"
+       d="M 123.93856,5.6970181e-8 V 19.502464 h -0.22333"
+       style="fill:none;stroke:#000000;stroke-width:0.995071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       transform="translate(130.11152,1.7139271)"
+       y="0"
+       x="11.019145"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect883)"
+       id="text873"
+       xml:space="preserve"><tspan
+         x="0.26537833"
+         y="6.4877325"><tspan
+           style="text-align:center;text-anchor:middle">Content Archive </tspan></tspan><tspan
+         x="13.830451"
+         y="15.307183"><tspan
+           style="text-align:center;text-anchor:middle">Header</tspan></tspan></text>
+    <path
+       id="path875"
+       d="M 187.08266,5.6970181e-8 V 19.502464 h -0.22334"
+       style="fill:none;stroke:#000000;stroke-width:0.995071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       id="text879"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect885)"
+       x="11.019145"
+       y="0"
+       transform="translate(182.57106,1.7139271)"><tspan
+         x="10.949949"
+         y="6.4877325"><tspan
+           style="text-align:center;text-anchor:middle">Content Archive
+</tspan></tspan><tspan
+         x="30.340681"
+         y="15.307183"><tspan
+           style="text-align:center;text-anchor:middle">File </tspan></tspan></text>
+    <path
+       style="display:none;fill:none;stroke:#000000;stroke-width:0.995071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 249.96839,0 v 19.502464 h -0.22333"
+       id="path881" />
+    <path
+       style="display:none;fill:none;stroke:#000000;stroke-width:0.995071;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -0.0024645,1.0045745e-6 V 19.502465 h -0.223336"
+       id="path887" />
+  </g>
+</svg>

@@ -1,123 +1,206 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY basket "<application>BasKet</application>">
+<!ENTITY basket "<application>BasKet</application>">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE" > <!-- change language only here -->
 ]>
 
 <book id='basket' lang="&language;">
 
-  <bookinfo>
-    <title>The &basket; Handbook</title>
-    <authorgroup>
-      <author>
-        <personname>
-          <firstname>Gleb</firstname>
-          <surname>Baryshev</surname>
-        </personname>
-        <email>gleb.baryshev@gmail.com</email>
-      </author>
-    </authorgroup>
-    <date>2016-11-07</date>
-    <releaseinfo>2.11</releaseinfo>
-    
-    <abstract>
-      <para>Taking care of your ideas.</para>
-    </abstract>
-    <keywordset>
-      <keyword>KDE</keyword>
-      <keyword>BasKet</keyword>
-      <!--keyword>note pad</keyword-->
-    </keywordset>
-  </bookinfo>
+	<bookinfo>
+		<title>The &basket; Handbook</title>
+		<authorgroup>
+			<author>
+				<personname>
+					<firstname>Gleb</firstname>
+					<surname>Baryshev</surname>
+				</personname>
+				<email>gleb.baryshev@gmail.com</email>
+			</author>
+		</authorgroup>
+		<date>2016-11-07</date>
+		<releaseinfo>2.11</releaseinfo>
 
-  <chapter id="notice">
-    <title>NOTICE: handbook not written yet</title>
-    <para>&basket; still does not have a handbook, so contributors are welcome!
-      Check the <ulink url='https://l10n.kde.org/docs/doc-primer/index.html'>
-      KDE documentation</ulink> for the hints on the DocBook format.</para>
-    <para>Meanwhile, you can look for help on the Internet. In particular,
-      look through the <ulink url='https://basket-notepads.github.io'>old website</ulink> or
-      check Linux magazines if you have access to them, for example:
-      <itemizedlist>
-	<listitem><para>
-	  <quote>Tutorial: Basket: Capture your thoughts.</quote> Linux Format 120
-	  (Andy Channelle)
-	</para></listitem>
-	<listitem><para>
-	  <quote>A Virtual Basket. Storing, sorting, and filing with KDE&apos;s
-	  Basket</quote> Linux Magazine 54 (Stefanie Teufel)
-	</para></listitem>
-      </itemizedlist>
-      </para>
-  </chapter>
-  
-  <chapter id="introduction">
-    <title>Introduction</title>
-    <para>&basket; is mainly an all-purpose notes taker, but a particular one:</para>
-  </chapter>
+		<abstract>
+			<para>Taking care of your ideas.</para>
+		</abstract>
+		<keywordset>
+			<keyword>KDE</keyword>
+			<keyword>BasKet</keyword>
+				<!--keyword>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
 
-  <chapter id="using-BasKet">
-    <title>Using BasKet</title>
-    <para></para>
-      <sect1>
-        <title>Version Sync</title>
-        <para>When enabled, Version Sync puts your baskets and notes under version control. Currently this is an experimental feature and only very basic functions are implemented, so it may require additional software and some manual setup. These are some of the things that can be done using external tools (but not Basket interface yet):</para>
-        <itemizedlist>
-          <listitem>
-            <para>check out old revisions and revert the changes</para>
-          </listitem>
-          <listitem>
-            <para>synchronize baskets on several computers (merge the changes)</para>
-          </listitem>
-          <listitem>
-            <para>push baskets backup to remote repository</para>
-          </listitem>
-        </itemizedlist>
-        <para>To enable it, select
-          <menuchoice>
-          <guimenu>Settings</guimenu> <guimenuitem>Configure BasKet Note Pads</guimenuitem>
-          </menuchoice>
-          → <guibutton>Version Sync</guibutton>
-          and <guibutton>Enable distributed version control</guibutton>. It will initialize git repository in <filename>~/.kde/share/apps/basket/baskets</filename>, upon which standard git tools can be used.</para>
-        <sect2>
-          <title>Clearing version history</title>
-          <para>Clearing the history can be useful in these cases:</para>
-          <itemizedlist>
-          <listitem>
-            <para>you have locked a basket and want to remove any previous unencrypted versions (which are still stored in the system)</para>
-          </listitem>
-          <listitem>
-            <para>you want to free some disk space (can be topical if you insert a lot of images or other files into Basket)</para>
-          </listitem>
-          </itemizedlist>
-          <para>Note that you will have to redo any manual setup you did on the git repository.</para>
-        </sect2>
-      </sect1>
-  </chapter>
+	<chapter id="notice">
+		<title>NOTICE: handbook not written yet</title>
+		<para>&basket; still does not have a handbook, so contributors are welcome!
+			Check the <ulink url='https://l10n.kde.org/docs/doc-primer/index.html'>
+					KDE documentation</ulink> for the hints on the DocBook format.</para>
+			<para>Meanwhile, you can look for help on the Internet. In particular,
+				look through the <ulink url='https://basket-notepads.github.io'>old website</ulink> or
+					check Linux magazines if you have access to them, for example:
+				<itemizedlist>
+					<listitem><para>
+							<quote>Tutorial: Basket: Capture your thoughts.</quote> Linux Format 120
+								(Andy Channelle)
+					</para></listitem>
+					<listitem><para>
+							<quote>A Virtual Basket. Storing, sorting, and filing with KDE&apos;s
+								Basket</quote> Linux Magazine 54 (Stefanie Teufel)
+						</para></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
 
-  <chapter id="questions-answers-and-tips">
-    <title>Questions, Answers, and Tips</title>
+			<chapter id="introduction">
+				<title>Introduction</title>
+				<para>&basket; is mainly an all-purpose notes taker, but a particular one:</para>
+			</chapter>
 
-    <qandaset id="faq">
-      <title>Frequently asked questions</title>
-      <qandaentry>
-        <question>
-          <para>Question 1</para>
-        </question>
-        <answer>
-          <para>The answer</para>
-        </answer>
-      </qandaentry>
-    </qandaset>
+			<chapter id="using-BasKet">
+				<title>Using BasKet</title>
+				<para></para>
+				<sect1>
+					<title>Version Sync</title>
+					<para>When enabled, Version Sync puts your baskets and notes under version control. Currently this is an experimental feature and only very basic functions are implemented, so it may require additional software and some manual setup. These are some of the things that can be done using external tools (but not Basket interface yet):</para>
+					<itemizedlist>
+						<listitem>
+							<para>check out old revisions and revert the changes</para>
+						</listitem>
+						<listitem>
+							<para>synchronize baskets on several computers (merge the changes)</para>
+						</listitem>
+						<listitem>
+							<para>push baskets backup to remote repository</para>
+						</listitem>
+					</itemizedlist>
+					<para>To enable it, select
+					<menuchoice>
+						<guimenu>Settings</guimenu> <guimenuitem>Configure BasKet Note Pads</guimenuitem>
+					</menuchoice>
+						→ <guibutton>Version Sync</guibutton>
+							and <guibutton>Enable distributed version control</guibutton>. It will initialize git repository in <filename>~/.kde/share/apps/basket/baskets</filename>, upon which standard git tools can be used.</para>
+						<sect2>
+							<title>Clearing version history</title>
+							<para>Clearing the history can be useful in these cases:</para>
+							<itemizedlist>
+								<listitem>
+									<para>you have locked a basket and want to remove any previous unencrypted versions (which are still stored in the system)</para>
+								</listitem>
+								<listitem>
+									<para>you want to free some disk space (can be topical if you insert a lot of images or other files into Basket)</para>
+								</listitem>
+							</itemizedlist>
+							<para>Note that you will have to redo any manual setup you did on the git repository.</para>
+						</sect2>
+					</sect1>
+				</chapter>
 
-  </chapter>
-</book>
-<!--
-Local Variables:
-mode: sgml
-sgml-omittag: nil
-sgml-shorttag: t
-sgml-general-insert-case: lower
-End:
--->
+				<chapter id="basket-file-structure">
+					<title>BasKet file structure</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title>Introduction</title>
+						<para></para>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title>BasKet Archive file format</title>
+						<para>The BasKet file format (.baskets) is a structure which wraps a compressed tar and a preview image. The latest archive format version is 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title>File Structure</title>
+							<para>The archive file is devided into the structures: file header, preview image header, a preview image (.png), archive header, and a gunzipped tar archive (.tar.gz) containing a baskets file tree as illustrated in the following sketch</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title>Archive file header</title>
+							<para>The file header is a short structure, consisting of lines of strings, the file declarator, and the format version</para>
+
+							<para>The first 17 bytes contain the literal string <code>BasKetNP:archive</code> followed by a new line feed symbol (0x0A) in ISO-8859-1 encoding.</para>
+							<para>The second string is a literal string <code>version:0.6.1</code> followed by a line feed symbol (0x0A) in ISO-8859-1 encoding.</para>
+							<para>An example:</para>
+							<programlisting>
+								<![CDATA[
+BasKetNP:archive
+version:0.6.1
+									]]>
+							</programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title>Preview image header</title>
+							<para>Currently, the basket archive file contains a preview file which is derived from the first basket's content.</para>
+							<para>Directly following the file header, a literal string <code>preview*:&lt;size&gt;</code> in ISO-8859-1 encoding, again followed by a line feed symbol. The parameter <code>&lt;size&gt;</code> is a string of decimal numbers. It declares the size in bytes of the preview image.  <code>&lt;size&gt;</code> is of type unsigned long.</para>
+							<para>An example:</para>
+							<programlisting>
+								<![CDATA[
+preview*:12000
+									]]>
+							</programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title>Preview image file</title>
+							<para>The preview image is of type .png. Its size is specified by the preview image header. The preview image file is inserted as file stream, and directly follows the preview image header.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title>BasKet content archive header</title>
+							<para>Just like for the previe image file, the content archive is preceded by a string specifying its size. That string directly follows the file stream of the preview image.</para>
+							<para>That string must be <code>archive*:&lt;size&gt;</code> followed by a line feed symbol, in ISO-8869-1 encoding. The parameter <code>&lt;size&gt;</code> is a unsigned long integer in string format.</para>
+							<para>An example:</para>
+							<programlisting>
+								<![CDATA[
+archive*:1245000
+									]]>
+							</programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title>BasKet content archive</title>
+							<para> The content archive contains the BasKet file tree compressed in to a gzipped tar archive (.tar.gz). Its size is size is specified by the content header.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title>Example byte stream</title>
+							<para>The following table shows key parts of the basket archive file content. The left column specifies the offset in the file stream. The center column gives the byte stream at the current offset in hexadecimal format. The right column shows printable characters within the file stream at the current offset.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1><!--archive file format-->
+
+				</chapter><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title>Questions, Answers, and Tips</title>
+
+					<qandaset id="faq">
+						<title>Frequently asked questions</title>
+						<qandaentry>
+							<question>
+								<para>Question 1</para>
+							</question>
+							<answer>
+								<para>The answer</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->
