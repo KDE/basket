@@ -34,7 +34,7 @@ class KToggleAction;
 class QMenu;
 class KTar;
 
-class DesktopColorPicker;
+class ColorPicker;
 class RegionGrabber;
 
 class BasketScene;
@@ -340,7 +340,9 @@ private:
     bool m_loading;
     bool m_newBasketPopup;
     bool m_firstShow;
-    std::unique_ptr<DesktopColorPicker> m_colorPicker;
+#ifndef _WIN32
+    ColorPicker *m_colorPicker;
+#endif
     bool m_colorPickWasShown;
     bool m_colorPickWasGlobal;
     RegionGrabber *m_regionGrabber;

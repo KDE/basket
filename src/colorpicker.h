@@ -1,46 +1,48 @@
 /**
- * SPDX-FileCopyrightText: (C) 2003 by Sébastien Laoût <slaout@linux62.org>
+ * SPDX-FileCopyrightText: (C) 2003 Sébastien Laoût <slaout@linux62.org>
+ * SPDX-FileCopyrightText: (C) 2020 Carl Schwan <carl@carlschwan.eu>
+ *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifndef COLORPICKER_H
-#define COLORPICKER_H
+#pragma once
 
-#include <QDesktopWidget>
+#ifndef _WIN32
 
-class QKeyEvent;
-class QMouseEvent;
+#include <QObject>
+#include <QColor>
 
-/** Class to pick a color on the screen
- * @author Sébastien Laoût
+/**
+ * @brief This class allows to pick a color on the screen.
+ *
+ * Internally this class wrap the PickColor function from the
+ * Screenshot xdg-portal and should work on X and wayland.
+ *
+ * @author Carl Schwan
  */
-class DesktopColorPicker : public QDesktopWidget
+class ColorPicker : public QObject
 {
     Q_OBJECT
 public:
-    /** Constructor, initializer and destructor */
-    DesktopColorPicker();
-    ~DesktopColorPicker() override = default;
+    explicit ColorPicker(QObject *parent = nullptr);
+    virtual ~ColorPicker() override = default;
+
 public Q_SLOTS:
-    /** Begin color picking.
-     * This function returns immediately, and pickedColor() is emitted if user has
+    /**
+     * Begin color picking.
+     * This function returns immediately, and colorGrabbed() is emitted if user has
      * chosen a color, and not canceled the process (by pressing Escape).
      */
-    void pickColor();
-Q_SIGNALS:
-    /** When user picked a color, this signal is emitted.
-     */
-    void pickedColor(const QColor &color);
-    /** When user cancel a picking (by pressing Escape), this signal is emitted.
-     */
-    void canceledPick();
-protected Q_SLOTS:
-    void slotDelayedPick();
+    void grabColor();
 
-protected:
-    void mouseReleaseEvent(QMouseEvent *event) override;
-    void keyPressEvent(QKeyEvent *event) override;
-    bool m_gettingColorFromScreen;
+Q_SIGNALS:
+    /**
+     * When user picked a color, this signal is emitted.
+     */
+    void colorGrabbed(const QColor &color);
+
+protected Q_SLOTS:
+    void gotColorResponse(uint response, const QVariantMap& results);
 };
 
-#endif // COLORPICKER_H
+#endif

@@ -93,7 +93,9 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     , m_loading(true)
     , m_newBasketPopup(false)
     , m_firstShow(true)
-    , m_colorPicker(new DesktopColorPicker())
+#ifndef _WIN32
+    , m_colorPicker(new ColorPicker(this))
+#endif
     , m_regionGrabber(nullptr)
     , m_passiveDroppedSelection(nullptr)
     , m_actionCollection(actionCollection)
@@ -560,12 +562,14 @@ void BNPView::setupActions()
     connect(m_actImportIcon, &QAction::triggered, this, [this] () { insertWizard(2); });
     connect(m_actLoadFile, &QAction::triggered, this, [this] () { insertWizard(3); });
 
-    a = ac->addAction("insert_screen_color", this, &BNPView::slotColorFromScreen);
+#ifndef _WIN32
+a = ac->addAction("insert_screen_color", this, &BNPView::slotColorFromScreen);
     a->setText(i18n("C&olor from Screen"));
     a->setIcon(QIcon::fromTheme("kcolorchooser"));
     m_actColorPicker = a;
 
-    connect(m_colorPicker.get(), &DesktopColorPicker::pickedColor, this, &BNPView::colorPicked);
+    connect(m_colorPicker, &ColorPicker::colorGrabbed, this, &BNPView::colorPicked);
+#endif
 
     a = ac->addAction("insert_screen_capture", this, SLOT(grabScreenshot()));
     a->setText(i18n("Grab Screen &Zone"));
@@ -1647,10 +1651,12 @@ void BNPView::updateNotesActions()
  */
 void BNPView::slotColorFromScreen(bool global)
 {
+#ifndef _WIN32
     m_colorPickWasGlobal = global;
 
     currentBasket()->saveInsertionData();
-    m_colorPicker->pickColor();
+    m_colorPicker->grabColor();
+#endif
 }
 
 void BNPView::slotColorFromScreenGlobal()

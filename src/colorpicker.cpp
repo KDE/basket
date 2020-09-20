@@ -1,88 +1,86 @@
 /**
- * SPDX-FileCopyrightText: (C) 2003 by Sébastien Laoût <slaout@linux62.org>
+ * SPDX-FileCopyrightText: (C) 2003 Sébastien Laoût <slaout@linux62.org>
+ * SPDX-FileCopyrightText: (C) 2020 Carl Schwan <carl@carlschwan.eu>
+ *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
 #include "colorpicker.h"
 
-#include <QApplication>
-#include <QKeyEvent>
-#include <QScreen>
-#include <QTimer>
+#ifndef _WIN32
 
-/// ///
+#include <QDBusMessage>
+#include <QDBusMetaType>
+#include <QDBusPendingCall>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+#include <QDBusObjectPath>
+#include <QDBusConnection>
+#include <QDebug>
 
-/** DektopColorPicker */
-
-/* From Qt documentation:
- * " Note that only visible widgets can grab mouse input.
- *   If isVisible() returns FALSE for a widget, that widget cannot call grabMouse(). "
- * So, we should use an always visible widget to be able to pick a color from screen,
- * even by first  the main window (user rarely want to grab a color from BasKet!)
- * or use a global shortcut (main window can be hidden when hitting that shortcut).
- */
-
-DesktopColorPicker::DesktopColorPicker()
-    : QDesktopWidget()
+QDBusArgument &operator <<(QDBusArgument &arg, const QColor &color)
 {
-    setObjectName("DesktopColorPicker");
-    m_gettingColorFromScreen = false;
+    arg.beginStructure();
+    arg << color.redF() << color.greenF() << color.blueF();
+    arg.endStructure();
+    return arg;
 }
 
-void DesktopColorPicker::pickColor()
+const QDBusArgument &operator >>(const QDBusArgument &arg, QColor &color)
 {
-    m_gettingColorFromScreen = true;
-    //  Global::mainContainer->setActive(false);
-    QTimer::singleShot(50, this, &DesktopColorPicker::slotDelayedPick);
+    double red, green, blue;
+    arg.beginStructure();
+    arg >> red >> green >> blue;
+    color.setRedF(red);
+    color.setGreenF(green);
+    color.setBlueF(blue);
+    arg.endStructure();
+
+    return arg;
 }
 
-/* When firered from basket context menu, and not from menu, grabMouse doesn't work!
- * It's perhaps because context menu call slotColorFromScreen() and then
- * ungrab the mouse (since menus grab the mouse).
- * But why isn't there such bug with normal menus?...
- * By calling this method with a QTimer::singleShot, we are sure context menu code is
- * finished and we can grab the mouse without loosing the grab:
- */
-void DesktopColorPicker::slotDelayedPick()
+ColorPicker::ColorPicker(QObject *parent)
+    : QObject(parent)
 {
-    grabKeyboard();
-    grabMouse(Qt::CrossCursor);
-    setMouseTracking(true);
+    setObjectName(QStringLiteral("ColorPicker"));
+    qDBusRegisterMetaType<QColor>();
 }
 
-/* Validate the color
- */
-void DesktopColorPicker::mouseReleaseEvent(QMouseEvent *event)
+void ColorPicker::grabColor()
 {
-    if (m_gettingColorFromScreen) {
-        m_gettingColorFromScreen = false;
-        releaseMouse();
-        releaseKeyboard();
-        setMouseTracking(false);
-
-        // copied logic from https://code.woboq.org/qt5/qtbase/src/widgets/dialogs/qcolordialog.cpp.html
-        const QPoint globalPos = QCursor::pos();
-        const QDesktopWidget *desktop = QApplication::desktop();
-        const QPixmap pixmap = QGuiApplication::primaryScreen()->grabWindow(desktop->winId(), globalPos.x(), globalPos.y(), 1, 1);
-        QImage i = pixmap.toImage();
-        Q_EMIT pickedColor(i.pixel(0, 0));
-    } else {
-        QDesktopWidget::mouseReleaseEvent(event);
-    }
-}
-
-/* Cancel the mode
- */
-void DesktopColorPicker::keyPressEvent(QKeyEvent *event)
-{
-    if (m_gettingColorFromScreen) {
-        if (event->key() == Qt::Key_Escape) {
-            m_gettingColorFromScreen = false;
-            releaseMouse();
-            releaseKeyboard();
-            setMouseTracking(false);
-            Q_EMIT canceledPick();
+    QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
+                                                          QLatin1String("/org/freedesktop/portal/desktop"),
+                                                          QLatin1String("org.freedesktop.portal.Screenshot"),
+                                                          QLatin1String("PickColor"));
+    message << QLatin1String("x11:") << QVariantMap{};
+    QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+        if (reply.isError()) {
+            qWarning() << "Couldn't get reply";
+            qWarning() << "Error: " << reply.error().message();
+        } else {
+            QDBusConnection::sessionBus().connect(QString(),
+                                                  reply.value().path(),
+                                                  QLatin1String("org.freedesktop.portal.Request"),
+                                                  QLatin1String("Response"),
+                                                  this,
+                                                  SLOT(gotColorResponse(uint, QVariantMap)));
         }
-    }
-    QDesktopWidget::keyPressEvent(event);
+    });
 }
+
+void ColorPicker::gotColorResponse(uint response, const QVariantMap& results)
+{
+    if (!response) {
+        if (results.contains(QLatin1String("color"))) {
+            const QColor color = qdbus_cast<QColor>(results.value(QLatin1String("color")));
+            Q_EMIT colorGrabbed(color);
+        }
+    } else {
+        qWarning() << "Failed to take screenshot";
+    }
+}
+
+#endif
