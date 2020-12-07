@@ -544,7 +544,7 @@ bool TextContent::match(const FilterData &data)
 }
 bool HtmlContent::match(const FilterData &data)
 {
-    return m_textEquivalent /*toText(QString())*/.contains(data.string);
+    return m_textEquivalent.contains(data.string, Qt::CaseInsensitive);
 } // OPTIM_FILTER
 bool ImageContent::match(const FilterData & /*data*/)
 {
