@@ -1095,11 +1095,15 @@ QString BasketScene::fullPathForFileName(const QString &fileName)
 void BasketScene::setShortcut(QKeySequence shortcut, int action)
 {
     QList<QKeySequence> shortcuts {shortcut};
-    if (action > 0) {
-        KGlobalAccel::self()->setShortcut(m_action, shortcuts, KGlobalAccel::Autoloading);
-        KGlobalAccel::self()->setDefaultShortcut(m_action, shortcuts, KGlobalAccel::Autoloading);
-    }
+    m_action->setShortcuts(shortcuts);
     m_shortcutAction = action;
+
+    if (!shortcut.isEmpty()) {
+        if (action > 0) {
+            KGlobalAccel::self()->setShortcut(m_action, shortcuts, KGlobalAccel::Autoloading);
+            KGlobalAccel::self()->setDefaultShortcut(m_action, shortcuts, KGlobalAccel::Autoloading);
+        }
+    }
 }
 
 void BasketScene::activatedShortcut()
@@ -1192,17 +1196,15 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     m_view->setFocusPolicy(Qt::StrongFocus);
     m_view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    m_action = new QAction(this);
-    connect(m_action, &QAction::triggered, this, &BasketScene::activatedShortcut);
-    m_action->setObjectName(folderName);
-    KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
     // We do this in the basket properties dialog (and keep it in sync with the
     // global one)
-    KActionCollection *ac = Global::bnpView->actionCollection();
-    ac->setShortcutsConfigurable(m_action, false);
-
     if (!m_folderName.endsWith('/'))
         m_folderName += '/';
+
+    KActionCollection *ac = Global::bnpView->actionCollection();
+    m_action = ac->addAction(m_folderName, this, SLOT(activatedShortcut()));
+    ac->setShortcutsConfigurable(m_action, false);
+	KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
 
     //    setDragAutoScroll(true);
 
