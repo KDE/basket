@@ -1204,7 +1204,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     KActionCollection *ac = Global::bnpView->actionCollection();
     m_action = ac->addAction(m_folderName, this, SLOT(activatedShortcut()));
     ac->setShortcutsConfigurable(m_action, false);
-	KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
+    KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
 
     //    setDragAutoScroll(true);
 
@@ -4015,6 +4015,21 @@ void BasketScene::noteCut()
             m_editor->lineEdit()->cut();
     } else
         doCopy(CutToClipboard);
+}
+
+void BasketScene::clearFormattingNote(Note *note)
+{
+    if (!note)
+        note = theSelectedNote();
+    if (!note)
+        return;
+
+    HtmlContent* contentHtml = dynamic_cast<HtmlContent*>(note->content());
+    if (contentHtml){
+        contentHtml->setHtml(Tools::textToHTML(note->content()->toText("")));
+    }
+
+    noteEdit(note);
 }
 
 void BasketScene::noteOpen(Note *note)

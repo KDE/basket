@@ -118,6 +118,7 @@ public Q_SLOTS:
     void cutNote();
     void copyNote();
     void delNote();
+    void clearFormattingNote();
     void openNote();
     void openNoteWith();
     void saveNoteAs();
@@ -205,6 +206,7 @@ private Q_SLOTS:
     void onFirstShow();
 
 public:
+    QAction *m_actClearFormatting;
     QAction *m_actEditNote;
     QAction *m_actOpenNote;
     QAction *m_actPaste;

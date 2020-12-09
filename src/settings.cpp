@@ -418,7 +418,7 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
     behaviorLayout->addWidget(m_confirmNoteDeletion);
     connect(m_confirmNoteDeletion, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
-    m_pasteAsPlainText = new QCheckBox(i18n("Do not keep text formatting when pasting"), behaviorBox);
+    m_pasteAsPlainText = new QCheckBox(i18n("Keep text formatting when pasting"), behaviorBox);
     behaviorLayout->addWidget(m_pasteAsPlainText);
     connect(m_pasteAsPlainText, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
@@ -526,7 +526,7 @@ void BasketsPage::load()
 
     m_autoBullet->setChecked(Settings::autoBullet());
     m_confirmNoteDeletion->setChecked(Settings::confirmNoteDeletion());
-    m_pasteAsPlainText->setChecked(Settings::pasteAsPlainText());
+    m_pasteAsPlainText->setChecked(!Settings::pasteAsPlainText());
     m_exportTextTags->setChecked(Settings::exportTextTags());
 
     m_groupOnInsertionLine->setChecked(Settings::groupOnInsertionLine());
@@ -555,7 +555,7 @@ void BasketsPage::save()
 
     Settings::setAutoBullet(m_autoBullet->isChecked());
     Settings::setConfirmNoteDeletion(m_confirmNoteDeletion->isChecked());
-    Settings::setPasteAsPlainText(m_pasteAsPlainText->isChecked());
+    Settings::setPasteAsPlainText(!m_pasteAsPlainText->isChecked());
     Settings::setExportTextTags(m_exportTextTags->isChecked());
 
     Settings::setGroupOnInsertionLine(m_groupOnInsertionLine->isChecked());

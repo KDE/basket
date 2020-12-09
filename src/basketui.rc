@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<gui name="basket" version="2">
+<gui name="basket" version="3">
  <MenuBar noMerge="1" >
   <Menu name="basket" >
    <text>&amp;Basket</text>
@@ -64,6 +64,7 @@
    <Action name="note_open" />
    <Action name="note_open_with" />
    <Action name="note_save_to_file" />
+   <Action name="note_clear" />
    <Separator/>
    <Action name="note_group" />
    <Action name="note_ungroup" />
@@ -207,6 +208,7 @@
   <Action name="note_open" />
   <Action name="note_open_with" />
   <Action name="note_save_to_file" />
+  <Action name="note_clear" />
   <Separator/>
   <Action name="note_group" />
   <Action name="note_ungroup" />

@@ -436,6 +436,10 @@ void BNPView::setupActions()
 
     m_actInvertSelection->setStatusTip(i18n("Inverts the current selection of notes"));
 
+    m_actClearFormatting = ac->addAction("note_clear", this, SLOT(clearFormattingNote()));
+    m_actClearFormatting->setText(i18n("&Clear Formatting"));
+    m_actClearFormatting->setIcon(QIcon::fromTheme("text-plain"));
+	
     a = ac->addAction("note_edit", this, SLOT(editNote()));
     a->setText(i18nc("Verb; not Menu", "&Edit..."));
     // a->setIcon(QIcon::fromTheme("edit"));
@@ -1361,6 +1365,12 @@ void BNPView::delNote()
 {
     currentBasket()->noteDelete();
 }
+
+void BNPView::clearFormattingNote()
+{
+    currentBasket()->clearFormattingNote();
+}
+
 void BNPView::openNote()
 {
     currentBasket()->noteOpen();
@@ -1592,6 +1602,10 @@ void BNPView::updateNotesActions()
     bool oneOrSeveralSelected = currentBasket()->countSelecteds() >= 1;
     bool severalSelected = currentBasket()->countSelecteds() >= 2;
 
+    NoteType::Id selectedType = NoteType::Unknown;
+    if (oneSelected && currentBasket()->theSelectedNote()){
+        selectedType = currentBasket()->theSelectedNote()->content()->type();
+    }
     // FIXME: m_actCheckNotes is also modified in void BNPView::areSelectedNotesCheckedChanged(bool checked)
     //        bool BasketScene::areSelectedNotesChecked() should return false if bool BasketScene::showCheckBoxes() is false
     //  m_actCheckNotes->setChecked( oneOrSeveralSelected &&
@@ -1612,6 +1626,7 @@ void BNPView::updateNotesActions()
         m_actPaste->setEnabled(!isLocked);
         m_actDelNote->setEnabled(!isLocked && oneOrSeveralSelected);
     }
+    m_actClearFormatting->setEnabled(!isLocked && !currentBasket()->isDuringEdit() && selectedType == NoteType::Html);
     m_actOpenNote->setEnabled(oneOrSeveralSelected);
     m_actOpenNoteWith->setEnabled(oneSelected); // TODO: oneOrSeveralSelected IF SAME TYPE
     m_actSaveNoteAs->setEnabled(oneSelected);   // IDEM?

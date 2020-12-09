@@ -513,6 +513,7 @@ public Q_SLOTS:
     void noteDeleteWithoutConfirmation(bool deleteFilesToo = true);
     void noteCopy();
     void noteCut();
+    void clearFormattingNote(Note *note = nullptr);
     void noteOpen(Note *note = nullptr);
     void noteOpenWith(Note *note = nullptr);
     void noteSaveAs();
