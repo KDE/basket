@@ -1168,7 +1168,7 @@ void BNPView::setCurrentBasketInHistory(BasketScene *basket)
 
 void BNPView::setCurrentBasket(BasketScene *basket)
 {
-    if (currentBasket() == basket)
+    if (m_tree->currentItem() != nullptr && currentBasket() == basket)
         return;
 
     if (currentBasket())
