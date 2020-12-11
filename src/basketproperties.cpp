@@ -61,7 +61,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     setModal(true);
 
     Ui::BasketPropertiesUi *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this); // cast to remove name ambiguity
-    propsUi->icon->setIconType(KIconLoader::NoGroup, KIconLoader::Action);
+    propsUi->icon->setIconType(KIconLoader::NoGroup, KIconLoader::Application);
     propsUi->icon->setIconSize(16);
     propsUi->icon->setIcon(m_basket->icon());
 

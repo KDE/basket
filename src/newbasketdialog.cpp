@@ -58,7 +58,7 @@ void SingleSelectionKIconView::slotSelectionChanged(QListWidgetItem *cur)
 /** class NewBasketDefaultProperties: */
 
 NewBasketDefaultProperties::NewBasketDefaultProperties()
-    : icon(QString())
+    : icon(QString("org.kde.basket"))
     , backgroundImage(QString())
     , backgroundColor()
     , textColor()
@@ -93,7 +93,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     m_icon = new KIconButton(page);
     m_icon->setIconType(KIconLoader::NoGroup, KIconLoader::Action);
     m_icon->setIconSize(16);
-    m_icon->setIcon(m_defaultProperties.icon.isEmpty() ? "basket" : m_defaultProperties.icon);
+    m_icon->setIcon(m_defaultProperties.icon);
 
     int size = qMax(m_icon->sizeHint().width(), m_icon->sizeHint().height());
     m_icon->setFixedSize(size, size); // Make it square!

@@ -747,7 +747,7 @@ StateAction::StateAction(State *state, const QKeySequence &shortcut, QWidget *pa
     if (withTagName && m_state->parentTag())
         setText(m_state->parentTag()->name());
 
-    setIcon(QIcon(m_state->emblem()));
+    setIcon(QIcon::fromTheme(m_state->emblem()));
 
     setShortcut(shortcut);
 }
