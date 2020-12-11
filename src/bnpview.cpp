@@ -2473,9 +2473,7 @@ void BNPView::disconnectTagsMenu()
 
 void BNPView::disconnectTagsMenuDelayed()
 {
-    disconnect(m_lastOpenedTagsMenu, SIGNAL(triggered(QAction *)), currentBasket(), SLOT(toggledTagInMenu(QAction *)));
-    disconnect(m_lastOpenedTagsMenu, SIGNAL(aboutToHide()), currentBasket(), SLOT(unlockHovering()));
-    disconnect(m_lastOpenedTagsMenu, SIGNAL(aboutToHide()), currentBasket(), SLOT(disableNextClick()));
+    m_lastOpenedTagsMenu->disconnect(currentBasket());
 }
 
 void BNPView::loadCrossReference(QString link)
