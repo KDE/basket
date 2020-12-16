@@ -23,7 +23,6 @@
 #include <KMessageBox>
 #include <KShortcutsDialog>
 #include <KToggleAction>
-#include <ksettings/dialog.h>
 
 #include "basketstatusbar.h"
 #include "bnpview.h"
@@ -142,14 +141,15 @@ void MainWindow::slotNewToolbarConfig() // This is called when OK or Apply is cl
 
 void MainWindow::showSettingsDialog()
 {
-    if (m_settings == nullptr)
-        m_settings = new KSettings::Dialog(qApp->activeWindow());
+    if (!m_settings)
+        m_settings = new SettingsDialog (qApp->activeWindow());
+
     if (Global::activeMainWindow()) {
-        // Help, RestoreDefaults buttons not implemented!
-        m_settings->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
         m_settings->exec();
-    } else
-        m_settings->show();
+        return;
+    }
+
+    m_settings->show();
 }
 
 void MainWindow::showShortcutsSettingsDialog()

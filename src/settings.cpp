@@ -327,8 +327,40 @@ void Settings::setAutoBullet(bool yes)
     }
 }
 
-/** GeneralPage */
+/** SettingsDialog */
+SettingsDialog::SettingsDialog(QWidget *parent)
+    : KSettings::Dialog(parent)
+{}
 
+SettingsDialog::~SettingsDialog()
+{}
+
+int SettingsDialog::exec(){
+    // Help, RestoreDefaults buttons not implemented!
+    //setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
+    QTimer::singleShot(0, this, SLOT(adjustSize()));
+    return KSettings::Dialog::exec();
+}
+
+void SettingsDialog::adjustSize()
+{
+    QSize maxPageSize;
+    const KPageWidgetModel *model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
+    if (!model) return;
+
+    const int pageCount = model->rowCount();
+    for (int pageId = 0; pageId < pageCount; ++pageId) {
+        QWidget *pageWidget = model->item(model->index(pageId, 0))->widget();
+        if (!pageWidget) continue;
+
+        maxPageSize = maxPageSize.expandedTo(pageWidget->sizeHint());
+    }
+
+    if (!maxPageSize.isEmpty())
+        resize(1.25 * maxPageSize.width(), 1.25 * maxPageSize.height());
+}
+
+/** GeneralPage */
 GeneralPage::GeneralPage(QWidget *parent, const char *name)
     : KCModule(parent)
 {

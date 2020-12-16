@@ -16,11 +16,7 @@ class QWidget;
 class QAction;
 class KToggleAction;
 class BNPView;
-
-namespace KSettings
-{
-class Dialog;
-};
+class SettingsDialog;
 
 /** The window that contain baskets, organized by tabs.
  * @author Sébastien Laoût
@@ -69,7 +65,7 @@ private:
     QVBoxLayout *m_layout;
     BNPView *m_baskets;
     bool m_startDocked;
-    KSettings::Dialog *m_settings;
+    SettingsDialog *m_settings;
     bool m_quit;
 };
 

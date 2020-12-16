@@ -9,6 +9,7 @@
 
 #include <KCModule>
 #include <KMainWindow> //For Global::mainWindow()
+#include <ksettings/dialog.h>
 
 #include <QAction> //For UseSysTray
 #include <QtCore/QDate>
@@ -146,6 +147,21 @@ private:
     RunCommandRequester *m_imageProg;
     RunCommandRequester *m_animationProg;
     RunCommandRequester *m_soundProg;
+};
+
+/**
+ * KSettings::Dialog wrapper to properly calculate appropriate window size
+ */
+class BASKET_EXPORT SettingsDialog : public KSettings::Dialog
+{
+    Q_OBJECT
+public:
+    explicit SettingsDialog(QWidget *parent = nullptr);
+    ~SettingsDialog() override;
+    virtual int exec() override;
+
+private Q_SLOTS:
+    void adjustSize();
 };
 
 /** Handle all global variables (to avoid lot of extern declarations)
