@@ -4609,12 +4609,10 @@ Note *BasketScene::firstNoteInGroup()
 Note *BasketScene::noteOnHome()
 {
     // First try to find the first note of the group containing the focused note:
-    Note *child = m_focusedNote;
     Note *parent = (m_focusedNote ? m_focusedNote->parentNote() : nullptr);
     while (parent) {
         if (parent->nextShownInStack() != m_focusedNote)
             return parent->nextShownInStack();
-        child = parent;
         parent = parent->parentNote();
     }
 
