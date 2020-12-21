@@ -16,7 +16,7 @@
 
 /** Class DecoratedBasket: */
 
-DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName, Qt::WindowFlags fl)
+DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName)
     : QWidget(parent)
 {
     m_layout = new QVBoxLayout(this);
