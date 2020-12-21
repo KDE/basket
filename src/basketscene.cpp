@@ -2477,14 +2477,12 @@ void BasketScene::selectAll()
             m_editor->lineEdit()->selectAll();
     } else {
         // First select all in the group, then in the parent group...
-        Note *child = m_focusedNote;
         Note *parent = (m_focusedNote ? m_focusedNote->parentNote() : nullptr);
         while (parent) {
             if (!parent->allSelected()) {
                 parent->setSelectedRecursively(true);
                 return;
             }
-            child = parent;
             parent = parent->parentNote();
         }
         // Then, select all:
