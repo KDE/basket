@@ -4638,7 +4638,6 @@ Note *BasketScene::noteOnHome()
 
 Note *BasketScene::noteOnEnd()
 {
-    Note *child = m_focusedNote;
     Note *parent = (m_focusedNote ? m_focusedNote->parentNote() : nullptr);
     Note *lastChild;
     while (parent) {
@@ -4650,7 +4649,6 @@ Note *BasketScene::noteOnEnd()
             if (lastChild && lastChild->isShown() && lastChild != m_focusedNote)
                 return lastChild;
         }
-        child = parent;
         parent = parent->parentNote();
     }
     if (isFreeLayout()) {
