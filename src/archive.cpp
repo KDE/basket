@@ -11,6 +11,7 @@
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QStandardPaths>
+#include <QTemporaryDir>
 #include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QMap>
@@ -244,10 +245,80 @@ void Archive::listUsedTags(BasketScene *basket, bool recursive, QList<Tag *> &li
 
 void Archive::open(const QString &path)
 {
-    // Create the temporary folder:
+    // Use the temporary folder:
     QString tempFolder = Global::savesFolder() + "temp-archive/";
+
+    switch (extractArchive(path, tempFolder)) {
+    case IOExceptionCode::FailedToOpenResource:
+        KMessageBox::error(nullptr, i18n("Failed to open a file resource."), i18n("Basket Archive Error"));
+        break;
+    case IOExceptionCode::NotABasketArchive:
+        KMessageBox::error(nullptr, i18n("This file is not a basket archive."), i18n("Basket Archive Error"));
+        break;
+    case IOExceptionCode::CorruptedBasketArchive:
+        KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
+        break;
+    case IOExceptionCode::DestinationExists:
+        KMessageBox::error(nullptr, i18n("Extraction path already exists."), i18n("Basket Archive Error"));
+        break;
+    case IOExceptionCode::IncompatibleBasketVersion:
+        KMessageBox::error(nullptr,
+                           i18n("This file was created with a recent version of %1."
+                                "Please upgrade to a newer version to be able to open that file.",
+                                QGuiApplication::applicationDisplayName()),
+                           i18n("Basket Archive Error"));
+        break;
+    case IOExceptionCode::PossiblyCompatibleBasketVersion:
+        KMessageBox::information(nullptr,
+                                 i18n("This file was created with a recent version of %1. "
+                                      "It can be opened but not every information will be available to you. "
+                                      "For instance, some notes may be missing because they are of a type only available in new versions. "
+                                      "When saving the file back, consider to save it to another file, to preserve the original one.",
+                                      QGuiApplication::applicationDisplayName()),
+                                 i18n("Basket Archive Error"));
+        [[fallthrough]];
+    case IOExceptionCode::NoException:
+        if (Global::activeMainWindow()) {
+            Global::activeMainWindow()->raise();
+        }
+        // Import the Tags:
+
+        importTagEmblems(tempFolder); // Import and rename tag emblems BEFORE loading them!
+        QMap<QString, QString> mergedStates = Tag::loadTags(tempFolder + "tags.xml");
+        if (mergedStates.count() > 0) {
+            Tag::saveTags();
+        }
+
+        // Import the Background Images:
+        importArchivedBackgroundImages(tempFolder);
+
+        // Import the Baskets:
+        renameBasketFolders(tempFolder, mergedStates);
+
+        Tools::deleteRecursively(tempFolder);
+        break;
+    }
+}
+
+Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QString &destination)
+{
+    IOExceptionCode retCode = IOExceptionCode::NoException;
+
+    QString mDestination;
+    if (destination.isEmpty()) {
+        // have the archive source the same name as the archive
+        mDestination = QFileInfo(path).path();
+        mDestination += QDir::separator();
+        mDestination += QFileInfo(path).baseName();
+        mDestination += +"-source";
+    } else {
+        mDestination = QDir::cleanPath(destination);
+    }
+
     QDir dir;
-    dir.mkdir(tempFolder);
+    if (!dir.mkdir(mDestination)) {
+        return IOExceptionCode::DestinationExists;
+    }
     const qint64 BUFFER_SIZE = 1024;
 
     QFile file(path);
@@ -256,10 +327,9 @@ void Archive::open(const QString &path)
         stream.setCodec("ISO-8859-1");
         QString line = stream.readLine();
         if (line != "BasKetNP:archive") {
-            KMessageBox::error(nullptr, i18n("This file is not a basket archive."), i18n("Basket Archive Error"));
             file.close();
-            Tools::deleteRecursively(tempFolder);
-            return;
+            Tools::deleteRecursively(mDestination);
+            return IOExceptionCode::NotABasketArchive;
         }
         QString version;
         QStringList readCompatibleVersions;
@@ -287,49 +357,44 @@ void Archive::open(const QString &path)
                 bool ok;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
-                    KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
                     file.close();
-                    Tools::deleteRecursively(tempFolder);
-                    return;
+                    Tools::deleteRecursively(mDestination);
+                    return IOExceptionCode::CorruptedBasketArchive;
                 }
                 // Get the preview file:
                 // FIXME: We do not need the preview for now
-                //              QFile previewFile(tempFolder + "preview.png");
-                //              if (previewFile.open(QIODevice::WriteOnly)) {
-                stream.seek(stream.pos() + size);
+                QFile previewFile(mDestination + "preview.png");
+                if (previewFile.open(QIODevice::WriteOnly)) {
+                    char *buffer = new char[BUFFER_SIZE];
+                    qint64 sizeRead;
+                    while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
+                        previewFile.write(buffer, sizeRead);
+                        size -= sizeRead;
+                    }
+                    previewFile.close();
+                    delete[] buffer;
+                }
+                stream.seek(stream.pos());
             } else if (key == "archive*") {
                 if (version != "0.6.1" && readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    KMessageBox::information(nullptr,
-                                             i18n("This file was created with a recent version of %1. "
-                                                  "It can be opened but not every information will be available to you. "
-                                                  "For instance, some notes may be missing because they are of a type only available in new versions. "
-                                                  "When saving the file back, consider to save it to another file, to preserve the original one.",
-                                                  QGuiApplication::applicationDisplayName()),
-                                             i18n("Basket Archive Error"));
+                    retCode = IOExceptionCode::PossiblyCompatibleBasketVersion;
                 }
                 if (version != "0.6.1" && !readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    KMessageBox::error(
-                        nullptr, i18n("This file was created with a recent version of %1. Please upgrade to a newer version to be able to open that file.", QGuiApplication::applicationDisplayName()), i18n("Basket Archive Error"));
                     file.close();
-                    Tools::deleteRecursively(tempFolder);
-                    return;
+                    Tools::deleteRecursively(mDestination);
+                    return IOExceptionCode::IncompatibleBasketVersion;
                 }
 
                 bool ok;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
-                    KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
                     file.close();
-                    Tools::deleteRecursively(tempFolder);
-                    return;
-                }
-
-                if (Global::activeMainWindow()) {
-                    Global::activeMainWindow()->raise();
+                    Tools::deleteRecursively(mDestination);
+                    return IOExceptionCode::CorruptedBasketArchive;
                 }
 
                 // Get the archive file:
-                QString tempArchive = tempFolder + "temp-archive.tar.gz";
+                QString tempArchive = mDestination + "temp-archive.tar.gz";
                 QFile archiveFile(tempArchive);
                 file.seek(stream.pos());
                 if (archiveFile.open(QIODevice::WriteOnly)) {
@@ -343,37 +408,20 @@ void Archive::open(const QString &path)
                     delete[] buffer;
 
                     // Extract the Archive:
-                    QString extractionFolder = tempFolder + "extraction/";
-                    QDir dir;
-                    dir.mkdir(extractionFolder);
                     KTar tar(tempArchive, "application/x-gzip");
                     tar.open(QIODevice::ReadOnly);
-                    tar.directory()->copyTo(extractionFolder);
+                    tar.directory()->copyTo(mDestination);
                     tar.close();
-
-                    // Import the Tags:
-                    importTagEmblems(extractionFolder); // Import and rename tag emblems BEFORE loading them!
-                    QMap<QString, QString> mergedStates = Tag::loadTags(extractionFolder + "tags.xml");
-                    if (mergedStates.count() > 0) {
-                        Tag::saveTags();
-                    }
-
-                    // Import the Background Images:
-                    importArchivedBackgroundImages(extractionFolder);
-
-                    // Import the Baskets:
-                    renameBasketFolders(extractionFolder, mergedStates);
-                    stream.seek(file.pos());
                 }
             } else if (key.endsWith('*')) {
-                // We do not know what it is, but we should read the embedded-file in order to discard it:
+                // We do not know what it is, but we should read the embedded-file in
+                // order to discard it:
                 bool ok;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
-                    KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
                     file.close();
-                    Tools::deleteRecursively(tempFolder);
-                    return;
+                    Tools::deleteRecursively(mDestination);
+                    return IOExceptionCode::CorruptedBasketArchive;
                 }
                 // Get the archive file:
                 char *buffer = new char[BUFFER_SIZE];
@@ -384,12 +432,110 @@ void Archive::open(const QString &path)
                 delete[] buffer;
             } else {
                 // We do not know what it is, and we do not care.
+                file.close();
+                Tools::deleteRecursively(mDestination);
+                return IOExceptionCode::NotABasketArchive;
             }
             // Analyze the Value, if Understood:
         }
         file.close();
     }
-    Tools::deleteRecursively(tempFolder);
+
+    return retCode;
+}
+
+Archive::IOExceptionCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination)
+{
+    QDir mSourcePath(sourcePath);
+    QFileInfo destinationFile(destination);
+    QFileInfo mPreviewImageFile(previewImage);
+
+    // sourcePath must be a valid directory
+    if (!mSourcePath.exists()) {
+        return IOExceptionCode::FailedToOpenResource;
+    }
+
+    // destinationFile must not previously exist;
+    if (destinationFile.exists()) {
+        return IOExceptionCode::DestinationExists;
+    }
+
+    // previewImage must exist
+    if (!mPreviewImageFile.isReadable()) {
+        qDebug() << "Could not open preview image; will use default icon instead.";
+    }
+
+    QTemporaryDir tempDir;
+    if (!tempDir.isValid()) {
+        return IOExceptionCode::FailedToOpenResource;
+    }
+
+    // Create the temporary archive file:
+    QString tempDestinationFile = tempDir.path() + "temp-archive.tar.gz";
+    KTar archive(tempDestinationFile, "application/x-gzip");
+
+    // Prepare the archive for writing.
+    if (!archive.open(QIODevice::WriteOnly)) {
+        // Failed to open file.
+        archive.close();
+        Tools::deleteRecursively(tempDir.path());
+        return IOExceptionCode::FailedToOpenResource;
+    }
+
+    for (const auto &entry : mSourcePath.entryList(QDir::Files)) {
+        archive.addLocalFile(entry, entry);
+    }
+    for (const auto &entry : mSourcePath.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+        archive.addLocalDirectory(entry, entry);
+    }
+    archive.close();
+
+    // use generic basket icon as preview if no valid image supplied
+    /// \todo write a way to create preview the way it's done in Archive::save
+    QString previewImagePath = ":/images/128-apps-org.kde.basket.png";
+    if (!previewImage.isEmpty() || !QFileInfo(previewImage).exists()) {
+        previewImagePath = previewImage;
+    }
+
+    // Finally Save to the Real Destination file:
+    QFile file(destination);
+    if (file.open(QIODevice::WriteOnly)) {
+        ulong previewSize = QFile(previewImagePath).size();
+        ulong archiveSize = QFile(tempDestinationFile).size();
+        QTextStream stream(&file);
+        stream.setCodec("ISO-8859-1");
+        stream << "BasKetNP:archive\n"
+               << "version:0.6.1\n"
+               //             << "read-compatible:0.6.1\n"
+               //             << "write-compatible:0.6.1\n"
+               << "preview*:" << previewSize << "\n";
+
+        stream.flush();
+        // Copy the Preview File:
+        const unsigned long BUFFER_SIZE = 1024;
+        char *buffer = new char[BUFFER_SIZE];
+        long sizeRead;
+        QFile previewFile(previewImagePath);
+        if (previewFile.open(QIODevice::ReadOnly)) {
+            while ((sizeRead = previewFile.read(buffer, BUFFER_SIZE)) > 0)
+                file.write(buffer, sizeRead);
+        }
+        stream << "archive*:" << archiveSize << "\n";
+        stream.flush();
+
+        // Copy the Archive File:
+        QFile archiveFile(tempDestinationFile);
+        if (archiveFile.open(QIODevice::ReadOnly)) {
+            while ((sizeRead = archiveFile.read(buffer, BUFFER_SIZE)) > 0)
+                file.write(buffer, sizeRead);
+        }
+        // Clean Up:
+        delete[] buffer;
+        buffer = nullptr;
+        file.close();
+    }
+
+    return IOExceptionCode::NoException;
 }
 
 /**
