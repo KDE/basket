@@ -30,12 +30,12 @@ public:
     static void save(BasketScene *basket, bool withSubBaskets, const QString &destination);
     static void open(const QString &path);
 
+    static IOExceptionCode extractArchive(const QString &path, const QString &destination);
+    static IOExceptionCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
 private:
     enum class IOExceptionCode : quint8 { NoException, NotABasketArchive, CorruptedBasketArchive, DestinationExists, IncompatibleBasketVersion, PossiblyCompatibleBasketVersion, FailedToOpenResource };
 
     // Convenient Methods for Saving:
-    static IOExceptionCode extractArchive(const QString &path, const QString &destination);
-    static IOExceptionCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
     static void saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress);
     static void listUsedTags(BasketScene *basket, bool recursive, QList<Tag *> &list);
     // Convenient Methods for Loading:
