@@ -249,26 +249,26 @@ void Archive::open(const QString &path)
     QString tempFolder = Global::savesFolder() + "temp-archive/";
 
     switch (extractArchive(path, tempFolder)) {
-    case IOExceptionCode::FailedToOpenResource:
+    case IOErrorCode::FailedToOpenResource:
         KMessageBox::error(nullptr, i18n("Failed to open a file resource."), i18n("Basket Archive Error"));
         break;
-    case IOExceptionCode::NotABasketArchive:
+    case IOErrorCode::NotABasketArchive:
         KMessageBox::error(nullptr, i18n("This file is not a basket archive."), i18n("Basket Archive Error"));
         break;
-    case IOExceptionCode::CorruptedBasketArchive:
+    case IOErrorCode::CorruptedBasketArchive:
         KMessageBox::error(nullptr, i18n("This file is corrupted. It can not be opened."), i18n("Basket Archive Error"));
         break;
-    case IOExceptionCode::DestinationExists:
+    case IOErrorCode::DestinationExists:
         KMessageBox::error(nullptr, i18n("Extraction path already exists."), i18n("Basket Archive Error"));
         break;
-    case IOExceptionCode::IncompatibleBasketVersion:
+    case IOErrorCode::IncompatibleBasketVersion:
         KMessageBox::error(nullptr,
                            i18n("This file was created with a recent version of %1."
                                 "Please upgrade to a newer version to be able to open that file.",
                                 QGuiApplication::applicationDisplayName()),
                            i18n("Basket Archive Error"));
         break;
-    case IOExceptionCode::PossiblyCompatibleBasketVersion:
+    case IOErrorCode::PossiblyCompatibleBasketVersion:
         KMessageBox::information(nullptr,
                                  i18n("This file was created with a recent version of %1. "
                                       "It can be opened but not every information will be available to you. "
@@ -277,7 +277,7 @@ void Archive::open(const QString &path)
                                       QGuiApplication::applicationDisplayName()),
                                  i18n("Basket Archive Error"));
         [[fallthrough]];
-    case IOExceptionCode::NoException:
+    case IOErrorCode::NoException:
         if (Global::activeMainWindow()) {
             Global::activeMainWindow()->raise();
         }
@@ -300,9 +300,9 @@ void Archive::open(const QString &path)
     }
 }
 
-Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QString &destination)
+Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString &destination)
 {
-    IOExceptionCode retCode = IOExceptionCode::NoException;
+    IOErrorCode retCode = IOErrorCode::NoException;
 
     QString mDestination;
     if (destination.isEmpty()) {
@@ -317,7 +317,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
 
     QDir dir;
     if (!dir.mkdir(mDestination)) {
-        return IOExceptionCode::DestinationExists;
+        return IOErrorCode::DestinationExists;
     }
     const qint64 BUFFER_SIZE = 1024;
 
@@ -329,7 +329,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
         if (line != "BasKetNP:archive") {
             file.close();
             Tools::deleteRecursively(mDestination);
-            return IOExceptionCode::NotABasketArchive;
+            return IOErrorCode::NotABasketArchive;
         }
         QString version;
         QStringList readCompatibleVersions;
@@ -359,7 +359,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
                 if (!ok) {
                     file.close();
                     Tools::deleteRecursively(mDestination);
-                    return IOExceptionCode::CorruptedBasketArchive;
+                    return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the preview file:
                 // FIXME: We do not need the preview for now
@@ -377,12 +377,12 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
                 stream.seek(stream.pos());
             } else if (key == "archive*") {
                 if (version != "0.6.1" && readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
-                    retCode = IOExceptionCode::PossiblyCompatibleBasketVersion;
+                    retCode = IOErrorCode::PossiblyCompatibleBasketVersion;
                 }
                 if (version != "0.6.1" && !readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
                     file.close();
                     Tools::deleteRecursively(mDestination);
-                    return IOExceptionCode::IncompatibleBasketVersion;
+                    return IOErrorCode::IncompatibleBasketVersion;
                 }
 
                 bool ok;
@@ -390,7 +390,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
                 if (!ok) {
                     file.close();
                     Tools::deleteRecursively(mDestination);
-                    return IOExceptionCode::CorruptedBasketArchive;
+                    return IOErrorCode::CorruptedBasketArchive;
                 }
 
                 // Get the archive file:
@@ -421,7 +421,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
                 if (!ok) {
                     file.close();
                     Tools::deleteRecursively(mDestination);
-                    return IOExceptionCode::CorruptedBasketArchive;
+                    return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the archive file:
                 char *buffer = new char[BUFFER_SIZE];
@@ -434,7 +434,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
                 // We do not know what it is, and we do not care.
                 file.close();
                 Tools::deleteRecursively(mDestination);
-                return IOExceptionCode::NotABasketArchive;
+                return IOErrorCode::NotABasketArchive;
             }
             // Analyze the Value, if Understood:
         }
@@ -444,7 +444,7 @@ Archive::IOExceptionCode Archive::extractArchive(const QString &path, const QStr
     return retCode;
 }
 
-Archive::IOExceptionCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination)
+Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination)
 {
     QDir mSourcePath(sourcePath);
     QFileInfo destinationFile(destination);
@@ -452,12 +452,12 @@ Archive::IOExceptionCode Archive::createArchiveFromSource(const QString &sourceP
 
     // sourcePath must be a valid directory
     if (!mSourcePath.exists()) {
-        return IOExceptionCode::FailedToOpenResource;
+        return IOErrorCode::FailedToOpenResource;
     }
 
     // destinationFile must not previously exist;
     if (destinationFile.exists()) {
-        return IOExceptionCode::DestinationExists;
+        return IOErrorCode::DestinationExists;
     }
 
     // previewImage must exist
@@ -467,7 +467,7 @@ Archive::IOExceptionCode Archive::createArchiveFromSource(const QString &sourceP
 
     QTemporaryDir tempDir;
     if (!tempDir.isValid()) {
-        return IOExceptionCode::FailedToOpenResource;
+        return IOErrorCode::FailedToOpenResource;
     }
 
     // Create the temporary archive file:
@@ -479,7 +479,7 @@ Archive::IOExceptionCode Archive::createArchiveFromSource(const QString &sourceP
         // Failed to open file.
         archive.close();
         Tools::deleteRecursively(tempDir.path());
-        return IOExceptionCode::FailedToOpenResource;
+        return IOErrorCode::FailedToOpenResource;
     }
 
     for (const auto &entry : mSourcePath.entryList(QDir::Files)) {
@@ -535,7 +535,7 @@ Archive::IOExceptionCode Archive::createArchiveFromSource(const QString &sourceP
         file.close();
     }
 
-    return IOExceptionCode::NoException;
+    return IOErrorCode::NoException;
 }
 
 /**
