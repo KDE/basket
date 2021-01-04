@@ -457,11 +457,6 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
         return IOErrorCode::DestinationExists;
     }
 
-    // previewImage must exist
-    if (!mPreviewImageFile.isReadable()) {
-        qDebug() << "Could not open preview image; will use default icon instead.";
-    }
-
     QTemporaryDir tempDir;
     if (!tempDir.isValid()) {
         return IOErrorCode::FailedToOpenResource;
