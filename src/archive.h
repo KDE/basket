@@ -30,12 +30,40 @@ public:
     static void save(BasketScene *basket, bool withSubBaskets, const QString &destination);
     static void open(const QString &path);
 
+    /**
+     * @brief The IOErrorCode enum granularly indicates whether encoding or decoding of baskets archive succeded
+     */
+    enum class IOErrorCode : quint8 {
+        NoError,
+        NotABasketArchive,
+        CorruptedBasketArchive,
+        DestinationExists,
+        IncompatibleBasketVersion,
+        PossiblyCompatibleBasketVersion,
+        FailedToOpenResource,
+    };
+
+    /**
+     * @brief extractArchive decodes .baskets files
+     * @param path to the .baskets file
+     * @param destination into which the basket archive should be extracted
+     * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
+     */
     static IOErrorCode extractArchive(const QString &path, const QString &destination);
+
+    /**
+     * @brief createArchiveFromSource encodes a basket directory into a .baskets file
+     *
+     * Be aware, this function currently does not validate the sourcePath's structure. The caller of this function needs to make sure the basket directory is a valid source.
+     *
+     * @param sourcePath specifies the directory to be encoded
+     * @param previewImage specifies an optional .png image
+     * @param destination specifies where the encoded .basket file should be saved
+     * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
+     */
     static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
 
-    enum class IOErrorCode : quint8 { NoException, NotABasketArchive, CorruptedBasketArchive, DestinationExists, IncompatibleBasketVersion, PossiblyCompatibleBasketVersion, FailedToOpenResource };
 private:
-
     // Convenient Methods for Saving:
     static void saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress);
     static void listUsedTags(BasketScene *basket, bool recursive, QList<Tag *> &list);

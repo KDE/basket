@@ -277,7 +277,7 @@ void Archive::open(const QString &path)
                                       QGuiApplication::applicationDisplayName()),
                                  i18n("Basket Archive Error"));
         [[fallthrough]];
-    case IOErrorCode::NoException:
+    case IOErrorCode::NoError:
         if (Global::activeMainWindow()) {
             Global::activeMainWindow()->raise();
         }
@@ -302,15 +302,12 @@ void Archive::open(const QString &path)
 
 Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString &destination)
 {
-    IOErrorCode retCode = IOErrorCode::NoException;
+    IOErrorCode retCode = IOErrorCode::NoError;
 
     QString mDestination;
     if (destination.isEmpty()) {
         // have the archive source the same name as the archive
-        mDestination = QFileInfo(path).path();
-        mDestination += QDir::separator();
-        mDestination += QFileInfo(path).baseName();
-        mDestination += +"-source";
+        mDestination = QFileInfo(path).path() + QDir::separator() + QFileInfo(path).baseName() + "-source";
     } else {
         mDestination = QDir::cleanPath(destination);
     }
@@ -535,7 +532,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
         file.close();
     }
 
-    return IOErrorCode::NoException;
+    return IOErrorCode::NoError;
 }
 
 /**
