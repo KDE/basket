@@ -474,12 +474,15 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
         return IOErrorCode::FailedToOpenResource;
     }
 
-    for (const auto &entry : mSourcePath.entryList(QDir::Files)) {
+    // Add files and directories to tar archive
+    const auto sourceFiles = mSourcePath.entryList(QDir::Files);
+    std::for_each(sourceFiles.constBegin(), sourceFiles.constEnd(), [&](const QString &entry) {
         archive.addLocalFile(entry, entry);
-    }
-    for (const auto &entry : mSourcePath.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+    });
+    const auto sourceDirectories = mSourcePath.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    std::for_each(sourceDirectories.constBegin(), sourceDirectories.constEnd(), [&](const QString &entry) {
         archive.addLocalDirectory(entry, entry);
-    }
+    });
     archive.close();
 
     // use generic basket icon as preview if no valid image supplied
