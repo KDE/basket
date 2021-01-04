@@ -488,7 +488,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
     // use generic basket icon as preview if no valid image supplied
     /// \todo write a way to create preview the way it's done in Archive::save
     QString previewImagePath = ":/images/128-apps-org.kde.basket.png";
-    if (!previewImage.isEmpty() || !QFileInfo(previewImage).exists()) {
+    if (!previewImage.isEmpty() && QFileInfo(previewImage).exists()) {
         previewImagePath = previewImage;
     }
 
