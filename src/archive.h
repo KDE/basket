@@ -32,8 +32,9 @@ public:
 
     static IOErrorCode extractArchive(const QString &path, const QString &destination);
     static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
-private:
+
     enum class IOErrorCode : quint8 { NoException, NotABasketArchive, CorruptedBasketArchive, DestinationExists, IncompatibleBasketVersion, PossiblyCompatibleBasketVersion, FailedToOpenResource };
+private:
 
     // Convenient Methods for Saving:
     static void saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress);
