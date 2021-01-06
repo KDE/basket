@@ -322,10 +322,10 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     }
 
     // Create directory and delete its content in case it was not empty
-    dir.mkpath(QString("."));
     if (!dir.removeRecursively()) {
         return IOErrorCode::FailedToOpenResource;
     }
+    dir.mkpath(QString("."));
 
     const qint64 BUFFER_SIZE = 1024;
 
@@ -363,26 +363,27 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 writeCompatibleVersions = value.split(';');
             } else if (key == "preview*") {
                 bool ok;
-                qint64 size = value.toULong(&ok);
+                const qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
                     Tools::deleteRecursively(mDestination);
                     return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the preview file:
-                // FIXME: We do not need the preview for now
                 QFile previewFile(dir.absolutePath() + QDir::separator() + "preview.png");
                 if (previewFile.open(QIODevice::WriteOnly)) {
-                    char *buffer = new char[BUFFER_SIZE];
-                    qint64 sizeRead;
-                    while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
-                        previewFile.write(buffer, sizeRead);
-                        size -= sizeRead;
+                    std::array<char, BUFFER_SIZE> buffer{};
+                    qint64 remainingBytes = size;
+                    qint64 sizeRead = 0;
+                    file.seek(stream.pos());
+
+                    while ((sizeRead = file.read(buffer.data(), qMin(BUFFER_SIZE, remainingBytes))) > 0) {
+                        previewFile.write(buffer.data(), sizeRead);
+                        remainingBytes -= sizeRead;
                     }
                     previewFile.close();
-                    delete[] buffer;
                 }
-                stream.seek(stream.pos());
+                stream.seek(stream.pos() + size);
             } else if (key == "archive*") {
                 if (version != "0.6.1" && readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
                     retCode = IOErrorCode::PossiblyCompatibleBasketVersion;
@@ -402,7 +403,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 }
 
                 // Get the archive file:
-                QString tempArchive = mDestination + "temp-archive.tar.gz";
+                QString tempArchive = dir.absolutePath() + QDir::separator() + "temp-archive.tar.gz";
                 QFile archiveFile(tempArchive);
                 file.seek(stream.pos());
                 if (archiveFile.open(QIODevice::WriteOnly)) {
@@ -420,6 +421,8 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                     tar.open(QIODevice::ReadOnly);
                     tar.directory()->copyTo(mDestination);
                     tar.close();
+
+                    stream.seek(file.pos());
                 }
             } else if (key.endsWith('*')) {
                 // We do not know what it is, but we should read the embedded-file in
@@ -440,9 +443,6 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 delete[] buffer;
             } else {
                 // We do not know what it is, and we do not care.
-                //                file.close();
-                //                Tools::deleteRecursively(mDestination);
-                //                return IOErrorCode::NotABasketArchive;
             }
             // Analyze the Value, if Understood:
         }
