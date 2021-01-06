@@ -248,7 +248,7 @@ void Archive::open(const QString &path)
     // Use the temporary folder:
     QString tempFolder = Global::savesFolder() + "temp-archive/";
 
-    switch (extractArchive(path, tempFolder)) {
+    switch (extractArchive(path, tempFolder, false)) {
     case IOErrorCode::FailedToOpenResource:
         KMessageBox::error(nullptr, i18n("Failed to open a file resource."), i18n("Basket Archive Error"));
         break;
@@ -300,22 +300,33 @@ void Archive::open(const QString &path)
     }
 }
 
-Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString &destination)
+Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString &destination, const bool protectDestination)
 {
     IOErrorCode retCode = IOErrorCode::NoError;
 
     QString mDestination;
+
+    // derive name of the extraction directory
     if (destination.isEmpty()) {
-        // have the archive source the same name as the archive
+        // have the decoded baskets the same name as the archive
         mDestination = QFileInfo(path).path() + QDir::separator() + QFileInfo(path).baseName() + "-source";
     } else {
         mDestination = QDir::cleanPath(destination);
     }
 
-    QDir dir;
-    if (!dir.mkdir(mDestination)) {
+    QDir dir(mDestination);
+
+    // do nothing when writeProtected
+    if (dir.exists() && protectDestination) {
         return IOErrorCode::DestinationExists;
     }
+
+    // Create directory and delete its content in case it was not empty
+    dir.mkpath(QString("."));
+    if (!dir.removeRecursively()) {
+        return IOErrorCode::FailedToOpenResource;
+    }
+
     const qint64 BUFFER_SIZE = 1024;
 
     QFile file(path);
@@ -360,7 +371,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 }
                 // Get the preview file:
                 // FIXME: We do not need the preview for now
-                QFile previewFile(mDestination + "preview.png");
+                QFile previewFile(dir.absolutePath() + QDir::separator() + "preview.png");
                 if (previewFile.open(QIODevice::WriteOnly)) {
                     char *buffer = new char[BUFFER_SIZE];
                     qint64 sizeRead;
@@ -429,9 +440,9 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 delete[] buffer;
             } else {
                 // We do not know what it is, and we do not care.
-                file.close();
-                Tools::deleteRecursively(mDestination);
-                return IOErrorCode::NotABasketArchive;
+                //                file.close();
+                //                Tools::deleteRecursively(mDestination);
+                //                return IOErrorCode::NotABasketArchive;
             }
             // Analyze the Value, if Understood:
         }

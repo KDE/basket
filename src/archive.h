@@ -47,9 +47,11 @@ public:
      * @brief extractArchive decodes .baskets files
      * @param path to the .baskets file
      * @param destination into which the basket archive should be extracted
+     * @param protectDestination decides whether the destination will be replaced if it has been present
+     * \todo protectDestination likely should be an enum, too, to be more descriptive
      * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
      */
-    static IOErrorCode extractArchive(const QString &path, const QString &destination);
+    static IOErrorCode extractArchive(const QString &path, const QString &destination, const bool protectDestination = true);
 
     /**
      * @brief createArchiveFromSource encodes a basket directory into a .baskets file
