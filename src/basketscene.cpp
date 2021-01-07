@@ -709,7 +709,6 @@ void BasketScene::setAppearance(const QString &icon, const QString &name, const 
 {
     unsubscribeBackgroundImages();
 
-    m_icon = icon;
     m_basketName = name;
     m_backgroundImageName = backgroundImage;
     m_backgroundColorSetting = backgroundColor;
@@ -719,9 +718,9 @@ void BasketScene::setAppearance(const QString &icon, const QString &name, const 
     m_action->setText("BASKET SHORTCUT: " + name);
 
     // Basket should ALWAYS have an icon (the "basket" icon by default):
-    QPixmap iconTest = KIconLoader::global()->loadIcon(m_icon, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
-    if (iconTest.isNull())
-        m_icon = "basket";
+    QPixmap iconTest = KIconLoader::global()->loadIcon(icon, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
+    if (!iconTest.isNull())
+        m_icon = icon;
 
     // We don't request the background images if it's not loaded yet (to make the application startup fast).
     // When the basket is loading (because requested by the user: he/she want to access it)
@@ -1176,6 +1175,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_count(0)
     , m_countFounds(0)
     , m_countSelecteds(0)
+    , m_icon("org.kde.basket")
     , m_folderName(folderName)
     , m_editor(nullptr)
     , m_leftEditorBorder(nullptr)
