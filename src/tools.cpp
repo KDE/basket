@@ -14,6 +14,7 @@
 #include <QtCore/QMimeData>
 #include <QtCore/QObject>
 #include <QtCore/QRegExp>
+#include <QtCore/QRegularExpression>
 #include <QtCore/QString>
 #include <QtCore/QTime>
 #include <QtGui/QFont>
@@ -393,21 +394,19 @@ QString Tools::htmlToText(const QString &html)
 
 QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
 {
-    QFont noteFont = document->defaultFont();
+    QFont docFont = document->defaultFont();
     document->setDefaultFont(QFont());
-    QString content = document->toHtml("utf-8");
-    document->setDefaultFont(noteFont);
+    QString docContent = document->toHtml("utf-8");
+    document->setDefaultFont(docFont);
 
     //Tag styles appear in html output as body styles. Remove them to preserve internal formatting.
-    QRegExp patternBodyTag("<body.*>");
-    patternBodyTag.setMinimal(true);
+    QRegularExpression patternBodyTag("<body.*?>");
+    QRegularExpressionMatch bodyTag = patternBodyTag.match(docContent);
 
-    int posBodyTag;
-    if ((posBodyTag = patternBodyTag.indexIn(content)) == -1)
-        return content;
+    if (!bodyTag.hasMatch())
+        return docContent;
 
-    int dbg = patternBodyTag.matchedLength();
-    return content.replace(posBodyTag, patternBodyTag.matchedLength(), "<body>");
+    return docContent.replace(bodyTag.capturedStart(0), bodyTag.capturedLength(0), "<body>");
 }
 
 QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
