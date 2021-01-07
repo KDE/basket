@@ -400,10 +400,11 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_allowCrossRefernce = new QCheckBox(i18n("Allow Cross Reference Links"), tagWidget);
 
     HelpLabel *allowCrossReferenceHelp = new HelpLabel(i18n("What does this do?"),
-                                                       "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + "</p>" + "<p>" +
-                                                           i18n("From the top of the tree (Absolute path):") + "<br />" + i18n("[[/top level item/child|optional title]]") + "<p>" + "<p>" + i18n("Relative to the current basket:") +
-                                                           "<br />" + i18n("[[../sibling|optional title]]") + "<br />" + i18n("[[child|optional title]]") + "<br />" + i18n("[[./child|optional title]]") + "<p>",
-                                                       tagWidget);
+        "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + "</p>" + "<p>" +
+        i18n("From the top of the tree (Absolute path):") + "<br />" + i18n("[[/top level item/child|optional title]]") + "<p>" + "<p>" + i18n("Relative to the current basket:") +
+        "<br />" + i18n("[[../sibling|optional title]]") + "<br />" + i18n("[[child|optional title]]") + "<br />" + i18n("[[./child|optional title]]") + "<p>"+
+        "<p>" +i18n("Baskets matching is cAse inSEnsItive.") + "</p>",
+        tagWidget);
 
     QGridLayout *tagGrid = new QGridLayout(tagWidget);
     tagGrid->addWidget(tagNameLabel, 0, 0);

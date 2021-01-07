@@ -2497,23 +2497,28 @@ QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *pa
 
     QString page = pages.first();
 
-    page = QUrl::fromPercentEncoding(page.toUtf8());
+    page = QUrl::fromPercentEncoding(page.toUtf8()).trimmed();
     pages.removeFirst();
 
-    if (page == "..") {
-        QTreeWidgetItem *p;
-        if (parent)
-            p = parent->parent();
-        else
-            p = m_tree->currentItem()->parent();
+    if (page == "..")
+    {
+        QTreeWidgetItem *p = parent? parent->parent() : m_tree->currentItem()->parent();
         found = this->folderFromBasketNameLink(pages, p);
-    } else if (!parent && page.isEmpty()) {
+    }
+    else if (page == ".")
+    {
+        parent = parent? parent : m_tree->currentItem();
+        found = this->folderFromBasketNameLink(pages, parent);
+    }
+    else if (!parent && page.isEmpty())
+    {
         parent = m_tree->invisibleRootItem();
         found = this->folderFromBasketNameLink(pages, parent);
-    } else {
-        if (!parent && (page == "." || !page.isEmpty())) {
-            parent = m_tree->currentItem();
-        }
+    }
+    else
+    {
+        parent = parent? parent : m_tree->currentItem();
+
         QRegExp re(":\\{([0-9]+)\\}");
         re.setMinimal(true);
         int pos = 0;
