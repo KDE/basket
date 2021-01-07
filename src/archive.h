@@ -6,6 +6,8 @@
 #ifndef ARCHIVE_H
 #define ARCHIVE_H
 
+#include "basket_export.h"
+
 #include <QtCore/QList>
 #include <QtCore/QMap>
 
@@ -51,7 +53,7 @@ public:
      * \todo protectDestination likely should be an enum, too, to be more descriptive
      * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
      */
-    static IOErrorCode extractArchive(const QString &path, const QString &destination, const bool protectDestination = true);
+    BASKET_EXPORT static IOErrorCode extractArchive(const QString &path, const QString &destination, const bool protectDestination = true);
 
     /**
      * @brief createArchiveFromSource encodes a basket directory into a .baskets file
@@ -63,7 +65,7 @@ public:
      * @param destination specifies where the encoded .basket file should be saved
      * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
      */
-    static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
+    BASKET_EXPORT static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
 
 private:
     // Convenient Methods for Saving:

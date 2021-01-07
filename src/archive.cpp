@@ -11,6 +11,7 @@
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QStandardPaths>
+#include <QStringList>
 #include <QTemporaryDir>
 #include <QtCore/QDir>
 #include <QtCore/QList>
@@ -304,17 +305,17 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
 {
     IOErrorCode retCode = IOErrorCode::NoError;
 
-    QString mDestination;
+    QString l_destination;
 
     // derive name of the extraction directory
     if (destination.isEmpty()) {
         // have the decoded baskets the same name as the archive
-        mDestination = QFileInfo(path).path() + QDir::separator() + QFileInfo(path).baseName() + "-source";
+        l_destination = QFileInfo(path).path() + QDir::separator() + QFileInfo(path).baseName() + "-source";
     } else {
-        mDestination = QDir::cleanPath(destination);
+        l_destination = QDir::cleanPath(destination);
     }
 
-    QDir dir(mDestination);
+    QDir dir(l_destination);
 
     // do nothing when writeProtected
     if (dir.exists() && protectDestination) {
@@ -325,7 +326,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     if (!dir.removeRecursively()) {
         return IOErrorCode::FailedToOpenResource;
     }
-    dir.mkpath(QString("."));
+    dir.mkpath(QStringLiteral("."));
 
     const qint64 BUFFER_SIZE = 1024;
 
@@ -336,7 +337,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
         QString line = stream.readLine();
         if (line != "BasKetNP:archive") {
             file.close();
-            Tools::deleteRecursively(mDestination);
+            Tools::deleteRecursively(l_destination);
             return IOErrorCode::NotABasketArchive;
         }
         QString version;
@@ -366,7 +367,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 const qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    Tools::deleteRecursively(mDestination);
+                    Tools::deleteRecursively(l_destination);
                     return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the preview file:
@@ -390,7 +391,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 }
                 if (version != "0.6.1" && !readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
                     file.close();
-                    Tools::deleteRecursively(mDestination);
+                    Tools::deleteRecursively(l_destination);
                     return IOErrorCode::IncompatibleBasketVersion;
                 }
 
@@ -398,12 +399,16 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    Tools::deleteRecursively(mDestination);
+                    Tools::deleteRecursively(l_destination);
                     return IOErrorCode::CorruptedBasketArchive;
                 }
 
-                // Get the archive file:
-                QString tempArchive = dir.absolutePath() + QDir::separator() + "temp-archive.tar.gz";
+                // Get the archive file and extract it to destination:
+                QTemporaryDir tempDir;
+                if (!tempDir.isValid()) {
+                    return IOErrorCode::FailedToOpenResource;
+                }
+                QString tempArchive = tempDir.path() + QDir::separator() + "temp-archive.tar.gz";
                 QFile archiveFile(tempArchive);
                 file.seek(stream.pos());
                 if (archiveFile.open(QIODevice::WriteOnly)) {
@@ -419,7 +424,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                     // Extract the Archive:
                     KTar tar(tempArchive, "application/x-gzip");
                     tar.open(QIODevice::ReadOnly);
-                    tar.directory()->copyTo(mDestination);
+                    tar.directory()->copyTo(l_destination);
                     tar.close();
 
                     stream.seek(file.pos());
@@ -431,7 +436,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    Tools::deleteRecursively(mDestination);
+                    Tools::deleteRecursively(l_destination);
                     return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the archive file:
@@ -454,12 +459,11 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
 
 Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination)
 {
-    QDir mSourcePath(sourcePath);
+    QDir source(sourcePath);
     QFileInfo destinationFile(destination);
-    QFileInfo mPreviewImageFile(previewImage);
 
     // sourcePath must be a valid directory
-    if (!mSourcePath.exists()) {
+    if (!source.exists()) {
         return IOErrorCode::FailedToOpenResource;
     }
 
@@ -474,7 +478,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
     }
 
     // Create the temporary archive file:
-    QString tempDestinationFile = tempDir.path() + "temp-archive.tar.gz";
+    QString tempDestinationFile = tempDir.path() + QDir::separator() + "temp-archive.tar.gz";
     KTar archive(tempDestinationFile, "application/x-gzip");
 
     // Prepare the archive for writing.
@@ -486,21 +490,23 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
     }
 
     // Add files and directories to tar archive
-    const auto sourceFiles = mSourcePath.entryList(QDir::Files);
+    auto sourceFiles = source.entryList(QDir::Files);
+    sourceFiles.removeOne("preview.png");
     std::for_each(sourceFiles.constBegin(), sourceFiles.constEnd(), [&](const QString &entry) {
-        archive.addLocalFile(entry, entry);
+        archive.addLocalFile(source.absolutePath() + QDir::separator() + entry, entry);
     });
-    const auto sourceDirectories = mSourcePath.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    const auto sourceDirectories = source.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     std::for_each(sourceDirectories.constBegin(), sourceDirectories.constEnd(), [&](const QString &entry) {
-        archive.addLocalDirectory(entry, entry);
+        archive.addLocalDirectory(source.absolutePath() + QDir::separator() + entry, entry);
     });
+
     archive.close();
 
     // use generic basket icon as preview if no valid image supplied
     /// \todo write a way to create preview the way it's done in Archive::save
-    QString previewImagePath = ":/images/128-apps-org.kde.basket.png";
-    if (!previewImage.isEmpty() && QFileInfo(previewImage).exists()) {
-        previewImagePath = previewImage;
+    QString previewImagePath = previewImage;
+    if (previewImage.isEmpty() && !QFileInfo(previewImage).exists()) {
+        previewImagePath = ":/images/128-apps-org.kde.basket.png";
     }
 
     // Finally Save to the Real Destination file:
