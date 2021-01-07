@@ -131,6 +131,9 @@ public:
     }
     TagListViewItem *itemForState(State *state);
 
+    void accept() override;
+    void reject() override;
+
 private Q_SLOTS:
     void newTag();
     void newState();
@@ -143,8 +146,6 @@ private Q_SLOTS:
     void removeEmblem();
     void modified();
     void currentItemChanged(QTreeWidgetItem *item, QTreeWidgetItem *next = nullptr);
-    void slotCancel();
-    void slotOk();
     void selectUp();
     void selectDown();
     void selectLeft();

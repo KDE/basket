@@ -2412,6 +2412,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
             sequence = currentTag->shortcut();
 
         StateAction *mi = new StateAction(currentState, QKeySequence(sequence), this, true);
+        mi->setShortcutContext(Qt::WidgetShortcut);
 
         // The previously set ID will be set in the actions themselves as data.
         mi->setData(i);

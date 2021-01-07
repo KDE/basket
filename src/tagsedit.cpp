@@ -320,14 +320,11 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &TagsEditDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &TagsEditDialog::reject);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setObjectName("CustomizeTags");
-    setModal(true);
-    connect(okButton, &QPushButton::clicked, this, &TagsEditDialog::slotOk);
-    connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &TagsEditDialog::slotCancel);
 
     QHBoxLayout *layout = new QHBoxLayout(mainWidget);
 
@@ -1233,7 +1230,7 @@ void TagsEditDialog::saveTagTo(Tag *tag)
     tag->setInheritedBySiblings(m_inherit->isChecked());
 }
 
-void TagsEditDialog::slotCancel()
+void TagsEditDialog::reject()
 {
     // All copies of tag have a shortcut, that is stored as a QAction.
     // So, shortcuts are duplicated, and if the user press one tag keyboard-shortcut in the main window, there is a conflict.
@@ -1241,9 +1238,11 @@ void TagsEditDialog::slotCancel()
     for (TagCopy::List::iterator tagCopyIt = m_tagCopies.begin(); tagCopyIt != m_tagCopies.end(); ++tagCopyIt) {
         delete (*tagCopyIt)->newTag;
     }
+
+    QDialog::reject();
 }
 
-void TagsEditDialog::slotOk()
+void TagsEditDialog::accept()
 {
     Tag::all.clear();
     for (TagCopy::List::iterator tagCopyIt = m_tagCopies.begin(); tagCopyIt != m_tagCopies.end(); ++tagCopyIt) {
@@ -1278,6 +1277,8 @@ void TagsEditDialog::slotOk()
     // Update every note (change colors, size because of font change or added/removed emblems...):
     Global::bnpView->relayoutAllBaskets();
     Global::bnpView->recomputeAllStyles();
+
+    QDialog::accept();
 }
 
 void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
