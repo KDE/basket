@@ -19,7 +19,7 @@
 #include <QtCore/QFileInfo>
 #include <QtCore/QRegExp>
 #include <QtCore/QStringList>
-#include <QtGui/QAbstractTextDocumentLayout> //For m_simpleRichText->documentLayout()
+#include <QtGui/QAbstractTextDocumentLayout>
 #include <QtGui/QBitmap>                     //For QPixmap::createHeuristicMask()
 #include <QtGui/QFontMetrics>
 #include <QtGui/QMovie>
@@ -964,10 +964,6 @@ bool TextContent::saveToFile()
 QString TextContent::linkAt(const QPointF & /*pos*/)
 {
     return QString();
-    /*    if (m_simpleRichText)
-            return m_simpleRichText->documentLayout()->anchorAt(pos);
-        else
-            return QString(); // Lazy loaded*/
 }
 
 QString TextContent::messageWhenOpening(OpenMessage where)
@@ -1012,7 +1008,6 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 
 HtmlContent::HtmlContent(Note *parent, const QString &fileName, bool lazyLoad)
     : NoteContent(parent, NoteType::Html, fileName)
-    , m_simpleRichText(nullptr)
     , m_graphicsTextItem(parent)
 {
     if (parent) {
@@ -1027,8 +1022,6 @@ HtmlContent::~HtmlContent()
 {
     if (note())
         note()->removeFromGroup(&m_graphicsTextItem);
-
-    delete m_simpleRichText;
 }
 
 qreal HtmlContent::setWidthAndGetHeight(qreal width)

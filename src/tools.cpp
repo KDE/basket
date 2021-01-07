@@ -110,14 +110,12 @@ QString Tools::textToHTMLWithoutP(const QString &text)
 QString Tools::htmlToParagraph(const QString &html)
 {
     QString result = html;
-    bool startedBySpan = false;
 
     // Remove the <html> start tag, all the <head> and the <body> start
-    // Because <body> can contain style="..." parameter, we transform it to <span>
-    int pos = result.indexOf("<body");
+    QRegExp patternBody("<body[^>]*>");
+    int pos = result.indexOf(patternBody);
     if (pos != -1) {
-        result = "<span" + result.mid(pos + 5);
-        startedBySpan = true;
+        result = result.mid(pos + patternBody.matchedLength());
     }
 
     // Remove the ending "</p>\n</body></html>", each tag can be separated by space characters (%s)
@@ -125,9 +123,6 @@ QString Tools::htmlToParagraph(const QString &html)
     pos = result.indexOf(QRegExp("(?:(?:</p>[\\s\\n\\r\\t]*)*</body>[\\s\\n\\r\\t]*)*</html>", Qt::CaseInsensitive));
     if (pos != -1)
         result = result.left(pos);
-
-    if (startedBySpan)
-        result += "</span>";
 
     return result;
 }
@@ -398,100 +393,21 @@ QString Tools::htmlToText(const QString &html)
 
 QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
 {
-    QString result =
-        "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
-        "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><style type=\"text/css\">\n"
-        "p, li { white-space: pre-wrap; margin: 0px; }\n"
-        "</style></head><body>\n";
-    QFont defaultFont;
-    int fragCount, blockCount = 0;
-    bool leadingBrNeeded = false;
+    QFont noteFont = document->defaultFont();
+    document->setDefaultFont(QFont());
+    QString content = document->toHtml("utf-8");
+    document->setDefaultFont(noteFont);
 
-    for (QTextBlock blockIt = document->begin(); blockIt != document->end(); blockIt = blockIt.next(), ++blockCount) {
-        result += HTM::PAR;
+    //Tag styles appear in html output as body styles. Remove them to preserve internal formatting.
+    QRegExp patternBodyTag("<body.*>");
+    patternBodyTag.setMinimal(true);
 
-        // Prepare to detect empty blocks
-        fragCount = 0;
+    int posBodyTag;
+    if ((posBodyTag = patternBodyTag.indexIn(content)) == -1)
+        return content;
 
-        for (QTextBlock::iterator subIt = blockIt.begin(); !(subIt.atEnd()); ++subIt, ++fragCount) {
-            QTextFragment currentFragment = subIt.fragment();
-
-            if (currentFragment.isValid()) {
-                // Dealing with need to add leading linebreak (see later for
-                // further notes)
-                if (leadingBrNeeded) {
-                    result += HTM::BR;
-                    leadingBrNeeded = false;
-                }
-
-                QTextCharFormat charFmt = currentFragment.charFormat();
-                const QColor &textColor = charFmt.foreground().color();
-                bool isTextBlack = (textColor == QColor() || textColor == QColor(Qt::black));
-
-                if (charFmt.font() == defaultFont && isTextBlack) {
-                    result += currentFragment.text().toHtmlEscaped();
-                    continue;
-                }
-
-                // If we use charFmt.fontWeight, setting a tag overrides it and all characters become non-bold.
-                // So we use <b> </b> instead
-                bool bold = (charFmt.fontWeight() >= QFont::Bold);
-                if (bold)
-                    result += "<b>";
-
-                // Compose style string (font and color)
-                result += "<span style=\"";
-
-                if (charFmt.fontFamily() != defaultFont.family() && !charFmt.fontFamily().isEmpty())
-                    result += QString(HTM::FONT_FAMILY).arg(charFmt.fontFamily());
-
-                if (charFmt.fontItalic())
-                    result += QString(HTM::FONT_STYLE).arg(HTM::ITALIC);
-                if (charFmt.fontUnderline())
-                    result += QString(HTM::TEXT_DECORATION).arg(HTM::UNDERLINE);
-                if (charFmt.fontStrikeOut())
-                    result += QString(HTM::TEXT_DECORATION).arg(HTM::LINE_THROUGH);
-
-                /*if (charFmt.fontWeight() != defaultFont.weight()) {
-                    QFont::Weight weight = (charFmt.fontWeight() >= QFont::Bold) ? QFont::Bold : QFont::Normal;
-                    result += QString(HTM::FONT_WEIGHT).arg(weight);
-                }*/
-
-                if (charFmt.fontPointSize() != defaultFont.pointSize() && charFmt.fontPointSize() != 0)
-                    result += QString(HTM::FONT_SIZE).arg(charFmt.fontPointSize());
-
-                if (!isTextBlack)
-                    result += QString(HTM::COLOR).arg(textColor.name());
-
-                result += "\">" + currentFragment.text().toHtmlEscaped() + "</span>";
-
-                if (bold)
-                    result += "</b>";
-            }
-        }
-
-        // Detecting empty blocks (Qt4 fails to generate a fragment from an empty line)
-        // Inserting a linebreak directly here seems to cause the renderer to render
-        // two breaks, so have to append it to the contents of the previous paragraph...
-        if (!fragCount) {
-            // If the first fragment is an empty fragment, the linebreak must be
-            // added to the next fragment otherwise you get the above double breaks
-            if (!blockCount)
-                leadingBrNeeded = true;
-
-            // Deal with the problem only when the last block is not affected,
-            // otherwise you get double breaks again... Blocks counted from 0
-            else if (blockCount != (document->blockCount() - 1)) {
-                result.chop(7);
-                result = result + HTM::BR + HTM::_PAR + HTM::PAR;
-            }
-        }
-
-        result += HTM::_PAR;
-    }
-
-    result += "</body></html>";
-    return result;
+    int dbg = patternBodyTag.matchedLength();
+    return content.replace(posBodyTag, patternBodyTag.matchedLength(), "<body>");
 }
 
 QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)

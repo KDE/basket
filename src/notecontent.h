@@ -338,7 +338,6 @@ public:
 protected:
     QString m_html;
     QString m_textEquivalent; // OPTIM_FILTER
-    QTextDocument *m_simpleRichText;
     QGraphicsTextItem m_graphicsTextItem;
 };
 
