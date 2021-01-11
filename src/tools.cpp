@@ -113,15 +113,17 @@ QString Tools::htmlToParagraph(const QString &html)
     QString result = html;
 
     // Remove the <html> start tag, all the <head> and the <body> start
-    QRegExp patternBody("<body[^>]*>");
-    int pos = result.indexOf(patternBody);
-    if (pos != -1) {
-        result = result.mid(pos + patternBody.matchedLength());
+    QRegularExpression patternBodyTag("<body.*?>");
+    QRegularExpressionMatch bodyTag = patternBodyTag.match(result);
+
+    if (bodyTag.hasMatch())
+    {
+        result = result.mid(bodyTag.capturedEnd(0));
     }
 
     // Remove the ending "</p>\n</body></html>", each tag can be separated by space characters (%s)
     // "</p>" can be omitted (eg. if the HTML doesn't contain paragraph but tables), as well as "</body>" (optional)
-    pos = result.indexOf(QRegExp("(?:(?:</p>[\\s\\n\\r\\t]*)*</body>[\\s\\n\\r\\t]*)*</html>", Qt::CaseInsensitive));
+    int pos = result.indexOf(QRegExp("(?:(?:</p>[\\s\\n\\r\\t]*)*</body>[\\s\\n\\r\\t]*)*</html>", Qt::CaseInsensitive));
     if (pos != -1)
         result = result.left(pos);
 
