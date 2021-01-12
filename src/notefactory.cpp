@@ -60,17 +60,35 @@
 
 Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool reallyPlainText /* = false*/)
 {
-    Note *note = new Note(parent);
-    if (reallyPlainText) {
+    QList<State*> tags; int tagsLength = 0; Note* note;
+
+    if (Settings::detectTextTags())
+    {
+        tags = Tools::detectTags(text, tagsLength);
+    }
+    QString textConverted = text.mid(tagsLength);
+
+    if (reallyPlainText)
+    {
+        note = new Note(parent);
         TextContent *content = new TextContent(note, createFileForNewNote(parent, "txt"));
         content->setText(text);
         content->saveToFile();
-    } else {
-        HtmlContent *content = new HtmlContent(note, createFileForNewNote(parent, "html"));
-        QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" + Tools::textToHTMLWithoutP(text) + "</body></html>";
-        content->setHtml(html);
-        content->saveToFile();
     }
+        else
+    {
+        textConverted = QString("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>%1</body></html>")
+            .arg(Tools::textToHTMLWithoutP(textConverted));
+
+        note = createNoteHtml(textConverted, parent);
+    }
+
+    if (note)
+    for (State* state: tags)
+    {
+        note->addState(state, true);
+    }
+
     return note;
 }
 

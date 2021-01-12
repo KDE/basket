@@ -549,7 +549,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
                 QString tagsString = XMLWork::getElementText(e, QStringLiteral("tags"), QString());
                 QStringList tagsId = tagsString.split(';');
                 for (QStringList::iterator it = tagsId.begin(); it != tagsId.end(); ++it) {
-                    State *state = Tag::stateForId(*it);
+                    State *state = Tag::stateById(*it);
                     if (state)
                         note->addState(state, /*orReplace=*/true);
                 }

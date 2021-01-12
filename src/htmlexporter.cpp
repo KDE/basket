@@ -59,7 +59,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
         // File already existing? Ask for overriding:
         if (dir.exists(destination)) {
             int result = KMessageBox::questionYesNoCancel(
-                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?", QUrl::fromLocalFile(destination).fileName()), i18n("Override File?"), KGuiItem(i18n("&Override"), "document-save"));
+                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()), i18n("Overwrite File?"), KGuiItem(i18n("&Overwrite"), "document-save"));
             if (result == KMessageBox::Cancel)
                 return;
             else if (result == KMessageBox::Yes)

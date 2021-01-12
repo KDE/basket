@@ -166,6 +166,7 @@ protected Q_SLOTS:
     void setRight();
     void setBlock();
     void onFontSelectionChanged(const QFont &font); //!< When a font is selected from combo box
+    void detectTags();
 };
 
 class ImageEditor : public NoteEditor

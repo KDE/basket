@@ -1270,6 +1270,7 @@ void TagsEditDialog::accept()
         }
     }
     Tag::saveTags();
+    Tag::updateCaches();
 
     // Notify removed states and tags, and then remove them:
     if (!m_deletedStates.isEmpty())

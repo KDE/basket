@@ -999,7 +999,9 @@ void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" +
-        Tools::tagCrossReferences(Tools::tagURLs(Tools::textToHTMLWithoutP(text().replace(QChar('\t'), "                "))), false, exporter); // Don't collapse multiple spaces!
+            Tools::detectCrossReferences(
+                    Tools::detectURLs(Tools::textToHTMLWithoutP(text().replace(QChar('\t'), "                "))),
+                    false, exporter); // Don't collapse multiple spaces!
     exporter->stream << html.replace("  ", " &nbsp;").replace(QChar('\n'), '\n' + spaces.fill(' ', indent + 1));
 }
 
@@ -1058,9 +1060,9 @@ bool HtmlContent::finishLazyLoad()
     /*QString css = ".cross_reference { display: block; width: 100%; text-decoration: none; color: #336600; }"
        "a:hover.cross_reference { text-decoration: underline; color: #ff8000; }";
     m_graphicsTextItem.document()->setDefaultStyleSheet(css);*/
-    QString convert = Tools::tagURLs(m_html);
+    QString convert = Tools::detectURLs(m_html);
     if (note()->allowCrossReferences())
-        convert = Tools::tagCrossReferences(convert);
+        convert = Tools::detectCrossReferences(convert);
     m_graphicsTextItem.setHtml(convert);
     m_graphicsTextItem.setDefaultTextColor(note()->textColor());
     m_graphicsTextItem.setFont(note()->font());
@@ -1121,9 +1123,9 @@ void HtmlContent::setHtml(const QString &html, bool lazyLoad)
 void HtmlContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    QString convert = Tools::tagURLs(html().replace("\t", "                "));
+    QString convert = Tools::detectURLs(html().replace("\t", "                "));
     if (note()->allowCrossReferences())
-        convert = Tools::tagCrossReferences(convert, false, exporter);
+        convert = Tools::detectCrossReferences(convert, false, exporter);
 
     exporter->stream << Tools::htmlToParagraph(convert).replace("  ", " &nbsp;").replace("\n", '\n' + spaces.fill(' ', indent + 1));
 }

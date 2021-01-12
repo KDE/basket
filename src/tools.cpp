@@ -5,6 +5,7 @@
  */
 
 #include "tools.h"
+#include "tag.h"
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -133,7 +134,7 @@ QString Tools::htmlToParagraph(const QString &html)
 // The following is adapted from KStringHanlder::tagURLs
 // The adaptation lies in the change to urlEx
 // Thanks to Richard Heck
-QString Tools::tagURLs(const QString &text)
+QString Tools::detectURLs(const QString &text)
 {
     QRegExp urlEx("<!DOCTYPE[^\"]+\"([^\"]+)\"[^\"]+\"([^\"]+)/([^/]+)\\.dtd\">");
     QString richText(text);
@@ -172,7 +173,7 @@ QString Tools::tagURLs(const QString &text)
     return richText;
 }
 
-QString Tools::tagCrossReferences(const QString &text, bool userLink, HTMLExporter *exporter)
+QString Tools::detectCrossReferences(const QString &text, bool userLink, HTMLExporter *exporter)
 {
     QString richText(text);
 
@@ -199,6 +200,23 @@ QString Tools::tagCrossReferences(const QString &text, bool userLink, HTMLExport
         urlPos += anchor.length();
     }
     return richText;
+}
+
+QList<State*> Tools::detectTags(const QString& text, int& prefixLength)
+{
+    QList<State*> tagsDetected;
+    prefixLength = 0;
+    QRegularExpressionMatchIterator matchIt = Tag::regexpDetectTagsInPlainText().globalMatch(text);
+    while (matchIt.hasNext())
+    {
+        QRegularExpressionMatch match = matchIt.next();
+        prefixLength = match.capturedEnd(0);
+        const QString& stateRepr = match.captured(1);
+        State* state = Tag::stateByTextEquiv(stateRepr);
+        if (state) tagsDetected.append(state);
+    }
+
+    return tagsDetected;
 }
 
 QString Tools::crossReferenceForBasket(QStringList linkParts)

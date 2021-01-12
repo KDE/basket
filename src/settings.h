@@ -69,6 +69,7 @@ private:
     QCheckBox *m_autoBullet;
     QCheckBox *m_confirmNoteDeletion;
     QCheckBox *m_exportTextTags;
+    QCheckBox *m_detectTextTags;
     QWidget *m_groupOnInsertionLineWidget;
     QCheckBox *m_groupOnInsertionLine;
     KComboBox *m_middleAction;
@@ -179,6 +180,7 @@ protected:
     static bool s_autoBullet;
     static bool s_pasteAsPlainText;
     static bool s_exportTextTags;
+    static bool s_detectTextTags;
     static bool s_useGnuPGAgent;
     static int s_middleAction; // O:Nothing ; 1:Paste ; 2:Text ; 3:Html ; 4:Image ; 5:Link ; 6:Launcher ; 7:Color
     static bool s_groupOnInsertionLine;
@@ -248,6 +250,10 @@ public: /* And the following methods are just getter / setters */
     static inline bool exportTextTags()
     {
         return s_exportTextTags;
+    }
+    static inline bool detectTextTags()
+    {
+        return s_detectTextTags;
     }
     static inline bool useGnuPGAgent()
     {
@@ -414,6 +420,10 @@ public: /* And the following methods are just getter / setters */
     static inline void setExportTextTags(bool yes)
     {
         s_exportTextTags = yes;
+    }
+    static inline void setDetectTextTags(bool yes)
+    {
+        s_detectTextTags = yes;
     }
     static inline void setUseGnuPGAgent(bool yes)
     {

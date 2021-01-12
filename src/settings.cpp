@@ -44,6 +44,7 @@ bool Settings::s_bigNotes = false;
 bool Settings::s_autoBullet = true;
 bool Settings::s_pasteAsPlainText = false;
 bool Settings::s_exportTextTags = true;
+bool Settings::s_detectTextTags = true;
 bool Settings::s_useGnuPGAgent = false;
 bool Settings::s_treeOnLeft = true;
 bool Settings::s_filterOnTop = false;
@@ -114,6 +115,7 @@ void Settings::loadConfig()
     setPasteAsPlainText(config.readEntry("pasteAsPlainText", false));
     setAutoBullet(config.readEntry("autoBullet", true));
     setExportTextTags(config.readEntry("exportTextTags", true));
+    setDetectTextTags(config.readEntry("detectTextTags", true));
     setUseGnuPGAgent(config.readEntry("useGnuPGAgent", false));
     setBlinkedFilter(config.readEntry("blinkedFilter", false));
     setEnableReLockTimeout(config.readEntry("enableReLockTimeout", true));
@@ -193,6 +195,7 @@ void Settings::saveConfig()
     config.writeEntry("bigNotes", bigNotes());
     config.writeEntry("autoBullet", autoBullet());
     config.writeEntry("exportTextTags", exportTextTags());
+    config.writeEntry("detectTextTags", detectTextTags());
 #ifdef HAVE_LIBGPGME
     if (KGpgMe::isGnuPGAgentAvailable())
         config.writeEntry("useGnuPGAgent", useGnuPGAgent());
@@ -454,6 +457,10 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
     behaviorLayout->addWidget(m_pasteAsPlainText);
     connect(m_pasteAsPlainText, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
+    m_detectTextTags = new QCheckBox(i18n("Automatically detect tags from note's content"), behaviorBox);
+    behaviorLayout->addWidget(m_detectTextTags);
+    connect(m_detectTextTags, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+
     QWidget *widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
     hLay = new QHBoxLayout(widget);
@@ -468,6 +475,7 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
                            widget);
     hLay->addWidget(m_exportTextTags);
     hLay->addWidget(hLabel);
+    hLay->setContentsMargins(0, 0, 0, 0);
     hLay->addStretch();
 
     m_groupOnInsertionLineWidget = new QWidget(behaviorBox);
@@ -513,6 +521,7 @@ BasketsPage::BasketsPage(QWidget *parent, const char *name)
     ga->addWidget(labelM, 0, 0);
     ga->addWidget(m_middleAction, 0, 1);
     ga->addWidget(new QLabel(i18n("at cursor position"), widget), 0, 2);
+    ga->setContentsMargins(1, 0, 0, 0);
     connect(m_middleAction, SIGNAL(activated(int)), this, SLOT(changed()));
 
     // Protection:
@@ -560,7 +569,7 @@ void BasketsPage::load()
     m_confirmNoteDeletion->setChecked(Settings::confirmNoteDeletion());
     m_pasteAsPlainText->setChecked(!Settings::pasteAsPlainText());
     m_exportTextTags->setChecked(Settings::exportTextTags());
-
+    m_detectTextTags->setChecked(Settings::detectTextTags());
     m_groupOnInsertionLine->setChecked(Settings::groupOnInsertionLine());
     m_middleAction->setCurrentIndex(Settings::middleAction());
 
@@ -589,6 +598,7 @@ void BasketsPage::save()
     Settings::setConfirmNoteDeletion(m_confirmNoteDeletion->isChecked());
     Settings::setPasteAsPlainText(!m_pasteAsPlainText->isChecked());
     Settings::setExportTextTags(m_exportTextTags->isChecked());
+    Settings::setDetectTextTags(m_detectTextTags->isChecked());
 
     Settings::setGroupOnInsertionLine(m_groupOnInsertionLine->isChecked());
     Settings::setMiddleAction(m_middleAction->currentIndex());

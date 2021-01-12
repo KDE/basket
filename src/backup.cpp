@@ -155,7 +155,7 @@ void BackupDialog::moveToAnotherFolder()
             // Get the content of the folder:
             QStringList content = dir.entryList();
             if (content.count() > 2) { // "." and ".."
-                int result = KMessageBox::questionYesNo(nullptr, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to override it?", folder), i18n("Override Folder?"), KGuiItem(i18n("&Override"), "document-save"));
+                int result = KMessageBox::questionYesNo(nullptr, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to overwrite it?", folder), i18n("Overwrite Folder?"), KGuiItem(i18n("&Overwrite"), "document-save"));
                 if (result == KMessageBox::No)
                     return;
             }
@@ -201,7 +201,7 @@ void BackupDialog::backup()
         // File already existing? Ask for overriding:
         if (dir.exists(destination)) {
             int result = KMessageBox::questionYesNoCancel(
-                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to override it?", QUrl::fromLocalFile(destination).fileName()), i18n("Override File?"), KGuiItem(i18n("&Override"), "document-save"));
+                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()), i18n("Overwrite File?"), KGuiItem(i18n("&Overwrite"), "document-save"));
             if (result == KMessageBox::Cancel)
                 return;
             else if (result == KMessageBox::Yes)

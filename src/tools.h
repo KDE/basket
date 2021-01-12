@@ -11,6 +11,7 @@
 
 #include <QtCore/QVector>
 
+class State;
 class QColor;
 class QFont;
 class QMimeData;
@@ -47,11 +48,19 @@ BASKET_EXPORT QString htmlToParagraph(const QString &html);
 BASKET_EXPORT QString htmlToText(const QString &html);
 BASKET_EXPORT QString textDocumentToMinimalHTML(QTextDocument *document); //!< Avoid unneeded spans and style attributes
 
-BASKET_EXPORT QString tagURLs(const QString &test);
+BASKET_EXPORT QString detectURLs(const QString &text);
 BASKET_EXPORT QString cssFontDefinition(const QFont &font, bool onlyFontFamily = false);
 
 // Cross Reference tools:
-BASKET_EXPORT QString tagCrossReferences(const QString &text, bool userLink = false, HTMLExporter *exporter = nullptr);
+BASKET_EXPORT QString detectCrossReferences(const QString &text, bool userLink = false, HTMLExporter *exporter = nullptr);
+
+/**
+ * @param text Plain text to detect tags by their corresponding text equivalent
+ * @param prefixLength Length of a chunk that contains all recognized tags
+ * @return detected tags
+ */
+QList<State*> detectTags(const QString& text, int& prefixLength);
+
 // private functions:
 BASKET_EXPORT QString crossReferenceForBasket(QStringList linkParts);
 BASKET_EXPORT QString crossReferenceForHtml(QStringList linkParts, HTMLExporter *exporter);

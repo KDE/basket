@@ -8,13 +8,14 @@
 #define TAG_H
 
 #include <QtCore/QList>
-
+#include <QRegularExpression>
 #include <KToggleAction>
 
 class QColor;
 class QFont;
 class QPainter;
 class QString;
+
 
 class QKeySequence;
 
@@ -193,7 +194,8 @@ public:
     /// LIST OF ALL TAGS IN THE APPLICATION:
     typedef QList<Tag *> List;
     static Tag::List all;
-    static State *stateForId(const QString &id);
+    static State *stateById(const QString &id);
+    static State *stateByTextEquiv(const QString &text);
     static Tag *tagForKAction(QAction *action);
     static Tag *tagSimilarTo(Tag *tagToTest);
     static QMap<QString, QString> loadTags(const QString &path = QString() /*, bool merge = false*/); /// << Load the tags contained in the XML file @p path or those in the application settings if @p path isEmpty(). If @p merge is true and
@@ -202,9 +204,13 @@ public:
     static void saveTagsTo(QList<Tag *> &list, const QString &fullPath);
     static void createDefaultTagsSet(const QString &file);
     static long getNextStateUid();
+    static void updateCaches();
+    static const QRegularExpression& regexpDetectTagsInPlainText();
 
 private:
     static long nextStateUid;
+    static QHash<QString, State*> dictStatesByEquiv;
+    static QRegularExpression regexpDetectTags;
 
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:

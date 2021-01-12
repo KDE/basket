@@ -301,7 +301,7 @@ HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget *parent)
     textEdit->setPalette(palette);
 
     textEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    textEdit->setHtml(Tools::tagCrossReferences(m_htmlContent->html(), /*userLink=*/true));
+    textEdit->setHtml(Tools::detectCrossReferences(m_htmlContent->html(), /*userLink=*/true));
     textEdit->moveCursor(QTextCursor::End);
     textEdit->verticalScrollBar()->setCursor(Qt::ArrowCursor);
     setInlineEditor(textEdit);
@@ -470,9 +470,13 @@ void HtmlEditor::validate()
 {
     if (Tools::htmlToText(textEdit()->toHtml()).isEmpty())
         setEmpty();
+    if (Settings::detectTextTags())
+        detectTags();
     QString convert = Tools::textDocumentToMinimalHTML(textEdit()->document());
+    QString textEquivalent = Tools::htmlToText(convert);
+
     if (note()->allowCrossReferences())
-        convert = Tools::tagCrossReferences(convert, /*userLink=*/true);
+        convert = Tools::detectCrossReferences(convert, /*userLink=*/true);
 
     m_htmlContent->setHtml(convert);
     m_htmlContent->saveToFile();
@@ -493,6 +497,30 @@ void HtmlEditor::validate()
     }
 }
 
+void HtmlEditor::detectTags()
+{
+    QTextDocument * doc = textEdit()->document();
+    const QTextBlock& block = doc->firstBlock();
+    if (!block.isValid() || block.begin() == block.end()) return;
+
+    const QTextFragment& fragment = block.begin().fragment();
+    if (!fragment.isValid() || fragment.length() == 0) return;
+    //Process unstyled text only
+    const QTextCharFormat& charFmt = fragment.charFormat();
+    if (charFmt.propertyCount() > 0) return;
+
+    QString newText = fragment.text();
+    int prefixLength;
+    QTextCursor cursor(block);
+    const QList<State*>& states = Tools::detectTags(fragment.text(), prefixLength);
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, prefixLength);
+    cursor.removeSelectedText();
+
+    for (State* state: states)
+    {
+        note()->addState(state, true);
+    }
+}
 /** class ImageEditor: */
 
 ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)

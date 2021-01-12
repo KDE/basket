@@ -208,6 +208,10 @@ Tag::List Tag::all = Tag::List();
 
 long Tag::nextStateUid = 1;
 
+QRegularExpression Tag::regexpDetectTags = QRegularExpression();
+
+QHash<QString, State*> Tag::dictStatesByEquiv = QHash<QString, State*>();
+
 long Tag::getNextStateUid()
 {
     return nextStateUid++; // Return the next Uid and THEN increment the Uid
@@ -240,13 +244,21 @@ void Tag::setName(const QString &name)
     m_action->setText("TAG SHORTCUT: " + name); // TODO: i18n  (for debug purpose only by now).
 }
 
-State *Tag::stateForId(const QString &id)
+State *Tag::stateById(const QString &id)
 {
     for (List::iterator it = all.begin(); it != all.end(); ++it)
         for (State::List::iterator it2 = (*it)->states().begin(); it2 != (*it)->states().end(); ++it2)
             if ((*it2)->id() == id)
                 return *it2;
     return nullptr;
+}
+
+State *Tag::stateByTextEquiv(const QString &text)
+{
+    if (!dictStatesByEquiv.contains(text))
+        return nullptr;
+
+    return dictStatesByEquiv.value(text);
 }
 
 Tag *Tag::tagForKAction(QAction *action)
@@ -368,6 +380,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
         }
         node = node.nextSibling();
     }
+    updateCaches();
 
     return mergedStates;
 }
@@ -735,6 +748,38 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
         file.close();
     } else
         DEBUG_WIN << "<font color=red>FAILED to create the tags file</font>!";
+}
+
+const QRegularExpression& Tag::regexpDetectTagsInPlainText()
+{
+    return regexpDetectTags;
+}
+
+void Tag::updateCaches()
+{
+    QString patternAllTags;
+    for (Tag* tag: Tag::all)
+    {
+        for (State* state: tag->states())
+        {
+            QString textEquivalent = state->textEquivalent().trimmed();
+            if (textEquivalent.isEmpty()) continue;
+
+            dictStatesByEquiv[textEquivalent] = state;
+            patternAllTags.append(QRegularExpression::escape(textEquivalent)).append("|");
+        }
+    }
+    if (patternAllTags.isEmpty())
+    {
+        regexpDetectTags.setPattern(QString());
+        return;
+    }
+
+    patternAllTags.chop(1);
+    patternAllTags = QString(("\\G\\s*?(%1)")).arg(patternAllTags);
+
+    regexpDetectTags = QRegularExpression(patternAllTags, QRegularExpression::UseUnicodePropertiesOption);
+    regexpDetectTags.optimize();
 }
 
 // StateAction
