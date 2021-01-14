@@ -41,10 +41,10 @@ class NoteDrag
 {
 protected:
     static void serializeNotes(NoteSelection *noteList, QDataStream &stream, bool cutting);
-    static void serializeText(NoteSelection *noteList, QDrag *multipleDrag);
-    static void serializeHtml(NoteSelection *noteList, QDrag *multipleDrag);
-    static void serializeImage(NoteSelection *noteList, QDrag *multipleDrag);
-    static void serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool cutting);
+    static void serializeText(NoteSelection *noteList, QMimeData* mimeData);
+    static void serializeHtml(NoteSelection *noteList, QMimeData* mimeData);
+    static void serializeImage(NoteSelection *noteList, QMimeData* mimeData);
+    static void serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool cutting);
     static void setFeedbackPixmap(NoteSelection *noteList, QDrag *multipleDrag);
     static Note *decodeHierarchy(QDataStream &stream, BasketScene *parent, bool moveFiles, bool moveNotes, BasketScene *originalBasket);
 

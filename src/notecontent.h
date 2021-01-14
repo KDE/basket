@@ -876,7 +876,6 @@ public:
     // Simple Generic Methods:
     QString toText(const QString & /*cuttedFullPath*/) override;
     QString toHtml(const QString &imageName, const QString &cuttedFullPath) override;
-    void toLink(QUrl *url, QString *title, const QString &cuttedFullPath) override;
     bool useFile() const override;
     bool canBeSavedAs() const override;
     QString saveAsFilters() const override;

@@ -46,7 +46,6 @@
 #include <QtXml/QDomDocument>
 
 #include <KTextEdit>
-
 #include <KAboutData>
 #include <KActionCollection>
 #include <KAuthorized>
@@ -3967,11 +3966,8 @@ void BasketScene::doCopy(CopyMode copyMode)
     int countCopied = countSelecteds();
     if (selection->firstStacked()) {
         QDrag *d = NoteDrag::dragObject(selection, copyMode == CutToClipboard, /*source=*/nullptr); // d will be deleted by QT
-                                                                                                    //      /*bool shouldRemove = */d->drag();
-                                                                                                    //      delete selection;
-        cb->setMimeData(d->mimeData(), mode);                                                       // NoteMultipleDrag will be deleted by QT
-                                                                                                    //      if (copyMode == CutToClipboard && !note->useFile()) // If useFile(), NoteDrag::dragObject() will delete it TODO
-                                                                                                    //          note->slotDelete();
+
+        cb->setMimeData(d->mimeData(), mode);
 
         if (copyMode == CutToClipboard) {
             noteDeleteWithoutConfirmation(/*deleteFilesToo=*/false);

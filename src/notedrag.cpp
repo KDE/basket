@@ -67,10 +67,10 @@ QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *sour
     }
 
     // The "Other Flavors" Serialization:
-    serializeText(noteList, multipleDrag);
-    serializeHtml(noteList, multipleDrag);
-    serializeImage(noteList, multipleDrag);
-    serializeLinks(noteList, multipleDrag, cutting);
+    serializeText(noteList, mimeData);
+    serializeHtml(noteList, mimeData);
+    serializeImage(noteList, mimeData);
+    serializeLinks(noteList, mimeData, cutting);
 
     // The Alternate Flavors:
     if (noteList->count() == 1)
@@ -120,7 +120,7 @@ void NoteDrag::serializeNotes(NoteSelection *noteList, QDataStream &stream, bool
     stream << (quint64)0; // Mark the end of the notes in this group/hierarchy.
 }
 
-void NoteDrag::serializeText(NoteSelection *noteList, QDrag *multipleDrag)
+void NoteDrag::serializeText(NoteSelection *noteList, QMimeData* mimeData)
 {
     QString textEquivalent;
     QString text;
@@ -130,13 +130,11 @@ void NoteDrag::serializeText(NoteSelection *noteList, QDrag *multipleDrag)
             textEquivalent += (!textEquivalent.isEmpty() ? "\n" : QString()) + text;
     }
     if (!textEquivalent.isEmpty()) {
-        QMimeData *mimeData = new QMimeData;
         mimeData->setText(textEquivalent);
-        multipleDrag->setMimeData(mimeData);
     }
 }
 
-void NoteDrag::serializeHtml(NoteSelection *noteList, QDrag *multipleDrag)
+void NoteDrag::serializeHtml(NoteSelection *noteList, QMimeData* mimeData)
 {
     QString htmlEquivalent;
     QString html;
@@ -147,16 +145,15 @@ void NoteDrag::serializeHtml(NoteSelection *noteList, QDrag *multipleDrag)
     }
     if (!htmlEquivalent.isEmpty()) {
         // Add HTML flavour:
-        QMimeData *mimeData = new QMimeData;
         mimeData->setHtml(htmlEquivalent);
+
         // But also QTextEdit flavour, to be able to paste several notes to a text edit:
         QByteArray byteArray = ("<!--StartFragment--><p>" + htmlEquivalent).toLocal8Bit();
         mimeData->setData("application/x-qrichtext", byteArray);
-        multipleDrag->setMimeData(mimeData);
     }
 }
 
-void NoteDrag::serializeImage(NoteSelection *noteList, QDrag *multipleDrag)
+void NoteDrag::serializeImage(NoteSelection *noteList, QMimeData* mimeData)
 {
     QList<QPixmap> pixmaps;
     QPixmap pixmap;
@@ -188,13 +185,11 @@ void NoteDrag::serializeImage(NoteSelection *noteList, QDrag *multipleDrag)
                 height += (*it).height();
             }
         }
-        QMimeData *mimeData = new QMimeData;
         mimeData->setImageData(pixmapEquivalent.toImage());
-        multipleDrag->setMimeData(mimeData);
     }
 }
 
-void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool cutting)
+void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool cutting)
 {
     QList<QUrl> urls;
     QStringList titles;
@@ -209,7 +204,6 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
     }
     if (!urls.isEmpty()) {
         // First, the standard text/uri-list MIME format:
-        QMimeData *mimeData = new QMimeData;
         mimeData->setUrls(urls);
 
         // Then, also provide it in the Mozilla proprietary format (that also allow to add titles to URLs):
@@ -240,7 +234,6 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QDrag *multipleDrag, bool
             arrayCut[1] = 0;
             mimeData->setData("application/x-kde-cutselection", arrayCut);
         }
-        multipleDrag->setMimeData(mimeData);
     }
 }
 

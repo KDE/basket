@@ -216,6 +216,13 @@ QList<State*> Tools::detectTags(const QString& text, int& prefixLength)
         if (state) tagsDetected.append(state);
     }
 
+    //if tags are found, eat possible trailing whitespaces as well
+    if (prefixLength)
+    {
+        prefixLength = text.indexOf(QRegularExpression("[^\\s]"), prefixLength);
+        if (prefixLength == -1)
+           prefixLength = text.length();
+    }
     return tagsDetected;
 }
 
@@ -414,10 +421,10 @@ QString Tools::htmlToText(const QString &html)
 
 QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
 {
-    QFont docFont = document->defaultFont();
+    QFont originalFont = document->defaultFont();
     document->setDefaultFont(QFont());
     QString docContent = document->toHtml("utf-8");
-    document->setDefaultFont(docFont);
+    document->setDefaultFont(originalFont);
 
     //Tag styles appear in html output as body styles. Remove them to preserve internal formatting.
     QRegularExpression patternBodyTag("<body.*?>");

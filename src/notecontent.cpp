@@ -311,10 +311,8 @@ QString TextContent::toHtml(const QString & /*imageName*/, const QString & /*cut
 
 QString HtmlContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    // return Tools::htmlToParagraph(html());
-    QTextDocument simpleRichText;
-    simpleRichText.setHtml(html());
-    return Tools::textDocumentToMinimalHTML(&simpleRichText);
+    //extract HTML content exactly as is, with no further processing applied
+    return m_graphicsTextItem.document()->toHtml("utf-8");
 }
 
 QString ImageContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
@@ -373,19 +371,16 @@ QPixmap AnimationContent::toPixmap()
 
 void NoteContent::toLink(QUrl *url, QString *title, const QString &cuttedFullPath)
 {
-    if (useFile()) {
-        *url = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
-        *title = (cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
-    } else {
-        *url = QUrl();
-        title->clear();
-    }
+    *url = QUrl();
+    title->clear();
 }
+
 void LinkContent::toLink(QUrl *url, QString *title, const QString & /*cuttedFullPath*/)
 {
     *url = this->url();
     *title = this->title();
 }
+
 void CrossReferenceContent::toLink(QUrl *url, QString *title, const QString & /*cuttedFullPath*/)
 {
     *url = this->url();
@@ -396,11 +391,6 @@ void LauncherContent::toLink(QUrl *url, QString *title, const QString &cuttedFul
 {
     *url = QUrl::fromUserInput(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
     *title = name();
-}
-void UnknownContent::toLink(QUrl *url, QString *title, const QString & /*cuttedFullPath*/)
-{
-    *url = QUrl();
-    *title = QString();
 }
 
 bool TextContent::useFile() const

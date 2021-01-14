@@ -46,6 +46,8 @@ BASKET_EXPORT QString textToHTML(const QString &text);
 BASKET_EXPORT QString textToHTMLWithoutP(const QString &text);
 BASKET_EXPORT QString htmlToParagraph(const QString &html);
 BASKET_EXPORT QString htmlToText(const QString &html);
+
+//Discards styles of tags applied to the note
 BASKET_EXPORT QString textDocumentToMinimalHTML(QTextDocument *document); //!< Avoid unneeded spans and style attributes
 
 BASKET_EXPORT QString detectURLs(const QString &text);
