@@ -2792,7 +2792,7 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
         }
 
         if (zone == Note::Content || zone == Note::Link || zone == Note::Custom0) {
-            const auto toolTip = QMap<QString, QString> {
+            const auto toolTip = QMultiMap<QString, QString> {
                 { i18n("Added"), note->addedStringDate() },
                 { i18n("Last Modification"), note->lastModificationStringDate() }
             }.unite(note->content()->toolTipInfos());
