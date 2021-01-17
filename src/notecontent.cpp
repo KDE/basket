@@ -1855,10 +1855,9 @@ void LinkContent::startFetchingUrlPreview()
 
     //  delete m_previewJob;
     if (!url.isEmpty() && linkLook->previewSize() > 0) {
-        QUrl filteredUrl = NoteFactory::filteredURL(url); // KURIFilter::self()->filteredURI(url);
-        QList<QUrl> urlList;
-        urlList.append(filteredUrl);
-        m_previewJob = KIO::filePreview(urlList, linkLook->previewSize(), linkLook->previewSize(), linkLook->iconSize());
+        KFileItem itemUrl(NoteFactory::filteredURL(url)); // KURIFilter::self()->filteredURI(url);
+        m_previewJob = KIO::filePreview({itemUrl}, QSize(linkLook->previewSize(), linkLook->previewSize()), nullptr);
+        m_previewJob->setOverlayIconSize(linkLook->iconSize());
         connect(m_previewJob, SIGNAL(gotPreview(const KFileItem &, const QPixmap &)), this, SLOT(newPreview(const KFileItem &, const QPixmap &)));
         connect(m_previewJob, SIGNAL(failed(const KFileItem &)), this, SLOT(removePreview(const KFileItem &)));
     }
