@@ -2258,6 +2258,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             }
             break;
         } // If there is no link, edit note content
+        Q_FALLTHROUGH();
     case Note::Content: {
         if (m_editor && m_editor->note() == clicked && m_editor->graphicsWidget()) {
             m_editor->setCursorTo(event->scenePos());
