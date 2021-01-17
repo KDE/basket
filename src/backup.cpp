@@ -35,6 +35,8 @@
 #include <KRun>
 #include <KTar>
 
+#include <KIO/CommandLauncherJob>
+
 #include <unistd.h> // usleep()
 
 /**
@@ -349,7 +351,11 @@ void Backup::setFolderAndRestart(const QString &folder, const QString &message)
     KMessageBox::information(nullptr, "<qt>" + message.arg((folder.endsWith('/') ? folder.left(folder.length() - 1) : folder), QGuiApplication::applicationDisplayName()), i18n("Restart"));
 
     // Restart the application:
-    KRun::runCommand(binaryPath, QCoreApplication::applicationName(), QCoreApplication::applicationName(), nullptr);
+    auto *job = new KIO::CommandLauncherJob(binaryPath);
+    job->setExecutable(QCoreApplication::applicationName());
+    job->setIcon(QCoreApplication::applicationName());
+    job->start();
+
     exit(0);
 }
 
