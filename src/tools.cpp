@@ -817,20 +817,18 @@ qint64 Tools::computeSizeRecursively(const QString &path)
 
 bool Tools::isAFileCut(const QMimeData *source)
 {
-    if (source->hasFormat("application/x-kde-cutselection")) {
-        QByteArray array = source->data("application/x-kde-cutselection");
+    if (source->hasFormat(QStringLiteral("application/x-kde-cutselection"))) {
+        QByteArray array = source->data(QStringLiteral("application/x-kde-cutselection"));
         return !array.isEmpty() && QByteArray(array.data(), array.size() + 1).at(0) == '1';
-    } else
-        return false;
+    }
+
+    return false;
 }
 
 void Tools::printChildren(QObject *parent)
 {
-    const QObjectList objs = parent->children();
-    QObject *obj;
-    for (int i = 0; i < objs.size(); i++) {
-        obj = objs.at(i);
-        qDebug() << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << endl;
+    for (const auto& obj : parent->children()) {
+        qDebug() << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << Qt::endl;
     }
 }
 
@@ -838,10 +836,11 @@ QString Tools::makeStandardCaption(const QString &userCaption)
 {
     QString caption = QGuiApplication::applicationDisplayName();
 
-    if (!userCaption.isEmpty())
+    if (!userCaption.isEmpty()) {
         return userCaption + i18nc("Document/application separator in titlebar", " – ") + caption;
-    else
-        return caption;
+    }
+
+    return caption;
 }
 
 QByteArray Tools::systemCodeset()
