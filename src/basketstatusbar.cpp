@@ -49,26 +49,28 @@ BasketStatusBar::~BasketStatusBar()
 
 QStatusBar *BasketStatusBar::statusBar() const
 {
-    if (m_extension)
+    if (m_extension != nullptr) {
         return m_extension->statusBar();
-    else
-        return m_bar;
+    }
+
+    return m_bar;
 }
 
 void BasketStatusBar::addWidget(QWidget *widget, int stretch, bool permanent)
 {
-    if (m_extension)
+    if (m_extension != nullptr) {
         m_extension->addStatusBarItem(widget, stretch, permanent);
-    else if (permanent)
+    } else if (permanent) {
         m_bar->addPermanentWidget(widget, stretch);
-    else
+    } else {
         m_bar->addWidget(widget, stretch);
+    }
 }
 
 void BasketStatusBar::setupStatusBar()
 {
     QWidget *parent = statusBar();
-    QObjectList lst = parent->findChildren<QObject *>("KRSqueezedTextLabel");
+    QObjectList lst = parent->findChildren<QObject *>(QStringLiteral("KRSqueezedTextLabel"));
 
     // Tools::printChildren(parent);
     if (lst.count() == 0) {
@@ -79,8 +81,9 @@ void BasketStatusBar::setupStatusBar()
         policy.setHeightForWidth(false);
         m_basketStatus->setSizePolicy(policy);
         addWidget(m_basketStatus, 1, false); // Fit all extra space and is hiddable
-    } else
-        m_basketStatus = static_cast<QLabel *>(lst.at(0));
+    } else {
+        m_basketStatus = qobject_cast<QLabel *>(lst.at(0));
+    }
     lst.clear();
 
     m_selectionStatus = new QLabel(i18n("Loading..."), parent);
@@ -92,7 +95,7 @@ void BasketStatusBar::setupStatusBar()
     //  addWidget( m_lockStatus, 0, true );
     m_lockStatus->installEventFilter(this);
 
-    m_savedStatusPixmap = QIcon::fromTheme("document-save").pixmap(KIconLoader::SizeSmall);
+    m_savedStatusPixmap = QIcon::fromTheme(QStringLiteral("document-save")).pixmap(KIconLoader::SizeSmall);
     m_savedStatus = new QLabel(parent);
     m_savedStatus->setPixmap(m_savedStatusPixmap);
     m_savedStatus->setFixedSize(m_savedStatus->sizeHint());
@@ -105,83 +108,95 @@ void BasketStatusBar::setupStatusBar()
 
 void BasketStatusBar::postStatusbarMessage(const QString &text)
 {
-    if (statusBar())
+    if (statusBar() != nullptr) {
         statusBar()->showMessage(text, 2000);
+    }
 }
 
 void BasketStatusBar::setStatusText(const QString &txt)
 {
-    if (m_basketStatus && m_basketStatus->text() != txt)
+    if (m_basketStatus != nullptr && m_basketStatus->text() != txt) {
         m_basketStatus->setText(txt);
+    }
 }
 
 void BasketStatusBar::setStatusBarHint(const QString &hint)
 {
-    if (hint.isEmpty())
+    if (hint.isEmpty()) {
         updateStatusBarHint();
-    else
+    } else {
         setStatusText(hint);
+    }
 }
 
 void BasketStatusBar::updateStatusBarHint()
 {
     QString message;
 
-    if (Global::bnpView->currentBasket()->isDuringDrag())
+    if (Global::bnpView->currentBasket()->isDuringDrag()) {
         message = i18n("Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link.");
+    }
     // Too much noise information:
     //  else if (currentBasket()->inserterShown() && currentBasket()->inserterSplit() && !currentBasket()->inserterGroup())
     //      message = i18n("Click to insert a note, right click for more options. Click on the right of the line to group instead of insert.");
     //  else if (currentBasket()->inserterShown() && currentBasket()->inserterSplit() && currentBasket()->inserterGroup())
     //      message = i18n("Click to group a note, right click for more options. Click on the left of the line to group instead of insert.");
-    else if (Global::debugWindow)
+    else if (Global::debugWindow != nullptr) {
         message = "DEBUG: " + Global::bnpView->currentBasket()->folderName();
+    }
 
     setStatusText(message);
 }
 
 void BasketStatusBar::setLockStatus(bool isLocked)
 {
-    if (!m_lockStatus)
+    if (m_lockStatus == nullptr) {
         return;
+    }
 
     if (isLocked) {
-        QPixmap encryptedIcon = QIcon::fromTheme("encrypted.png").pixmap(KIconLoader::SizeSmall);
+        QPixmap encryptedIcon = QIcon::fromTheme(QStringLiteral("encrypted.png")).pixmap(KIconLoader::SizeSmall);
         m_lockStatus->setPixmap(encryptedIcon);
-        m_lockStatus->setToolTip(i18n("<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(QChar(' '), "&nbsp;"));
+        m_lockStatus->setToolTip(i18n("<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(QChar(' '), QStringLiteral("&nbsp;")));
     } else {
         m_lockStatus->clear();
-        m_lockStatus->setToolTip(i18n("<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>").replace(QChar(' '), "&nbsp;"));
+        m_lockStatus->setToolTip(i18n("<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>").replace(QChar(' '), QStringLiteral("&nbsp;")));
     }
 }
 
 void BasketStatusBar::setSelectionStatus(const QString &s)
 {
-    if (m_selectionStatus)
+    if (m_selectionStatus != nullptr) {
         m_selectionStatus->setText(s);
+    }
 }
 
 void BasketStatusBar::setUnsavedStatus(bool isUnsaved)
 {
-    if (!m_savedStatus)
+    if (m_savedStatus == nullptr) {
         return;
+    }
 
     if (isUnsaved) {
-        if (m_savedStatus->pixmap() == nullptr)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+        if (m_savedStatus->pixmap(Qt::ReturnByValueConstant::ReturnByValue).isNull()) {
+#else
+        if (m_savedStatus->pixmap()->isNull()) {
+#endif
             m_savedStatus->setPixmap(m_savedStatusPixmap);
-    } else
+        }
+    } else {
         m_savedStatus->clear();
+    }
 }
 
 bool BasketStatusBar::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == m_lockStatus && event->type() == QEvent::MouseButtonPress) {
-        QMouseEvent *mevent = dynamic_cast<QMouseEvent *>(event);
-        if (mevent->button() & Qt::LeftButton) {
+        auto *mevent = dynamic_cast<QMouseEvent *>(event);
+        if (static_cast<bool>(mevent->button() & Qt::LeftButton)) {
             Global::bnpView->lockBasket();
             return true;
-        } else {
-            return QObject::eventFilter(obj, event); // standard event processing
         }
     }
     return QObject::eventFilter(obj, event); // standard event processing

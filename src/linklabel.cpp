@@ -241,9 +241,11 @@ void LinkLabel::setLook(LinkLook *look) // FIXME: called externally (so, without
         palette.setColor(m_title->foregroundRole(), look->effectiveColor());
 
     m_title->setPalette(palette);
-
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    m_icon->setVisible(!m_icon->pixmap(Qt::ReturnByValueConstant::ReturnByValue).isNull());
+#else
     m_icon->setVisible(m_icon->pixmap() && !m_icon->pixmap()->isNull());
-
+#endif
     setAlign(m_hAlign, m_vAlign);
 }
 
