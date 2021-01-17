@@ -58,7 +58,9 @@
 #include <KOpenWithDialog>
 #include <KRun>
 #include <KService>
+#include <KDialogJobUiDelegate>
 
+#include <KIO/ApplicationLauncherJob>
 #include <KIO/CopyJob>
 
 #include <stdlib.h> // rand() function
@@ -4036,34 +4038,41 @@ void BasketScene::noteOpen(Note *note)
     */
 
     // TODO: Open ALL selected notes!
-    if (!note)
+    if (note == nullptr) {
         note = theSelectedNote();
-    if (!note)
+    }
+    if (note == nullptr) {
         return;
+    }
 
     QUrl url = note->content()->urlToOpen(/*with=*/false);
     QString message = note->content()->messageWhenOpening(NoteContent::OpenOne /*NoteContent::OpenSeveral*/);
     if (url.isEmpty()) {
-        if (message.isEmpty())
+        if (message.isEmpty()) {
             Q_EMIT postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
-        else {
+        } else {
             int result = KMessageBox::warningContinueCancel(m_view, message, /*caption=*/QString(), KGuiItem(i18n("&Edit"), "edit"));
-            if (result == KMessageBox::Continue)
+            if (result == KMessageBox::Continue) {
                 noteEdit(note);
+            }
         }
     } else {
         Q_EMIT postMessage(message); // "Opening link target..." / "Launching application..." / "Opening note file..."
         // Finally do the opening job:
         QString customCommand = note->content()->customOpenCommand();
 
-        if (url.url().startsWith("basket://")) {
+        if (url.url().startsWith(QStringLiteral("basket://"))) {
             Q_EMIT crossReference(url.url());
         } else if (customCommand.isEmpty()) {
             KRun *run = new KRun(url, m_view->window());
             run->setAutoDelete(true);
         } else {
             QList<QUrl> urls {url};
-            KRun::run(customCommand, urls, m_view->window());
+            KService::Ptr service(new KService(QStringLiteral("noteOpen"), customCommand, QString()));
+            auto *job = new KIO::ApplicationLauncherJob(service);
+            job->setUrls(urls);
+            job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_view->window()));
+            job->start();
         }
     }
 }
@@ -4073,37 +4082,51 @@ void BasketScene::noteOpen(Note *note)
  */
 bool KRun__displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles, const QString &text)
 {
-    if (qApp && !KAuthorized::authorizeAction("openwith")) {
+    if (qApp && !KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
         KMessageBox::sorry(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
         return false;
     }
     KOpenWithDialog l(lst, text, QString(), nullptr);
-    if (l.exec()) {
+    if (l.exec() > 0) {
         KService::Ptr service = l.service();
-        if (!!service)
-            return KRun::runApplication(*service, lst, window, tempFiles ? KRun::DeleteTemporaryFiles : KRun::RunFlags());
-        // qDebug(250) << "No service set, running " << l.text() << endl;
-        return KRun::run(l.text(), lst, window); // TODO handle tempFiles
+        if (!service) {
+            service = new KService(QStringLiteral("noteOpenWith"), l.text(), QString());
+        }
+
+        auto *job = new KIO::ApplicationLauncherJob(service);
+        job->setUrls(lst);
+        job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));
+        if (tempFiles) {
+            job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+        }
+
+        /// \todo job runs synchronously... API suggests asynchronous start() instead.
+        /// This requires a result handler. noteOpenWith also just emits a message to the status bar.
+        return job->exec();
+
     }
     return false;
 }
 
 void BasketScene::noteOpenWith(Note *note)
 {
-    if (!note)
+    if (note == nullptr) {
         note = theSelectedNote();
-    if (!note)
+    }
+    if (note == nullptr) {
         return;
+    }
 
     QUrl url = note->content()->urlToOpen(/*with=*/true);
-    QString message = note->content()->messageWhenOpening(NoteContent::OpenOneWith /*NoteContent::OpenSeveralWith*/);
-    QString text = note->content()->messageWhenOpening(NoteContent::OpenOneWithDialog /*NoteContent::OpenSeveralWithDialog*/);
+    QString message = note->content()->messageWhenOpening(NoteContent::OpenOneWith);
+    QString text = note->content()->messageWhenOpening(NoteContent::OpenOneWithDialog);
     if (url.isEmpty()) {
-        Q_EMIT postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
+        Q_EMIT postMessage(i18n("Unable to open this note."));
     } else {
-        QList<QUrl> urls {url};
-        if (KRun__displayOpenWithDialog(urls, m_view->window(), false, text))
+        QList<QUrl> urls{url};
+        if (KRun__displayOpenWithDialog(urls, m_view->window(), false, text)) {
             Q_EMIT postMessage(message); // "Opening link target with..." / "Opening note file with..."
+        }
     }
 }
 
