@@ -81,7 +81,6 @@
 #include "settings.h"
 #include "tagsedit.h"
 #include "tools.h"
-#include "transparentwidget.h"
 #include "xmlwork.h"
 
 #include "config.h"
@@ -1179,8 +1178,6 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_icon("org.kde.basket")
     , m_folderName(folderName)
     , m_editor(nullptr)
-    , m_leftEditorBorder(nullptr)
-    , m_rightEditorBorder(nullptr)
     , m_redirectEditActions(false)
     , m_editorTrackMouseEvent(false)
     , m_editorWidth(-1)

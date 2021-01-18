@@ -43,7 +43,6 @@ set(libbasket_SRCS
     softwareimporters.cpp
         tag.cpp
     tagsedit.cpp
-    transparentwidget.cpp
     tools.cpp
     variouswidgets.cpp
     xmlwork.cpp

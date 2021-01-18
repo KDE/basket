@@ -51,7 +51,6 @@ class DecoratedBasket;
 class Note;
 class NoteEditor;
 class Tag;
-class TransparentWidget;
 
 #ifdef HAVE_LIBGPGME
 class KGpgMe;
@@ -537,8 +536,6 @@ public:
 private:
     NoteEditor *m_editor;
     // QWidget    *m_rightEditorBorder;
-    TransparentWidget *m_leftEditorBorder;
-    TransparentWidget *m_rightEditorBorder;
     bool m_redirectEditActions;
     bool m_editorTrackMouseEvent;
     qreal m_editorWidth;
