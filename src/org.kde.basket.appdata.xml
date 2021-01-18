@@ -16,6 +16,7 @@
   <developer_name xml:lang="fi">KDE-yhteisö</developer_name>
   <developer_name xml:lang="fr">Communauté KDE</developer_name>
   <developer_name xml:lang="ia">Communitate de KDE</developer_name>
+  <developer_name xml:lang="id">Komunitas KDE</developer_name>
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
   <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
@@ -39,6 +40,7 @@
   <name xml:lang="fi">Basket</name>
   <name xml:lang="fr">Basket</name>
   <name xml:lang="ia">Basket</name>
+  <name xml:lang="id">Basket</name>
   <name xml:lang="it">Basket</name>
   <name xml:lang="nl">Basket</name>
   <name xml:lang="nn">Basket</name>
@@ -59,6 +61,7 @@
   <summary xml:lang="fi">Muistiinpano- ja tehtäväjärjestäjä</summary>
   <summary xml:lang="fr">Notes et organisateur de tâches à faire</summary>
   <summary xml:lang="ia">Organisator de Notas e Agenda</summary>
+  <summary xml:lang="id">Pengelola catatan dan wacana</summary>
   <summary xml:lang="it">Gestore di note e cose da fare</summary>
   <summary xml:lang="nl">Organisator van notities en te-doens</summary>
   <summary xml:lang="nn">Notat- og gjeremålorganisering</summary>
@@ -78,6 +81,7 @@
     <p xml:lang="fi">Sovellus tarjoaa niin monta koria kuin haluat, ja se tukee vetämistä ja pudottamista.</p>
     <p xml:lang="fr">Cette application fournit autant de paniers que vous désirez et que vous pouvez utiliser par glisser/déposer.</p>
     <p xml:lang="ia">Iste application provide omne le panieros que on vole, e tu pote traher e deponer. </p>
+    <p xml:lang="id">Aplikasi ini menyediakan keranjang sebanyak yang kamu inginkan, dan kamu bisa melakukan seret dan taruh.</p>
     <p xml:lang="it">Questa applicazione ti mette a disposizione tutti i cesti che vuoi, e puoi trascinarvi del contenuto.</p>
     <p xml:lang="nl">Deze toepassing levert zoveel baskets als u wilt en u kunt slepen en loslaten.</p>
     <p xml:lang="pt">Esta aplicação oferece tantos cestos quantos desejar, podendo depois arrastar e largar conteúdos neles.</p>
@@ -94,6 +98,7 @@
     <p xml:lang="fi">Kohteita voi muokata, kopioida, vetää… Voit siis järjestää niitä miten haluat!</p>
     <p xml:lang="fr">Les objets peuvent être modifiés, copiés, glissés... Par conséquent, vous pouvez les arranger comme vous le souhaitez !</p>
     <p xml:lang="ia">Objectos pote esser modificate, copiate e trahite... assi que tu pote disponer los como tu vole!</p>
+    <p xml:lang="id">Objek bisa diedit, disalin, diseret ... Jadi, kamu bisa mengaturnya sesuai keinginanmu!</p>
     <p xml:lang="it">Gli oggetti possono essere modificati, copiati, trascinati... Puoi quindi organizzarli come preferisci!</p>
     <p xml:lang="nl">Objecten kunnen bewerkt, gekopieerd, versleept worden... U kunt ze dus arrangeren zoals u wilt!</p>
     <p xml:lang="pt">Os objectos poderão ser editados, copiados, arrastados... Por isso, pode organizá-los como desejar !</p>
@@ -111,6 +116,7 @@
     <p xml:lang="fi">Muistiinpanoja voi järjestää, tehtävien etenemistä seurata ja paljon muuta.</p>
     <p xml:lang="fr">Cela vous permet d'arranger vos notes et de suivre vos tâches à faire et bien d'autres choses.</p>
     <p xml:lang="ia">Il permitte disponer notas, traciar agenda de cosas de facer e plus alteres.</p>
+    <p xml:lang="id">Yang memungkinkan untuk mengatur catatan, melacak wacana dan banyak lagi.</p>
     <p xml:lang="it">Ti permette di organizzare note, tenere traccia delle cose da fare, e altro ancora.</p>
     <p xml:lang="nl">Het biedt het arrangeren van notities, het volgen van te-doens en veel meer.</p>
     <p xml:lang="pt">Permite organizar as notas, acompanhar as tarefas e muito mais.</p>
