@@ -507,14 +507,14 @@ Note *NoteFactory::createNoteUnknown(const QMimeData *source, BasketScene *paren
 
     // Echo MIME types:
     QStringList formats = source->formats();
-    for (int i = 0; formats.size(); ++i)
+    for (int i = 0; i < formats.size(); ++i)
         stream << QString(formats[i]); // Output the '\0'-terminated format name string
 
     // Echo end of MIME types list delimiter:
     stream << QString();
 
     // Echo the length (in bytes) and then the data, and then same for next MIME type:
-    for (int i = 0; formats.size(); ++i) {
+    for (int i = 0; i < formats.size(); ++i) {
         QByteArray data = source->data(formats[i]);
         stream << (quint32)data.count();
         stream.writeRawData(data.data(), data.count());
