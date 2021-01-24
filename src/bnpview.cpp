@@ -1297,17 +1297,30 @@ void BNPView::filterPlacementChanged(bool onTop)
 
 void BNPView::updateBasketListViewItem(BasketScene *basket)
 {
+    if (basket == nullptr) {
+        return;
+    }
+
     BasketListViewItem *item = listViewItemForBasket(basket);
-    if (item)
+    if (item != nullptr) {
         item->setup();
 
-    if (basket == currentBasket()) {
-        setWindowTitle(basket->basketName());
+        if (basket == currentBasket()) {
+            setWindowTitle(basket->basketName());
+        }
+
+        if (basket->backgroundColor().isValid()) {
+            item->setBackground(0, QBrush(basket->backgroundColor()));
+        } else {
+            item->setBackground(0, QBrush());
+        }
+
     }
 
     // Don't save if we are loading!
-    if (!m_loading)
+    if (!m_loading) {
         save();
+    }
 }
 
 void BNPView::needSave(QTreeWidgetItem *)
