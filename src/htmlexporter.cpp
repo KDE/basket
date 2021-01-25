@@ -129,6 +129,17 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
 
     currentBasket = basket;
 
+    bool hasBackgroundColor = false;
+    bool hasTextColor = false;
+
+    if (basket->backgroundColorSetting().isValid()) {
+        hasBackgroundColor = true;
+        backgroundColorName = basket->backgroundColor().name().toLower().mid(1);
+    }
+    if (basket->textColorSetting().isValid()) {
+        hasTextColor = true;
+    }
+
     // Compute the absolute & relative paths for this basket:
     filesFolderPath = i18nc("HTML export folder (files)", "%1_files", filePath) + '/';
     if (isSubBasket) {
@@ -165,27 +176,50 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     QDir dir;
     dir.mkdir(dataFolderPath);
 
-    backgroundColorName = basket->backgroundColor().name().toLower().mid(1);
-
     // Generate basket icons:
     QString basketIcon16 = iconsFolderName + copyIcon(basket->icon(), 16);
     QString basketIcon32 = iconsFolderName + copyIcon(basket->icon(), 32);
 
     // Generate the [+] image for groups:
     QPixmap expandGroup(Note::EXPANDER_WIDTH, Note::EXPANDER_HEIGHT);
-    expandGroup.fill(basket->backgroundColor());
+    if (hasBackgroundColor) {
+        expandGroup.fill(basket->backgroundColor());
+    } else {
+         expandGroup.fill(QColor(Qt::GlobalColor::transparent));
+    }
     QPainter painter(&expandGroup);
-    Note::drawExpander(&painter, 0, 0, basket->backgroundColor(), /*expand=*/true, basket);
+    if (hasBackgroundColor) {
+        Note::drawExpander(&painter, 0, 0, basket->backgroundColor(), /*expand=*/true, basket);
+    } else {
+        Note::drawExpander(&painter, 0, 0,QColor(Qt::GlobalColor::transparent), /*expand=*/true, basket);
+    }
     painter.end();
-    expandGroup.save(imagesFolderPath + "expand_group_" + backgroundColorName + ".png", "PNG");
+    if (hasBackgroundColor) {
+        expandGroup.save(imagesFolderPath + "expand_group_" + backgroundColorName + ".png", "PNG");
+    } else {
+        expandGroup.save(imagesFolderPath + "expand_group_transparent.png", "PNG");
+    }
 
     // Generate the [-] image for groups:
     QPixmap foldGroup(Note::EXPANDER_WIDTH, Note::EXPANDER_HEIGHT);
-    foldGroup.fill(basket->backgroundColor());
+    if (hasBackgroundColor) {
+        foldGroup.fill(basket->backgroundColor());
+    } else {
+        foldGroup.fill(QColor(Qt::GlobalColor::transparent));
+    }
     painter.begin(&foldGroup);
-    Note::drawExpander(&painter, 0, 0, basket->backgroundColor(), /*expand=*/false, basket);
+    if (hasBackgroundColor) {
+        Note::drawExpander(&painter, 0, 0, basket->backgroundColor(), /*expand=*/false, basket);
+    } else {
+        Note::drawExpander(&painter, 0, 0, QColor(Qt::GlobalColor::transparent), /*expand=*/false, basket);
+    }
+
     painter.end();
-    foldGroup.save(imagesFolderPath + "fold_group_" + backgroundColorName + ".png", "PNG");
+    if (hasBackgroundColor) {
+        foldGroup.save(imagesFolderPath + "fold_group_" + backgroundColorName + ".png", "PNG");
+    } else {
+        foldGroup.save(imagesFolderPath + "fold_group_transparent.png", "PNG");
+    }
 
     // Open the file to write:
     QFile file(basketFilePath);
@@ -195,7 +229,14 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream.setCodec("UTF-8");
 
     // Output the header:
-    QString borderColor = Tools::mixColor(basket->backgroundColor(), basket->textColor()).name();
+    QString borderColor;
+    if (hasBackgroundColor && hasTextColor) {
+        borderColor = Tools::mixColor(basket->backgroundColor(), basket->textColor()).name();
+    } else if (hasBackgroundColor) {
+        borderColor = Tools::mixColor(basket->backgroundColor(), QColor(Qt::GlobalColor::black)).name();
+    } else if (hasTextColor) {
+        borderColor = Tools::mixColor(QColor(Qt::GlobalColor::white), basket->textColor()).name();
+    }
     stream << "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n"
               "<html>\n"
               " <head>\n"
@@ -227,30 +268,52 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
                << "; }\n"
                   "   .basketSurrounder { margin-left: 152px; _margin: 0; _float: right; }\n";
     }
-    stream << "   .basket { background-color: " << basket->backgroundColor().name() << "; border: solid " << borderColor
+
+    stream << "   .basket { ";
+    if (hasBackgroundColor) {
+        stream << "background-color: " << basket->backgroundColor().name() << "; ";
+    }
+    stream << "border: solid " << borderColor
            << " 1px; "
               "font: "
-           << Tools::cssFontDefinition(basket->QGraphicsScene::font()) << "; color: " << basket->textColor().name()
-           << "; padding: 1px; width: 100%; }\n"
+           << Tools::cssFontDefinition(basket->QGraphicsScene::font()) << "; ";
+    if (hasTextColor) {
+        stream << "color: " << basket->textColor().name() << "; ";
+    }
+    stream << "padding: 1px; width: 100%; }\n"
               "   table.basket { border-collapse: collapse; }\n"
               "   .basket * { padding: 0; margin: 0; }\n"
               "   .basket table { width: 100%; border-spacing: 0; _border-collapse: collapse; }\n"
               "   .column { vertical-align: top; }\n"
               "   .columnHandle { width: "
-           << Note::RESIZER_WIDTH << "px; background: transparent url('" << imagesFolderName << "column_handle_" << backgroundColorName
-           << ".png') repeat-y; }\n"
+           << Note::RESIZER_WIDTH << "px; background: transparent url('" << imagesFolderName << "column_handle_";
+    if (hasBackgroundColor) {
+        stream << backgroundColorName;
+    } else {
+        stream << "transparent";
+    }
+    stream << ".png') repeat-y; }\n"
               "   .group { margin: 0; padding: 0; border-collapse: collapse; width: 100% }\n"
               "   .groupHandle { margin: 0; width: "
            << Note::GROUP_WIDTH
            << "px; text-align: center; }\n"
-              "   .note { padding: 1px 2px; background-color: "
-           << basket->backgroundColor().name()
-           << "; width: 100%; }\n"
+              "   .note { padding: 1px 2px; ";
+    if (hasBackgroundColor) {
+        stream << "background-color : " << basket->backgroundColor().name() << "; ";
+    }
+    stream << "width: 100%; }\n"
               "   .tags { width: 1px; white-space: nowrap; }\n"
-              "   .tags img { padding-right: 2px; }\n"
-           << LinkLook::soundLook->toCSS("sound", basket->textColor()) << LinkLook::fileLook->toCSS("file", basket->textColor()) << LinkLook::localLinkLook->toCSS("local", basket->textColor())
-           << LinkLook::networkLinkLook->toCSS("network", basket->textColor()) << LinkLook::launcherLook->toCSS("launcher", basket->textColor()) << LinkLook::crossReferenceLook->toCSS("cross_reference", basket->textColor())
-           << "   .unknown { margin: 1px 2px; border: 1px solid " << borderColor << "; -moz-border-radius: 4px; }\n";
+              "   .tags img { padding-right: 2px; }\n";
+    if (hasTextColor) {
+        stream << LinkLook::soundLook->toCSS("sound", basket->textColor()) << LinkLook::fileLook->toCSS("file", basket->textColor())
+               << LinkLook::localLinkLook->toCSS("local", basket->textColor()) << LinkLook::networkLinkLook->toCSS("network", basket->textColor())
+               << LinkLook::launcherLook->toCSS("launcher", basket->textColor()) << LinkLook::crossReferenceLook->toCSS("cross_reference", basket->textColor());
+    } else {
+        stream << LinkLook::soundLook->toCSS("sound", QColor(Qt::GlobalColor::black)) << LinkLook::fileLook->toCSS("file", QColor(Qt::GlobalColor::black))
+               << LinkLook::localLinkLook->toCSS("local", QColor(Qt::GlobalColor::black)) << LinkLook::networkLinkLook->toCSS("network", QColor(Qt::GlobalColor::black))
+               << LinkLook::launcherLook->toCSS("launcher", QColor(Qt::GlobalColor::black)) << LinkLook::crossReferenceLook->toCSS("cross_reference", QColor(Qt::GlobalColor::black));
+    }
+    stream << "   .unknown { margin: 1px 2px; border: 1px solid " << borderColor << "; -moz-border-radius: 4px; }\n";
     QList<State *> states = basket->usedStates();
     QString statesCss;
     for (State::List::Iterator it = states.begin(); it != states.end(); ++it)
@@ -266,9 +329,18 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     // Create the column handle image:
     QPixmap columnHandle(Note::RESIZER_WIDTH, 50);
     painter.begin(&columnHandle);
-    Note::drawInactiveResizer(&painter, 0, 0, columnHandle.height(), basket->backgroundColor(), /*column=*/true);
+    if (hasBackgroundColor) {
+        Note::drawInactiveResizer(&painter, 0, 0, columnHandle.height(), basket->backgroundColor(), /*column=*/true);
+    } else {
+        Note::drawInactiveResizer(&painter, 0, 0, columnHandle.height(), QColor(Qt::GlobalColor::black), /*column=*/true);
+    }
     painter.end();
-    columnHandle.save(imagesFolderPath + "column_handle_" + backgroundColorName + ".png", "PNG");
+
+    if(hasBackgroundColor) {
+        columnHandle.save(imagesFolderPath + "column_handle_" + backgroundColorName + ".png", "PNG");
+    } else {
+        columnHandle.save(imagesFolderPath + "column_handle_transparent.png", "PNG");
+    }
 
     stream << " </head>\n"
               " <body>\n"
@@ -287,21 +359,31 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
 
     stream << "  <div class=\"basketSurrounder\">\n";
 
-    if (basket->isColumnsLayout())
-        stream << "   <table class=\"basket\">\n"
-                  "    <tr>\n";
-    else
-        stream << "   <div class=\"basket\" style=\"position: relative; height: " << basket->sceneRect().height() << "px; width: " << basket->sceneRect().width() << "px; min-width: 100%;\">\n";
 
-    for (Note *note = basket->firstNote(); note; note = note->next())
+    stream << "   <div class=\"basket\" style=\"position: relative; min-width: 100%; min-height: calc(100vh - 100px); ";
+    if (!basket->isColumnsLayout()) {
+        stream << "height: " << basket->sceneRect().height() << "px; width: " << basket->sceneRect().width() << "px; ";
+    }
+    stream << "\">\n";
+
+    if (basket->isColumnsLayout()) {
+        stream << "   <table>\n"
+                  "    <tr>\n";
+    }
+
+
+    for (Note *note = basket->firstNote(); note; note = note->next()) {
         exportNote(note, /*indent=*/(basket->isFreeLayout() ? 4 : 5));
+    }
 
     // Output the footer:
-    if (basket->isColumnsLayout())
+    if (basket->isColumnsLayout()) {
         stream << "    </tr>\n"
                   "   </table>\n";
-    else
-        stream << "   </div>\n";
+    }
+
+    stream << "   </div>\n";
+
     stream << QString(
                   "  </div>\n"
                   "  <p class=\"credits\">%1</p>\n")
@@ -433,10 +515,15 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
             link = basket->folderName().left(basket->folderName().length() - 1) + ".html";
         }
     }
-    QString spanStyle;
-    if (basket->backgroundColorSetting().isValid() || basket->textColorSetting().isValid()) {
-        spanStyle = " style=\"background-color: " + basket->backgroundColor().name() + "; color: " + basket->textColor().name() + "\"";
+    QString spanStyle = QStringLiteral(" style=\"");
+    if (basket->backgroundColorSetting().isValid()) {
+        spanStyle += "background-color: " + basket->backgroundColor().name() + "; ";
     }
+    if (basket->textColorSetting().isValid()) {
+        spanStyle += "color: " + basket->textColor().name() + "; ";
+    }
+    spanStyle += QStringLiteral("\"");
+
 
     // Write the basket tree line:
     stream << spaces.fill(' ', indent) << "<li><a" << cssClass << " href=\"" << link
