@@ -215,6 +215,7 @@ public:
     virtual void setFileName(const QString &fileName); /// << Set the filename. Reimplement it if you eg. want to update the view when the filename is changed.
     bool trySetFileName(const QString &fileName);      /// << Set the new filename and return true. Can fail and return false if a file with this fileName already exists.
     QString fullPath();                                /// << Get the absolute path of the file where this content is stored on disk.
+    QUrl fullPathUrl();                                /// << Get the absolute path of the file where this content is stored on disk as QUrl
     QString fileName() const
     {
         return m_fileName;

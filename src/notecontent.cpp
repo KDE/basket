@@ -231,6 +231,11 @@ QString NoteContent::fullPath()
         return QString();
 }
 
+QUrl NoteContent::fullPathUrl()
+{
+    return QUrl::fromLocalFile(fullPath());
+}
+
 void NoteContent::contentChanged(qreal newMinWidth)
 {
     m_minWidth = newMinWidth;
@@ -1571,10 +1576,10 @@ SoundContent::SoundContent(Note *parent, const QString &fileName)
 {
     SoundContent::setFileName(fileName);
     music = new Phonon::MediaObject(this);
-    music->setCurrentSource(Phonon::MediaSource(fullPath()));
-    Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-    Phonon::Path path = Phonon::createPath(music, audioOutput);
-    connect(music, SIGNAL(stateChanged(Phonon::State, Phonon::State)), this, SLOT(stateChanged(Phonon::State, Phonon::State)));
+    music->setCurrentSource(Phonon::MediaSource(fullPathUrl()));
+    auto *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+    Phonon::createPath(music, audioOutput);
+    connect(music, &Phonon::MediaObject::stateChanged, this, &SoundContent::stateChanged);
 }
 
 void SoundContent::stateChanged(Phonon::State newState, Phonon::State oldState)
@@ -1631,10 +1636,11 @@ void SoundContent::setFileName(const QString &fileName)
 {
     NoteContent::setFileName(fileName);
     QUrl url = QUrl::fromLocalFile(fullPath());
-    if (SoundContent::linkLook()->previewEnabled())
+    if (SoundContent::linkLook()->previewEnabled()) {
         m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), SoundContent::linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
-    else
+    } else {
         m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), SoundContent::linkLook(), note()->font());
+    }
     startFetchingUrlPreview();
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
