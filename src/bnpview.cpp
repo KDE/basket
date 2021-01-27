@@ -226,7 +226,6 @@ void BNPView::setupGlobalShortcuts()
     QAction *a = nullptr;
 
     // Ctrl+Shift+W only works when started standalone:
-    QWidget *basketMainWindow = qobject_cast<KMainWindow *>(Global::bnpView->parent());
 
     int modifier = Qt::CTRL + Qt::ALT + Qt::SHIFT;
 
