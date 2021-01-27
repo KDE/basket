@@ -953,11 +953,14 @@ QString NoteFactory::titleForURL(const QUrl &url)
 
 QString NoteFactory::iconForURL(const QUrl &url)
 {
+
     if (url.scheme() == "mailto") {
         return QStringLiteral("message");
+    } else if (url.scheme() == "http" || url.scheme() == "https") {
+        return QStringLiteral("text-html");
+    } else {
+        return QStringLiteral("unknown");
     }
-    // return KMimeType::iconNameForUrl(url.url());
-    return QString();
 }
 
 // TODO: Can I add "autoTitle" and "autoIcon" entries to .desktop files? or just store them in basket, as now...
