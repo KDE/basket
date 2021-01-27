@@ -563,7 +563,11 @@ QString HTMLExporter::copyIcon(const QString &iconName, int size)
     fileName = "ico" + QString::number(size) + '_' + fileName.replace('/', '_') + ".png";
     QString fullPath = iconsFolderPath + fileName;
     if (!QFile::exists(fullPath)) {
-        QIcon::fromTheme(iconName).pixmap(size, KIconLoader::Desktop).save(fullPath, "PNG");
+//        auto icon = QIcon::fromTheme(iconName).pixmap(QSize(size, size));
+//         icon.pixmap(size, KIconLoader::Desktop);
+    KIconLoader::global()->loadIcon(iconName,KIconLoader::Desktop,size).save(fullPath, "PNG");
+//        loadIcon (const QString &name, KIconLoader::Group group, int size=0, int state=KIconLoader::DefaultState,
+//            pixmap.save(fullPath, "PNG");
     }
     return fileName;
 }
