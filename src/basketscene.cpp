@@ -1202,7 +1202,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     KActionCollection *ac = Global::bnpView->actionCollection();
     m_action = ac->addAction(m_folderName, this, SLOT(activatedShortcut()));
     ac->setShortcutsConfigurable(m_action, false);
-    KGlobalAccel::self()->setGlobalShortcut(m_action, (QKeySequence()));
+    KGlobalAccel::setGlobalShortcut(m_action, (QKeySequence()));
 
     //    setDragAutoScroll(true);
 

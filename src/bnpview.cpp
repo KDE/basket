@@ -234,14 +234,14 @@ void BNPView::setupGlobalShortcuts()
     a->setStatusTip(
         i18n("Allows you to paste clipboard contents in the current basket "
              "without having to open the main window."));
-    KGlobalAccel::self()->setGlobalShortcut(a, QKeySequence(modifier + Qt::Key_V));
+    KGlobalAccel::setGlobalShortcut(a, QKeySequence(modifier + Qt::Key_V));
 
     a = ac->addAction("global_paste_selection", Global::bnpView, SLOT(pasteSelInCurrentBasket()));
     a->setText(i18n("Paste selection in current basket"));
     a->setStatusTip(
         i18n("Allows you to paste clipboard selection in the current basket "
              "without having to open the main window."));
-    KGlobalAccel::self()->setGlobalShortcut(a, (QKeySequence(Qt::CTRL + Qt::ALT + Qt::SHIFT + Qt::Key_S)));
+    KGlobalAccel::setGlobalShortcut(a, (QKeySequence(Qt::CTRL + Qt::ALT + Qt::SHIFT + Qt::Key_S)));
 
     a = ac->addAction("global_new_basket", Global::bnpView, SLOT(askNewBasket()));
     a->setText(i18n("Create a new basket"));
@@ -267,7 +267,7 @@ void BNPView::setupGlobalShortcuts()
     a->setStatusTip(
         i18n("Add a text note to the current basket without having to open "
              "the main window."));
-    KGlobalAccel::self()->setGlobalShortcut(a, (QKeySequence(modifier + Qt::Key_T)));
+    KGlobalAccel::setGlobalShortcut(a, (QKeySequence(modifier + Qt::Key_T)));
 
     a = ac->addAction("global_note_add_image", Global::bnpView, SLOT(addNoteImage()));
     a->setText(i18n("Insert image note"));
