@@ -2494,9 +2494,7 @@ void BNPView::loadCrossReference(QString link)
     // remove "basket://" and any encoding.
     QString folderName = link.mid(9, link.length() - 9);
     folderName = QUrl::fromPercentEncoding(folderName.toUtf8());
-
     BasketScene *basket = this->basketForFolderName(folderName);
-
     if (!basket)
         return;
 
@@ -2505,64 +2503,56 @@ void BNPView::loadCrossReference(QString link)
 
 QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent)
 {
-    QString found;
-
-    QString page = pages.first();
-
-    page = QUrl::fromPercentEncoding(page.toUtf8()).trimmed();
-    pages.removeFirst();
+    if (pages.isEmpty()) return QString();
+    QString page = QUrl::fromPercentEncoding(pages.takeFirst().toUtf8()).trimmed();
 
     if (page == "..")
     {
         QTreeWidgetItem *p = parent? parent->parent() : m_tree->currentItem()->parent();
-        found = this->folderFromBasketNameLink(pages, p);
+        return this->folderFromBasketNameLink(pages, p);
     }
-    else if (page == ".")
+
+    if (page == ".")
     {
         parent = parent? parent : m_tree->currentItem();
-        found = this->folderFromBasketNameLink(pages, parent);
+        return this->folderFromBasketNameLink(pages, parent);
     }
-    else if (!parent && page.isEmpty())
+
+    if (!parent && page.isEmpty())
     {
         parent = m_tree->invisibleRootItem();
-        found = this->folderFromBasketNameLink(pages, parent);
+        return this->folderFromBasketNameLink(pages, parent);
     }
-    else
-    {
-        parent = parent? parent : m_tree->currentItem();
 
-        QRegExp re(":\\{([0-9]+)\\}");
-        re.setMinimal(true);
-        int pos = 0;
+    parent = parent? parent : m_tree->currentItem();
+    QRegExp re(":\\{([0-9]+)\\}");
+    re.setMinimal(true);
+    int pos = 0;
 
-        pos = re.indexIn(page, pos);
-        int basketNum = 1;
+    pos = re.indexIn(page, pos);
+    int basketNum = 1;
 
-        if (pos != -1)
-            basketNum = re.cap(1).toInt();
+    if (pos != -1)
+        basketNum = re.cap(1).toInt();
 
-        page = page.left(page.length() - re.matchedLength());
+    page = page.left(page.length() - re.matchedLength());
 
-        for (int i = 0; i < parent->childCount(); i++) {
-            QTreeWidgetItem *child = parent->child(i);
+    for (int i = 0; i < parent->childCount(); i++) {
+        QTreeWidgetItem *child = parent->child(i);
 
-            if (child->text(0).toLower() == page.toLower()) {
-                basketNum--;
-                if (basketNum == 0) {
-                    if (pages.count() > 0) {
-                        found = this->folderFromBasketNameLink(pages, child);
-                        break;
-                    } else {
-                        found = ((BasketListViewItem *)child)->basket()->folderName();
-                        break;
-                    }
+        if (child->text(0).toLower() == page.toLower()) {
+            basketNum--;
+            if (basketNum == 0) {
+                if (pages.count() > 0) {
+                    return this->folderFromBasketNameLink(pages, child);
+                } else {
+                    return ((BasketListViewItem *)child)->basket()->folderName();
                 }
-            } else
-                found = QString();
+            }
         }
     }
 
-    return found;
+    return QString();
 }
 
 void BNPView::sortChildrenAsc()

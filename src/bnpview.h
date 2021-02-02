@@ -183,6 +183,8 @@ public Q_SLOTS:
     void changedSelectedNotes();
 
     void loadCrossReference(QString link);
+
+    //Returns an empty string to indicate failure to find a corresponding basket
     QString folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent = nullptr);
 
     void sortChildrenAsc();

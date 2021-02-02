@@ -64,9 +64,14 @@ BASKET_EXPORT QString detectCrossReferences(const QString &text, bool userLink =
 QList<State*> detectTags(const QString& text, int& prefixLength);
 
 // private functions:
-BASKET_EXPORT QString crossReferenceForBasket(QStringList linkParts);
-BASKET_EXPORT QString crossReferenceForHtml(QStringList linkParts, HTMLExporter *exporter);
-BASKET_EXPORT QString crossReferenceForConversion(QStringList linkParts);
+//Returns an empty string in case of failure
+BASKET_EXPORT QString crossReferenceForBasket(const QStringList& linkParts);
+
+//Returns an empty string in case of failure
+BASKET_EXPORT QString crossReferenceForHtml(const QStringList& linkParts, HTMLExporter *exporter);
+
+//Returns an empty string in case of failure
+BASKET_EXPORT QString crossReferenceForConversion(const QStringList& linkParts);
 
 // String Manipulations:
 BASKET_EXPORT QString stripEndWhiteSpaces(const QString &string);
