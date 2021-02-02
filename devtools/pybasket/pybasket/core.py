@@ -153,6 +153,9 @@ class Note:
     else:
       self.folded = False
 
+  def __str__(self):
+    return "Note of type: " + str(self.notetype) + ", content: " + str(self.content)
+
   ## Fetch basket or try one level up
   def getBasket(self):
     if not isinstance(self.parent,Basket):
@@ -171,6 +174,24 @@ class Note:
     return flatlist
 
 
+  ## to name the note source files sequentially, this function checks the outputpath for "note[0-9]*.html" files
+  ## It returns the next highest number
+  def getNextNoteName(self, outputpath):
+    highNum = 0
+
+    note_regex = re.compile(r"note-([0-9]*).html")
+
+    for f in os.listdir(outputpath):
+      match = note_regex.match(f)
+      if match:
+        try:
+          index = int(match.group(1))
+          if index > highNum:
+            highNum = index
+        except ValueError:
+          "The file does not contain an integer, skipping: " + f
+
+    return os.path.join(outputpath, "note-%s.html" % str(highNum + 1))
 
   def writeXmlElement(self, doc, parent, basketpath):
 
@@ -179,7 +200,7 @@ class Note:
 
       ## column group does not have any attributes 
       if not isinstance(self.parent,Basket):
-        if(self.parent.disposition != Disposition.FREE):
+        if(self.getBasket().disposition != Disposition.FREE):
           for note in self.content:
             note.writeXmlElement(doc, node, basketpath)
       else:
@@ -241,8 +262,9 @@ class Note:
         ## TODO create file and copy in correct folder
         content = doc.createElement('content')
         
-        filename = "item" + uuid.uuid1().hex + ".html"
-        with open(basketpath + os.path.sep + filename, "w") as f:
+        filename = self.getNextNoteName(basketpath)
+
+        with open(filename, "w") as f:
           f.write(self.content)
         content.appendChild(doc.createTextNode(os.path.basename(filename)))
         node.appendChild(content)
@@ -371,7 +393,17 @@ class Basket:
     self.folded = folded
 
   def __str__(self):
-    return self.name
+    output =  "Basket " + self.name 
+
+    if len(self.children) > 0:
+      clist = []
+      for child in self.children:
+        clist.append(str(child))
+
+      return str(output + ", " + str(clist))
+    else:
+      return str(output)
+
 
   # returns self and all children in a list
   def flatBasketFamily(self):
@@ -381,6 +413,12 @@ class Basket:
       flatlist.extend(child.flatBasketFamily())
 
     return flatlist
+
+  def basketFamily(self):
+    thislist = []
+    for child in self.children:
+      thislist.append(child.basketFamily())
+    return [ self, thislist ]
 
   def flatNoteFamily(self):
     flatlist = []
@@ -556,6 +594,13 @@ class BasketTree:
     for basket in self.baskets:
       flatlist.extend(basket.flatBasketFamily())
     return flatlist
+
+  def basketFamily(self):
+    thislist = []
+    for basket in self.baskets:
+      thislist.extend(basket.basketFamily())
+    return [ self, thislist ]
+
 
 ## Tag's text style
 class TextStyle:
