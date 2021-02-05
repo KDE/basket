@@ -63,9 +63,10 @@ public:
      * @param sourcePath specifies the directory to be encoded
      * @param previewImage specifies an optional .png image
      * @param destination specifies where the encoded .basket file should be saved
+     * @param protectDestination decides whether the destination will be replaced if it has been present
      * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
      */
-    BASKET_EXPORT static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString());
+    BASKET_EXPORT static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString(), const bool protectDestination = true);
 
 private:
     // Convenient Methods for Saving:

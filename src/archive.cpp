@@ -457,7 +457,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     return retCode;
 }
 
-Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination)
+Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination, const bool protectDestination)
 {
     QDir source(sourcePath);
     QFileInfo destinationFile(destination);
@@ -468,7 +468,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
     }
 
     // destinationFile must not previously exist;
-    if (destinationFile.exists()) {
+    if (destinationFile.exists() && protectDestination) {
         return IOErrorCode::DestinationExists;
     }
 
