@@ -23,7 +23,7 @@ def main():
         ],
       shortcut = Shortcut(combination= "Ctrl+0"))
 
-  tagTodo = Tag("To Do !!!", 
+  tagTodo = Tag("To Do", 
       states = [
         State(name="Unchecked", stateid="todo_unchecked", emblem="tag_checkbox", textEquivalent="[ ]"),
         State(name="Done", stateid="todo_done", textstyle=TextStyle(strikeOut=True), 
@@ -43,13 +43,15 @@ def main():
 
   tagHighlight  = Tag("Highlight", 
       states = [
-        State(name = "Highlight", stateid = "highlight", textEquivalent="=>", bgColor=Color('#ffffcc'))
+        State(name = "Highlight", stateid = "highlight", textEquivalent="=>", bgColor=Color('#ffffcc'),
+          textstyle = TextStyle( color = Color('#000000')))
         ],
       shortcut = Shortcut(combination= "Ctrl+5"))
 
   tagImportant = Tag("Important", 
       states = [
-        State(name="Important", stateid="important", emblem="tag_important", bgColor=Color('#ffcccc'),textEquivalent="!!")
+        State(name="Important", stateid="important", emblem="tag_important", bgColor=Color('#ffcccc'), 
+          textstyle = TextStyle( color = Color('#000000')), textEquivalent="!!")
         ],
       shortcut = Shortcut(combination= "Ctrl+6"))
 

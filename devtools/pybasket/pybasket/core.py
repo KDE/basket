@@ -81,20 +81,28 @@ class Color:
       foo = Color(color='#ffffff')
 
   Attributes:
-      color:  a color value in the format of rgb hex triplet, '#rrggbb'
+      color:  a color value in the format of rgb hex triplet, '#rrggbb', or 
+        empty string to specifiy to use the application's default color
   """
 
-  def __init__(self, color: str = "#000000"):
+  def __init__(self, color: str = ""):
     if not isinstance(color, str):
       raise TypeError('the color argument must be of type string, but got %s' % type(color))
 
-    if re.match('#[0-9ABCDEF]{6}', color.upper()) is None:
-      raise ValueError('color is not a proper RGB input, such as #000000, but got \'' + color + '\'')
+    if color != "" and re.match('#[0-9ABCDEF]{6}', color.upper()) is None:
+      raise ValueError('color is not a proper RGB input, such as #000000, or empty string, but got \'' + color + '\'')
 
     self.color = color
 
   def __str__(self):
     return str(self.color)
+
+  def isDefault(self) -> bool:
+    """Returns true if this object specifies the default application's color"""
+    if self.color == "":
+      return True
+    else:
+      return False
 
 class NoteType(Enum):
   """An enum class defining the type of the Note class
@@ -472,7 +480,7 @@ class Note:
         content.setAttribute('icon', str(self.content.icon))
         content.setAttribute('autoTitle', 'true' if self.content.autoTitle else 'false')
         content.setAttribute('autoIcon', 'true' if self.content.autoIcon else 'false')
-        content.appendChild(doc.createTextNode(str(self.content)))
+        content.appendChild(doc.createTextNode(str(self.content.url)))
         node.appendChild(content)
 
       elif self.notetype == NoteType.SOUND:
@@ -694,9 +702,11 @@ class Basket:
     properties.appendChild(icon)
 
     appearance = doc.createElement('appearance')
-    appearance.setAttribute('backgroundColor', str(self.appearance.bgColor))
+    if self.appearance.bgColor != "":
+      appearance.setAttribute('backgroundColor', str(self.appearance.bgColor))
     appearance.setAttribute('backgroundImage', self.appearance.bgImage)
-    appearance.setAttribute('textColor', str(self.appearance.textColor))
+    if self.appearance.textColor != "":
+      appearance.setAttribute('textColor', str(self.appearance.textColor))
     properties.appendChild(appearance)
 
     disposition = doc.createElement('disposition')
@@ -1028,7 +1038,8 @@ class State:
     textstyle.setAttribute('strikeOut', 'true' if self.textstyle.strikeOut else 'false')
     textstyle.setAttribute('bold', 'true' if self.textstyle.bold else 'false')
     textstyle.setAttribute('underline', 'true' if self.textstyle.underline else 'false')
-    textstyle.setAttribute('color', str(self.textstyle.color))
+    if self.textstyle.color != "":
+      textstyle.setAttribute('color', str(self.textstyle.color))
     textstyle.setAttribute('italic', 'true' if self.textstyle.italic else 'false')
     node.appendChild(textstyle)
 
@@ -1038,9 +1049,10 @@ class State:
     node.appendChild(font)
 
 
-    bgcolor = doc.createElement('backgroundColor')
-    bgcolor.appendChild(doc.createTextNode(str(self.bgColor)))
-    node.appendChild(bgcolor)
+    if self.bgColor != "":
+      bgcolor = doc.createElement('backgroundColor')
+      bgcolor.appendChild(doc.createTextNode(str(self.bgColor)))
+      node.appendChild(bgcolor)
 
     textequiv = doc.createElement('textEquivalent')
     textequiv.setAttribute('string', str(self.textEquivalent))
