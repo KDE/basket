@@ -42,7 +42,7 @@ Weaver::Weaver(QCommandLineParser *parser,
 int Weaver::runMain()
 {
     if (!m_parser->isSet(m_unweave) && !m_parser->isSet(m_weave)) {
-        qCritical().noquote() << i18n("You need to provide at least one --weave/-w or --unweave/-w option");
+        qCritical().noquote() << i18n("You need to provide at least one --weave/-w or --unweave/-u option");
         return 1;
     }
 
