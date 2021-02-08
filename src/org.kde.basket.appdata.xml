@@ -20,6 +20,7 @@
   <developer_name xml:lang="it">Comunità KDE</developer_name>
   <developer_name xml:lang="nl">KDE-gemeenschap</developer_name>
   <developer_name xml:lang="nn">KDE-fellesskapet</developer_name>
+  <developer_name xml:lang="pl">Społeczność KDE</developer_name>
   <developer_name xml:lang="pt">Comunidade do KDE</developer_name>
   <developer_name xml:lang="pt-BR">Comunidade KDE</developer_name>
   <developer_name xml:lang="ru">Сообщество KDE</developer_name>
@@ -44,6 +45,7 @@
   <name xml:lang="it">Basket</name>
   <name xml:lang="nl">Basket</name>
   <name xml:lang="nn">Basket</name>
+  <name xml:lang="pl">Koszyk</name>
   <name xml:lang="pt">Basket</name>
   <name xml:lang="pt-BR">Basket</name>
   <name xml:lang="sk">Basket</name>
@@ -65,6 +67,7 @@
   <summary xml:lang="it">Gestore di note e cose da fare</summary>
   <summary xml:lang="nl">Organisator van notities en te-doens</summary>
   <summary xml:lang="nn">Notat- og gjeremålorganisering</summary>
+  <summary xml:lang="pl">Organizer notatek i zadań</summary>
   <summary xml:lang="pt">Organizador de notas e tarefas</summary>
   <summary xml:lang="sl">Organizator zabeležk in nalog</summary>
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
@@ -84,6 +87,7 @@
     <p xml:lang="id">Aplikasi ini menyediakan keranjang sebanyak yang kamu inginkan, dan kamu bisa melakukan seret dan taruh.</p>
     <p xml:lang="it">Questa applicazione ti mette a disposizione tutti i cesti che vuoi, e puoi trascinarvi del contenuto.</p>
     <p xml:lang="nl">Deze toepassing levert zoveel baskets als u wilt en u kunt slepen en loslaten.</p>
+    <p xml:lang="pl">Program pozwala na posiadanie tylu koszyków ile chcesz, a nawet na przeciąganie i upuszczanie.</p>
     <p xml:lang="pt">Esta aplicação oferece tantos cestos quantos desejar, podendo depois arrastar e largar conteúdos neles.</p>
     <p xml:lang="sl">Ta aplikacija ponuja toliko košar, kot želite, lahko jih povlečete in spuščate.</p>
     <p xml:lang="sv">Programmet tillhandahåller så många korgar som du vill, och du kan dra och släppa.</p>
@@ -101,6 +105,7 @@
     <p xml:lang="id">Objek bisa diedit, disalin, diseret ... Jadi, kamu bisa mengaturnya sesuai keinginanmu!</p>
     <p xml:lang="it">Gli oggetti possono essere modificati, copiati, trascinati... Puoi quindi organizzarli come preferisci!</p>
     <p xml:lang="nl">Objecten kunnen bewerkt, gekopieerd, versleept worden... U kunt ze dus arrangeren zoals u wilt!</p>
+    <p xml:lang="pl">Obiekty można edytować, kopiować, przeciągać... Tak więc możesz je ułożyć tak, jak chcesz !</p>
     <p xml:lang="pt">Os objectos poderão ser editados, copiados, arrastados... Por isso, pode organizá-los como desejar !</p>
     <p xml:lang="sl">Predmete lahko urejate, kopirate, vlečete ... Torej jih lahko uredite kot želite!</p>
     <p xml:lang="sv">Objekt kan redigeras, kopieras, dras, ... Så du kan arrangera dem som du vill.</p>
@@ -119,6 +124,7 @@
     <p xml:lang="id">Yang memungkinkan untuk mengatur catatan, melacak wacana dan banyak lagi.</p>
     <p xml:lang="it">Ti permette di organizzare note, tenere traccia delle cose da fare, e altro ancora.</p>
     <p xml:lang="nl">Het biedt het arrangeren van notities, het volgen van te-doens en veel meer.</p>
+    <p xml:lang="pl">Umożliwia porządkowanie notatek, zadań i wiele więcej.</p>
     <p xml:lang="pt">Permite organizar as notas, acompanhar as tarefas e muito mais.</p>
     <p xml:lang="sl">Omogoča urejanje zabeležk, nalog in veliko več.</p>
     <p xml:lang="sv">Den gör det möjligt att arrangera anteckningar, följa uppgifter, med mera.</p>
