@@ -258,8 +258,9 @@ bool MainWindow::askForQuit()
 
 void MainWindow::minimizeRestore()
 {
-    if (isVisible())
-        hide();
-    else
-        show();
+    if (this->windowState() != Qt::WindowMinimized) {
+        this->setWindowState(Qt::WindowMinimized);
+    } else {
+        this->setWindowState(Qt::WindowActive);
+    }
 }
