@@ -24,12 +24,12 @@ void showHistorySize(QPointer<VersionSyncPage> versionSyncPage)
         QMetaObject::invokeMethod(versionSyncPage.data(), "setHistorySize", Qt::QueuedConnection, Q_ARG(qint64, size));
 }
 
-VersionSyncPage::VersionSyncPage(QWidget *parent, const char *name)
-    : KCModule(parent)
+VersionSyncPage::VersionSyncPage(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
     , ui(new Ui::VersionSyncPage)
 {
     KAboutData *about = new AboutData();
-    about->setComponentName(name);
+    about->setComponentName("kcmbasket_config_version_sync");
     setAboutData(about);
 
     ui->setupUi(this);

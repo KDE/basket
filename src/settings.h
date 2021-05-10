@@ -34,7 +34,7 @@ class BASKET_EXPORT GeneralPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit GeneralPage(QWidget *parent = nullptr, const char *name = nullptr);
+    explicit GeneralPage(QWidget *parent = nullptr, const QVariantList &args = {});
     ~GeneralPage() override
     {
     }
@@ -53,7 +53,7 @@ class BASKET_EXPORT BasketsPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit BasketsPage(QWidget *parent = nullptr, const char *name = nullptr);
+    explicit BasketsPage(QWidget *parent = nullptr, const QVariantList &args = {});
 
     void load() override;
     void save() override;
@@ -85,7 +85,7 @@ class BASKET_EXPORT NewNotesPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit NewNotesPage(QWidget *parent = nullptr, const char *name = nullptr);
+    explicit NewNotesPage(QWidget *parent = nullptr, const QVariantList &args = {});
 
     void load() override;
     void save() override;
@@ -112,7 +112,7 @@ class BASKET_EXPORT NotesAppearancePage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit NotesAppearancePage(QWidget *parent = nullptr, const char *name = nullptr);
+    explicit NotesAppearancePage(QWidget *parent = nullptr, const QVariantList &args = {});
 
     void load() override;
     void save() override;
@@ -132,7 +132,7 @@ class BASKET_EXPORT ApplicationsPage : public KCModule
 {
     Q_OBJECT
 public:
-    explicit ApplicationsPage(QWidget *parent = nullptr, const char *name = nullptr);
+    explicit ApplicationsPage(QWidget *parent = nullptr, const QVariantList &args = {});
 
     void load() override;
     void save() override;

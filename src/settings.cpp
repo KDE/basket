@@ -364,11 +364,11 @@ void SettingsDialog::adjustSize()
 }
 
 /** GeneralPage */
-GeneralPage::GeneralPage(QWidget *parent, const char *name)
-    : KCModule(parent)
+GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     KAboutData *about = new AboutData();
-    about->setComponentName(name);
+    about->setComponentName("kcmbasket_config_general");
     setAboutData(about);
 
     QFormLayout *layout = new QFormLayout(this);
@@ -412,11 +412,11 @@ void GeneralPage::defaults()
 
 /** BasketsPage */
 
-BasketsPage::BasketsPage(QWidget *parent, const char *name)
-    : KCModule(parent)
+BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     KAboutData *about = new AboutData();
-    about->setComponentName(name);
+    about->setComponentName("kcmbasket_config_baskets");
     setAboutData(about);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -617,11 +617,11 @@ void BasketsPage::defaults()
 
 /** class NewNotesPage: */
 
-NewNotesPage::NewNotesPage(QWidget *parent, const char *name)
-    : KCModule(parent)
+NewNotesPage::NewNotesPage(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     KAboutData *about = new AboutData();
-    about->setComponentName(name);
+    about->setComponentName("kcmbasket_config_new_notes");
     setAboutData(about);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -750,11 +750,11 @@ void NewNotesPage::visualize()
 
 /** class NotesAppearancePage: */
 
-NotesAppearancePage::NotesAppearancePage(QWidget *parent, const char *name)
-    : KCModule(parent)
+NotesAppearancePage::NotesAppearancePage(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     KAboutData *about = new AboutData();
-    about->setComponentName(name);
+    about->setComponentName("kcmbasket_config_notes_appearance");
     setAboutData(about);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
@@ -806,11 +806,11 @@ void NotesAppearancePage::defaults()
 
 /** class ApplicationsPage: */
 
-ApplicationsPage::ApplicationsPage(QWidget *parent, const char *name)
-    : KCModule(parent)
+ApplicationsPage::ApplicationsPage(QWidget *parent, const QVariantList &args)
+    : KCModule(parent, args)
 {
     KAboutData *about = new AboutData();
-    about->setComponentName(name);
+    about->setComponentName("kcmbasket_config_apps");
     setAboutData(about);
 
     /* Applications page */
