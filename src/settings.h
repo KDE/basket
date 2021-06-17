@@ -9,7 +9,7 @@
 
 #include <KCModule>
 #include <KMainWindow> //For Global::mainWindow()
-#include <ksettings/dialog.h>
+#include <KCMultiDialog>
 
 #include <QAction> //For UseSysTray
 #include <QtCore/QDate>
@@ -153,7 +153,7 @@ private:
 /**
  * KSettings::Dialog wrapper to properly calculate appropriate window size
  */
-class BASKET_EXPORT SettingsDialog : public KSettings::Dialog
+class BASKET_EXPORT SettingsDialog : public KCMultiDialog
 {
     Q_OBJECT
 public:

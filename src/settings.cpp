@@ -24,8 +24,11 @@
 #include <QUrl>
 #include <QVBoxLayout>
 
+#include <kcmutils_version.h>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KPluginLoader>
+#include <KPluginMetaData>
 #include <KIO/Global>
 #include <KLocalizedString>
 
@@ -332,8 +335,17 @@ void Settings::setAutoBullet(bool yes)
 
 /** SettingsDialog */
 SettingsDialog::SettingsDialog(QWidget *parent)
-    : KSettings::Dialog(parent)
-{}
+    : KCMultiDialog(parent)
+{
+    const QVector<KPluginMetaData> availablePlugins = KPluginLoader::findPlugins(QStringLiteral("pim/kcms/basket"));
+    for (const KPluginMetaData &metaData : availablePlugins) {
+#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 84, 0)
+        addModule(metaData);
+#else
+        addModule(metaData.pluginId());
+#endif
+    }
+}
 
 SettingsDialog::~SettingsDialog()
 {}
@@ -342,7 +354,7 @@ int SettingsDialog::exec(){
     // Help, RestoreDefaults buttons not implemented!
     //setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
     QTimer::singleShot(0, this, SLOT(adjustSize()));
-    return KSettings::Dialog::exec();
+    return KCMultiDialog::exec();
 }
 
 void SettingsDialog::adjustSize()
