@@ -5,7 +5,7 @@ Type=Service
 X-KDE-ServiceTypes=KCModule
 
 X-KDE-ModuleType=Library
-X-KDE-Library=basket_config_general
+X-KDE-Library=pim/kcms/basket/basket_config_general
 X-KDE-FactoryName=basket_config_general
 X-KDE-HasReadOnlyMode=false
 X-KDE-ParentApp=basket
