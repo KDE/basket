@@ -8,3 +8,4 @@ buil-dir/
 .flatpak-builder/
 cmake-build-debug/
 .idea/
+.clang-format
