@@ -1829,26 +1829,30 @@ void LinkContent::startFetchingLinkTitle()
     QUrl newUrl = this->url();
 
     // If this is not an HTTP request, just ignore it.
-    if (newUrl.scheme() == "http") {
-        // If we have no access_manager, create one.
-        if (m_access_manager == nullptr) {
-            m_access_manager = new QNetworkAccessManager(this);
-            connect(m_access_manager, &QNetworkAccessManager::finished, this, &LinkContent::httpDone);
-        }
-
-        // If no explicit port, default to port 80.
-        if (newUrl.port() == 0)
-            newUrl.setPort(80);
-
-        // If no path or query part, default to /
-        if ((newUrl.path() + newUrl.query()).isEmpty())
-            newUrl = QUrl::fromLocalFile("/");
-
-        // Issue request
-        m_reply = m_access_manager->get(QNetworkRequest(newUrl));
-        m_acceptingData = true;
-        connect(m_reply, SIGNAL(readyRead()), this, SLOT(httpReadyRead()));
+    if (newUrl.scheme() != QLatin1String("http") && newUrl.scheme() != QLatin1String("https")) {
+        return;
     }
+
+    // If we have no access_manager, create one.
+    if (m_access_manager == nullptr) {
+        m_access_manager = new QNetworkAccessManager(this);
+        connect(m_access_manager, &QNetworkAccessManager::finished, this, &LinkContent::httpDone);
+    }
+
+    // If no explicit port, default to port 80.
+    if (newUrl.port() == 0) {
+        newUrl.setPort(80);
+    }
+
+    // If no path or query part, default to /
+    if ((newUrl.path() + newUrl.query()).isEmpty()) {
+        newUrl = QUrl::fromLocalFile("/");
+    }
+
+    // Issue request
+    m_reply = m_access_manager->get(QNetworkRequest(newUrl));
+    m_acceptingData = true;
+    connect(m_reply, &QNetworkReply::readyRead, this, &LinkContent::httpReadyRead);
 }
 
 // Code duplicated from FileContent::startFetchingUrlPreview()
