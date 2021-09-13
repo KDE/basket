@@ -31,7 +31,6 @@
 #include <KEncodingProber>
 #include <KFileItem>
 #include <KFileMetaData/KFileMetaData/Extractor>
-#include <KIO/AccessManager>
 #include <KIO/PreviewJob> //For KIO::file_preview(...)
 #include <KLocalizedString>
 #include <KService>
@@ -1665,7 +1664,6 @@ LinkContent::~LinkContent()
 {
     if (note())
         note()->removeFromGroup(&m_linkDisplayItem);
-    delete m_access_manager;
 }
 
 qreal LinkContent::setWidthAndGetHeight(qreal width)
@@ -1834,8 +1832,8 @@ void LinkContent::startFetchingLinkTitle()
     if (newUrl.scheme() == "http") {
         // If we have no access_manager, create one.
         if (m_access_manager == nullptr) {
-            m_access_manager = new KIO::Integration::AccessManager(this);
-            connect(m_access_manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(httpDone(QNetworkReply *)));
+            m_access_manager = new QNetworkAccessManager(this);
+            connect(m_access_manager, &QNetworkAccessManager::finished, this, &LinkContent::httpDone);
         }
 
         // If no explicit port, default to port 80.

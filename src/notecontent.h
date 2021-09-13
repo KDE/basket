@@ -10,10 +10,9 @@
 #include <QMap>
 #include <QGraphicsItem>
 #include <QUrl>
+#include <QNetworkAccessManager>
 #include <QXmlStreamWriter>
 #include <QtCore/QObject>
-
-#include <KIO/AccessManager>
 
 #include <phonon/phononnamespace.h>
 
@@ -617,7 +616,7 @@ protected:
     bool m_autoTitle;
     bool m_autoIcon;
     LinkDisplayItem m_linkDisplayItem;
-    KIO::Integration::AccessManager *m_access_manager;
+    QNetworkAccessManager *m_access_manager;
     QNetworkReply *m_reply;
     QByteArray m_httpBuff; ///< Accumulator for downloaded HTTP data with yet unknown encoding
     bool m_acceptingData;  ///< When false, don't accept any HTTP data
