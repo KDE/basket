@@ -15,7 +15,7 @@ X-KDE-Weight=40
 
 Name=Version Sync
 Name[ca]=Sincronitza la versió
-Name[ca@valencia]=Sincronitza la versió
+Name[ca@valencia]=Sincronisa la versió
 Name[cs]=Synchronizace verze
 Name[en_GB]=Version Sync
 Name[es]=Sincronización de la versión
@@ -39,7 +39,7 @@ Name[zh_CN]=版本同步
 Name[zh_TW]=版本同步
 Comment=Version Sync
 Comment[ca]=Sincronitza la versió
-Comment[ca@valencia]=Sincronitza la versió
+Comment[ca@valencia]=Sincronisa la versió
 Comment[cs]=Synchronizace verze
 Comment[en_GB]=Version Sync
 Comment[es]=Sincronización de la versión
