@@ -59,7 +59,7 @@
   <name xml:lang="x-test">xxBasketxx</name>
   <summary>Notes and to-dos organizer</summary>
   <summary xml:lang="ca">Organitzador de notes i tasques pendents</summary>
-  <summary xml:lang="ca-valencia">Organitzador de notes i tasques pendents</summary>
+  <summary xml:lang="ca-valencia">Organisador de notes i tasques pendents</summary>
   <summary xml:lang="cs">Shromažďování poznámek a úkolů</summary>
   <summary xml:lang="en-GB">Notes and to-dos organiser</summary>
   <summary xml:lang="es">Organizador de notas y tareas pendientes</summary>
@@ -104,7 +104,7 @@
     <p xml:lang="x-test">xxThis application provides as many baskets as you wish, and you can drag and drop.xx</p>
     <p>Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
     <p xml:lang="ca">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
-    <p xml:lang="ca-valencia">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
+    <p xml:lang="ca-valencia">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organisar com vulgueu!</p>
     <p xml:lang="en-GB">Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
     <p xml:lang="es">Puede editar objetos, copiarlos, arrastrarlos... De este modo, puede organizarlos como desee.</p>
     <p xml:lang="et">Objekte saad muuta, kopeerida, lohistada ... Sõnaga, kõike saab korraldada just oma maitse järgi!</p>
@@ -124,7 +124,7 @@
     <p xml:lang="x-test">xxObjects can be edited, copied, dragged... So, you can arrange them as you want !xx</p>
     <p>It allows to arrange notes, track to-dos and much more.</p>
     <p xml:lang="ca">Permet organitzar notes, seguir tasques pendents i molt més.</p>
-    <p xml:lang="ca-valencia">Permet organitzar notes, seguir tasques pendents i molt més.</p>
+    <p xml:lang="ca-valencia">Permet organisar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="cs">Umožňuje organizovat poznámky, sledovat úlohy a spoustu dalšího.</p>
     <p xml:lang="en-GB">It allows to arrange notes, track to-dos and much more.</p>
     <p xml:lang="es">Permite organizar notas y hacer seguimiento de tareas pendientes, entre otras cosas.</p>
