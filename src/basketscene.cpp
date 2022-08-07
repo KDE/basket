@@ -4081,7 +4081,7 @@ void BasketScene::noteOpen(Note *note)
 bool KRun__displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool tempFiles, const QString &text)
 {
     if (qApp && !KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        KMessageBox::sorry(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
+        KMessageBox::error(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
         return false;
     }
     KOpenWithDialog l(lst, text, QString(), nullptr);
