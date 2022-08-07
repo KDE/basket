@@ -42,6 +42,8 @@
 #include "tools.h"
 #include "xmlwork.h"
 
+#include <array>
+
 void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &destination)
 {
     QDir dir;
