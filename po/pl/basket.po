@@ -1,0 +1,4741 @@
+# translation of pl_PL.po to Polish
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+#
+# Pawe�Kot <pkot@bezsensu.pl>, 2005.
+# Mikolaj Machowski <mikmach@wp.pl>, 2006.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: pl_PL\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-08 00:49+0000\n"
+"PO-Revision-Date: 2022-04-10 08:58+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 22.03.70\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#: devtools/weaver/main.cpp:18
+#, kde-format
+msgid "basketweaver"
+msgstr "twórca koszyków"
+
+#: devtools/weaver/main.cpp:19
+#, kde-format
+msgid "Encodes and decodes .baskets files"
+msgstr "Koduje i dekoduje pliki koszyków"
+
+#: devtools/weaver/main.cpp:28
+#, kde-format
+msgid "Destination directory. Optional."
+msgstr "Katalog docelowy. Opcjonalnie."
+
+#: devtools/weaver/main.cpp:33
+#, kde-format
+msgid ""
+"Use the <image> as preview image for a .baskets file. Must be a .png file."
+msgstr ""
+"Użyj <obrazu> jako obrazu podglądu dla plików koszyka. Musi to być plik .png."
+
+#: devtools/weaver/main.cpp:39
+#, kde-format
+msgid "Decodes the <file>. Cannot be used together with --weave."
+msgstr "Dekoduje <plik>. Nie można użyć wraz z --weave."
+
+#: devtools/weaver/main.cpp:45
+#, kde-format
+msgid "Encodes the <directory>. Cannot be used together with --unweave."
+msgstr "Koduje <katalog>. Nie można użyć wraz z --unweave."
+
+#: devtools/weaver/main.cpp:51
+#, kde-format
+msgid ""
+"This optional value will be used to label the new content within the "
+"optionally given output directory"
+msgstr ""
+"Ta wartość opcjonalna zostanie użyta do nazywania nowej treści z opcjonalnie "
+"wskazanym katalogiem"
+
+#: devtools/weaver/main.cpp:56
+#, kde-format
+msgid "Overwrite existing files."
+msgstr "Zastęp istniejące pliki."
+
+#: devtools/weaver/weaver.cpp:45
+#, kde-format
+msgid "You need to provide at least one --weave/-w or --unweave/-u option"
+msgstr "Musisz podać co najmniej jedną opcję --weave/-w lub --unweave/-u"
+
+#: devtools/weaver/weaver.cpp:50
+#, kde-format
+msgid "You cannot use --weave/-w and --unweave/-u options in conjunction."
+msgstr "Nie możesz jednocześnie użyć opcji --weave/-w oraz --unweave/-u."
+
+#: devtools/weaver/weaver.cpp:56
+#, kde-format
+msgid ""
+"Multiple --weave/-w or --unweave/-u input options found. All but the first "
+"input are going to be ignored."
+msgstr ""
+"Znaleziono wiele --weave/-w lub --unweave/-u opcji wejściowych. Wszystkie, "
+"poza pierwszą, zostaną pominięte."
+
+#: devtools/weaver/weaver.cpp:80
+#, kde-format
+msgid "The source seems to be an invalid .baskets file"
+msgstr "Źródło wydaje się nieprawidłowym plikiem koszyka"
+
+#: devtools/weaver/weaver.cpp:87 devtools/weaver/weaver.cpp:128
+#, kde-format
+msgid "Output directory does not exist."
+msgstr "Katalog wynikowy nie istnieje."
+
+#: devtools/weaver/weaver.cpp:114
+#, kde-format
+msgid "The source seems to be invalid."
+msgstr "Źródło wygląda na nieprawidłowe."
+
+#: devtools/weaver/weaver.cpp:282
+#, kde-format
+msgid "Could not open file."
+msgstr "Nie można otworzyć pliku."
+
+#: devtools/weaver/weaver.cpp:306 src/archive.cpp:256
+#, kde-format
+msgid "Failed to open a file resource."
+msgstr "Nie można otworzyć pliku źródłowego."
+
+#: devtools/weaver/weaver.cpp:309 src/archive.cpp:259
+#, kde-format
+msgid "This file is not a basket archive."
+msgstr "Ten plik nie jest archiwum koszyka."
+
+#: devtools/weaver/weaver.cpp:312 src/archive.cpp:262
+#, kde-format
+msgid "This file is corrupted. It can not be opened."
+msgstr "Plik jest uszkodzony. Nie można go otworzyć."
+
+#: devtools/weaver/weaver.cpp:315
+#, kde-format
+msgid "The destination path already exists."
+msgstr "Ścieżka docelowa już istnieje."
+
+#: devtools/weaver/weaver.cpp:318
+#, kde-format
+msgid "This file supplied file format is not supported"
+msgstr "Wybrany rodzaj pliku jest nieobsługiwany"
+
+#: devtools/weaver/weaver.cpp:321
+#, kde-format
+msgid ""
+"This file was created with a more recent version of BasKet Note Pads. It "
+"might not be fully supported"
+msgstr ""
+"Ten plik został utworzony w nowszej wersji Koszyka. Może ona nie być w pełni "
+"obsługiwana."
+
+#: src/aboutdata.cpp:13
+#, kde-format
+msgid ""
+"<p><b>Taking care of your ideas.</b></p><p>A note-taking application that "
+"makes it easy to record ideas as you think, and quickly find them later. "
+"Organizing your notes has never been so easy.</p>"
+msgstr ""
+"<p><b>Opieka nad twoimi pomysłami.</b></p><p>Program do robienia notatek, "
+"sprawiający że łatwo jest zapisać to co właśnie przyszło do głowy a później "
+"to odnaleźć. Organizowanie notatek nigdy nie było takie proste.</p>"
+
+#: src/aboutdata.cpp:25
+#, kde-format
+msgid ""
+"Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
+msgstr ""
+"Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
+
+#: src/aboutdata.cpp:33
+#, kde-format
+msgid "Carl Schwan"
+msgstr "Carl Schwan"
+
+#: src/aboutdata.cpp:33 src/aboutdata.cpp:34
+#, kde-format
+msgid "Co-Maintainer"
+msgstr "Współopiekun"
+
+#: src/aboutdata.cpp:34
+#, kde-format
+msgid "Niccolò Venerandi"
+msgstr "Niccolò Venerandi"
+
+#: src/aboutdata.cpp:35
+#, kde-format
+msgid "OmegaPhil"
+msgstr "OmegaPhil"
+
+#: src/aboutdata.cpp:35
+#, kde-format
+msgid "Paste as plaintext option"
+msgstr "Wklej jako zwykłą opcję tekstową"
+
+#: src/aboutdata.cpp:36
+#, kde-format
+msgid "Kelvie Wong"
+msgstr "Kelvie Wong"
+
+#: src/aboutdata.cpp:36
+#, kde-format
+msgid "Ex-Maintainer"
+msgstr "Poprzedni opiekun"
+
+#: src/aboutdata.cpp:37
+#, kde-format
+msgid "Sébastien Laoût"
+msgstr "Sébastien Laoût"
+
+#: src/aboutdata.cpp:37
+#, kde-format
+msgid "Original Author"
+msgstr "Autor pierwszej wersji"
+
+#: src/aboutdata.cpp:38
+#, kde-format
+msgid "Petri Damstén"
+msgstr "Petri Damstén"
+
+#: src/aboutdata.cpp:38
+#, kde-format
+msgid "Basket encryption, Kontact integration, KnowIt importer"
+msgstr "szyfrowanie, integracja z Kontaktem, import z KnowIt"
+
+#: src/aboutdata.cpp:39
+#, kde-format
+msgid "Alex Gontmakher"
+msgstr "Alex Gontmakher"
+
+#: src/aboutdata.cpp:39
+#, kde-format
+msgid ""
+"Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, "
+"drop to basket name"
+msgstr ""
+"blokowanie koszyków, ikona statusu zapisu, kopiuj/wklej HTML, dymek z nazwą "
+"koszyka, upuszczanie na nazwę koszyka"
+
+#: src/aboutdata.cpp:40
+#, kde-format
+msgid "Marco Martin"
+msgstr "Marco Martin"
+
+#: src/aboutdata.cpp:40
+#, kde-format
+msgid "Original icon"
+msgstr "Pierwotna ikona"
+
+#: src/aboutdata.cpp:50
+#, kde-format
+msgid "BasKet Note Pads"
+msgstr "Koszyk notatek"
+
+#: src/archive.cpp:51 src/bnpview.cpp:2025
+#, kde-format
+msgid "Save as Basket Archive"
+msgstr "Zapisz jako archiwum koszyka"
+
+#: src/archive.cpp:52
+#, kde-format
+msgid "Saving as basket archive. Please wait..."
+msgstr "Zapisywanie jako archiwum koszyka. Proszę czekać..."
+
+#: src/archive.cpp:256 src/archive.cpp:259 src/archive.cpp:262
+#: src/archive.cpp:265 src/archive.cpp:272 src/archive.cpp:281
+#, kde-format
+msgid "Basket Archive Error"
+msgstr "Błąd archiwum koszyka"
+
+#: src/archive.cpp:265
+#, kde-format
+msgid "Extraction path already exists."
+msgstr "Ścieżka wypakowywania już istnieje."
+
+#: src/archive.cpp:269
+#, kde-format
+msgid ""
+"This file was created with a recent version of %1.Please upgrade to a newer "
+"version to be able to open that file."
+msgstr ""
+"Ten plik został utworzony w ostatniej wersji %1. Uaktualnij do nowszej "
+"wersji, aby móc otworzyć ten plik."
+
+#: src/archive.cpp:276
+#, kde-format
+msgid ""
+"This file was created with a recent version of %1. It can be opened but not "
+"every information will be available to you. For instance, some notes may be "
+"missing because they are of a type only available in new versions. When "
+"saving the file back, consider to save it to another file, to preserve the "
+"original one."
+msgstr ""
+"Ten plik został utworzony w ostatniej wersji %1. Można go otworzyć, lecz nie "
+"wszystkie dane będą dostępne. Na przykład, może brakować pewnych notatek, bo "
+"ich rodzaj jest dostępne tylko w nowych wersjach. Przy zapisywaniu pliku, "
+"rozważ zapisanie do innego pliku, aby zachować ten pierwotny."
+
+#: src/backup.cpp:55
+#, kde-format
+msgid "Backup & Restore"
+msgstr "Kopia zapasowa i jej przywracanie"
+
+#: src/backup.cpp:72
+#, kde-format
+msgid "Save Folder"
+msgstr "Zapisz katalog"
+
+#: src/backup.cpp:77
+#, kde-format
+msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
+msgstr "Twoje koszyki są obecnie przechowywane w tym katalogu:<br><b>%1</b>"
+
+#: src/backup.cpp:84
+#, kde-format
+msgid "&Move to Another Folder..."
+msgstr "&Przenieś do innego katalogu..."
+
+#: src/backup.cpp:85
+#, kde-format
+msgid "&Use Another Existing Folder..."
+msgstr "&Wskaż inny istniejący katalog..."
+
+#: src/backup.cpp:86
+#, kde-format
+msgid "Why to do that?"
+msgstr "Dlaczego to robić?"
+
+#: src/backup.cpp:87
+#, kde-format
+msgid ""
+"<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
+"your baskets in a visible place in your home folder, like ~/Notes or ~/"
+"Baskets, so you can manually backup them when you want.</li><li>Store your "
+"baskets on a server to share them between two computers.<br>In this case, "
+"mount the shared-folder to the local file system and ask %1 to use that "
+"mount point.<br>Warning: you should not run %1 at the same time on both "
+"computers, or you risk to loss data while the two applications are desynced."
+"</li></ul><p>Please remember that you should not change the content of that "
+"folder manually (eg. adding a file in a basket folder will not add that file "
+"to the basket).</p>"
+msgstr ""
+"<p>Możesz przenieść swój katalog tam, gdzie %1 przechowuje twoje koszyki aby:"
+"</p><ul><li>Przechowywać swoje koszyki w widocznym miejscu w swoim katalogu "
+"domowym, takim jak ~/Notatki lub ~/Koszyki, tak abyś mógł ręcznie tworzyć "
+"ich kopie zapasowe w wybranym przez siebie czasie.</li><li>Przechowywać "
+"swoje koszyki na serwerze, aby współdzielić je pomiędzy dwoma komputerami."
+"<br>W tym przypadku, podepnij udostępniony katalog do lokalnego systemu "
+"plików i poproś %1 o użycie tego punktu podpięcia.<br>Uwaga: nie powinieneś "
+"uruchamiać %1 w tym samym czasie na dwóch komputerach, w przeciwnym "
+"przypadku ryzykujesz utratę danych, gdy oba programy nie są ze sobą "
+"zsynchronizowane.</li></ul><p>Pamiętaj, że nie powinieneś zmieniać "
+"zawartości tego katalogu ręcznie (np. dodając plik do katalogu koszyka nie "
+"doda go do koszyka).</p>"
+
+#: src/backup.cpp:102
+#, kde-format
+msgid "Backups"
+msgstr "Kopie zapasowe"
+
+#: src/backup.cpp:113
+#, kde-format
+msgid "&Backup..."
+msgstr "&Kopia zapasowa..."
+
+#: src/backup.cpp:114
+#, kde-format
+msgid "&Restore a Backup..."
+msgstr "P&rzywróć kopię zapasową..."
+
+#: src/backup.cpp:139
+#, kde-format
+msgid "Last backup: never"
+msgstr "Ostatnia kopia zapasowa: nigdy"
+
+#: src/backup.cpp:141
+#, kde-format
+msgid "Last backup: %1"
+msgstr "Ostatnia kopia zapasowa: %1"
+
+#: src/backup.cpp:149
+#, kde-format
+msgid "Choose a Folder Where to Move Baskets"
+msgstr "Wskaż katalog, do którego przenieść koszyki"
+
+#: src/backup.cpp:160 src/backup.cpp:206 src/bnpview.cpp:2030
+#: src/htmlexporter.cpp:62
+#, kde-format
+msgid "&Overwrite"
+msgstr "&Zastąp"
+
+#: src/backup.cpp:160
+#, kde-format
+msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
+msgstr "Katalog <b>%1</b> nie jest pusty. Czy zastąpić go?"
+
+#: src/backup.cpp:160
+#, kde-format
+msgid "Overwrite Folder?"
+msgstr "Zastąpić katalog?"
+
+#: src/backup.cpp:168
+#, kde-format
+msgid ""
+"Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
+"restarted to take this change into account."
+msgstr ""
+"Pomyślnie przeniesiono twój koszyk do <b>%1</b>. %2 zostanie ponownie "
+"uruchomiony, aby uwzględnić tę zmianę."
+
+#: src/backup.cpp:175
+#, kde-format
+msgid "Choose an Existing Folder to Store Baskets"
+msgstr "Wskaż istniejący katalog do przechowywania koszyków"
+
+#: src/backup.cpp:179
+#, kde-format
+msgid ""
+"Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
+"going to be restarted to take this change into account."
+msgstr ""
+"Twój katalog zapisywania koszyków został pomyślnie zmieniony na <b>%1</b>. "
+"%2 zostanie ponownie uruchomiony, aby uwzględnić tę zmianę."
+
+#: src/backup.cpp:191
+#, kde-format
+msgctxt "Backup filename (without extension), %1 is the date"
+msgid "Baskets_%1"
+msgstr "Koszyki_%1"
+
+#: src/backup.cpp:195 src/backup.cpp:252 src/bnpview.cpp:2022
+#: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
+#, kde-format
+msgid "All Files"
+msgstr "Wszystkie pliki"
+
+#: src/backup.cpp:195 src/backup.cpp:252
+#, kde-format
+msgid "Tar Archives Compressed by Gzip"
+msgstr "Archiwa tar spakowane Gzipem"
+
+#: src/backup.cpp:199 src/backup.cpp:216
+#, kde-format
+msgid "Backup Baskets"
+msgstr "Kopia zapasowa koszyków"
+
+#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
+msgstr "Plik <b>%1</b> już istnieje. Czy chcesz go nadpisać?"
+
+#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "Overwrite File?"
+msgstr "Czy zastąpić plik?"
+
+#: src/backup.cpp:217
+#, kde-format
+msgid "Backing up baskets. Please wait..."
+msgstr "Tworzenie kopii zapasowej koszyków. Proszę czekać..."
+
+#: src/backup.cpp:253 src/bnpview.cpp:2064
+#, kde-format
+msgid "Open Basket Archive"
+msgstr "Otwórz archiwum koszyka"
+
+#: src/backup.cpp:264
+#, kde-format
+msgid "README.txt"
+msgstr "README.txt"
+
+#: src/backup.cpp:268
+#, kde-format
+msgid ""
+"This is a safety copy of your baskets like they were before you started to "
+"restore the backup %1."
+msgstr ""
+"To jest bezpieczna kopia twoich koszyków w stanie sprzed przywracania kopii "
+"zapasowej %1."
+
+#: src/backup.cpp:269
+#, kde-format
+msgid ""
+"If the restoration was a success and you restored what you wanted to "
+"restore, you can remove this folder."
+msgstr ""
+"Jeśli przywracanie się udało i przywróciłeś to, co chciałeś przywrócić, to "
+"możesz usunąć ten katalog."
+
+#: src/backup.cpp:270
+#, kde-format
+msgid ""
+"If something went wrong during the restoration process, you can re-use this "
+"folder to store your baskets and nothing will be lost."
+msgstr ""
+"Jeśli coś poszło nie tak w trakcie przywracania, to możesz ponownie "
+"wykorzystać ten katalog, do przechowania swoich koszyków tak, aby nic nie "
+"zostało utracone."
+
+#: src/backup.cpp:271
+#, kde-format
+msgid ""
+"Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
+"Folder...\" and select that folder."
+msgstr ""
+"Wybierz \"Koszyk\" -> \"Kopia zapasowa i jej przywracanie...\" -> \"Użyj "
+"innego istniejącego katalogu...\" i wskaż ten katalog."
+
+#: src/backup.cpp:275
+#, kde-format
+msgid "Restoring <b>%1</b>. Please wait..."
+msgstr "Przywracanie <b>%1</b>. Proszę czekać..."
+
+#: src/backup.cpp:275
+#, kde-format
+msgid ""
+"If something goes wrong during the restoration process, read the file <b>%1</"
+"b>."
+msgstr ""
+"Jeśli coś pójdzie nie tak w trakcie przywracania, to przeczytaj plik <b>%1</"
+"b>."
+
+#: src/backup.cpp:278
+#, kde-format
+msgid "Restore Baskets"
+msgstr "Przywróć koszyki"
+
+#: src/backup.cpp:309
+#, kde-format
+msgid ""
+"This archive is either not a backup of baskets or is corrupted. It cannot be "
+"imported. Your old baskets have been preserved instead."
+msgstr ""
+"To archiwum albo nie jest kopią zapasową koszyków albo jest uszkodzone. Nie "
+"można go zaimportować. Twoje stare koszyki pozostały bez zmian."
+
+#: src/backup.cpp:309
+#, kde-format
+msgid "Restore Error"
+msgstr "Błąd przywracania"
+
+#: src/backup.cpp:317
+#, kde-format
+msgid ""
+"Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
+"restarted to take this change into account."
+msgstr ""
+"Pomyślnie przywrócono twoją kopię zapasową <b>%1</b>. %2 zostanie ponownie "
+"uruchomiony, aby uwzględnić tę zmianę."
+
+#: src/backup.cpp:351
+#, kde-format
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: src/backup.cpp:367
+#, kde-format
+msgctxt "Safety folder name before restoring a basket data archive"
+msgid "Baskets Before Restoration"
+msgstr "Koszyk przed przywróceniem"
+
+#: src/backup.cpp:372
+#, kde-format
+msgctxt "Safety folder name before restoring a basket data archive"
+msgid "Baskets Before Restoration (%1)"
+msgstr "Koszyki przed przywróceniem (%1)"
+
+#: src/basket_options.h:21
+#, kde-format
+msgid "Show the debug window"
+msgstr "Pokaż okno diagnostyczne"
+
+#: src/basket_options.h:24
+#, kde-format
+msgid "Custom folder to load and save baskets and other application data."
+msgstr ""
+"Własny katalog do wczytywania i zapisywania koszyków i innych danych "
+"programu."
+
+#: src/basket_options.h:25
+#, kde-format
+msgctxt "Command line help: --data-folder <FOLDER>"
+msgid "folder"
+msgstr "katalog"
+
+#: src/basket_options.h:27
+#, kde-format
+msgid "Automatically hide the main window in the system tray on startup."
+msgstr "Sam ukrywaj okno główne na tacce systemowej zaraz po uruchomieniu."
+
+#: src/basket_options.h:30
+#, kde-format
+msgid "On crash, use the standard KDE crash handler rather than send an email."
+msgstr ""
+"W przypadku usterki, użyj programu do jego obsługi z KDE, zamiast wysyłać "
+"wiadomości pocztą."
+
+#: src/basket_options.h:32
+#, kde-format
+msgid "Open a basket archive or template."
+msgstr "Otwórz archiwum koszyka lub szablon."
+
+#: src/basketfactory.cpp:54
+#, kde-format
+msgid "Sorry, but the folder creation for this new basket has failed."
+msgstr "Niestety nie powiodło się utworzenie katalogu dla nowego koszyka."
+
+#: src/basketfactory.cpp:54 src/basketfactory.cpp:84 src/basketfactory.cpp:105
+#, kde-format
+msgid "Basket Creation Failed"
+msgstr "Nie można utworzyć koszyka"
+
+#: src/basketfactory.cpp:84
+#, kde-format
+msgid "Sorry, but the template copying for this new basket has failed."
+msgstr "Niestety, ale nie można skopiować szablonu dla nowego koszyka."
+
+#: src/basketfactory.cpp:105
+#, kde-format
+msgid "Sorry, but the template customization for this new basket has failed."
+msgstr "Niestety, ale nie można zmienić szablonu dla nowego koszyka."
+
+#: src/basketlistview.cpp:624
+#, kde-format
+msgid "%1+%2+"
+msgstr "%1+%2+"
+
+#: src/basketlistview.cpp:626
+#, kde-format
+msgid "%1+"
+msgstr "%1+"
+
+#: src/basketlistview.cpp:629
+#, kde-format
+msgid "%1+%2"
+msgstr "%1+%2"
+
+#: src/basketproperties.cpp:46
+#, kde-format
+msgid "Basket Properties"
+msgstr "Właściwości koszyka"
+
+#: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
+#, kde-format
+msgid "Icon"
+msgstr "Ikona"
+
+#: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
+#, kde-format
+msgid "Name"
+msgstr "Nazwa"
+
+#: src/basketproperties.cpp:89
+#, kde-format
+msgid "(None)"
+msgstr "(Brak)"
+
+#: src/basketproperties.cpp:132
+#, kde-format
+msgid "Learn some tips..."
+msgstr "Trochę wskazówek..."
+
+#: src/basketproperties.cpp:133
+#, kde-format
+msgid ""
+"<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
+"option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> "
+"will underline that letter in the basket tree.<br>For instance, if you are "
+"assigning the shortcut <i>Alt+T</i> to a basket named <i>Tips</i>, the "
+"basket will be displayed as <i><u>T</u>ips</i> in the tree. It helps you "
+"visualize the shortcuts to remember them more quickly.</p><p><strong>Local "
+"vs Global</strong>:<br>The first option allows you to show the basket while "
+"the main window is active. Global shortcuts are valid from anywhere, even if "
+"the window is hidden.</p><p><strong>Show vs Switch</strong>:<br>The last "
+"option makes this basket the current one without opening the main window. It "
+"is useful in addition to the configurable global shortcuts, eg. to paste the "
+"clipboard or the selection into the current basket from anywhere.</p>"
+msgstr ""
+"<p><strong>Łatwe zapamiętywanie skrótów</strong>:<br> Przy pomocy pierwszej "
+"opcji przypisanie koszykowi skrótu w formie <strong>Alt+Litera</strong> "
+"podkreśli tę literę w drzewie koszyków.<br> Na przykład jeśli przypiszesz "
+"skrót <i>Alt+W</i> do koszyka nazwanego <i>Wskazówki</i> koszyk zostanie "
+"pokazany jako <i><u>W</u>skazówki</i> w drzewie. Pomaga obrazować skróty by "
+"je łatwiej zapamiętać.</p><p><strong>Lokalne czy globalne</strong>:"
+"<br>Pierwsza opcja pozwala na pokazanie koszyka kiedy główne okno jest "
+"aktywne. Skróty globalne działają wszędzie, nawet jeśli okno jest ukryte.</"
+"p><p><strong>Pokaż czy Przełącz</strong>:<br>Ostatnia opcja pozwala na "
+"uczynienie koszyka aktywnym bez otwierania głównego okna. Pożyteczne w "
+"połączeniu z ustawionymi skrótami globalnymi np. pozwalającymi na wklejenie "
+"zawartości schowka lub zaznaczenia do bieżącego koszyka z każdego programu.</"
+"p>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: src/basketproperties.ui:27 src/settings.cpp:440 src/tagsedit.cpp:1096
+#, kde-format
+msgid "Appearance"
+msgstr "Wygląd"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/basketproperties.ui:39
+#, kde-format
+msgid "Background &image:"
+msgstr "&Obraz tła:"
+
+#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
+#: src/basketproperties.ui:49
+#, kde-format
+msgid "&Background color:"
+msgstr "&Kolor tła:"
+
+#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
+#: src/basketproperties.ui:56
+#, kde-format
+msgid "&Text color:"
+msgstr "Kolor &tekstu:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
+#: src/basketproperties.ui:66
+#, kde-format
+msgid "Disposition"
+msgstr "Dyspozycja"
+
+#. i18n: ectx: property (text), widget (QRadioButton, columnForm)
+#: src/basketproperties.ui:72
+#, kde-format
+msgid "Col&umns:"
+msgstr "Kol&umny:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, freeForm)
+#: src/basketproperties.ui:79
+#, kde-format
+msgid "&Free-form"
+msgstr "&Swobodny"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mindMap)
+#: src/basketproperties.ui:105
+#, kde-format
+msgid "&Mind map"
+msgstr "&Mapa umysłu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
+#: src/basketproperties.ui:115
+#, kde-format
+msgid "Keyboard Shortcut"
+msgstr "Skrót klawiszowy"
+
+#. i18n: ectx: property (text), widget (QRadioButton, showBasket)
+#: src/basketproperties.ui:133
+#, kde-format
+msgid "S&how this basket"
+msgstr "&Pokaż ten koszyk"
+
+#. i18n: ectx: property (text), widget (QRadioButton, globalButton)
+#: src/basketproperties.ui:140
+#, kde-format
+msgid "Show this basket (&global shortcut)"
+msgstr "Pokaż ten koszyk (skrót &globalny)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, switchButton)
+#: src/basketproperties.ui:147
+#, kde-format
+msgid "S&witch to this basket (global shortcut)"
+msgstr "Przełącz &do tego koszyka (skrót globalny)"
+
+#: src/basketscene.cpp:297
+#, kde-format
+msgid "The new note does not match the filter and is hidden."
+msgstr "Nowa notatka nie pasuje do filtra i została ukryta."
+
+#: src/basketscene.cpp:299
+#, kde-format
+msgid "A new note does not match the filter and is hidden."
+msgstr "Nowa notatka nie pasuje do filtra i została ukryta."
+
+#: src/basketscene.cpp:301
+#, kde-format
+msgid "Some new notes do not match the filter and are hidden."
+msgstr "Niektóre nowe notatki nie pasują do filtra i zostały ukryte."
+
+#: src/basketscene.cpp:303
+#, kde-format
+msgid "The new notes do not match the filter and are hidden."
+msgstr "Nowe notatki nie pasują do filtra i zostały ukryte."
+
+#: src/basketscene.cpp:1437 src/notecontent.cpp:82
+#, kde-format
+msgid "Group"
+msgstr "Grupa"
+
+#: src/basketscene.cpp:1439
+#, kde-format
+msgid "Insert"
+msgstr "Wstaw"
+
+#: src/basketscene.cpp:2282
+#, kde-format
+msgid ""
+"This message should never appear. If it does, this program is buggy! Please "
+"report the bug to the developer."
+msgstr ""
+"Ta wiadomość nie powinna się nigdy pojawić. Jeśli ją widzisz, to program ma "
+"błąd! Proszę zgłosić go do opiekuna."
+
+#: src/basketscene.cpp:2719 src/basketscene.cpp:2772 src/basketscene.cpp:2781
+#, kde-format
+msgid ""
+"Insert note here\n"
+"Right click for more options"
+msgstr ""
+"Wstaw notatkę tutaj\n"
+"Kliknij prawym przyciskiem myszy by poznać więcej możliwości"
+
+#: src/basketscene.cpp:2738
+#, kde-format
+msgid "Resize those columns"
+msgstr "Zmień rozmiar tych kolumn"
+
+#: src/basketscene.cpp:2738
+#, kde-format
+msgid "Resize this group"
+msgstr "Zmień rozmiar tej grupy"
+
+#: src/basketscene.cpp:2738
+#, kde-format
+msgid "Resize this note"
+msgstr "Zmień rozmiar tej notatki"
+
+#: src/basketscene.cpp:2741
+#, kde-format
+msgid "Select or move this note"
+msgstr "Wybierz lub przenieś tę notatkę"
+
+#: src/basketscene.cpp:2744
+#, kde-format
+msgid "Select or move this group"
+msgstr "Wybierz lub przemieć tę grupę"
+
+#: src/basketscene.cpp:2747
+#, kde-format
+msgid "Assign or remove tags from this note"
+msgstr "Dodaj lub usuń znaczniki z tej notatki"
+
+#: src/basketscene.cpp:2755
+#, kde-format
+msgid "%1, %2"
+msgstr "%1, %2"
+
+#: src/basketscene.cpp:2757
+#, kde-format
+msgid "<b>Assigned Tags</b>: %1"
+msgstr "<b>Dodane znaczniki</b>: %1"
+
+#: src/basketscene.cpp:2764
+#, kde-format
+msgid "Expand this group"
+msgstr "Rozwiń tę grupę"
+
+#: src/basketscene.cpp:2764
+#, kde-format
+msgid "Collapse this group"
+msgstr "Zwiń tę grupę"
+
+#: src/basketscene.cpp:2775
+#, kde-format
+msgid ""
+"Group note with the one below\n"
+"Right click for more options"
+msgstr ""
+"Grupuj notatkę z notatką poniżej\n"
+"Kliknij prawym przyciskiem myszy by poznać więcej możliwości"
+
+#: src/basketscene.cpp:2778
+#, kde-format
+msgid ""
+"Group note with the one above\n"
+"Right click for more options"
+msgstr ""
+"Grupuj notatkę z notatką powyżej\n"
+"Kliknij prawym przyciskiem myszy by poznać więcej możliwości"
+
+#: src/basketscene.cpp:2796
+#, kde-format
+msgid "Added"
+msgstr "Dodano"
+
+#: src/basketscene.cpp:2797
+#, kde-format
+msgid "Last Modification"
+msgstr "Ostania zmiana"
+
+#: src/basketscene.cpp:2802
+#, kde-format
+msgctxt "of the form 'key: value'"
+msgid "<b>%1</b>: %2"
+msgstr "<b>%1</b>: %2"
+
+#: src/basketscene.cpp:2806
+#, kde-format
+msgid "Click on the right to group instead of insert"
+msgstr "Kliknij po prawej by grupować zamiast wstawić"
+
+#: src/basketscene.cpp:2808
+#, kde-format
+msgid "Click on the left to insert instead of group"
+msgstr "Kliknij po lewej by wstawić zamiast grupować"
+
+#: src/basketscene.cpp:2984
+#, kde-format
+msgid "&Unlock"
+msgstr "&Odblokuj"
+
+#: src/basketscene.cpp:2989
+#, kde-format
+msgid "Password protected basket."
+msgstr "Koszyk chroniony hasłem."
+
+#: src/basketscene.cpp:2991
+#, kde-format
+msgid "Press Unlock to access it."
+msgstr "Przyciśnij Odblokuj by uzyskać dostęp."
+
+#: src/basketscene.cpp:2993
+#, kde-format
+msgid "Encryption is not supported by<br/>this version of %1."
+msgstr "Szyfrowanie nie jest wspierane <br/> w tej wersji %1."
+
+#: src/basketscene.cpp:3005
+#, kde-format
+msgid ""
+"To make baskets stay unlocked, change the automatic<br>locking duration in "
+"the application settings."
+msgstr ""
+"Aby koszyki pozostawały odblokowane, zmień czas<br> automatycznego "
+"blokowania w ustawieniach programu."
+
+#: src/basketscene.cpp:3032 src/basketstatusbar.cpp:89 src/bnpview.cpp:1586
+#, kde-format
+msgid "Loading..."
+msgstr "Wczytywanie..."
+
+#: src/basketscene.cpp:3172 src/basketscene.cpp:3214
+#, kde-format
+msgid "&Remove"
+msgstr "&Usuń"
+
+#: src/basketscene.cpp:3175 src/basketscene.cpp:3218 src/bnpview.cpp:2459
+#, kde-format
+msgid "&Customize..."
+msgstr "&Dostosuj..."
+
+#: src/basketscene.cpp:3181 src/basketscene.cpp:3224
+#, kde-format
+msgid "&Filter by this Tag"
+msgstr "&Filtruj wg tego znacznika"
+
+#: src/basketscene.cpp:3227
+#, kde-format
+msgid "Filter by this &State"
+msgstr "Filtruj wg &Stanu"
+
+#: src/basketscene.cpp:3308
+#, kde-format
+msgid "Tags"
+msgstr "Znaczniki"
+
+#: src/basketscene.cpp:3880
+#, kde-format
+msgid "<qt>Do you really want to delete this note?</qt>"
+msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
+msgstr[0] "<qt>Czy na pewno usunąć tę notatkę?</qt>"
+msgstr[1] "<qt>Czy na pewno usunąć te <b>%1</b> notatki?</qt>"
+msgstr[2] "<qt>Czy na pewno usunąć te <b>%1</b> notatek?</qt>"
+
+#: src/basketscene.cpp:3881
+#, kde-format
+msgid "Delete Note"
+msgid_plural "Delete Notes"
+msgstr[0] "Usuń notatkę"
+msgstr[1] "Usuń notatki"
+msgstr[2] "Usuń notatki"
+
+#: src/basketscene.cpp:3980
+#, kde-format
+msgid "Copied note to clipboard."
+msgid_plural "Copied notes to clipboard."
+msgstr[0] "Skopiowano notatkę do schowka."
+msgstr[1] "Skopiowano notatki do schowka."
+msgstr[2] "Skopiowano notatki do schowka."
+
+#: src/basketscene.cpp:3983
+#, kde-format
+msgid "Cut note to clipboard."
+msgid_plural "Cut notes to clipboard."
+msgstr[0] "Wytnij notatkę do schowka."
+msgstr[1] "Wytnij notatki do schowka."
+msgstr[2] "Wytnij notatki do schowka."
+
+#: src/basketscene.cpp:3986
+#, kde-format
+msgid "Copied note to selection."
+msgid_plural "Copied notes to selection."
+msgstr[0] "Skopiowano uwagę do zaznaczenia."
+msgstr[1] "Skopiowano uwagi do zaznaczenia."
+msgstr[2] "Skopiowano uwagi do zaznaczenia."
+
+#: src/basketscene.cpp:4050 src/basketscene.cpp:4122
+#, kde-format
+msgid "Unable to open this note."
+msgstr "Nie można otworzyć tej notatki."
+
+#. i18n: ectx: Menu (edit)
+#: src/basketscene.cpp:4052 src/basketui.rc:40
+#, kde-format
+msgid "&Edit"
+msgstr "&Edycja"
+
+#: src/basketscene.cpp:4084
+#, kde-format
+msgid "You are not authorized to open this file."
+msgstr "Nie masz uprawnień by otworzyć ten plik."
+
+#: src/basketscene.cpp:4143
+#, kde-format
+msgid "Save to File"
+msgstr "Zapisz do pliku"
+
+#: src/basketstatusbar.cpp:106
+#, kde-format
+msgid "Shows if there are changes that have not yet been saved."
+msgstr "Pokazuje czy istnieją zmiany, które nie zostały jeszcze zapisane."
+
+#: src/basketstatusbar.cpp:137
+#, kde-format
+msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
+msgstr "Ctrl+drop: kopiuj, Shift+drop: przenieś, Shift+Ctrl+drop: linkuj."
+
+#: src/basketstatusbar.cpp:160
+#, kde-format
+msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
+msgstr "<p>Ten koszyk jest <b>zablokowany</b>.<br>Kliknij, aby odblokować</p>"
+
+#: src/basketstatusbar.cpp:163
+#, kde-format
+msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
+msgstr "<p>Ten koszyk jest <b>odblokowany</b>.<br>Kliknij, aby zablokować</p>"
+
+#. i18n: ectx: Menu (basket)
+#: src/basketui.rc:6
+#, kde-format
+msgid "&Basket"
+msgstr "&Koszyk"
+
+#. i18n: ectx: Menu
+#: src/basketui.rc:11 src/basketui.rc:170
+#, kde-format
+msgid "&Export"
+msgstr "Wy&eksportuj"
+
+#. i18n: ectx: Menu
+#: src/basketui.rc:16 src/basketui.rc:175
+#, kde-format
+msgid "&Sort"
+msgstr "U&szereguj"
+
+#. i18n: ectx: Menu (fileimport)
+#. i18n: ectx: Menu
+#: src/basketui.rc:28 src/basketui.rc:187 src/basketui.rc:198
+#, kde-format
+msgid "&Import"
+msgstr "&Importuj"
+
+#. i18n: ectx: Menu (go)
+#: src/basketui.rc:55
+#, kde-format
+msgid "&Go"
+msgstr "&Idź do"
+
+#. i18n: ectx: Menu (note)
+#: src/basketui.rc:62
+#, kde-format
+msgid "&Note"
+msgstr "&Notatka"
+
+#. i18n: ectx: Menu (tags)
+#: src/basketui.rc:78
+#, kde-format
+msgid "&Tags"
+msgstr "&Znaczniki"
+
+#. i18n: ectx: Menu (insert)
+#: src/basketui.rc:81
+#, kde-format
+msgid "&Insert"
+msgstr "&Wstaw"
+
+#. i18n: ectx: Menu (settings)
+#: src/basketui.rc:97
+#, kde-format
+msgid "&Settings"
+msgstr "U&stawienia"
+
+#. i18n: ectx: Menu (help)
+#: src/basketui.rc:108
+#, kde-format
+msgid "&Help"
+msgstr "&Pomoc"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/basketui.rc:123
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Główny pasek narzędzi"
+
+#. i18n: ectx: ToolBar (richTextEditToolBar)
+#: src/basketui.rc:141
+#, kde-format
+msgid "Text Formatting Toolbar"
+msgstr "Pasek narzędzi formatowania tekstu"
+
+#: src/bnpview.cpp:168 src/bnpview.cpp:1226
+#, kde-format
+msgid "General"
+msgstr "Ogólne"
+
+#: src/bnpview.cpp:233
+#, kde-format
+msgid "Paste clipboard contents in current basket"
+msgstr "Wkleja zawartość schowka do bieżącego koszyka"
+
+#: src/bnpview.cpp:235
+#, kde-format
+msgid ""
+"Allows you to paste clipboard contents in the current basket without having "
+"to open the main window."
+msgstr ""
+"Umożliwia wklejenie zawartość schowka do bieżącego koszyka bez potrzeby "
+"otwierania głównego okna."
+
+#: src/bnpview.cpp:240
+#, kde-format
+msgid "Paste selection in current basket"
+msgstr "Wklej zaznaczenie do bieżącego koszyka"
+
+#: src/bnpview.cpp:242
+#, kde-format
+msgid ""
+"Allows you to paste clipboard selection in the current basket without having "
+"to open the main window."
+msgstr ""
+"Umożliwia wklejenie zawartość zaznaczenia do bieżącego koszyka bez potrzeby "
+"otwierania głównego okna."
+
+#: src/bnpview.cpp:247
+#, kde-format
+msgid "Create a new basket"
+msgstr "Utwórz nowy koszyk"
+
+#: src/bnpview.cpp:249
+#, kde-format
+msgid ""
+"Allows you to create a new basket without having to open the main window "
+"(you then can use the other global shortcuts to add a note, paste clipboard "
+"or paste selection in this new basket)."
+msgstr ""
+"Pozwala na utworzenie nowego koszyka bez potrzeby otwierania głównego okna "
+"(można użyć skrótów globalnych by dodać notatkę, wkleić zawartość schowka "
+"lub zaznaczenia do nowego koszyka)."
+
+#: src/bnpview.cpp:254
+#, kde-format
+msgid "Go to previous basket"
+msgstr "Idź do poprzedniego koszyka"
+
+#: src/bnpview.cpp:256
+#, kde-format
+msgid ""
+"Allows you to change current basket to the previous one without having to "
+"open the main window."
+msgstr ""
+"Umożliwia zmianę bieżącego koszyka na poprzedni bez potrzeby otwierania "
+"głównego okna."
+
+#: src/bnpview.cpp:260
+#, kde-format
+msgid "Go to next basket"
+msgstr "Idź do następnego koszyka"
+
+#: src/bnpview.cpp:262
+#, kde-format
+msgid ""
+"Allows you to change current basket to the next one without having to open "
+"the main window."
+msgstr ""
+"Umożliwia zmianę bieżącego koszyka na następny bez potrzeby otwierania "
+"głównego okna."
+
+#: src/bnpview.cpp:266
+#, kde-format
+msgid "Insert text note"
+msgstr "Wstaw notatkę tekstową"
+
+#: src/bnpview.cpp:268
+#, kde-format
+msgid ""
+"Add a text note to the current basket without having to open the main window."
+msgstr ""
+"Dodaj notatkę tekstową do bieżącego koszyka bez potrzeby otwierania głównego "
+"okna."
+
+#: src/bnpview.cpp:273 src/settings.cpp:518
+#, kde-format
+msgid "Insert image note"
+msgstr "Wstaw notatkę obrazową"
+
+#: src/bnpview.cpp:275
+#, kde-format
+msgid ""
+"Add an image note to the current basket without having to open the main "
+"window."
+msgstr ""
+"Dodaj notatkę obrazową do bieżącego koszyka bez potrzeby otwierania głównego "
+"okna."
+
+#: src/bnpview.cpp:279 src/settings.cpp:519
+#, kde-format
+msgid "Insert link note"
+msgstr "Wstaw odnośnik"
+
+#: src/bnpview.cpp:281
+#, kde-format
+msgid ""
+"Add a link note to the current basket without having to open the main window."
+msgstr ""
+"Dodaj notatkę odnośnikową do bieżącego koszyka bez potrzeby otwierania "
+"głównego okna."
+
+#: src/bnpview.cpp:285 src/settings.cpp:522
+#, kde-format
+msgid "Insert color note"
+msgstr "Wstaw kolor"
+
+#: src/bnpview.cpp:287
+#, kde-format
+msgid ""
+"Add a color note to the current basket without having to open the main "
+"window."
+msgstr ""
+"Dodaj notatkę barwną do bieżącego koszyka bez potrzeby otwierania głównego "
+"okna."
+
+#: src/bnpview.cpp:291
+#, kde-format
+msgid "Pick color from screen"
+msgstr "Pobierz kolor z ekranu"
+
+#: src/bnpview.cpp:293
+#, kde-format
+msgid ""
+"Add a color note picked from one pixel on screen to the current basket "
+"without having to open the main window."
+msgstr ""
+"Dodaj kolor pobrany z jednego piksela ekranu do bieżącego koszyka bez "
+"potrzeby otwierania głównego okna."
+
+#: src/bnpview.cpp:298 src/settings.cpp:523
+#, kde-format
+msgid "Grab screen zone"
+msgstr "Pobierz region ekranu"
+
+#: src/bnpview.cpp:300
+#, kde-format
+msgid ""
+"Grab a screen zone as an image in the current basket without having to open "
+"the main window."
+msgstr ""
+"Zrzuca obszar ekranu jako obraz do bieżącego koszyka bez potrzeby otwierania "
+"głównego okna."
+
+#: src/bnpview.cpp:306
+#, kde-format
+msgid "Insert plain text note"
+msgstr "Wstaw zwykłą notatkę tekstową"
+
+#: src/bnpview.cpp:308
+#, kde-format
+msgid ""
+"Add a plain text note to the current basket without having to open the main "
+"window."
+msgstr ""
+"Dodaj zwykła notatkę tekstową do bieżącego koszyka bez potrzeby otwierania "
+"głównego okna."
+
+#: src/bnpview.cpp:317
+#, kde-format
+msgid "Baskets"
+msgstr "Koszyki"
+
+#: src/bnpview.cpp:362
+#, kde-format
+msgid ""
+"<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
+"data by putting them in different baskets. You can group baskets by subject "
+"by creating new baskets inside others. You can browse between them by "
+"clicking a basket to open it, or reorganize them using drag and drop."
+msgstr ""
+"<h2>Drzewo koszyków</h2>Widać tutaj listę koszyków. Możesz organizować dane "
+"przez umieszczanie ich w różnych koszykach. Możesz grupować koszyki wg "
+"przedmiotu poprzez tworzenie nowych koszyków w innych. Przegląda się je "
+"przez klikanie na koszyk aby otworzyć lub reorganizować metodą przyciągnij i "
+"upuść."
+
+#: src/bnpview.cpp:377 src/bnpview.cpp:383
+#, kde-format
+msgid "&Basket Archive..."
+msgstr "&Archiwum koszyka..."
+
+#: src/bnpview.cpp:389
+#, kde-format
+msgid "&HTML Web Page..."
+msgstr "Strona sieciowa &HTML..."
+
+#: src/bnpview.cpp:395
+#, kde-format
+msgid "Text &File..."
+msgstr "&Plik tekstowy..."
+
+#: src/bnpview.cpp:400
+#, kde-format
+msgid "&Backup && Restore..."
+msgstr "&Kopia zapasowa i jej przywracanie..."
+
+#: src/bnpview.cpp:404
+#, kde-format
+msgid "&Check && Cleanup..."
+msgstr "Sprawdź i o&czyść..."
+
+#: src/bnpview.cpp:415
+#, kde-format
+msgid "D&elete"
+msgstr "&Usuń"
+
+#: src/bnpview.cpp:424
+#, kde-format
+msgid "Selects all notes"
+msgstr "Zaznacz wszystkie notatki"
+
+#: src/bnpview.cpp:427
+#, kde-format
+msgid "U&nselect All"
+msgstr "O&dznacz wszystkie"
+
+#: src/bnpview.cpp:429
+#, kde-format
+msgid "Unselects all selected notes"
+msgstr "Odznacz wszystkie zaznaczone notatki"
+
+#: src/bnpview.cpp:432
+#, kde-format
+msgid "&Invert Selection"
+msgstr "Od&wróć zaznaczenie"
+
+#: src/bnpview.cpp:436
+#, kde-format
+msgid "Inverts the current selection of notes"
+msgstr "Odwraca bieżące zaznaczenie notatek"
+
+#: src/bnpview.cpp:439
+#, kde-format
+msgid "&Clear Formatting"
+msgstr "Wy&czyść formatowanie"
+
+#: src/bnpview.cpp:443
+#, kde-format
+msgctxt "Verb; not Menu"
+msgid "&Edit..."
+msgstr "&Edytuj..."
+
+#: src/bnpview.cpp:450
+#, kde-format
+msgid "&Open"
+msgstr "&Otwórz"
+
+#: src/bnpview.cpp:454
+#, kde-format
+msgid "Open &With..."
+msgstr "Otwórz &z..."
+
+#: src/bnpview.cpp:459
+#, kde-format
+msgid "&Save to File..."
+msgstr "&Zapisz do pliku..."
+
+#: src/bnpview.cpp:463
+#, kde-format
+msgid "&Group"
+msgstr "&Grupuj"
+
+#: src/bnpview.cpp:469
+#, kde-format
+msgid "U&ngroup"
+msgstr "&Rozgrupuj"
+
+#: src/bnpview.cpp:474
+#, kde-format
+msgid "Move on &Top"
+msgstr "Przesuń na &wierzch"
+
+#: src/bnpview.cpp:480
+#, kde-format
+msgid "Move &Up"
+msgstr "Przesuń do &góry"
+
+#: src/bnpview.cpp:486
+#, kde-format
+msgid "Move &Down"
+msgstr "Prze&suń w dół"
+
+#: src/bnpview.cpp:492
+#, kde-format
+msgid "Move on &Bottom"
+msgstr "Przesuń pod s&pód"
+
+#: src/bnpview.cpp:503
+#, kde-format
+msgid "Plai&n Text"
+msgstr "&Zwykły tekst"
+
+#: src/bnpview.cpp:510
+#, kde-format
+msgid "&Text"
+msgstr "&Tekst"
+
+#: src/bnpview.cpp:516
+#, kde-format
+msgid "&Link"
+msgstr "Od&nośnik"
+
+#: src/bnpview.cpp:522
+#, kde-format
+msgid "Cross &Reference"
+msgstr "Odnośnik bibliog&raficzny"
+
+#: src/bnpview.cpp:527
+#, kde-format
+msgid "&Image"
+msgstr "&Obraz"
+
+#: src/bnpview.cpp:532
+#, kde-format
+msgid "&Color"
+msgstr "&Kolor"
+
+#: src/bnpview.cpp:537
+#, kde-format
+msgid "L&auncher"
+msgstr "Uruch&amianie programów"
+
+#: src/bnpview.cpp:542
+#, kde-format
+msgid "Import Launcher for &desktop application..."
+msgstr "Zaimportuj skrót &dla programu z pulpitu..."
+
+#: src/bnpview.cpp:547
+#, kde-format
+msgid "Im&port Icon..."
+msgstr "Im&portuj ikonę..."
+
+#: src/bnpview.cpp:552 src/noteedit.cpp:534
+#, kde-format
+msgid "Load From &File..."
+msgstr "Wczyta&j z pliku..."
+
+#: src/bnpview.cpp:570
+#, kde-format
+msgid "C&olor from Screen"
+msgstr "K&olor z ekranu"
+
+#: src/bnpview.cpp:578
+#, kde-format
+msgid "Grab Screen &Zone"
+msgstr "Pobierz &region ekranu"
+
+#: src/bnpview.cpp:613
+#, kde-format
+msgid "&New Basket..."
+msgstr "&Nowy koszyk..."
+
+#: src/bnpview.cpp:619
+#, kde-format
+msgid "New &Sub-Basket..."
+msgstr "Nowy &pod-koszyk..."
+
+#: src/bnpview.cpp:624
+#, kde-format
+msgid "New Si&bling Basket..."
+msgstr "Nowy koszyk &równorzędny..."
+
+#: src/bnpview.cpp:627
+#, kde-format
+msgid "&New"
+msgstr "&Nowy"
+
+#: src/bnpview.cpp:637
+#, kde-format
+msgid "&Properties..."
+msgstr "&Właściwości..."
+
+#: src/bnpview.cpp:643
+#, kde-format
+msgid "Sort Children Ascending"
+msgstr "Uszereguj podrzędne rosnąco"
+
+#: src/bnpview.cpp:648
+#, kde-format
+msgid "Sort Children Descending"
+msgstr "Uszereguj podrzędne malejąco"
+
+#: src/bnpview.cpp:653
+#, kde-format
+msgid "Sort Siblings Ascending"
+msgstr "Uszereguj równorzędne rosnąco"
+
+#: src/bnpview.cpp:658
+#, kde-format
+msgid "Sort Siblings Descending"
+msgstr "Uszereguj równorzędne malejąco"
+
+#: src/bnpview.cpp:663
+#, kde-format
+msgctxt "Remove Basket"
+msgid "&Remove"
+msgstr "&Usuń"
+
+#: src/bnpview.cpp:669
+#, kde-format
+msgctxt "Password protection"
+msgid "Pass&word..."
+msgstr "&Hasło..."
+
+#: src/bnpview.cpp:674
+#, kde-format
+msgctxt "Lock Basket"
+msgid "&Lock"
+msgstr "Zab&lokuj"
+
+#: src/bnpview.cpp:687
+#, kde-format
+msgid "&Filter"
+msgstr "&Filtr"
+
+#: src/bnpview.cpp:697
+#, kde-format
+msgid "&Search All"
+msgstr "&Szukaj wszędzie"
+
+#: src/bnpview.cpp:705
+#, kde-format
+msgid "&Reset Filter"
+msgstr "U&suń filtr"
+
+#: src/bnpview.cpp:713
+#, kde-format
+msgid "&Previous Basket"
+msgstr "&Poprzedni koszyk"
+
+#: src/bnpview.cpp:719
+#, kde-format
+msgid "&Next Basket"
+msgstr "&Następny koszyk"
+
+#: src/bnpview.cpp:725
+#, kde-format
+msgid "&Fold Basket"
+msgstr "&Zwiń koszyk"
+
+#: src/bnpview.cpp:731
+#, kde-format
+msgid "&Expand Basket"
+msgstr "&Rozwiń koszyk"
+
+#: src/bnpview.cpp:739
+#, kde-format
+msgid "Convert text notes to rich text notes"
+msgstr "Przekształć zwykłą notatkę tekstowych na formatowaną"
+
+#: src/bnpview.cpp:748
+#, kde-format
+msgid "&Welcome Baskets"
+msgstr "Koszyki po&witalne"
+
+#: src/bnpview.cpp:1011
+#, kde-format
+msgid "Plain Text Notes Conversion"
+msgstr "Konwersja notatek tekstowych"
+
+#: src/bnpview.cpp:1012
+#, kde-format
+msgid "Converting plain text notes to rich text ones..."
+msgstr "Konwersja zwykłych notatek tekstowych do tekstu wzbogaconego..."
+
+#: src/bnpview.cpp:1584
+#, kde-format
+msgid "Locked"
+msgstr "Zablokowany"
+
+#: src/bnpview.cpp:1588
+#, kde-format
+msgid "No notes"
+msgstr "Brak notatek"
+
+#: src/bnpview.cpp:1590
+#, kde-format
+msgid "%1 note"
+msgid_plural "%1 notes"
+msgstr[0] "%1 notatka"
+msgstr[1] "%1 notatki"
+msgstr[2] "%1 notatek"
+
+#: src/bnpview.cpp:1591
+#, kde-format
+msgid "%1 selected"
+msgid_plural "%1 selected"
+msgstr[0] "%1 zaznaczona"
+msgstr[1] "%1 zaznaczone"
+msgstr[2] "%1 zaznaczonych"
+
+#: src/bnpview.cpp:1592
+#, kde-format
+msgid "all matches"
+msgstr "wszystkie dopasowania"
+
+#: src/bnpview.cpp:1592
+#, kde-format
+msgid "no filter"
+msgstr "brak filtra"
+
+#: src/bnpview.cpp:1594
+#, kde-format
+msgid "%1 match"
+msgid_plural "%1 matches"
+msgstr[0] "%1 pasujące"
+msgstr[1] "%1 pasujące"
+msgstr[2] "%1 pasujących"
+
+#: src/bnpview.cpp:1595
+#, kde-format
+msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
+msgid "%1, %2, %3"
+msgstr "%1, %2, %3"
+
+#: src/bnpview.cpp:1730
+#, kde-format
+msgid "The plain text notes have been converted to rich text."
+msgstr "Zwykłe notatki tekstowe zostały przekształcone na formatowane."
+
+#: src/bnpview.cpp:1730 src/bnpview.cpp:1732
+#, kde-format
+msgid "Conversion Finished"
+msgstr "Zakończono konwersję"
+
+#: src/bnpview.cpp:1732
+#, kde-format
+msgid "There are no plain text notes to convert."
+msgstr "Nie ma zwykłych notatek tekstowych do przekształcenia."
+
+#: src/bnpview.cpp:1749
+#, kde-format
+msgid ""
+"<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
+"run without it and will stop.</b></p><p>Please check your installation of %2."
+"</p><p>If you do not have administrator access to install the application "
+"system wide, you can copy the file basketui.rc from the installation archive "
+"to the folder <a href='file://%3'>%4</a>.</p><p>As last resort, if you are "
+"sure the application is correctly installed but you had a preview version of "
+"it, try to remove the file %5basketui.rc</p>"
+msgstr ""
+"<p><b>Plik basketui.rc nie istnieje lub jest zbyt stary.<br>%1 nie może bez "
+"niego działać i zakończy działanie.</b></p><p>Proszę sprawdzić instalację %2."
+"</p><p>Jeśli nie masz dostępu administratora do programów systemowych możesz "
+"skopiować plik basketui.rc z archiwum instalacyjnego do katalogu <a "
+"href='file://%3'>%4</a>.</p><p>Jeśli to nie pomoże i program został na pewno "
+"poprawnie zainstalowany ale masz wersję testową spróbuj usunąć plik "
+"%5basketui.rc</p>"
+
+#: src/bnpview.cpp:1763
+#, kde-format
+msgid "Resource not Found"
+msgstr "Nie znaleziono zasobu"
+
+#: src/bnpview.cpp:1792
+#, kde-format
+msgid "Cannot add note."
+msgstr "Nie można dodać notatki."
+
+#: src/bnpview.cpp:1939
+#, kde-format
+msgid ""
+"<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
+msgstr "<qt>Czy na pewno chcesz usunąć koszyk <b>%1</b> i jego zawartość?</qt>"
+
+#: src/bnpview.cpp:1940
+#, kde-format
+msgid "Remove Basket"
+msgstr "Usuń koszyk"
+
+#: src/bnpview.cpp:1941
+#, kde-format
+msgid "&Remove Basket"
+msgstr "&Usuń koszyk"
+
+#: src/bnpview.cpp:1950
+#, kde-format
+msgid ""
+"<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
+"them too?</qt>"
+msgstr ""
+"<qt><b>%1</b> ma następujące koszyki podrzędne.<br>Czy je też usunąć?</qt>"
+
+#: src/bnpview.cpp:1952
+#, kde-format
+msgid "Remove Children Baskets"
+msgstr "Usuń koszyki podrzędne"
+
+#: src/bnpview.cpp:1953
+#, kde-format
+msgid "&Remove Children Baskets"
+msgstr "&Usuń koszyki podrzędne"
+
+#: src/bnpview.cpp:2022 src/bnpview.cpp:2063
+#, kde-format
+msgid "Basket Archives"
+msgstr "Archiwa koszyków"
+
+#: src/bnpview.cpp:2448
+#, kde-format
+msgid "&Assign new Tag..."
+msgstr "&Dodaj nowy znacznik..."
+
+#: src/bnpview.cpp:2453
+#, kde-format
+msgid "&Remove All"
+msgstr "&Usuń wszystko"
+
+#: src/common.cpp:58
+#, kde-format
+msgid "Please enter the password for the following private key:"
+msgstr "Proszę podać hasło dla następującego klucza prywatnego:"
+
+#: src/common.cpp:60
+#, kde-format
+msgid "Please enter the password for the basket <b>%1</b>:"
+msgstr "Proszę podać hasło dla koszyka <b>%1</b>:"
+
+#: src/common.cpp:98
+#, kde-format
+msgid "Please assign a password to the basket <b>%1</b>:"
+msgstr "Proszę przydzielić hasło dla koszyka <b>%1</b>:"
+
+#: src/common.cpp:148
+#, kde-format
+msgid "Error while saving: "
+msgstr "Błąd podczas zapisywania: "
+
+#: src/debugwindow.cpp:23
+#, kde-format
+msgid "Debug Window"
+msgstr "Okno debugowania"
+
+#: src/file_metadata.cpp:18
+#, kde-format
+msgid "Bit rate"
+msgstr "Szybkość bitowa"
+
+#: src/file_metadata.cpp:19
+#, kde-format
+msgid "Channels"
+msgstr "Kanały"
+
+#: src/file_metadata.cpp:20
+#, kde-format
+msgid "Duration"
+msgstr "Czas trwania"
+
+#: src/file_metadata.cpp:21
+#, kde-format
+msgid "Genre"
+msgstr "Rodzaj"
+
+#: src/file_metadata.cpp:22
+#, kde-format
+msgid "Sample rate"
+msgstr "Próbkowanie"
+
+#: src/file_metadata.cpp:23
+#, kde-format
+msgid "Track number"
+msgstr "Numer ścieżki"
+
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2119
+#, kde-format
+msgid "Comment"
+msgstr "Komentarz"
+
+#: src/file_metadata.cpp:25
+#, kde-format
+msgid "Artist"
+msgstr "Wykonawca"
+
+#: src/file_metadata.cpp:26
+#, kde-format
+msgid "Album"
+msgstr "Album"
+
+#: src/file_metadata.cpp:27 src/tag.cpp:720
+#, kde-format
+msgid "Title"
+msgstr "Tytuł"
+
+#: src/file_metadata.cpp:28
+#, kde-format
+msgid "Word count"
+msgstr "Liczba słów"
+
+#: src/file_metadata.cpp:29
+#, kde-format
+msgid "Line count"
+msgstr "Liczba wierszy"
+
+#: src/file_metadata.cpp:30
+#, kde-format
+msgid "Copyright"
+msgstr "Prawa autorskie"
+
+#: src/file_metadata.cpp:31
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#: src/file_metadata.cpp:32
+#, kde-format
+msgid "Frame rate"
+msgstr "Szybkość klatkowa"
+
+#: src/filter.cpp:42
+#, kde-format
+msgid "Reset Filter"
+msgstr "Wyzeruj filtr"
+
+#: src/filter.cpp:47
+#, kde-format
+msgid "&Filter: "
+msgstr "&Filtr: "
+
+#: src/filter.cpp:51
+#, kde-format
+msgid "T&ag: "
+msgstr "Zn&acznik: "
+
+#: src/filter.cpp:55
+#, kde-format
+msgid "Filter All Baskets"
+msgstr "Odfiltruj wszystkie koszyki"
+
+#: src/filter.cpp:134
+#, kde-format
+msgid "(Not tagged)"
+msgstr "(Brak znaczników)"
+
+#: src/filter.cpp:135
+#, kde-format
+msgid "(Tagged)"
+msgstr "(Znaczniki)"
+
+#: src/formatimporter.cpp:118
+#, kde-format
+msgid ""
+"<p>Folder mirroring is not possible anymore (see <a href='https://basket-"
+"notepads.github.io'>basket-notepads.github.io</a> for more information).</"
+"p><p>The folder <b>%1</b> has been copied for the basket needs. You can "
+"either delete this folder or delete the basket, or use both. But remember "
+"that modifying one will not modify the other anymore as they are now "
+"separate entities.</p>"
+msgstr ""
+"<p>Odzwierciedlanie katalogów nie jest dłużej wspierane (więcej informacji "
+"na <a href='https://basket-notepads.github.io'>basket-notepads.github.io</"
+"a>).</p><p>Katalog <b>%1</b> został skopiowany na potrzeby koszyka. Możesz "
+"usunąć ten katalog lub koszyk, albo używać obu. Ale pamiętaj, że zmiana "
+"jednego z nich nie zmieni drugiego - są to byty osobne.</p>"
+
+#: src/formatimporter.cpp:122
+#, kde-format
+msgid "Folder Mirror Import"
+msgstr "Import odzwierciedlania katalogów"
+
+#: src/history.cpp:19
+#, kde-format
+msgid "Set current basket to %1"
+msgstr "Ustaw bieżący koszyk na %1"
+
+#: src/htmlexporter.cpp:51
+#, kde-format
+msgid "HTML Documents"
+msgstr "Dokumenty HTML"
+
+#: src/htmlexporter.cpp:55 src/htmlexporter.cpp:72
+#, kde-format
+msgid "Export to HTML"
+msgstr "Wyeksportuj do HTML"
+
+#: src/htmlexporter.cpp:73
+#, kde-format
+msgid "Exporting to HTML. Please wait..."
+msgstr "Eksportowanie do HTML. Proszę czekać..."
+
+#: src/htmlexporter.cpp:108 src/htmlexporter.cpp:144 src/htmlexporter.cpp:153
+#, kde-format
+msgctxt "HTML export folder (files)"
+msgid "%1_files"
+msgstr "%1_plików"
+
+#: src/htmlexporter.cpp:114 src/htmlexporter.cpp:158
+#, kde-format
+msgctxt "HTML export folder (icons)"
+msgid "icons"
+msgstr "ikony"
+
+#: src/htmlexporter.cpp:115 src/htmlexporter.cpp:159
+#, kde-format
+msgctxt "HTML export folder (images)"
+msgid "images"
+msgstr "obrazy"
+
+#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:156
+#, kde-format
+msgctxt "HTML export folder (baskets)"
+msgid "baskets"
+msgstr "koszyki"
+
+#: src/htmlexporter.cpp:148 src/htmlexporter.cpp:154 src/htmlexporter.cpp:155
+#, kde-format
+msgctxt "HTML export folder (data)"
+msgid "data"
+msgstr "dane"
+
+#: src/htmlexporter.cpp:390
+#, kde-format
+msgid ""
+"Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
+"information at hand."
+msgstr ""
+"Wykonane w <a href=\"%1\">%2</a>%3, narzędziu do robienia notatek i "
+"trzymania ich pod ręką."
+
+#: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:501
+#: src/variouswidgets.cpp:357
+#, kde-format
+msgid "(Default)"
+msgstr "(Domyślne)"
+
+#: src/kcolorcombo2.cpp:124
+#, kde-format
+msgid "Other..."
+msgstr "Inne..."
+
+#. i18n("(Default)")).height() + 2
+#. TODO: isDefaultColorSelected()
+#. index=
+#. index=
+#: src/kcolorcombo2.cpp:637
+#, kde-format
+msgid "R:%1, G:%2, B:%3"
+msgstr "R:%1, G:%2, B:%3"
+
+#: src/kcolorcombo2.cpp:637
+#, kde-format
+msgctxt "color"
+msgid "(Default)"
+msgstr "(Domyślny)"
+
+#: src/kde4_migration.h:68
+#, kde-format
+msgid ""
+"Failed to migrate Basket data from KDE4. You will need to close Basket and "
+"copy the basket folder manually.\n"
+"Source: %1\n"
+"Destination: %2\n"
+"Reason: %3"
+msgstr ""
+"Nie udało się przenieść danych Koszyka z KDE4. Należy zamknąć Koszyk i "
+"skopiować katalog o nazwie koszyk ręcznie.\n"
+"Miejsce źródłowe: %1\n"
+"Miejsce docelowe: %2\n"
+"Powód: %3"
+
+#: src/kde4_migration.h:93
+#, kde-format
+msgid "Choose action"
+msgstr "Wybierz działanie"
+
+#: src/kde4_migration.h:95
+#, kde-format
+msgid ""
+"Basket data from KDE4 have been successfully migrated to %1.\n"
+"Unless you are planning to run KDE4 version again, you can delete the old "
+"folder %2"
+msgstr ""
+"Pomyślnie przeniesiono dane z KDE4 do %1.\n"
+"Jeśli nie masz zamiaru uruchamiać wersji KDE4, to możesz usunąć stary "
+"katalog %2"
+
+#: src/kde4_migration.h:99
+#, kde-format
+msgid "Delete (to Trash)"
+msgstr "Usuń (do kosza)"
+
+#: src/kde4_migration.h:100
+#, kde-format
+msgid "Keep"
+msgstr "Zachowaj"
+
+#: src/kgpgme.cpp:47
+#, kde-format
+msgid "Private Key List"
+msgstr "Lista kluczy prywatnych"
+
+#: src/kgpgme.cpp:65
+#, kde-format
+msgid "Email"
+msgstr "E-mail"
+
+#: src/kgpgme.cpp:65
+#, kde-format
+msgid "ID"
+msgstr "ID"
+
+#: src/kgpgme.cpp:69
+#, kde-format
+msgid "Choose a secret key:"
+msgstr "Wybierz tajny klucz:"
+
+#: src/kgpgme.cpp:257
+#, kde-format
+msgid "Key listing unexpectedly truncated."
+msgstr "Lista kluczy nagle ucięta."
+
+#: src/kgpgme.cpp:289
+#, kde-format
+msgid "That public key is not meant for encryption"
+msgstr "Ten klucz publiczny nie jest przeznaczony do szyfrowania"
+
+#: src/kgpgme.cpp:330
+#, kde-format
+msgid "Unsupported algorithm"
+msgstr "Niewspierany algorytm"
+
+#: src/kgpgme.cpp:421
+#, kde-format
+msgid "Wrong password."
+msgstr "Złe hasło."
+
+#: src/kgpgme.cpp:436
+#, kde-format
+msgid "Please enter a new password:"
+msgstr "Wpisz nowe hasło:"
+
+#: src/linklabel.cpp:591
+#, kde-format
+msgid "I&talic"
+msgstr "&Kursywa"
+
+#: src/linklabel.cpp:594
+#, kde-format
+msgid "&Bold"
+msgstr "Pogru&bienie"
+
+#: src/linklabel.cpp:602
+#, kde-format
+msgid "Always"
+msgstr "Zawsze"
+
+#: src/linklabel.cpp:603
+#, kde-format
+msgid "Never"
+msgstr "Nigdy"
+
+#: src/linklabel.cpp:604
+#, kde-format
+msgid "On mouse hovering"
+msgstr "Przy aktywacji myszą"
+
+#: src/linklabel.cpp:605
+#, kde-format
+msgid "When mouse is outside"
+msgstr "Kiedy mysz jest poza"
+
+#: src/linklabel.cpp:607
+#, kde-format
+msgid "&Underline:"
+msgstr "&Podkreślenie:"
+
+#: src/linklabel.cpp:614
+#, kde-format
+msgid "Colo&r:"
+msgstr "Kolo&r:"
+
+#: src/linklabel.cpp:621
+#, kde-format
+msgid "&Mouse hover color:"
+msgstr "Kolor w czasie aktywacji &myszą:"
+
+#: src/linklabel.cpp:630
+#, kde-format
+msgid "&Icon size:"
+msgstr "Rozmiar &ikony:"
+
+#: src/linklabel.cpp:636
+#, kde-format
+msgid "None"
+msgstr "Brak"
+
+#: src/linklabel.cpp:637
+#, kde-format
+msgid "Icon size"
+msgstr "Rozmiar ikony"
+
+#: src/linklabel.cpp:638
+#, kde-format
+msgid "Twice the icon size"
+msgstr "Podwójny rozmiar ikony"
+
+#: src/linklabel.cpp:639
+#, kde-format
+msgid "Three times the icon size"
+msgstr "Potrójny rozmiar ikony"
+
+#: src/linklabel.cpp:641
+#, kde-format
+msgid "&Preview:"
+msgstr "&Podgląd:"
+
+#: src/linklabel.cpp:643
+#, kde-format
+msgid "You disabled preview but still see images?"
+msgstr "Wyłączyłeś podgląd, ale cały czas widzisz obrazy?"
+
+#: src/linklabel.cpp:644
+#, kde-format
+msgid ""
+"<p>This is normal because there are several type of notes.<br>This setting "
+"only applies to file and local link notes.<br>The images you see are image "
+"notes, not file notes.<br>File notes are generic documents, whereas image "
+"notes are pictures you can draw in.</p><p>When dropping files to baskets, %1 "
+"detects their type and shows you the content of the files.<br>For instance, "
+"when dropping image or text files, image and text notes are created for them."
+"<br>For type of files %2 does not understand, they are shown as generic file "
+"notes with just an icon or file preview and a filename.</p><p>If you do not "
+"want the application to create notes depending on the content of the files "
+"you drop, go to the \"General\" page and uncheck \"Image or animation\" in "
+"the \"View Content of Added Files for the Following Types\" group.</p>"
+msgstr ""
+"<p>Jest to normalne ponieważ istnieje kilka rodzajów notatek.<br>To "
+"ustawienie stosuje się tylko do plików i odnośników lokalnych.<br>Obrazy "
+"jakie widzisz to notatki obrazkowe, nie notatki plikowe.<br>Notatki plikowe "
+"są zwykłymi dokumentami, podczas gdy notatki obrazkowe to obrazy, na których "
+"możesz rysować.</p><p>Upuszczając pliki do koszyków, %1 wykrywa ich rodzaj i "
+"pokazuje zawartość plików.<br>Na przykład, kiedy upuścisz pliki obrazów lub "
+"tekstowe zostaną utworzone notatki obrazowe i tekstowe.<br>Dla rodzajów "
+"plików nieznanych dla %2, zostaną pokazane notatki plikowe ogólnego rodzaju "
+"tylko z ikoną lub podglądem pliku i nazwą pliku.</p><p>Jeśli nie chcesz aby "
+"program tworzył notatki na podstawie zawartości upuszczanych plików przejdź "
+"do strony \"Ogólne\" i odznacz pole \"Obrazy lub animacje\" w grupie \"Pokaż "
+"zawartość dodawanych plików dla następujących rodzajów plików\".</p>"
+
+#: src/linklabel.cpp:661
+#, kde-format
+msgid "Example"
+msgstr "Przykład"
+
+#: src/mainwindow.cpp:74
+#, kde-format
+msgid "Minimize"
+msgstr "Minimalizuj"
+
+#: src/mainwindow.cpp:247
+#, kde-format
+msgid "<p>Do you really want to quit %1?</p>"
+msgstr "<p>Czy na pewno chcesz zamknąć %1?</p>"
+
+#: src/mainwindow.cpp:249
+#, kde-format
+msgid "Quit Confirm"
+msgstr "Potwierdź zakończenie"
+
+#: src/newbasketdialog.cpp:77
+#, kde-format
+msgid "New Basket"
+msgstr "Nowy koszyk"
+
+#: src/newbasketdialog.cpp:111
+#, kde-format
+msgid "Background color"
+msgstr "Kolor tła"
+
+#: src/newbasketdialog.cpp:119
+#, kde-format
+msgid "&Manage Templates..."
+msgstr "&Zarządzaj szablonami..."
+
+#: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:316
+#, kde-format
+msgid "One column"
+msgstr "Jedna kolumna"
+
+#: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:318
+#, kde-format
+msgid "Two columns"
+msgstr "Dwie kolumny"
+
+#: src/newbasketdialog.cpp:175 src/newbasketdialog.cpp:320
+#, kde-format
+msgid "Three columns"
+msgstr "Trzy kolumny"
+
+#: src/newbasketdialog.cpp:187
+#, kde-format
+msgid "Free"
+msgstr "Swobodny"
+
+#: src/newbasketdialog.cpp:195
+#, kde-format
+msgid "&Template:"
+msgstr "&Szablon:"
+
+#: src/newbasketdialog.cpp:205
+#, kde-format
+msgid "(Baskets)"
+msgstr "(Koszyki)"
+
+#: src/newbasketdialog.cpp:207
+#, kde-format
+msgid "C&reate in:"
+msgstr "Utwo&rzony w:"
+
+#: src/newbasketdialog.cpp:209
+#, kde-format
+msgid "How is it useful?"
+msgstr "Do czego to służy?"
+
+#: src/newbasketdialog.cpp:210
+#, kde-format
+msgid ""
+"<p>Creating baskets inside of other baskets to form a hierarchy allows you "
+"to be more organized by eg.:</p><ul><li>Grouping baskets by themes or topics;"
+"</li><li>Grouping baskets in folders for different projects;</li><li>Making "
+"sections with sub-baskets representing chapters or pages;</li><li>Making a "
+"group of baskets to export together (to eg. email them to people).</li></ul>"
+msgstr ""
+"<p>Tworzenie koszyków wewnątrz innych koszyków pozwala utworzyć hierarchię "
+"dla lepszej organizacji np.:</p> <ul> <li>grupowanie koszyków tematami;</li> "
+"<li>grupowanie koszyków w katalogach dla różnych projektów;</li> "
+"<li>robienie sekcji pod-koszykami reprezentującymi rozdziały lub strony;</"
+"li> <li>tworzenie grup koszyków by je razem wyeksportować (np. wysłać e-"
+"mailem).</li> </ul>"
+
+#: src/newbasketdialog.cpp:322
+#, kde-format
+msgid "Free-form"
+msgstr "Swobodny"
+
+#: src/newbasketdialog.cpp:324
+#, kde-format
+msgid "Mind map"
+msgstr "Mapa umysłu"
+
+#: src/notecontent.cpp:84
+#, kde-format
+msgid "Plain Text"
+msgstr "Tekst zwykły"
+
+#: src/notecontent.cpp:86
+#, kde-format
+msgid "Text"
+msgstr "Tekst"
+
+#: src/notecontent.cpp:88
+#, kde-format
+msgid "Image"
+msgstr "Obraz"
+
+#: src/notecontent.cpp:90
+#, kde-format
+msgid "Animation"
+msgstr "Animacja"
+
+#: src/notecontent.cpp:92
+#, kde-format
+msgid "Sound"
+msgstr "Dźwięk"
+
+#: src/notecontent.cpp:94
+#, kde-format
+msgid "File"
+msgstr "Plik"
+
+#: src/notecontent.cpp:96
+#, kde-format
+msgid "Link"
+msgstr "Odnośnik"
+
+#: src/notecontent.cpp:98
+#, kde-format
+msgid "Cross Reference"
+msgstr "Odsyłacz"
+
+#: src/notecontent.cpp:100
+#, kde-format
+msgid "Launcher"
+msgstr "Uruchamianie programu"
+
+#: src/notecontent.cpp:102 src/noteedit.cpp:1196
+#, kde-format
+msgid "Color"
+msgstr "Kolor"
+
+#: src/notecontent.cpp:104 src/notecontent.cpp:106
+#, kde-format
+msgid "Unknown"
+msgstr "Nieznany"
+
+#: src/notecontent.cpp:582
+#, kde-format
+msgid "Edit this plain text"
+msgstr "Zmień tekst"
+
+#: src/notecontent.cpp:586
+#, kde-format
+msgid "Edit this text"
+msgstr "Zmień tekst"
+
+#: src/notecontent.cpp:590
+#, kde-format
+msgid "Edit this image"
+msgstr "Zmień ten obraz"
+
+#: src/notecontent.cpp:594
+#, kde-format
+msgid "Edit this animation"
+msgstr "Zmień animację"
+
+#: src/notecontent.cpp:598
+#, kde-format
+msgid "Edit the file name of this sound"
+msgstr "Zmień nazwę pliku dźwiękowego"
+
+#: src/notecontent.cpp:602
+#, kde-format
+msgid "Edit the name of this file"
+msgstr "Zmień nazwę pliku"
+
+#: src/notecontent.cpp:606
+#, kde-format
+msgid "Edit this link"
+msgstr "Zmień odnośnik"
+
+#: src/notecontent.cpp:610
+#, kde-format
+msgid "Edit this cross reference"
+msgstr "Zmień to odniesienie bibliograficzne"
+
+#: src/notecontent.cpp:614
+#, kde-format
+msgid "Edit this launcher"
+msgstr "Zmień to uruchamianie programu"
+
+#: src/notecontent.cpp:618
+#, kde-format
+msgid "Edit this color"
+msgstr "Zmień kolor"
+
+#: src/notecontent.cpp:622
+#, kde-format
+msgid "Edit this unknown object"
+msgstr "Zmień ten nieznany obiekt"
+
+#: src/notecontent.cpp:967
+#, kde-format
+msgid "Opening plain text..."
+msgstr "Otwieram zwykły tekst..."
+
+#: src/notecontent.cpp:969
+#, kde-format
+msgid "Opening plain texts..."
+msgstr "Otwieram zwykłe teksty..."
+
+#: src/notecontent.cpp:971
+#, kde-format
+msgid "Opening plain text with..."
+msgstr "Otwieram zwykły tekst w..."
+
+#: src/notecontent.cpp:973
+#, kde-format
+msgid "Opening plain texts with..."
+msgstr "Otwieram zwykłe teksty w..."
+
+#: src/notecontent.cpp:975
+#, kde-format
+msgid "Open plain text with:"
+msgstr "Otwórz zwykły tekst w:"
+
+#: src/notecontent.cpp:977
+#, kde-format
+msgid "Open plain texts with:"
+msgstr "Otwórz zwykłe teksty w:"
+
+#: src/notecontent.cpp:1085
+#, kde-format
+msgid "Opening text..."
+msgstr "Otwieram tekst..."
+
+#: src/notecontent.cpp:1087
+#, kde-format
+msgid "Opening texts..."
+msgstr "Otwieram teksty..."
+
+#: src/notecontent.cpp:1089
+#, kde-format
+msgid "Opening text with..."
+msgstr "Otwieram tekst w..."
+
+#: src/notecontent.cpp:1091
+#, kde-format
+msgid "Opening texts with..."
+msgstr "Otwieram teksty w..."
+
+#: src/notecontent.cpp:1093
+#, kde-format
+msgid "Open text with:"
+msgstr "Otwórz tekst w:"
+
+#: src/notecontent.cpp:1095
+#, kde-format
+msgid "Open texts with:"
+msgstr "Otwórz teksty w:"
+
+#: src/notecontent.cpp:1217 src/notecontent.cpp:1433
+#, kde-format
+msgid "Size"
+msgstr "Wielkość"
+
+#: src/notecontent.cpp:1217 src/variouswidgets.cpp:160
+#, kde-format
+msgid "%1 by %2 pixels"
+msgstr "%1 na %2 piksele"
+
+#: src/notecontent.cpp:1226
+#, kde-format
+msgid "Opening image..."
+msgstr "Otwieram obraz..."
+
+#: src/notecontent.cpp:1228
+#, kde-format
+msgid "Opening images..."
+msgstr "Otwieranie obrazów..."
+
+#: src/notecontent.cpp:1230
+#, kde-format
+msgid "Opening image with..."
+msgstr "Otwieram obraz w..."
+
+#: src/notecontent.cpp:1232
+#, kde-format
+msgid "Opening images with..."
+msgstr "Otwieranie obrazów w..."
+
+#: src/notecontent.cpp:1234
+#, kde-format
+msgid "Open image with:"
+msgstr "Otwórz obraz w:"
+
+#: src/notecontent.cpp:1236
+#, kde-format
+msgid "Open images with:"
+msgstr "Otwórz obrazy w:"
+
+#: src/notecontent.cpp:1261
+#, kde-format
+msgid "Click for full size view"
+msgstr "Kliknij by zobaczyć w skali 1:1"
+
+#: src/notecontent.cpp:1346
+#, kde-format
+msgid "Opening animation..."
+msgstr "Otwieram animację..."
+
+#: src/notecontent.cpp:1348
+#, kde-format
+msgid "Opening animations..."
+msgstr "Otwieram animacje..."
+
+#: src/notecontent.cpp:1350
+#, kde-format
+msgid "Opening animation with..."
+msgstr "Otwieram animację w..."
+
+#: src/notecontent.cpp:1352
+#, kde-format
+msgid "Opening animations with..."
+msgstr "Otwieram animacje w..."
+
+#: src/notecontent.cpp:1354
+#, kde-format
+msgid "Open animation with:"
+msgstr "Otwórz animację w:"
+
+#: src/notecontent.cpp:1356
+#, kde-format
+msgid "Open animations with:"
+msgstr "Otwórz animacje w:"
+
+#: src/notecontent.cpp:1438
+#, kde-format
+msgid "Type"
+msgstr "Rodzaj"
+
+#: src/notecontent.cpp:1479
+#, kde-format
+msgid "Open this file"
+msgstr "Otwórz ten plik"
+
+#: src/notecontent.cpp:1498
+#, kde-format
+msgid "Opening file..."
+msgstr "Otwieram plik..."
+
+#: src/notecontent.cpp:1500
+#, kde-format
+msgid "Opening files..."
+msgstr "Otwieram pliki..."
+
+#: src/notecontent.cpp:1502
+#, kde-format
+msgid "Opening file with..."
+msgstr "Otwieram plik w..."
+
+#: src/notecontent.cpp:1504
+#, kde-format
+msgid "Opening files with..."
+msgstr "Otwieram pliki w..."
+
+#: src/notecontent.cpp:1506
+#, kde-format
+msgid "Open file with:"
+msgstr "Otwórz plik w:"
+
+#: src/notecontent.cpp:1508
+#, kde-format
+msgid "Open files with:"
+msgstr "Otwórz pliki w:"
+
+#: src/notecontent.cpp:1591
+#, kde-format
+msgid "Open this sound"
+msgstr "Otwórz plik dźwiękowy"
+
+#: src/notecontent.cpp:1617
+#, kde-format
+msgid "Opening sound..."
+msgstr "Otwieram plik dźwiękowy..."
+
+#: src/notecontent.cpp:1619
+#, kde-format
+msgid "Opening sounds..."
+msgstr "Otwieram pliki dźwiękowe..."
+
+#: src/notecontent.cpp:1621
+#, kde-format
+msgid "Opening sound with..."
+msgstr "Otwieram pliki dźwiękowe w..."
+
+#: src/notecontent.cpp:1623
+#, kde-format
+msgid "Opening sounds with..."
+msgstr "Otwieram pliki dźwiękowe w..."
+
+#: src/notecontent.cpp:1625
+#, kde-format
+msgid "Open sound with:"
+msgstr "Otwórz plik dźwiękowy w:"
+
+#: src/notecontent.cpp:1627
+#, kde-format
+msgid "Open sounds with:"
+msgstr "Otwórz pliki dźwiękowe w:"
+
+#: src/notecontent.cpp:1689 src/notecontent.cpp:1958
+#, kde-format
+msgid "Target"
+msgstr "Cel"
+
+#: src/notecontent.cpp:1712 src/notecontent.cpp:1981
+#, kde-format
+msgid "Open this link"
+msgstr "Otwórz ten link"
+
+#: src/notecontent.cpp:1738
+#, kde-format
+msgid "Link have no URL to open."
+msgstr "Odnośnik nie zawiera URL-a do otwarcia."
+
+#: src/notecontent.cpp:1742
+#, kde-format
+msgid "Opening link target..."
+msgstr "Otwieram odnośnik..."
+
+#: src/notecontent.cpp:1744
+#, kde-format
+msgid "Opening link targets..."
+msgstr "Otwieram odnośniki..."
+
+#: src/notecontent.cpp:1746
+#, kde-format
+msgid "Opening link target with..."
+msgstr "Otwieranie odnośnika w..."
+
+#: src/notecontent.cpp:1748
+#, kde-format
+msgid "Opening link targets with..."
+msgstr "Otwieranie odnośników w..."
+
+#: src/notecontent.cpp:1750
+#, kde-format
+msgid "Open link target with:"
+msgstr "Otwórz odnośnik w:"
+
+#: src/notecontent.cpp:1752
+#, kde-format
+msgid "Open link targets with:"
+msgstr "Otwórz odnośniki w:"
+
+#: src/notecontent.cpp:1994
+#, kde-format
+msgid "Link to %1"
+msgstr "Odnośnik do %1"
+
+#: src/notecontent.cpp:2007
+#, kde-format
+msgid "Link has no basket to open."
+msgstr "Odnośnik nie ma koszyka do otwarcia."
+
+#: src/notecontent.cpp:2011
+#, kde-format
+msgid "Opening basket..."
+msgstr "Otwieranie koszyka..."
+
+#: src/notecontent.cpp:2116
+#, kde-format
+msgid "%1 <i>(run in terminal)</i>"
+msgstr "%1 <i>(uruchom w terminalu)</i>"
+
+#: src/notecontent.cpp:2121
+#, kde-format
+msgid "Command"
+msgstr "Polecenie"
+
+#: src/notecontent.cpp:2145
+#, kde-format
+msgid "Launch this application"
+msgstr "Uruchom ten program"
+
+#: src/notecontent.cpp:2166
+#, kde-format
+msgid "The launcher have no command to run."
+msgstr "Skrót nie zawiera polecenia do wykonania."
+
+#: src/notecontent.cpp:2170
+#, kde-format
+msgid "Launching application..."
+msgstr "Uruchamianie programu..."
+
+#: src/notecontent.cpp:2172
+#, kde-format
+msgid "Launching applications..."
+msgstr "Uruchamianie programów..."
+
+#: src/notecontent.cpp:2290
+#, kde-format
+msgctxt "RGB Colorspace: Red/Green/Blue"
+msgid "RGB"
+msgstr "RGB"
+
+#: src/notecontent.cpp:2291
+#, kde-format
+msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
+msgstr "<i>Czerwony</i>: %1, <i>Zielony</i>: %2, <i>Niebieski</i>: %3,"
+
+#: src/notecontent.cpp:2292
+#, kde-format
+msgctxt "HSV Colorspace: Hue/Saturation/Value"
+msgid "HSV"
+msgstr "HSV"
+
+#: src/notecontent.cpp:2293
+#, kde-format
+msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
+msgstr "<i>Barwa</i>: %1, <i>Nasycenie</i>: %2, <i>Wartość</i>: %3,"
+
+#: src/notecontent.cpp:2297
+#, kde-format
+msgid "CSS Color Name"
+msgstr "Nazwa koloru CSS"
+
+#: src/notecontent.cpp:2300
+#, kde-format
+msgid "Is Web Color"
+msgstr "Czy jest kolorem Sieci"
+
+#: src/notecontent.cpp:2300
+#, kde-format
+msgid "Yes"
+msgstr "Tak"
+
+#: src/notecontent.cpp:2300
+#, kde-format
+msgid "No"
+msgstr "Nie"
+
+#: src/noteedit.cpp:530
+#, kde-format
+msgid ""
+"Images can not be edited here at the moment (the next version of BasKet Note "
+"Pads will include an image editor).\n"
+"Do you want to open it with an application that understand it?"
+msgstr ""
+"W tej chwili nie można tutaj edytować obrazów (następna wersja Koszyka "
+"będzie zawierać edytor obrazów).\n"
+"Czy chcesz otworzyć go w programie, który posiada taką możliwość?"
+
+#: src/noteedit.cpp:532
+#, kde-format
+msgid "Edit Image Note"
+msgstr "Edytuj notatkę obrazową"
+
+#: src/noteedit.cpp:557
+#, kde-format
+msgid ""
+"This animated image can not be edited here.\n"
+"Do you want to open it with an application that understands it?"
+msgstr ""
+"Ten animowany obraz nie może być tu zmieniony.\n"
+"Czy chcesz otworzyć go w programie który może to wykonać?"
+
+#: src/noteedit.cpp:559
+#, kde-format
+msgid "Edit Animation Note"
+msgstr "Zmień animację"
+
+#: src/noteedit.cpp:652
+#, kde-format
+msgid "Edit Color Note"
+msgstr "Zmień kolor"
+
+#: src/noteedit.cpp:677
+#, kde-format
+msgid ""
+"The type of this note is unknown and can not be edited here.\n"
+"You however can drag or copy the note into an application that understands "
+"it."
+msgstr ""
+"Ten typ notatki jest nieznany i nie może być tutaj edytowany.\n"
+"Możesz jednak przeciągnąć kopię notatki do aplikacji, która posiada taką "
+"możliwość."
+
+#: src/noteedit.cpp:679
+#, kde-format
+msgid "Edit Unknown Note"
+msgstr "Zmień nieznaną notatkę"
+
+#: src/noteedit.cpp:691
+#, kde-format
+msgid "Edit Link Note"
+msgstr "Zmień odnośnik"
+
+#: src/noteedit.cpp:711 src/noteedit.cpp:743
+#, kde-format
+msgid "Auto"
+msgstr "Automatycznie"
+
+#: src/noteedit.cpp:723 src/noteedit.cpp:1045
+#, kde-format
+msgid "&Icon:"
+msgstr "&Ikona:"
+
+#: src/noteedit.cpp:765 src/noteedit.cpp:932
+#, kde-format
+msgid "Ta&rget:"
+msgstr "&Cel:"
+
+#: src/noteedit.cpp:770
+#, kde-format
+msgid "&Title:"
+msgstr "&Tytuł:"
+
+#: src/noteedit.cpp:901
+#, kde-format
+msgid "Edit Cross Reference"
+msgstr "Edytuj odniesienie bibliograficzne"
+
+#: src/noteedit.cpp:1019
+#, kde-format
+msgid "Edit Launcher Note"
+msgstr "Zmień uruchamianie programu"
+
+#: src/noteedit.cpp:1033
+#, kde-format
+msgid "Choose a command to run:"
+msgstr "Wybierz polecenie do uruchomienia:"
+
+#: src/noteedit.cpp:1050
+#, kde-format
+msgid "&Guess"
+msgstr "Od&gadnij"
+
+#: src/noteedit.cpp:1068
+#, kde-format
+msgid "Comman&d:"
+msgstr "P&olecenie:"
+
+#: src/noteedit.cpp:1073 src/tagsedit.cpp:388
+#, kde-format
+msgid "&Name:"
+msgstr "&Nazwa:"
+
+#: src/noteedit.cpp:1178
+#, kde-format
+msgid "Font"
+msgstr "Czcionka"
+
+#: src/noteedit.cpp:1186
+#, kde-format
+msgid "Font Size"
+msgstr "Rozmiar czcionki"
+
+#: src/noteedit.cpp:1201 src/tagsedit.cpp:466
+#, kde-format
+msgid "Bold"
+msgstr "Pogrubienie"
+
+#: src/noteedit.cpp:1208 src/tagsedit.cpp:478
+#, kde-format
+msgid "Italic"
+msgstr "Kursywa"
+
+#: src/noteedit.cpp:1215 src/tagsedit.cpp:472
+#, kde-format
+msgid "Underline"
+msgstr "Podkreślenie"
+
+#: src/noteedit.cpp:1223
+#, kde-format
+msgid "Superscript"
+msgstr "Indeks górny"
+
+#: src/noteedit.cpp:1229
+#, kde-format
+msgid "Subscript"
+msgstr "Indeks dolny"
+
+#: src/noteedit.cpp:1236
+#, kde-format
+msgid "Align Left"
+msgstr "Wyrównaj do lewej"
+
+#: src/noteedit.cpp:1242
+#, kde-format
+msgid "Centered"
+msgstr "Wyśrodkowanie"
+
+#: src/noteedit.cpp:1248
+#, kde-format
+msgid "Align Right"
+msgstr "Do prawej"
+
+#: src/noteedit.cpp:1254
+#, kde-format
+msgid "Justified"
+msgstr "Wyjustowanie"
+
+#: src/noteedit.cpp:1266
+#, kde-format
+msgid "Undo"
+msgstr "Cofnij"
+
+#: src/noteedit.cpp:1272
+#, kde-format
+msgid "Redo"
+msgstr "Przywróć"
+
+#: src/notefactory.cpp:491
+#, kde-format
+msgid ""
+"<p>%1 doesn't support the data you've dropped.<br>It however created a "
+"generic note, allowing you to drag or copy it to an application that "
+"understand it.</p><p>If you want the support of these data, please contact "
+"developer.</p>"
+msgstr ""
+"<p>%1 nie wspiera danych jakie upuściłeś.<br>Mimo to została utworzona "
+"ogólna notatka pozwalająca na przeciągnięcie i upuszczenie jej do programu, "
+"który ją rozumie.</p><p>Jeśli chcesz by ten rodzaj danych był wspierany "
+"proszę skontaktować się z programistą.</p>"
+
+#: src/notefactory.cpp:495
+#, kde-format
+msgid "Unsupported MIME Type(s)"
+msgstr "Nieobsługiwany typ MIME"
+
+#: src/notefactory.cpp:549
+#, kde-format
+msgid "&Move Here\tShift"
+msgstr "&Przenieś tutaj\tShift"
+
+#: src/notefactory.cpp:549
+#, kde-format
+msgid "&Copy Here\tCtrl"
+msgstr "S&kopiuj tutaj\tCtrl"
+
+#: src/notefactory.cpp:550
+#, kde-format
+msgid "&Link Here\tCtrl+Shift"
+msgstr "&Dowiąż tutaj\tCtrl+Shift"
+
+#: src/notefactory.cpp:556
+#, kde-format
+msgid "C&ancel\tEscape"
+msgstr "&Anuluj\tEscape"
+
+#: src/notefactory.cpp:1047
+#, kde-format
+msgid "Import Icon as Image"
+msgstr "Zaimportuj ikonę jako obraz"
+
+#: src/notefactory.cpp:1047
+#, kde-format
+msgid "Choose the size of the icon to import as an image:"
+msgstr "Wybierz rozmiar ikony do importu jako obraz:"
+
+#: src/notefactory.cpp:1060
+#, kde-format
+msgid "Load File Content into a Note"
+msgstr "Wczytaj zawartość pliku do notatki"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
+#: src/password.cpp:29 src/passwordlayout.ui:14 src/settings.cpp:541
+#, kde-format
+msgid "Password Protection"
+msgstr "Ochrona hasłem"
+
+#: src/password.cpp:58
+#, kde-format
+msgid "No private key selected."
+msgstr "Nie wybrano klucza prywatnego."
+
+#. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
+#: src/passwordlayout.ui:29
+#, kde-format
+msgid "&No protection"
+msgstr "&Brak ochrony"
+
+#. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
+#: src/passwordlayout.ui:36
+#, kde-format
+msgid "Protect basket with a &password"
+msgstr "Chroń koszyk &hasłem"
+
+#. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
+#: src/passwordlayout.ui:51
+#, kde-format
+msgid "Protect basket with private &key:"
+msgstr "Chroń koszyk &kluczem prywatnym:"
+
+#: src/regiongrabber.cpp:103
+#, kde-format
+msgid ""
+"Select a region using the mouse. To take the snapshot, press the Enter key. "
+"Press Esc to quit."
+msgstr ""
+"Zaznacz obszar wskaźnikiem myszy. Aby wykonać zrzut ekranu, naciśnij klawisz "
+"Enter. Naciśnij klawisz Esc, aby przerwać."
+
+#: src/settings.cpp:390
+#, kde-format
+msgid "On left"
+msgstr "Po lewej"
+
+#: src/settings.cpp:391
+#, kde-format
+msgid "On right"
+msgstr "Po prawej"
+
+#: src/settings.cpp:393
+#, kde-format
+msgid "&Basket tree position:"
+msgstr "Położenie drzewa &koszyków:"
+
+#: src/settings.cpp:398 src/settings.cpp:652
+#, kde-format
+msgid "On top"
+msgstr "Na górze"
+
+#: src/settings.cpp:399 src/settings.cpp:653
+#, kde-format
+msgid "On bottom"
+msgstr "Na dole"
+
+#: src/settings.cpp:401
+#, kde-format
+msgid "&Filter bar position:"
+msgstr "Położenie paska &filtrowania:"
+
+#: src/settings.cpp:445
+#, kde-format
+msgid "&Show tooltips in baskets"
+msgstr "&Pokaż dymki w koszykach"
+
+#: src/settings.cpp:449
+#, kde-format
+msgid "&Big notes"
+msgstr "&Duże notatki"
+
+#: src/settings.cpp:455
+#, kde-format
+msgid "Behavior"
+msgstr "Zachowanie"
+
+#: src/settings.cpp:460
+#, kde-format
+msgid "&Transform lines starting with * or - to lists in text editors"
+msgstr "Zamień &linie zaczynające się * lub - na listy w edytorach tekstu"
+
+#: src/settings.cpp:464
+#, kde-format
+msgid "Ask confirmation before &deleting notes"
+msgstr "Proś o potwierdzenie przed &usunięciem notatek"
+
+#: src/settings.cpp:468
+#, kde-format
+msgid "Keep text formatting when pasting"
+msgstr "Zachowaj formatowanie tekstu przy wklejaniu"
+
+#: src/settings.cpp:472
+#, kde-format
+msgid "Automatically detect tags from note's content"
+msgstr "Sam wykryj znaczniki z treści notatki"
+
+#: src/settings.cpp:479
+#, kde-format
+msgid "&Export tags in texts"
+msgstr "Wy&eksportuj znaczniki w tekście"
+
+#: src/settings.cpp:482
+#, kde-format
+msgid "When does this apply?"
+msgstr "Kiedy to się stosuje?"
+
+#: src/settings.cpp:483
+#, kde-format
+msgid ""
+"It does apply when you copy and paste, or drag and drop notes to a text "
+"editor."
+msgstr ""
+"Znajduje zastosowanie kiedy kopiujesz/wklejasz lub przeciągasz i upuszczasz "
+"notatki w edytorze tekstu."
+
+#: src/settings.cpp:483
+#, kde-format
+msgid ""
+"If enabled, this property lets you paste the tags as textual equivalents."
+msgstr "Jeśli włączone, pozwala wkleić znaczniki w formie tekstowej."
+
+#. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
+#: src/settings.cpp:484 src/tagsedit.cpp:519
+#, kde-format
+msgid ""
+"For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
+"exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
+"empty checkbox and a checked box."
+msgstr ""
+"Na przykład lista notatek ze znacznikami <b>Do zrobienia</b> i <b>Zrobione</"
+"b> zostaną eksportowane jako wiersze poprzedzone <b>[ ]</b> lub <b>[x]</b>, "
+"reprezentującymi puste pole wyboru i wypełnione."
+
+#: src/settings.cpp:496
+#, kde-format
+msgid "&Group a new note when clicking on the right of the insertion line"
+msgstr "&Grupuj nową notatkę klikając po prawej stronie linii wstawiania"
+
+#: src/settings.cpp:497
+#, kde-format
+msgid "How to group a new note?"
+msgstr "Jak zgrupować nową notatkę?"
+
+#: src/settings.cpp:498
+#, kde-format
+msgid ""
+"<p>When this option is enabled, the insertion-line not only allows you to "
+"insert notes at the cursor position, but also allows you to group a new note "
+"with the one under the cursor:</p>"
+msgstr ""
+"<p>Gdy ta opcja jest zaznaczona linia wstawiania nie tylko pozwala na "
+"wstawianie notatek w położenie kursora, ale także pozwala na grupowanie "
+"nowej notatki razem z tą, nad którą jest kursor:</p>"
+
+#: src/settings.cpp:500
+#, kde-format
+msgid ""
+"<p>Place your mouse between notes, where you want to add a new one.<br>Click "
+"on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note."
+"<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
+"or above</b>, depending on where your mouse is.</p>"
+msgstr ""
+"<p>Umieść wskaźnik myszy między notatkami, tam gdzie chcesz dodać nową."
+"<br>Kliknij po <b>lewej</b> stronie środka linii wstawiania aby <b>wstawić</"
+"b> notatkę. <br>Kliknij po <b>prawej</b> aby <b>zgrupować</b> notatkę z inną "
+"<b>poniżej albo powyżej</b>, w zależności od położenia wskaźnika myszy.</p>"
+
+#: src/settings.cpp:516
+#, kde-format
+msgid "Do nothing"
+msgstr "Nic nie rób"
+
+#: src/settings.cpp:517
+#, kde-format
+msgid "Paste clipboard"
+msgstr "Wklej zawartość schowka"
+
+#: src/settings.cpp:520
+#, kde-format
+msgid "Insert cross reference"
+msgstr "Wstaw odniesienie bibliograficzne"
+
+#: src/settings.cpp:521
+#, kde-format
+msgid "Insert launcher note"
+msgstr "Wstaw uruchamianie programów"
+
+#: src/settings.cpp:524
+#, kde-format
+msgid "Insert color from screen"
+msgstr "Wstaw kolor z ekranu"
+
+#: src/settings.cpp:525
+#, kde-format
+msgid "Load note from file"
+msgstr "Wczytaj notatkę z pliku"
+
+#: src/settings.cpp:526
+#, kde-format
+msgid "Import Launcher for desktop application"
+msgstr "Zaimportuj skrót dla programu z pulpitu"
+
+#: src/settings.cpp:527
+#, kde-format
+msgid "Import icon"
+msgstr "Zaimportuj ikonę"
+
+#: src/settings.cpp:530
+#, kde-format
+msgid "&Shift+middle-click anywhere:"
+msgstr "&Shift+środkowy przycisk wszędzie:"
+
+#: src/settings.cpp:535
+#, kde-format
+msgid "at cursor position"
+msgstr "w bieżącym miejscu"
+
+#: src/settings.cpp:550
+#, kde-format
+msgid "A&utomatically lock protected baskets when closed for"
+msgstr "A&utomatycznie blokuj chronione koszyki kiedy zamknięte od"
+
+#: src/settings.cpp:554
+#, kde-format
+msgid " minutes"
+msgstr " minuty"
+
+#: src/settings.cpp:565
+#, kde-format
+msgid "Use GnuPG agent for &private/public key protected baskets"
+msgstr ""
+"Użyj agenta GnuPG dla koszyków chronionych kluczem &prywatnym/publicznym"
+
+#: src/settings.cpp:649
+#, kde-format
+msgid "&Place of new notes:"
+msgstr "U&miejscowienie nowych notatek:"
+
+#: src/settings.cpp:654
+#, kde-format
+msgid "At current note"
+msgstr "Przy bieżącej notatce"
+
+#: src/settings.cpp:673
+#, kde-format
+msgid "&New images size:"
+msgstr "Rozmiar &nowych obrazów:"
+
+#: src/settings.cpp:686
+#, kde-format
+msgid "&by"
+msgstr "&na"
+
+#: src/settings.cpp:691
+#, kde-format
+msgid "pixels"
+msgstr "pikseli"
+
+#: src/settings.cpp:693
+#, kde-format
+msgid "&Visualize..."
+msgstr "&Wizualizuj..."
+
+#: src/settings.cpp:701
+#, kde-format
+msgid "View Content of Added Files for the Following Types"
+msgstr "Pokaż zawartość dodanych plików dla następujących typów"
+
+#: src/settings.cpp:703
+#, kde-format
+msgid "&Plain text"
+msgstr "&Tekst zwykły"
+
+#: src/settings.cpp:704
+#, kde-format
+msgid "&HTML page"
+msgstr "Strona &HTML"
+
+#: src/settings.cpp:705
+#, kde-format
+msgid "&Image or animation"
+msgstr "&Obraz lub animacja"
+
+#: src/settings.cpp:706
+#, kde-format
+msgid "&Sound"
+msgstr "Dź&więk"
+
+#: src/settings.cpp:776
+#, kde-format
+msgid "Conference audio record"
+msgstr "nagranie audio konferencji"
+
+#: src/settings.cpp:777
+#, kde-format
+msgid "Annual report"
+msgstr "Raport roczny"
+
+#: src/settings.cpp:778
+#, kde-format
+msgid "Home folder"
+msgstr "Katalog domowy"
+
+#: src/settings.cpp:780
+#, kde-format
+msgid "Launch %1"
+msgstr "Uruchamianie programu %1"
+
+#: src/settings.cpp:781
+#, kde-format
+msgid "Another basket"
+msgstr "Inny koszyk"
+
+#: src/settings.cpp:783
+#, kde-format
+msgid "&Sounds"
+msgstr "&Dźwięki"
+
+#: src/settings.cpp:784
+#, kde-format
+msgid "&Files"
+msgstr "&Pliki"
+
+#: src/settings.cpp:785
+#, kde-format
+msgid "&Local Links"
+msgstr "Dowiązania &lokalne"
+
+#: src/settings.cpp:786
+#, kde-format
+msgid "&Network Links"
+msgstr "Dowiązania &sieciowe"
+
+#: src/settings.cpp:787
+#, kde-format
+msgid "Launc&hers"
+msgstr "Uruc&hamianie programów"
+
+#: src/settings.cpp:788
+#, kde-format
+msgid "&Cross References"
+msgstr "Odnośniki bibliografi&czne"
+
+#: src/settings.cpp:831
+#, kde-format
+msgid "Open &text notes with a custom application:"
+msgstr "Otwórz notatki &tekstowe w programie użytkownika:"
+
+#: src/settings.cpp:832
+#, kde-format
+msgid "Open text notes with:"
+msgstr "Otwórz notatki tekstowe w:"
+
+#: src/settings.cpp:839
+#, kde-format
+msgid "Open &image notes with a custom application:"
+msgstr "Otwórz notatk&i obrazowe w programie użytkownika:"
+
+#: src/settings.cpp:840
+#, kde-format
+msgid "Open image notes with:"
+msgstr "Otwórz notatki obrazowe w:"
+
+#: src/settings.cpp:847
+#, kde-format
+msgid "Open a&nimation notes with a custom application:"
+msgstr "Otwórz a&nimacje w programie użytkownika:"
+
+#: src/settings.cpp:848
+#, kde-format
+msgid "Open animation notes with:"
+msgstr "Otwórz animacje w:"
+
+#: src/settings.cpp:855
+#, kde-format
+msgid "Open so&und notes with a custom application:"
+msgstr "Otwórz pliki &dźwiękowe w programie użytkownika:"
+
+#: src/settings.cpp:856
+#, kde-format
+msgid "Open sound notes with:"
+msgstr "Otwórz pliki dźwiękowe w:"
+
+#: src/settings.cpp:864
+#, kde-format
+msgid ""
+"<p>If checked, the application defined below will be used when opening that "
+"type of note.</p><p>Otherwise, the application you've configured in "
+"Konqueror will be used.</p>"
+msgstr ""
+"<p>Jeśli zaznaczona, program określony poniżej zostanie użyty do otwierania "
+"tego rodzaju notatek.</p><p>W innym wypadku zostanie użyty program "
+"określonyw Konquerorze.</p>"
+
+#: src/settings.cpp:873
+#, kde-format
+msgid ""
+"<p>Define the application to use for opening that type of note instead of "
+"the application configured in Konqueror.</p>"
+msgstr ""
+"<p>Zdefiniuj program do otwierania tego typu notatek zamiast programu "
+"zdefiniowanego w Konquerorze.</p>"
+
+#: src/settings.cpp:891
+#, kde-format
+msgid "How to change the application used to open Web links?"
+msgstr "Jak zmienić program używany do otwierania odnośników WWW?"
+
+#: src/settings.cpp:892
+#, kde-format
+msgid ""
+"<p>When opening Web links, they are opened in different applications, "
+"depending on the content of the link (a Web page, an image, a PDF "
+"document...), such as if they were files on your computer.</p><p>Here is how "
+"to do if you want every Web addresses to be opened in your Web browser. It "
+"is useful if you are not using Plasma (if you are using eg. GNOME, XFCE...)."
+"</p><ul><li>Open the KDE System Settings (if it is not available, try to "
+"type \"systemsettings\" in a command line terminal);</li><li>Go to the "
+"\"Applications\" and then \"Default Applications\" section;</li><li>Choose "
+"\"Web Browser\", check \"with the following command:\" and enter the name of "
+"your Web browser (like \"firefox\" or \"epiphany\").</li></ul><p>Now, when "
+"you click <i>any</i> link that start with \"https://...\", it will be opened "
+"in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p><p>For more "
+"fine-grained configuration (like opening only Web pages in your Web "
+"browser), read the second help link.</p>"
+msgstr ""
+"<p>Kiedy otwierasz linki WWW, otwierane są one w różnych programach w "
+"zależności od zawartości linka (strona WWW, obraz, plik PDF...), tak jakby "
+"były to pliki na twoim komputerze.</p><p>Tutaj objaśnione jest jak sprawić "
+"by każdy adres WWW był otwarty przeglądarce WWW. Pożyteczne jeśli nie "
+"używasz KDE (np. GNOME, XFCE...).</p><ul><li>Otwórz Ustawienia systemowe KDE "
+"(jeśli nie są dostępne, to spróbuj wywołać \"systemsettings\" z wiersza "
+"poleceń);</li> <li>Przejdź do \"Aplikacje\" a potem \"Domyślne aplikacje\";</"
+"li> <li>Wybierz \"Przeglądarka sieciowa\" zaznacz \"przy użyciu "
+"następującego polecenia:\" i wpisz nazwę swojej przeglądarki (np. \"firefox"
+"\" lub \"epiphany\").</li></ul><p>Teraz kiedy klikniesz <i>dowolny</i> "
+"odnośnik zaczynający się na \"https://...\" zostanie otwarty w przeglądarce "
+"sieciowej (np. Mozilla Firefox lub Epiphany lub...).</p><p>Dokładniejsze "
+"ustawienia (np. otwieranie tylko stron sieciowych w przeglądarce sieciowej) "
+"opisane są w drugim odnośniku.</p>"
+
+#: src/settings.cpp:909
+#, kde-format
+msgid "How to change the applications used to open files and links?"
+msgstr "Jak zmienić programy używane do otwierania plików i odnośników?"
+
+#: src/settings.cpp:910
+#, kde-format
+msgid ""
+"<p>Here is how to set the application to be used for each type of file. This "
+"also applies to Web links if you choose not to open them systematically in a "
+"Web browser (see the first help link). The default settings should be good "
+"enough for you, but this tip is useful if you are using GNOME, XFCE, or "
+"another environment than Plasma.</p><p>This is an example of how to open "
+"HTML pages in your Web browser (and keep using the other applications for "
+"other addresses or files). Repeat these steps for each type of file you want "
+"to open in a specific application.</p><ul><li>Open the KDE System Settings "
+"(if it is not available, try to type \"systemsettings\" in a command line "
+"terminal);</li><li>Go to the \"Applications\" and then \"File Associations\" "
+"section;</li><li>In the tree, expand \"text\" and click \"html\";</li><li>In "
+"the applications list, add your Web browser as the first entry;</li><li>Do "
+"the same for the type \"application -> xhtml+xml\".</li></ul>"
+msgstr ""
+"<p>Tutaj dowiesz się jak ustawić programy używane dla każdego rodzaju pliku. "
+"Stosuje się to także do odnośników sieciowych jeśli nie będziesz ich chciał "
+"otwierać w przeglądarce (zobacz pierwszy odnośnik). Domyślne ustawienia "
+"powinny być wystarczające, ale ta porada będzie pożyteczna dla użytkowników "
+"GNOME, XFCE lub innego niż KDE środowiska.</p><p>To jest przykład jak "
+"otwierać strony HTML w przeglądarce sieciowej (ale nadal używać innych "
+"programów do innych typów plików). Powtarzaj te kroi dla każdego typu pliku "
+"jaki chcesz używać w określonym programie.</p><ul><li>Otwórz Ustawienia "
+"Systemowe KDE (jeśli nie jest dostępne spróbuj wywołać \"systemsettings\" z "
+"wiersza poleceń);</li><li>Przejdź do \"Aplikacje\" a następnie \"Skojarzenia "
+"plików\";</li><li>W drzewie, rozwiń \"text\" i kliknij \"html\";</li> <li>Na "
+"liście programów dodaj swoją przeglądarkę sieciową jako pierwszy wpis;</"
+"li><li>Powtórz dla rodzaju \"application -> xhtml+xml\".</li></ul>"
+
+#: src/settings_versionsync.cpp:79
+#, kde-format
+msgid "Do you really want to remove old versions for all baskets?"
+msgstr "Czy na pewno usunąć stare wersje wszystkich koszyków?"
+
+#: src/settings_versionsync.cpp:79
+#, kde-format
+msgid "Version Sync"
+msgstr "Synchronizacja wersji"
+
+#: src/settings_versionsync.cpp:90
+#, kde-format
+msgid "This will free %1 MB"
+msgstr "Zwolni to %1 MB"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
+#: src/settings_versionsync.ui:17
+#, kde-format
+msgid "Enable distributed version control"
+msgstr "Włącz rozproszone zarządzanie wersją"
+
+#. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
+#: src/settings_versionsync.ui:24
+#, kde-format
+msgid "BasKet is built without version control (libgit2) support"
+msgstr "Koszyk został zbudowany bez obsługi zarządzania wersjami (libgit2)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
+#: src/settings_versionsync.ui:34
+#, kde-format
+msgid "Control"
+msgstr "Sterownie"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
+#: src/settings_versionsync.ui:45
+#, kde-format
+msgid "Clear version history"
+msgstr "Wyczyść historię wersji"
+
+#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
+#: src/settings_versionsync.ui:52
+#, kde-format
+msgid "TextLabel"
+msgstr "EtykietaTekstowa"
+
+#: src/softwareimporters.cpp:49
+#, kde-format
+msgid "Import Hierarchy"
+msgstr "Hierarchia importu"
+
+#: src/softwareimporters.cpp:59
+#, kde-format
+msgid "How to Import the Notes?"
+msgstr "Jak importować notatki?"
+
+#: src/softwareimporters.cpp:63
+#, kde-format
+msgid "&Keep original hierarchy (all notes in separate baskets)"
+msgstr ""
+"&Zachowaj oryginalną hierarchię (wszystkie notatki w oddzielnych koszykach)"
+
+#: src/softwareimporters.cpp:64
+#, kde-format
+msgid "&First level notes in separate baskets"
+msgstr "Notatki &pierwszego poziomu w oddzielnych koszykach"
+
+#: src/softwareimporters.cpp:65
+#, kde-format
+msgid "&All notes in one basket"
+msgstr "Wszystkie not&atki w jednym koszyku"
+
+#: src/softwareimporters.cpp:111
+#, kde-format
+msgid "Import Text File"
+msgstr "Zaimportuj plik tekstowy"
+
+#: src/softwareimporters.cpp:115
+#, kde-format
+msgid "Format of the Text File"
+msgstr "Format pliku tekstowego"
+
+#: src/softwareimporters.cpp:120
+#, kde-format
+msgid "Notes separated by an &empty line"
+msgstr "Notatki oddzielone pustym wi&erszem"
+
+#: src/softwareimporters.cpp:121
+#, kde-format
+msgid "One &note per line"
+msgstr "Jedna &notatka na wiersz"
+
+#: src/softwareimporters.cpp:122
+#, kde-format
+msgid "Notes begin with a &dash (-)"
+msgstr "Notatki zaczynają się &myślnikiem (-)"
+
+#: src/softwareimporters.cpp:123
+#, kde-format
+msgid "Notes begin with a &star (*)"
+msgstr "Notatki zaczynają się &gwiazdą (*)"
+
+#: src/softwareimporters.cpp:124
+#, kde-format
+msgid "&Use another separator:"
+msgstr "Stos&uj inny znak rozdzielający:"
+
+#: src/softwareimporters.cpp:140
+#, kde-format
+msgid "&All in one note"
+msgstr "Wszystko w jednej not&atce"
+
+#: src/softwareimporters.cpp:221
+#, kde-format
+msgctxt "From TextFile.txt"
+msgid "From %1"
+msgstr "Od %1"
+
+#: src/tag.cpp:82
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: src/tag.cpp:593
+#, kde-format
+msgid "To Do"
+msgstr "Do zrobienia"
+
+#: src/tag.cpp:593
+#, kde-format
+msgid "Unchecked"
+msgstr "Nie zaznaczony"
+
+#: src/tag.cpp:593
+#, kde-format
+msgid "Done"
+msgstr "Zrobione"
+
+#: src/tag.cpp:594
+#, kde-format
+msgid "Progress"
+msgstr "Postęp"
+
+#: src/tag.cpp:594
+#, kde-format
+msgid "0 %"
+msgstr "0 %"
+
+#: src/tag.cpp:594
+#, kde-format
+msgid "25 %"
+msgstr "25 %"
+
+#: src/tag.cpp:595
+#, kde-format
+msgid "50 %"
+msgstr "50 %"
+
+#: src/tag.cpp:595
+#, kde-format
+msgid "75 %"
+msgstr "75 %"
+
+#: src/tag.cpp:595
+#, kde-format
+msgid "100 %"
+msgstr "100 %"
+
+#: src/tag.cpp:648
+#, kde-format
+msgid "Priority"
+msgstr "Priorytet"
+
+#: src/tag.cpp:648
+#, kde-format
+msgid "Low"
+msgstr "Niski"
+
+#: src/tag.cpp:648
+#, kde-format
+msgid "Medium"
+msgstr "Średni"
+
+#: src/tag.cpp:649
+#, kde-format
+msgid "High"
+msgstr "Wysoki"
+
+#: src/tag.cpp:649
+#, kde-format
+msgid "Preference"
+msgstr "Ustawienia"
+
+#: src/tag.cpp:649
+#, kde-format
+msgid "Bad"
+msgstr "Złe"
+
+#: src/tag.cpp:650
+#, kde-format
+msgid "Good"
+msgstr "Dobre"
+
+#: src/tag.cpp:650
+#, kde-format
+msgid "Excellent"
+msgstr "Znakomite"
+
+#: src/tag.cpp:650
+#, kde-format
+msgid "Highlight"
+msgstr "Znaczące"
+
+#: src/tag.cpp:719
+#, kde-format
+msgid "Important"
+msgstr "Ważne"
+
+#: src/tag.cpp:719
+#, kde-format
+msgid "Very Important"
+msgstr "Bardzo ważne"
+
+#: src/tag.cpp:719
+#, kde-format
+msgid "Information"
+msgstr "Informacje"
+
+#: src/tag.cpp:720
+#, kde-format
+msgid "Idea"
+msgstr "Pomysł"
+
+#: src/tag.cpp:720
+#, kde-format
+msgctxt "The initial of 'Idea'"
+msgid "I."
+msgstr "I."
+
+#: src/tag.cpp:721
+#, kde-format
+msgid "Code"
+msgstr "Kod"
+
+#: src/tag.cpp:721
+#, kde-format
+msgid "Work"
+msgstr "Praca"
+
+#: src/tag.cpp:721
+#, kde-format
+msgctxt "The initial of 'Work'"
+msgid "W."
+msgstr "W."
+
+#: src/tag.cpp:739
+#, kde-format
+msgid "Personal"
+msgstr "Osobiste"
+
+#: src/tag.cpp:739
+#, kde-format
+msgctxt "The initial of 'Personal'"
+msgid "P."
+msgstr "P."
+
+#: src/tag.cpp:739
+#, kde-format
+msgid "Funny"
+msgstr "Śmieszne"
+
+#: src/tagsedit.cpp:314
+#, kde-format
+msgid "Customize Tags"
+msgstr "Dostosuj znaczniki"
+
+#: src/tagsedit.cpp:333
+#, kde-format
+msgid "Ne&w Tag"
+msgstr "No&wy znacznik"
+
+#: src/tagsedit.cpp:334
+#, kde-format
+msgid "New St&ate"
+msgstr "Nowy st&an"
+
+#: src/tagsedit.cpp:355
+#, kde-format
+msgid "Move Up (Ctrl+Shift+Up)"
+msgstr "Do góry (Ctrl+Shift+Up)"
+
+#: src/tagsedit.cpp:356
+#, kde-format
+msgid "Move Down (Ctrl+Shift+Down)"
+msgstr "Do dołu (Ctrl+Shift+Down)"
+
+#: src/tagsedit.cpp:357
+#, kde-format
+msgid "Delete"
+msgstr "Usuń"
+
+#: src/tagsedit.cpp:380
+#, kde-format
+msgid "Tag"
+msgstr "Znacznik"
+
+#: src/tagsedit.cpp:392
+#, kde-format
+msgctxt "Remove tag shortcut"
+msgid "&Remove"
+msgstr "&Usuń"
+
+#: src/tagsedit.cpp:393
+#, kde-format
+msgid "S&hortcut:"
+msgstr "&Skrót:"
+
+#: src/tagsedit.cpp:398
+#, kde-format
+msgid "&Inherited by new sibling notes"
+msgstr "Dz&iedziczony przez nowe notatki równorzędne"
+
+#: src/tagsedit.cpp:400
+#, kde-format
+msgid "Allow Cross Reference Links"
+msgstr "Zezwalaj na odnośniki bibliograficzne"
+
+#: src/tagsedit.cpp:402
+#, kde-format
+msgid "What does this do?"
+msgstr "Co to robi?"
+
+#: src/tagsedit.cpp:403
+#, kde-format
+msgid ""
+"This option will enable you to type a cross reference link directly into a "
+"text note. Cross Reference links can have the following syntax:"
+msgstr ""
+"To ustawienie umożliwi wpisanie odnośnika bibliograficznego bezpośrednio w "
+"notatce tekstowej. Odnośniki bibliograficzne są zapisywane zgodnie z "
+"następującą składnią:"
+
+#: src/tagsedit.cpp:404
+#, kde-format
+msgid "From the top of the tree (Absolute path):"
+msgstr "Ze szczytu drzewa (ścieżka bezwzględna):"
+
+#: src/tagsedit.cpp:404
+#, kde-format
+msgid "[[/top level item/child|optional title]]"
+msgstr "[[/element ze szczytowego poziomu|tytuł do wyboru]]"
+
+#: src/tagsedit.cpp:404
+#, kde-format
+msgid "Relative to the current basket:"
+msgstr "Względem bieżącego koszyka:"
+
+#: src/tagsedit.cpp:405
+#, kde-format
+msgid "[[../sibling|optional title]]"
+msgstr "[[../równorzędny|tytuł do wyboru]]"
+
+#: src/tagsedit.cpp:405
+#, kde-format
+msgid "[[child|optional title]]"
+msgstr "[[podrzędny|tytuł do wyboru]]"
+
+#: src/tagsedit.cpp:405
+#, kde-format
+msgid "[[./child|optional title]]"
+msgstr "[[./podrzędny|tytuł do wyboru]]"
+
+#: src/tagsedit.cpp:406
+#, kde-format
+msgid "Baskets matching is cAse inSEnsItive."
+msgstr "Wyszukiwanie koszyków jest uWzglęDnia wiElKość liTeR."
+
+#: src/tagsedit.cpp:420 src/tagsedit.cpp:1089 src/tagsedit.cpp:1105
+#, kde-format
+msgid "State"
+msgstr "Stan"
+
+#: src/tagsedit.cpp:428
+#, kde-format
+msgid "Na&me:"
+msgstr "&Nazwa:"
+
+#: src/tagsedit.cpp:436
+#, kde-format
+msgctxt "Remove tag emblem"
+msgid "Remo&ve"
+msgstr "&Usuń"
+
+#: src/tagsedit.cpp:437
+#, kde-format
+msgid "&Emblem:"
+msgstr "&Emblemat:"
+
+#: src/tagsedit.cpp:454
+#, kde-format
+msgid "&Background:"
+msgstr "Tł&o:"
+
+#: src/tagsedit.cpp:484
+#, kde-format
+msgid "Strike Through"
+msgstr "Przekreślenie"
+
+#: src/tagsedit.cpp:486
+#, kde-format
+msgid "&Text:"
+msgstr "&Tekst:"
+
+#: src/tagsedit.cpp:497
+#, kde-format
+msgid "Co&lor:"
+msgstr "Kolo&r:"
+
+#: src/tagsedit.cpp:502
+#, kde-format
+msgid "&Font:"
+msgstr "&Czcionka:"
+
+#: src/tagsedit.cpp:506
+#, kde-format
+msgid "&Size:"
+msgstr "Ro&zmiar:"
+
+#: src/tagsedit.cpp:510
+#, kde-format
+msgid "Te&xt equivalent:"
+msgstr "Ekwiwalent &tekstowy:"
+
+#: src/tagsedit.cpp:516
+#, kde-format
+msgid "What is this for?"
+msgstr "Do czego jest?"
+
+#: src/tagsedit.cpp:517
+#, kde-format
+msgid ""
+"When you copy and paste or drag and drop notes to a text editor, this text "
+"will be inserted as a textual equivalent of the tag."
+msgstr ""
+"Gdy kopiujesz/wklejasz lub przeciągasz i upuszczasz notatki w edytorze "
+"tekstu, to tekst ten zostanie wstawiony jako równoważnik tekstowy znacznika."
+
+#: src/tagsedit.cpp:527
+#, kde-format
+msgid "On ever&y line"
+msgstr "W każd&ym wierszu"
+
+#: src/tagsedit.cpp:529
+#, kde-format
+msgid "What does this mean?"
+msgstr "Co to oznacza?"
+
+#: src/tagsedit.cpp:530
+#, kde-format
+msgid ""
+"When a note has several lines, you can choose to export the tag or the state "
+"on the first line or on every line of the note."
+msgstr ""
+"Kiedy notatka ma kilka wierszy, to możesz wybrać eksport znacznika lub stanu "
+"tylko w pierwszym wierszu lub w każdym wierszu notatki."
+
+#: src/tagsedit.cpp:532
+#, kde-format
+msgid ""
+"In the example above, the tag of the top note is only exported on the first "
+"line, while the tag of the bottom note is exported on every line of the note."
+msgstr ""
+"W przykładzie powyżej, znacznik górnej notatki został wyeksportowany tylko w "
+"pierwszym wierszu, podczas gdy znacznik dolnej notatki został wyeksportowany "
+"w każdym wierszu notatki."
+
+#: src/tagsedit.cpp:970
+#, kde-format
+msgid ""
+"Deleting the tag will remove it from every note it is currently assigned to."
+msgstr ""
+"Usunięcie znacznika spowoduje jego usunięcie z każdej notatki, do której "
+"został przypisany."
+
+#: src/tagsedit.cpp:970
+#, kde-format
+msgid "Confirm Delete Tag"
+msgstr "Potwierdź usunięcie znacznika"
+
+#: src/tagsedit.cpp:970
+#, kde-format
+msgid "Delete Tag"
+msgstr "Usuń znacznik"
+
+#: src/tagsedit.cpp:972
+#, kde-format
+msgid ""
+"Deleting the state will remove the tag from every note the state is "
+"currently assigned to."
+msgstr ""
+"Usunięcie stanu spowoduje zniknięcie znacznika z każdej notatki do jakiej "
+"został przypisany."
+
+#: src/tagsedit.cpp:972
+#, kde-format
+msgid "Confirm Delete State"
+msgstr "Potwierdź usunięcie stanu"
+
+#: src/tagsedit.cpp:972
+#, kde-format
+msgid "Delete State"
+msgstr "Usuń stan"
+
+#: src/tools.cpp:800
+#, kde-format
+msgctxt "Document/application separator in titlebar"
+msgid " – "
+msgstr " – "
+
+#: src/variouswidgets.cpp:42
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#: src/variouswidgets.cpp:79 src/variouswidgets.cpp:80
+#: src/variouswidgets.cpp:81 src/variouswidgets.cpp:82
+#: src/variouswidgets.cpp:83 src/variouswidgets.cpp:84
+#: src/variouswidgets.cpp:225 src/variouswidgets.cpp:226
+#: src/variouswidgets.cpp:227 src/variouswidgets.cpp:228
+#: src/variouswidgets.cpp:229 src/variouswidgets.cpp:230
+#, kde-format
+msgid "%1 by %1 pixels"
+msgstr "%1 na %1 piksele"
+
+#: src/variouswidgets.cpp:141
+#, kde-format
+msgid ""
+"Resize the window to select the image size\n"
+"and close it or press Escape to accept changes."
+msgstr ""
+"Zmień rozmiar okna by wybrać rozmiar obrazu\n"
+"i zamknij je lub wciśnij Escape, aby zatwierdzić zmiany."
+
+#~ msgid "Save Error"
+#~ msgstr "Błąd zapisu"
+
+#~ msgid "Dropped to basket <i>%1</i>"
+#~ msgstr "Upuszczone do koszyka <i>%1</i>"
+
+#~ msgid "Show/hide main window"
+#~ msgstr "Pokaż/ukryj główne okno"
+
+#~ msgid ""
+#~ "Allows you to show main Window if it is hidden, and to hide it if it is "
+#~ "shown."
+#~ msgstr "Pokazuje główne okno jeśli jest ukryte i ukrywa jeśli je widać."
+
+#~ msgid "Show current basket name"
+#~ msgstr "Pokaż nazwę bieżącego koszyka"
+
+#~ msgid ""
+#~ "Allows you to know basket is current without opening the main window."
+#~ msgstr ""
+#~ "Dzięki temu będzie można poznać nazwę bieżącego koszyka bez potrzeby "
+#~ "otwierania głównego okna."
+
+#~ msgid "&Hide Window"
+#~ msgstr "&Ukryj okno"
+
+#~ msgid "Picked color to basket <i>%1</i>"
+#~ msgstr "Pobrano kolor do koszyka <i>%1</i>"
+
+#~ msgid "Grabbed screen zone to basket <i>%1</i>"
+#~ msgstr "Pobrano region ekranu do koszyka <i>%1</i>"
+
+#~ msgid "Clipboard content pasted to basket <i>%1</i>"
+#~ msgstr "Zawartość schowka wklejono do koszyka <i>%1</i>"
+
+#~ msgid "Selection pasted to basket <i>%1</i>"
+#~ msgstr "Zaznaczenie wklejono do koszyka <i>%1</i>"
+
+#~ msgid "No note was added."
+#~ msgstr "Nie dodano notatki."
+
+#~ msgid "(Locked)"
+#~ msgstr "(Zablokowany)"
+
+#, fuzzy
+#~ msgid ""
+#~ "<p>Notice that you do not have to quit the application before ending your "
+#~ "desktop session. If you end your session while the application is still "
+#~ "running, the application will be reloaded the next time you log in.</p>"
+#~ msgstr ""
+#~ "<p>Pamiętaj, że nie musisz opuszczać programu zanim zakończysz sesję KDE. "
+#~ "Jeśli zakończysz sesję a program cały czas działa, program zostanie "
+#~ "uruchomiony przy następnym zalogowaniu.</p>"
+
+#~ msgid "&Use balloons to report results of global actions"
+#~ msgstr "&Użyj dymków do powiadamiania o wynikach działań globalnych"
+
+#~ msgid "What are global actions?"
+#~ msgstr "Co to są działania globalne?"
+
+#~ msgid ""
+#~ "You can configure global shortcuts to do some actions without having to "
+#~ "show the main window. For instance, you can paste the clipboard content, "
+#~ "take a color from a point of the screen, etc. You can also use the mouse "
+#~ "scroll wheel over the system tray icon to change the current basket. Or "
+#~ "use the middle mouse button on that icon to paste the current selection."
+#~ msgstr ""
+#~ "Możesz skonfigurować skróty globalne dla kilku akcji bez potrzeby "
+#~ "otwierania głównego okna. Na przykład można wklejać zawartość schowka, "
+#~ "pobierać kolor z ekranu, itd. Możesz także użyć rolki myszy nad ikoną w "
+#~ "tacce systemowej by zmienić bieżący koszyk lub użyć środkowego przycisku "
+#~ "myszy nad tą ikoną by wkleić bieżące zaznaczenie."
+
+#~ msgid ""
+#~ "When doing so, %1 pops up a little balloon message to inform you the "
+#~ "action has been successfully done. You can disable that balloon."
+#~ msgstr ""
+#~ "Robiąc to, %1 pokazuje mały dymek z wiadomością informującą cię o "
+#~ "zakończonej z powodzeniem akcji. Możesz wyłączyć ten dymek."
+
+#~ msgid ""
+#~ "Note that those messages are smart enough to not appear if the main "
+#~ "window is visible. This is because you already see the result of your "
+#~ "actions in the main window."
+#~ msgstr ""
+#~ "Pamiętaj że te wiadomości są na tyle sprytne by nie pojawiać się kiedy "
+#~ "główne okno jest widoczne. Dzieje się tak ponieważ jesteś w stanie "
+#~ "widzieć rezultat swojego działania w głównym oknie."
+
+#~ msgid "System Tray Icon"
+#~ msgstr "Ikona tacki systemowej"
+
+#~ msgid "&Dock in system tray"
+#~ msgstr "&Dokuj w tacce systemowej"
+
+#~ msgid "&Show current basket icon in system tray icon"
+#~ msgstr "&Pokaż ikonę bieżącego koszyka w tacce systemowej"
+
+#, fuzzy
+#~ msgid "&Hide main window when mouse leaves it for"
+#~ msgstr "&Ukryj główne okno kiedy nie ma już nad nim myszy"
+
+#~ msgid " tenths of seconds"
+#~ msgstr " dziesiątych sekundy"
+
+#~ msgid "Show &main window when mouse hovers over the system tray icon for"
+#~ msgstr "Pokaż &główne okno kiedy mysz jest nad ikoną w tacce systemowej"
+
+#~ msgid "Ani&mate changes in baskets"
+#~ msgstr "Ani&macja zmian w koszykach"
+
+#, fuzzy
+#~ msgid " (Locked)"
+#~ msgstr "(Zablokowany)"
+
+#~ msgid "Pasted selection to basket <i>%1</i>"
+#~ msgstr "Wklejono zaznaczenie do koszyka <i>%1</i>"
+
+#~ msgid "&Minimize"
+#~ msgstr "&Minimalizuj"
+
+#~ msgid "&Restore"
+#~ msgstr "&Odtwórz"
+
+#~ msgid "%1 (Locked)"
+#~ msgstr "%1 (zablokowany)"
+
+#~ msgid ""
+#~ "%1 has crashed! We're sorry about this.\n"
+#~ "\n"
+#~ "But, all is not lost! You could potentially help us fix the crash. "
+#~ "Information describing the crash is below, so just click send, or if you "
+#~ "have time, write a brief description of how the crash happened first.\n"
+#~ "\n"
+#~ "Many thanks."
+#~ msgstr ""
+#~ "%1 padł! Przykro nam z tego powodu.\n"
+#~ "\n"
+#~ "Jednak nie wszystko stracone! Możesz pomóc nam poprawić ten błąd. "
+#~ "Informacja o padzie znajduje się poniżej, po prostu kliknij Wyślij lub "
+#~ "jeśli masz trochę czasu krótko opisz jak to się stało.\n"
+#~ "\n"
+#~ "Bardzo dziękujemy."
+
+#~ msgid ""
+#~ "The information below is to help the developers identify the problem, "
+#~ "please do not modify it."
+#~ msgstr ""
+#~ "Informacja poniżej pomoże deweloperom rozwiązać problem, proszę jej nie "
+#~ "zmieniać."
+
+#~ msgid ""
+#~ "%1 has crashed! We're sorry about this.\n"
+#~ "\n"
+#~ "But, all is not lost! Perhaps an upgrade is already available which fixes "
+#~ "the problem. Please check your distribution's software repository."
+#~ msgstr ""
+#~ "%1 padł! Przykro nam z tego powodu.\n"
+#~ "\n"
+#~ "Jednak nie wszystko stracone! Być może dostępne jest uaktualnienie "
+#~ "programu, które nie zawiera tego błędu. Proszę sprawdzić repozytorium "
+#~ "twojej dystrybucji."
+
+#~ msgid "K&Notes"
+#~ msgstr "Żółte k&arteczki"
+
+#~ msgid "K&Jots"
+#~ msgstr "K&Jots"
+
+#~ msgid "&KnowIt..."
+#~ msgstr "&KnowIt..."
+
+#~ msgid "Tux&Cards..."
+#~ msgstr "Tux&Cards..."
+
+#~ msgid "&Sticky Notes"
+#~ msgstr "&Sticky Notes"
+
+#~ msgid "&Tomboy"
+#~ msgstr "&Tomboy"
+
+#, fuzzy
+#~ msgid "J&reepad XML File..."
+#~ msgstr "&Zapisz do pliku..."
+
+#~ msgid "Send application developers a comment about something you like"
+#~ msgstr "Wyślij deweloperom programu komentarz o tym co ci się podoba"
+
+#~ msgid "Send application developers a comment about something you dislike"
+#~ msgstr "Wyślij deweloperom programu komentarz o tym co ci się nie podoba"
+
+#~ msgid ""
+#~ "Send application developers a comment about an improper behavior of the "
+#~ "application"
+#~ msgstr "Wyślij deweloperom programu komentarz o tym co nie działa"
+
+#~ msgid "Send application developers a comment about a new feature you desire"
+#~ msgstr ""
+#~ "Wyślij deweloperom programu komentarz o tym co powinno w programie się "
+#~ "pojawić"
+
+#~ msgid "&Send a Comment to Developers"
+#~ msgstr "&Wyślij komentarz do deweloperów"
+
+#~ msgid "Welcome to this testing version of %1."
+#~ msgstr "Witamy w wersji testowej %1."
+
+#~ msgid "Welcome to %1."
+#~ msgstr "Witamy w %1."
+
+#~ msgid "To help us improve it, your comments are important."
+#~ msgstr "Twoje komentarze co należy poprawić są dla nas bardzo pomocne."
+
+#~ msgid ""
+#~ "Each time you have a great or frustrating experience, please click the "
+#~ "appropriate face below the window title-bar, briefly describe what you "
+#~ "like or dislike and click Send."
+#~ msgstr ""
+#~ "Za każdym razem kiedy coś ci się spodobało, lub odwrotnie - kiedy coś cię "
+#~ "zdenerwowało kliknij odpowiednią twarzyczkę poniżej paska tytułu, krótko "
+#~ "opisz co ci się podoba i wciśnij Wyślij."
+
+#~ msgid ""
+#~ "Each time you have a great experience, please click the smiling face "
+#~ "below the window title-bar, briefly describe what you like and click Send."
+#~ msgstr ""
+#~ "Za każdym razem kiedy coś ci się spodobało kliknij uśmiechniętą "
+#~ "twarzyczkę poniżej paska tytułu, krótko opisz co ci się podoba i wciśnij "
+#~ "Wyślij."
+
+#~ msgid ""
+#~ "Each time you have a frustrating experience, please click the frowning "
+#~ "face below the window title-bar, briefly describe what you dislike and "
+#~ "click Send."
+#~ msgstr ""
+#~ "Za każdym razem kiedy coś ci się nie spodobało kliknij skwaszoną "
+#~ "twarzyczkę poniżej paska tytułu, krótko opisz co ci się podoba i wciśnij "
+#~ "Wyślij."
+
+#~ msgid ""
+#~ "Follow the same principle to quickly report a bug: just click the broken-"
+#~ "object icon in the top-right corner of the window, describe it and click "
+#~ "Send."
+#~ msgstr ""
+#~ "Wykonaj podobną akcję by szybko zgłosić błąd: po prostu kliknij ikonę "
+#~ "złamanego przedmiotu w prawym górnym rogu okna, opisz błąd i kliknij "
+#~ "Wyślij."
+
+#, fuzzy
+#~ msgid ""
+#~ "Each time you discover a bug in the application, please click the broken-"
+#~ "object icon below the window title-bar, briefly describe the mis-"
+#~ "behaviour and click Send."
+#~ msgstr ""
+#~ "Za każdym razem kiedy natkniesz się na błąd kliknij ikonę złamanego "
+#~ "przedmiotu poniżej belki tytułu, króŧko opisz błąd i kliknij Wyślij."
+
+#, fuzzy
+#~ msgid "Example:"
+#~ msgid_plural "Examples:"
+#~ msgstr[0] "Przykład"
+#~ msgstr[1] "Przykład"
+
+#~ msgid "<b>I like</b> the new artwork. Very refreshing."
+#~ msgstr "<b>Lubię</b> nową szatę graficzną. Odświeżająca."
+
+#~ msgid ""
+#~ "<b>I dislike</b> the welcome page of that assistant. Too time consuming."
+#~ msgstr ""
+#~ "<b>Nie lubię</b> ekranu powitalnego tego asystenta. Zbyt czasochłonny."
+
+#~ msgid ""
+#~ "<b>The application has an improper behaviour</b> when clicking the Add "
+#~ "button. Nothing happens."
+#~ msgstr ""
+#~ "<b>Program nie zachowuje się prawidłowo</b> kiedy kliknie się przycisk "
+#~ "Dodaj. Nic się nie dzieje."
+
+#~ msgid "<b>I desire a new feature</b> allowing me to send my work by email."
+#~ msgstr ""
+#~ "<b>Chciałbym nową opcję</b> pozwalającą na wysyłanie pracy przez e-mail."
+
+#~ msgid "Help Improve the Application"
+#~ msgstr "Pomóż udoskonalić Program"
+
+#~ msgid "Email Address"
+#~ msgstr "Adres e-mail"
+
+#~ msgid "Please provide your email address."
+#~ msgstr "Proszę podać adres e-mail."
+
+#~ msgid ""
+#~ "It will only be used to contact you back if more information is needed "
+#~ "about your comments, ask you how to reproduce the bugs you report, send "
+#~ "bug corrections for you to test, etc."
+#~ msgstr ""
+#~ "Adres zostanie użyty tylko wtedy kiedy będziemy potrzebować więcej "
+#~ "informacji o twoich komentarzach, zapytać się jak zreprodukować błąd, "
+#~ "wysłać poprawki do testowania itd."
+
+#~ msgid ""
+#~ "The email address is optional. If you do not provide any, your comments "
+#~ "will be sent anonymously."
+#~ msgstr ""
+#~ "Adres e-mail jest opcjonalny. Jeśli go nie podasz komentarze zostaną "
+#~ "wysłane anonimowo."
+
+#~ msgid "Send a Comment to Developers"
+#~ msgstr "Wyślij komentarz do Deweloperów"
+
+#~ msgid "Send Application Developers a Comment About:"
+#~ msgstr "Wyślij deweloperom programu komentarz o:"
+
+#~ msgid "Something you &like"
+#~ msgstr "Czymś co &lubisz"
+
+#~ msgid "Something you &dislike"
+#~ msgstr "Czymś czego &nie lubisz"
+
+#~ msgid "An improper &behavior of this application"
+#~ msgstr "Nieprawidłowym &zachowaniu programu"
+
+#~ msgid "A new &feature you desire"
+#~ msgstr "Nowej &opcji jakiej potrzebujesz"
+
+#~ msgid "Show comment buttons below &window titlebars"
+#~ msgstr "Pokaż przyciski komentarz poniżej paska &tytułu okna"
+
+#~ msgid "&Send Comment"
+#~ msgstr "&Wyślij komentarz"
+
+#~ msgid "&Email Address..."
+#~ msgstr "Adres &e-mail..."
+
+#~ msgid "Please provide a brief description of your opinion of %1."
+#~ msgstr "Proszę podać króŧki opis twojej opinii o %1."
+
+#~ msgid "Please write in English."
+#~ msgstr "Proszę pisać po angielsku."
+
+#~ msgid ""
+#~ "You may be able to use an <a href=\"%1\">online translation tool</a>."
+#~ msgstr "Możesz użyć <a href=\"%1\">translatora na WWW</a>."
+
+#~ msgid ""
+#~ "To make the comments you send more useful in improving this application, "
+#~ "try to send the same amount of positive and negative comments."
+#~ msgstr ""
+#~ "Aby komentarze były bardziej użyteczne spróbuj wysłać tę samą ilość "
+#~ "pozytywnych i negatywnych komentarzy."
+
+#~ msgid "Do <b>not</b> ask for new features: your requests will be ignored."
+#~ msgstr "<b>Nie</b> proś o nowe rzeczy: twoje prośby będą ignorowane."
+
+#~ msgid ""
+#~ "<p>Error while trying to send the report.</p><p>Please retry later.</p>"
+#~ msgstr ""
+#~ "<p>Błąd w czasie wysyłania raportu.</p><p>Proszę spróbować później.</p>"
+
+#~ msgid "Transfer Error"
+#~ msgstr "Błąd transportu"
+
+#~ msgid ""
+#~ "<p>Your comment has been sent successfully. It will help improve the "
+#~ "application.</p><p>Thanks for your time.</p>"
+#~ msgstr ""
+#~ "<p>Twój komentarz został wysłany. Pomoże to w rozwoju programu.</p> "
+#~ "<p>Dziękujemy za poświęcony czas.</p>"
+
+#~ msgid "Comment Sent"
+#~ msgstr "Komentarz wysłany"
+
+#~ msgid "From KJots"
+#~ msgstr "Notatki z KJots"
+
+#~ msgid "From KNotes"
+#~ msgstr "Notatki z Żółtych karteczek"
+
+#~ msgid "From Sticky Notes"
+#~ msgstr "Notatki ze Sticky Notes"
+
+#~ msgid "From Tomboy"
+#~ msgstr "Notatki z Tomboya"
+
+#~ msgid ""
+#~ "Can not import that file. It is either corrupted or not a TuxCards file."
+#~ msgstr ""
+#~ "Nie mogę importować tego pliku. Albo jest zepsuty, albo to nie jest plik "
+#~ "TuxCards."
+
+#~ msgid "Bad File Format"
+#~ msgstr "Zły format pliku"
+
+#, fuzzy
+#~ msgid ""
+#~ "A note is encrypted. The importer does not yet support encrypted notes. "
+#~ "Please remove the encryption with TuxCards and re-import the file."
+#~ msgstr ""
+#~ "Notatka jest zaszyfrowana. Program importujący jeszcze nie wspiera "
+#~ "zaszyfrowanych notatek. Proszę usunąć szyfrowanie w TuxCards i spróbować "
+#~ "ponownie."
+
+#~ msgid "Encrypted Notes not Supported Yet"
+#~ msgstr "Szyfrowanie notatek jeszcze nie jest wspierane"
+
+#~ msgid ""
+#~ "<font color='red'><b>Encrypted note.</b><br>The importer do not support "
+#~ "encrypted notes yet. Please remove the encryption with TuxCards and re-"
+#~ "import the file.</font>"
+#~ msgstr ""
+#~ "<font color='red'><b>Zaszyfrowana notatka.</b><br>Importer jeszcze nie "
+#~ "wspiera zaszyfrowanych notatek. Proszę usunąć szyfrowanie w TuxCards i "
+#~ "jeszcze raz importować plik.</font>"
+
+#~ msgid "CSS Extended Color Name"
+#~ msgstr "Rozszerzona nazwa koloru CSS"
+
+#~ msgid "16 by 16 pixels"
+#~ msgstr "16 na 16 pikseli"
+
+#~ msgid "22 by 22 pixels"
+#~ msgstr "22 na 22 piksele"
+
+#~ msgid "32 by 32 pixels"
+#~ msgstr "32 na 32 piksele"
+
+#~ msgid "48 by 48 pixels"
+#~ msgstr "48 na 48 pikseli"
+
+#~ msgid "64 by 64 pixels"
+#~ msgstr "64 na 64 piksele"
+
+#~ msgid "128 by 128 pixels"
+#~ msgstr "128 na 128 pikseli"
+
+#~ msgid ""
+#~ "<p>Closing the main window will keep %1 running in the system tray. Use "
+#~ "<b>Quit</b> from the <b>Basket</b> menu to quit the application.</p>"
+#~ msgstr ""
+#~ "<p>Mimo zamknięcia głównego okna %1 będzie nadal działał w tacce "
+#~ "systemowej. Użyj <b>Zakończ</b> z menu <b>Koszyka</b> aby zakończyć "
+#~ "program.</p>"
+
+#~ msgid "Docking in System Tray"
+#~ msgstr "Zadokowany w tacce systemowej"
+
+#, fuzzy
+#~ msgctxt "Tag name (shortcut)"
+#~ msgid "%1 (%2)"
+#~ msgstr "%1, %2"
+
+#~ msgid "Import Launcher from &KDE Menu..."
+#~ msgstr "Importuj program uruchamiający z &KMenu..."
+
+#~ msgid "Basket <i>%1</i> is locked"
+#~ msgstr "Koszyk <i>%1</i> jest zablokowany"
+
+#~ msgid "Export Basket to HTML"
+#~ msgstr "Eksportuj koszyk do HTML"
+
+#~ msgid "HTML Page Filename"
+#~ msgstr "Nazwa pliku strony HTML"
+
+#~ msgid "&Filename:"
+#~ msgstr "&Nazwa pliku:"
+
+#~ msgid "&Embed linked local files"
+#~ msgstr "&Dołącz zlinkowane pliki lokalne"
+
+#~ msgid "Embed &linked local folders"
+#~ msgstr "Dołącz z&linkowane katalogi lokalne"
+
+#~ msgid "Erase &previous files in target folder"
+#~ msgstr "Usuń &poprzednie pliki w katalogu docelowym"
+
+#~ msgid "For&mat for impression"
+#~ msgstr "For&mat wrażenia"
+
+#~ msgid ""
+#~ "_: NAME OF TRANSLATORS\n"
+#~ "Your names"
+#~ msgstr "Mikołaj Machowski"
+
+#~ msgid ""
+#~ "_: EMAIL OF TRANSLATORS\n"
+#~ "Your emails"
+#~ msgstr "mikmach@wp.pl"
+
+#~ msgid ""
+#~ "_: The verb (Group New Note)\n"
+#~ "Group"
+#~ msgstr "Grupuj"
+
+#~ msgid ""
+#~ "_: The verb (Insert New Note)\n"
+#~ "Insert"
+#~ msgstr "Wstaw"
+
+#~ msgid ""
+#~ "_: of the form 'key: value'\n"
+#~ "<b>%1</b>: %2"
+#~ msgstr "<b>%1</b>: %2"
+
+#~ msgid ""
+#~ "_n: <qt>Do you really want to delete this note?</qt>\n"
+#~ "<qt>Do you really want to delete those <b>%n</b> notes?</qt>"
+#~ msgstr ""
+#~ "<qt>Czy naprawdę chcesz usunąć notatkę?</qt>\n"
+#~ "<qt>Czy naprawdę chcesz usunąć <b>%n</b> notatki</qt>\n"
+#~ "<qt>Czy naprawdę chcesz usunąć <b>%n</b> notatek</qt>"
+
+#~ msgid ""
+#~ "_n: Delete Note\n"
+#~ "Delete Notes"
+#~ msgstr ""
+#~ "Usuń notatkę\n"
+#~ "Usuń %n notatki\n"
+#~ "Usuń %n notatek"
+
+#~ msgid ""
+#~ "_n: Cut note to clipboard.\n"
+#~ "Cut notes to clipboard."
+#~ msgstr ""
+#~ "Wycięto notatkę do schowka.\n"
+#~ "Wycięto %n notatki do schowka.\n"
+#~ "Wycięto %n notatek do schowka."
+
+#~ msgid "Insufficient Disk Space to Save Basket Data"
+#~ msgstr "Brak miejsca na dysku by zapisać dane Koszyka"
+
+#~ msgid "Wrong Basket File Permissions"
+#~ msgstr "Złe prawa do pliku koszyka"
+
+#~ msgid ""
+#~ "Please remove files on the disk <b>%1</b> to let the application safely "
+#~ "save your changes."
+#~ msgstr ""
+#~ "Proszę usunąć pliki na dysku <b>%1</b> by pozwolić programowi na "
+#~ "bezpieczne zapisanie zmian."
+
+#, fuzzy
+#~ msgid ""
+#~ "File permissions are bad for <b>%1</b>. Please check that you have write "
+#~ "access to it and the parent folders."
+#~ msgstr ""
+#~ "Nieprawidłowe prawa dostępu dla pliku <b>%1</b>. Proszę sprawdzić czy "
+#~ "masz prawa zapisu do pliku i katalogów."
+
+#~ msgid "Please write in English or French."
+#~ msgstr "Proszę pisać po angielsku lub francusku."
+
+#~ msgid ""
+#~ "_: Verb; not Menu\n"
+#~ "&Edit..."
+#~ msgstr "&Edytuj..."
+
+#~ msgid ""
+#~ "_: Remove Basket\n"
+#~ "&Remove"
+#~ msgstr "&Usuń"
+
+#~ msgid ""
+#~ "_: Password protection\n"
+#~ "Pass&word..."
+#~ msgstr "Hasł&o..."
+
+#~ msgid ""
+#~ "_: Lock Basket\n"
+#~ "&Lock"
+#~ msgstr "Zab&lokuj"
+
+#~ msgid "Filter all &Baskets"
+#~ msgstr "Filtruj wszystkie &koszyki"
+
+#~ msgid "Configure &Global Shortcuts..."
+#~ msgstr "Konfiguruj skróŧy &globalne..."
+
+#~ msgid ""
+#~ "_n: %n note\n"
+#~ "%n notes"
+#~ msgstr ""
+#~ "1 notatka \n"
+#~ "%n notatki\n"
+#~ "%n notatek"
+
+#~ msgid ""
+#~ "_n: %n selected\n"
+#~ "%n selected"
+#~ msgstr ""
+#~ "1 zaznaczona\n"
+#~ "%n zaznaczone\n"
+#~ "%n zaznaczonych"
+
+#~ msgid ""
+#~ "_n: %n match\n"
+#~ "%n matches"
+#~ msgstr ""
+#~ "1 dopasowanie\n"
+#~ "%n dopasowania\n"
+#~ "%n dopasowań"
+
+#~ msgid ""
+#~ "_: e.g. '18 notes, 10 matches, 5 selected'\n"
+#~ "%1, %2, %3"
+#~ msgstr "%1, %2, %3"
+
+#~ msgid "Delete Basket"
+#~ msgstr "Usuń koszyk"
+
+#~ msgid "Delete Only that Basket"
+#~ msgstr "Usuń tylko ten koszyk"
+
+#, fuzzy
+#~ msgid "Delete Note & Children"
+#~ msgstr "Usuń razem z dziećmi"
+
+#~ msgid "Auto Spell Check"
+#~ msgstr "Automatyczne sprawdzanie pisowni"
+
+#~ msgid "Check Spelling..."
+#~ msgstr "Sprawdzanie pisowni..."
+
+#~ msgid "Allow Tabulations"
+#~ msgstr "Dopuść tabulację"
+
+#~ msgid ""
+#~ "_: HTML export folder (files)\n"
+#~ "%1_files"
+#~ msgstr "%1_pliki"
+
+#~ msgid ""
+#~ "_: HTML export folder (icons)\n"
+#~ "icons"
+#~ msgstr "ikony"
+
+#~ msgid ""
+#~ "_: HTML export folder (images)\n"
+#~ "images"
+#~ msgstr "obrazki"
+
+#, fuzzy
+#~ msgid ""
+#~ "_: HTML export folder (baskets)\n"
+#~ "baskets"
+#~ msgstr "obrazki"
+
+#~ msgid ""
+#~ "_: HTML export folder (data)\n"
+#~ "data"
+#~ msgstr "dane"
+
+#~ msgid "Select Icon"
+#~ msgstr "Wybierz ikonę"
+
+#~ msgid "&Browse..."
+#~ msgstr "&Przeglądaj..."
+
+#~ msgid "(All Icons)"
+#~ msgstr "(Wszystkie ikony)"
+
+#~ msgid "(Recent)"
+#~ msgstr "(Ostatnie)"
+
+#~ msgid "Actions"
+#~ msgstr "Działania"
+
+#~ msgid "Applications"
+#~ msgstr "Programy"
+
+#~ msgid "Devices"
+#~ msgstr "Urządzenia"
+
+#~ msgid "Filesystem"
+#~ msgstr "System plików"
+
+#~ msgid "File Types"
+#~ msgstr "Typy plików"
+
+#~ msgid "*.png *.xpm *.svg *.svgz|Icon Files (*.png *.xpm *.svg *.svgz)"
+#~ msgstr "*.png *.xpm *.svg *.svgz|Pliki ikon (*.png *.xpm *.svg *.svgz)"
+
+#~ msgid ""
+#~ "_n: Example:\n"
+#~ "Examples:"
+#~ msgstr ""
+#~ "Przykład:\n"
+#~ "%n przykłady:\n"
+#~ "%n przykładów:"
+
+#~ msgid "Basket"
+#~ msgstr "Koszyk"
+
+#~ msgid "(Image)"
+#~ msgstr "(Obrazek)"
+
+#~ msgid ""
+#~ "_: RGB Colorspace: Red/Green/Blue\n"
+#~ "RGB"
+#~ msgstr "RGB"
+
+#~ msgid ""
+#~ "_: HSV Colorspace: Hue/Saturation/Value\n"
+#~ "HSV"
+#~ msgstr "HSV"
+
+#~ msgid "KIconDialogUI"
+#~ msgstr "KIconDialogUI"
+
+#~ msgid "Fi&lter:"
+#~ msgstr "Fi&ltr:"
+
+#~ msgid "Alt+O"
+#~ msgstr "Alt+O"
+
+#~ msgid "Alt+N"
+#~ msgstr "Alt+N"
+
+#~ msgid "Alt+P"
+#~ msgstr "Alt+P"
+
+#~ msgid "Alt+K"
+#~ msgstr "Alt+K"
+
+#~ msgid ""
+#~ "_: The initial of 'Idea'\n"
+#~ "I."
+#~ msgstr "P."
+
+#~ msgid ""
+#~ "_: The initial of 'Work'\n"
+#~ "W."
+#~ msgstr "P."
+
+#~ msgid ""
+#~ "_: The initial of 'Personal'\n"
+#~ "P."
+#~ msgstr "O."
+
+#~ msgid ""
+#~ "_: Tag name (shortcut)\n"
+#~ "%1 (%2)"
+#~ msgstr "%1 (%2)"
+
+#~ msgid ""
+#~ "_: Remove tag shortcut\n"
+#~ "&Remove"
+#~ msgstr "&Usuń"
+
+#~ msgid ""
+#~ "_: Remove tag emblem\n"
+#~ "Remo&ve"
+#~ msgstr "U&suń"
+
+#~ msgid ""
+#~ "If filled, this property lets you paste this tag or this state as textual "
+#~ "equivalent."
+#~ msgstr ""
+#~ "Jeśli zaznaczone, pozwoli na wklejenie znacznika lub stanu w formie "
+#~ "tekstowej."
+
+#~ msgid "&Export to HTML..."
+#~ msgstr "&Eksportuj do HTML..."
+
+#~ msgid "Notes matching the filter &quot;%1&quot;:"
+#~ msgstr "Notatki pasujące do filtra &quot;%1&quot;:"
