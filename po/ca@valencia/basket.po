@@ -258,7 +258,7 @@ msgstr "Bloc de notes BasKet"
 #: src/archive.cpp:51 src/bnpview.cpp:2025
 #, kde-format
 msgid "Save as Basket Archive"
-msgstr "Guarda com un arxiu de cistelles"
+msgstr "Anomena i guarda un arxiu de cistelles"
 
 #: src/archive.cpp:52
 #, kde-format
