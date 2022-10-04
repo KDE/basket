@@ -6,10 +6,10 @@ target_link_libraries(basketthumbcreator
   Qt5::Core Qt5::Gui
   KF5::I18n KF5::XmlGui KF5::KIOWidgets)
 
-install(TARGETS basketthumbcreator DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS basketthumbcreator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 
 ########### install files ###############
 
-install(FILES basketthumbcreator.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES basket.xml DESTINATION ${XDG_MIME_INSTALL_DIR})
+install(FILES basketthumbcreator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES basket.xml DESTINATION ${KDE_INSTALL_MIMEDIR})

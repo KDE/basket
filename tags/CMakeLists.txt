@@ -15,6 +15,6 @@ ecm_install_icons(ICONS
     sc-actions-tag_progress_050.svgz
     sc-actions-tag_progress_075.svgz
     sc-actions-tag_progress_100.svgz
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )

@@ -10,4 +10,4 @@ add_executable(basketweaver ${basketweaver_SRCS})
 
 target_link_libraries(basketweaver LibBasket Qt5::Core)
 
-install(TARGETS basketweaver DESTINATION ${BIN_INSTALL_DIR})
+install(TARGETS basketweaver DESTINATION ${KDE_INSTALL_BINDIR})

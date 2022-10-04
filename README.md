@@ -27,7 +27,7 @@ kf5 and qt5 development libraries and CMake):
 ```
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=~/.local/kde -DPLUGIN_INSTALL_DIR=~/.local/kde/lib64/qt5/plugins
+cmake .. -DCMAKE_INSTALL_PREFIX=~/.local/kde -DKDE_INSTALL_PLUGINDIR=~/.local/kde/lib64/qt5/plugins
 make -j8
 make -j8 install
 ```

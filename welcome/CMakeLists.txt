@@ -1,4 +1,4 @@
 FILE (GLOB BASKETS_FILES *.baskets)
 
-install(FILES  ${BASKETS_FILES} DESTINATION ${DATA_INSTALL_DIR}/basket/welcome)
+install(FILES  ${BASKETS_FILES} DESTINATION ${KDE_INSTALL_DATADIR}/basket/welcome)
 
