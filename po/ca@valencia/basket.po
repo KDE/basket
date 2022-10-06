@@ -1333,7 +1333,7 @@ msgstr "Pàgina web en &HTML..."
 #: src/bnpview.cpp:395
 #, kde-format
 msgid "Text &File..."
-msgstr "&Fitxer de text..."
+msgstr "Fi&txer de text..."
 
 #: src/bnpview.cpp:400
 #, kde-format
@@ -1368,7 +1368,7 @@ msgstr "Desselecciona totes les notes seleccionades"
 #: src/bnpview.cpp:432
 #, kde-format
 msgid "&Invert Selection"
-msgstr "&Invertix la selecció"
+msgstr "I&nvertix la selecció"
 
 #: src/bnpview.cpp:436
 #, kde-format
@@ -1389,7 +1389,7 @@ msgstr "&Edita..."
 #: src/bnpview.cpp:450
 #, kde-format
 msgid "&Open"
-msgstr "&Obri"
+msgstr "O&bri"
 
 #: src/bnpview.cpp:454
 #, kde-format
@@ -1479,7 +1479,7 @@ msgstr "Importa una icona..."
 #: src/bnpview.cpp:552 src/noteedit.cpp:534
 #, kde-format
 msgid "Load From &File..."
-msgstr "Carrega des d'un &fitxer..."
+msgstr "Carrega des d'un fi&txer..."
 
 #: src/bnpview.cpp:570
 #, kde-format
@@ -1587,7 +1587,7 @@ msgstr "Car&peta de cistella"
 #: src/bnpview.cpp:731
 #, kde-format
 msgid "&Expand Basket"
-msgstr "&Expandix la cistella"
+msgstr "Ex&pandix la cistella"
 
 #: src/bnpview.cpp:739
 #, kde-format
@@ -3236,7 +3236,7 @@ msgstr "píxels"
 #: src/settings.cpp:693
 #, kde-format
 msgid "&Visualize..."
-msgstr "&Visualitza..."
+msgstr "Vi&sualitza..."
 
 #: src/settings.cpp:701
 #, kde-format
@@ -3296,7 +3296,7 @@ msgstr "&Sons"
 #: src/settings.cpp:784
 #, kde-format
 msgid "&Files"
-msgstr "&Fitxers"
+msgstr "Fi&txers"
 
 #: src/settings.cpp:785
 #, kde-format
