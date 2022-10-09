@@ -3017,12 +3017,12 @@ msgstr "Posició de l'arbre de &cistelles:"
 #: src/settings.cpp:398 src/settings.cpp:652
 #, kde-format
 msgid "On top"
-msgstr "A la part superior"
+msgstr "En la part superior"
 
 #: src/settings.cpp:399 src/settings.cpp:653
 #, kde-format
 msgid "On bottom"
-msgstr "A la part inferior"
+msgstr "En la part inferior"
 
 #: src/settings.cpp:401
 #, kde-format
