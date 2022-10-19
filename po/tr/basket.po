@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-08 00:49+0000\n"
-"PO-Revision-Date: 2022-08-04 23:36+0300\n"
+"PO-Revision-Date: 2022-10-18 05:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 22.08.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -343,8 +343,8 @@ msgid ""
 "to the basket).</p>"
 msgstr ""
 "<p>%1 uygulamasının sepetlerinizi depoladığı klasörü başka bir yere "
-"taşıyabilirsiniz:</p><ul><li>Sepetlerinizi Ev Dizininizdeki görünür bir yere "
-"taşıyarak, ~/Notlar ya da ~/Sepetler gibi, istediğiniz zaman elle "
+"taşıyabilirsiniz:</p><ul><li>Sepetlerinizi, Ana Klasör'ünüzdeki ~/Notlar ya "
+"da ~/Sepetler gibi görünür bir yere taşıyarak istediğiniz zaman elle "
 "yedekleyebilirsiniz.</li><li>Sepetlerinizi bir sunucu üzerine taşıyarak iki "
 "bilgisayar arasında paylaşabilirsiniz.<br>Bu durumda paylaşılan klasörü "
 "yerel dosya sistemine bağlayıp %1 uygulamasına bu bağlantı noktasını "
@@ -3243,7 +3243,7 @@ msgstr "Yıllık rapor"
 #: src/settings.cpp:778
 #, kde-format
 msgid "Home folder"
-msgstr "Ev klasörü"
+msgstr "Ana klasör"
 
 #: src/settings.cpp:780
 #, kde-format
