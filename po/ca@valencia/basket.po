@@ -909,7 +909,7 @@ msgstr "<b>%1</b>: %2"
 #: src/basketscene.cpp:2806
 #, kde-format
 msgid "Click on the right to group instead of insert"
-msgstr "Feu clic sobre la dreta per a agrupar en lloc d'inserir"
+msgstr "Feu clic damunt de la dreta per a agrupar en lloc d'inserir"
 
 #: src/basketscene.cpp:2808
 #, kde-format
@@ -1317,8 +1317,8 @@ msgstr ""
 "<h2>Arbre de cistelles</h2>Esta és la llista de les vostres cistelles. "
 "Podreu organitzar les vostres dades col·locant-les en cistelles diferents. "
 "Podreu agrupar les cistelles per tema creant cistelles noves dins de les "
-"altres. Podreu navegar entre elles fent clic sobre una cistella per a obrir-"
-"la, o reorganitzar-les arrossegant i deixant anar."
+"altres. Podreu navegar entre elles fent clic damunt d'una cistella per a "
+"obrir-la, o reorganitzar-les arrossegant i deixant anar."
 
 #: src/bnpview.cpp:377 src/bnpview.cpp:383
 #, kde-format
