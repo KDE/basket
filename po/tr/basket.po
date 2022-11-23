@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-08 00:49+0000\n"
-"PO-Revision-Date: 2022-11-21 22:27+0300\n"
+"PO-Revision-Date: 2022-11-22 17:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -698,7 +698,7 @@ msgstr "Görünüş"
 #: src/basketproperties.ui:39
 #, kde-format
 msgid "Background &image:"
-msgstr "Arka plan gör&seli:"
+msgstr "Arka plan gö&rseli:"
 
 #. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
 #: src/basketproperties.ui:49
@@ -949,7 +949,7 @@ msgstr "&Özelleştir..."
 #: src/basketscene.cpp:3181 src/basketscene.cpp:3224
 #, kde-format
 msgid "&Filter by this Tag"
-msgstr "Bu Etikete Göre &Süz"
+msgstr "Bu Etikete Göre S&üz"
 
 #: src/basketscene.cpp:3227
 #, kde-format
@@ -1066,7 +1066,7 @@ msgstr "&İçe Aktar"
 #: src/basketui.rc:55
 #, kde-format
 msgid "&Go"
-msgstr "&Git"
+msgstr "G&it"
 
 #. i18n: ectx: Menu (note)
 #: src/basketui.rc:62
@@ -1426,7 +1426,7 @@ msgstr "Çapraz B&aşvuru"
 #: src/bnpview.cpp:527
 #, kde-format
 msgid "&Image"
-msgstr "&Görsel"
+msgstr "Gö&rsel"
 
 #: src/bnpview.cpp:532
 #, kde-format
@@ -1529,7 +1529,7 @@ msgstr "&Kilitle"
 #: src/bnpview.cpp:687
 #, kde-format
 msgid "&Filter"
-msgstr "&Süzgeç"
+msgstr "S&üz"
 
 #: src/bnpview.cpp:697
 #, kde-format
@@ -1831,7 +1831,7 @@ msgstr "Süzgeci Kaldır"
 #: src/filter.cpp:47
 #, kde-format
 msgid "&Filter: "
-msgstr "&Süzgeç: "
+msgstr "S&üz: "
 
 #: src/filter.cpp:51
 #, kde-format
@@ -2999,7 +2999,7 @@ msgstr "Altta"
 #: src/settings.cpp:401
 #, kde-format
 msgid "&Filter bar position:"
-msgstr "Süzgeç &çubuğu konumu:"
+msgstr "S&üzgeç çubuğu konumu:"
 
 #: src/settings.cpp:445
 #, kde-format
@@ -3223,7 +3223,7 @@ msgstr "&HTML sayfası"
 #: src/settings.cpp:705
 #, kde-format
 msgid "&Image or animation"
-msgstr "&Görsel veya canlandırma"
+msgstr "Gö&rsel veya canlandırma"
 
 #: src/settings.cpp:706
 #, kde-format
@@ -3298,7 +3298,7 @@ msgstr "Metin notlarını birlikte aç:"
 #: src/settings.cpp:839
 #, kde-format
 msgid "Open &image notes with a custom application:"
-msgstr "&Görsel notlarını özel bir uygulama ile aç:"
+msgstr "Gö&rsel notlarını özel bir uygulama ile aç:"
 
 #: src/settings.cpp:840
 #, kde-format
