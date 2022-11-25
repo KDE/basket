@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-08 00:49+0000\n"
-"PO-Revision-Date: 2022-11-22 17:17+0300\n"
+"PO-Revision-Date: 2022-11-24 17:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -146,7 +146,7 @@ msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
 msgstr ""
-"Bu dosya, Basket Not Defterlerinin daha yeni bir sürümüyle oluşturulmuş. Tam "
+"Bu dosya, Basket Not Defteri'nin daha yeni bir sürümüyle oluşturulmuş. Tam "
 "olarak desteklenmiyor olabilir"
 
 #: src/aboutdata.cpp:13
@@ -252,7 +252,7 @@ msgstr "Özgün simge"
 #: src/aboutdata.cpp:50
 #, kde-format
 msgid "BasKet Note Pads"
-msgstr "Basket Not Tutma Aracı"
+msgstr "Basket Not Defteri"
 
 #: src/archive.cpp:51 src/bnpview.cpp:2025
 #, kde-format
@@ -2906,7 +2906,7 @@ msgstr "&Buraya Taşı\tShift"
 #: src/notefactory.cpp:549
 #, kde-format
 msgid "&Copy Here\tCtrl"
-msgstr "Buraya &Kopyala\tCtrl"
+msgstr "Buraya Ko&pyala\tCtrl"
 
 #: src/notefactory.cpp:550
 #, kde-format
