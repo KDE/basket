@@ -700,7 +700,7 @@ msgstr ""
 "p><p><strong>Mostra vs. Canvia:</strong>:<br>L'última opció farà que esta "
 "cistella siga l'actual sense obrir la finestra principal. És útil en afegir "
 "dreceres globals configurables, p. ex., apegar el porta-retalls o la "
-"selecció a la cistella actual.</p>"
+"selecció en la cistella actual.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
 #: src/basketproperties.ui:27 src/settings.cpp:440 src/tagsedit.cpp:1096
@@ -3032,7 +3032,7 @@ msgstr "Posició de la barra de &filtre:"
 #: src/settings.cpp:445
 #, kde-format
 msgid "&Show tooltips in baskets"
-msgstr "Mo&stra consells a les cistelles"
+msgstr "Mo&stra consells en les cistelles"
 
 #: src/settings.cpp:449
 #, kde-format
