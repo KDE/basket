@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-08 00:49+0000\n"
-"PO-Revision-Date: 2022-11-29 22:18+0100\n"
+"PO-Revision-Date: 2022-12-11 21:26+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3657,7 +3657,7 @@ msgstr ""
 #: src/tagsedit.cpp:527
 #, kde-format
 msgid "On ever&y line"
-msgstr ""
+msgstr "Sur cata l&inea"
 
 #: src/tagsedit.cpp:529
 #, kde-format
@@ -3704,12 +3704,12 @@ msgstr ""
 #: src/tagsedit.cpp:972
 #, kde-format
 msgid "Confirm Delete State"
-msgstr ""
+msgstr "Confirma Dele Stato"
 
 #: src/tagsedit.cpp:972
 #, kde-format
 msgid "Delete State"
-msgstr ""
+msgstr "Dele Stato"
 
 #: src/tools.cpp:800
 #, kde-format
