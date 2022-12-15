@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-08 00:49+0000\n"
-"PO-Revision-Date: 2022-09-19 18:26+0200\n"
+"PO-Revision-Date: 2022-12-14 11:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -234,7 +234,7 @@ msgstr "ძველი ხატულა"
 #: src/aboutdata.cpp:50
 #, kde-format
 msgid "BasKet Note Pads"
-msgstr ""
+msgstr "BasKet -ის შენიშვნები"
 
 #: src/archive.cpp:51 src/bnpview.cpp:2025
 #, kde-format
@@ -839,7 +839,7 @@ msgstr "პაროლი დაცული კალათა."
 #: src/basketscene.cpp:2991
 #, kde-format
 msgid "Press Unlock to access it."
-msgstr "ბლოკის მოსახსნელად ღილაკს დააწექით"
+msgstr "ბლოკის მოსახსნელად ღილაკს დააწექით."
 
 #: src/basketscene.cpp:2993
 #, kde-format
@@ -1348,7 +1348,7 @@ msgstr ""
 #: src/bnpview.cpp:547
 #, kde-format
 msgid "Im&port Icon..."
-msgstr "&გამშვების ხატულა"
+msgstr "ხატულას &შემოტანა..."
 
 #: src/bnpview.cpp:552 src/noteedit.cpp:534
 #, kde-format
@@ -1565,7 +1565,7 @@ msgstr "რესურსი ნაპოვნი არაა"
 #: src/bnpview.cpp:1792
 #, kde-format
 msgid "Cannot add note."
-msgstr "შენიშვნის დამატების შეცდომა"
+msgstr "შენიშვნის დამატების შეცდომა."
 
 #: src/bnpview.cpp:1939
 #, kde-format
@@ -1910,7 +1910,7 @@ msgstr ""
 #: src/kgpgme.cpp:330
 #, kde-format
 msgid "Unsupported algorithm"
-msgstr ""
+msgstr "მხარდაუჭერელი ალგორითმი"
 
 #: src/kgpgme.cpp:421
 #, kde-format
@@ -2781,7 +2781,7 @@ msgstr ""
 #: src/password.cpp:29 src/passwordlayout.ui:14 src/settings.cpp:541
 #, kde-format
 msgid "Password Protection"
-msgstr ""
+msgstr "პაროლით დაცვა"
 
 #: src/password.cpp:58
 #, kde-format
@@ -3615,7 +3615,7 @@ msgstr "ფონი:"
 #: src/tagsedit.cpp:484
 #, kde-format
 msgid "Strike Through"
-msgstr ""
+msgstr "გატარება"
 
 #: src/tagsedit.cpp:486
 #, kde-format
