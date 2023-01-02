@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-08 00:49+0000\n"
-"PO-Revision-Date: 2022-06-24 16:13+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2022-12-31 22:02+0100\n"
+"Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Kate 22.08.3\n"
 "X-Accelerator-Marker: &\n"
 
 #, kde-format
@@ -3048,8 +3048,8 @@ msgstr "Comportament"
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
-"&Transforma les línies que comencen amb «*» o «-» a les llistes en els "
-"editors de text"
+"&Transforma les línies que comencen amb «*» o «-» a llistes en els editors "
+"de text"
 
 #: src/settings.cpp:464
 #, kde-format
