@@ -145,9 +145,10 @@ void BackupDialog::populateLastBackup()
 
 void BackupDialog::moveToAnotherFolder()
 {
-    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/nullptr,
-                                                            /*caption=*/i18n("Choose a Folder Where to Move Baskets"),
-                                                            /*startDir=*/Global::savesFolder());
+    const QString currentSavesFolder = Global::savesFolder();
+    const QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(this,
+                                                                  i18n("Choose a Folder Where to Move Baskets"),
+                                                                  QUrl::fromLocalFile(currentSavesFolder));
 
     if (!selectedURL.isEmpty()) {
         QString folder = selectedURL.path();
@@ -164,16 +165,17 @@ void BackupDialog::moveToAnotherFolder()
             Tools::deleteRecursively(folder);
         }
         FormatImporter copier;
-        copier.moveFolder(Global::savesFolder(), folder);
+        copier.moveFolder(currentSavesFolder, folder);
         Backup::setFolderAndRestart(folder, i18n("Your baskets have been successfully moved to <b>%1</b>. %2 is going to be restarted to take this change into account."));
     }
 }
 
 void BackupDialog::useAnotherExistingFolder()
 {
-    QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(/*parent=*/nullptr,
-                                                            /*caption=*/i18n("Choose an Existing Folder to Store Baskets"),
-                                                            /*startDir=*/Global::savesFolder());
+    const QString currentSavesFolder = Global::savesFolder();
+    const QUrl selectedURL = QFileDialog::getExistingDirectoryUrl(this,
+                                                                  i18n("Choose a Folder Where to Move Baskets"),
+                                                                  QUrl::fromLocalFile(currentSavesFolder));
 
     if (!selectedURL.isEmpty()) {
         Backup::setFolderAndRestart(selectedURL.path(), i18n("Your basket save folder has been successfully changed to <b>%1</b>. %2 is going to be restarted to take this change into account."));
