@@ -157,8 +157,8 @@ void BackupDialog::moveToAnotherFolder()
             // Get the content of the folder:
             QStringList content = dir.entryList();
             if (content.count() > 2) { // "." and ".."
-                int result = KMessageBox::questionYesNo(nullptr, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to overwrite it?", folder), i18n("Overwrite Folder?"), KGuiItem(i18n("&Overwrite"), "document-save"));
-                if (result == KMessageBox::No)
+                int result = KMessageBox::warningContinueCancel(nullptr, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to overwrite it?", folder), i18n("Overwrite Folder?"), KGuiItem(i18n("&Overwrite"), "document-save"));
+                if (result == KMessageBox::Cancel)
                     return;
             }
             Tools::deleteRecursively(folder);
