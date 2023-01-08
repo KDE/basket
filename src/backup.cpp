@@ -193,23 +193,11 @@ void BackupDialog::backup()
 
     // Ask a file name & path to the user:
     QString filter = "*.tar.gz|" + i18n("Tar Archives Compressed by Gzip") + "\n*|" + i18n("All Files");
-    QString destination = url;
-    for (bool askAgain = true; askAgain;) {
-        // Ask:
-        destination = QFileDialog::getSaveFileName(nullptr, i18n("Backup Baskets"), destination, filter);
-        // User canceled?
-        if (destination.isEmpty())
-            return;
-        // File already existing? Ask for overriding:
-        if (dir.exists(destination)) {
-            int result = KMessageBox::questionYesNoCancel(
-                nullptr, "<qt>" + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()), i18n("Overwrite File?"), KGuiItem(i18n("&Overwrite"), "document-save"));
-            if (result == KMessageBox::Cancel)
-                return;
-            else if (result == KMessageBox::Yes)
-                askAgain = false;
-        } else
-            askAgain = false;
+    const QString destination = QFileDialog::getSaveFileName(nullptr, i18n("Backup Baskets"), url, filter);
+
+    // User canceled?
+    if (destination.isEmpty()) {
+        return;
     }
 
     QProgressDialog dialog;
