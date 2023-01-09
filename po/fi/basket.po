@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-08 00:49+0000\n"
+"POT-Creation-Date: 2023-01-09 00:58+0000\n"
 "PO-Revision-Date: 2022-07-29 11:33+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -383,8 +383,7 @@ msgstr "Viimeisin varmuuskopio: %1"
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Valitse kansio, johon korit siirretään"
 
-#: src/backup.cpp:160 src/backup.cpp:206 src/bnpview.cpp:2030
-#: src/htmlexporter.cpp:62
+#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, fuzzy, kde-format
 #| msgid "&Override"
 msgid "&Overwrite"
@@ -431,51 +430,38 @@ msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Korit_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:252 src/bnpview.cpp:2022
+#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Kaikki tiedostot"
 
-#: src/backup.cpp:195 src/backup.cpp:252
+#: src/backup.cpp:195 src/backup.cpp:240
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip-pakatut Tar-arkistot"
 
-#: src/backup.cpp:199 src/backup.cpp:216
+#: src/backup.cpp:196 src/backup.cpp:204
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Korivarmuuskopiot"
 
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "The file <b>%1</b> already exists. Do you really want to override it?"
-msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr "Tiedosto <b>%1</b> on jo olemassa. Haluatko korvata sen?"
-
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, fuzzy, kde-format
-#| msgid "Override File?"
-msgid "Overwrite File?"
-msgstr "Korvataanko tiedosto?"
-
-#: src/backup.cpp:217
+#: src/backup.cpp:205
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Koreja varmuuskopioidaan. Odota…"
 
-#: src/backup.cpp:253 src/bnpview.cpp:2064
+#: src/backup.cpp:241 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Avaa koriarkisto"
 
-#: src/backup.cpp:264
+#: src/backup.cpp:252
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:256
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -484,7 +470,7 @@ msgstr ""
 "Tämä on koriesi varokopio sellaisina kuin ne olivat ennen varmuuskopion %1 "
 "palautuksen alkua."
 
-#: src/backup.cpp:269
+#: src/backup.cpp:257
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -493,7 +479,7 @@ msgstr ""
 "Jos palautus onnistuu ja saat palautettua mitä halusit, voit poistaa tämän "
 "kansion."
 
-#: src/backup.cpp:270
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -502,7 +488,7 @@ msgstr ""
 "Jos palautuksessa meni jotakin vikaan, tätä kansiota voi taas käyttää "
 "koriesi tallentamiseen eikä mitään menetetä."
 
-#: src/backup.cpp:271
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -511,24 +497,24 @@ msgstr ""
 "Valitse tämä kansio kohdassa ”Kori → Varmuuskopioi ja palauta… → Käytä muuta "
 "kansiota”."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Palautetaan: <b>%1</b>. Odota…"
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr "Jos jokin menee vikaan palautuksessa, lue tiedosto <b>%1</b>"
 
-#: src/backup.cpp:278
+#: src/backup.cpp:266
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Palauta koreja"
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -537,12 +523,12 @@ msgstr ""
 "Tämä arkisto ei joko ole korivarmuuskopio tai se on vioittunut. Sitä ei voi "
 "tuoda. Vanhat korisi on säilytetty."
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid "Restore Error"
 msgstr "Palautusvirhe"
 
-#: src/backup.cpp:317
+#: src/backup.cpp:305
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -551,18 +537,18 @@ msgstr ""
 "Varmuuskopiosi palautus kohteeseen <b>%1</b> onnistui. %2 käynnistetään "
 "uudelleen, jotta muutos tulee voimaan."
 
-#: src/backup.cpp:351
+#: src/backup.cpp:339
 #, kde-format
 msgid "Restart"
 msgstr "Käynnistä uudelleen"
 
-#: src/backup.cpp:367
+#: src/backup.cpp:355
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Korit ennen palautusta"
 
-#: src/backup.cpp:372
+#: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -1712,6 +1698,19 @@ msgstr "&Poista lapsikorit"
 #, kde-format
 msgid "Basket Archives"
 msgstr "Koriarkistot"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, fuzzy, kde-format
+#| msgid ""
+#| "The file <b>%1</b> already exists. Do you really want to override it?"
+msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
+msgstr "Tiedosto <b>%1</b> on jo olemassa. Haluatko korvata sen?"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, fuzzy, kde-format
+#| msgid "Override File?"
+msgid "Overwrite File?"
+msgstr "Korvataanko tiedosto?"
 
 #: src/bnpview.cpp:2448
 #, kde-format

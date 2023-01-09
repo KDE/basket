@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-08 00:49+0000\n"
+"POT-Creation-Date: 2023-01-09 00:58+0000\n"
 "PO-Revision-Date: 2022-04-10 08:58+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -383,8 +383,7 @@ msgstr "Ostatnia kopia zapasowa: %1"
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Wskaż katalog, do którego przenieść koszyki"
 
-#: src/backup.cpp:160 src/backup.cpp:206 src/bnpview.cpp:2030
-#: src/htmlexporter.cpp:62
+#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Zastąp"
@@ -428,48 +427,38 @@ msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Koszyki_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:252 src/bnpview.cpp:2022
+#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Wszystkie pliki"
 
-#: src/backup.cpp:195 src/backup.cpp:252
+#: src/backup.cpp:195 src/backup.cpp:240
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archiwa tar spakowane Gzipem"
 
-#: src/backup.cpp:199 src/backup.cpp:216
+#: src/backup.cpp:196 src/backup.cpp:204
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Kopia zapasowa koszyków"
 
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr "Plik <b>%1</b> już istnieje. Czy chcesz go nadpisać?"
-
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "Overwrite File?"
-msgstr "Czy zastąpić plik?"
-
-#: src/backup.cpp:217
+#: src/backup.cpp:205
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Tworzenie kopii zapasowej koszyków. Proszę czekać..."
 
-#: src/backup.cpp:253 src/bnpview.cpp:2064
+#: src/backup.cpp:241 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Otwórz archiwum koszyka"
 
-#: src/backup.cpp:264
+#: src/backup.cpp:252
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:256
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -478,7 +467,7 @@ msgstr ""
 "To jest bezpieczna kopia twoich koszyków w stanie sprzed przywracania kopii "
 "zapasowej %1."
 
-#: src/backup.cpp:269
+#: src/backup.cpp:257
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -487,7 +476,7 @@ msgstr ""
 "Jeśli przywracanie się udało i przywróciłeś to, co chciałeś przywrócić, to "
 "możesz usunąć ten katalog."
 
-#: src/backup.cpp:270
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -497,7 +486,7 @@ msgstr ""
 "wykorzystać ten katalog, do przechowania swoich koszyków tak, aby nic nie "
 "zostało utracone."
 
-#: src/backup.cpp:271
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -506,12 +495,12 @@ msgstr ""
 "Wybierz \"Koszyk\" -> \"Kopia zapasowa i jej przywracanie...\" -> \"Użyj "
 "innego istniejącego katalogu...\" i wskaż ten katalog."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Przywracanie <b>%1</b>. Proszę czekać..."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -520,12 +509,12 @@ msgstr ""
 "Jeśli coś pójdzie nie tak w trakcie przywracania, to przeczytaj plik <b>%1</"
 "b>."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:266
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Przywróć koszyki"
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -534,12 +523,12 @@ msgstr ""
 "To archiwum albo nie jest kopią zapasową koszyków albo jest uszkodzone. Nie "
 "można go zaimportować. Twoje stare koszyki pozostały bez zmian."
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid "Restore Error"
 msgstr "Błąd przywracania"
 
-#: src/backup.cpp:317
+#: src/backup.cpp:305
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -548,18 +537,18 @@ msgstr ""
 "Pomyślnie przywrócono twoją kopię zapasową <b>%1</b>. %2 zostanie ponownie "
 "uruchomiony, aby uwzględnić tę zmianę."
 
-#: src/backup.cpp:351
+#: src/backup.cpp:339
 #, kde-format
 msgid "Restart"
 msgstr "Uruchom ponownie"
 
-#: src/backup.cpp:367
+#: src/backup.cpp:355
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Koszyk przed przywróceniem"
 
-#: src/backup.cpp:372
+#: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -1730,6 +1719,16 @@ msgstr "&Usuń koszyki podrzędne"
 #, kde-format
 msgid "Basket Archives"
 msgstr "Archiwa koszyków"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
+msgstr "Plik <b>%1</b> już istnieje. Czy chcesz go nadpisać?"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "Overwrite File?"
+msgstr "Czy zastąpić plik?"
 
 #: src/bnpview.cpp:2448
 #, kde-format

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-08 00:49+0000\n"
+"POT-Creation-Date: 2023-01-09 00:58+0000\n"
 "PO-Revision-Date: 2023-01-02 07:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -355,8 +355,7 @@ msgstr "最近的备份:%1"
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "选择你的Basket将要移动到的目录"
 
-#: src/backup.cpp:160 src/backup.cpp:206 src/bnpview.cpp:2030
-#: src/htmlexporter.cpp:62
+#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
 msgid "&Overwrite"
 msgstr "覆盖文件(&O)"
@@ -398,69 +397,59 @@ msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Baskets_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:252 src/bnpview.cpp:2022
+#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
 
-#: src/backup.cpp:195 src/backup.cpp:252
+#: src/backup.cpp:195 src/backup.cpp:240
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "用Gzip压缩"
 
-#: src/backup.cpp:199 src/backup.cpp:216
+#: src/backup.cpp:196 src/backup.cpp:204
 #, kde-format
 msgid "Backup Baskets"
 msgstr "备份Basket"
 
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr "文件<b>%1</b>已存在,要覆盖它吗？"
-
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "Overwrite File?"
-msgstr "覆盖文件吗？"
-
-#: src/backup.cpp:217
+#: src/backup.cpp:205
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "备份basket中. 请稍候..."
 
-#: src/backup.cpp:253 src/bnpview.cpp:2064
+#: src/backup.cpp:241 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "打开basket文档"
 
-#: src/backup.cpp:264
+#: src/backup.cpp:252
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:256
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
 "restore the backup %1."
 msgstr "你正在编辑的是名为%1的basket安全拷贝."
 
-#: src/backup.cpp:269
+#: src/backup.cpp:257
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
 "restore, you can remove this folder."
 msgstr "如果你已经成功从备份还原了文档.你可以删除此目录."
 
-#: src/backup.cpp:270
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
 "folder to store your baskets and nothing will be lost."
 msgstr "如果你还原备份文档失败.你可以继续使用当前目录里面的basket."
 
-#: src/backup.cpp:271
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -468,24 +457,24 @@ msgid ""
 msgstr ""
 "选择 \"Basket\" -> \"备份与还原...\" -> \"使用另一个目录...\" 并选定目录."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b>还原中.请稍等..."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr "如果你还原备份文档失败,请检查文件<b>%1</b>."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:266
 #, kde-format
 msgid "Restore Baskets"
 msgstr "还原Basket"
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -494,30 +483,30 @@ msgstr ""
 "此归档文件不是一个 basket 备份或已损坏。它不能被导入。您的旧 basket 已被保"
 "存。"
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid "Restore Error"
 msgstr "还原失败"
 
-#: src/backup.cpp:317
+#: src/backup.cpp:305
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
 msgstr "您的 basket 备份已成功恢复到 <b>%1</b>. %2 将重新启动以使更改生效。"
 
-#: src/backup.cpp:351
+#: src/backup.cpp:339
 #, kde-format
 msgid "Restart"
 msgstr "重启"
 
-#: src/backup.cpp:367
+#: src/backup.cpp:355
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "恢复之前的 basket"
 
-#: src/backup.cpp:372
+#: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -1613,6 +1602,16 @@ msgstr "移除子Basket(&R)"
 #, kde-format
 msgid "Basket Archives"
 msgstr "Basket文档设置"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
+msgstr "文件<b>%1</b>已存在,要覆盖它吗？"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "Overwrite File?"
+msgstr "覆盖文件吗？"
 
 #: src/bnpview.cpp:2448
 #, kde-format

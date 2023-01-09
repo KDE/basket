@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-08 00:49+0000\n"
+"POT-Creation-Date: 2023-01-09 00:58+0000\n"
 "PO-Revision-Date: 2022-12-10 18:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -384,8 +384,7 @@ msgstr "Son yedekleme: %1"
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Seperlerin Taşınacağı Bir Klasör Seçin"
 
-#: src/backup.cpp:160 src/backup.cpp:206 src/bnpview.cpp:2030
-#: src/htmlexporter.cpp:62
+#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Üzerine Yaz"
@@ -429,49 +428,38 @@ msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Sepetler_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:252 src/bnpview.cpp:2022
+#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Tüm Dosyalar"
 
-#: src/backup.cpp:195 src/backup.cpp:252
+#: src/backup.cpp:195 src/backup.cpp:240
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip Tarafından Sıkıştırılan Tar Arşivleri"
 
-#: src/backup.cpp:199 src/backup.cpp:216
+#: src/backup.cpp:196 src/backup.cpp:204
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Sepetleri Yedekle"
 
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr ""
-"<b>%1</b> dosyası halihazırda var. Dosyanın üzerine yazmak ister misiniz?"
-
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "Overwrite File?"
-msgstr "Dosyanın Üzerine Yazılsın mı?"
-
-#: src/backup.cpp:217
+#: src/backup.cpp:205
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Sepetler yedekleniyor. Lütfen bekleyin..."
 
-#: src/backup.cpp:253 src/bnpview.cpp:2064
+#: src/backup.cpp:241 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Basket Arşivi Aç"
 
-#: src/backup.cpp:264
+#: src/backup.cpp:252
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:256
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -480,7 +468,7 @@ msgstr ""
 "Bu, sepetlerinizin %1 yedeğinizi geri yüklemeden önceki halinin güvenlik "
 "için alınan bir kopyasıdır."
 
-#: src/backup.cpp:269
+#: src/backup.cpp:257
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -489,7 +477,7 @@ msgstr ""
 "Eğer geri yükleme başarılı olduysa ve istediklerinizi geri yüklediyseniz bu "
 "klasörü silebilirsiniz."
 
-#: src/backup.cpp:270
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -498,7 +486,7 @@ msgstr ""
 "Eğer ger yükleme sırasında birşeyler ters gittiyse bu klasörü sepetleriniz "
 "kaydetmek için kullanabilirsiniz ve böylece hiç veri kaybetmezsiniz."
 
-#: src/backup.cpp:271
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -507,12 +495,12 @@ msgstr ""
 "\"Sepet\" -> \"Yedekle & Yedeği Geri Yükle...\" -> \"Varolan Başka Bir Dizin "
 "Kullan...\" yolunu takip ederek o dizini seçin."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b>Arşivi geri yükleniyor. Lütfen bekleyin..."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -521,12 +509,12 @@ msgstr ""
 "Yedeği geri yükleme sürecinde birşeyler ters giderse <b>%1</b> dosyasını "
 "okuyun."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:266
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Sepetleri Yeniden Yükle"
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -535,12 +523,12 @@ msgstr ""
 "Bu dosya ya bir sepet arşivi değil ya da bozuk. İçe aktarılamaz. Bu dosya "
 "yerine eski sepetleriniz kullanılacak."
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid "Restore Error"
 msgstr "Geri Yükleme Hatası"
 
-#: src/backup.cpp:317
+#: src/backup.cpp:305
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -549,18 +537,18 @@ msgstr ""
 "Yedeğiniz, <b>%1</b> klasörüne başarıyla geri yüklendi. Bu değişikliğin "
 "etkin olabilmesi için %2 yeniden başlatılacak."
 
-#: src/backup.cpp:351
+#: src/backup.cpp:339
 #, kde-format
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: src/backup.cpp:367
+#: src/backup.cpp:355
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Geri Yükleme Öncesi Sepetler"
 
-#: src/backup.cpp:372
+#: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -1712,6 +1700,17 @@ msgstr "Alt Sepetleri &Kaldır"
 #, kde-format
 msgid "Basket Archives"
 msgstr "Basket Arşivleri"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
+msgstr ""
+"<b>%1</b> dosyası halihazırda var. Dosyanın üzerine yazmak ister misiniz?"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "Overwrite File?"
+msgstr "Dosyanın Üzerine Yazılsın mı?"
 
 #: src/bnpview.cpp:2448
 #, kde-format

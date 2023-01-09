@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-08 00:49+0000\n"
+"POT-Creation-Date: 2023-01-09 00:58+0000\n"
 "PO-Revision-Date: 2022-02-20 10:39+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -392,8 +392,7 @@ msgstr "Letzte Sicherung: %1"
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Wählen Sie einen Ort"
 
-#: src/backup.cpp:160 src/backup.cpp:206 src/bnpview.cpp:2030
-#: src/htmlexporter.cpp:62
+#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
 msgid "&Overwrite"
 msgstr "Ü&berschreiben"
@@ -437,50 +436,38 @@ msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Körbe %1"
 
-#: src/backup.cpp:195 src/backup.cpp:252 src/bnpview.cpp:2022
+#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Alle Dateien"
 
-#: src/backup.cpp:195 src/backup.cpp:252
+#: src/backup.cpp:195 src/backup.cpp:240
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip-komprimiertes Tar-Archiv"
 
-#: src/backup.cpp:199 src/backup.cpp:216
+#: src/backup.cpp:196 src/backup.cpp:204
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Körbe sichern"
 
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr ""
-"Die Datei <b>%1</b> existiert bereits. Möchten Sie sie wirklich "
-"überschreiben?"
-
-#: src/backup.cpp:206 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, kde-format
-msgid "Overwrite File?"
-msgstr "Datei überschreiben?"
-
-#: src/backup.cpp:217
+#: src/backup.cpp:205
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Körbe werden gesichert. Bitte warten..."
 
-#: src/backup.cpp:253 src/bnpview.cpp:2064
+#: src/backup.cpp:241 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Korbarchiv öffnen"
 
-#: src/backup.cpp:264
+#: src/backup.cpp:252
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:256
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -489,7 +476,7 @@ msgstr ""
 "Dies ist eine Sicherheitskopie Ihrer Körben auf dem Stand bevor Sie mit der "
 "Wiederherstellung der Sicherung %1 begonnen haben."
 
-#: src/backup.cpp:269
+#: src/backup.cpp:257
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -498,7 +485,7 @@ msgstr ""
 "Falls die Wiederherstellung erfolgreich war und Sie alles wichtige wieder "
 "verfügbar haben, können Sie diesen Ordner entfernen."
 
-#: src/backup.cpp:270
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -508,7 +495,7 @@ msgstr ""
 "Ordner verwenden, um Ihre Körbe wiederherzustellen. Auf diese Weise kann "
 "nichts verloren gehen."
 
-#: src/backup.cpp:271
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -517,12 +504,12 @@ msgstr ""
 "Wählen Sie „Korb“ → „Sichern & Wiederherstellen ...“ → „Einen anderen "
 "existierenden Ordner ...“ und wählen Sie diesen Ordner aus."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Stelle <b>%1</b> wieder her. Bitte warten..."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:263
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -531,12 +518,12 @@ msgstr ""
 "Wenn etwas während der Wiederherstellung fehlschlagen sollte, lesen Sie "
 "bitte die Datei <b>%1</b>."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:266
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Körbe wiederherstellen"
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -546,12 +533,12 @@ msgstr ""
 "worden. Es kann leider nichts importiert werden. Ihre alten Körbe blieben "
 "unverändert erhalten."
 
-#: src/backup.cpp:309
+#: src/backup.cpp:297
 #, kde-format
 msgid "Restore Error"
 msgstr "Fehler beim Wiederherstellen"
 
-#: src/backup.cpp:317
+#: src/backup.cpp:305
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -560,18 +547,18 @@ msgstr ""
 "Ihre Sicherung wurde erfolgreich wiederhergestellt nach <b>%1</b>. %2 wird "
 "nun neugestartet, damit die Änderungen wirksam werden."
 
-#: src/backup.cpp:351
+#: src/backup.cpp:339
 #, kde-format
 msgid "Restart"
 msgstr "Neustart"
 
-#: src/backup.cpp:367
+#: src/backup.cpp:355
 #, fuzzy, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "&Position der Korbansicht:"
 
-#: src/backup.cpp:372
+#: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -1747,6 +1734,18 @@ msgstr "Unterkörbe &entfernen"
 #, kde-format
 msgid "Basket Archives"
 msgstr "Korbarchiv"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
+msgstr ""
+"Die Datei <b>%1</b> existiert bereits. Möchten Sie sie wirklich "
+"überschreiben?"
+
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#, kde-format
+msgid "Overwrite File?"
+msgstr "Datei überschreiben?"
 
 #: src/bnpview.cpp:2448
 #, kde-format
