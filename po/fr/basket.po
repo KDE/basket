@@ -8,19 +8,20 @@
 # Guillaume Martres <smarter@ubuntu.com>, 2009.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021.
 #
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2021-12-27 22:42+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-10 07:43+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -445,7 +446,7 @@ msgstr "Tous les fichiers"
 #: src/backup.cpp:195 src/backup.cpp:240
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
-msgstr "Archive Tar compressée par Gzip"
+msgstr "Archive « Tar » compressée par Gzip"
 
 #: src/backup.cpp:196 src/backup.cpp:204
 #, kde-format
@@ -1322,7 +1323,7 @@ msgstr "&Archive de paniers..."
 #: src/bnpview.cpp:389
 #, kde-format
 msgid "&HTML Web Page..."
-msgstr "&Page Web HTML..."
+msgstr "&Page Internet au format « HTML »..."
 
 #: src/bnpview.cpp:395
 #, kde-format
@@ -3010,7 +3011,7 @@ msgid ""
 msgstr ""
 "Sélectionnez une région en utilisant la souris. Pour prendre une copie "
 "d'écran, veuillez appuyer sur la touche « Entrée ». Appuyer sur la touche "
-"« ESC » pour fermer."
+"« Échap » pour fermer."
 
 #: src/settings.cpp:390
 #, kde-format
@@ -3417,12 +3418,12 @@ msgid ""
 msgstr ""
 "<p>Lorsque vous ouvrez des liens Internet, ils sont ouverts dans différentes "
 "applications, selon le contenu du lien (une page Internet, une image, un "
-"document PDF ou autres), comme si c'était des fichiers sur votre ordinateur."
-"</p><p>Voici comment faire si vous voulez que toutes les adresses Internet "
-"soient ouvertes dans votre navigateur Internet. C'est utile si vous "
+"document « PDF » ou autres), comme si c'était des fichiers sur votre "
+"ordinateur.</p><p>Voici comment faire si vous voulez que toutes les adresses "
+"Internet soient ouvertes dans votre navigateur Internet. C'est utile si vous "
 "n'utilisez pas Plasma (par exemple, si vous utilisez GNOME ou XFCE ou "
 "autres).</p><ul><li>Ouvrez le Centre de configuration de KDE (si ce n'est "
-"pas disponible, essayez de saisir « systemsetting » dans un terminal),</"
+"pas disponible, essayez de saisir « systemsettings » dans un terminal),</"
 "li><li>Allez dans la section « Applications » puis « Applications par "
 "défaut »,</li><li>Choisissez « Navigateur Internet », cochez « Avec la "
 "commande suivante : » et saisissez le nom de votre navigateur Internet "
