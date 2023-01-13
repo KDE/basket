@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-01-02 07:11\n"
+"PO-Revision-Date: 2023-01-12 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -25,7 +25,9 @@ msgstr "KDE 中国, Guo Yunhe, Tyson Tan, Zhou Wenqing"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "您的邮箱"
+msgstr ""
+"kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com, "
+"zhouwenqing655@gmail.com"
 
 #: devtools/weaver/main.cpp:18
 #, kde-format
@@ -117,12 +119,12 @@ msgstr "打开资源文件失败。"
 #: devtools/weaver/weaver.cpp:309 src/archive.cpp:259
 #, kde-format
 msgid "This file is not a basket archive."
-msgstr "不是一个正确的basket文档."
+msgstr "无法打开：此文件不是BasKet文档。"
 
 #: devtools/weaver/weaver.cpp:312 src/archive.cpp:262
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
-msgstr "无法打开,文档已损坏."
+msgstr "无法打开：文档已损坏。"
 
 #: devtools/weaver/weaver.cpp:315
 #, kde-format
@@ -132,14 +134,14 @@ msgstr "目标路径已经存在."
 #: devtools/weaver/weaver.cpp:318
 #, kde-format
 msgid "This file supplied file format is not supported"
-msgstr "不支持此文件提供的文件格式"
+msgstr "无法打开：不支持此文件提供的文件格式"
 
 #: devtools/weaver/weaver.cpp:321
 #, kde-format
 msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
-msgstr "此文件是用较新版本的 BasKet Note Pad 创建的，可能不完全支持"
+msgstr "此文件由较新版本的 BasKet 贴示板创建，可能不完全支持"
 
 #: src/aboutdata.cpp:13
 #, kde-format
@@ -240,7 +242,7 @@ msgstr "原始图标"
 #: src/aboutdata.cpp:50
 #, kde-format
 msgid "BasKet Note Pads"
-msgstr "Basket贴示板"
+msgstr "BasKet贴示板"
 
 #: src/archive.cpp:51 src/bnpview.cpp:2025
 #, kde-format
@@ -250,7 +252,7 @@ msgstr "保存为Basket文档"
 #: src/archive.cpp:52
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
-msgstr "保存为basket文档.请稍等..."
+msgstr "正在以Basket文档格式保存，请稍等..."
 
 #: src/archive.cpp:256 src/archive.cpp:259 src/archive.cpp:262
 #: src/archive.cpp:265 src/archive.cpp:272 src/archive.cpp:281
@@ -268,7 +270,7 @@ msgstr "解压路径已存在。"
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
-msgstr "这个文件由最近的 %1 版本所创建,你需要升级到更新的版本才能打开."
+msgstr "无法打开：此文件由新版本的 %1 创建，你需要升级到更新的版本才能打开。"
 
 #: src/archive.cpp:276
 #, kde-format
@@ -308,7 +310,7 @@ msgstr "使用其他目录(&U)..."
 #: src/backup.cpp:86
 #, kde-format
 msgid "Why to do that?"
-msgstr "你要干什么?"
+msgstr "为什么这样做？"
 
 #: src/backup.cpp:87
 #, kde-format
@@ -333,22 +335,22 @@ msgstr "备份"
 #: src/backup.cpp:113
 #, kde-format
 msgid "&Backup..."
-msgstr "备份中(&B)..."
+msgstr "备份(&B)..."
 
 #: src/backup.cpp:114
 #, kde-format
 msgid "&Restore a Backup..."
-msgstr "备份与还原(&R)..."
+msgstr "还原(&R)..."
 
 #: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
-msgstr "最近的备份:无"
+msgstr "上次备份于：从未"
 
 #: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
-msgstr "最近的备份:%1"
+msgstr "上次备份于：%1"
 
 #: src/backup.cpp:149
 #, kde-format
@@ -504,13 +506,13 @@ msgstr "重启"
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
-msgstr "恢复之前的 basket"
+msgstr "恢复之前的 Basket"
 
 #: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
-msgstr "恢复之前的 basket (%1)"
+msgstr "恢复之前的 Basket (%1)"
 
 #: src/basket_options.h:21
 #, kde-format
