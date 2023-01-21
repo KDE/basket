@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-01-06 17:33+0100\n"
+"PO-Revision-Date: 2023-01-20 07:03+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -48,16 +48,18 @@ msgstr "სამიზნე საქაღალდე. არასავა
 msgid ""
 "Use the <image> as preview image for a .baskets file. Must be a .png file."
 msgstr ""
+"გამოიყენეთ <image> როგორც გამოსახულების მინიატურა .baskets ფაილისთვის. "
+"აუცილებელია, .png ფაილს წარმოადგენდეს."
 
 #: devtools/weaver/main.cpp:39
 #, kde-format
 msgid "Decodes the <file>. Cannot be used together with --weave."
-msgstr ""
+msgstr "<ფაილის> დეკოდირება. --weave -სთან ერთად გამოყენება შეუძლებელია."
 
 #: devtools/weaver/main.cpp:45
 #, kde-format
 msgid "Encodes the <directory>. Cannot be used together with --unweave."
-msgstr ""
+msgstr "<საქაღალდის> კოდირბა. შეუძლებევლია --unweave -სთან ერთად გამოყენება."
 
 #: devtools/weaver/main.cpp:51
 #, kde-format
@@ -65,6 +67,8 @@ msgid ""
 "This optional value will be used to label the new content within the "
 "optionally given output directory"
 msgstr ""
+"ეს არასავალდებულო მნიშვნელობა გამოყენებული იქნება არასავალდებულო გამოტანის "
+"საქაღალდეში ჩაწერილი ახალი შემცველობაზე ჭდის დასადებად"
 
 #: devtools/weaver/main.cpp:56
 #, kde-format
@@ -74,12 +78,12 @@ msgstr "არსებულ ფაილებზე გადაწერა.
 #: devtools/weaver/weaver.cpp:45
 #, kde-format
 msgid "You need to provide at least one --weave/-w or --unweave/-u option"
-msgstr ""
+msgstr "საჭიროა მიუთითოთ --weave/-w ან --unweave/-u პარამეტრი"
 
 #: devtools/weaver/weaver.cpp:50
 #, kde-format
 msgid "You cannot use --weave/-w and --unweave/-u options in conjunction."
-msgstr ""
+msgstr "--weave/-w და --unweave/-u პარამეტრებს ერთად ვერ გამოიყენებთ."
 
 #: devtools/weaver/weaver.cpp:56
 #, kde-format
@@ -87,6 +91,8 @@ msgid ""
 "Multiple --weave/-w or --unweave/-u input options found. All but the first "
 "input are going to be ignored."
 msgstr ""
+"აღმოჩენილია ერთზე მეტი --weave/-w ან --unweave/-u პარამეტრი. გამოტოვებული "
+"იქნება ყველა, პირველის გარდა."
 
 #: devtools/weaver/weaver.cpp:80
 #, kde-format
@@ -139,6 +145,7 @@ msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
 msgstr ""
+"ეს ფაილი BasKet Notes-ითაა შექმნილი. ის შეიძლება ბოლომდე მხარდაჭერილი არ იყოს"
 
 #: src/aboutdata.cpp:13
 #, kde-format
@@ -153,6 +160,8 @@ msgstr ""
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
 msgstr ""
+"© 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev, ყველა "
+"უფლება დაცულია"
 
 #: src/aboutdata.cpp:33
 #, kde-format
@@ -545,12 +554,12 @@ msgstr "კალათის შექმნის შეცდომა"
 #: src/basketfactory.cpp:84
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
-msgstr ""
+msgstr "უკაცრავად, ამ ახალი კალათისთვის ნიმუშის კოპირება შეუძლებელია."
 
 #: src/basketfactory.cpp:105
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
-msgstr ""
+msgstr "უკაცრავად, ამ ახალი კალათისთვის ნიმუშის მორგება შეუძლებელია."
 
 #: src/basketlistview.cpp:624
 #, kde-format
@@ -679,17 +688,17 @@ msgstr "ამ კალათის ჩვენება (&გლობალ�
 #: src/basketproperties.ui:147
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
-msgstr ""
+msgstr "ამ &კალათზე გადმორთვა (გლობალური მალსახმობი)"
 
 #: src/basketscene.cpp:297
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
-msgstr ""
+msgstr "ახალ შენიშვნა არ ემთხვევა ფილტრს და დამალულია."
 
 #: src/basketscene.cpp:299
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
-msgstr ""
+msgstr "ახალ შენიშვნა არ ემთხვევა ფილტრს და დამალულია."
 
 #: src/basketscene.cpp:301
 #, kde-format
@@ -1226,7 +1235,7 @@ msgstr "შენიშვნის &ყველაფერზე მოხს
 #: src/bnpview.cpp:429
 #, kde-format
 msgid "Unselects all selected notes"
-msgstr ""
+msgstr "ყველა მონიშნული შენიშვნისთვის მონიშვნის მოხსნა"
 
 #: src/bnpview.cpp:432
 #, kde-format
@@ -1236,7 +1245,7 @@ msgstr "მონიშვნის &ინვერსია"
 #: src/bnpview.cpp:436
 #, kde-format
 msgid "Inverts the current selection of notes"
-msgstr ""
+msgstr "ამჟამად არჩეული შენიშვნების მონიშვნის ინვერსია"
 
 #: src/bnpview.cpp:439
 #, kde-format
@@ -1332,7 +1341,7 @@ msgstr "&გამშვები"
 #: src/bnpview.cpp:542
 #, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr ""
+msgstr "&სამუშაო მაგიდის აპლიკაციის გამშვების შემოტანა..."
 
 #: src/bnpview.cpp:547
 #, kde-format
@@ -1382,12 +1391,12 @@ msgstr "&თვისებები..."
 #: src/bnpview.cpp:643
 #, kde-format
 msgid "Sort Children Ascending"
-msgstr ""
+msgstr "ბავშვების აღმავლად დალაგება"
 
 #: src/bnpview.cpp:648
 #, kde-format
 msgid "Sort Children Descending"
-msgstr ""
+msgstr "ბავშვების დაღმავლად დალაგება"
 
 #: src/bnpview.cpp:653
 #, kde-format
@@ -1455,7 +1464,7 @@ msgstr "&კალათის გაშლა"
 #: src/bnpview.cpp:739
 #, kde-format
 msgid "Convert text notes to rich text notes"
-msgstr ""
+msgstr "ტექსტური შენიშვნების მდიდარ ტექსტურ შენიშვნებში გადაყვანა"
 
 #: src/bnpview.cpp:748
 #, kde-format
@@ -1465,7 +1474,7 @@ msgstr "&მოგესალმებათ Baskets"
 #: src/bnpview.cpp:1011
 #, kde-format
 msgid "Plain Text Notes Conversion"
-msgstr ""
+msgstr "უბრალო ტექსტური შენიშვნების გადაყვანა"
 
 #: src/bnpview.cpp:1012
 #, kde-format
@@ -1522,7 +1531,7 @@ msgstr "%1, %2, %3"
 #: src/bnpview.cpp:1730
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
-msgstr ""
+msgstr "უბრალო ტექსტური შენიშვნები მდიდარ ტექსტშია გადაყვანილი."
 
 #: src/bnpview.cpp:1730 src/bnpview.cpp:1732
 #, kde-format
@@ -1532,7 +1541,7 @@ msgstr "გადაყვანა დასრულდა"
 #: src/bnpview.cpp:1732
 #, kde-format
 msgid "There are no plain text notes to convert."
-msgstr ""
+msgstr "გადასაყვანი უბრალო ტექსტური შენიშვნების გარეშე."
 
 #: src/bnpview.cpp:1749
 #, kde-format
@@ -1622,12 +1631,12 @@ msgstr ""
 #: src/common.cpp:60
 #, kde-format
 msgid "Please enter the password for the basket <b>%1</b>:"
-msgstr ""
+msgstr "შეიყვანეთ პაროლი კალათისთვის <b>%1</b>:"
 
 #: src/common.cpp:98
 #, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
-msgstr ""
+msgstr "მიანიჭეთ პაროლი კალათს <b>%1</b>:"
 
 #: src/common.cpp:148
 #, kde-format
@@ -2867,17 +2876,17 @@ msgstr ""
 #: src/settings.cpp:464
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
-msgstr ""
+msgstr "დადასტურება &შენიშვნის წაშლამდე"
 
 #: src/settings.cpp:468
 #, kde-format
 msgid "Keep text formatting when pasting"
-msgstr ""
+msgstr "ჩასმისას ტექსტის ფორმატირების შენარჩუნება"
 
 #: src/settings.cpp:472
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "ჭდეების ავტომატური ამოცნობა შენიშვნის შემცველობის მიხედვით"
 
 #: src/settings.cpp:479
 #, kde-format
@@ -2919,7 +2928,7 @@ msgstr ""
 #: src/settings.cpp:497
 #, kde-format
 msgid "How to group a new note?"
-msgstr ""
+msgstr "როგორ დავაჯგუფო ახალი შენიშვნები?"
 
 #: src/settings.cpp:498
 #, kde-format
@@ -3116,7 +3125,7 @@ msgstr "&ჯვარედინი მიმართვები"
 #: src/settings.cpp:831
 #, kde-format
 msgid "Open &text notes with a custom application:"
-msgstr ""
+msgstr "&ტექსტური შენიშვნების ხელით მითითებულ აპლიკაციაში გახსნა:"
 
 #: src/settings.cpp:832
 #, kde-format
@@ -3126,7 +3135,7 @@ msgstr "ტექსტური შენიშვნების პროგ�
 #: src/settings.cpp:839
 #, kde-format
 msgid "Open &image notes with a custom application:"
-msgstr ""
+msgstr "&სურათის შენიშვნების ხელით მითითებულ აპლიკაციაში გახსნა:"
 
 #: src/settings.cpp:840
 #, kde-format
@@ -3136,7 +3145,7 @@ msgstr "გამოსახულების შენიშნების �
 #: src/settings.cpp:847
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
-msgstr ""
+msgstr "&ანიმირებული შენიშვნების ხელით მითითებულ აპლიკაციაში გახსნა:"
 
 #: src/settings.cpp:848
 #, kde-format
@@ -3146,7 +3155,7 @@ msgstr "ანიმირებული შენიშნების პრ�
 #: src/settings.cpp:855
 #, kde-format
 msgid "Open so&und notes with a custom application:"
-msgstr ""
+msgstr "&ხმოვანი შენიშვნების ხელით მითითებულ აპლიკაციაში გახსნა:"
 
 #: src/settings.cpp:856
 #, kde-format
@@ -3234,7 +3243,7 @@ msgstr "ეს %1 მეგაბაიტს გაათავისუფლ�
 #: src/settings_versionsync.ui:17
 #, kde-format
 msgid "Enable distributed version control"
-msgstr ""
+msgstr "დისტრიბუციული ვერსიის კონტროლი ჩართვა"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
 #: src/settings_versionsync.ui:24
@@ -3585,7 +3594,7 @@ msgstr "[[./child|optional title]]"
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "კალათების სახელები რეგისტრის გაუთვალისწინებლად მოიძებნა."
 
 #: src/tagsedit.cpp:420 src/tagsedit.cpp:1089 src/tagsedit.cpp:1105
 #, kde-format
