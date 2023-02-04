@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-01-20 07:03+0100\n"
+"PO-Revision-Date: 2023-02-03 16:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -584,7 +584,7 @@ msgstr "კალათის თვისებები"
 #: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
 #, kde-format
 msgid "Icon"
-msgstr "_ხატულა"
+msgstr "ხატულა"
 
 #: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
 #, kde-format
@@ -1681,7 +1681,7 @@ msgstr "აუდიობილიკის ნომერი"
 #: src/file_metadata.cpp:24 src/notecontent.cpp:2119
 #, kde-format
 msgid "Comment"
-msgstr "კომე_ნტარი"
+msgstr "კომენტარი"
 
 #: src/file_metadata.cpp:25
 #, kde-format
