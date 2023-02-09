@@ -9,22 +9,22 @@
 # Sébastien Laoût <slaout@linux62.org>, 2005.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
 # Burkhard Lück <lueck@hube-lueck.de>, 2020, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2022-02-20 10:39+0100\n"
+"PO-Revision-Date: 2023-02-09 00:22+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -336,7 +336,7 @@ msgid "Why to do that?"
 msgstr "Wozu?"
 
 #: src/backup.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
 "your baskets in a visible place in your home folder, like ~/Notes or ~/"
@@ -349,18 +349,18 @@ msgid ""
 "folder manually (eg. adding a file in a basket folder will not add that file "
 "to the basket).</p>"
 msgstr ""
-"<p>Sie können den Ordner bestimmen in denen %1 Ihre Körbe sichert werden:</"
+"<p>Sie können den Ordner bestimmen in denen %1 Ihre Körbe sichern werden:</"
 "p><ul> <li>an einem leicht zu erreichenden Ort in Ihrem Heimatverzeichnis, "
 "wie beispielsweise ~/Notizen oder ~/Körbe. Auf diese Weise können Sie Ihre "
 "Körbe stets manuell sichern.</li> <li>auf einem Server, um Ihre Körbe auf "
 "zwei Computern nutzen zu können. <br>In diesem Fall müssen Sie den gemeinsam "
-"verwendeten Ordner ins lokale Dateisystem mounten und %2 anweisen den "
-"Mountpunkt zu verwenden.<br>Achtung: Sie sollten %3 nicht gleichzeitig auf "
+"verwendeten Ordner ins lokale Dateisystem mounten und %1 anweisen den "
+"Mountpunkt zu verwenden.<br>Achtung: Sie sollten %1 nicht gleichzeitig auf "
 "beiden Computern verwenden! Ansonsten riskieren Sie den Verlust von Daten, "
 "wenn beide Anwendungen asyncron darauf zugreifen.</li> </ul><p>Bitte "
 "beachten Sie, dass Sie den Inhalt des Ordners nicht eigenständig verändern "
-"sollten. (z.B. wird durch das Hinzufügen einer Datei diese nicht automatisch "
-"im Korb angezeigt).</p>"
+"sollten. (z. B. wird durch das Hinzufügen einer Datei diese nicht "
+"automatisch im Korb angezeigt).</p>"
 
 #: src/backup.cpp:102
 #, kde-format
@@ -553,16 +553,16 @@ msgid "Restart"
 msgstr "Neustart"
 
 #: src/backup.cpp:355
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
-msgstr "&Position der Korbansicht:"
+msgstr "Körbe vor der Wiederherstellung"
 
 #: src/backup.cpp:360
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
-msgstr ""
+msgstr "Körbe vor der Wiederherstellung (%1)"
 
 #: src/basket_options.h:21
 #, kde-format
@@ -1934,7 +1934,7 @@ msgstr "Export nach HTML wird ausgeführt. Bitte warten..."
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
-msgstr ""
+msgstr "%1_dateien"
 
 #: src/htmlexporter.cpp:114 src/htmlexporter.cpp:158
 #, kde-format
