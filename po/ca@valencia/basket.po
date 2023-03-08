@@ -1916,7 +1916,7 @@ msgstr "Documents HTML"
 #: src/htmlexporter.cpp:55 src/htmlexporter.cpp:72
 #, kde-format
 msgid "Export to HTML"
-msgstr "Exporta a HTML"
+msgstr "Exporta cap a HTML"
 
 #: src/htmlexporter.cpp:73
 #, kde-format
