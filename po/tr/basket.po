@@ -1303,7 +1303,7 @@ msgstr "&Yedekle ve Yedeği Geri Yükle..."
 #: src/bnpview.cpp:404
 #, kde-format
 msgid "&Check && Cleanup..."
-msgstr "De&netle ve &Temizle..."
+msgstr "&Denetle ve Temizle..."
 
 #: src/bnpview.cpp:415
 #, kde-format
