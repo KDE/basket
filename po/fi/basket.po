@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the basket package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2020, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2022-07-29 11:33+0300\n"
+"PO-Revision-Date: 2023-03-30 10:10+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -273,16 +273,13 @@ msgid "Extraction path already exists."
 msgstr "Purkamisen kohdekansio on jo olemassa."
 
 #: src/archive.cpp:269
-#, fuzzy, kde-format
-#| msgid ""
-#| "This file was created with a recent version of %1. Please upgrade to a "
-#| "newer version to be able to open that file."
+#, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
 msgstr ""
-"Tiedosto on luotu %1-ohjelman tuoreella versiolla. Päivitä uuteen versioon, "
-"jotta voisit avata tiedoston."
+"Tiedosto on luotu %1-ohjelman tuoreella versiolla. Tiedoston avaamiseksi "
+"päivitä ohjelma uuteen versioon."
 
 #: src/archive.cpp:276
 #, kde-format
@@ -384,22 +381,19 @@ msgid "Choose a Folder Where to Move Baskets"
 msgstr "Valitse kansio, johon korit siirretään"
 
 #: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, fuzzy, kde-format
-#| msgid "&Override"
+#, kde-format
 msgid "&Overwrite"
-msgstr "Kirjoita &yli"
+msgstr "K&orvaa"
 
 #: src/backup.cpp:160
-#, fuzzy, kde-format
-#| msgid "The folder <b>%1</b> is not empty. Do you want to override it?"
+#, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
-msgstr "Kansio <b>%1</b> ei ole tyhjä. Haluatko kirjoittaa sen yli?"
+msgstr "Kansio <b>%1</b> ei ole tyhjä. Haluatko korvata sen?"
 
 #: src/backup.cpp:160
-#, fuzzy, kde-format
-#| msgid "Override Folder?"
+#, kde-format
 msgid "Overwrite Folder?"
-msgstr "Kirjoitetaanko kansio yli?"
+msgstr "Korvataanko kansio?"
 
 #: src/backup.cpp:168
 #, kde-format
@@ -1335,10 +1329,9 @@ msgid "Inverts the current selection of notes"
 msgstr "Kääntää muistiinpanojen nykyiset valinnat"
 
 #: src/bnpview.cpp:439
-#, fuzzy, kde-format
-#| msgid "Text Formatting Toolbar"
+#, kde-format
 msgid "&Clear Formatting"
-msgstr "Tekstimuotoilutyökalurivi"
+msgstr "Tyh&jennä muotoilu"
 
 #: src/bnpview.cpp:443
 #, kde-format
@@ -1700,15 +1693,12 @@ msgid "Basket Archives"
 msgstr "Koriarkistot"
 
 #: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, fuzzy, kde-format
-#| msgid ""
-#| "The file <b>%1</b> already exists. Do you really want to override it?"
+#, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr "Tiedosto <b>%1</b> on jo olemassa. Haluatko korvata sen?"
+msgstr "Tiedosto <b>%1</b> on jo olemassa. Haluatko varmasti korvata sen?"
 
 #: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
-#, fuzzy, kde-format
-#| msgid "Override File?"
+#, kde-format
 msgid "Overwrite File?"
 msgstr "Korvataanko tiedosto?"
 
@@ -3022,10 +3012,9 @@ msgid "Ask confirmation before &deleting notes"
 msgstr "&Pyydä vahvistamaan muistiinpanojen poistaminen"
 
 #: src/settings.cpp:468
-#, fuzzy, kde-format
-#| msgid "Do not keep text formatting when pasting"
+#, kde-format
 msgid "Keep text formatting when pasting"
-msgstr "Älä säilytä liitettäessä tekstin muotoilua"
+msgstr "Säilytä tekstin muotoilu liitettäessä"
 
 #: src/settings.cpp:472
 #, kde-format
@@ -3727,7 +3716,7 @@ msgstr ""
 #: src/tagsedit.cpp:400
 #, kde-format
 msgid "Allow Cross Reference Links"
-msgstr ""
+msgstr "Salli viitelinkit"
 
 #: src/tagsedit.cpp:402
 #, kde-format
@@ -3740,6 +3729,8 @@ msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
+"Tällä valinnalla voi viitata suoraan tekstihuomautukseen. Viitelinkkien "
+"syntaksi on seuraava:"
 
 #: src/tagsedit.cpp:404
 #, kde-format
@@ -3774,7 +3765,7 @@ msgstr "[[./lapsi|valinnainen otsikko]]"
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "Korien nimissä erotetaan pien- ja suuraakkoset."
 
 #: src/tagsedit.cpp:420 src/tagsedit.cpp:1089 src/tagsedit.cpp:1105
 #, kde-format
