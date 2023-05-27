@@ -954,30 +954,35 @@ msgstr "タグ"
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>本当にバスケット「%1」とその内容を削除しますか？</qt>"
+msgstr[1] "<qt>本当にバスケット「%1」とその内容を削除しますか？</qt>"
 
 #: src/basketscene.cpp:3881
 #, fuzzy, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "状態を削除"
+msgstr[1] "状態を削除"
 
 #: src/basketscene.cpp:3980
 #, fuzzy, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "メモをクリップボードにコピーしました。"
+msgstr[1] "メモをクリップボードにコピーしました。"
 
 #: src/basketscene.cpp:3983
 #, fuzzy, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "クリップボードを貼り付け"
+msgstr[1] "クリップボードを貼り付け"
 
 #: src/basketscene.cpp:3986
 #, fuzzy, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "メモを選択にコピーしました。"
+msgstr[1] "メモを選択にコピーしました。"
 
 #: src/basketscene.cpp:4050 src/basketscene.cpp:4122
 #, kde-format
@@ -1589,12 +1594,14 @@ msgstr "メモはありません"
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "メモはありません"
+msgstr[1] "メモはありません"
 
 #: src/bnpview.cpp:1591
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] ""
+msgstr[1] ""
 
 #: src/bnpview.cpp:1592
 #, kde-format
@@ -1611,6 +1618,7 @@ msgstr "フィルタなし"
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "すべてマッチ"
+msgstr[1] "すべてマッチ"
 
 #: src/bnpview.cpp:1595
 #, fuzzy, kde-format
