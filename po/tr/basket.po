@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-05-04 11:53+0300\n"
+"PO-Revision-Date: 2023-05-29 12:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.04.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -664,17 +664,18 @@ msgid ""
 "is useful in addition to the configurable global shortcuts, eg. to paste the "
 "clipboard or the selection into the current basket from anywhere.</p>"
 msgstr ""
-"<p><strong>Kısayollarınızı Kolaylıkla Hatırlayın</strong>:<br>İlk seçenek "
-"ile, sepete <strong>Alt+Harf</strong> kısayolunu vermek sepet ağacındaki o "
-"harfin altını çizecektir.<br>Örneğin, <i>Alt+p</i> kısayolunu <i>İpuçları</"
-"i> adlı bir sepete atıyorsanız sepet ağaçta <i>İ<u>p</u>uçları</i> olarak "
-"görüntülenecektir. Kısayollarını daha kolay hatırlayabilmeniz için onları "
-"görselleştirir.</p><p><strong>Yerel x Global</strong>:<br>İlk seçenek, ana "
-"pencere etkinken sepeti göstermenize izin verir. Global kısayollar her "
-"yerden kullanılabilir, ana pencere etkinken bile.</p><p><strong>Göster x "
-"Değiştir</strong>:<br>Son seçenek, bu sepeti ana pencereyi açmadan ana sepet "
-"yapar. Yapılandırılabilir global kısayollara bir ek olarak kullanışlıdır. "
-"Örneğin, panoya veya geçerli sepete her yerden kopyalamanıza izin verir.</p>"
+"<p><strong>Kısayollarınızı Kolaylıkla Anımsayın</strong>:<br>İlk seçenek "
+"ile, sepete <strong>Seçenek+Harf</strong> kısayolunu vermek sepet ağacındaki "
+"o harfin altını çizecektir.<br>Örneğin, <i>Seçenek+P</i> kısayolunu "
+"<i>İpuçları</i> adlı bir sepete atıyorsanız sepet ağaçta <i>İ<u>p</u>uçları</"
+"i> olarak görüntülenecektir. Kısayollarını daha kolay anımsayabilmeniz için "
+"onları görselleştirir.</p><p><strong>Yerel x Global</strong>:<br>İlk "
+"seçenek, ana pencere etkinken sepeti göstermenize izin verir. Global "
+"kısayollar her yerden kullanılabilir, ana pencere etkinken bile.</"
+"p><p><strong>Göster x Değiştir</strong>:<br>Son seçenek, bu sepeti ana "
+"pencereyi açmadan ana sepet yapar. Yapılandırılabilir global kısayollara bir "
+"ek olarak kullanışlıdır. Örneğin, panoya veya geçerli sepete her yerden "
+"kopyalamanıza izin verir.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
 #: src/basketproperties.ui:27 src/settings.cpp:440 src/tagsedit.cpp:1096
@@ -1013,7 +1014,9 @@ msgstr "Eğer henüz kaydedilmemiş bir değişiklik varsa gösterir."
 #: src/basketstatusbar.cpp:137
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
-msgstr "Ctrl+bırak: kopyala, Shift+bırak: taşı, Shift+Ctrl+bırak: bağlantı."
+msgstr ""
+"Kontrol+bırak: Kopyala, Üst Karakter+bırak: Taşı, Üst Karakter+Kontrol"
+"+bırak: Bağlantıla."
 
 #: src/basketstatusbar.cpp:160
 #, kde-format
@@ -2900,17 +2903,17 @@ msgstr "Desteklenmeyen MIME Türü"
 #: src/notefactory.cpp:549
 #, kde-format
 msgid "&Move Here\tShift"
-msgstr "&Buraya Taşı\tShift"
+msgstr "&Buraya Taşı\tÜst Karakter"
 
 #: src/notefactory.cpp:549
 #, kde-format
 msgid "&Copy Here\tCtrl"
-msgstr "Buraya Ko&pyala\tCtrl"
+msgstr "Buraya Ko&pyala\tKontrol"
 
 #: src/notefactory.cpp:550
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
-msgstr "Buraya B&ağ Koy\tCtrl+Shift"
+msgstr "Buraya B&ağ Koy\tKontrol+Üst Karakter"
 
 #: src/notefactory.cpp:556
 #, kde-format
@@ -3152,7 +3155,7 @@ msgstr "Simge İçe Aktar"
 #: src/settings.cpp:530
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
-msgstr "Herhangi bir yerde &Shift+orta-düğme:"
+msgstr "Herhangi bir yerde &Üst Karakter+orta-düğme:"
 
 #: src/settings.cpp:535
 #, kde-format
@@ -3706,12 +3709,12 @@ msgstr "Yeni &İfade"
 #: src/tagsedit.cpp:355
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "Yukarı Taşı (Ctrl+Shift+Up)"
+msgstr "Yukarı Taşı (Kontrol+Üst Karakter+Yukarı Ok)"
 
 #: src/tagsedit.cpp:356
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "Aşağı Taşı (Ctrl+Shift+Down)"
+msgstr "Aşağı Taşı (Kontroll+Üst Karakter+Aşağı Ok)"
 
 #: src/tagsedit.cpp:357
 #, kde-format

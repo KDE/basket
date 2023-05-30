@@ -7,8 +7,8 @@
 # Yann Verley <yann.verley@free.fr>, 2007.
 # Guillaume Martres <smarter@ubuntu.com>, 2009.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 #
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: basket_fr\n"
