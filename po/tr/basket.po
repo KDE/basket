@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-05-29 12:32+0300\n"
+"PO-Revision-Date: 2023-06-04 01:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.07.70\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -2970,8 +2970,8 @@ msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
-"Fare kullanarak bir bölge seçin. Ekran görüntüsü almak için Enter'a basın. "
-"Çıkmak için Esc'ye basın."
+"Fare kullanarak bir bölge seçin. Ekran görüntüsü almak için Giriş'e basın. "
+"Çıkmak için Vazgeç'e basın."
 
 #: src/settings.cpp:390
 #, kde-format
