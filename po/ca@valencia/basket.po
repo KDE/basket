@@ -1408,12 +1408,12 @@ msgstr "Mou a dal&t de tot"
 #: src/bnpview.cpp:480
 #, kde-format
 msgid "Move &Up"
-msgstr "Mou am&unt"
+msgstr "Mou cap am&unt"
 
 #: src/bnpview.cpp:486
 #, kde-format
 msgid "Move &Down"
-msgstr "Mou a&vall"
+msgstr "Mou cap a&vall"
 
 #: src/bnpview.cpp:492
 #, kde-format
@@ -3742,12 +3742,12 @@ msgstr "Est&at nou"
 #: src/tagsedit.cpp:355
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "Mou amunt (Ctrl+Maj+Fletxa amunt)"
+msgstr "Mou cap amunt (Ctrl+Maj+Fletxa amunt)"
 
 #: src/tagsedit.cpp:356
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "Mou avall (Ctrl+Maj+Fletxa avall)"
+msgstr "Mou cap avall (Ctrl+Maj+Fletxa avall)"
 
 #: src/tagsedit.cpp:357
 #, kde-format
