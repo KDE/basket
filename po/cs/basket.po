@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-03-03 16:13+0100\n"
+"PO-Revision-Date: 2023-06-23 11:42+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -738,7 +738,7 @@ msgid ""
 "Right click for more options"
 msgstr ""
 "Vložit poznámku\n"
-"Klikněte pravým myšítkem pro více možností"
+"Klikněte pravým tlačítkem myši pro více možností"
 
 #: src/basketscene.cpp:2738
 #, kde-format
@@ -796,8 +796,8 @@ msgid ""
 "Group note with the one below\n"
 "Right click for more options"
 msgstr ""
-"Seskupit poznámku spoznámkou níže\n"
-"Klikněte pravým myšítkem pro více možností"
+"Seskupit poznámku s poznámkou níže\n"
+"Klikněte pravým tlačítkem myši pro více možností"
 
 #: src/basketscene.cpp:2778
 #, kde-format
@@ -805,8 +805,8 @@ msgid ""
 "Group note with the one above\n"
 "Right click for more options"
 msgstr ""
-"Seskupit poznámku spoznámkou výše\n"
-"Klikněte pravým myšítkem pro více možností"
+"Seskupit poznámku s poznámkou výše\n"
+"Klikněte pravým tlačítkem myši pro více možností"
 
 #: src/basketscene.cpp:2796
 #, kde-format
@@ -1231,8 +1231,8 @@ msgstr ""
 "<h2>Strom košíků</h2>Zde je seznam Vašich košíků. Můžete svá data "
 "organizovat přesouváním do jiných košíků. Můžete seskupovat košíky podle "
 "předmětu vytvořením nového košíku uvnitř jiných. Můžete mezi nimi přecházet "
-"kliknutím na příslušný koš, nebo přeuspořádat je použitím funkce táhní a "
-"pust."
+"kliknutím na příslušný koš, nebo přeuspořádat je použitím funkce táhni a "
+"pusť."
 
 #: src/bnpview.cpp:377 src/bnpview.cpp:383
 #, kde-format
@@ -1819,7 +1819,7 @@ msgstr ""
 "github.io'>basket-notepads.github.io</a> pro více informací).</p><p>Adresář "
 "<b>%1</b> byl zkopírován pro potřeby košíku. Můžete buď smazat tento adresář "
 "nebo smazat košík, nebo použít obě možnosti . Ale nezapomeňte, že modifikací "
-"jednoho již nedojde k modifikací druhého, protože jsou to tyní oddlělené "
+"jednoho již nedojde k modifikací druhého, protože jsou to nyní oddělené "
 "entity.</p>"
 
 #: src/formatimporter.cpp:122
@@ -3031,7 +3031,7 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
-"<p>Pokud je tato volba povolena, čára pro vložení neumoňuje jen vkládat "
+"<p>Pokud je tato volba povolena, čára pro vložení neumožňuje jen vkládat "
 "poznámky na pozici kurzoru, ale také umožňuje seskupovat nové poznámky s "
 "těmi, které se nacházejí pod pozicí kurzoru:</p>"
 
