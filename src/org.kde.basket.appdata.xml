@@ -11,6 +11,7 @@
   <developer_name xml:lang="da">KDE-fællesskabet</developer_name>
   <developer_name xml:lang="de">KDE-Gemeinschaft</developer_name>
   <developer_name xml:lang="en-GB">KDE Community</developer_name>
+  <developer_name xml:lang="eo">KDE-Komunumo</developer_name>
   <developer_name xml:lang="es">Comunidad KDE</developer_name>
   <developer_name xml:lang="et">KDE kogukond</developer_name>
   <developer_name xml:lang="eu">KDE komunitatea</developer_name>
@@ -41,6 +42,7 @@
   <name xml:lang="da">Basket</name>
   <name xml:lang="de">Basket</name>
   <name xml:lang="en-GB">Basket</name>
+  <name xml:lang="eo">Korbo</name>
   <name xml:lang="es">Basket</name>
   <name xml:lang="et">Basket</name>
   <name xml:lang="eu">Basket</name>
@@ -68,6 +70,7 @@
   <summary xml:lang="ca-valencia">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="cs">Shromažďování poznámek a úkolů</summary>
   <summary xml:lang="en-GB">Notes and to-dos organiser</summary>
+  <summary xml:lang="eo">Organizilo por notoj kaj farendaĵoj</summary>
   <summary xml:lang="es">Organizador de notas y tareas pendientes</summary>
   <summary xml:lang="et">Märkmete ja ülesannete korraldaja</summary>
   <summary xml:lang="eu">Oharren eta zereginen antolatzailea</summary>
@@ -142,6 +145,7 @@
     <p xml:lang="ca-valencia">Permet organitzar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="cs">Umožňuje organizovat poznámky, sledovat úlohy a spoustu dalšího.</p>
     <p xml:lang="en-GB">It allows to arrange notes, track to-dos and much more.</p>
+    <p xml:lang="eo">Ĝi permesas aranĝi notojn, spuri farendaĵoj kaj multe pli.</p>
     <p xml:lang="es">Permite organizar notas y hacer seguimiento de tareas pendientes, entre otras cosas.</p>
     <p xml:lang="et">See võimaldab korraldada märkmeid, hoida silma peal ülesannetel ja veel palju muud.</p>
     <p xml:lang="eu">Oharrak antolatzeko, zereginen jarraipena egiteko eta askoz gehiagorako aukera eskaintzen du.</p>
