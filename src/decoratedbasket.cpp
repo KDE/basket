@@ -92,3 +92,5 @@ void DecoratedBasket::showErrorMessage(const QString &errorMessage)
     m_messageWidget->setText(errorMessage);
     m_messageWidget->show();
 }
+
+#include "moc_decoratedbasket.cpp"

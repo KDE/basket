@@ -264,3 +264,5 @@ void MainWindow::minimizeRestore()
         this->setWindowState(Qt::WindowActive);
     }
 }
+
+#include "moc_mainwindow.cpp"

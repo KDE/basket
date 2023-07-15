@@ -635,3 +635,5 @@ QPixmap FoundCountIcon::foundCountPixmap(bool isLoading, int countFound, bool ch
 
     return circledTextPixmap(text, height, boldFont, m_basketTree->palette().color(QPalette::HighlightedText));
 }
+
+#include "moc_basketlistview.cpp"

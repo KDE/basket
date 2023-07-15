@@ -20,3 +20,5 @@ void BasketView::resizeEvent(QResizeEvent *)
 {
     static_cast<BasketScene *>(scene())->relayoutNotes();
 }
+
+#include "moc_basketview.cpp"

@@ -349,3 +349,5 @@ void NewBasketDialog::manageTemplates()
 {
     KMessageBox::information(this, "Wait a minute! There is no template for now: they will come with time... :-D");
 }
+
+#include "moc_newbasketdialog.cpp"

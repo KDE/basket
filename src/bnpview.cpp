@@ -2582,3 +2582,5 @@ void BNPView::sortSiblingsDesc()
     else
         parent->sortChildren(0, Qt::DescendingOrder);
 }
+
+#include "moc_bnpview.cpp"

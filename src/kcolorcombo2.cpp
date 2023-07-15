@@ -753,4 +753,6 @@ void KColorCombo2::popupClosed()
     hidePopup();
 }
 
+#include "moc_kcolorcombo2.cpp"
+
 #endif // USE_OLD_KCOLORCOMBO

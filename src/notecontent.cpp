@@ -2509,3 +2509,5 @@ void LinkContent::decodeHtmlTitle()
         setLink(url(), title(), icon(), autoTitle(), autoIcon());
     }
 }
+
+#include "moc_notecontent.cpp"

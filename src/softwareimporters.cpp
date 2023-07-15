@@ -234,3 +234,4 @@ void SoftwareImporters::importTextFile()
     }
 }
 
+#include "moc_softwareimporters.cpp"

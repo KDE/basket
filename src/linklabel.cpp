@@ -731,3 +731,5 @@ void LinkLookEditWidget::saveToLook(LinkLook *look)
 {
     look->setLook(m_italic->isChecked(), m_bold->isChecked(), m_underlining->currentIndex(), m_color->color(), m_hoverColor->color(), m_iconSize->iconSize(), (look->canPreview() ? m_preview->currentIndex() : LinkLook::None));
 }
+
+#include "moc_linklabel.cpp"

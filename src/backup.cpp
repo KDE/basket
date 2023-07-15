@@ -413,3 +413,5 @@ void RestoreThread::run()
         tar.close();
     }
 }
+
+#include "moc_backup.cpp"

@@ -83,4 +83,6 @@ void ColorPicker::gotColorResponse(uint response, const QVariantMap& results)
     }
 }
 
+#include "moc_colorpicker.cpp"
+
 #endif

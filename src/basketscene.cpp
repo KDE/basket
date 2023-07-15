@@ -5053,3 +5053,5 @@ void BasketScene::lock()
     m_loadingLaunched = false;
 #endif
 }
+
+#include "moc_basketscene.cpp"

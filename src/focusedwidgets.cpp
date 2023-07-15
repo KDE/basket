@@ -140,3 +140,5 @@ bool FocusWidgetFilter::eventFilter(QObject *object, QEvent *event)
         return false;
     };
 }
+
+#include "moc_focusedwidgets.cpp"

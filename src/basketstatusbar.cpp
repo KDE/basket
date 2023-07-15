@@ -201,3 +201,5 @@ bool BasketStatusBar::eventFilter(QObject *obj, QEvent *event)
     }
     return QObject::eventFilter(obj, event); // standard event processing
 }
+
+#include "moc_basketstatusbar.cpp"

@@ -1289,3 +1289,5 @@ void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     //    qDebug() << "Pointer is: " << thisItem << endl;
     QItemDelegate::paint(painter, option, index);
 }
+
+#include "moc_tagsedit.cpp"

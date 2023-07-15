@@ -213,3 +213,5 @@ void BasketPropertiesDialog::selectColumnsLayout()
 {
     columnForm->setChecked(true);
 }
+
+#include "moc_basketproperties.cpp"

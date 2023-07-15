@@ -59,3 +59,5 @@ void DebugWindow::closeEvent(QCloseEvent *event)
     Global::debugWindow = nullptr;
     QWidget::closeEvent(event);
 }
+
+#include "moc_debugwindow.cpp"

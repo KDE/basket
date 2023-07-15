@@ -89,3 +89,5 @@ void VersionSyncPage::setHistorySize(qint64 size_bytes)
     QString size_mb = QLocale().toString((float)size_bytes / 1024 / 1024, 'f', 2);
     ui->labelHistorySize->setText(i18n("This will free %1 MB", size_mb));
 }
+
+#include "moc_settings_versionsync.cpp"

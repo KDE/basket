@@ -298,3 +298,5 @@ void FilterBar::tagChanged(int index)
         m_data.isFiltering = true;
     Q_EMIT newFilter(m_data);
 }
+
+#include "moc_filter.cpp"

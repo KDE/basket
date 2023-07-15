@@ -409,3 +409,5 @@ qreal FontSizeCombo::fontSize()
 
     return font().pointSize();
 }
+
+#include "moc_variouswidgets.cpp"

@@ -971,3 +971,5 @@ void ApplicationsPage::defaults()
 {
     // TODO
 }
+
+#include "moc_settings.cpp"

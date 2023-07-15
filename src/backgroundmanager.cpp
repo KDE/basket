@@ -378,3 +378,5 @@ void BackgroundManager::doGarbage()
         ///     qDebug();
     }
 }
+
+#include "moc_backgroundmanager.cpp"

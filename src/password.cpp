@@ -124,4 +124,6 @@ Password::~Password()
 {
 }
 
+#include "moc_password.cpp"
+
 #endif

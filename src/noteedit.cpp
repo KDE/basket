@@ -1348,3 +1348,5 @@ QPalette InlineEditors::palette() const
 {
     return qApp->palette();
 }
+
+#include "moc_noteedit.cpp"

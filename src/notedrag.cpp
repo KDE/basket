@@ -579,3 +579,5 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
     }
     return ok;
 }
+
+#include "moc_notedrag.cpp"

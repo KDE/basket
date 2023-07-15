@@ -295,3 +295,5 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     // Return the newly created properties (to put in the basket tree):
     return properties;
 }
+
+#include "moc_formatimporter.cpp"
