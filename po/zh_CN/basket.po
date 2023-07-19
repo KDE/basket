@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-09 00:58+0000\n"
-"PO-Revision-Date: 2023-07-03 11:38\n"
+"PO-Revision-Date: 2023-07-18 11:10\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -722,7 +722,7 @@ msgstr "分组"
 #: src/basketscene.cpp:1439
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "插入"
 
 #: src/basketscene.cpp:2282
 #, kde-format
@@ -1261,7 +1261,7 @@ msgstr ""
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
-msgstr ""
+msgstr "编辑(&E)..."
 
 #: src/bnpview.cpp:450
 #, kde-format
@@ -1311,7 +1311,7 @@ msgstr "置底(&B)"
 #: src/bnpview.cpp:503
 #, kde-format
 msgid "Plai&n Text"
-msgstr ""
+msgstr "纯文本(&N)"
 
 #: src/bnpview.cpp:510
 #, kde-format
@@ -1801,13 +1801,13 @@ msgstr ""
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
-msgstr ""
+msgstr "图标"
 
 #: src/htmlexporter.cpp:115 src/htmlexporter.cpp:159
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
-msgstr ""
+msgstr "图片"
 
 #: src/htmlexporter.cpp:116 src/htmlexporter.cpp:156
 #, kde-format
@@ -1846,13 +1846,13 @@ msgstr "其他..."
 #: src/kcolorcombo2.cpp:637
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
-msgstr ""
+msgstr "R:%1, G:%2, B:%3"
 
 #: src/kcolorcombo2.cpp:637
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
-msgstr ""
+msgstr "（默认）"
 
 #: src/kde4_migration.h:68
 #, kde-format
@@ -1867,7 +1867,7 @@ msgstr ""
 #: src/kde4_migration.h:93
 #, kde-format
 msgid "Choose action"
-msgstr ""
+msgstr "选择操作"
 
 #: src/kde4_migration.h:95
 #, kde-format
@@ -2383,12 +2383,12 @@ msgstr "打开这个文件"
 #: src/notecontent.cpp:1498
 #, kde-format
 msgid "Opening file..."
-msgstr ""
+msgstr "正在打开文件..."
 
 #: src/notecontent.cpp:1500
 #, kde-format
 msgid "Opening files..."
-msgstr ""
+msgstr "正在打开文件..."
 
 #: src/notecontent.cpp:1502
 #, kde-format
