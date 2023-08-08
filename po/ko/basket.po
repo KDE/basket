@@ -115,7 +115,7 @@ msgstr "파일을 열 수 없습니다."
 #: devtools/weaver/weaver.cpp:306 src/archive.cpp:256
 #, kde-format
 msgid "Failed to open a file resource."
-msgstr "파일 자원을 열 수 없습니다."
+msgstr "파일 리소스를 열 수 없습니다."
 
 #: devtools/weaver/weaver.cpp:309 src/archive.cpp:259
 #, kde-format
@@ -1617,7 +1617,7 @@ msgstr ""
 #: src/bnpview.cpp:1763
 #, kde-format
 msgid "Resource not Found"
-msgstr "자원을 찾을 수 없음"
+msgstr "리소스를 찾을 수 없음"
 
 #: src/bnpview.cpp:1792
 #, kde-format
