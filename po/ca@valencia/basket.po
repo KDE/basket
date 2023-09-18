@@ -2938,7 +2938,7 @@ msgstr "&Copia ací\tCtrl"
 #: src/notefactory.cpp:550
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
-msgstr "En&llaça ací\tCtrl+Maj"
+msgstr "En&llaça ací\t«Ctrl+Maj»"
 
 #: src/notefactory.cpp:556
 #, kde-format
