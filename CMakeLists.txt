@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Basket VERSION 2.49.90)
 
-set(REQUIRED_KF5_VERSION "5.60.0")
+set(REQUIRED_KF5_VERSION "5.62.0")
 set(REQUIRED_QT5_VERSION "5.12.0")
 
 # Options

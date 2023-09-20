@@ -98,7 +98,13 @@ endif ()
 
 ########### next target ###############
 
-set(basket_SRCS main.cpp mainwindow.cpp application.cpp)
+set(basket_SRCS
+    main.cpp
+    mainwindow.cpp
+    application.cpp
+
+    basket.qrc
+)
 
 add_executable(basket ${basket_SRCS})
 target_link_libraries(basket LibBasket)
@@ -153,5 +159,4 @@ install(FILES ${DESKTOP_FILES} DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 
 install(FILES org.kde.basket.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.basket.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES basketui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/basket)
 
