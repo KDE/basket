@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-09 00:58+0000\n"
+"POT-Creation-Date: 2023-10-05 00:44+0000\n"
 "PO-Revision-Date: 2023-01-10 07:43+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -388,27 +388,27 @@ msgstr "Dernière sauvegarde : jamais"
 msgid "Last backup: %1"
 msgstr "Dernière sauvegarde : %1"
 
-#: src/backup.cpp:149
+#: src/backup.cpp:150 src/backup.cpp:177
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Choisir un dossier où déplacer les paniers"
 
-#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/backup.cpp:161 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
 msgid "&Overwrite"
 msgstr "Écras&er"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "Le dossier <b>%1</b> n'est pas vide. Voulez-vous vraiment l'écraser ?"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Écraser le dossier ?"
 
-#: src/backup.cpp:168
+#: src/backup.cpp:169
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -417,12 +417,7 @@ msgstr ""
 "Vos paniers ont été déplacés avec succès dans <b>%1</b>. %2 va être "
 "redémarré pour prendre en compte ces changements."
 
-#: src/backup.cpp:175
-#, kde-format
-msgid "Choose an Existing Folder to Store Baskets"
-msgstr "Choix d'un dossier existant où enregistrer les paniers"
-
-#: src/backup.cpp:179
+#: src/backup.cpp:181
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -431,44 +426,44 @@ msgstr ""
 "Votre dossier d'enregistrement a été modifié avec succès vers <b>%1</b>. %2 "
 "va être redémarré pour prendre en compte ces changements."
 
-#: src/backup.cpp:191
+#: src/backup.cpp:193
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Paniers_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
+#: src/backup.cpp:197 src/backup.cpp:242 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Tous les fichiers"
 
-#: src/backup.cpp:195 src/backup.cpp:240
+#: src/backup.cpp:197 src/backup.cpp:242
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archive « Tar » compressée par Gzip"
 
-#: src/backup.cpp:196 src/backup.cpp:204
+#: src/backup.cpp:198 src/backup.cpp:206
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Enregistrer les paniers"
 
-#: src/backup.cpp:205
+#: src/backup.cpp:207
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Enregistrement des paniers en cours. Veuillez patienter..."
 
-#: src/backup.cpp:241 src/bnpview.cpp:2064
+#: src/backup.cpp:243 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Ouvrir une archive de paniers"
 
-#: src/backup.cpp:252
+#: src/backup.cpp:254
 #, kde-format
 msgid "README.txt"
 msgstr "LISEZMOI.txt"
 
-#: src/backup.cpp:256
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -477,7 +472,7 @@ msgstr ""
 "Ceci est une copie de sécurité de vos paniers comme ils étaient avant le "
 "démarrage de la restauration de la sauvegarde %1."
 
-#: src/backup.cpp:257
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -486,7 +481,7 @@ msgstr ""
 "Si la restauration a été un succès et que vous avez restauré ce que vous "
 "vouliez restaurer, vous pouvez supprimer ce dossier."
 
-#: src/backup.cpp:258
+#: src/backup.cpp:260
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -496,7 +491,7 @@ msgstr ""
 "pouvez réutiliser ce dossier pour enregistrer vos paniers et rien ne sera "
 "perdu."
 
-#: src/backup.cpp:259
+#: src/backup.cpp:261
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -505,12 +500,12 @@ msgstr ""
 "Choisissez « Panier » / « Sauvegarder et restaurer... » / « Utiliser un "
 "autre dossier existant... » et sélectionnez ce dossier."
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Restauration de <b>%1</b>. Veuillez patienter..."
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -519,12 +514,12 @@ msgstr ""
 "Si quelque chose se passe mal durant la restauration, lisez le fichier <b>"
 "%1</b>."
 
-#: src/backup.cpp:266
+#: src/backup.cpp:268
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Restaurer les paniers"
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -534,12 +529,12 @@ msgstr ""
 "corrompue. Il est impossible de l'importer. Vos anciens paniers ont été "
 "préservés à la place."
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid "Restore Error"
 msgstr "Erreur de restauration"
 
-#: src/backup.cpp:305
+#: src/backup.cpp:307
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -548,18 +543,18 @@ msgstr ""
 "Votre sauvegarde a été restaurée avec succès dans <b>%1</b>. %2 va être "
 "redémarré pour prendre en compte ces changements."
 
-#: src/backup.cpp:339
+#: src/backup.cpp:341
 #, kde-format
 msgid "Restart"
 msgstr "Redémarrage"
 
-#: src/backup.cpp:355
+#: src/backup.cpp:357
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Panier avant restauration"
 
-#: src/backup.cpp:360
+#: src/backup.cpp:362
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -4018,6 +4013,9 @@ msgid ""
 msgstr ""
 "Redimensionnez la fenêtre pour sélectionner la taille de l'image\n"
 "et fermez la ou appuyer sur la touche « Entrée » pour valider."
+
+#~ msgid "Choose an Existing Folder to Store Baskets"
+#~ msgstr "Choix d'un dossier existant où enregistrer les paniers"
 
 #~ msgid "Save Error"
 #~ msgstr "Erreur d'enregistrement"

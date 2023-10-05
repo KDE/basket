@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-09 00:58+0000\n"
+"POT-Creation-Date: 2023-10-05 00:44+0000\n"
 "PO-Revision-Date: 2008-06-27 16:12+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team:  <opensuse-translation@opensuse.org>\n"
@@ -375,30 +375,30 @@ msgstr "Seneste backup: Aldrig"
 msgid "Last backup: %1"
 msgstr "Seneste backup: %1"
 
-#: src/backup.cpp:149
+#: src/backup.cpp:150 src/backup.cpp:177
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Vælg en mappe hvortil kurve skal flyttes"
 
-#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/backup.cpp:161 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, fuzzy, kde-format
 #| msgid "&Override"
 msgid "&Overwrite"
 msgstr "&Underkend"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, fuzzy, kde-format
 #| msgid "The folder <b>%1</b> is not empty. Do you want to override it?"
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "Mappen <b>%1</b> er ikke tom. Vil du underkende dette?"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, fuzzy, kde-format
 #| msgid "Override Folder?"
 msgid "Overwrite Folder?"
 msgstr "Underkend mappe?"
 
-#: src/backup.cpp:168
+#: src/backup.cpp:169
 #, fuzzy, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -407,12 +407,7 @@ msgstr ""
 "Flytning af dine kurve <b>%1</b> er gennemført. %2 vil blive genstartet for "
 "at tage ændringen i betragtning."
 
-#: src/backup.cpp:175
-#, kde-format
-msgid "Choose an Existing Folder to Store Baskets"
-msgstr "Vælg en eksisterende mappe til at gemme kurve"
-
-#: src/backup.cpp:179
+#: src/backup.cpp:181
 #, fuzzy, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -421,44 +416,44 @@ msgstr ""
 "Ændring af din kurv-gemme-mappe til <b>%1</b> er blevet gennemført. %2 vil "
 "blive genstartet for at tage ændringen i betragtning."
 
-#: src/backup.cpp:191
+#: src/backup.cpp:193
 #, fuzzy, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Kurve"
 
-#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
+#: src/backup.cpp:197 src/backup.cpp:242 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Alle filer"
 
-#: src/backup.cpp:195 src/backup.cpp:240
+#: src/backup.cpp:197 src/backup.cpp:242
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar-arkiver komprimeret af Gzip"
 
-#: src/backup.cpp:196 src/backup.cpp:204
+#: src/backup.cpp:198 src/backup.cpp:206
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Backup-kurve"
 
-#: src/backup.cpp:205
+#: src/backup.cpp:207
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Laver backup af kurve. Vent venligst ..."
 
-#: src/backup.cpp:241 src/bnpview.cpp:2064
+#: src/backup.cpp:243 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Åbn Basket-arkiv"
 
-#: src/backup.cpp:252
+#: src/backup.cpp:254
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:256
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -467,7 +462,7 @@ msgstr ""
 "Dette er en sikkerhedskopi af dine kurve som de var før du begyndte at "
 "gendanne backuppen %1."
 
-#: src/backup.cpp:257
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -476,7 +471,7 @@ msgstr ""
 "Hvis gendannelsen blev gennemført og du gendannede det du ønskede kan du nu "
 "fjerne denne mappe."
 
-#: src/backup.cpp:258
+#: src/backup.cpp:260
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -485,7 +480,7 @@ msgstr ""
 "Hvis noget gik galt under gendannelsesprocessen kan du genbruge denne mappe "
 "til at gemme dine kurve og intet vil gå tabt."
 
-#: src/backup.cpp:259
+#: src/backup.cpp:261
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -494,12 +489,12 @@ msgstr ""
 "Vælg \"Basket\" -> \"Backup & Gendan ...\" -> \" Brug anden eksisterende "
 "mappe ...\" og vælg den mappe."
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Gendanner <b>%1</b>. Vent venligst ..."
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -507,12 +502,12 @@ msgid ""
 msgstr ""
 "Hvis noget går galt under gendannelsesprocessen, så læs filen <b>%1</b>."
 
-#: src/backup.cpp:266
+#: src/backup.cpp:268
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Gendan kurve"
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -521,12 +516,12 @@ msgstr ""
 "Dette arkiv er enten ikke en backup af kurve eller den er korrupt. Den kan "
 "ikke importeres. Dine gamle kurve er blevet bevaret i stedet."
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid "Restore Error"
 msgstr "Gendannelsesfejl"
 
-#: src/backup.cpp:305
+#: src/backup.cpp:307
 #, fuzzy, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -535,18 +530,18 @@ msgstr ""
 "Gendannelse af din backup til <b>%1</b> er gennemført. %2 vil blive "
 "genstartet for at tage ændringen i betragtning."
 
-#: src/backup.cpp:339
+#: src/backup.cpp:341
 #, kde-format
 msgid "Restart"
 msgstr "Genstart"
 
-#: src/backup.cpp:355
+#: src/backup.cpp:357
 #, fuzzy, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "&Placering af kurvtræ:"
 
-#: src/backup.cpp:360
+#: src/backup.cpp:362
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -3970,6 +3965,9 @@ msgid ""
 msgstr ""
 "Ændr størrelse på vinduet for at vælge billedstørrelsen\n"
 "og luk det eller tryk Escape for at acceptere ændringer."
+
+#~ msgid "Choose an Existing Folder to Store Baskets"
+#~ msgstr "Vælg en eksisterende mappe til at gemme kurve"
 
 #~ msgid "Save Error"
 #~ msgstr "Gemmefejl"

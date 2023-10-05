@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-09 00:58+0000\n"
+"POT-Creation-Date: 2023-10-05 00:44+0000\n"
 "PO-Revision-Date: 2022-04-10 08:58+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -378,27 +378,27 @@ msgstr "Ostatnia kopia zapasowa: nigdy"
 msgid "Last backup: %1"
 msgstr "Ostatnia kopia zapasowa: %1"
 
-#: src/backup.cpp:149
+#: src/backup.cpp:150 src/backup.cpp:177
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Wskaż katalog, do którego przenieść koszyki"
 
-#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/backup.cpp:161 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Zastąp"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "Katalog <b>%1</b> nie jest pusty. Czy zastąpić go?"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Zastąpić katalog?"
 
-#: src/backup.cpp:168
+#: src/backup.cpp:169
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -407,12 +407,7 @@ msgstr ""
 "Pomyślnie przeniesiono twój koszyk do <b>%1</b>. %2 zostanie ponownie "
 "uruchomiony, aby uwzględnić tę zmianę."
 
-#: src/backup.cpp:175
-#, kde-format
-msgid "Choose an Existing Folder to Store Baskets"
-msgstr "Wskaż istniejący katalog do przechowywania koszyków"
-
-#: src/backup.cpp:179
+#: src/backup.cpp:181
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -421,44 +416,44 @@ msgstr ""
 "Twój katalog zapisywania koszyków został pomyślnie zmieniony na <b>%1</b>. "
 "%2 zostanie ponownie uruchomiony, aby uwzględnić tę zmianę."
 
-#: src/backup.cpp:191
+#: src/backup.cpp:193
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Koszyki_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
+#: src/backup.cpp:197 src/backup.cpp:242 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Wszystkie pliki"
 
-#: src/backup.cpp:195 src/backup.cpp:240
+#: src/backup.cpp:197 src/backup.cpp:242
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archiwa tar spakowane Gzipem"
 
-#: src/backup.cpp:196 src/backup.cpp:204
+#: src/backup.cpp:198 src/backup.cpp:206
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Kopia zapasowa koszyków"
 
-#: src/backup.cpp:205
+#: src/backup.cpp:207
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Tworzenie kopii zapasowej koszyków. Proszę czekać..."
 
-#: src/backup.cpp:241 src/bnpview.cpp:2064
+#: src/backup.cpp:243 src/bnpview.cpp:2064
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Otwórz archiwum koszyka"
 
-#: src/backup.cpp:252
+#: src/backup.cpp:254
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:256
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -467,7 +462,7 @@ msgstr ""
 "To jest bezpieczna kopia twoich koszyków w stanie sprzed przywracania kopii "
 "zapasowej %1."
 
-#: src/backup.cpp:257
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -476,7 +471,7 @@ msgstr ""
 "Jeśli przywracanie się udało i przywróciłeś to, co chciałeś przywrócić, to "
 "możesz usunąć ten katalog."
 
-#: src/backup.cpp:258
+#: src/backup.cpp:260
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -486,7 +481,7 @@ msgstr ""
 "wykorzystać ten katalog, do przechowania swoich koszyków tak, aby nic nie "
 "zostało utracone."
 
-#: src/backup.cpp:259
+#: src/backup.cpp:261
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -495,12 +490,12 @@ msgstr ""
 "Wybierz \"Koszyk\" -> \"Kopia zapasowa i jej przywracanie...\" -> \"Użyj "
 "innego istniejącego katalogu...\" i wskaż ten katalog."
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Przywracanie <b>%1</b>. Proszę czekać..."
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -509,12 +504,12 @@ msgstr ""
 "Jeśli coś pójdzie nie tak w trakcie przywracania, to przeczytaj plik <b>%1</"
 "b>."
 
-#: src/backup.cpp:266
+#: src/backup.cpp:268
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Przywróć koszyki"
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -523,12 +518,12 @@ msgstr ""
 "To archiwum albo nie jest kopią zapasową koszyków albo jest uszkodzone. Nie "
 "można go zaimportować. Twoje stare koszyki pozostały bez zmian."
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid "Restore Error"
 msgstr "Błąd przywracania"
 
-#: src/backup.cpp:305
+#: src/backup.cpp:307
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -537,18 +532,18 @@ msgstr ""
 "Pomyślnie przywrócono twoją kopię zapasową <b>%1</b>. %2 zostanie ponownie "
 "uruchomiony, aby uwzględnić tę zmianę."
 
-#: src/backup.cpp:339
+#: src/backup.cpp:341
 #, kde-format
 msgid "Restart"
 msgstr "Uruchom ponownie"
 
-#: src/backup.cpp:355
+#: src/backup.cpp:357
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Koszyk przed przywróceniem"
 
-#: src/backup.cpp:360
+#: src/backup.cpp:362
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -3972,6 +3967,9 @@ msgid ""
 msgstr ""
 "Zmień rozmiar okna by wybrać rozmiar obrazu\n"
 "i zamknij je lub wciśnij Escape, aby zatwierdzić zmiany."
+
+#~ msgid "Choose an Existing Folder to Store Baskets"
+#~ msgstr "Wskaż istniejący katalog do przechowywania koszyków"
 
 #~ msgid "Save Error"
 #~ msgstr "Błąd zapisu"

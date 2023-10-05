@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-09 00:58+0000\n"
+"POT-Creation-Date: 2023-10-05 00:44+0000\n"
 "PO-Revision-Date: 2022-12-04 23:21+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -351,158 +351,153 @@ msgstr "Li ultim archivation esset hodie."
 msgid "Last backup: %1"
 msgstr "Li ultim archivation esset hodie."
 
-#: src/backup.cpp:149
+#: src/backup.cpp:150 src/backup.cpp:177
 #, fuzzy, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Selecter li fólder u Kamoso va gardar videos"
 
-#: src/backup.cpp:160 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/backup.cpp:161 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, fuzzy, kde-format
 msgid "&Overwrite"
 msgstr "_Superscrir"
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr ""
 
-#: src/backup.cpp:160
+#: src/backup.cpp:161
 #, fuzzy, kde-format
 msgid "Overwrite Folder?"
 msgstr "_Superscrir"
 
-#: src/backup.cpp:168
+#: src/backup.cpp:169
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
 msgstr ""
 
-#: src/backup.cpp:175
-#, kde-format
-msgid "Choose an Existing Folder to Store Baskets"
-msgstr ""
-
-#: src/backup.cpp:179
+#: src/backup.cpp:181
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
 "going to be restarted to take this change into account."
 msgstr ""
 
-#: src/backup.cpp:191
+#: src/backup.cpp:193
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Corbes_%1"
 
-#: src/backup.cpp:195 src/backup.cpp:240 src/bnpview.cpp:2022
+#: src/backup.cpp:197 src/backup.cpp:242 src/bnpview.cpp:2022
 #: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
 #, kde-format
 msgid "All Files"
 msgstr "Omni files"
 
-#: src/backup.cpp:195 src/backup.cpp:240
+#: src/backup.cpp:197 src/backup.cpp:242
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar compresset med gzip"
 
-#: src/backup.cpp:196 src/backup.cpp:204
+#: src/backup.cpp:198 src/backup.cpp:206
 #, fuzzy, kde-format
 msgid "Backup Baskets"
 msgstr "(Corbes)"
 
-#: src/backup.cpp:205
+#: src/backup.cpp:207
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr ""
 
-#: src/backup.cpp:241 src/bnpview.cpp:2064
+#: src/backup.cpp:243 src/bnpview.cpp:2064
 #, fuzzy, kde-format
 msgid "Open Basket Archive"
 msgstr "Aperter un archive..."
 
-#: src/backup.cpp:252
+#: src/backup.cpp:254
 #, kde-format
 msgid "README.txt"
 msgstr "LEEME.txt"
 
-#: src/backup.cpp:256
+#: src/backup.cpp:258
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
 "restore the backup %1."
 msgstr ""
 
-#: src/backup.cpp:257
+#: src/backup.cpp:259
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
 "restore, you can remove this folder."
 msgstr ""
 
-#: src/backup.cpp:258
+#: src/backup.cpp:260
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
 "folder to store your baskets and nothing will be lost."
 msgstr ""
 
-#: src/backup.cpp:259
+#: src/backup.cpp:261
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, fuzzy, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>Ples atender...</b>"
 
-#: src/backup.cpp:263
+#: src/backup.cpp:265
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr ""
 
-#: src/backup.cpp:266
+#: src/backup.cpp:268
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Restituer corbes"
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
 "imported. Your old baskets have been preserved instead."
 msgstr ""
 
-#: src/backup.cpp:297
+#: src/backup.cpp:299
 #, fuzzy, kde-format
 msgid "Restore Error"
 msgstr "_Restituer..."
 
-#: src/backup.cpp:305
+#: src/backup.cpp:307
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
 msgstr ""
 
-#: src/backup.cpp:339
+#: src/backup.cpp:341
 #, kde-format
 msgid "Restart"
 msgstr "Restartar"
 
-#: src/backup.cpp:355
+#: src/backup.cpp:357
 #, fuzzy, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "(Corbes)"
 
-#: src/backup.cpp:360
+#: src/backup.cpp:362
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
