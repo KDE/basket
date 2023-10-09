@@ -3954,6 +3954,3 @@ msgstr ""
 "画像のサイズを選択してください。\n"
 "ウィンドウを閉じるか Escape を\n"
 "押すと、変更が適用されます。"
-
-#~ msgid "Choose an Existing Folder to Store Baskets"
-#~ msgstr "バスケットを保存する既存のフォルダを選択"
