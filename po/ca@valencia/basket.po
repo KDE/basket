@@ -320,7 +320,7 @@ msgstr ""
 #: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
-msgstr "&Mou a una altra carpeta..."
+msgstr "&Mou cap a una altra carpeta..."
 
 #: src/backup.cpp:85
 #, kde-format
@@ -386,7 +386,7 @@ msgstr "Última còpia de seguretat: %1"
 #: src/backup.cpp:150 src/backup.cpp:177
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
-msgstr "Seleccioneu una carpeta on moure les cistelles"
+msgstr "Seleccioneu una carpeta cap a on s'han de moure les cistelles"
 
 #: src/backup.cpp:161 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
 #, kde-format
@@ -1398,7 +1398,7 @@ msgstr "Desag&rupa"
 #: src/bnpview.cpp:474
 #, kde-format
 msgid "Move on &Top"
-msgstr "Mou a dal&t de tot"
+msgstr "Mou cap a dal&t de tot"
 
 #: src/bnpview.cpp:480
 #, kde-format
@@ -1413,7 +1413,7 @@ msgstr "Mou cap a&vall"
 #: src/bnpview.cpp:492
 #, kde-format
 msgid "Move on &Bottom"
-msgstr "Mou a &baix de tot"
+msgstr "Mou cap a &baix de tot"
 
 #: src/bnpview.cpp:503
 #, kde-format
@@ -1916,7 +1916,7 @@ msgstr "Exporta cap a HTML"
 #: src/htmlexporter.cpp:73
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
-msgstr "S'està exportant a HTML. Espereu..."
+msgstr "S'està exportant cap a HTML. Espereu..."
 
 #: src/htmlexporter.cpp:108 src/htmlexporter.cpp:144 src/htmlexporter.cpp:153
 #, kde-format
@@ -3993,6 +3993,3 @@ msgstr ""
 "Canvieu la mida de la finestra per a seleccionar\n"
 "la mida de la imatge i tanqueu-la o premeu «Escapada»\n"
 "per a acceptar els canvis."
-
-#~ msgid "Choose an Existing Folder to Store Baskets"
-#~ msgstr "Seleccioneu una carpeta existent per a emmagatzemar les cistelles"
