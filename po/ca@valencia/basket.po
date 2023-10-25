@@ -1164,7 +1164,7 @@ msgstr ""
 #: src/bnpview.cpp:254
 #, kde-format
 msgid "Go to previous basket"
-msgstr "Va a la cistella anterior"
+msgstr "Va fins a la cistella anterior"
 
 #: src/bnpview.cpp:256
 #, kde-format
@@ -1178,7 +1178,7 @@ msgstr ""
 #: src/bnpview.cpp:260
 #, kde-format
 msgid "Go to next basket"
-msgstr "Va a la cistella següent"
+msgstr "Va fins a la cistella següent"
 
 #: src/bnpview.cpp:262
 #, kde-format
@@ -2174,9 +2174,9 @@ msgstr ""
 "tipus de fitxers que no comprén %2, es mostraran com a notes de fitxer "
 "genèriques amb només una vista prèvia d'icona o de fitxer amb un nom de "
 "fitxer.</p><p>Si no voleu que l'aplicació cree notes depenent del contingut "
-"dels fitxers que deixeu anar, aneu a la pàgina «General» i desmarqueu "
-"«Imatge o animació» al grup «Veure el contingut dels fitxers afegits per als "
-"següents tipus».</p>"
+"dels fitxers que deixeu anar, aneu fins a la pàgina «General» i desmarqueu "
+"«Imatge o animació» en el grup «Veure el contingut dels fitxers afegits per "
+"als tipus següents».</p>"
 
 #: src/linklabel.cpp:661
 #, kde-format
@@ -3235,7 +3235,7 @@ msgstr "Vi&sualitza..."
 #: src/settings.cpp:701
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
-msgstr "Veure el contingut dels fitxers afegits per als següents tipus"
+msgstr "Veure el contingut dels fitxers afegits per als tipus següents"
 
 #: src/settings.cpp:703
 #, kde-format
@@ -3402,14 +3402,14 @@ msgstr ""
 "si no utilitzeu Plasma (p. ex., si utilitzeu GNOME, XFCE...).</"
 "p><ul><li>Obriu Configuració del sistema KDE (si no està disponible, "
 "intenteu escriure «systemsettings» en un terminal de la línia d'ordres).</"
-"li><li>Aneu a la secció «Aplicacions» i després a la secció «Aplicacions "
-"predeterminades».</li><li>Escolliu «Navegador web», marqueu «amb la següent "
-"ordre:» i introduïu el nom del vostre navegador web (com «firefox» o "
-"«epiphany»).</li></ul><p>Ara, quan feu clic en <i>qualsevol</i> enllaç que "
-"comence amb «https://...», s'obrirà en el vostre navegador web (p. ex., "
-"Mozilla Firefox o Epiphany...).</p><p>Per a una configuració més precisa "
-"(com obrir només les pàgines web en el vostre navegador web), llegiu el "
-"segon enllaç d'ajuda.</p>"
+"li><li>Aneu fins a la secció «Aplicacions» i després cap a la secció "
+"«Aplicacions predeterminades».</li><li>Escolliu «Navegador web», marqueu "
+"«amb l'ordre següent:» i introduïu el nom del vostre navegador web (com "
+"«firefox» o «epiphany»).</li></ul><p>Ara, quan feu clic en <i>qualsevol</i> "
+"enllaç que comence amb «https://...», s'obrirà en el vostre navegador web "
+"(p. ex., Mozilla Firefox o Epiphany...).</p><p>Per a una configuració més "
+"precisa (com obrir només les pàgines web en el vostre navegador web), llegiu "
+"el segon enllaç d'ajuda.</p>"
 
 #: src/settings.cpp:909
 #, kde-format
@@ -3444,11 +3444,11 @@ msgstr ""
 "estos passos per a cada tipus de fitxer que vulgueu obrir en una aplicació "
 "específica.</p><ul><li>Obriu Configuració del sistema KDE (si no està "
 "disponible, intenteu escriure «kk» en un terminal de la línia d'ordres).</"
-"li><li>Aneu a la secció «Aplicacions» i després a la secció «Associacions de "
-"fitxer».</li><li>En l'arbre, expandiu «text» i feu clic en «html».</"
-"li><li>En la llista d'aplicacions, afegiu el vostre navegador web com la "
-"primera entrada.</li><li>Feu el mateix per al tipus «application -> xhtml"
-"+xml».</li></ul>"
+"li><li>Aneu fins a la secció «Aplicacions» i després cap a la secció "
+"«Associacions de fitxer».</li><li>En l'arbre, expandiu «text» i feu clic en "
+"«html».</li><li>En la llista d'aplicacions, afegiu el vostre navegador web "
+"com la primera entrada.</li><li>Feu el mateix per al tipus «application -> "
+"xhtml+xml».</li></ul>"
 
 #: src/settings_versionsync.cpp:79
 #, kde-format
