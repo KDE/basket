@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the basket package.
 #
 # Thiago Masato Costa Sueto <herzenschein@gmail.com>, 2020.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022, 2023.
 # Antonio Henrique L. Rodrigues <ahlr_2000@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2022-08-05 18:43-0300\n"
+"PO-Revision-Date: 2023-11-14 11:45-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,7 +42,7 @@ msgstr "Arquivos encodificado e decodificado .baskets"
 #: devtools/weaver/main.cpp:28
 #, kde-format
 msgid "Destination directory. Optional."
-msgstr "Diretório de destino. Opcional. "
+msgstr "Pasta de destino. Opcional."
 
 #: devtools/weaver/main.cpp:33
 #, kde-format
@@ -68,8 +68,8 @@ msgid ""
 "This optional value will be used to label the new content within the "
 "optionally given output directory"
 msgstr ""
-"Este valor opcional será usado para nomear o novo conteúdo dentro "
-"dodiretório de saída fornecido opcionalmente"
+"Este valor opcional será usado para nomear o novo conteúdo dentro da pasta "
+"de saída fornecido opcionalmente"
 
 #: devtools/weaver/main.cpp:56
 #, kde-format
@@ -103,7 +103,7 @@ msgstr "A fonte parece ser um arquivo .baskets inválido"
 #: devtools/weaver/weaver.cpp:87 devtools/weaver/weaver.cpp:128
 #, kde-format
 msgid "Output directory does not exist."
-msgstr "O diretório de saída não existe."
+msgstr "A pasta de saída não existe."
 
 #: devtools/weaver/weaver.cpp:114
 #, kde-format
@@ -1989,7 +1989,7 @@ msgid ""
 msgstr ""
 "Os dados da cesta do KDE4 foram migrados com sucesso para %1.\n"
 "A menos que você esteja planejando rodar a versão do KDE4 novamente, você "
-"pode deletar a pasta antiga %2"
+"pode excluir a pasta antiga %2"
 
 #: src/kde4_migration.h:99
 #, kde-format
