@@ -596,7 +596,7 @@ msgstr "Obri un arxiu o plantilla de cistella."
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr ""
-"Malauradament, ha fallat la creació de la carpeta per a esta cistella nova."
+"Desgraciadament, ha fallat la creació de la carpeta per a esta cistella nova."
 
 #: src/basketfactory.cpp:54 src/basketfactory.cpp:84 src/basketfactory.cpp:105
 #, kde-format
@@ -607,13 +607,13 @@ msgstr "No s'ha pogut crear la cistella"
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
 msgstr ""
-"Malauradament, ha fallat la còpia de la plantilla per a esta cistella nova."
+"Desgraciadament, ha fallat la còpia de la plantilla per a esta cistella nova."
 
 #: src/basketfactory.cpp:105
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr ""
-"Malauradament, ha fallat la personalització de la plantilla per a esta "
+"Desgraciadament, ha fallat la personalització de la plantilla per a esta "
 "cistella nova."
 
 #: src/basketlistview.cpp:624
@@ -3084,7 +3084,7 @@ msgstr ""
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr ""
-"Si està habilitada, esta propietat permetrà apegar les etiquetes com a "
+"Si se selecciona, esta propietat permetrà apegar les etiquetes com a "
 "equivalents textuals."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
@@ -3117,9 +3117,9 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
-"<p>Quan esta opció està habilitada, la línia d'inserció no només deixarà "
-"posar notes a la posició del cursor, sinó que també permetrà agrupar una "
-"nota nova amb la de baix el cursor:</p>"
+"<p>Quan se selecciona esta opció, la línia d'inserció no només deixarà posar "
+"notes a la posició del cursor, sinó que també permetrà agrupar una nota nova "
+"amb la de baix el cursor:</p>"
 
 #: src/settings.cpp:500
 #, kde-format
@@ -3359,7 +3359,7 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
-"<p>Si està marcada, s'utilitzarà l'aplicació definida davall en obrir este "
+"<p>Si se selecciona, s'utilitzarà l'aplicació definida davall en obrir este "
 "tipus de nota.</p><p>En cas contrari, s'utilitzarà l'aplicació que vàreu "
 "configurar en Konqueror.</p>"
 
