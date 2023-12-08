@@ -37,6 +37,6 @@ make -j8 install
 This application has a flatpak manifest.
 
 ```
-flatpak-builder build-dir org.kde.basket.yaml
-flatpak-builder --run build-dir org.kde.basket.yaml basket
+flatpak-builder build-dir .flatpak-manifest.yaml
+flatpak-builder --run build-dir .flatpak-manifest.yaml basket
 ```
