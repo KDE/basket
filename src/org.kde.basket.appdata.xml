@@ -36,6 +36,7 @@
   <developer_name xml:lang="uk">Спільнота KDE</developer_name>
   <developer_name xml:lang="x-test">xxKDE Communityxx</developer_name>
   <developer_name xml:lang="zh-CN">KDE 社区</developer_name>
+  <developer_name xml:lang="zh-TW">KDE 社群</developer_name>
   <name>Basket</name>
   <name xml:lang="ca">Basket</name>
   <name xml:lang="ca-valencia">Basket</name>
@@ -67,6 +68,7 @@
   <name xml:lang="uk">Basket</name>
   <name xml:lang="x-test">xxBasketxx</name>
   <name xml:lang="zh-CN">Basket 笔记筐</name>
+  <name xml:lang="zh-TW">Basket</name>
   <summary>Notes and to-dos organizer</summary>
   <summary xml:lang="ca">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="ca-valencia">Organitzador de notes i tasques pendents</summary>
@@ -95,6 +97,7 @@
   <summary xml:lang="uk">Програма для впорядкування нотаток і завдань</summary>
   <summary xml:lang="x-test">xxNotes and to-dos organizerxx</summary>
   <summary xml:lang="zh-CN">记事贴和待办事项组织工具</summary>
+  <summary xml:lang="zh-TW">筆記與待辦事項管理工具</summary>
   <description>
     <p>This application provides as many baskets as you wish, and you can drag and drop.</p>
     <p xml:lang="ca">Aquesta aplicació proporciona tantes cistelles com desitgeu, i les podeu arrossegar i deixar anar.</p>
@@ -122,6 +125,7 @@
     <p xml:lang="uk">Ця програма створює довільну кількість кошиків, які ви можете перетягувати і скидати.</p>
     <p xml:lang="x-test">xxThis application provides as many baskets as you wish, and you can drag and drop.xx</p>
     <p xml:lang="zh-CN">此应用程序可以创建无限量的笔记篮以拖放内容</p>
+    <p xml:lang="zh-TW">這個應用程式提供不限數量的筆記本，也支援拖放。</p>
     <p>Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
     <p xml:lang="ca">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
     <p xml:lang="ca-valencia">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
@@ -147,6 +151,7 @@
     <p xml:lang="uk">Об'єкти можна редагувати, копіювати, перетягувати… Отже, ви можете впорядкувати їх так, як вам заманеться!</p>
     <p xml:lang="x-test">xxObjects can be edited, copied, dragged... So, you can arrange them as you want !xx</p>
     <p xml:lang="zh-CN">对象可以自由编辑、复制、拖放，让您可以随心所欲地对它们进行整理。</p>
+    <p xml:lang="zh-TW">物件可以被編輯、複製或拖曳等等... 您可以隨心所欲排列它們！</p>
     <p>It allows to arrange notes, track to-dos and much more.</p>
     <p xml:lang="ca">Permet organitzar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="ca-valencia">Permet organitzar notes, seguir tasques pendents i molt més.</p>
@@ -173,6 +178,7 @@
     <p xml:lang="uk">Програма уможливлює упорядкування нотаток, стеження за завданнями та виконання багатьох інших завдань.</p>
     <p xml:lang="x-test">xxIt allows to arrange notes, track to-dos and much more.xx</p>
     <p xml:lang="zh-CN">它可以用来整理记事贴，跟踪待办事项的完成情况以及更多用途。</p>
+    <p xml:lang="zh-TW">它讓您排列筆記、追蹤待辦事項等等。</p>
   </description>
   <categories>
     <category>Office</category>
