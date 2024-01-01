@@ -978,15 +978,15 @@ msgstr[1] "Suprimix les notes"
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
-msgstr[0] "Copia la nota al porta-retalls."
-msgstr[1] "Copia les notes al porta-retalls."
+msgstr[0] "Copia la nota a dins del porta-retalls."
+msgstr[1] "Copia les notes a dins del porta-retalls."
 
 #: src/basketscene.cpp:3983
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
-msgstr[0] "Retalla la nota al porta-retalls."
-msgstr[1] "Retalla les notes al porta-retalls."
+msgstr[0] "Retalla la nota a dins del porta-retalls."
+msgstr[1] "Retalla les notes a dins del porta-retalls."
 
 #: src/basketscene.cpp:3986
 #, kde-format
