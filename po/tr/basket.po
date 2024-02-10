@@ -3,20 +3,20 @@
 # translation of baskettr.po to
 #
 # Serdar Soytetir <tulliana@gmail.com>, 2006, 2007.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2023-11-26 01:21+0300\n"
+"PO-Revision-Date: 2024-02-09 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -146,7 +146,7 @@ msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
 msgstr ""
-"Bu dosya, Basket Not Defteri'nin daha yeni bir sürümüyle oluşturulmuş. Tam "
+"Bu dosya, Basket Not Defteri’nin daha yeni bir sürümüyle oluşturulmuş. Tam "
 "olarak desteklenmiyor olabilir"
 
 #: src/aboutdata.cpp:13
@@ -1966,7 +1966,7 @@ msgid ""
 "Destination: %2\n"
 "Reason: %3"
 msgstr ""
-"Basket verisi, KDE4'ten aktarılamadı. Basket'i kapatmanız ve basket "
+"Basket verisi, KDE4’ten aktarılamadı. Basket’i kapatmanız ve basket "
 "klasörünü el ile taşımanız gerekiyor.\n"
 "Kaynak: %1\n"
 "Hedef: %2\n"
@@ -1984,7 +1984,7 @@ msgid ""
 "Unless you are planning to run KDE4 version again, you can delete the old "
 "folder %2"
 msgstr ""
-"KDE4'ten Basket verisi başarıyla %1 konumuna aktarıldı.\n"
+"KDE4’ten Basket verisi başarıyla %1 konumuna aktarıldı.\n"
 "KDE4 sürümünü yeniden çalıştırmayı düşünmüyorsanız eski %2 klasörünü "
 "silebilirsiniz"
 
@@ -2965,8 +2965,8 @@ msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
-"Fare kullanarak bir bölge seçin. Ekran görüntüsü almak için Giriş'e basın. "
-"Çıkmak için Vazgeç'e basın."
+"Fare kullanarak bir bölge seçin. Ekran görüntüsü almak için Giriş’e basın. "
+"Çıkmak için Vazgeç’e basın."
 
 #: src/settings.cpp:390
 #, kde-format
