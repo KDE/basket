@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the basket package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2022, 2023.
+# Tommi Nieminen <translator@legisign.org>, 2020, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2023-03-30 10:10+0300\n"
+"PO-Revision-Date: 2024-02-19 11:27+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -28,11 +28,9 @@ msgid "Your emails"
 msgstr "translator@legisign.org"
 
 #: devtools/weaver/main.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "HTML export folder (baskets)"
-#| msgid "baskets"
+#, kde-format
 msgid "basketweaver"
-msgstr "korit"
+msgstr "korinpunoja"
 
 #: devtools/weaver/main.cpp:19
 #, kde-format
@@ -93,6 +91,8 @@ msgid ""
 "Multiple --weave/-w or --unweave/-u input options found. All but the first "
 "input are going to be ignored."
 msgstr ""
+"Syötteestä löytyi useampi --weave/-v- tai --unweave/-u-valitsin. Vain "
+"ensimmäinen otetaan huomioon."
 
 #: devtools/weaver/weaver.cpp:80
 #, kde-format
@@ -892,7 +892,7 @@ msgstr "Salasanasuojattu kori."
 #: src/basketscene.cpp:2991
 #, kde-format
 msgid "Press Unlock to access it."
-msgstr ""
+msgstr "Käytä sitä napsauttamalla Avaa lukitus."
 
 #: src/basketscene.cpp:2993
 #, kde-format
@@ -2989,7 +2989,7 @@ msgstr "Näytä koreissa työkalu&vihjeet"
 #: src/settings.cpp:449
 #, kde-format
 msgid "&Big notes"
-msgstr ""
+msgstr "S&uuret muistiinpanot"
 
 #: src/settings.cpp:455
 #, kde-format
@@ -3014,7 +3014,7 @@ msgstr "Säilytä tekstin muotoilu liitettäessä"
 #: src/settings.cpp:472
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "Havaitse muistiinpanoista luokitukset automaattisesti"
 
 #: src/settings.cpp:479
 #, kde-format
@@ -3040,7 +3040,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
-msgstr ""
+msgstr "Jos valittu, voit lisätä luokituksia tekstivastineinaan."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
 #: src/settings.cpp:484 src/tagsedit.cpp:519
@@ -3072,6 +3072,9 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
+"<p>Kun ominaisuus on käytössä, syöterivillä ei ainoastaan voi lisätä "
+"muistiinpanoja kohdistimen kohdalle vaan myös ryhmitellä uuden muistiinpanon "
+"kohdistimen alla olevan kanssa:</p>"
 
 #: src/settings.cpp:500
 #, kde-format
@@ -3081,6 +3084,11 @@ msgid ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
+"<p>Sijoita hiiri niiden muistiinpanojen väliin, johon haluat lisätä uuden."
+"<br>Napsauta syöterivin keskimerkistä <b>vasempaan</b> halutessasi "
+"<b>lisätä</b> muistiinpanon.<br><b>Ryhmitelläksesi</b> muistiinpanon <b>alla "
+"tai yllä olevan kanssa</b> hiiren sijainnin mukaan napsauta <b>oikealta</b>."
+"</p>"
 
 #: src/settings.cpp:516
 #, kde-format
@@ -3517,7 +3525,7 @@ msgstr "Tehtävä"
 #: src/tag.cpp:593
 #, kde-format
 msgid "Unchecked"
-msgstr ""
+msgstr "Valitsematta"
 
 #: src/tag.cpp:593
 #, kde-format
@@ -3706,7 +3714,7 @@ msgstr "P&ikanäppäin:"
 #: src/tagsedit.cpp:398
 #, kde-format
 msgid "&Inherited by new sibling notes"
-msgstr ""
+msgstr "P&eritty uusista sisarusmuistiinpanoista"
 
 #: src/tagsedit.cpp:400
 #, kde-format
