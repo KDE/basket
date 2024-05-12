@@ -263,7 +263,7 @@ msgstr "Anomena i guarda un arxiu de cistelles"
 #: src/archive.cpp:52
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
-msgstr "S'està guardant com a arxiu de cistelles. Espereu..."
+msgstr "S'està guardant com a arxiu de cistelles. Espereu…"
 
 #: src/archive.cpp:256 src/archive.cpp:259 src/archive.cpp:262
 #: src/archive.cpp:265 src/archive.cpp:272 src/archive.cpp:281
@@ -320,12 +320,12 @@ msgstr ""
 #: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
-msgstr "&Mou cap a una altra carpeta..."
+msgstr "&Mou cap a una altra carpeta…"
 
 #: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
-msgstr "Em&pra una altra carpeta existent..."
+msgstr "Em&pra una altra carpeta existent…"
 
 #: src/backup.cpp:86
 #, kde-format
@@ -366,12 +366,12 @@ msgstr "Còpies de seguretat"
 #: src/backup.cpp:113
 #, kde-format
 msgid "&Backup..."
-msgstr "Còpia de se&guretat..."
+msgstr "Còpia de se&guretat…"
 
 #: src/backup.cpp:114
 #, kde-format
 msgid "&Restore a Backup..."
-msgstr "&Restaura una còpia de seguretat..."
+msgstr "&Restaura una còpia de seguretat…"
 
 #: src/backup.cpp:139
 #, kde-format
@@ -446,7 +446,7 @@ msgstr "Còpia de seguretat de les cistelles"
 #: src/backup.cpp:207
 #, kde-format
 msgid "Backing up baskets. Please wait..."
-msgstr "S'està fent la còpia de seguretat de les cistelles. Espereu..."
+msgstr "S'està fent la còpia de seguretat de les cistelles. Espereu…"
 
 #: src/backup.cpp:243 src/bnpview.cpp:2064
 #, kde-format
@@ -493,12 +493,12 @@ msgid ""
 "Folder...\" and select that folder."
 msgstr ""
 "Seleccioneu «Cistella -> Còpia de seguretat i restaura -> Utilitza una altra "
-"carpeta existent...» i seleccioneu esta carpeta."
+"carpeta existent…» i seleccioneu esta carpeta."
 
 #: src/backup.cpp:265
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
-msgstr "S'està restaurant <b>%1</b>. Espereu..."
+msgstr "S'està restaurant <b>%1</b>. Espereu…"
 
 #: src/backup.cpp:265
 #, kde-format
@@ -654,7 +654,7 @@ msgstr "(cap)"
 #: src/basketproperties.cpp:132
 #, kde-format
 msgid "Learn some tips..."
-msgstr "Aprendre alguns consells..."
+msgstr "Aprendre alguns consells…"
 
 #: src/basketproperties.cpp:133
 #, kde-format
@@ -932,7 +932,7 @@ msgstr ""
 #: src/basketscene.cpp:3032 src/basketstatusbar.cpp:89 src/bnpview.cpp:1586
 #, kde-format
 msgid "Loading..."
-msgstr "S'està carregant..."
+msgstr "S'està carregant…"
 
 #: src/basketscene.cpp:3172 src/basketscene.cpp:3214
 #, kde-format
@@ -942,7 +942,7 @@ msgstr "&Elimina"
 #: src/basketscene.cpp:3175 src/basketscene.cpp:3218 src/bnpview.cpp:2459
 #, kde-format
 msgid "&Customize..."
-msgstr "Personal&itza..."
+msgstr "Personal&itza…"
 
 #: src/basketscene.cpp:3181 src/basketscene.cpp:3224
 #, kde-format
@@ -1307,27 +1307,27 @@ msgstr ""
 #: src/bnpview.cpp:377 src/bnpview.cpp:383
 #, kde-format
 msgid "&Basket Archive..."
-msgstr "Arxiu de &cistelles..."
+msgstr "Arxiu de &cistelles…"
 
 #: src/bnpview.cpp:389
 #, kde-format
 msgid "&HTML Web Page..."
-msgstr "Pàgina web en &HTML..."
+msgstr "Pàgina web en &HTML…"
 
 #: src/bnpview.cpp:395
 #, kde-format
 msgid "Text &File..."
-msgstr "Fi&txer de text..."
+msgstr "Fi&txer de text…"
 
 #: src/bnpview.cpp:400
 #, kde-format
 msgid "&Backup && Restore..."
-msgstr "Cò&pia de seguretat i restaura..."
+msgstr "Cò&pia de seguretat i restaura…"
 
 #: src/bnpview.cpp:404
 #, kde-format
 msgid "&Check && Cleanup..."
-msgstr "&Comprova i neteja..."
+msgstr "&Comprova i neteja…"
 
 #: src/bnpview.cpp:415
 #, kde-format
@@ -1368,7 +1368,7 @@ msgstr "&Neteja el format"
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
-msgstr "&Edita..."
+msgstr "&Edita…"
 
 #: src/bnpview.cpp:450
 #, kde-format
@@ -1378,12 +1378,12 @@ msgstr "O&bri"
 #: src/bnpview.cpp:454
 #, kde-format
 msgid "Open &With..."
-msgstr "Obri &amb..."
+msgstr "Obri &amb…"
 
 #: src/bnpview.cpp:459
 #, kde-format
 msgid "&Save to File..."
-msgstr "Guar&da a un fitxer..."
+msgstr "Guar&da a un fitxer…"
 
 #: src/bnpview.cpp:463
 #, kde-format
@@ -1453,17 +1453,17 @@ msgstr "Ll&ançador"
 #: src/bnpview.cpp:542
 #, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr "Importa un iniciador per a l'aplicació &d'escriptori..."
+msgstr "Importa un iniciador per a l'aplicació &d'escriptori…"
 
 #: src/bnpview.cpp:547
 #, kde-format
 msgid "Im&port Icon..."
-msgstr "Importa una icona..."
+msgstr "Importa una icona…"
 
 #: src/bnpview.cpp:552 src/noteedit.cpp:534
 #, kde-format
 msgid "Load From &File..."
-msgstr "Carrega des d'un fi&txer..."
+msgstr "Carrega des d'un fi&txer…"
 
 #: src/bnpview.cpp:570
 #, kde-format
@@ -1478,17 +1478,17 @@ msgstr "Grava una à&rea de la pantalla"
 #: src/bnpview.cpp:613
 #, kde-format
 msgid "&New Basket..."
-msgstr "Cistella &nova..."
+msgstr "Cistella &nova…"
 
 #: src/bnpview.cpp:619
 #, kde-format
 msgid "New &Sub-Basket..."
-msgstr "&Subcistella nova..."
+msgstr "&Subcistella nova…"
 
 #: src/bnpview.cpp:624
 #, kde-format
 msgid "New Si&bling Basket..."
-msgstr "Cistella germana nova..."
+msgstr "Cistella germana nova…"
 
 #: src/bnpview.cpp:627
 #, kde-format
@@ -1498,7 +1498,7 @@ msgstr "&Nova"
 #: src/bnpview.cpp:637
 #, kde-format
 msgid "&Properties..."
-msgstr "&Propietats..."
+msgstr "&Propietats…"
 
 #: src/bnpview.cpp:643
 #, kde-format
@@ -1530,7 +1530,7 @@ msgstr "&Elimina"
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
-msgstr "&Contrasenya..."
+msgstr "&Contrasenya…"
 
 #: src/bnpview.cpp:674
 #, kde-format
@@ -1591,8 +1591,7 @@ msgstr "Conversió de les notes de text net"
 #: src/bnpview.cpp:1012
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
-msgstr ""
-"S'estan convertint les notes de text net en versions de text enriquit..."
+msgstr "S'estan convertint les notes de text net en versions de text enriquit…"
 
 #: src/bnpview.cpp:1584
 #, kde-format
@@ -1739,7 +1738,7 @@ msgstr "Voleu sobreescriure el fitxer?"
 #: src/bnpview.cpp:2448
 #, kde-format
 msgid "&Assign new Tag..."
-msgstr "&Assigna una etiqueta nova..."
+msgstr "&Assigna una etiqueta nova…"
 
 #: src/bnpview.cpp:2453
 #, kde-format
@@ -1916,7 +1915,7 @@ msgstr "Exporta cap a HTML"
 #: src/htmlexporter.cpp:73
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
-msgstr "S'està exportant cap a HTML. Espereu..."
+msgstr "S'està exportant cap a HTML. Espereu…"
 
 #: src/htmlexporter.cpp:108 src/htmlexporter.cpp:144 src/htmlexporter.cpp:153
 #, kde-format
@@ -1966,7 +1965,7 @@ msgstr "(predeterminat)"
 #: src/kcolorcombo2.cpp:124
 #, kde-format
 msgid "Other..."
-msgstr "Altres..."
+msgstr "Altres…"
 
 #. i18n("(Default)")).height() + 2
 #. TODO: isDefaultColorSelected()
@@ -2211,7 +2210,7 @@ msgstr "Color de fons"
 #: src/newbasketdialog.cpp:119
 #, kde-format
 msgid "&Manage Templates..."
-msgstr "&Gestiona les plantilles..."
+msgstr "&Gestiona les plantilles…"
 
 #: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:316
 #, kde-format
@@ -2392,22 +2391,22 @@ msgstr "Edita este objecte desconegut"
 #: src/notecontent.cpp:967
 #, kde-format
 msgid "Opening plain text..."
-msgstr "S'està obrint en text net..."
+msgstr "S'està obrint en text net…"
 
 #: src/notecontent.cpp:969
 #, kde-format
 msgid "Opening plain texts..."
-msgstr "S'estan obrint en text net..."
+msgstr "S'estan obrint en text net…"
 
 #: src/notecontent.cpp:971
 #, kde-format
 msgid "Opening plain text with..."
-msgstr "S'està obrint en text net amb..."
+msgstr "S'està obrint en text net amb…"
 
 #: src/notecontent.cpp:973
 #, kde-format
 msgid "Opening plain texts with..."
-msgstr "S'estan obrint en text net amb..."
+msgstr "S'estan obrint en text net amb…"
 
 #: src/notecontent.cpp:975
 #, kde-format
@@ -2422,22 +2421,22 @@ msgstr "Obri en text net amb:"
 #: src/notecontent.cpp:1085
 #, kde-format
 msgid "Opening text..."
-msgstr "S'està obrint el text..."
+msgstr "S'està obrint el text…"
 
 #: src/notecontent.cpp:1087
 #, kde-format
 msgid "Opening texts..."
-msgstr "S'estan obrint els textos..."
+msgstr "S'estan obrint els textos…"
 
 #: src/notecontent.cpp:1089
 #, kde-format
 msgid "Opening text with..."
-msgstr "S'està obrint el text amb..."
+msgstr "S'està obrint el text amb…"
 
 #: src/notecontent.cpp:1091
 #, kde-format
 msgid "Opening texts with..."
-msgstr "S'estan obrint els textos amb..."
+msgstr "S'estan obrint els textos amb…"
 
 #: src/notecontent.cpp:1093
 #, kde-format
@@ -2462,22 +2461,22 @@ msgstr "%1 per %2 píxels"
 #: src/notecontent.cpp:1226
 #, kde-format
 msgid "Opening image..."
-msgstr "S'està obrint la imatge..."
+msgstr "S'està obrint la imatge…"
 
 #: src/notecontent.cpp:1228
 #, kde-format
 msgid "Opening images..."
-msgstr "S'estan obrint les imatges..."
+msgstr "S'estan obrint les imatges…"
 
 #: src/notecontent.cpp:1230
 #, kde-format
 msgid "Opening image with..."
-msgstr "S'està obrint la imatge amb..."
+msgstr "S'està obrint la imatge amb…"
 
 #: src/notecontent.cpp:1232
 #, kde-format
 msgid "Opening images with..."
-msgstr "S'estan obrint les imatges amb..."
+msgstr "S'estan obrint les imatges amb…"
 
 #: src/notecontent.cpp:1234
 #, kde-format
@@ -2497,22 +2496,22 @@ msgstr "Feu clic per a veure la mida completa"
 #: src/notecontent.cpp:1346
 #, kde-format
 msgid "Opening animation..."
-msgstr "S'està obrint l'animació..."
+msgstr "S'està obrint l'animació…"
 
 #: src/notecontent.cpp:1348
 #, kde-format
 msgid "Opening animations..."
-msgstr "S'estan obrint les animacions..."
+msgstr "S'estan obrint les animacions…"
 
 #: src/notecontent.cpp:1350
 #, kde-format
 msgid "Opening animation with..."
-msgstr "S'està obrint l'animació amb..."
+msgstr "S'està obrint l'animació amb…"
 
 #: src/notecontent.cpp:1352
 #, kde-format
 msgid "Opening animations with..."
-msgstr "S'estan obrint les animacions amb..."
+msgstr "S'estan obrint les animacions amb…"
 
 #: src/notecontent.cpp:1354
 #, kde-format
@@ -2537,22 +2536,22 @@ msgstr "Obri este fitxer"
 #: src/notecontent.cpp:1498
 #, kde-format
 msgid "Opening file..."
-msgstr "S'està obrint el fitxer..."
+msgstr "S'està obrint el fitxer…"
 
 #: src/notecontent.cpp:1500
 #, kde-format
 msgid "Opening files..."
-msgstr "S'estan obrint els fitxers..."
+msgstr "S'estan obrint els fitxers…"
 
 #: src/notecontent.cpp:1502
 #, kde-format
 msgid "Opening file with..."
-msgstr "S'està obrint el fitxer amb..."
+msgstr "S'està obrint el fitxer amb…"
 
 #: src/notecontent.cpp:1504
 #, kde-format
 msgid "Opening files with..."
-msgstr "S'estan obrint els fitxers amb..."
+msgstr "S'estan obrint els fitxers amb…"
 
 #: src/notecontent.cpp:1506
 #, kde-format
@@ -2572,22 +2571,22 @@ msgstr "Obri este so"
 #: src/notecontent.cpp:1617
 #, kde-format
 msgid "Opening sound..."
-msgstr "S'està obrint el so..."
+msgstr "S'està obrint el so…"
 
 #: src/notecontent.cpp:1619
 #, kde-format
 msgid "Opening sounds..."
-msgstr "S'estan obrint els sons..."
+msgstr "S'estan obrint els sons…"
 
 #: src/notecontent.cpp:1621
 #, kde-format
 msgid "Opening sound with..."
-msgstr "S'està obrint el so amb..."
+msgstr "S'està obrint el so amb…"
 
 #: src/notecontent.cpp:1623
 #, kde-format
 msgid "Opening sounds with..."
-msgstr "S'estan obrint els sons amb..."
+msgstr "S'estan obrint els sons amb…"
 
 #: src/notecontent.cpp:1625
 #, kde-format
@@ -2617,22 +2616,22 @@ msgstr "L'enllaç no té cap URL per a obrir."
 #: src/notecontent.cpp:1742
 #, kde-format
 msgid "Opening link target..."
-msgstr "S'està obrint l'objectiu de l'enllaç..."
+msgstr "S'està obrint l'objectiu de l'enllaç…"
 
 #: src/notecontent.cpp:1744
 #, kde-format
 msgid "Opening link targets..."
-msgstr "S'estan obrint els objectius de l'enllaç..."
+msgstr "S'estan obrint els objectius de l'enllaç…"
 
 #: src/notecontent.cpp:1746
 #, kde-format
 msgid "Opening link target with..."
-msgstr "S'està obrint l'objectiu de l'enllaç amb..."
+msgstr "S'està obrint l'objectiu de l'enllaç amb…"
 
 #: src/notecontent.cpp:1748
 #, kde-format
 msgid "Opening link targets with..."
-msgstr "S'estan obrint els objectius de l'enllaç amb..."
+msgstr "S'estan obrint els objectius de l'enllaç amb…"
 
 #: src/notecontent.cpp:1750
 #, kde-format
@@ -2657,7 +2656,7 @@ msgstr "L'enllaç no té cap cistella per a obrir."
 #: src/notecontent.cpp:2011
 #, kde-format
 msgid "Opening basket..."
-msgstr "S'està obrint la cistella..."
+msgstr "S'està obrint la cistella…"
 
 #: src/notecontent.cpp:2116
 #, kde-format
@@ -2682,12 +2681,12 @@ msgstr "L'iniciador no té cap ordre per a executar."
 #: src/notecontent.cpp:2170
 #, kde-format
 msgid "Launching application..."
-msgstr "S'està llançant l'aplicació..."
+msgstr "S'està llançant l'aplicació…"
 
 #: src/notecontent.cpp:2172
 #, kde-format
 msgid "Launching applications..."
-msgstr "S'estan llançant les aplicacions..."
+msgstr "S'estan llançant les aplicacions…"
 
 #: src/notecontent.cpp:2290
 #, kde-format
@@ -3084,7 +3083,7 @@ msgstr ""
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr ""
-"Si se selecciona, esta propietat permetrà apegar les etiquetes com a "
+"Si està habilitada, esta propietat permetrà apegar les etiquetes com a "
 "equivalents textuals."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
@@ -3117,7 +3116,7 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
-"<p>Quan se selecciona esta opció, la línia d'inserció no només deixarà posar "
+"<p>Quan es marca esta opció, la línia d'inserció no només deixarà posar "
 "notes a la posició del cursor, sinó que també permetrà agrupar una nota nova "
 "amb la de baix el cursor:</p>"
 
@@ -3230,7 +3229,7 @@ msgstr "píxels"
 #: src/settings.cpp:693
 #, kde-format
 msgid "&Visualize..."
-msgstr "Vi&sualitza..."
+msgstr "Vi&sualitza…"
 
 #: src/settings.cpp:701
 #, kde-format
@@ -3359,7 +3358,7 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
-"<p>Si se selecciona, s'utilitzarà l'aplicació definida davall en obrir este "
+"<p>Si està marcada, s'utilitzarà l'aplicació definida davall en obrir este "
 "tipus de nota.</p><p>En cas contrari, s'utilitzarà l'aplicació que vàreu "
 "configurar en Konqueror.</p>"
 
@@ -3396,20 +3395,20 @@ msgid ""
 "browser), read the second help link.</p>"
 msgstr ""
 "<p>En obrir enllaços web, s'obriran en aplicacions diferents, depenent del "
-"contingut de l'enllaç (una pàgina web, una imatge, un document PDF...), com "
-"si foren fitxers al vostre ordinador.</p><p>Ací vos expliquem com fer-ho si "
+"contingut de l'enllaç (una pàgina web, una imatge, un document PDF…), com si "
+"foren fitxers al vostre ordinador.</p><p>Ací vos expliquem com fer-ho si "
 "voleu que totes les adreces web s'òbriguen al vostre navegador web. És útil "
-"si no utilitzeu Plasma (p. ex., si utilitzeu GNOME, XFCE...).</"
-"p><ul><li>Obriu Configuració del sistema KDE (si no està disponible, "
-"intenteu escriure «systemsettings» en un terminal de la línia d'ordres).</"
-"li><li>Aneu fins a la secció «Aplicacions» i després cap a la secció "
-"«Aplicacions predeterminades».</li><li>Escolliu «Navegador web», marqueu "
-"«amb l'ordre següent:» i introduïu el nom del vostre navegador web (com "
-"«firefox» o «epiphany»).</li></ul><p>Ara, quan feu clic en <i>qualsevol</i> "
-"enllaç que comence amb «https://...», s'obrirà en el vostre navegador web "
-"(p. ex., Mozilla Firefox o Epiphany...).</p><p>Per a una configuració més "
-"precisa (com obrir només les pàgines web en el vostre navegador web), llegiu "
-"el segon enllaç d'ajuda.</p>"
+"si no utilitzeu Plasma (p. ex., si utilitzeu GNOME, XFCE…).</p><ul><li>Obriu "
+"Configuració del sistema KDE (si no està disponible, intenteu escriure "
+"«systemsettings» en un terminal de la línia d'ordres).</li><li>Aneu fins a "
+"la secció «Aplicacions» i després cap a la secció «Aplicacions "
+"predeterminades».</li><li>Escolliu «Navegador web», marqueu «amb l'ordre "
+"següent:» i introduïu el nom del vostre navegador web (com «firefox» o "
+"«epiphany»).</li></ul><p>Ara, quan feu clic en <i>qualsevol</i> enllaç que "
+"comence amb «https://…», s'obrirà en el vostre navegador web (p. ex., "
+"Mozilla Firefox o Epiphany…).</p><p>Per a una configuració més precisa (com "
+"obrir només les pàgines web en el vostre navegador web), llegiu el segon "
+"enllaç d'ajuda.</p>"
 
 #: src/settings.cpp:909
 #, kde-format
@@ -3972,7 +3971,7 @@ msgstr ": "
 #: src/variouswidgets.cpp:42
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: src/variouswidgets.cpp:79 src/variouswidgets.cpp:80
 #: src/variouswidgets.cpp:81 src/variouswidgets.cpp:82
