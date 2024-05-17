@@ -47,8 +47,8 @@ plugs:
         target: $SNAP_DATA/foo
 environment:
     SNAP_DESKTOP_RUNTIME: $SNAP/kf5
-    QTWEBENGINEPROCESS_PATH: "$SNAP/kf5/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/libexec/QtWebEngineProcess"
-    QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/plugins:$SNAP/kf5/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/plugins/kf5"
+    QTWEBENGINEPROCESS_PATH: "$SNAP/kf5/usr/lib/$CRAFT_ARCH_TRIPLET/qt6/libexec/QtWebEngineProcess"
+    QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/qt6/plugins:$SNAP/kf5/usr/lib/$CRAFT_ARCH_TRIPLET/qt5/plugins/kf6"
     GST_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/gstreamer-1.0"
     GST_PLUGIN_SYSTEM_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/gstreamer-1.0"
     GST_PLUGIN_SCANNER: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/gstreamer1.0/gstreamer-1.0/gst-plugin-scanner"
@@ -61,8 +61,8 @@ hooks:
 layout:
     /usr/share/X11:
         symlink: $SNAP/kf5/usr/share/X11
-    /usr/share/qt5:
-        bind: $SNAP/kf5/usr/share/qt5
+    /usr/share/qt6:
+        bind: $SNAP/kf5/usr/share/qt6
     "/usr/lib/$CRAFT_ARCH_TRIPLET/alsa-lib":
         bind: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/alsa-lib"
     "/usr/share/alsa":

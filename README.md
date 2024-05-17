@@ -11,7 +11,7 @@ It allows to arrange notes, track to-dos and much more.
 
 ## Developers
 
-Basket is build with the Qt5 and KDE Frameworks 5.
+Basket is build with the Qt6 and KDE Frameworks 6.
 
 ## Contact
 
@@ -22,12 +22,12 @@ kde-devel@kde.org.
 ## Building/Installation
 
 To build and install BasKet, follow these steps (this assumes you have the relevant
-kf5 and qt5 development libraries and CMake):
+kf6 and qt6 development libraries and CMake):
 
 ```
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=~/.local/kde -DKDE_INSTALL_PLUGINDIR=~/.local/kde/lib64/qt5/plugins
+cmake .. -DCMAKE_INSTALL_PREFIX=~/.local/kde -DKDE_INSTALL_PLUGINDIR=~/.local/kde/lib64/qt6/plugins
 make -j8
 make -j8 install
 ```

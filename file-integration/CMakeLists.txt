@@ -3,8 +3,8 @@ set(basketthumbcreator_PART_SRCS basketthumbcreator.cpp)
 add_library(basketthumbcreator MODULE ${basketthumbcreator_PART_SRCS})
 
 target_link_libraries(basketthumbcreator
-  Qt5::Core Qt5::Gui
-  KF5::I18n KF5::XmlGui KF5::KIOWidgets)
+  Qt6::Core Qt6::Gui
+  KF6::I18n KF6::XmlGui KF6::KIOWidgets)
 
 install(TARGETS basketthumbcreator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 

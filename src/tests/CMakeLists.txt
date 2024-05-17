@@ -3,7 +3,7 @@
 include(ECMMarkAsTest)
 include(ECMAddTests)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
+find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Test)
 
 set(BASKET_TEST_SRC
     notetest.cpp
@@ -12,5 +12,5 @@ set(BASKET_TEST_SRC
     archivetest.cpp
 )
 
-ecm_add_tests(${BASKET_TEST_SRC} LINK_LIBRARIES LibBasket Qt5::Test)
+ecm_add_tests(${BASKET_TEST_SRC} LINK_LIBRARIES LibBasket Qt6::Test)
 

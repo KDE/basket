@@ -7,22 +7,40 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Basket VERSION 2.49.90)
 
-set(REQUIRED_KF5_VERSION "5.62.0")
-set(REQUIRED_QT5_VERSION "5.12.0")
+set(QT_MIN_VERSION "6.5.0")
+set(KF6_DEP_VERSION "6.2.0")
+
+set(APP_SUFFIX 6)
+set(LIB_PREFIX Qt6::)
 
 # Options
 option(ENABLE_GPG "Enabled GPG Support" OFF)
 
+
+set(CMAKE_BUILD_PARALLEL_LEVEL 12)
+
+if(CMAKE_COMPILER_IS_GNUCXX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fno-delete-null-pointer-checks")
+    # TODO: after removing kdelibs4support this could also be removed
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
+endif()
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
+
+
 # ECM
 include(FeatureSummary)
-find_package(ECM REQUIRED NO_MODULE)
+find_package(ECM ${KF6_DEP_VERSION} QUIET REQUIRED NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/Modules)
+list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/Modules)
+
 
 include(ECMSetupVersion)
 include(KDEInstallDirs)
+include(KDEInstallDirs5)
 include(KDECMakeSettings)
 include(KDEClangFormat)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -54,16 +72,17 @@ endif()
 # TODO make X11 optional
 find_package(X11 REQUIRED)
 
-find_package(Qt5 ${REQUIRED_QT5_VERSION} REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Concurrent
     Core
     DBus
     Gui
     Widgets
     Xml
+    Core5Compat
 )
 
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
+find_package(KF6 REQUIRED COMPONENTS
     Archive
     Completion
     Config
@@ -88,7 +107,7 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(Phonon4Qt5 REQUIRED)
+# find_package(Phonon4Qt5 REQUIRED)
 
 if (GPGME_FOUND)
     set(HAVE_LIBGPGME 1)
