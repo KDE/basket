@@ -1845,7 +1845,8 @@ void LinkContent::startFetchingLinkTitle()
     }
 
     // If no path or query part, default to /
-    if ((newUrl.path() + newUrl.query()).isNull()) {
+    QString query = newUrl.path() + newUrl.query();
+    if (query.isEmpty()) {
         newUrl = QUrl::fromLocalFile(QStringLiteral("/"));
     }
 

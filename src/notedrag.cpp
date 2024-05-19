@@ -7,12 +7,11 @@
 #include "notedrag.h"
 
 #include <QApplication>
-// #include <QDesktopWidget> //For qApp->desktop()
 #include <QtCore/QBuffer>
 #include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QMimeData>
-// #include <QtCore/QTextCodec>
+#include <QtCore/QStringEncoder>
 #include <QtCore/QTextStream>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QPainter>
