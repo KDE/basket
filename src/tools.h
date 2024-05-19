@@ -18,7 +18,6 @@ class QMimeData;
 class QObject;
 class QPixmap;
 class QString;
-// class QStringList;
 class QTime;
 class QTextDocument;
 
