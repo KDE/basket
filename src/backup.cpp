@@ -353,7 +353,7 @@ void Backup::setFolderAndRestart(const QString &folder, const QString &message)
     auto *job = new KIO::CommandLauncherJob(binaryPath);
     
     job->setExecutable(QCoreApplication::applicationName());
-    // job->setIcon(QCoreApplication::applicationName());
+    job->setDesktopName(QStringLiteral("org.kde.basket"));
     job->start();
 
     exit(0);
