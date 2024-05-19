@@ -18,9 +18,8 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <KCModule>
+// #include <KioArchive>
 #include <QTemporaryDir>
-#include <QTextCodec>
 #include <QTextStream>
 #include <qdir.h>
 #include <qfile.h>
@@ -29,7 +28,7 @@
 
 #include "basketthumbcreator.h"
 
-bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height*/, QImage &image)
+KIO::ThumbnailResult BasketThumbCreator::create(const KIO::ThumbnailRequest &request)
 {
     // Create the temporary folder:
     QTemporaryDir tempDir;
@@ -39,19 +38,19 @@ bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height
     dir.mkdir(tempFolder);
     const unsigned long int BUFFER_SIZE = 1024;
 
-    QFile file(path);
+    QFile file(request.url().toString());
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
-        stream.setCodec(QTextCodec::codecForName("UTF-8"));
+        stream.setEncoding(QStringConverter::Utf8);
         QString line = stream.readLine();
-        if (line != "BasKetNP:archive" && line != "BasKetNP:template") {
+        if (line != QStringLiteral("BasKetNP:archive") && line != QStringLiteral("BasKetNP:template")) {
             file.close();
-            return false;
+            return KIO::ThumbnailResult::fail();
         }
         while (!stream.atEnd()) {
             // Get Key/Value Pair From the Line to Read:
             line = stream.readLine();
-            int index = line.indexOf(':');
+            int index = line.indexOf(QLatin1Char(':'));
             QString key;
             QString value;
             if (index >= 0) {
@@ -59,17 +58,17 @@ bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height
                 value = line.right(line.length() - index - 1);
             } else {
                 key = line;
-                value = "";
+                value = QStringLiteral("");
             }
-            if (key == "preview*") {
+            if (key == QStringLiteral("preview*")) {
                 bool ok;
                 ulong size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    return false;
+                    return KIO::ThumbnailResult::fail();
                 }
                 // Get the preview file:
-                QFile previewFile(tempFolder + "preview.png");
+                QFile previewFile(tempFolder + QStringLiteral("preview.png"));
                 if (previewFile.open(QIODevice::WriteOnly)) {
                     char *buffer = new char[BUFFER_SIZE];
                     long int sizeRead;
@@ -79,17 +78,17 @@ bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height
                     }
                     previewFile.close();
                     delete[] buffer;
-                    image = QImage(tempFolder + "preview.png");
+                    QImage image(tempFolder + QStringLiteral("preview.png"));
                     file.close();
-                    return true;
+                    return KIO::ThumbnailResult::pass(image);
                 }
-            } else if (key.endsWith('*')) {
+            } else if (key.endsWith(QLatin1Char('*'))) {
                 // We do not know what it is, but we should read the embedded-file in order to discard it:
                 bool ok;
                 ulong size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    return false;
+                    return KIO::ThumbnailResult::fail();
                 }
                 // Get the archive file:
                 char *buffer = new char[BUFFER_SIZE];
@@ -102,17 +101,17 @@ bool BasketThumbCreator::create(const QString &path, int /*width*/, int /*height
         }
         file.close();
     }
-    return false;
+    return KIO::ThumbnailResult::fail();
 }
 
-ThumbCreator::Flags BasketThumbCreator::flags() const
-{
-    return (Flags)(DrawFrame | BlendIcon);
-}
+// ThumbCreator::Flags BasketThumbCreator::flags() const
+// {
+//     return (Flags)(DrawFrame | BlendIcon);
+// }
 
-extern "C" {
-Q_DECL_EXPORT ThumbCreator *new_creator()
-{
-    return new BasketThumbCreator();
-}
-};
+// extern "C" {
+// Q_DECL_EXPORT KIO::ThumbnailCreator *new_creator()
+// {
+//     return new BasketThumbCreator();
+// }
+// };

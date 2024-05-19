@@ -6,6 +6,7 @@
 #include <KTar>
 
 #include <QObject>
+#include <QDir>
 #include <QtTest/QtTest>
 
 #include <algorithm>
@@ -37,9 +38,9 @@ void ArchiveTest::testExtractArchive()
     const QString referencePath = QFINDTESTDATA("archive/");
 
     // Test the Archive::extractArchive function
-    QString referenceSource = QDir::currentPath() + QDir::separator() + "sample_source";
-    QString testArchive = referencePath + "sample.baskets";
-    QString testPath = QDir::currentPath() + QDir::separator() + "sample/";
+    QString referenceSource = QDir::currentPath() + QDir::separator() + QStringLiteral("sample_source");
+    QString testArchive = referencePath + QStringLiteral("sample.baskets");
+    QString testPath = QDir::currentPath() + QDir::separator() + QStringLiteral("sample/");
     Archive::IOErrorCode ioCode = Archive::extractArchive(testArchive, testPath, false);
 
     QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occured while extracting .baskets archive");
@@ -50,14 +51,14 @@ void ArchiveTest::testExtractArchive()
     dir.removeRecursively();
 
     // Test the Archive::extractArchive function with incompatible file
-    testArchive = referencePath + "notABasket.baskets";
+    testArchive = referencePath + QStringLiteral("notABasket.baskets");
     testPath = QStringLiteral("notABasket/");
     ioCode = Archive::extractArchive(testArchive, testPath, false);
 
     QVERIFY2(ioCode == Archive::IOErrorCode::NotABasketArchive, ".baskets was not recoqnized as incompatible baskets file");
 
     // Test the Archive::extractArchive function with incompatible version
-    testArchive = referencePath + "incompatible.baskets";
+    testArchive = referencePath + QStringLiteral("incompatible.baskets");
     testPath = QStringLiteral("incompatible/");
     ioCode = Archive::extractArchive(testArchive, testPath, false);
 
@@ -76,13 +77,13 @@ void ArchiveTest::testCreateArchive()
 
     // Test the Archive::createArchiveFromSource function
 
-    QString referenceSource = referencePath + "sample.baskets";
-    QString testArchive = "test.baskets";
+    QString referenceSource = referencePath + QStringLiteral("sample.baskets");
+    QString testArchive = QStringLiteral("test.baskets");
 
     QFile(testArchive).remove();
 
-    QString testSourcePath = QDir::currentPath() + QDir::separator() + "sample_source/";
-    Archive::IOErrorCode ioCode = Archive::createArchiveFromSource(testSourcePath, testSourcePath + "preview.png", testArchive);
+    QString testSourcePath = QDir::currentPath() + QDir::separator() + QStringLiteral("sample_source/");
+    Archive::IOErrorCode ioCode = Archive::createArchiveFromSource(testSourcePath, testSourcePath + QStringLiteral("preview.png"), testArchive);
 
     QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occured while creating a .baskets archive");
 
@@ -101,7 +102,7 @@ void ArchiveTest::initTestCase()
 {
     const QString referenceData = QFINDTESTDATA("archive/sample_source.tar.gz");
 
-    KTar archive(referenceData, "application/x-gzip");
+    KTar archive(referenceData, QStringLiteral("application/x-gzip"));
 
     // Open the archive
     archive.open(QIODevice::ReadOnly);
@@ -112,14 +113,14 @@ void ArchiveTest::initTestCase()
 
 void ArchiveTest::cleanupTestCase()
 {
-    QStringList toDeleteDirectories{"sample_source", "sample", "notABasket", "incompatible"};
+    QStringList toDeleteDirectories{QStringLiteral("sample_source"), QStringLiteral("sample"), QStringLiteral("notABasket"), QStringLiteral("incompatible")};
 
     std::for_each(toDeleteDirectories.begin(), toDeleteDirectories.end(), [](const QString &path) {
         QDir dir(path);
         dir.removeRecursively();
     });
 
-    QStringList toDeleteFiles{"test.baskets"};
+    QStringList toDeleteFiles{QStringLiteral("test.baskets")};
 
     std::for_each(toDeleteDirectories.begin(), toDeleteDirectories.end(), [](const QString &path) {
         QFile file(path);

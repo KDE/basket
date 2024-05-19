@@ -160,9 +160,9 @@ QString Note::toText(const QString &cuttedFullPath)
         QString otherLines;
         for (State::List::Iterator it = m_states.begin(); it != m_states.end(); ++it) {
             if (!(*it)->textEquivalent().isEmpty()) {
-                firstLine += (*it)->textEquivalent() + ' ';
+                firstLine += (*it)->textEquivalent() + QLatin1Char(' ');
                 if ((*it)->onAllTextLines())
-                    otherLines += (*it)->textEquivalent() + ' ';
+                    otherLines += (*it)->textEquivalent() + QLatin1Char(' ');
             }
         }
         // Merge the texts:
@@ -170,10 +170,10 @@ QString Note::toText(const QString &cuttedFullPath)
             return text;
         if (otherLines.isEmpty())
             return firstLine + text;
-        QStringList lines = text.split('\n');
-        QString result = firstLine + lines[0] + (lines.count() > 1 ? "\n" : QString());
+        QStringList lines = text.split(QLatin1Char('\n'));
+        QString result = firstLine + lines[0] + (lines.count() > 1 ? QStringLiteral("\n") : QString());
         for (int i = 1 /*Skip the first line*/; i < lines.count(); ++i)
-            result += otherLines + lines[i] + (i < lines.count() - 1 ? "\n" : QString());
+            result += otherLines + lines[i] + (i < lines.count() - 1 ? QStringLiteral("\n") : QString());
 
         return result;
     } else
@@ -1219,7 +1219,7 @@ QColor expanderBackground(qreal height, qreal y, const QColor &foreground)
     const QColor dark = foreground.darker(110);   // 1/1.1 of brightness
     const QColor light = foreground.lighter(150); // 50% brighter
 
-    qreal h1, h2, s1, s2, v1, v2;
+    float h1, h2, s1, s2, v1, v2;
     int ng;
     if (y <= (height - 2) / 2) {
         light.getHsvF(&h1, &s1, &v1);
@@ -1706,7 +1706,7 @@ void Note::draw(QPainter *painter, const QRectF & /*clipRect*/)
     // Determine the colors (for the richText drawing) and the text color (for the tags arrow too):
     QPalette notePalette(basket()->palette());
     notePalette.setColor(QPalette::Text, (m_computedState.textColor().isValid() ? m_computedState.textColor() : basket()->textColor()));
-    notePalette.setColor(QPalette::Background, background);
+    notePalette.setColor(QPalette::Base, background);
     if (isSelected())
         notePalette.setColor(QPalette::Text, palette().color(QPalette::HighlightedText));
 
@@ -2497,7 +2497,7 @@ bool Note::saveAgain()
             result = false;
     }
     if (!result) {
-        DEBUG_WIN << QString("Note::saveAgain returned false for %1:%2").arg((content() != nullptr) ? content()->typeName() : "null", toText(QString()));
+        DEBUG_WIN << QStringLiteral("Note::saveAgain returned false for %1:%2").arg((content() != nullptr) ? content()->typeName() : QStringLiteral("null"), toText(QString()));
     }
     return result;
 }
@@ -2506,9 +2506,9 @@ bool Note::convertTexts()
 {
     bool convertedNotes = false;
 
-    if (content() && content()->lowerTypeName() == "text") {
+    if (content() && content()->lowerTypeName() == QStringLiteral("text")) {
         QString text = ((TextContent *)content())->text();
-        QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" + Tools::textToHTMLWithoutP(text) + "</body></html>";
+        QString html = QStringLiteral("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>") + Tools::textToHTMLWithoutP(text) + QStringLiteral("</body></html>");
         FileStorage::saveToFile(fullPath(), html);
         setContent(new HtmlContent(this, content()->fileName()));
         convertedNotes = true;

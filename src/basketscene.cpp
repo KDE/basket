@@ -5,6 +5,8 @@
 
 #include "basketscene.h"
 
+#include <QAction>
+#include <QActionGroup>
 #include <QApplication>
 #include <QFileDialog>
 #include <QFrame>
@@ -56,12 +58,13 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KOpenWithDialog>
-#include <KRun>
+#include <KStatefulBrush>
 #include <KService>
 #include <KDialogJobUiDelegate>
 
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/CopyJob>
+#include <KIO/OpenUrlJob>
 
 #include <stdlib.h> // rand() function
 
@@ -85,6 +88,7 @@
 
 #include "config.h"
 
+
 #ifdef HAVE_LIBGPGME
 #include "kgpgme.h"
 #endif
@@ -94,49 +98,49 @@ void debugZone(int zone)
     QString s;
     switch (zone) {
     case Note::Handle:
-        s = "Handle";
+        s = QStringLiteral("Handle");
         break;
     case Note::Group:
-        s = "Group";
+        s = QStringLiteral("Group");
         break;
     case Note::TagsArrow:
-        s = "TagsArrow";
+        s = QStringLiteral("TagsArrow");
         break;
     case Note::Custom0:
-        s = "Custom0";
+        s = QStringLiteral("Custom0");
         break;
     case Note::GroupExpander:
-        s = "GroupExpander";
+        s = QStringLiteral("GroupExpander");
         break;
     case Note::Content:
-        s = "Content";
+        s = QStringLiteral("Content");
         break;
     case Note::Link:
-        s = "Link";
+        s = QStringLiteral("Link");
         break;
     case Note::TopInsert:
-        s = "TopInsert";
+        s = QStringLiteral("TopInsert");
         break;
     case Note::TopGroup:
-        s = "TopGroup";
+        s = QStringLiteral("TopGroup");
         break;
     case Note::BottomInsert:
-        s = "BottomInsert";
+        s = QStringLiteral("BottomInsert");
         break;
     case Note::BottomGroup:
-        s = "BottomGroup";
+        s = QStringLiteral("BottomGroup");
         break;
     case Note::BottomColumn:
-        s = "BottomColumn";
+        s = QStringLiteral("BottomColumn");
         break;
     case Note::None:
-        s = "None";
+        s = QStringLiteral("None");
         break;
     default:
         if (zone == Note::Emblem0)
-            s = "Emblem0";
+            s = QStringLiteral("Emblem0");
         else
-            s = "Emblem0+" + QString::number(zone - Note::Emblem0);
+            s = QStringLiteral("Emblem0+") + QString::number(zone - Note::Emblem0);
         break;
     }
     qDebug() << s;
@@ -505,7 +509,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
             continue;
         note = nullptr;
         // Load a Group:
-        if (e.tagName() == "group") {
+        if (e.tagName() == QStringLiteral("group")) {
             note = new Note(this); // 1. Create the group...
             loadNotes(e, note);    // 3. ... And populate it with child notes.
             int noteCount = note->count();
@@ -517,37 +521,37 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
             }
         }
         // Load a Content-Based Note:
-        if (e.tagName() == "note" || e.tagName() == "item") {                                                                          // Keep compatible with 0.6.0 Alpha 1
+        if (e.tagName() == QStringLiteral("note") || e.tagName() == QStringLiteral("item")) {                                                                          // Keep compatible with 0.6.0 Alpha 1
             note = new Note(this);                                                                                                     // Create the note...
-            NoteFactory::loadNode(XMLWork::getElement(e, "content"), e.attribute("type"), note, /*lazyLoad=*/m_finishLoadOnFirstShow); // ... Populate it with content...
-            if (e.attribute("type") == "text")
+            NoteFactory::loadNode(XMLWork::getElement(e, QStringLiteral("content")), e.attribute(QStringLiteral("type")), note, /*lazyLoad=*/m_finishLoadOnFirstShow); // ... Populate it with content...
+            if (e.attribute(QStringLiteral("type")) == QStringLiteral("text"))
                 m_shouldConvertPlainTextNotes = true; // Convert Pre-0.6.0 baskets: plain text notes should be converted to rich text ones once all is loaded!
             appendNoteIn(note, parent);               // ... And insert it.
             // Load dates:
-            if (e.hasAttribute("added"))
-                note->setAddedDate(QDateTime::fromString(e.attribute("added"), Qt::ISODate));
-            if (e.hasAttribute("lastModification"))
-                note->setLastModificationDate(QDateTime::fromString(e.attribute("lastModification"), Qt::ISODate));
+            if (e.hasAttribute(QStringLiteral("added")))
+                note->setAddedDate(QDateTime::fromString(e.attribute(QStringLiteral("added")), Qt::ISODate));
+            if (e.hasAttribute(QStringLiteral("lastModification")))
+                note->setLastModificationDate(QDateTime::fromString(e.attribute(QStringLiteral("lastModification")), Qt::ISODate));
         }
         // If we successfully loaded a note:
         if (note) {
             // Free Note Properties:
             if (note->isFree()) {
-                int x = e.attribute("x").toInt();
-                int y = e.attribute("y").toInt();
+                int x = e.attribute(QStringLiteral("x")).toInt();
+                int y = e.attribute(QStringLiteral("y")).toInt();
                 note->setX(x < 0 ? 0 : x);
                 note->setY(y < 0 ? 0 : y);
             }
             // Resizeable Note Properties:
             if (note->hasResizer() || note->isColumn())
-                note->setGroupWidth(e.attribute("width", "200").toInt());
+                note->setGroupWidth(e.attribute(QStringLiteral("width"), QStringLiteral("200")).toInt());
             // Group Properties:
-            if (note->isGroup() && !note->isColumn() && XMLWork::trueOrFalse(e.attribute("folded", "false")))
+            if (note->isGroup() && !note->isColumn() && XMLWork::trueOrFalse(e.attribute(QStringLiteral("folded"), QStringLiteral("false"))))
                 note->toggleFolded();
             // Tags:
             if (note->content()) {
                 QString tagsString = XMLWork::getElementText(e, QStringLiteral("tags"), QString());
-                QStringList tagsId = tagsString.split(';');
+                QStringList tagsId = tagsString.split(QLatin1Char(';'));
                 for (QStringList::iterator it = tagsId.begin(); it != tagsId.end(); ++it) {
                     State *state = Tag::stateById(*it);
                     if (state)
@@ -609,26 +613,26 @@ void BasketScene::loadProperties(const QDomElement &properties)
     QString defaultTextColor = (textColorSetting().isValid() ? textColorSetting().name() : QString());
 
     // Load the Properties:
-    QString icon = XMLWork::getElementText(properties, "icon", this->icon());
-    QString name = XMLWork::getElementText(properties, "name", basketName());
+    QString icon = XMLWork::getElementText(properties, QStringLiteral("icon"), this->icon());
+    QString name = XMLWork::getElementText(properties, QStringLiteral("name"), basketName());
 
-    QDomElement appearance = XMLWork::getElement(properties, "appearance");
+    QDomElement appearance = XMLWork::getElement(properties, QStringLiteral("appearance"));
     // In 0.6.0-Alpha versions, there was a typo error: "backround" instead of "background"
-    QString backgroundImage = appearance.attribute("backgroundImage", appearance.attribute("backroundImage", backgroundImageName()));
-    QString backgroundColorString = appearance.attribute("backgroundColor", appearance.attribute("backroundColor", defaultBackgroundColor));
-    QString textColorString = appearance.attribute("textColor", defaultTextColor);
+    QString backgroundImage = appearance.attribute(QStringLiteral("backgroundImage"), appearance.attribute(QStringLiteral("backroundImage"), backgroundImageName()));
+    QString backgroundColorString = appearance.attribute(QStringLiteral("backgroundColor"), appearance.attribute(QStringLiteral("backroundColor"), defaultBackgroundColor));
+    QString textColorString = appearance.attribute(QStringLiteral("textColor"), defaultTextColor);
     QColor backgroundColor = (backgroundColorString.isEmpty() ? QColor() : QColor(backgroundColorString));
     QColor textColor = (textColorString.isEmpty() ? QColor() : QColor(textColorString));
 
-    QDomElement disposition = XMLWork::getElement(properties, "disposition");
-    bool free = XMLWork::trueOrFalse(disposition.attribute("free", XMLWork::trueOrFalse(isFreeLayout())));
-    int columnCount = disposition.attribute("columnCount", QString::number(this->columnsCount())).toInt();
-    bool mindMap = XMLWork::trueOrFalse(disposition.attribute("mindMap", XMLWork::trueOrFalse(isMindMap())));
+    QDomElement disposition = XMLWork::getElement(properties, QStringLiteral("disposition"));
+    bool free = XMLWork::trueOrFalse(disposition.attribute(QStringLiteral("free"), XMLWork::trueOrFalse(isFreeLayout())));
+    int columnCount = disposition.attribute(QStringLiteral("columnCount"), QString::number(this->columnsCount())).toInt();
+    bool mindMap = XMLWork::trueOrFalse(disposition.attribute(QStringLiteral("mindMap"), XMLWork::trueOrFalse(isMindMap())));
 
-    QDomElement shortcut = XMLWork::getElement(properties, "shortcut");
-    QString actionStrings[] = {"show", "globalShow", "globalSwitch"};
-    QKeySequence combination = QKeySequence(shortcut.attribute("combination", m_action->shortcut().toString()));
-    QString actionString = shortcut.attribute("action");
+    QDomElement shortcut = XMLWork::getElement(properties, QStringLiteral("shortcut"));
+    QString actionStrings[] = {QStringLiteral("show"), QStringLiteral("globalShow"), QStringLiteral("globalSwitch")};
+    QKeySequence combination = QKeySequence(shortcut.attribute(QStringLiteral("combination"), m_action->shortcut().toString()));
+    QString actionString = shortcut.attribute(QStringLiteral("action"));
     int action = shortcutAction();
     if (actionString == actionStrings[0])
         action = 0;
@@ -637,9 +641,9 @@ void BasketScene::loadProperties(const QDomElement &properties)
     if (actionString == actionStrings[2])
         action = 2;
 
-    QDomElement protection = XMLWork::getElement(properties, "protection");
-    m_encryptionType = protection.attribute("type").toInt();
-    m_encryptionKey = protection.attribute("key");
+    QDomElement protection = XMLWork::getElement(properties, QStringLiteral("protection"));
+    m_encryptionType = protection.attribute(QStringLiteral("type")).toInt();
+    m_encryptionKey = protection.attribute(QStringLiteral("key"));
 
     // Apply the Properties:
     setDisposition((free ? (mindMap ? 2 : 1) : 0), columnCount);
@@ -667,7 +671,7 @@ void BasketScene::saveProperties(QXmlStreamWriter &stream)
     stream.writeEndElement();
 
     stream.writeStartElement("shortcut");
-    QString actionStrings[] = {"show", "globalShow", "globalSwitch"};
+    QString actionStrings[] = {QStringLiteral("show"), QStringLiteral("globalShow"), QStringLiteral("globalSwitch")};
     stream.writeAttribute("action", actionStrings[shortcutAction()]);
     stream.writeAttribute("combination", m_action->shortcut().toString());
     stream.writeEndElement();
@@ -715,7 +719,7 @@ void BasketScene::setAppearance(const QString &icon, const QString &name, const 
     m_textColorSetting = textColor;
 
     // Where is this shown?
-    m_action->setText("BASKET SHORTCUT: " + name);
+    m_action->setText(QStringLiteral("BASKET SHORTCUT: ") + name);
 
     // Basket should ALWAYS have an icon (the "basket" icon by default):
     QPixmap iconTest = KIconLoader::global()->loadIcon(icon, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
@@ -892,11 +896,11 @@ bool BasketScene::save()
     if (!m_loaded)
         return false;
 
-    DEBUG_WIN << "Basket[" + folderName() + "]: Saving...";
+    DEBUG_WIN << QStringLiteral("Basket[") + folderName() + QStringLiteral("]: Saving...");
 
     QString data;
     QXmlStreamWriter stream(&data);
-    XMLWork::setupXmlStream(stream, "basket");
+    XMLWork::setupXmlStream(stream, QStringLiteral("basket"));
 
     // Create Properties Element and Populate It:
     saveProperties(stream);
@@ -910,8 +914,8 @@ bool BasketScene::save()
     stream.writeEndDocument();
 
     // Write to Disk:
-    if (!FileStorage::saveToFile(fullPath() + ".basket", data, isEncrypted())) {
-        DEBUG_WIN << "Basket[" + folderName() + "]: <font color=red>FAILED to save</font>!";
+    if (!FileStorage::saveToFile(fullPath() + QStringLiteral(".basket"), data, isEncrypted())) {
+        DEBUG_WIN << QStringLiteral("Basket[") + folderName() + QStringLiteral("]: <font color=red>FAILED to save</font>!");
         return false;
     }
 
@@ -961,23 +965,23 @@ void BasketScene::load()
         return;
     m_loadingLaunched = true;
 
-    DEBUG_WIN << "Basket[" + folderName() + "]: Loading...";
+    DEBUG_WIN << QStringLiteral("Basket[") + folderName() + QStringLiteral("]: Loading...");
     QDomDocument *doc = nullptr;
     QString content;
 
     // Load properties
-    if (FileStorage::loadFromFile(fullPath() + ".basket", &content)) {
-        doc = new QDomDocument("basket");
+    if (FileStorage::loadFromFile(fullPath() + QStringLiteral(".basket"), &content)) {
+        doc = new QDomDocument(QStringLiteral("basket"));
         if (!doc->setContent(content)) {
-            DEBUG_WIN << "Basket[" + folderName() + "]: <font color=red>FAILED to parse XML</font>!";
+            DEBUG_WIN << QStringLiteral("Basket[") + folderName() + QStringLiteral("]: <font color=red>FAILED to parse XML</font>!");
             delete doc;
             doc = nullptr;
         }
     }
     if (isEncrypted())
-        DEBUG_WIN << "Basket is encrypted.";
+        DEBUG_WIN << QStringLiteral("Basket is encrypted.");
     if (!doc) {
-        DEBUG_WIN << "Basket[" + folderName() + "]: <font color=red>FAILED to load</font>!";
+        DEBUG_WIN << QStringLiteral("Basket[") + folderName() + QStringLiteral("]: <font color=red>FAILED to load</font>!");
         m_loadingLaunched = false;
         if (isEncrypted())
             m_locked = true;
@@ -987,16 +991,16 @@ void BasketScene::load()
     m_locked = false;
 
     QDomElement docElem = doc->documentElement();
-    QDomElement properties = XMLWork::getElement(docElem, "properties");
+    QDomElement properties = XMLWork::getElement(docElem, QStringLiteral("properties"));
 
     loadProperties(properties); // Since we are loading, this time the background image will also be loaded!
     // Now that the background image is loaded and subscribed, we display it during the load process:
     delete doc;
 
     // BEGIN Compatibility with 0.6.0 Pre-Alpha versions:
-    QDomElement notes = XMLWork::getElement(docElem, "notes");
+    QDomElement notes = XMLWork::getElement(docElem, QStringLiteral("notes"));
     if (notes.isNull())
-        notes = XMLWork::getElement(docElem, "items");
+        notes = XMLWork::getElement(docElem, QStringLiteral("items"));
     m_watcher->stopScan();
     m_shouldConvertPlainTextNotes = false; // Convert Pre-0.6.0 baskets: plain text notes should be converted to rich text ones once all is loaded!
 
@@ -1175,7 +1179,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_count(0)
     , m_countFounds(0)
     , m_countSelecteds(0)
-    , m_icon("org.kde.basket")
+    , m_icon(QStringLiteral("org.kde.basket"))
     , m_folderName(folderName)
     , m_editor(nullptr)
     , m_redirectEditActions(false)
@@ -1196,8 +1200,8 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
 
     // We do this in the basket properties dialog (and keep it in sync with the
     // global one)
-    if (!m_folderName.endsWith('/'))
-        m_folderName += '/';
+    if (!m_folderName.endsWith(QLatin1Char('/')))
+        m_folderName += QLatin1Char('/');
 
     KActionCollection *ac = Global::bnpView->actionCollection();
     m_action = ac->addAction(m_folderName, this, SLOT(activatedShortcut()));
@@ -1325,7 +1329,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     Note::Zone zone = (clicked ? clicked->zoneAt(event->scenePos() - QPointF(clicked->x(), clicked->y())) : Note::None);
 
     // Popup Tags menu:
-    if (zone == Note::TagsArrow && !controlPressed && !shiftPressed && event->button() != Qt::MidButton) {
+    if (zone == Note::TagsArrow && !controlPressed && !shiftPressed && event->button() != Qt::MiddleButton) {
         if (!clicked->allSelected())
             unselectAllBut(clicked);
         setFocusedNote(clicked); /// /// ///
@@ -1423,7 +1427,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
         m_posToInsert = event->scenePos();
 
         QMenu menu(m_view);
-        menu.addActions(Global::bnpView->popupMenu("insert_popup")->actions());
+        menu.addActions(Global::bnpView->popupMenu(QStringLiteral("insert_popup"))->actions());
 
         // If we already added a title, remove it because it would be kept and
         // then added several times.
@@ -1460,7 +1464,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             clicked->setSelected(true);
         }
         m_startOfShiftSelectionNote = (clicked->isGroup() ? clicked->firstRealChild() : clicked);
-        QMenu *menu = Global::bnpView->popupMenu("note_popup");
+        QMenu *menu = Global::bnpView->popupMenu(QStringLiteral("note_popup"));
         connect(menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
         connect(menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
         doHoverEffects(clicked, zone); // In the case where another popup menu was open, we should do that manually!
@@ -1471,7 +1475,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 
     // Paste selection under cursor (but not "create new primary note under cursor" because this is on moveRelease):
-    if (event->button() == Qt::MidButton && zone != Note::Resizer && (!isDuringEdit() || clicked != editedNote())) {
+    if (event->button() == Qt::MiddleButton && zone != Note::Resizer && (!isDuringEdit() || clicked != editedNote())) {
         if ((Settings::middleAction() != 0) && (event->modifiers() == Qt::ShiftModifier)) {
             m_clickedToInsert = clicked;
             m_zoneToInsert = zone;
@@ -1539,7 +1543,7 @@ void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 {
     if (event->reason() == QGraphicsSceneContextMenuEvent::Keyboard) {
         if (countFounds /*countShown*/ () == 0) { // TODO: Count shown!!
-            QMenu *menu = Global::bnpView->popupMenu("insert_popup");
+            QMenu *menu = Global::bnpView->popupMenu(QStringLiteral("insert_popup"));
             setInsertPopupMenu();
             connect(menu, &QMenu::aboutToHide, this, &BasketScene::delayedCancelInsertPopupMenu);
             connect(menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
@@ -1553,7 +1557,7 @@ void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
             setFocusedNote(m_focusedNote); /// /// ///
             m_startOfShiftSelectionNote = (m_focusedNote->isGroup() ? m_focusedNote->firstRealChild() : m_focusedNote);
             // Popup at bottom (or top) of the focused note, if visible :
-            QMenu *menu = Global::bnpView->popupMenu("note_popup");
+            QMenu *menu = Global::bnpView->popupMenu(QStringLiteral("note_popup"));
             connect(menu, &QMenu::aboutToHide, this, &BasketScene::unlockHovering);
             connect(menu, &QMenu::aboutToHide, this, &BasketScene::disableNextClick);
             doHoverEffects(m_focusedNote, Note::Content); // In the case where another popup menu was open, we should do that manually!
@@ -1701,7 +1705,7 @@ void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF 
 void BasketScene::clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked, /*Note::Zone*/ int zone)
 {
     Note *note;
-    if (event->button() == Qt::MidButton)
+    if (event->button() == Qt::MiddleButton)
         note = NoteFactory::dropNote(QApplication::clipboard()->mimeData(QClipboard::Selection), this);
     else
         note = NoteFactory::createNoteText(QString(), this);
@@ -1713,7 +1717,7 @@ void BasketScene::clickedToInsert(QGraphicsSceneMouseEvent *event, Note *clicked
 
     //  ensureNoteVisible(lastInsertedNote()); // TODO: in insertNote()
 
-    if (event->button() != Qt::MidButton) {
+    if (event->button() != Qt::MiddleButton) {
         removeInserter(); // Case: user clicked below a column to insert, the note is inserted and doHoverEffects() put a new inserter below. We don't want it.
         closeEditor();
         noteEdit(note, /*justAdded=*/true);
@@ -2105,7 +2109,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     // Obviously, nothing should be done in this case:
     m_noActionOnMouseRelease = true;
 
-    if (event->button() == Qt::MidButton && zone != Note::Resizer && (!isDuringEdit() || clicked != editedNote())) {
+    if (event->button() == Qt::MiddleButton && zone != Note::Resizer && (!isDuringEdit() || clicked != editedNote())) {
         if ((Settings::middleAction() != 0) && (event->modifiers() == Qt::ShiftModifier)) {
             m_clickedToInsert = clicked;
             m_zoneToInsert = zone;
@@ -2203,7 +2207,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
     // Insert note or past clipboard:
     QString link;
-    if (event->button() == Qt::MidButton && zone == Note::Resizer) {
+    if (event->button() == Qt::MiddleButton && zone == Note::Resizer) {
         return; // zone = clicked->zoneAt( event->pos() - QPoint(clicked->x(), clicked->y()), true );
     }
     if (event->button() == Qt::RightButton && (clicked->isColumn() || zone == Note::Resizer)) {
@@ -2241,16 +2245,16 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     case Note::Link:
         link = clicked->linkAt(event->scenePos() - QPoint(clicked->x(), clicked->y()));
         if (!link.isEmpty()) {
-            if (link == "basket-internal-remove-basket") {
+            if (link == QStringLiteral("basket-internal-remove-basket")) {
                 // TODO: ask confirmation: "Do you really want to delete the welcome baskets?\n You can re-add them at any time in the Help menu."
                 Global::bnpView->doBasketDeletion(this);
-            } else if (link == "basket-internal-import") {
-                QMenu *menu = Global::bnpView->popupMenu("fileimport");
+            } else if (link == QStringLiteral("basket-internal-import")) {
+                QMenu *menu = Global::bnpView->popupMenu(QStringLiteral("fileimport"));
                 menu->exec(event->screenPos());
-            } else if (link.startsWith("basket://")) {
+            } else if (link.startsWith(QStringLiteral("basket://"))) {
                 Q_EMIT crossReference(link);
             } else {
-                KRun *run = new KRun(QUrl::fromUserInput(link), m_view->window()); //  open the URL.
+                KIO::OpenUrlJob *run = new KIO::OpenUrlJob(QUrl::fromUserInput(link), m_view->window()); //  open the URL.
                 run->setAutoDelete(true);
             }
             break;
@@ -2748,13 +2752,13 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
             if (note->states().count() > 0) {
                 QString tagsString;
                 for (State::List::iterator it = note->states().begin(); it != note->states().end(); ++it) {
-                    QString tagName = "<nobr>" + Tools::textToHTMLWithoutP((*it)->fullName()) + "</nobr>";
+                    QString tagName = QStringLiteral("<nobr>") + Tools::textToHTMLWithoutP((*it)->fullName()) + QStringLiteral("</nobr>");
                     if (tagsString.isEmpty())
                         tagsString = tagName;
                     else
                         tagsString = i18n("%1, %2", tagsString, tagName);
                 }
-                message = "<qt><nobr>" + message + "</nobr><br>" + i18n("<b>Assigned Tags</b>: %1", tagsString);
+                message = QStringLiteral("<qt><nobr>") + message + QStringLiteral("</nobr><br>") + i18n("<b>Assigned Tags</b>: %1", tagsString);
             }
             break;
         case Note::Custom0:
@@ -2781,7 +2785,7 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
             message = i18n("Insert note here\nRight click for more options");
             break;
         case Note::None:
-            message = "** Zone NONE: internal error **";
+            message = QStringLiteral("** Zone NONE: internal error **");
             break;
         default:
             if (zone >= Note::Emblem0)
@@ -2795,17 +2799,17 @@ void BasketScene::helpEvent(QGraphicsSceneHelpEvent *event)
             const auto toolTip = QMultiMap<QString, QString> {
                 { i18n("Added"), note->addedStringDate() },
                 { i18n("Last Modification"), note->lastModificationStringDate() }
-            }.unite(note->content()->toolTipInfos());
+            }.unite(QMultiMap(note->content()->toolTipInfos()));
 
-            message = "<qt><nobr>" + message;
+            message = QStringLiteral("<qt><nobr>") + message;
             for (const QString &key : toolTip.keys()) {
-                message += "<br>" + i18nc("of the form 'key: value'", "<b>%1</b>: %2", key, toolTip.value(key));
+                message += QStringLiteral("<br>") + i18nc("of the form 'key: value'", "<b>%1</b>: %2", key, toolTip.value(key));
             }
-            message += "</nobr></qt>";
+            message += QStringLiteral("</nobr></qt>");
         } else if (m_inserterSplit && (zone == Note::TopInsert || zone == Note::BottomInsert))
-            message += '\n' + i18n("Click on the right to group instead of insert");
+            message += QLatin1Char('\n') + i18n("Click on the right to group instead of insert");
         else if (m_inserterSplit && (zone == Note::TopGroup || zone == Note::BottomGroup))
-            message += '\n' + i18n("Click on the left to insert instead of group");
+            message += QLatin1Char('\n') + i18n("Click on the left to insert instead of group");
 
         rect = note->zoneRect(zone, contentPos - QPoint(note->x(), note->y()));
 
@@ -2986,7 +2990,7 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
             connect(m_button, &QButton::clicked, this, &BasketScene::unlock);
 #endif
             QLabel *label = new QLabel(m_decryptBox);
-            QString text = "<b>" + i18n("Password protected basket.") + "</b><br/>";
+            QString text = QStringLiteral("<b>") + i18n("Password protected basket.") + QStringLiteral("</b><br/>");
 #ifdef HAVE_LIBGPGME
             label->setText(text + i18n("Press Unlock to access it."));
 #else
@@ -2995,16 +2999,16 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
             label->setAlignment(Qt::AlignTop);
             layout->addWidget(label, 0, 1, 1, 2);
             QLabel *pixmap = new QLabel(m_decryptBox);
-            pixmap->setPixmap(KIconLoader::global()->loadIcon("encrypted", KIconLoader::NoGroup, KIconLoader::SizeHuge));
+            pixmap->setPixmap(KIconLoader::global()->loadIcon(QStringLiteral("encrypted"), KIconLoader::NoGroup, KIconLoader::SizeHuge));
             layout->addWidget(pixmap, 0, 0, 2, 1);
 
             QSpacerItem *spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
             layout->addItem(spacer, 1, 1);
 
-            label = new QLabel("<small>" +
+            label = new QLabel(QStringLiteral("<small>") +
                                    i18n("To make baskets stay unlocked, change the automatic<br>"
                                         "locking duration in the application settings.") +
-                                   "</small>",
+                                   QStringLiteral("</small>"),
                                m_decryptBox);
             label->setAlignment(Qt::AlignTop);
             layout->addWidget(label, 2, 0, 1, 3);
@@ -3029,7 +3033,7 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
         QPixmap pixmap(m_view->viewport()->width(), m_view->viewport()->height()); // TODO: Clip it to asked size only!
         QPainter painter2(&pixmap);
         QTextDocument rt;
-        rt.setHtml(QString("<center>%1</center>").arg(i18n("Loading...")));
+        rt.setHtml(QStringLiteral("<center>%1</center>").arg(i18n("Loading...")));
         rt.setTextWidth(m_view->viewport()->width());
         int hrt = rt.size().height();
         painter2.fillRect(0, 0, m_view->viewport()->width(), m_view->viewport()->height(), brush);
@@ -3169,16 +3173,16 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
     if (tag->countStates() == 1) {
         menu.addSection(/*SmallIcon(state->icon()), */ tag->name());
         QAction *act;
-        act = new QAction(QIcon::fromTheme("edit-delete"), i18n("&Remove"), &menu);
+        act = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("&Remove"), &menu);
         act->setData(1);
         menu.addAction(act);
-        act = new QAction(QIcon::fromTheme("configure"), i18n("&Customize..."), &menu);
+        act = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("&Customize..."), &menu);
         act->setData(2);
         menu.addAction(act);
 
         menu.addSeparator();
 
-        act = new QAction(QIcon::fromTheme("search-filter"), i18n("&Filter by this Tag"), &menu);
+        act = new QAction(QIcon::fromTheme(QStringLiteral("search-filter")), i18n("&Filter by this Tag"), &menu);
         act->setData(3);
         menu.addAction(act);
     } else {
@@ -3210,21 +3214,21 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
         menu.addSeparator();
 
         QAction *act = new QAction(&menu);
-        act->setIcon(QIcon::fromTheme("edit-delete"));
+        act->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
         act->setText(i18n("&Remove"));
         act->setShortcut(sequenceOnDelete ? sequence : QKeySequence());
         act->setData(1);
         menu.addAction(act);
-        act = new QAction(QIcon::fromTheme("configure"), i18n("&Customize..."), &menu);
+        act = new QAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("&Customize..."), &menu);
         act->setData(2);
         menu.addAction(act);
 
         menu.addSeparator();
 
-        act = new QAction(QIcon::fromTheme("search-filter"), i18n("&Filter by this Tag"), &menu);
+        act = new QAction(QIcon::fromTheme(QStringLiteral("search-filter")), i18n("&Filter by this Tag"), &menu);
         act->setData(3);
         menu.addAction(act);
-        act = new QAction(QIcon::fromTheme("search-filter"), i18n("Filter by this &State"), &menu);
+        act = new QAction(QIcon::fromTheme(QStringLiteral("search-filter")), i18n("Filter by this &State"), &menu);
         act->setData(4);
         menu.addAction(act);
     }
@@ -3874,14 +3878,14 @@ void BasketScene::noteDelete()
 
     if (countSelecteds() <= 0)
         return;
-    int really = KMessageBox::Yes;
+    int really = KMessageBox::PrimaryAction;
     if (Settings::confirmNoteDeletion())
-        really = KMessageBox::questionYesNo(m_view,
+        really = KMessageBox::questionTwoActions(m_view,
                                             i18np("<qt>Do you really want to delete this note?</qt>", "<qt>Do you really want to delete these <b>%1</b> notes?</qt>", countSelecteds()),
                                             i18np("Delete Note", "Delete Notes", countSelecteds()),
                                             KStandardGuiItem::del(),
                                             KStandardGuiItem::cancel());
-    if (really == KMessageBox::No)
+    if (really == KMessageBox::SecondaryAction)
         return;
 
     noteDeleteWithoutConfirmation();
@@ -4020,7 +4024,7 @@ void BasketScene::clearFormattingNote(Note *note)
 
     HtmlContent* contentHtml = dynamic_cast<HtmlContent*>(note->content());
     if (contentHtml){
-        contentHtml->setHtml(Tools::textToHTML(note->content()->toText("")));
+        contentHtml->setHtml(Tools::textToHTML(note->content()->toText(QStringLiteral(""))));
     }
 
     noteEdit(note);
@@ -4049,7 +4053,7 @@ void BasketScene::noteOpen(Note *note)
         if (message.isEmpty()) {
             Q_EMIT postMessage(i18n("Unable to open this note.") /*"Unable to open those notes."*/);
         } else {
-            int result = KMessageBox::warningContinueCancel(m_view, message, /*caption=*/QString(), KGuiItem(i18n("&Edit"), "edit"));
+            int result = KMessageBox::warningContinueCancel(m_view, message, /*caption=*/QString(), KGuiItem(i18n("&Edit"), QStringLiteral("edit")));
             if (result == KMessageBox::Continue) {
                 noteEdit(note);
             }
@@ -4062,7 +4066,7 @@ void BasketScene::noteOpen(Note *note)
         if (url.url().startsWith(QStringLiteral("basket://"))) {
             Q_EMIT crossReference(url.url());
         } else if (customCommand.isEmpty()) {
-            KRun *run = new KRun(url, m_view->window());
+            KIO::OpenUrlJob *run = new KIO::OpenUrlJob(url, m_view->window());
             run->setAutoDelete(true);
         } else {
             QList<QUrl> urls {url};
@@ -4431,11 +4435,11 @@ void BasketScene::linkLookChanged()
 void BasketScene::slotCopyingDone2(KIO::Job *job, const QUrl & /*from*/, const QUrl &to)
 {
     if (job->error()) {
-        DEBUG_WIN << "Copy finished, ERROR";
+        DEBUG_WIN << QStringLiteral("Copy finished, ERROR");
         return;
     }
     Note *note = noteForFullPath(to.path());
-    DEBUG_WIN << "Copy finished, load note: " + to.path() + (note ? QString() : " --- NO CORRESPONDING NOTE");
+    DEBUG_WIN << QStringLiteral("Copy finished, load note: ") + to.path() + (note ? QString() : QStringLiteral(" --- NO CORRESPONDING NOTE"));
     if (note != nullptr) {
         note->content()->loadFromFile(/*lazyLoad=*/false);
         if (isEncrypted())
@@ -4944,7 +4948,7 @@ void BasketScene::watchedFileModified(const QString &fullPath)
     // We wait they are not sent anymore to consider the file complete!
     m_watcherTimer.setSingleShot(true);
     m_watcherTimer.start(200);
-    DEBUG_WIN << "Watcher>Modified : <font color=blue>" + fullPath + "</font>";
+    DEBUG_WIN << QStringLiteral("Watcher>Modified : <font color=blue>") + fullPath + QStringLiteral("</font>");
 }
 
 void BasketScene::watchedFileDeleted(const QString &fullPath)
@@ -4960,7 +4964,7 @@ void BasketScene::watchedFileDeleted(const QString &fullPath)
             selection = selection->nextStacked();
         }
     }
-    DEBUG_WIN << "Watcher>Removed : <font color=blue>" + fullPath + "</font>";
+    DEBUG_WIN << QStringLiteral("Watcher>Removed : <font color=blue>") + fullPath + QStringLiteral("</font>");
 }
 
 void BasketScene::updateModifiedNotes()
@@ -5030,12 +5034,12 @@ bool BasketScene::isEncrypted()
 
 bool BasketScene::isFileEncrypted()
 {
-    QFile file(fullPath() + ".basket");
+    QFile file(fullPath() + QStringLiteral(".basket"));
 
     if (file.open(QIODevice::ReadOnly)) {
         // Should be ASCII anyways
-        QString line = file.readLine(32);
-        if (line.startsWith("-----BEGIN PGP MESSAGE-----"))
+        QString line = QLatin1String(file.readLine(32));
+        if (line.startsWith(QStringLiteral("-----BEGIN PGP MESSAGE-----")))
             return true;
     }
     return false;

@@ -20,7 +20,7 @@ class BASKET_EXPORT VersionSyncPage : public KCModule
     Q_OBJECT
 
 public:
-    explicit VersionSyncPage(QWidget *parent = nullptr, const QVariantList &args = {});
+    explicit VersionSyncPage(QObject *parent, const KPluginMetaData &data);
     ~VersionSyncPage() override;
 
     void load() override;

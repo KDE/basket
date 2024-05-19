@@ -7,7 +7,7 @@
 #include "regiongrabber.h"
 
 #include <QApplication>
-#include <QDesktopWidget>
+// #include <QDesktopWidget>
 #include <QLocale>
 #include <QToolTip>
 #include <QtGui/QMouseEvent>
@@ -39,7 +39,8 @@ RegionGrabber::RegionGrabber()
     handles << &TLHandle << &TRHandle << &BLHandle << &BRHandle << &LHandle << &THandle << &RHandle << &BHandle;
     setMouseTracking(true);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
-    int timeout = KWindowSystem::compositingActive() ? 200 : 50;
+    
+    int timeout = 50;
     QTimer::singleShot(timeout, this, SLOT(init()));
     connect(&idleTimer, &QTimer::timeout, this, &RegionGrabber::displayHelp);
     idleTimer.start(3000);
@@ -51,7 +52,7 @@ RegionGrabber::~RegionGrabber()
 
 void RegionGrabber::init()
 {
-    pixmap = QApplication::primaryScreen()->grabWindow(QApplication::desktop()->winId());
+    pixmap = QApplication::primaryScreen()->grabWindow(0);
     showFullScreen(); // krazy:exclude=qmethods        -- Necessary for proper screenshot capture.
     resize(pixmap.size());
     move(0, 0);
@@ -115,7 +116,7 @@ void RegionGrabber::paintEvent(QPaintEvent *e)
     // The grabbed region is everything which is covered by the drawn
     // rectangles (border included). This means that there is no 0px
     // selection, since a 0px wide rectangle will always be drawn as a line.
-    QString txt = QString("%1x%2").arg(selection.width() == 0 ? 2 : selection.width()).arg(selection.height() == 0 ? 2 : selection.height());
+    QString txt = QStringLiteral("%1x%2").arg(selection.width() == 0 ? 2 : selection.width()).arg(selection.height() == 0 ? 2 : selection.height());
     QRect textRect = painter.boundingRect(rect(), Qt::AlignLeft, txt);
     QRect boundingRect = textRect.adjusted(-4, 0, 0, 0);
 
@@ -228,7 +229,7 @@ void RegionGrabber::mouseMoveEvent(QMouseEvent *e)
         if (selection.isNull())
             return;
         bool found = false;
-        Q_FOREACH (QRect *r, handles) {
+        for (QRect *r: handles) {
             if (r->contains(e->pos())) {
                 mouseOverHandle = r;
                 found = true;
@@ -309,7 +310,7 @@ QRegion RegionGrabber::handleMask() const
 {
     // note: not normalized QRects are bad here, since they will not be drawn
     QRegion mask;
-    Q_FOREACH (QRect *rect, handles)
+    for (QRect *rect: handles)
         mask += QRegion(*rect);
     return mask;
 }

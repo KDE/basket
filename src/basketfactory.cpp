@@ -31,10 +31,10 @@ QString BasketFactory::newFolderName()
     QDir dir;
 
     int i = QDir(Global::basketsFolder()).count();
-    QString time = QTime::currentTime().toString("hhmmss");
+    QString time = QTime::currentTime().toString(QStringLiteral("hhmmss"));
 
     for (;; ++i) {
-        folderName = QString("basket%1-%2/").arg(i).arg(time);
+        folderName = QStringLiteral("basket%1-%2/").arg(i).arg(time);
         fullPath = Global::basketsFolder() + folderName;
         dir = QDir(fullPath);
         if (!dir.exists()) // OK : The folder do not yet exists :
@@ -57,14 +57,14 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
 
     // Unpack the template file to that folder:
     // TODO: REALLY unpack (this hand-creation is temporary, or it could be used in case the template can't be found)
-    QFile file(fullPath + "/.basket");
+    QFile file(fullPath + QStringLiteral("/.basket"));
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setCodec("UTF-8");
-        int nbColumns = (templateName == "mindmap" || templateName == "free" ? 0 : templateName.left(1).toInt());
+        stream.setEncoding(QStringConverter::Utf8);
+        int nbColumns = (templateName == QStringLiteral("mindmap") || templateName == QStringLiteral("free") ? 0 : templateName.left(1).toInt());
         BasketScene *currentBasket = Global::bnpView->currentBasket();
         int columnWidth = (currentBasket && nbColumns > 0 ? (currentBasket->graphicsView()->viewport()->width() - (nbColumns - 1) * Note::RESIZER_WIDTH) / nbColumns : 0);
-        stream << QString(
+        stream << QLatin1String(
                       "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
                       "<!DOCTYPE basket>\n"
                       "<basket>\n"
@@ -72,10 +72,10 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
                       "  <disposition mindMap=\"%1\" columnCount=\"%2\" free=\"%3\" />\n"
                       " </properties>\n"
                       " <notes>\n")
-                      .arg((templateName == "mindmap" ? "true" : "false"), QString::number(nbColumns), (templateName == "free" || templateName == "mindmap" ? "true" : "false"));
+                      .arg((templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")), QString::number(nbColumns), (templateName == QStringLiteral("free") || templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")));
         if (nbColumns > 0)
             for (int i = 0; i < nbColumns; ++i)
-                stream << QString("  <group width=\"%1\"></group>\n").arg(columnWidth);
+                stream << QLatin1String("  <group width=\"%1\"></group>\n").arg(QLatin1Char(columnWidth));
         stream << " </notes>\n"
                   "</basket>\n";
         file.close();
@@ -100,52 +100,52 @@ void BasketFactory::newBasket(const QString &icon,
         return;
 
     // Read the properties, change those that should be customized and save the result:
-    QDomDocument *document = XMLWork::openFile("basket", Global::basketsFolder() + folderName + "/.basket");
+    QDomDocument *document = XMLWork::openFile(QStringLiteral("basket"), Global::basketsFolder() + folderName + QStringLiteral("/.basket"));
     if (!document) {
         KMessageBox::error(/*parent=*/nullptr, i18n("Sorry, but the template customization for this new basket has failed."), i18n("Basket Creation Failed"));
         return;
     }
-    QDomElement properties = XMLWork::getElement(document->documentElement(), "properties");
+    QDomElement properties = XMLWork::getElement(document->documentElement(), QStringLiteral("properties"));
 
     if (!icon.isEmpty()) {
-        QDomElement iconElement = XMLWork::getElement(properties, "icon");
+        QDomElement iconElement = XMLWork::getElement(properties, QStringLiteral("icon"));
         if (!iconElement.tagName().isEmpty()) // If there is already an icon, remove it since we will add our own value below
             iconElement.removeChild(iconElement.firstChild());
-        XMLWork::addElement(*document, properties, "icon", icon);
+        XMLWork::addElement(*document, properties, QStringLiteral("icon"), icon);
     }
 
     if (!name.isEmpty()) {
-        QDomElement nameElement = XMLWork::getElement(properties, "name");
+        QDomElement nameElement = XMLWork::getElement(properties, QStringLiteral("name"));
         if (!nameElement.tagName().isEmpty()) // If there is already a name, remove it since we will add our own value below
             nameElement.removeChild(nameElement.firstChild());
-        XMLWork::addElement(*document, properties, "name", name);
+        XMLWork::addElement(*document, properties, QStringLiteral("name"), name);
     }
 
     if (backgroundColor.isValid()) {
-        QDomElement appearanceElement = XMLWork::getElement(properties, "appearance");
+        QDomElement appearanceElement = XMLWork::getElement(properties, QStringLiteral("appearance"));
         if (appearanceElement.tagName().isEmpty()) { // If there is not already an appearance tag, add it since we will access it below
-            appearanceElement = document->createElement("appearance");
+            appearanceElement = document->createElement(QStringLiteral("appearance"));
             properties.appendChild(appearanceElement);
         }
-        appearanceElement.setAttribute("backgroundColor", backgroundColor.name());
+        appearanceElement.setAttribute(QStringLiteral("backgroundColor"), backgroundColor.name());
     }
 
     if (!backgroundImage.isEmpty()) {
-        QDomElement appearanceElement = XMLWork::getElement(properties, "appearance");
+        QDomElement appearanceElement = XMLWork::getElement(properties, QStringLiteral("appearance"));
         if (appearanceElement.tagName().isEmpty()) { // If there is not already an appearance tag, add it since we will access it below
-            appearanceElement = document->createElement("appearance");
+            appearanceElement = document->createElement(QStringLiteral("appearance"));
             properties.appendChild(appearanceElement);
         }
-        appearanceElement.setAttribute("backgroundImage", backgroundImage);
+        appearanceElement.setAttribute(QStringLiteral("backgroundImage"), backgroundImage);
     }
 
     if (textColor.isValid()) {
-        QDomElement appearanceElement = XMLWork::getElement(properties, "appearance");
+        QDomElement appearanceElement = XMLWork::getElement(properties, QStringLiteral("appearance"));
         if (appearanceElement.tagName().isEmpty()) { // If there is not already an appearance tag, add it since we will access it below
-            appearanceElement = document->createElement("appearance");
+            appearanceElement = document->createElement(QStringLiteral("appearance"));
             properties.appendChild(appearanceElement);
         }
-        appearanceElement.setAttribute("textColor", textColor.name());
+        appearanceElement.setAttribute(QStringLiteral("textColor"), textColor.name());
     }
 
     // Load it in the parent basket (it will save the tree and switch to this new basket):

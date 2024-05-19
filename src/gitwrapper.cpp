@@ -62,7 +62,7 @@ void GitWrapper::initializeGitRepository(QString folder)
     git_tree_free(tree);
 
     // first commit
-    commitPattern(repo, "*", "Initial full commit");
+    commitPattern(repo, QStringLiteral("*"), QStringLiteral("Initial full commit"));
     git_repository_free(repo);
 }
 
@@ -78,7 +78,7 @@ void GitWrapper::commitBasketView()
     const QDateTime gitdate = getLastCommitDate(repo);
 
     const QString pathtosave = Global::savesFolder();
-    QDir basketdir(pathtosave + "baskets/");
+    QDir basketdir(pathtosave + QStringLiteral("baskets/"));
     bool changed = false;
     basketdir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot); // this automatically skips baskets.xml file
     QDirIterator it(basketdir);
@@ -89,7 +89,7 @@ void GitWrapper::commitBasketView()
     }
 
     if (changed) {
-        commitPattern(repo, "*");
+        commitPattern(repo, QStringLiteral("*"));
     }
 
     git_repository_free(repo);
@@ -105,7 +105,7 @@ void GitWrapper::commitCreateBasket()
 
     const QDateTime gitdate = getLastCommitDate(repo);
 
-    const QString basketxml = Global::savesFolder() + "baskets/baskets.xml";
+    const QString basketxml = Global::savesFolder() + QStringLiteral("baskets/baskets.xml");
     const QFileInfo basketxmlinfo(basketxml);
 
     if (gitdate <= basketxmlinfo.lastModified()) {
@@ -117,7 +117,7 @@ void GitWrapper::commitCreateBasket()
         }
         // this is kind of hacky because somebody could come in between and we still have stuff open
         // change basket.xml
-        const QString basketxml("baskets/baskets.xml");
+        const QString basketxml(QLatin1String("baskets/baskets.xml"));
         QByteArray basketxmlba = basketxml.toUtf8();
         char *basketxmlCString = basketxmlba.data();
         error = git_index_add_bypath(index, basketxmlCString);
@@ -148,7 +148,7 @@ void GitWrapper::commitTagsXml()
         return;
     }
 
-    const QString tagsxml("tags.xml");
+    const QString tagsxml(QStringLiteral("tags.xml"));
     QByteArray tagsxmlba = tagsxml.toUtf8();
     char *tagsxmlCString = tagsxmlba.data();
     error = git_index_add_bypath(index, tagsxmlCString);
@@ -176,7 +176,7 @@ void GitWrapper::commitDeleteBasket(QString basketFolderName)
     }
 
     // remove the directory
-    const QString dir("baskets/" + basketFolderName);
+    const QString dir(QStringLiteral("baskets/") + basketFolderName);
     const QByteArray dirba = dir.toUtf8();
     const char *dirCString = dirba.data();
     error = git_index_remove_directory(index, dirCString, 0);
@@ -186,7 +186,7 @@ void GitWrapper::commitDeleteBasket(QString basketFolderName)
     }
 
     // change basket.xml
-    const QString basketxml("baskets/baskets.xml");
+    const QString basketxml(QStringLiteral("baskets/baskets.xml"));
     QByteArray basketxmlba = basketxml.toUtf8();
     char *basketxmlCString = basketxmlba.data();
     error = git_index_add_bypath(index, basketxmlCString);
@@ -218,7 +218,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
     QDirIterator it(basketdir);
     while (!changed && it.hasNext()) {
         const QFileInfo file(it.next());
-        if (file.fileName() != ".basket") {
+        if (file.fileName() != QStringLiteral(".basket")) {
             if (file.lastModified() >= gitdate)
                 changed = true;
         }
@@ -233,7 +233,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
             return;
         }
 
-        const QString pattern("baskets/" + basket->folderName() + '*');
+        const QString pattern(QStringLiteral("baskets/") + basket->folderName() + QLatin1Char('*'));
 
         QByteArray patternba = pattern.toUtf8();
         char *patternCString = patternba.data();
@@ -243,7 +243,7 @@ void GitWrapper::commitBasket(BasketScene *basket)
             gitErrorHandling();
             return;
         }
-        const QString basketxml("baskets/baskets.xml");
+        const QString basketxml(QStringLiteral("baskets/baskets.xml"));
         QByteArray basketxmlba = basketxml.toUtf8();
         char *basketxmlCString = basketxmlba.data();
         error = git_index_add_bypath(index, basketxmlCString);
@@ -397,9 +397,11 @@ QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
     if (error < 0)
         return QDateTime();
     int64_t time = static_cast<int64_t>(git_commit_time(head));
-
+    
     QDateTime date;
-    date.setTime_t(time);
+    QTime t(0,0,0);
+    t.addSecs(time);
+    date.setTime(t);
 
     git_commit_free(head);
     return date;

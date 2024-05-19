@@ -32,7 +32,7 @@ QDomDocument *XMLWork::openFile(const QString &name, const QString &filePath)
 
 QDomElement XMLWork::getElement(const QDomElement &startElement, const QString &elementPath)
 {
-    QStringList elements = elementPath.split('/');
+    QStringList elements = elementPath.split(QLatin1Char('/'));
     QDomNode n = startElement.firstChild();
     for (int i = 0; i < elements.count(); ++i) {                  // For each elements
         while (!n.isNull()) {                                     // Browse their  sub elements
@@ -70,16 +70,16 @@ void XMLWork::addElement(QDomDocument &document, QDomElement &parent, const QStr
 
 bool XMLWork::trueOrFalse(const QString &value, bool defaultValue)
 {
-    if (value == "true" || value == "1" || value == "on" || value == "yes")
+    if (value == QStringLiteral("true") || value == QStringLiteral("1") || value == QStringLiteral("on") || value == QStringLiteral("yes"))
         return true;
-    if (value == "false" || value == "0" || value == "off" || value == "no")
+    if (value == QStringLiteral("false") || value == QStringLiteral("0") || value == QStringLiteral("off") || value == QStringLiteral("no"))
         return false;
     return defaultValue;
 }
 
 QString XMLWork::trueOrFalse(bool value)
 {
-    return value ? "true" : "false";
+    return value ? QStringLiteral("true") : QStringLiteral("false");
 }
 
 QString XMLWork::innerXml(QDomElement &element)
@@ -90,7 +90,7 @@ QString XMLWork::innerXml(QDomElement &element)
             inner += n.toCharacterData().data();
         else if (n.isElement()) {
             QDomElement e = n.toElement();
-            inner += '<' + e.tagName() + '>' + innerXml(e) + "</" + e.tagName() + '>';
+            inner += QLatin1Char('<') + e.tagName() + QLatin1Char('>') + innerXml(e) + QStringLiteral("</") + e.tagName() + QLatin1Char('>');
         }
     return inner;
 }
@@ -100,6 +100,6 @@ void XMLWork::setupXmlStream(QXmlStreamWriter &stream, QString startElement)
     stream.setAutoFormatting(true);
     stream.setAutoFormattingIndent(1);
     stream.writeStartDocument();
-    stream.writeDTD("<!DOCTYPE " + startElement + '>');
+    stream.writeDTD(QStringLiteral("<!DOCTYPE ") + startElement + QLatin1Char('>'));
     stream.writeStartElement(startElement);
 }

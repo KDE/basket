@@ -86,7 +86,7 @@ public:
 
 protected:
     QStringList mimeTypes() const override;
-    QMimeData *mimeData(const QList<QTreeWidgetItem *> items) const override;
+    QMimeData *mimeData(const QList<QTreeWidgetItem *> &items) const override;
     bool event(QEvent *e) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;

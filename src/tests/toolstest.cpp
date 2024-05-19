@@ -30,7 +30,7 @@ void ToolsTest::testHtmlToText()
         QVERIFY2(QDir(basename).exists(), "Test data file not found");
         basename += QString::number(i);
 
-        if (readAll(basename + ".html", html) && readAll(basename + ".txt", text))
+        if (readAll(basename + QStringLiteral(".html"), html) && readAll(basename + QStringLiteral(".txt"), text))
             QCOMPARE(Tools::htmlToText(html), text);
     }
 }
@@ -39,7 +39,7 @@ bool ToolsTest::readAll(QString fileName, QString &text)
 {
     QFile f(fileName);
     if (!f.open(QFile::ReadOnly | QFile::Text)) {
-        QWARN(QString("Failed to open data file %1 - skipping").arg(fileName).toUtf8());
+        qWarning() << QLatin1String("Failed to open data file %1 - skipping").arg(fileName).toUtf8();
         return false;
     }
     QTextStream filestream(&f);

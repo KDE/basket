@@ -8,8 +8,9 @@
 
 #include <QList>
 
-#include <KFileMetaData/KFileMetaData/ExtractionResult>
-#include <KFileMetaData/KFileMetaData/ExtractorCollection>
+#include <KFileMetaData/ExtractionResult>
+#include <KFileMetaData/ExtractorCollection>
+
 
 /// Store and retrieve metadata extraction results
 class MetaDataExtractionResult : public KFileMetaData::ExtractionResult
@@ -32,7 +33,7 @@ public:
     QList<QPair<QString, QString>> preferredGroups();
 
 private:
-    KFileMetaData::PropertyMap m_groups;
+    KFileMetaData::PropertyMultiMap m_groups;
 };
 
 #endif // FILE_METADATA_H

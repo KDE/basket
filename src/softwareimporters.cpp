@@ -13,7 +13,7 @@
 #include <QLocale>
 #include <QPushButton>
 #include <QRadioButton>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QVBoxLayout>
 #include <QtCore/QDir>
@@ -163,19 +163,19 @@ TextFileImportDialog::~TextFileImportDialog()
 QString TextFileImportDialog::separator()
 {
     if (m_emptyline_choice->isChecked())
-        return "\n\n";
+        return QStringLiteral("\n\n");
     else if (m_newline_choice->isChecked())
-        return "\n";
+        return QStringLiteral("\n");
     else if (m_dash_choice->isChecked())
-        return "\n-";
+        return QStringLiteral("\n-");
     else if (m_star_choice->isChecked())
-        return "\n*";
+        return QStringLiteral("\n*");
     else if (m_anotherSeparator->isChecked())
         return m_customSeparator->toPlainText();
     else if (m_all_in_one_choice->isChecked())
         return QString();
     else
-        return "\n\n";
+        return QStringLiteral("\n\n");
 }
 
 void TextFileImportDialog::customSeparatorChanged()
@@ -202,7 +202,7 @@ void SoftwareImporters::finishImport(BasketScene *basket)
 
 void SoftwareImporters::importTextFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(nullptr, QString(), "kfiledialog:///:ImportTextFile", "*|All files");
+    QString fileName = QFileDialog::getOpenFileName(nullptr, QString(), QStringLiteral("kfiledialog:///:ImportTextFile"), QStringLiteral("*|All files"));
     if (fileName.isEmpty())
         return;
 

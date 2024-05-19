@@ -12,8 +12,8 @@
 #include <KIO/CopyJob>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <Kdelibs4ConfigMigrator>
-#include <Kdelibs4Migration>
+// #include <Kdelibs4ConfigMigrator>
+// #include <Kdelibs4Migration>
 #include <QDebug>
 #include <QDir>
 #include <QEventLoop>

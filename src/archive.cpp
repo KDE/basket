@@ -58,12 +58,12 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     dialog.show();
 
     // Create the temporary folder:
-    QString tempFolder = Global::savesFolder() + "temp-archive/";
+    QString tempFolder = Global::savesFolder() + QStringLiteral("temp-archive/");
     dir.mkdir(tempFolder);
 
     // Create the temporary archive file:
-    QString tempDestination = tempFolder + "temp-archive.tar.gz";
-    KTar tar(tempDestination, "application/x-gzip");
+    QString tempDestination = tempFolder + QStringLiteral("temp-archive.tar.gz");
+    KTar tar(tempDestination, QStringLiteral("application/x-gzip"));
     tar.open(QIODevice::WriteOnly);
     tar.writeDir(QStringLiteral("baskets"), QString(), QString());
 
@@ -78,23 +78,23 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     // Create a Small baskets.xml Document:
     QString data;
     QXmlStreamWriter stream(&data);
-    XMLWork::setupXmlStream(stream, "basketTree");
+    XMLWork::setupXmlStream(stream, QStringLiteral("basketTree"));
     Global::bnpView->saveSubHierarchy(Global::bnpView->listViewItemForBasket(basket), stream, withSubBaskets);
     stream.writeEndElement();
     stream.writeEndDocument();
-    FileStorage::safelySaveToFile(tempFolder + "baskets.xml", data);
-    tar.addLocalFile(tempFolder + "baskets.xml", "baskets/baskets.xml");
-    dir.remove(tempFolder + "baskets.xml");
+    FileStorage::safelySaveToFile(tempFolder + QStringLiteral("baskets.xml"), data);
+    tar.addLocalFile(tempFolder + QStringLiteral("baskets.xml"), QStringLiteral("baskets/baskets.xml"));
+    dir.remove(tempFolder + QStringLiteral("baskets.xml"));
 
     // Save a Small tags.xml Document:
     QList<Tag *> tags;
     listUsedTags(basket, withSubBaskets, tags);
-    Tag::saveTagsTo(tags, tempFolder + "tags.xml");
-    tar.addLocalFile(tempFolder + "tags.xml", "tags.xml");
-    dir.remove(tempFolder + "tags.xml");
+    Tag::saveTagsTo(tags, tempFolder + QStringLiteral("tags.xml"));
+    tar.addLocalFile(tempFolder + QStringLiteral("tags.xml"), QStringLiteral("tags.xml"));
+    dir.remove(tempFolder + QStringLiteral("tags.xml"));
 
     // Save Tag Emblems (in case they are loaded on a computer that do not have those icons):
-    QString tempIconFile = tempFolder + "icon.png";
+    QString tempIconFile = tempFolder + QStringLiteral("icon.png");
     for (Tag::List::iterator it = tags.begin(); it != tags.end(); ++it) {
         State::List states = (*it)->states();
         for (State::List::iterator it2 = states.begin(); it2 != states.end(); ++it2) {
@@ -102,8 +102,8 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
             QPixmap icon = KIconLoader::global()->loadIcon(state->emblem(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), nullptr, true);
             if (!icon.isNull()) {
                 icon.save(tempIconFile, "PNG");
-                QString iconFileName = state->emblem().replace('/', '_');
-                tar.addLocalFile(tempIconFile, "tag-emblems/" + iconFileName);
+                QString iconFileName = state->emblem().replace(QLatin1Char('/'), QLatin1Char('_'));
+                tar.addLocalFile(tempIconFile, QStringLiteral("tag-emblems/") + iconFileName);
             }
         }
     }
@@ -134,15 +134,15 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     QImage previewImage = previewPixmap.toImage();
     const int PREVIEW_SIZE = 256;
     previewImage = previewImage.scaled(PREVIEW_SIZE, PREVIEW_SIZE, Qt::KeepAspectRatio);
-    previewImage.save(tempFolder + "preview.png", "PNG");
+    previewImage.save(tempFolder + QStringLiteral("preview.png"), "PNG");
 
     // Finally Save to the Real Destination file:
     QFile file(destination);
     if (file.open(QIODevice::WriteOnly)) {
-        ulong previewSize = QFile(tempFolder + "preview.png").size();
+        ulong previewSize = QFile(tempFolder + QStringLiteral("preview.png")).size();
         ulong archiveSize = QFile(tempDestination).size();
         QTextStream stream(&file);
-        stream.setCodec("ISO-8859-1");
+        stream.setEncoding(QStringConverter::Latin1);
         stream << "BasKetNP:archive\n"
                << "version:0.6.1\n"
                //             << "read-compatible:0.6.1\n"
@@ -154,7 +154,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         const unsigned long BUFFER_SIZE = 1024;
         char *buffer = new char[BUFFER_SIZE];
         long sizeRead;
-        QFile previewFile(tempFolder + "preview.png");
+        QFile previewFile(tempFolder + QStringLiteral("preview.png"));
         if (previewFile.open(QIODevice::ReadOnly)) {
             while ((sizeRead = previewFile.read(buffer, BUFFER_SIZE)) > 0)
                 file.write(buffer, sizeRead);
@@ -178,7 +178,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     qDebug() << "Finishing finished";
 
     // Clean Up Everything:
-    dir.remove(tempFolder + "preview.png");
+    dir.remove(tempFolder + QStringLiteral("preview.png"));
     dir.remove(tempDestination);
     dir.rmdir(tempFolder);
 }
@@ -193,15 +193,15 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
 
     QDir dir;
     // Save basket data:
-    tar->addLocalDirectory(basket->fullPath(), "baskets/" + basket->folderName());
+    tar->addLocalDirectory(basket->fullPath(), QStringLiteral("baskets/") + basket->folderName());
     // Save basket icon:
-    QString tempIconFile = tempFolder + "icon.png";
-    if (!basket->icon().isEmpty() && basket->icon() != "basket") {
+    QString tempIconFile = tempFolder + QStringLiteral("icon.png");
+    if (!basket->icon().isEmpty() && basket->icon() != QStringLiteral("basket")) {
         QPixmap icon = KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), /*path_store=*/nullptr, /*canReturnNull=*/true);
         if (!icon.isNull()) {
             icon.save(tempIconFile, "PNG");
-            QString iconFileName = basket->icon().replace('/', '_');
-            tar->addLocalFile(tempIconFile, "basket-icons/" + iconFileName);
+            QString iconFileName = basket->icon().replace(QLatin1Char('/'), QLatin1Char('_'));
+            tar->addLocalFile(tempIconFile, QStringLiteral("basket-icons/") + iconFileName);
         }
     }
     // Save basket background image:
@@ -210,15 +210,15 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
         QString backgroundPath = Global::backgroundManager->pathForImageName(imageName);
         if (!backgroundPath.isEmpty()) {
             // Save the background image:
-            tar->addLocalFile(backgroundPath, "backgrounds/" + imageName);
+            tar->addLocalFile(backgroundPath, QStringLiteral("backgrounds/") + imageName);
             // Save the preview image:
             QString previewPath = Global::backgroundManager->previewPathForImageName(imageName);
             if (!previewPath.isEmpty())
-                tar->addLocalFile(previewPath, "backgrounds/previews/" + imageName);
+                tar->addLocalFile(previewPath, QStringLiteral("backgrounds/previews/") + imageName);
             // Save the configuration file:
-            QString configPath = backgroundPath + ".config";
+            QString configPath = backgroundPath + QStringLiteral(".config");
             if (dir.exists(configPath))
-                tar->addLocalFile(configPath, "backgrounds/" + imageName + ".config");
+                tar->addLocalFile(configPath, QStringLiteral("backgrounds/") + imageName + QStringLiteral(".config"));
         }
         backgrounds.append(imageName);
     }
@@ -249,7 +249,7 @@ void Archive::listUsedTags(BasketScene *basket, bool recursive, QList<Tag *> &li
 void Archive::open(const QString &path)
 {
     // Use the temporary folder:
-    QString tempFolder = Global::savesFolder() + "temp-archive/";
+    QString tempFolder = Global::savesFolder() + QStringLiteral("temp-archive/");
 
     switch (extractArchive(path, tempFolder, false)) {
     case IOErrorCode::FailedToOpenResource:
@@ -287,7 +287,7 @@ void Archive::open(const QString &path)
         // Import the Tags:
 
         importTagEmblems(tempFolder); // Import and rename tag emblems BEFORE loading them!
-        QMap<QString, QString> mergedStates = Tag::loadTags(tempFolder + "tags.xml");
+        QMap<QString, QString> mergedStates = Tag::loadTags(tempFolder + QStringLiteral("tags.xml"));
         if (mergedStates.count() > 0) {
             Tag::saveTags();
         }
@@ -312,7 +312,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     // derive name of the extraction directory
     if (destination.isEmpty()) {
         // have the decoded baskets the same name as the archive
-        l_destination = QFileInfo(path).path() + QDir::separator() + QFileInfo(path).baseName() + "-source";
+        l_destination = QFileInfo(path).path() + QDir::separator() + QFileInfo(path).baseName() + QStringLiteral("-source");
     } else {
         l_destination = QDir::cleanPath(destination);
     }
@@ -335,9 +335,9 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     QFile file(path);
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
-        stream.setCodec("ISO-8859-1");
+        stream.setEncoding(QStringConverter::Latin1);
         QString line = stream.readLine();
-        if (line != "BasKetNP:archive") {
+        if (line != QStringLiteral("BasKetNP:archive")) {
             file.close();
             Tools::deleteRecursively(l_destination);
             return IOErrorCode::NotABasketArchive;
@@ -348,7 +348,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
         while (!stream.atEnd()) {
             // Get Key/Value Pair From the Line to Read:
             line = stream.readLine();
-            int index = line.indexOf(':');
+            int index = line.indexOf(QLatin1Char(':'));
             QString key;
             QString value;
             if (index >= 0) {
@@ -358,13 +358,13 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 key = line;
                 value = QString();
             }
-            if (key == "version") {
+            if (key == QStringLiteral("version")) {
                 version = value;
-            } else if (key == "read-compatible") {
-                readCompatibleVersions = value.split(';');
-            } else if (key == "write-compatible") {
-                writeCompatibleVersions = value.split(';');
-            } else if (key == "preview*") {
+            } else if (key == QStringLiteral("read-compatible")) {
+                readCompatibleVersions = value.split(QLatin1Char(';'));
+            } else if (key == QStringLiteral("write-compatible")) {
+                writeCompatibleVersions = value.split(QLatin1Char(';'));
+            } else if (key == QStringLiteral("preview*")) {
                 bool ok;
                 const qint64 size = value.toULong(&ok);
                 if (!ok) {
@@ -373,7 +373,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                     return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the preview file:
-                QFile previewFile(dir.absolutePath() + QDir::separator() + "preview.png");
+                QFile previewFile(dir.absolutePath() + QDir::separator() + QStringLiteral("preview.png"));
                 if (previewFile.open(QIODevice::WriteOnly)) {
                     std::array<char, BUFFER_SIZE> buffer{};
                     qint64 remainingBytes = size;
@@ -387,11 +387,11 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                     previewFile.close();
                 }
                 stream.seek(stream.pos() + size);
-            } else if (key == "archive*") {
-                if (version != "0.6.1" && readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
+            } else if (key == QStringLiteral("archive*")) {
+                if (version != QStringLiteral("0.6.1") && readCompatibleVersions.contains(QStringLiteral("0.6.1")) && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
                     retCode = IOErrorCode::PossiblyCompatibleBasketVersion;
                 }
-                if (version != "0.6.1" && !readCompatibleVersions.contains("0.6.1") && !writeCompatibleVersions.contains("0.6.1")) {
+                if (version != QStringLiteral("0.6.1") && !readCompatibleVersions.contains(QStringLiteral("0.6.1")) && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
                     file.close();
                     Tools::deleteRecursively(l_destination);
                     return IOErrorCode::IncompatibleBasketVersion;
@@ -410,7 +410,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 if (!tempDir.isValid()) {
                     return IOErrorCode::FailedToOpenResource;
                 }
-                QString tempArchive = tempDir.path() + QDir::separator() + "temp-archive.tar.gz";
+                QString tempArchive = tempDir.path() + QDir::separator() + QStringLiteral("temp-archive.tar.gz");
                 QFile archiveFile(tempArchive);
                 file.seek(stream.pos());
                 if (archiveFile.open(QIODevice::WriteOnly)) {
@@ -424,14 +424,14 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                     delete[] buffer;
 
                     // Extract the Archive:
-                    KTar tar(tempArchive, "application/x-gzip");
+                    KTar tar(tempArchive, QStringLiteral("application/x-gzip"));
                     tar.open(QIODevice::ReadOnly);
                     tar.directory()->copyTo(l_destination);
                     tar.close();
 
                     stream.seek(file.pos());
                 }
-            } else if (key.endsWith('*')) {
+            } else if (key.endsWith(QLatin1Char('*'))) {
                 // We do not know what it is, but we should read the embedded-file in
                 // order to discard it:
                 bool ok;
@@ -480,8 +480,8 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
     }
 
     // Create the temporary archive file:
-    QString tempDestinationFile = tempDir.path() + QDir::separator() + "temp-archive.tar.gz";
-    KTar archive(tempDestinationFile, "application/x-gzip");
+    QString tempDestinationFile = tempDir.path() + QDir::separator() + QStringLiteral("temp-archive.tar.gz");
+    KTar archive(tempDestinationFile, QStringLiteral("application/x-gzip"));
 
     // Prepare the archive for writing.
     if (!archive.open(QIODevice::WriteOnly)) {
@@ -493,7 +493,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
 
     // Add files and directories to tar archive
     auto sourceFiles = source.entryList(QDir::Files);
-    sourceFiles.removeOne("preview.png");
+    sourceFiles.removeOne(QStringLiteral("preview.png"));
     std::for_each(sourceFiles.constBegin(), sourceFiles.constEnd(), [&](const QString &entry) {
         archive.addLocalFile(source.absolutePath() + QDir::separator() + entry, entry);
     });
@@ -508,7 +508,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
     /// \todo write a way to create preview the way it's done in Archive::save
     QString previewImagePath = previewImage;
     if (previewImage.isEmpty() && !QFileInfo(previewImage).exists()) {
-        previewImagePath = ":/images/128-apps-org.kde.basket.png";
+        previewImagePath = QStringLiteral(":/images/128-apps-org.kde.basket.png");
     }
 
     // Finally Save to the Real Destination file:
@@ -517,7 +517,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
         ulong previewSize = QFile(previewImagePath).size();
         ulong archiveSize = QFile(tempDestinationFile).size();
         QTextStream stream(&file);
-        stream.setCodec("ISO-8859-1");
+        stream.setEncoding(QStringConverter::Latin1);
         stream << "BasKetNP:archive\n"
                << "version:0.6.1\n"
                //             << "read-compatible:0.6.1\n"
@@ -561,40 +561,40 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
  */
 void Archive::importTagEmblems(const QString &extractionFolder)
 {
-    QDomDocument *document = XMLWork::openFile("basketTags", extractionFolder + "tags.xml");
+    QDomDocument *document = XMLWork::openFile(QStringLiteral("basketTags"), extractionFolder + QStringLiteral("tags.xml"));
     if (document == nullptr)
         return;
     QDomElement docElem = document->documentElement();
 
     QDir dir;
-    dir.mkdir(Global::savesFolder() + "tag-emblems/");
+    dir.mkdir(Global::savesFolder() + QStringLiteral("tag-emblems/"));
     FormatImporter copier; // Only used to copy files synchronously
 
     QDomNode node = docElem.firstChild();
     while (!node.isNull()) {
         QDomElement element = node.toElement();
-        if ((!element.isNull()) && element.tagName() == "tag") {
+        if ((!element.isNull()) && element.tagName() == QStringLiteral("tag")) {
             QDomNode subNode = element.firstChild();
             while (!subNode.isNull()) {
                 QDomElement subElement = subNode.toElement();
-                if ((!subElement.isNull()) && subElement.tagName() == "state") {
-                    QString emblemName = XMLWork::getElementText(subElement, "emblem");
+                if ((!subElement.isNull()) && subElement.tagName() == QStringLiteral("state")) {
+                    QString emblemName = XMLWork::getElementText(subElement, QStringLiteral("emblem"));
                     if (!emblemName.isEmpty()) {
                         QPixmap emblem = KIconLoader::global()->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
                         // The icon does not exists on that computer, import it:
                         if (emblem.isNull()) {
                             // Of the emblem path was eg. "/home/seb/emblem.png", it was exported as "tag-emblems/_home_seb_emblem.png".
                             // So we need to copy that image to "~/.local/share/basket/tag-emblems/emblem.png":
-                            int slashIndex = emblemName.lastIndexOf('/');
+                            int slashIndex = emblemName.lastIndexOf(QLatin1Char('/'));
                             QString emblemFileName = (slashIndex < 0 ? emblemName : emblemName.right(slashIndex - 2));
-                            QString source = extractionFolder + "tag-emblems/" + emblemName.replace('/', '_');
-                            QString destination = Global::savesFolder() + "tag-emblems/" + emblemFileName;
+                            QString source = extractionFolder + QStringLiteral("tag-emblems/") + emblemName.replace(QLatin1Char('/'), QLatin1Char('/'));
+                            QString destination = Global::savesFolder() + QStringLiteral("tag-emblems/") + emblemFileName;
                             if (!dir.exists(destination) && dir.exists(source))
                                 copier.copyFolder(source, destination);
                             // Replace the emblem path in the tags.xml copy:
-                            QDomElement emblemElement = XMLWork::getElement(subElement, "emblem");
+                            QDomElement emblemElement = XMLWork::getElement(subElement, QStringLiteral("emblem"));
                             subElement.removeChild(emblemElement);
-                            XMLWork::addElement(*document, subElement, "emblem", destination);
+                            XMLWork::addElement(*document, subElement, QStringLiteral("emblem"), destination);
                         }
                     }
                 }
@@ -603,34 +603,34 @@ void Archive::importTagEmblems(const QString &extractionFolder)
         }
         node = node.nextSibling();
     }
-    FileStorage::safelySaveToFile(extractionFolder + "tags.xml", document->toString());
+    FileStorage::safelySaveToFile(extractionFolder + QStringLiteral("tags.xml"), document->toString());
 }
 
 void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 {
     FormatImporter copier; // Only used to copy files synchronously
-    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/backgrounds/";
+    QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/basket/backgrounds/");
     QDir().mkpath(destFolder); // does not exist at the first run when addWelcomeBaskets is called
 
-    QDir dir(extractionFolder + "backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
+    QDir dir(extractionFolder + QStringLiteral("backgrounds/"), /*nameFilder=*/QStringLiteral("*.png"), /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
     QStringList files = dir.entryList();
     for (QStringList::Iterator it = files.begin(); it != files.end(); ++it) {
         QString image = *it;
         if (!Global::backgroundManager->exists(image)) {
             // Copy images:
-            QString imageSource = extractionFolder + "backgrounds/" + image;
+            QString imageSource = extractionFolder + QStringLiteral("backgrounds/") + image;
             QString imageDest = destFolder + image;
             copier.copyFolder(imageSource, imageDest);
             // Copy configuration file:
-            QString configSource = extractionFolder + "backgrounds/" + image + ".config";
+            QString configSource = extractionFolder + QStringLiteral("backgrounds/") + image + QStringLiteral(".config");
             QString configDest = destFolder + image;
             if (dir.exists(configSource))
                 copier.copyFolder(configSource, configDest);
             // Copy preview:
-            QString previewSource = extractionFolder + "backgrounds/previews/" + image;
-            QString previewDest = destFolder + "previews/" + image;
+            QString previewSource = extractionFolder + QStringLiteral("backgrounds/previews/") + image;
+            QString previewDest = destFolder + QStringLiteral("previews/") + image;
             if (dir.exists(previewSource)) {
-                dir.mkdir(destFolder + "previews/"); // Make sure the folder exists!
+                dir.mkdir(destFolder + QStringLiteral("previews/")); // Make sure the folder exists!
                 copier.copyFolder(previewSource, previewDest);
             }
             // Append image to database:
@@ -641,7 +641,7 @@ void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
 
 void Archive::renameBasketFolders(const QString &extractionFolder, QMap<QString, QString> &mergedStates)
 {
-    QDomDocument *doc = XMLWork::openFile("basketTree", extractionFolder + "baskets/baskets.xml");
+    QDomDocument *doc = XMLWork::openFile(QStringLiteral("basketTree"), extractionFolder + QStringLiteral("baskets/baskets.xml"));
     if (doc != nullptr) {
         QMap<QString, QString> folderMap;
         QDomElement docElem = doc->documentElement();
@@ -656,8 +656,8 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
     QDomNode n = basketNode;
     while (!n.isNull()) {
         QDomElement element = n.toElement();
-        if ((!element.isNull()) && element.tagName() == "basket") {
-            QString folderName = element.attribute("folderName");
+        if ((!element.isNull()) && element.tagName() == QStringLiteral("basket")) {
+            QString folderName = element.attribute(QStringLiteral("folderName"));
             if (!folderName.isEmpty()) {
                 // Find a folder name:
                 QString newFolderName = BasketFactory::newFolderName();
@@ -667,7 +667,7 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
                 dir.mkdir(Global::basketsFolder() + newFolderName);
                 // Rename the merged tag ids:
                 //              if (mergedStates.count() > 0) {
-                renameMergedStatesAndBasketIcon(extractionFolder + "baskets/" + folderName + ".basket", mergedStates, extractionFolder);
+                renameMergedStatesAndBasketIcon(extractionFolder + QStringLiteral("baskets/") + folderName + QStringLiteral(".basket"), mergedStates, extractionFolder);
                 //              }
                 // Child baskets:
                 QDomNode node = element.firstChild();
@@ -680,13 +680,13 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
 
 void Archive::renameMergedStatesAndBasketIcon(const QString &fullPath, QMap<QString, QString> &mergedStates, const QString &extractionFolder)
 {
-    QDomDocument *doc = XMLWork::openFile("basket", fullPath);
+    QDomDocument *doc = XMLWork::openFile(QStringLiteral("basket"), fullPath);
     if (doc == nullptr)
         return;
     QDomElement docElem = doc->documentElement();
-    QDomElement properties = XMLWork::getElement(docElem, "properties");
+    QDomElement properties = XMLWork::getElement(docElem, QStringLiteral("properties"));
     importBasketIcon(properties, extractionFolder);
-    QDomElement notes = XMLWork::getElement(docElem, "notes");
+    QDomElement notes = XMLWork::getElement(docElem, QStringLiteral("notes"));
     if (mergedStates.count() > 0)
         renameMergedStates(notes, mergedStates);
     FileStorage::safelySaveToFile(fullPath, /*"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + */ doc->toString());
@@ -694,27 +694,27 @@ void Archive::renameMergedStatesAndBasketIcon(const QString &fullPath, QMap<QStr
 
 void Archive::importBasketIcon(QDomElement properties, const QString &extractionFolder)
 {
-    QString iconName = XMLWork::getElementText(properties, "icon");
-    if (!iconName.isEmpty() && iconName != "basket") {
+    QString iconName = XMLWork::getElementText(properties, QStringLiteral("icon"));
+    if (!iconName.isEmpty() && iconName != QStringLiteral("basket")) {
         QPixmap icon = KIconLoader::global()->loadIcon(iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
         // The icon does not exists on that computer, import it:
         if (icon.isNull()) {
             QDir dir;
-            dir.mkdir(Global::savesFolder() + "basket-icons/");
+            dir.mkdir(Global::savesFolder() + QStringLiteral("basket-icons/"));
             FormatImporter copier; // Only used to copy files synchronously
             // Of the icon path was eg. "/home/seb/icon.png", it was exported as "basket-icons/_home_seb_icon.png".
             // So we need to copy that image to "~/.local/share/basket/basket-icons/icon.png":
-            int slashIndex = iconName.lastIndexOf('/');
+            int slashIndex = iconName.lastIndexOf(QLatin1Char('/'));
             QString iconFileName = (slashIndex < 0 ? iconName : iconName.right(slashIndex - 2));
-            QString source = extractionFolder + "basket-icons/" + iconName.replace('/', '_');
-            QString destination = Global::savesFolder() + "basket-icons/" + iconFileName;
+            QString source = extractionFolder + QStringLiteral("basket-icons/") + iconName.replace(QLatin1Char('/'), QLatin1Char('/'));
+            QString destination = Global::savesFolder() + QStringLiteral("basket-icons/") + iconFileName;
             if (!dir.exists(destination))
                 copier.copyFolder(source, destination);
             // Replace the emblem path in the tags.xml copy:
-            QDomElement iconElement = XMLWork::getElement(properties, "icon");
+            QDomElement iconElement = XMLWork::getElement(properties, QStringLiteral("icon"));
             properties.removeChild(iconElement);
             QDomDocument document = properties.ownerDocument();
-            XMLWork::addElement(document, properties, "icon", destination);
+            XMLWork::addElement(document, properties, QStringLiteral("icon"), destination);
         }
     }
 }
@@ -725,23 +725,23 @@ void Archive::renameMergedStates(QDomNode notes, QMap<QString, QString> &mergedS
     while (!n.isNull()) {
         QDomElement element = n.toElement();
         if (!element.isNull()) {
-            if (element.tagName() == "group") {
+            if (element.tagName() == QStringLiteral("group")) {
                 renameMergedStates(n, mergedStates);
-            } else if (element.tagName() == "note") {
-                QString tags = XMLWork::getElementText(element, "tags");
+            } else if (element.tagName() == QStringLiteral("note")) {
+                QString tags = XMLWork::getElementText(element, QStringLiteral("tags"));
                 if (!tags.isEmpty()) {
-                    QStringList tagNames = tags.split(';');
+                    QStringList tagNames = tags.split(QLatin1Char(';'));
                     for (QStringList::Iterator it = tagNames.begin(); it != tagNames.end(); ++it) {
                         QString &tag = *it;
                         if (mergedStates.contains(tag)) {
                             tag = mergedStates[tag];
                         }
                     }
-                    QString newTags = tagNames.join(";");
-                    QDomElement tagsElement = XMLWork::getElement(element, "tags");
+                    QString newTags = tagNames.join(QStringLiteral(";"));
+                    QDomElement tagsElement = XMLWork::getElement(element, QStringLiteral("tags"));
                     element.removeChild(tagsElement);
                     QDomDocument document = element.ownerDocument();
-                    XMLWork::addElement(document, element, "tags", newTags);
+                    XMLWork::addElement(document, element, QStringLiteral("tags"), newTags);
                 }
             }
         }
@@ -755,8 +755,8 @@ void Archive::loadExtractedBaskets(const QString &extractionFolder, QDomNode &ba
     QDomNode n = basketNode;
     while (!n.isNull()) {
         QDomElement element = n.toElement();
-        if ((!element.isNull()) && element.tagName() == "basket") {
-            QString folderName = element.attribute("folderName");
+        if ((!element.isNull()) && element.tagName() == QStringLiteral("basket")) {
+            QString folderName = element.attribute(QStringLiteral("folderName"));
             if (!folderName.isEmpty()) {
                 // Move the basket folder to its destination, while renaming it uniquely:
                 QString newFolderName = folderMap[folderName];
@@ -764,12 +764,12 @@ void Archive::loadExtractedBaskets(const QString &extractionFolder, QDomNode &ba
                 // The folder has been "reserved" by creating it. Avoid asking the user to override:
                 QDir dir;
                 dir.rmdir(Global::basketsFolder() + newFolderName);
-                copier.moveFolder(extractionFolder + "baskets/" + folderName, Global::basketsFolder() + newFolderName);
+                copier.moveFolder(extractionFolder + QStringLiteral("baskets/") + folderName, Global::basketsFolder() + newFolderName);
                 // Append and load the basket in the tree:
                 BasketScene *basket = Global::bnpView->loadBasket(newFolderName);
                 BasketListViewItem *basketItem = Global::bnpView->appendBasket(basket, (basket && parent ? Global::bnpView->listViewItemForBasket(parent) : nullptr));
-                basketItem->setExpanded(!XMLWork::trueOrFalse(element.attribute("folded", "false"), false));
-                QDomElement properties = XMLWork::getElement(element, "properties");
+                basketItem->setExpanded(!XMLWork::trueOrFalse(element.attribute(QStringLiteral("folded"), QStringLiteral("false")), false));
+                QDomElement properties = XMLWork::getElement(element, QStringLiteral("properties"));
                 importBasketIcon(properties, extractionFolder); // Rename the icon fileName if necessary
                 basket->loadProperties(properties);
                 // Open the first basket of the archive:

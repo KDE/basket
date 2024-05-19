@@ -24,15 +24,11 @@ void showHistorySize(QPointer<VersionSyncPage> versionSyncPage)
         QMetaObject::invokeMethod(versionSyncPage.data(), "setHistorySize", Qt::QueuedConnection, Q_ARG(qint64, size));
 }
 
-VersionSyncPage::VersionSyncPage(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+VersionSyncPage::VersionSyncPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
     , ui(new Ui::VersionSyncPage)
 {
-    KAboutData *about = new AboutData();
-    about->setComponentName("kcmbasket_config_version_sync");
-    setAboutData(about);
-
-    ui->setupUi(this);
+    ui->setupUi(this->widget());
 
 #ifdef WITH_LIBGIT2
     ui->labelWithoutVersionControlSupport->setVisible(false);
@@ -76,7 +72,7 @@ void VersionSyncPage::onCheckBoxEnableClicked()
 
 void VersionSyncPage::onButtonClearHistoryClicked()
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you really want to remove old versions for all baskets?"), i18n("Version Sync")) == KMessageBox::Yes) {
+    if (KMessageBox::questionTwoActions(this->widget(), i18n("Do you really want to remove old versions for all baskets?"), i18n("Remove old Baskets"), KGuiItem(i18n("Version Sync")), KStandardGuiItem::cancel()) == KMessageBox::Ok) {
         Tools::deleteRecursively(Global::gitFolder());
         ui->buttonClearHistory->setEnabled(false);
         setHistorySize(0);

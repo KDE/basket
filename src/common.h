@@ -17,7 +17,7 @@ namespace FileStorage {
     bool loadFromFile(const QString &fullPath, QByteArray *array);
     bool saveToFile(const QString &fullPath, const QString &string, bool isEncrypted = false);
     bool saveToFile(const QString &fullPath, const QByteArray &array, bool isEncrypted = false); //[Encrypt and] save binary content
-    bool safelySaveToFile(const QString &fullPath, const QByteArray &array, unsigned long length);
+    bool safelySaveToFile(const QString &fullPath, const QByteArray &array);
     bool safelySaveToFile(const QString &fullPath, const QString &string);
 }
 

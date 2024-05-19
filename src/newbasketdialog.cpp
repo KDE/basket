@@ -58,7 +58,7 @@ void SingleSelectionKIconView::slotSelectionChanged(QListWidgetItem *cur)
 /** class NewBasketDefaultProperties: */
 
 NewBasketDefaultProperties::NewBasketDefaultProperties()
-    : icon(QString("org.kde.basket"))
+    : icon(QStringLiteral("org.kde.basket"))
     , backgroundImage(QString())
     , backgroundColor()
     , textColor()
@@ -116,19 +116,19 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
 
     QHBoxLayout *layout = new QHBoxLayout;
     QPushButton *button = new QPushButton(page);
-    KGuiItem::assign(button, KGuiItem(i18n("&Manage Templates..."), "configure"));
+    KGuiItem::assign(button, KGuiItem(i18n("&Manage Templates..."), QStringLiteral("configure")));
     connect(button, &QPushButton::clicked, this, &NewBasketDialog::manageTemplates);
     button->hide();
 
     // Compute the right template to use as the default:
-    QString defaultTemplate = "free";
+    QString defaultTemplate = QStringLiteral("free");
     if (!m_defaultProperties.freeLayout) {
         if (m_defaultProperties.columnCount == 1)
-            defaultTemplate = "1column";
+            defaultTemplate = QStringLiteral("1column");
         else if (m_defaultProperties.columnCount == 2)
-            defaultTemplate = "2columns";
+            defaultTemplate = QStringLiteral("2columns");
         else
-            defaultTemplate = "3columns";
+            defaultTemplate = QStringLiteral("3columns");
     }
 
     // Empty:
@@ -151,7 +151,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("One column"), m_templates);
 
-    if (defaultTemplate == "1column")
+    if (defaultTemplate == QStringLiteral("1column"))
         m_templates->setCurrentItem(lastTemplate);
 
     painter.begin(&icon);
@@ -162,7 +162,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Two columns"), m_templates);
 
-    if (defaultTemplate == "2columns")
+    if (defaultTemplate == QStringLiteral("2columns"))
         m_templates->setCurrentItem(lastTemplate);
 
     painter.begin(&icon);
@@ -174,7 +174,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Three columns"), m_templates);
 
-    if (defaultTemplate == "3columns")
+    if (defaultTemplate == QStringLiteral("3columns"))
         m_templates->setCurrentItem(lastTemplate);
 
     painter.begin(&icon);
@@ -186,7 +186,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Free"), m_templates);
 
-    if (defaultTemplate == "free")
+    if (defaultTemplate == QStringLiteral("free"))
         m_templates->setCurrentItem(lastTemplate);
 
     m_templates->setMinimumHeight(topLayout->minimumSize().width() * 9 / 16);
@@ -221,7 +221,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
 
     m_basketsMap.clear();
     int index;
-    m_basketsMap.insert(/*index=*/0, /*basket=*/0L);
+    m_basketsMap.insert(/*index=*/0, /*basket=*/nullptr);
     index = 1;
     for (int i = 0; i < Global::bnpView->topLevelItemCount(); i++) {
         index = populateBasketsList(Global::bnpView->topLevelItem(i), /*indent=*/1, /*index=*/index);
@@ -314,15 +314,15 @@ void NewBasketDialog::slotOk()
     if (!item)
         return;
     if (item->text() == i18n("One column"))
-        templateName = "1column";
+        templateName = QStringLiteral("1column");
     if (item->text() == i18n("Two columns"))
-        templateName = "2columns";
+        templateName = QStringLiteral("2columns");
     if (item->text() == i18n("Three columns"))
-        templateName = "3columns";
+        templateName = QStringLiteral("3columns");
     if (item->text() == i18n("Free-form"))
-        templateName = "free";
+        templateName = QStringLiteral("free");
     if (item->text() == i18n("Mind map"))
-        templateName = "mindmap";
+        templateName = QStringLiteral("mindmap");
 
     Global::bnpView->closeAllEditors();
 
@@ -347,7 +347,7 @@ void NewBasketDialog::slotOk()
 
 void NewBasketDialog::manageTemplates()
 {
-    KMessageBox::information(this, "Wait a minute! There is no template for now: they will come with time... :-D");
+    KMessageBox::information(this, QStringLiteral("Wait a minute! There is no template for now: they will come with time... :-D"));
 }
 
 #include "moc_newbasketdialog.cpp"

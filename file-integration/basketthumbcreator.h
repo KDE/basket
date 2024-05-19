@@ -19,12 +19,12 @@
  ***************************************************************************/
 #pragma once
 
-#include <kio/thumbcreator.h>
+#include <KIO/ThumbnailCreator>
 #include <qimage.h>
 #include <qstring.h>
 
-class BasketThumbCreator : public ThumbCreator
+class BasketThumbCreator : public KIO::ThumbnailCreator
 {
-    bool create(const QString &path, int width, int height, QImage &image) override;
-    Flags flags() const override;
+    KIO::ThumbnailResult create(const KIO::ThumbnailRequest &request) override;
 };
+    

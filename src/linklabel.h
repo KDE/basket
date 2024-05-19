@@ -140,7 +140,7 @@ public:
 
 protected:
     void initLabel(int hAlign, int vAlign);
-    void enterEvent(QEvent *) override;
+    void enterEvent(QEnterEvent *) override;
     void leaveEvent(QEvent *) override;
 
 private:

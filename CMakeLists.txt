@@ -107,7 +107,10 @@ find_package(KF6 REQUIRED COMPONENTS
     XmlGui
 )
 
-# find_package(Phonon4Qt5 REQUIRED)
+
+find_package(KF6ConfigWidgets REQUIRED)
+
+find_package(Phonon4Qt6 REQUIRED)
 
 if (GPGME_FOUND)
     set(HAVE_LIBGPGME 1)

@@ -32,7 +32,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KRun>
+// #include <KRun>
 #include <KTar>
 
 #include <KIO/CommandLauncherJob>
@@ -43,7 +43,7 @@
  * Backups are wrapped in a .tar.gz, inside that folder name.
  * An archive is not a backup or is corrupted if data are not in that folder!
  */
-const QString backupMagicFolder = "BasKet-Note-Pads_Backup";
+const QString backupMagicFolder = QStringLiteral("BasKet-Note-Pads_Backup");
 
 /** class BackupDialog: */
 
@@ -61,7 +61,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
 
     QWidget *page = new QWidget(this);
     QVBoxLayout *pageVBoxLayout = new QVBoxLayout(page);
-    pageVBoxLayout->setMargin(0);
+    pageVBoxLayout->unsetContentsMargins();
     mainLayout->addWidget(page);
 
     //  pageVBoxLayout->setSpacing(spacingHint());
@@ -74,7 +74,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     mainLayout->addWidget(folderGroup);
     QVBoxLayout *folderGroupLayout = new QVBoxLayout;
     folderGroup->setLayout(folderGroupLayout);
-    folderGroupLayout->addWidget(new QLabel("<qt><nobr>" + i18n("Your baskets are currently stored in that folder:<br><b>%1</b>", savesFolder), folderGroup));
+    folderGroupLayout->addWidget(new QLabel(QStringLiteral("<qt><nobr>") + i18n("Your baskets are currently stored in that folder:<br><b>%1</b>", savesFolder), folderGroup));
     QWidget *folderWidget = new QWidget;
     folderGroupLayout->addWidget(folderWidget);
 
@@ -138,8 +138,8 @@ void BackupDialog::populateLastBackup()
 {
     QString lastBackupText = i18n("Last backup: never");
     if (Settings::lastBackup().isValid())
-        lastBackupText = i18n("Last backup: %1", Settings::lastBackup().toString(Qt::LocalDate));
-
+        lastBackupText = i18n("Last backup: %1", Settings::lastBackup().toString(QStringLiteral("dd.MM.yyyy hh:mm:ss")));
+    
     m_lastBackup->setText(lastBackupText);
 }
 
@@ -158,7 +158,7 @@ void BackupDialog::moveToAnotherFolder()
             // Get the content of the folder:
             QStringList content = dir.entryList();
             if (content.count() > 2) { // "." and ".."
-                int result = KMessageBox::warningContinueCancel(nullptr, "<qt>" + i18n("The folder <b>%1</b> is not empty. Do you want to overwrite it?", folder), i18n("Overwrite Folder?"), KGuiItem(i18n("&Overwrite"), "document-save"));
+                int result = KMessageBox::warningContinueCancel(nullptr, QStringLiteral("<qt>") + i18n("The folder <b>%1</b> is not empty. Do you want to overwrite it?", folder), i18n("Overwrite Folder?"), KGuiItem(i18n("&Overwrite"), QStringLiteral("document-save")));
                 if (result == KMessageBox::Cancel)
                     return;
             }
@@ -188,16 +188,20 @@ void BackupDialog::backup()
 
     // Compute a default file name & path (eg. "Baskets_2007-01-31.tar.gz"):
     KConfig *config = KSharedConfig::openConfig().data();
-    KConfigGroup configGroup(config, "Backups");
-    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + '/';
+    KConfigGroup configGroup(config, QStringLiteral("Backups"));
+    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + QLatin1Char('/');
     QString fileName = i18nc("Backup filename (without extension), %1 is the date", "Baskets_%1", QDate::currentDate().toString(Qt::ISODate));
     QString url = folder + fileName;
 
     // Ask a file name & path to the user:
-    QString filter = "*.tar.gz|" + i18n("Tar Archives Compressed by Gzip") + "\n*|" + i18n("All Files");
+    QString suffix = QStringLiteral("*.tar.gz|");
+    QString title = i18n("Tar Archives Compressed by Gzip");
+    QString newline = QStringLiteral("\n*|");
+    QString all = i18n("All Files");
+    QString filter = suffix + title + newline + all;
     const QString destination = QFileDialog::getSaveFileName(nullptr, i18n("Backup Baskets"), url, filter);
 
-    // User canceled?
+    // User canceled? b
     if (destination.isEmpty()) {
         return;
     }
@@ -235,11 +239,16 @@ void BackupDialog::restore()
 {
     // Get last backup folder:
     KConfig *config = KSharedConfig::openConfig().data();
-    KConfigGroup configGroup(config, "Backups");
-    QString folder = configGroup.readEntry("lastFolder", QDir::homePath()) + '/';
+    KConfigGroup configGroup(config, QStringLiteral("Backups"));
+    QString folder = configGroup.readEntry(QStringLiteral("lastFolder"), QDir::homePath()) + QLatin1Char('/');
 
     // Ask a file name to the user:
-    QString filter = "*.tar.gz|" + i18n("Tar Archives Compressed by Gzip") + "\n*|" + i18n("All Files");
+    QString suffix = QStringLiteral("*.tar.gz|");
+    QString title = i18n("Tar Archives Compressed by Gzip");
+    QString newline = QStringLiteral("\n*|");
+    QString all = i18n("All Files");
+    QString filter = suffix + title + newline + all;
+    
     QString path = QFileDialog::getOpenFileName(this, i18n("Open Basket Archive"), folder, filter);
     if (path.isEmpty()) // User has canceled
         return;
@@ -255,14 +264,14 @@ void BackupDialog::restore()
     QFile file(readmePath);
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream << i18n("This is a safety copy of your baskets like they were before you started to restore the backup %1.", QUrl::fromLocalFile(path).fileName()) + "\n\n"
-               << i18n("If the restoration was a success and you restored what you wanted to restore, you can remove this folder.") + "\n\n"
-               << i18n("If something went wrong during the restoration process, you can re-use this folder to store your baskets and nothing will be lost.") + "\n\n"
-               << i18n("Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing Folder...\" and select that folder.") + '\n';
+        stream << i18n("This is a safety copy of your baskets like they were before you started to restore the backup %1.", QUrl::fromLocalFile(path).fileName()) + QStringLiteral("\n\n")
+               << i18n("If the restoration was a success and you restored what you wanted to restore, you can remove this folder.") + QStringLiteral("\n\n")
+               << i18n("If something went wrong during the restoration process, you can re-use this folder to store your baskets and nothing will be lost.") + QStringLiteral("\n\n")
+               << i18n("Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing Folder...\" and select that folder.") + QLatin1Char('\n');
         file.close();
     }
 
-    QString message = "<p><nobr>" + i18n("Restoring <b>%1</b>. Please wait...", QUrl::fromLocalFile(path).fileName()) + "</nobr></p><p>" + i18n("If something goes wrong during the restoration process, read the file <b>%1</b>.", readmePath);
+    QString message = QStringLiteral("<p><nobr>") + i18n("Restoring <b>%1</b>. Please wait...", QUrl::fromLocalFile(path).fileName()) + QStringLiteral("</nobr></p><p>") + i18n("If something goes wrong during the restoration process, read the file <b>%1</b>.", readmePath);
 
     QProgressDialog *dialog = new QProgressDialog();
     dialog->setWindowTitle(i18n("Restore Baskets"));
@@ -325,7 +334,7 @@ void Backup::figureOutBinaryPath(const char *argv0, QApplication &app)
        "./src/.libs/basket"     "/home/seb/prog/basket/debug/src/.lib/basket"   "/opt/kde3/bin/basket"
     */
 
-    binaryPath = QDir(argv0).canonicalPath();
+    binaryPath = QDir(QLatin1String(argv0)).canonicalPath();
     if (binaryPath.isEmpty())
         binaryPath = app.applicationFilePath();
 }
@@ -338,12 +347,13 @@ void Backup::setFolderAndRestart(const QString &folder, const QString &message)
 
     // Reassure the user that the application main window disappearance is not a crash, but a normal restart.
     // This is important for users to trust the application in such a critical phase and understands what's happening:
-    KMessageBox::information(nullptr, "<qt>" + message.arg((folder.endsWith('/') ? folder.left(folder.length() - 1) : folder), QGuiApplication::applicationDisplayName()), i18n("Restart"));
+    KMessageBox::information(nullptr, QStringLiteral("<qt>") + message.arg((folder.endsWith(QLatin1Char('/')) ? folder.left(folder.length() - 1) : folder), QGuiApplication::applicationDisplayName()), i18n("Restart"));
 
     // Restart the application:
     auto *job = new KIO::CommandLauncherJob(binaryPath);
+    
     job->setExecutable(QCoreApplication::applicationName());
-    job->setIcon(QCoreApplication::applicationName());
+    // job->setIcon(QCoreApplication::applicationName());
     job->start();
 
     exit(0);
@@ -354,12 +364,12 @@ QString Backup::newSafetyFolder()
     QDir dir;
     QString fullPath;
 
-    fullPath = QDir::homePath() + '/' + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration") + '/';
+    fullPath = QDir::homePath() + QLatin1Char('/') + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration") + QLatin1Char('/');
     if (!dir.exists(fullPath))
         return fullPath;
 
     for (int i = 2;; ++i) {
-        fullPath = QDir::homePath() + '/' + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration (%1)", i) + '/';
+        fullPath = QDir::homePath() + QLatin1Char('/') + i18nc("Safety folder name before restoring a basket data archive", "Baskets Before Restoration (%1)", i) + QLatin1Char('/');
         if (!dir.exists(fullPath))
             return fullPath;
     }
@@ -377,14 +387,14 @@ BackupThread::BackupThread(const QString &tarFile, const QString &folderToBackup
 
 void BackupThread::run()
 {
-    KTar tar(m_tarFile, "application/x-gzip");
+    KTar tar(m_tarFile, QStringLiteral("application/x-gzip"));
     tar.open(QIODevice::WriteOnly);
     tar.addLocalDirectory(m_folderToBackup, backupMagicFolder);
     // KArchive does not add hidden files. Basket description files (".basket") are hidden, we add them manually:
-    QDir dir(m_folderToBackup + "baskets/");
+    QDir dir(m_folderToBackup + QStringLiteral("baskets/"));
     QStringList baskets = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     for (QStringList::Iterator it = baskets.begin(); it != baskets.end(); ++it) {
-        tar.addLocalFile(m_folderToBackup + "baskets/" + *it + "/.basket", backupMagicFolder + "/baskets/" + *it + "/.basket");
+        tar.addLocalFile(m_folderToBackup + QStringLiteral("baskets/") + *it + QStringLiteral("/.basket"), backupMagicFolder + QStringLiteral("/baskets/") + *it + QStringLiteral("/.basket"));
     }
     // We finished:
     tar.close();
@@ -401,7 +411,7 @@ RestoreThread::RestoreThread(const QString &tarFile, const QString &destFolder)
 void RestoreThread::run()
 {
     m_success = false;
-    KTar tar(m_tarFile, "application/x-gzip");
+    KTar tar(m_tarFile, QStringLiteral("application/x-gzip"));
     tar.open(QIODevice::ReadOnly);
     if (tar.isOpen()) {
         const KArchiveDirectory *directory = tar.directory();

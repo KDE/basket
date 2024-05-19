@@ -80,7 +80,7 @@ void FocusedTextEdit::wheelEvent(QWheelEvent *event)
     //    Global::bnpView->currentBasket()->graphicsView()->wheelEvent(event);
 }
 
-void FocusedTextEdit::enterEvent(QEvent *event)
+void FocusedTextEdit::enterEvent(QEnterEvent *event)
 {
     Q_EMIT mouseEntered();
     KTextEdit::enterEvent(event);

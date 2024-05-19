@@ -10,15 +10,15 @@
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QTextBlock>
-#include <QTextCodec>
+// #include <QTextCodec>
 #include <QWidget>
-#include <QtCore/QBuffer>
-#include <QtCore/QDateTime>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QRegExp>
-#include <QtCore/QStringList>
+#include <QBuffer>
+#include <QDateTime>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QRegularExpression>
+#include <QStringList>
 #include <QtGui/QAbstractTextDocumentLayout>
 #include <QtGui/QBitmap>                     //For QPixmap::createHeuristicMask()
 #include <QtGui/QFontMetrics>
@@ -30,7 +30,7 @@
 
 #include <KEncodingProber>
 #include <KFileItem>
-#include <KFileMetaData/KFileMetaData/Extractor>
+#include <KFileMetaData/Extractor>
 #include <KIO/PreviewJob> //For KIO::file_preview(...)
 #include <KLocalizedString>
 #include <KService>
@@ -110,58 +110,58 @@ QString NoteType::typeToLowerName(const NoteType::Id noteType)
 {
     switch (noteType) {
     case NoteType::Group:
-        return "group";
+        return QStringLiteral("group");
     case NoteType::Text:
-        return "text";
+        return QStringLiteral("text");
     case NoteType::Html:
-        return "html";
+        return QStringLiteral("html");
     case NoteType::Image:
-        return "image";
+        return QStringLiteral("image");
     case NoteType::Animation:
-        return "animation";
+        return QStringLiteral("animation");
     case NoteType::Sound:
-        return "sound";
+        return QStringLiteral("sound");
     case NoteType::File:
-        return "file";
+        return QStringLiteral("file");
     case NoteType::Link:
-        return "link";
+        return QStringLiteral("link");
     case NoteType::CrossReference:
-        return "cross_reference";
+        return QStringLiteral("cross_reference");
     case NoteType::Launcher:
-        return "launcher";
+        return QStringLiteral("launcher");
     case NoteType::Color:
-        return "color";
+        return QStringLiteral("color");
     case NoteType::Unknown:
-        return "unknown";
+        return QStringLiteral("unknown");
     }
-    return "unknown";
+    return QStringLiteral("unknown");
 }
 
 NoteType::Id NoteType::typeFromLowerName(const QString& lowerTypeName)
 {
-    if (lowerTypeName == "group") {
+    if (lowerTypeName == QStringLiteral("group")) {
         return NoteType::Group;
-    } else if (lowerTypeName == "text") {
+    } else if (lowerTypeName == QStringLiteral("text")) {
         return NoteType::Text;
-    } else if (lowerTypeName == "html") {
+    } else if (lowerTypeName == QStringLiteral("html")) {
         return NoteType::Html;
-    } else if (lowerTypeName == "image") {
+    } else if (lowerTypeName == QStringLiteral("image")) {
         return NoteType::Image;
-    } else if (lowerTypeName == "animation") {
+    } else if (lowerTypeName == QStringLiteral("animation")) {
         return NoteType::Animation;
-    } else if (lowerTypeName == "sound") {
+    } else if (lowerTypeName == QStringLiteral("sound")) {
         return NoteType::Sound;
-    } else if (lowerTypeName == "file")  {
+    } else if (lowerTypeName == QStringLiteral("file"))  {
         return NoteType::File;
-    } else if (lowerTypeName == "link") {
+    } else if (lowerTypeName == QStringLiteral("link")) {
         return NoteType::Link;
-    } else if (lowerTypeName == "cross_reference") {
+    } else if (lowerTypeName == QStringLiteral("cross_reference")) {
         return NoteType::CrossReference;
-    } else if (lowerTypeName == "launcher") {
+    } else if (lowerTypeName == QStringLiteral("launcher")) {
         return NoteType::Launcher;
-    } else if (lowerTypeName == "color") {
+    } else if (lowerTypeName == QStringLiteral("color")) {
         return NoteType::Color;
-    } else if (lowerTypeName == "unknown") {
+    } else if (lowerTypeName == QStringLiteral("unknown")) {
         return NoteType::Unknown;
     }
     return NoteType::Unknown;
@@ -285,7 +285,7 @@ QString LinkContent::toText(const QString & /*cuttedFullPath*/)
     else if (title().isEmpty())
         return url().toDisplayString();
     else
-        return QString("%1 <%2>").arg(title(), url().toDisplayString());
+        return QStringLiteral("%1 <%2>").arg(title(), url().toDisplayString());
 }
 QString CrossReferenceContent::toText(const QString & /*cuttedFullPath*/)
 {
@@ -296,7 +296,7 @@ QString CrossReferenceContent::toText(const QString & /*cuttedFullPath*/)
     else if (title().isEmpty())
         return url().toDisplayString();
     else
-        return QString("%1 <%2>").arg(title(), url().toDisplayString());
+        return QStringLiteral("%1 <%2>").arg(title(), url().toDisplayString());
 }
 QString ColorContent::toText(const QString & /*cuttedFullPath*/)
 {
@@ -316,47 +316,47 @@ QString TextContent::toHtml(const QString & /*imageName*/, const QString & /*cut
 QString HtmlContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
     //extract HTML content exactly as is, with no further processing applied
-    return m_graphicsTextItem.document()->toHtml("utf-8");
+    return m_graphicsTextItem.document()->toHtml();
 }
 
 QString ImageContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QString("<img src=\"%1\">").arg(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
+    return QStringLiteral("<img src=\"%1\">").arg(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
 }
 
 QString AnimationContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QString("<img src=\"%1\">").arg(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
+    return QStringLiteral("<img src=\"%1\">").arg(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath);
 }
 
 QString SoundContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QString("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), fileName());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), fileName());
 } // With the icon?
 
 QString FileContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QString("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), fileName());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), fileName());
 } // With the icon?
 
 QString LinkContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return QString("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
 } // With the icon?
 
 QString CrossReferenceContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return QString("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(url().toDisplayString(), title());
 } // With the icon?
 
 QString LauncherContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QString("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), name());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg((cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath), name());
 } // With the icon?
 
 QString ColorContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return QString("<span style=\"color: %1\">%2</span>").arg(color().name(), color().name());
+    return QStringLiteral("<span style=\"color: %1\">%2</span>").arg(color().name(), color().name());
 }
 
 QString UnknownContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
@@ -489,39 +489,39 @@ bool UnknownContent::canBeSavedAs() const
 
 QString TextContent::saveAsFilters() const
 {
-    return "text/plain";
+    return QStringLiteral("text/plain");
 }
 QString HtmlContent::saveAsFilters() const
 {
-    return "text/html";
+    return QStringLiteral("text/html");
 }
 QString ImageContent::saveAsFilters() const
 {
-    return "image/png";
+    return QStringLiteral("image/png");
 } // TODO: Offer more types
 QString AnimationContent::saveAsFilters() const
 {
-    return "image/gif";
+    return QStringLiteral("image/gif");
 } // TODO: MNG...
 QString SoundContent::saveAsFilters() const
 {
-    return "audio/mp3 audio/ogg";
+    return QStringLiteral("audio/mp3 audio/ogg");
 } // TODO: OGG...
 QString FileContent::saveAsFilters() const
 {
-    return "*";
+    return QStringLiteral("*");
 } // TODO: Get MIME type of the url target
 QString LinkContent::saveAsFilters() const
 {
-    return "*";
+    return QStringLiteral("*");
 } // TODO: idem File + If isDir() const: return
 QString CrossReferenceContent::saveAsFilters() const
 {
-    return "*";
+    return QStringLiteral("*");
 } // TODO: idem File + If isDir() const: return
 QString LauncherContent::saveAsFilters() const
 {
-    return "application/x-desktop";
+    return QStringLiteral("application/x-desktop");
 }
 QString ColorContent::saveAsFilters() const
 {
@@ -640,23 +640,23 @@ QString AnimationContent::cssClass() const
 }
 QString SoundContent::cssClass() const
 {
-    return "sound";
+    return QStringLiteral("sound");
 }
 QString FileContent::cssClass() const
 {
-    return "file";
+    return QStringLiteral("file");
 }
 QString LinkContent::cssClass() const
 {
-    return (LinkLook::lookForURL(m_url) == LinkLook::localLinkLook ? "local" : "network");
+    return (LinkLook::lookForURL(m_url) == LinkLook::localLinkLook ? QStringLiteral("local") : QStringLiteral("network"));
 }
 QString CrossReferenceContent::cssClass() const
 {
-    return "cross_reference";
+    return QStringLiteral("cross_reference");
 }
 QString LauncherContent::cssClass() const
 {
-    return "launcher";
+    return QStringLiteral("launcher");
 }
 QString ColorContent::cssClass() const
 {
@@ -766,7 +766,7 @@ QPixmap HtmlContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::Text, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPixmap pixmap(qMin(width, richText.idealWidth()), qMin(height, richText.size().height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
@@ -826,7 +826,7 @@ QPixmap LinkContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -835,7 +835,7 @@ QPixmap CrossReferenceContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -847,7 +847,7 @@ QPixmap ColorContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
@@ -863,7 +863,7 @@ QPixmap FileContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -872,7 +872,7 @@ QPixmap LauncherContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
     return m_linkDisplayItem.linkDisplay().feedbackPixmap(width, height, palette, /*isDefaultColor=*/note()->textColor() == basket()->textColor());
 }
 
@@ -883,7 +883,7 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
     QPalette palette;
     palette = basket()->palette();
     palette.setColor(QPalette::WindowText, note()->textColor());
-    palette.setColor(QPalette::Background, note()->backgroundColor().darker(FEEDBACK_DARKING));
+    palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     QPainter painter(&pixmap);
@@ -927,7 +927,7 @@ qreal TextContent::setWidthAndGetHeight(qreal /*width*/)
 
 bool TextContent::loadFromFile(bool lazyLoad)
 {
-    DEBUG_WIN << "Loading TextContent From " + basket()->folderName() + fileName();
+    DEBUG_WIN << QStringLiteral("Loading TextContent From ") + basket()->folderName() + fileName();
 
     QString content;
     bool success = FileStorage::loadFromFile(fullPath(), &content);
@@ -992,11 +992,11 @@ void TextContent::setText(const QString &text, bool lazyLoad)
 void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    QString html = "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>" +
+    QString html = QStringLiteral("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>") +
             Tools::detectCrossReferences(
-                    Tools::detectURLs(Tools::textToHTMLWithoutP(text().replace(QChar('\t'), "                "))),
+                    Tools::detectURLs(Tools::textToHTMLWithoutP(text().replace(QLatin1Char('\t'), QStringLiteral("                ")))),
                     false, exporter); // Don't collapse multiple spaces!
-    exporter->stream << html.replace("  ", " &nbsp;").replace(QChar('\n'), '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << html.replace(QStringLiteral("  "), QStringLiteral(" &nbsp;")).replace(QLatin1Char('\n'), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class HtmlContent:
@@ -1029,7 +1029,7 @@ qreal HtmlContent::setWidthAndGetHeight(qreal width)
 
 bool HtmlContent::loadFromFile(bool lazyLoad)
 {
-    DEBUG_WIN << "Loading HtmlContent From " + basket()->folderName() + fileName();
+    DEBUG_WIN << QStringLiteral("Loading HtmlContent From ") + basket()->folderName() + fileName();
 
     QString content;
     bool success = FileStorage::loadFromFile(fullPath(), &content);
@@ -1117,11 +1117,11 @@ void HtmlContent::setHtml(const QString &html, bool lazyLoad)
 void HtmlContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    QString convert = Tools::detectURLs(html().replace("\t", "                "));
+    QString convert = Tools::detectURLs(html().replace(QStringLiteral("\t"), QStringLiteral("                ")));
     if (note()->allowCrossReferences())
         convert = Tools::detectCrossReferences(convert, false, exporter);
 
-    exporter->stream << Tools::htmlToParagraph(convert).replace("  ", " &nbsp;").replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << Tools::htmlToParagraph(convert).replace(QStringLiteral("  "), QStringLiteral(" &nbsp;")).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class ImageContent:
@@ -1172,7 +1172,7 @@ bool ImageContent::loadFromFile(bool lazyLoad)
 
 bool ImageContent::finishLazyLoad()
 {
-    DEBUG_WIN << "Loading ImageContent From " + basket()->folderName() + fileName();
+    DEBUG_WIN << QStringLiteral("Loading ImageContent From ") + basket()->folderName() + fileName();
 
     QByteArray content;
     QPixmap pixmap;
@@ -1207,7 +1207,7 @@ bool ImageContent::saveToFile()
     QBuffer buffer(&ba);
 
     buffer.open(QIODevice::WriteOnly);
-    m_pixmapItem.pixmap().save(&buffer, m_format);
+    m_pixmapItem.pixmap().save(&buffer, m_format.toStdString().c_str());
     return FileStorage::saveToFile(fullPath(), ba);
 }
 
@@ -1385,7 +1385,7 @@ void AnimationContent::movieFrameChanged()
 
 void AnimationContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 {
-    exporter->stream << QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
+    exporter->stream << QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
                             .arg(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true), QString::number(m_movie->currentPixmap().size().width()), QString::number(m_movie->currentPixmap().size().height()));
 }
 
@@ -1445,7 +1445,7 @@ QMap<QString, QString> FileContent::toolTipInfos()
     for (KFileMetaData::Extractor *ex : exList) {
         ex->extract(&result);
         const auto groups = result.preferredGroups();
-        DEBUG_WIN << "Metadata Extractor result has " << QString::number(groups.count()) << " groups";
+        DEBUG_WIN << QStringLiteral("Metadata Extractor result has ") << QString::number(groups.count()) << QStringLiteral(" groups");
 
         for (const auto &group : groups) {
             if (!group.second.isEmpty()) {
@@ -1564,7 +1564,7 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class SoundContent:
@@ -1581,7 +1581,7 @@ SoundContent::SoundContent(Note *parent, const QString &fileName)
     connect(music, &Phonon::MediaObject::stateChanged, this, &SoundContent::stateChanged);
 }
 
-void SoundContent::stateChanged(Phonon::State newState, Phonon::State oldState)
+void SoundContent::stateChanged(int newState, int oldState)
 {
     qDebug() << "stateChanged " << oldState << " to " << newState;
 }
@@ -1845,8 +1845,8 @@ void LinkContent::startFetchingLinkTitle()
     }
 
     // If no path or query part, default to /
-    if ((newUrl.path() + newUrl.query()).isEmpty()) {
-        newUrl = QUrl::fromLocalFile("/");
+    if ((newUrl.path() + newUrl.query()).isNull()) {
+        newUrl = QUrl::fromLocalFile(QStringLiteral("/"));
     }
 
     // Issue request
@@ -1865,7 +1865,8 @@ void LinkContent::startFetchingUrlPreview()
     if (!url.isEmpty() && linkLook->previewSize() > 0) {
         KFileItem itemUrl(NoteFactory::filteredURL(url)); // KURIFilter::self()->filteredURI(url);
         m_previewJob = KIO::filePreview({itemUrl}, QSize(linkLook->previewSize(), linkLook->previewSize()), nullptr);
-        m_previewJob->setOverlayIconSize(linkLook->iconSize());
+        // setOverlayIconSize deprecated
+        // m_previewJob->setOverlayIconSize(linkLook->iconSize());
         connect(m_previewJob, SIGNAL(gotPreview(const KFileItem &, const QPixmap &)), this, SLOT(newPreview(const KFileItem &, const QPixmap &)));
         connect(m_previewJob, SIGNAL(failed(const KFileItem &)), this, SLOT(removePreview(const KFileItem &)));
     }
@@ -1877,7 +1878,7 @@ void LinkContent::endFetchingLinkTitle()
         decodeHtmlTitle();
         m_httpBuff.clear();
     } else
-        DEBUG_WIN << "LinkContent: empty buffer on endFetchingLinkTitle for " + m_url.toString();
+        DEBUG_WIN << QStringLiteral("LinkContent: empty buffer on endFetchingLinkTitle for ") + m_url.toString();
 }
 
 void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
@@ -1916,7 +1917,7 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
     */
 
     QString spaces;
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, linkURL, linkTitle).replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, linkURL, linkTitle).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class CrossReferenceContent:
@@ -2043,32 +2044,32 @@ void CrossReferenceContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 
     if (url.startsWith(QLatin1String("basket://")))
         url = url.mid(9, url.length() - 9);
-    if (url.endsWith('/'))
+    if (url.endsWith(QLatin1Char('/')))
         url = url.left(url.length() - 1);
 
     BasketScene *basket = Global::bnpView->basketForFolderName(url);
 
     if (!basket)
-        title = "unknown basket";
+        title = QStringLiteral("unknown basket");
     else
         title = basket->basketName();
 
     // if the basket we're trying to link to is the basket that was exported then
     // we have to use a special way to refer to it for the links.
     if (basket == exporter->exportedBasket)
-        url = "../../" + exporter->fileName;
+        url = QStringLiteral("../../") + exporter->fileName;
     else {
         // if we're in the exported basket then the links have to include
         // the sub directories.
         if (exporter->currentBasket == exporter->exportedBasket)
             url.prepend(exporter->basketsFolderName);
-        url.append(".html");
+        url.append(QStringLiteral(".html"));
     }
 
     QString linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon, LinkLook::crossReferenceLook->iconSize());
-    linkIcon = QString("<img src=\"%1\" alt=\"\">").arg(linkIcon);
+    linkIcon = QStringLiteral("<img src=\"%1\" alt=\"\">").arg(linkIcon);
 
-    exporter->stream << QString("<a href=\"%1\">%2 %3</a>").arg(url, linkIcon, title);
+    exporter->stream << QStringLiteral("<a href=\"%1\">%2 %3</a>").arg(url, linkIcon, title);
 }
 
 /** class LauncherContent:
@@ -2100,7 +2101,7 @@ qreal LauncherContent::setWidthAndGetHeight(qreal width)
 
 bool LauncherContent::loadFromFile(bool /*lazyLoad*/) // TODO: saveToFile() ?? Is it possible?
 {
-    DEBUG_WIN << "Loading LauncherContent From " + basket()->folderName() + fileName();
+    DEBUG_WIN << QStringLiteral("Loading LauncherContent From ") + basket()->folderName() + fileName();
     KService service(fullPath());
     setLauncher(service.name(), service.icon(), service.exec());
     return true;
@@ -2193,7 +2194,7 @@ void LauncherContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), /*createIt=*/true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace("\n", '\n' + spaces.fill(' ', indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class ColorItem:
@@ -2320,16 +2321,16 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     int rectHeight = (textRect.height() + 2) * 3 / 2;
     int rectWidth = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
 
-    QString fileName = /*Tools::fileNameForNewFile(*/ QString("color_%1.png").arg(color().name().toLower().mid(1)) /*, exportData.iconsFolderPath)*/;
+    QString fileName = /*Tools::fileNameForNewFile(*/ QStringLiteral("color_%1.png").arg(color().name().toLower().mid(1)) /*, exportData.iconsFolderPath)*/;
     QString fullPath = exporter->iconsFolderPath + fileName;
     QPixmap colorIcon(rectWidth, rectHeight);
     QPainter painter(&colorIcon);
     painter.setBrush(color());
     painter.drawRoundedRect(0, 0, rectWidth, rectHeight, 2, 2);
     colorIcon.save(fullPath, "PNG");
-    QString iconHtml = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(exporter->iconsFolderName + fileName, QString::number(colorIcon.width()), QString::number(colorIcon.height()));
+    QString iconHtml = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(exporter->iconsFolderName + fileName, QString::number(colorIcon.width()), QString::number(colorIcon.height()));
 
-    exporter->stream << iconHtml + ' ' + color().name();
+    exporter->stream << iconHtml + QLatin1Char(' ') + color().name();
 }
 
 /** class UnknownItem:
@@ -2356,14 +2357,14 @@ void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     painter->setPen(palette.color(QPalette::Active, QPalette::WindowText));
 
     // Stroke:
-    QColor stroke = Tools::mixColor(palette.color(QPalette::Active, QPalette::Background), palette.color(QPalette::Active, QPalette::WindowText));
+    QColor stroke = Tools::mixColor(palette.color(QPalette::Active, QPalette::Base), palette.color(QPalette::Active, QPalette::WindowText));
     painter->setPen(stroke);
     painter->drawLine(1, 0, width - 2, 0);
     painter->drawLine(0, 1, 0, height - 2);
     painter->drawLine(1, height - 1, width - 2, height - 1);
     painter->drawLine(width - 1, 1, width - 1, height - 2);
     // Round corners:
-    painter->setPen(Tools::mixColor(palette.color(QPalette::Active, QPalette::Background), stroke));
+    painter->setPen(Tools::mixColor(palette.color(QPalette::Active, QPalette::Base), stroke));
     painter->drawPoint(1, 1);
     painter->drawPoint(1, height - 2);
     painter->drawPoint(width - 2, height - 2);
@@ -2415,7 +2416,7 @@ qreal UnknownContent::setWidthAndGetHeight(qreal width)
 
 bool UnknownContent::loadFromFile(bool /*lazyLoad*/)
 {
-    DEBUG_WIN << "Loading UnknownContent From " + basket()->folderName() + fileName();
+    DEBUG_WIN << QStringLiteral("Loading UnknownContent From ") + basket()->folderName() + fileName();
     QString mimeTypes;
     QFile file(fullPath());
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -2429,7 +2430,7 @@ bool UnknownContent::loadFromFile(bool /*lazyLoad*/)
                     if (mimeTypes.isEmpty())
                         mimeTypes += line;
                     else
-                        mimeTypes += QString("\n") + line;
+                        mimeTypes += QStringLiteral("\n") + line;
                 }
             }
         } while (!line.isEmpty() && !stream.atEnd());
@@ -2468,7 +2469,7 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
             array->resize(size);
             stream.readRawData(array->data(), size);
             // Creata and add the QDragObject:
-            dragObject->setData(mimes.at(i).toLatin1(), *array);
+            dragObject->setData(mimes.at(i), *array);
             delete array; // FIXME: Should we?
         }
         file.close();
@@ -2478,7 +2479,7 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
 void UnknownContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    exporter->stream << "<div class=\"unknown\">" << mimeTypes().replace("\n", '\n' + spaces.fill(' ', indent + 1 + 1)) << "</div>";
+    exporter->stream << "<div class=\"unknown\">" << mimeTypes().replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1 + 1)) << "</div>";
 }
 
 void LinkContent::decodeHtmlTitle()
@@ -2487,21 +2488,22 @@ void LinkContent::decodeHtmlTitle()
     prober.feed(m_httpBuff);
 
     // Fallback scheme: KEncodingProber - QTextCodec::codecForHtml - UTF-8
-    QTextCodec *textCodec;
-    if (prober.confidence() > 0.5)
-        textCodec = QTextCodec::codecForName(prober.encoding());
-    else
-        textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
+    // QTextCodec *textCodec; // QTextCodec not available in Qt6
+    // if (prober.confidence() > 0.5)
+    //     textCodec = QTextCodec::codecForName(prober.encoding());
+    // else
+    //     textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
 
-    QString httpBuff = textCodec->toUnicode(m_httpBuff.data(), m_httpBuff.size());
+    QString httpBuff = QLatin1String(m_httpBuff);
 
     // todo: this should probably strip odd html tags like &nbsp; etc
-    QRegExp reg("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>", Qt::CaseInsensitive);
-    reg.setMinimal(true);
+    QRegularExpression reg(QStringLiteral("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>"), QRegularExpression::CaseInsensitiveOption);
+    
     // qDebug() << *m_httpBuff << " bytes: " << bytes_read;
 
-    if (reg.indexIn(httpBuff) >= 0) {
-        m_title = reg.cap(2);
+    if (httpBuff.indexOf(reg) >= 0) {
+        QRegularExpressionMatch m = reg.match(httpBuff);
+        m_title = m.captured(2);
         m_autoTitle = false;
         setEdited();
 

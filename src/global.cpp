@@ -41,11 +41,11 @@ QString Global::savesFolder()
         if (!s_customSavesFolder.isEmpty()) { // Passed by command line (for development & debug purpose)
             QDir dir;
             dir.mkdir(s_customSavesFolder);
-            folder = new QString(s_customSavesFolder.endsWith("/") ? s_customSavesFolder : s_customSavesFolder + '/');
+            folder = new QString(s_customSavesFolder.endsWith(QStringLiteral("/")) ? s_customSavesFolder : s_customSavesFolder + QLatin1Char('/'));
         } else if (!Settings::dataFolder().isEmpty()) { // Set by config option (in Basket -> Backup & Restore)
-            folder = new QString(Settings::dataFolder().endsWith("/") ? Settings::dataFolder() : Settings::dataFolder() + '/');
+            folder = new QString(Settings::dataFolder().endsWith(QStringLiteral("/")) ? Settings::dataFolder() : Settings::dataFolder() + QLatin1Char('/'));
         } else { // The default path (should be that for most computers)
-            folder = new QString(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + "basket/");
+            folder = new QString(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1Char('/') + QStringLiteral("basket/"));
             initializeGitIfNeeded(*folder);
         }
     }
@@ -54,28 +54,28 @@ QString Global::savesFolder()
 
 QString Global::basketsFolder()
 {
-    return savesFolder() + "baskets/";
+    return savesFolder() + QStringLiteral("baskets/");
 }
 QString Global::backgroundsFolder()
 {
-    return savesFolder() + "backgrounds/";
+    return savesFolder() + QStringLiteral("backgrounds/");
 }
 QString Global::templatesFolder()
 {
-    return savesFolder() + "templates/";
+    return savesFolder() + QStringLiteral("templates/");
 }
 QString Global::tempCutFolder()
 {
-    return savesFolder() + "temp-cut/";
+    return savesFolder() + QStringLiteral("temp-cut/");
 }
 QString Global::gitFolder()
 {
-    return savesFolder() + ".git/";
+    return savesFolder() + QStringLiteral(".git/");
 }
 
 void Global::initializeGitIfNeeded(QString savesFolder)
 {
-    if (!QDir(savesFolder + ".git/").exists()) {
+    if (!QDir(savesFolder + QStringLiteral(".git/")).exists()) {
         GitWrapper::initializeGitRepository(savesFolder);
     }
 }

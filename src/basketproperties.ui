@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>568</width>
-    <height>310</height>
+    <height>358</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
@@ -27,7 +27,16 @@
       <string>Appearance</string>
      </property>
      <layout class="QGridLayout" name="appearanceLayout">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>4</number>
+      </property>
+      <property name="topMargin">
+       <number>4</number>
+      </property>
+      <property name="rightMargin">
+       <number>4</number>
+      </property>
+      <property name="bottomMargin">
        <number>4</number>
       </property>
       <item row="0" column="2">
@@ -115,7 +124,16 @@
       <string>Keyboard Shortcut</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_7">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>4</number>
+      </property>
+      <property name="topMargin">
+       <number>4</number>
+      </property>
+      <property name="rightMargin">
+       <number>4</number>
+      </property>
+      <property name="bottomMargin">
        <number>4</number>
       </property>
       <item>
@@ -159,7 +177,7 @@
   <customwidget>
    <class>KIconButton</class>
    <extends>QPushButton</extends>
-   <header>kicondialog.h</header>
+   <header>kiconbutton.h</header>
   </customwidget>
   <customwidget>
    <class>KShortcutWidget</class>
@@ -168,7 +186,6 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>icon</tabstop>
   <tabstop>name</tabstop>
   <tabstop>backgroundImage</tabstop>
   <tabstop>columnForm</tabstop>

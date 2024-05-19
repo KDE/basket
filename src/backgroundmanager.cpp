@@ -57,11 +57,11 @@ BackgroundManager::BackgroundManager()
     // For each folder:
     for (QStringList::Iterator it = directories.begin(); it != directories.end(); ++it) {
         // For each file in those directories:
-        QDir dir(*it + "basket/backgrounds/", /*nameFilder=*/"*.png", /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
+        QDir dir(*it + QStringLiteral("basket/backgrounds/"), /*nameFilder=*/QStringLiteral("*.png"), /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
         ///     qDebug() << *it + "basket/backgrounds/  ";
         QStringList files = dir.entryList();
         for (QStringList::Iterator it2 = files.begin(); it2 != files.end(); ++it2) // TODO: If an image name is present in two folders?
-            addImage(*it + "basket/backgrounds/" + *it2);
+            addImage(*it + QStringLiteral("basket/backgrounds/") + *it2);
     }
 
     /// qDebug() << ":";
@@ -107,8 +107,8 @@ bool BackgroundManager::subscribe(const QString &image)
             // Try to load the pixmap:
             entry->pixmap = new QPixmap(entry->location);
             // Try to figure out if it's a tiled background image or not (default to NO):
-            KConfig config(entry->location + ".config", KConfig::SimpleConfig);
-            KConfigGroup configGroup = config.group("BasKet Background Image Configuration");
+            KConfig config(entry->location + QStringLiteral(".config"), KConfig::SimpleConfig);
+            KConfigGroup configGroup = config.group(QStringLiteral("BasKet Background Image Configuration"));
             entry->tiled = configGroup.readEntry("tiled", false);
         }
         // Return if the image loading has failed:
@@ -253,7 +253,7 @@ QPixmap *BackgroundManager::preview(const QString &image)
         return entry->preview;
 
     // Then, try to load the preview from file:
-    QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/backgrounds/previews/" + entry->name);
+    QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/backgrounds/previews/") + entry->name);
     QPixmap *previewPixmap = new QPixmap(previewPath);
     // Success:
     if (!previewPixmap->isNull()) {
@@ -274,8 +274,8 @@ QPixmap *BackgroundManager::preview(const QString &image)
         // Because, as we are loading the pixmap we ALSO need to know if it's a tile or not, in case that image will soon be used (and not destroyed by the garbager):
         entry->pixmap = new QPixmap(entry->location);
         // Try to figure out if it's a tiled background image or not (default to NO):
-        KConfig config(entry->location + ".config");
-        KConfigGroup configGroup = config.group("BasKet Background Image Configuration");
+        KConfig config(entry->location + QStringLiteral(".config"));
+        KConfigGroup configGroup = config.group(QStringLiteral("BasKet Background Image Configuration"));
         entry->tiled = configGroup.readEntry("tiled", false);
     }
 
@@ -305,7 +305,7 @@ QPixmap *BackgroundManager::preview(const QString &image)
     painter.end();
 
     // Saving it to file for later:
-    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/basket/backgrounds/previews/";
+    QString folder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/basket/backgrounds/previews/");
     result->save(folder + entry->name, "PNG");
 
     // Ouf! That's done:
@@ -329,7 +329,7 @@ QString BackgroundManager::previewPathForImageName(const QString &image)
     if (entry == nullptr) {
         return QString();
     } else {
-        QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, "basket/backgrounds/previews/" + entry->name);
+        QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/backgrounds/previews/") + entry->name);
         QDir dir;
         if (!dir.exists(previewPath))
             return QString();

@@ -103,7 +103,7 @@ void BasketStatusBar::setupStatusBar()
     // m_savedStatus->setPixmap(m_savedStatusIconSet.pixmap(QIconSet::Small, QIconSet::Disabled));
     // m_savedStatus->setEnabled(false);
     addWidget(m_savedStatus, 0, true);
-    m_savedStatus->setToolTip("<p>" + i18n("Shows if there are changes that have not yet been saved."));
+    m_savedStatus->setToolTip(QStringLiteral("<p>") + i18n("Shows if there are changes that have not yet been saved."));
 }
 
 void BasketStatusBar::postStatusbarMessage(const QString &text)
@@ -142,7 +142,7 @@ void BasketStatusBar::updateStatusBarHint()
     //  else if (currentBasket()->inserterShown() && currentBasket()->inserterSplit() && currentBasket()->inserterGroup())
     //      message = i18n("Click to group a note, right click for more options. Click on the left of the line to group instead of insert.");
     else if (Global::debugWindow != nullptr) {
-        message = "DEBUG: " + Global::bnpView->currentBasket()->folderName();
+        message = QStringLiteral("DEBUG: ") + Global::bnpView->currentBasket()->folderName();
     }
 
     setStatusText(message);
@@ -157,10 +157,10 @@ void BasketStatusBar::setLockStatus(bool isLocked)
     if (isLocked) {
         QPixmap encryptedIcon = QIcon::fromTheme(QStringLiteral("encrypted.png")).pixmap(KIconLoader::SizeSmall);
         m_lockStatus->setPixmap(encryptedIcon);
-        m_lockStatus->setToolTip(i18n("<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(QChar(' '), QStringLiteral("&nbsp;")));
+        m_lockStatus->setToolTip(i18n("<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>").replace(QLatin1Char(' '), QStringLiteral("&nbsp;")));
     } else {
         m_lockStatus->clear();
-        m_lockStatus->setToolTip(i18n("<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>").replace(QChar(' '), QStringLiteral("&nbsp;")));
+        m_lockStatus->setToolTip(i18n("<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>").replace(QLatin1Char(' '), QStringLiteral("&nbsp;")));
     }
 }
 

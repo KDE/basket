@@ -8,14 +8,14 @@
 
 #include "basket_export.h"
 
-#include <QtCore/QList>
-#include <QtCore/QMap>
+#include <QList>
+#include <QMap>
 
 class BasketScene;
 class Tag;
 
 class QString;
-class QStringList;
+// class QStringList;
 class QDomNode;
 class QProgressDialog;
 class QDomElement;

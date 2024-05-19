@@ -78,8 +78,6 @@ bool FileStorage::saveToFile(const QString &fullPath, const QString &string, boo
 
 bool FileStorage::saveToFile(const QString &fullPath, const QByteArray &array, bool isEncrypted)
 {
-    ulong length = array.size();
-
     bool success = true;
     QByteArray tmp;
 
@@ -113,7 +111,7 @@ bool FileStorage::saveToFile(const QString &fullPath, const QByteArray &array, b
     }*/
 
     if (success)
-        return safelySaveToFile(fullPath, tmp, length);
+        return safelySaveToFile(fullPath, QLatin1String(tmp));
     else
         return false;
 }
@@ -124,7 +122,7 @@ bool FileStorage::saveToFile(const QString &fullPath, const QByteArray &array, b
  * to save to another file, (e.g. the basket hierarchy), use this function
  * instead.
  */
-bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &array, unsigned long length)
+bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &array)
 {
     // Modulus operandi:
     // 1. Use QSaveFile to try and save the file
@@ -139,7 +137,7 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
     do {
         QSaveFile saveFile(fullPath);
         if (saveFile.open(QIODevice::WriteOnly)) {
-            saveFile.write(array, length);
+            saveFile.write(array);
             if (saveFile.commit())
                 success = true;
         }
@@ -163,5 +161,5 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
 bool FileStorage::safelySaveToFile(const QString &fullPath, const QString &string)
 {
     QByteArray bytes = string.toUtf8();
-    return safelySaveToFile(fullPath, bytes, bytes.length());
+    return safelySaveToFile(fullPath, bytes);
 }

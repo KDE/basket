@@ -19,6 +19,7 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QPushButton>
+#include <QPluginLoader>
 #include <QSpinBox>
 #include <QTabWidget>
 #include <QUrl>
@@ -27,7 +28,6 @@
 #include <kcmutils_version.h>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KPluginLoader>
 #include <KPluginMetaData>
 #include <KIO/Global>
 #include <KLocalizedString>
@@ -65,9 +65,9 @@ bool Settings::s_htmlUseProg = false; // TODO: RENAME: s_*App (with KService!)
 bool Settings::s_imageUseProg = true;
 bool Settings::s_animationUseProg = true;
 bool Settings::s_soundUseProg = false;
-QString Settings::s_htmlProg = "quanta";
-QString Settings::s_imageProg = "kolourpaint";
-QString Settings::s_animationProg = "gimp";
+QString Settings::s_htmlProg = QStringLiteral("quanta");
+QString Settings::s_imageProg = QStringLiteral("kolourpaint");
+QString Settings::s_animationProg = QStringLiteral("gimp");
 QString Settings::s_soundProg = QString();
 // Addictive Features:
 bool Settings::s_groupOnInsertionLine = false;
@@ -102,14 +102,14 @@ void Settings::loadConfig()
     defaultLauncherLook.setLook(false, true, LinkLook::Never, QColor(), QColor(), 48, LinkLook::None);
     defaultCrossReferenceLook.setLook(false, false, LinkLook::OnMouseHover, QColor(), QColor(), 16, LinkLook::None);
 
-    loadLinkLook(LinkLook::soundLook, "Sound Look", defaultSoundLook);
-    loadLinkLook(LinkLook::fileLook, "File Look", defaultFileLook);
-    loadLinkLook(LinkLook::localLinkLook, "Local Link Look", defaultLocalLinkLook);
-    loadLinkLook(LinkLook::networkLinkLook, "Network Link Look", defaultNetworkLinkLook);
-    loadLinkLook(LinkLook::launcherLook, "Launcher Look", defaultLauncherLook);
-    loadLinkLook(LinkLook::crossReferenceLook, "Cross Reference Look", defaultCrossReferenceLook);
+    loadLinkLook(LinkLook::soundLook, QStringLiteral("Sound Look"), defaultSoundLook);
+    loadLinkLook(LinkLook::fileLook, QStringLiteral("File Look"), defaultFileLook);
+    loadLinkLook(LinkLook::localLinkLook, QStringLiteral("Local Link Look"), defaultLocalLinkLook);
+    loadLinkLook(LinkLook::networkLinkLook, QStringLiteral("Network Link Look"), defaultNetworkLinkLook);
+    loadLinkLook(LinkLook::launcherLook, QStringLiteral("Launcher Look"), defaultLauncherLook);
+    loadLinkLook(LinkLook::crossReferenceLook, QStringLiteral("Cross Reference Look"), defaultCrossReferenceLook);
 
-    KConfigGroup config = Global::config()->group("Main window"); // TODO: Split with a "System tray icon" group !
+    KConfigGroup config = Global::config()->group(QStringLiteral("Main window")); // TODO: Split with a "System tray icon" group !
     setTreeOnLeft(config.readEntry("treeOnLeft", true));
     setFilterOnTop(config.readEntry("filterOnTop", false));
     setShowNotesToolTip(config.readEntry("showNotesToolTip", true));
@@ -133,10 +133,10 @@ void Settings::loadConfig()
     setMainWindowPosition(config.readEntry("position", QPoint()));
     setMainWindowSize(config.readEntry("size", QSize()));
 
-    config = Global::config()->group("Notification Messages");
+    config = Global::config()->group(QStringLiteral("Notification Messages"));
     setShowEmptyBasketInfo(config.readEntry("emptyBasketInfo", true));
 
-    config = Global::config()->group("Programs");
+    config = Global::config()->group(QStringLiteral("Programs"));
     setIsHtmlUseProg(config.readEntry("htmlUseProg", false));
     setIsImageUseProg(config.readEntry("imageUseProg", true));
     setIsAnimationUseProg(config.readEntry("animationUseProg", true));
@@ -146,19 +146,19 @@ void Settings::loadConfig()
     setAnimationProg(config.readEntry("animationProg", "gimp"));
     setSoundProg(config.readEntry("soundProg", QString()));
 
-    config = Global::config()->group("Note Addition");
+    config = Global::config()->group(QStringLiteral("Note Addition"));
     setNewNotesPlace(config.readEntry("newNotesPlace", 1));
     setViewTextFileContent(config.readEntry("viewTextFileContent", false));
     setViewHtmlFileContent(config.readEntry("viewHtmlFileContent", false));
     setViewImageFileContent(config.readEntry("viewImageFileContent", true));
     setViewSoundFileContent(config.readEntry("viewSoundFileContent", true));
 
-    config = Global::config()->group("Insert Note Default Values");
+    config = Global::config()->group(QStringLiteral("Insert Note Default Values"));
     setDefImageX(config.readEntry("defImageX", 300));
     setDefImageY(config.readEntry("defImageY", 200));
     setDefIconSize(config.readEntry("defIconSize", 32));
 
-    config = Global::config()->group("MainWindow Toolbar mainToolBar");
+    config = Global::config()->group(QStringLiteral("MainWindow Toolbar mainToolBar"));
     // The first time we start, we define "Text Alongside Icons" for the main toolbar.
     // After that, the user is free to hide the text from the icons or customize as he/she want.
     // But it is a good default (Fitt's Laws, better looking, less "empty"-feeling), especially for this application.
@@ -169,27 +169,27 @@ void Settings::loadConfig()
     if (!config.readEntry("alreadySetToolbarSettings", false)) {
         config.writeEntry("IconText", "IconOnly"); // In 0.6.0 Alpha versions, it was made "IconTextRight". We're back to IconOnly
         config.writeEntry("Index", "0");           // Make sure the main toolbar is the first...
-        config = Global::config()->group("MainWindow Toolbar richTextEditToolBar");
+        config = Global::config()->group(QStringLiteral("MainWindow Toolbar richTextEditToolBar"));
         config.writeEntry("Position", "Top"); // In 0.6.0 Alpha versions, it was made "Bottom"
         config.writeEntry("Index", "1");      // ... and the rich text toolbar is on the right of the main toolbar
-        config = Global::config()->group("MainWindow Toolbar mainToolBar");
+        config = Global::config()->group(QStringLiteral("MainWindow Toolbar mainToolBar"));
         config.writeEntry("alreadySetToolbarSettings", true);
     }
 
-    config = Global::config()->group("Version Sync");
+    config = Global::config()->group(QStringLiteral("Version Sync"));
     setVersionSyncEnabled(config.readEntry("enabled", false));
 }
 
 void Settings::saveConfig()
 {
-    saveLinkLook(LinkLook::soundLook, "Sound Look");
-    saveLinkLook(LinkLook::fileLook, "File Look");
-    saveLinkLook(LinkLook::localLinkLook, "Local Link Look");
-    saveLinkLook(LinkLook::networkLinkLook, "Network Link Look");
-    saveLinkLook(LinkLook::launcherLook, "Launcher Look");
-    saveLinkLook(LinkLook::crossReferenceLook, "Cross Reference Look");
+    saveLinkLook(LinkLook::soundLook, QStringLiteral("Sound Look"));
+    saveLinkLook(LinkLook::fileLook, QStringLiteral("File Look"));
+    saveLinkLook(LinkLook::localLinkLook, QStringLiteral("Local Link Look"));
+    saveLinkLook(LinkLook::networkLinkLook, QStringLiteral("Network Link Look"));
+    saveLinkLook(LinkLook::launcherLook, QStringLiteral("Launcher Look"));
+    saveLinkLook(LinkLook::crossReferenceLook, QStringLiteral("Cross Reference Look"));
 
-    KConfigGroup config = Global::config()->group("Main window");
+    KConfigGroup config = Global::config()->group(QStringLiteral("Main window"));
     config.writeEntry("treeOnLeft", treeOnLeft());
     config.writeEntry("filterOnTop", filterOnTop());
     config.writeEntry("showNotesToolTip", showNotesToolTip());
@@ -216,10 +216,10 @@ void Settings::saveConfig()
     config.writeEntry("position", mainWindowPosition());
     config.writeEntry("size", mainWindowSize());
 
-    config = Global::config()->group("Notification Messages");
+    config = Global::config()->group(QStringLiteral("Notification Messages"));
     config.writeEntry("emptyBasketInfo", showEmptyBasketInfo());
 
-    config = Global::config()->group("Programs");
+    config = Global::config()->group(QStringLiteral("Programs"));
     config.writeEntry("htmlUseProg", isHtmlUseProg());
     config.writeEntry("imageUseProg", isImageUseProg());
     config.writeEntry("animationUseProg", isAnimationUseProg());
@@ -229,19 +229,19 @@ void Settings::saveConfig()
     config.writeEntry("animationProg", animationProg());
     config.writeEntry("soundProg", soundProg());
 
-    config = Global::config()->group("Note Addition");
+    config = Global::config()->group(QStringLiteral("Note Addition"));
     config.writeEntry("newNotesPlace", newNotesPlace());
     config.writeEntry("viewTextFileContent", viewTextFileContent());
     config.writeEntry("viewHtmlFileContent", viewHtmlFileContent());
     config.writeEntry("viewImageFileContent", viewImageFileContent());
     config.writeEntry("viewSoundFileContent", viewSoundFileContent());
 
-    config = Global::config()->group("Insert Note Default Values");
+    config = Global::config()->group(QStringLiteral("Insert Note Default Values"));
     config.writeEntry("defImageX", defImageX());
     config.writeEntry("defImageY", defImageY());
     config.writeEntry("defIconSize", defIconSize());
 
-    config = Global::config()->group("Version Sync");
+    config = Global::config()->group(QStringLiteral("Version Sync"));
     config.writeEntry("enabled", versionSyncEnabled());
 
     config.sync();
@@ -251,19 +251,19 @@ void Settings::loadLinkLook(LinkLook *look, const QString &name, const LinkLook 
 {
     KConfigGroup config = Global::config()->group(name);
 
-    QString underliningStrings[] = {"Always", "Never", "OnMouseHover", "OnMouseOutside"};
+    QString underliningStrings[] = {QStringLiteral("Always"), QStringLiteral("Never"), QStringLiteral("OnMouseHover"), QStringLiteral("OnMouseOutside")};
     QString defaultUnderliningString = underliningStrings[defaultLook.underlining()];
 
-    QString previewStrings[] = {"None", "IconSize", "TwiceIconSize", "ThreeIconSize"};
+    QString previewStrings[] = {QStringLiteral("None"), QStringLiteral("IconSize"), QStringLiteral("TwiceIconSize"), QStringLiteral("ThreeIconSize")};
     QString defaultPreviewString = previewStrings[defaultLook.preview()];
 
-    bool italic = config.readEntry("italic", defaultLook.italic());
-    bool bold = config.readEntry("bold", defaultLook.bold());
-    QString underliningString = config.readEntry("underlining", defaultUnderliningString);
-    QColor color = config.readEntry("color", defaultLook.color());
-    QColor hoverColor = config.readEntry("hoverColor", defaultLook.hoverColor());
-    int iconSize = config.readEntry("iconSize", defaultLook.iconSize());
-    QString previewString = config.readEntry("preview", defaultPreviewString);
+    bool italic = config.readEntry(QStringLiteral("italic"), defaultLook.italic());
+    bool bold = config.readEntry(QStringLiteral("bold"), defaultLook.bold());
+    QString underliningString = config.readEntry(QStringLiteral("underlining"), defaultUnderliningString);
+    QColor color = config.readEntry(QStringLiteral("color"), defaultLook.color());
+    QColor hoverColor = config.readEntry(QStringLiteral("hoverColor"), defaultLook.hoverColor());
+    int iconSize = config.readEntry(QStringLiteral("iconSize"), defaultLook.iconSize());
+    QString previewString = config.readEntry(QStringLiteral("preview"), defaultPreviewString);
 
     int underlining = 0;
     if (underliningString == underliningStrings[1])
@@ -288,10 +288,10 @@ void Settings::saveLinkLook(LinkLook *look, const QString &name)
 {
     KConfigGroup config = Global::config()->group(name);
 
-    QString underliningStrings[] = {"Always", "Never", "OnMouseHover", "OnMouseOutside"};
+    QString underliningStrings[] = {QStringLiteral("Always"), QStringLiteral("Never"), QStringLiteral("OnMouseHover"), QStringLiteral("OnMouseOutside")};
     QString underliningString = underliningStrings[look->underlining()];
 
-    QString previewStrings[] = {"None", "IconSize", "TwiceIconSize", "ThreeIconSize"};
+    QString previewStrings[] = {QStringLiteral("None"), QStringLiteral("IconSize"), QStringLiteral("TwiceIconSize"), QStringLiteral("ThreeIconSize")};
     QString previewString = previewStrings[look->preview()];
 
     config.writeEntry("italic", look->italic());
@@ -337,7 +337,8 @@ void Settings::setAutoBullet(bool yes)
 SettingsDialog::SettingsDialog(QWidget *parent)
     : KCMultiDialog(parent)
 {
-    const QVector<KPluginMetaData> availablePlugins = KPluginLoader::findPlugins(QStringLiteral("pim/kcms/basket"));
+    QCoreApplication::addLibraryPath(QStringLiteral("/lib/plugins"));
+    const QList<KPluginMetaData> availablePlugins = KPluginMetaData::findPlugins(QStringLiteral("pim/kcms/basket"));
     for (const KPluginMetaData &metaData : availablePlugins) {
 #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 84, 0)
         addModule(metaData);
@@ -376,17 +377,13 @@ void SettingsDialog::adjustSize()
 }
 
 /** GeneralPage */
-GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
-    KAboutData *about = new AboutData();
-    about->setComponentName("kcmbasket_config_general");
-    setAboutData(about);
-
-    QFormLayout *layout = new QFormLayout(this);
+    QFormLayout *layout = new QFormLayout(this->widget());
 
     // Basket Tree Position:
-    m_treeOnLeft = new KComboBox(this);
+    m_treeOnLeft = new KComboBox(this->widget());
     m_treeOnLeft->addItem(i18n("On left"));
     m_treeOnLeft->addItem(i18n("On right"));
 
@@ -394,7 +391,7 @@ GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
     connect(m_treeOnLeft, SIGNAL(activated(int)), this, SLOT(changed()));
 
     // Filter Bar Position:
-    m_filterOnTop = new KComboBox(this);
+    m_filterOnTop = new KComboBox(this->widget());
     m_filterOnTop->addItem(i18n("On top"));
     m_filterOnTop->addItem(i18n("On bottom"));
 
@@ -424,20 +421,16 @@ void GeneralPage::defaults()
 
 /** BasketsPage */
 
-BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
-    KAboutData *about = new AboutData();
-    about->setComponentName("kcmbasket_config_baskets");
-    setAboutData(about);
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay;
     HelpLabel *hLabel;
 
     // Appearance:
 
-    QGroupBox *appearanceBox = new QGroupBox(i18n("Appearance"), this);
+    QGroupBox *appearanceBox = new QGroupBox(i18n("Appearance"), this->widget());
     QVBoxLayout *appearanceLayout = new QVBoxLayout;
     appearanceBox->setLayout(appearanceLayout);
     layout->addWidget(appearanceBox);
@@ -452,7 +445,7 @@ BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
 
     // Behavior:
 
-    QGroupBox *behaviorBox = new QGroupBox(i18n("Behavior"), this);
+    QGroupBox *behaviorBox = new QGroupBox(i18n("Behavior"), this->widget());
     QVBoxLayout *behaviorLayout = new QVBoxLayout;
     behaviorBox->setLayout(behaviorLayout);
     layout->addWidget(behaviorBox);
@@ -480,10 +473,10 @@ BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
     connect(m_exportTextTags, SIGNAL(stateChanged(int)), this, SLOT(changed()));
 
     hLabel = new HelpLabel(i18n("When does this apply?"),
-                           "<p>" + i18n("It does apply when you copy and paste, or drag and drop notes to a text editor.") + "</p>" + "<p>" + i18n("If enabled, this property lets you paste the tags as textual equivalents.") + "<br>" +
+                           QStringLiteral("<p>") + i18n("It does apply when you copy and paste, or drag and drop notes to a text editor.") + QStringLiteral("</p>") + QStringLiteral("<p>") + i18n("If enabled, this property lets you paste the tags as textual equivalents.") + QStringLiteral("<br>") +
                                i18n("For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, "
                                     "representing an empty checkbox and a checked box.") +
-                               "</p>" + "<p align='center'><img src=\":/images/tag_export_help.png\"></p>",
+                               QStringLiteral("</p>") + QStringLiteral("<p align='center'><img src=\":/images/tag_export_help.png\"></p>"),
                            widget);
     hLay->addWidget(m_exportTextTags);
     hLay->addWidget(hLabel);
@@ -496,7 +489,7 @@ BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
     m_groupOnInsertionLine = new QCheckBox(i18n("&Group a new note when clicking on the right of the insertion line"), m_groupOnInsertionLineWidget);
     HelpLabel *helpV = new HelpLabel(i18n("How to group a new note?"),
                                      i18n("<p>When this option is enabled, the insertion-line not only allows you to insert notes at the cursor position, but also allows you to group a new note with the one under the cursor:</p>") +
-                                         "<p align='center'><img src=\":/images/insertion_help.png\"></p>" +
+                                         QStringLiteral("<p align='center'><img src=\":/images/insertion_help.png\"></p>") +
                                          i18n("<p>Place your mouse between notes, where you want to add a new one.<br>"
                                               "Click on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note.<br>"
                                               "Click on the <b>right</b> to <b>group</b> a note, with the one <b>below or above</b>, depending on where your mouse is.</p>"),
@@ -538,7 +531,7 @@ BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
 
     // Protection:
 
-    QGroupBox *protectionBox = new QGroupBox(i18n("Password Protection"), this);
+    QGroupBox *protectionBox = new QGroupBox(i18n("Password Protection"), this->widget());
     QVBoxLayout *protectionLayout = new QVBoxLayout;
     layout->addWidget(protectionBox);
     protectionBox->setLayout(protectionLayout);
@@ -557,15 +550,15 @@ BasketsPage::BasketsPage(QWidget *parent, const QVariantList &args)
     // hLay->addWidget(label);
     hLay->addStretch();
     //  layout->addLayout(hLay);
-    connect(m_enableReLockTimeoutMinutes, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_reLockTimeoutMinutes, SIGNAL(valueChanged(int)), this, SLOT(changed()));
+    connect(m_enableReLockTimeoutMinutes, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_reLockTimeoutMinutes, SIGNAL(valueChanged(int)), this->widget(), SLOT(changed()));
     connect(m_enableReLockTimeoutMinutes, SIGNAL(toggled(bool)), m_reLockTimeoutMinutes, SLOT(setEnabled(bool)));
 
 #ifdef HAVE_LIBGPGME
     m_useGnuPGAgent = new QCheckBox(i18n("Use GnuPG agent for &private/public key protected baskets"), protectionBox);
     protectionLayout->addWidget(m_useGnuPGAgent);
     //  hLay->addWidget(m_useGnuPGAgent);
-    connect(m_useGnuPGAgent, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_useGnuPGAgent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
 #endif
 
     layout->insertStretch(-1);
@@ -629,23 +622,19 @@ void BasketsPage::defaults()
 
 /** class NewNotesPage: */
 
-NewNotesPage::NewNotesPage(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
-    KAboutData *about = new AboutData();
-    about->setComponentName("kcmbasket_config_new_notes");
-    setAboutData(about);
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay;
     QLabel *label;
 
     // Place of New Notes:
 
     hLay = new QHBoxLayout;
-    m_newNotesPlace = new KComboBox(this);
+    m_newNotesPlace = new KComboBox(this->widget());
 
-    label = new QLabel(this);
+    label = new QLabel(this->widget());
     label->setText(i18n("&Place of new notes:"));
     label->setBuddy(m_newNotesPlace);
 
@@ -663,42 +652,42 @@ NewNotesPage::NewNotesPage(QWidget *parent, const QVariantList &args)
     // New Images Size:
 
     hLay = new QHBoxLayout;
-    m_imgSizeX = new QSpinBox(this);
+    m_imgSizeX = new QSpinBox(this->widget());
     m_imgSizeX->setMinimum(1);
     m_imgSizeX->setMaximum(4096);
     // m_imgSizeX->setReferencePoint(100); //from KIntNumInput
     connect(m_imgSizeX, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 
-    label = new QLabel(this);
+    label = new QLabel(this->widget());
     label->setText(i18n("&New images size:"));
     label->setBuddy(m_imgSizeX);
 
     hLay->addWidget(label);
     hLay->addWidget(m_imgSizeX);
 
-    m_imgSizeY = new QSpinBox(this);
+    m_imgSizeY = new QSpinBox(this->widget());
     m_imgSizeY->setMinimum(1);
     m_imgSizeY->setMaximum(4096);
     // m_imgSizeY->setReferencePoint(100);
     connect(m_imgSizeY, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 
-    label = new QLabel(this);
+    label = new QLabel(this->widget());
     label->setText(i18n("&by"));
     label->setBuddy(m_imgSizeY);
 
     hLay->addWidget(label);
     hLay->addWidget(m_imgSizeY);
-    label = new QLabel(i18n("pixels"), this);
+    label = new QLabel(i18n("pixels"), this->widget());
     hLay->addWidget(label);
-    m_pushVisualize = new QPushButton(i18n("&Visualize..."), this);
+    m_pushVisualize = new QPushButton(i18n("&Visualize..."), this->widget());
     hLay->addWidget(m_pushVisualize);
     hLay->addStretch();
     layout->addLayout(hLay);
-    connect(m_pushVisualize, SIGNAL(clicked()), this, SLOT(visualize()));
+    connect(m_pushVisualize, SIGNAL(clicked()), this->widget(), SLOT(visualize()));
 
     // View File Content:
 
-    QGroupBox *buttonGroup = new QGroupBox(i18n("View Content of Added Files for the Following Types"), this);
+    QGroupBox *buttonGroup = new QGroupBox(i18n("View Content of Added Files for the Following Types"), this->widget());
     QVBoxLayout *buttonLayout = new QVBoxLayout;
     m_viewTextFileContent = new QCheckBox(i18n("&Plain text"), buttonGroup);
     m_viewHtmlFileContent = new QCheckBox(i18n("&HTML page"), buttonGroup);
@@ -712,10 +701,10 @@ NewNotesPage::NewNotesPage(QWidget *parent, const QVariantList &args)
     buttonGroup->setLayout(buttonLayout);
 
     layout->addWidget(buttonGroup);
-    connect(m_viewTextFileContent, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_viewHtmlFileContent, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_viewImageFileContent, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_viewSoundFileContent, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_viewTextFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_viewHtmlFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_viewImageFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_viewSoundFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
 
     layout->insertStretch(-1);
     NewNotesPage::load();
@@ -754,7 +743,7 @@ void NewNotesPage::defaults()
 
 void NewNotesPage::visualize()
 {
-    QPointer<ViewSizeDialog> size = new ViewSizeDialog(this, m_imgSizeX->value(), m_imgSizeY->value());
+    QPointer<ViewSizeDialog> size = new ViewSizeDialog(this->widget(), m_imgSizeX->value(), m_imgSizeY->value());
     size->exec();
     m_imgSizeX->setValue(size->width());
     m_imgSizeY->setValue(size->height());
@@ -762,23 +751,19 @@ void NewNotesPage::visualize()
 
 /** class NotesAppearancePage: */
 
-NotesAppearancePage::NotesAppearancePage(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+NotesAppearancePage::NotesAppearancePage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
-    KAboutData *about = new AboutData();
-    about->setComponentName("kcmbasket_config_notes_appearance");
-    setAboutData(about);
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    QTabWidget *tabs = new QTabWidget(this);
+    QVBoxLayout *layout = new QVBoxLayout(this->widget());
+    QTabWidget *tabs = new QTabWidget(this->widget());
     layout->addWidget(tabs);
 
-    m_soundLook = new LinkLookEditWidget(this, i18n("Conference audio record"), "folder-sound", tabs);
-    m_fileLook = new LinkLookEditWidget(this, i18n("Annual report"), "folder-documents", tabs);
-    m_localLinkLook = new LinkLookEditWidget(this, i18n("Home folder"), "user-home", tabs);
-    m_networkLinkLook = new LinkLookEditWidget(this, "kde.org", KIO::iconNameForUrl(QUrl("https://kde.org")), tabs);
-    m_launcherLook = new LinkLookEditWidget(this, i18n("Launch %1", QGuiApplication::applicationDisplayName()), "basket", tabs);
-    m_crossReferenceLook = new LinkLookEditWidget(this, i18n("Another basket"), "basket", tabs);
+    m_soundLook = new LinkLookEditWidget(this, i18n("Conference audio record"), QStringLiteral("folder-sound"), tabs);
+    m_fileLook = new LinkLookEditWidget(this, i18n("Annual report"), QStringLiteral("folder-documents"), tabs);
+    m_localLinkLook = new LinkLookEditWidget(this, i18n("Home folder"), QStringLiteral("user-home"), tabs);
+    m_networkLinkLook = new LinkLookEditWidget(this, QStringLiteral("kde.org"), KIO::iconNameForUrl(QUrl(QStringLiteral("https://kde.org"))), tabs);
+    m_launcherLook = new LinkLookEditWidget(this, i18n("Launch %1", QGuiApplication::applicationDisplayName()), QStringLiteral("basket"), tabs);
+    m_crossReferenceLook = new LinkLookEditWidget(this, i18n("Another basket"), QStringLiteral("basket"), tabs);
 
     tabs->addTab(m_soundLook, i18n("&Sounds"));
     tabs->addTab(m_fileLook, i18n("&Files"));
@@ -818,47 +803,43 @@ void NotesAppearancePage::defaults()
 
 /** class ApplicationsPage: */
 
-ApplicationsPage::ApplicationsPage(QWidget *parent, const QVariantList &args)
-    : KCModule(parent, args)
+ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
-    KAboutData *about = new AboutData();
-    about->setComponentName("kcmbasket_config_apps");
-    setAboutData(about);
-
     /* Applications page */
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this->widget());
 
-    m_htmlUseProg = new QCheckBox(i18n("Open &text notes with a custom application:"), this);
-    m_htmlProg = new RunCommandRequester(QString(), i18n("Open text notes with:"), this);
+    m_htmlUseProg = new QCheckBox(i18n("Open &text notes with a custom application:"), this->widget());
+    m_htmlProg = new RunCommandRequester(QString(), i18n("Open text notes with:"), this->widget());
     QHBoxLayout *hLayH = new QHBoxLayout;
     hLayH->insertSpacing(-1, 20);
     hLayH->addWidget(m_htmlProg);
     connect(m_htmlUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_htmlProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
+    connect(m_htmlProg->lineEdit(), SIGNAL(textChanged(const QString &)), this->widget(), SLOT(changed()));
 
-    m_imageUseProg = new QCheckBox(i18n("Open &image notes with a custom application:"), this);
-    m_imageProg = new RunCommandRequester(QString(), i18n("Open image notes with:"), this);
+    m_imageUseProg = new QCheckBox(i18n("Open &image notes with a custom application:"), this->widget());
+    m_imageProg = new RunCommandRequester(QString(), i18n("Open image notes with:"), this->widget());
     QHBoxLayout *hLayI = new QHBoxLayout;
     hLayI->insertSpacing(-1, 20);
     hLayI->addWidget(m_imageProg);
     connect(m_imageUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
     connect(m_imageProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
 
-    m_animationUseProg = new QCheckBox(i18n("Open a&nimation notes with a custom application:"), this);
-    m_animationProg = new RunCommandRequester(QString(), i18n("Open animation notes with:"), this);
+    m_animationUseProg = new QCheckBox(i18n("Open a&nimation notes with a custom application:"), this->widget());
+    m_animationProg = new RunCommandRequester(QString(), i18n("Open animation notes with:"), this->widget());
     QHBoxLayout *hLayA = new QHBoxLayout;
     hLayA->insertSpacing(-1, 20);
     hLayA->addWidget(m_animationProg);
     connect(m_animationUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
     connect(m_animationProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
 
-    m_soundUseProg = new QCheckBox(i18n("Open so&und notes with a custom application:"), this);
-    m_soundProg = new RunCommandRequester(QString(), i18n("Open sound notes with:"), this);
+    m_soundUseProg = new QCheckBox(i18n("Open so&und notes with a custom application:"), this->widget());
+    m_soundProg = new RunCommandRequester(QString(), i18n("Open sound notes with:"), this->widget());
     QHBoxLayout *hLayS = new QHBoxLayout;
     hLayS->insertSpacing(-1, 20);
     hLayS->addWidget(m_soundProg);
-    connect(m_soundUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_soundProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
+    connect(m_soundUseProg, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_soundProg->lineEdit(), SIGNAL(textChanged(const QString &)), this->widget(), SLOT(changed()));
 
     QString whatsthis = i18n(
         "<p>If checked, the application defined below will be used when opening that type of note.</p>"
@@ -900,7 +881,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const QVariantList &args)
                                         "</ul>"
                                         "<p>Now, when you click <i>any</i> link that start with \"https://...\", it will be opened in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p>"
                                         "<p>For more fine-grained configuration (like opening only Web pages in your Web browser), read the second help link.</p>"),
-                                   this);
+                                   this->widget());
     hLay->addWidget(hl1);
     hLay->addStretch();
     layout->addLayout(hLay);
@@ -919,7 +900,7 @@ ApplicationsPage::ApplicationsPage(QWidget *parent, const QVariantList &args)
                                         "<li>In the applications list, add your Web browser as the first entry;</li>"
                                         "<li>Do the same for the type \"application -> xhtml+xml\".</li>"
                                         "</ul>"),
-                                   this);
+                                   this->widget());
     hLay->addWidget(hl2);
     hLay->addStretch();
     layout->addLayout(hLay);

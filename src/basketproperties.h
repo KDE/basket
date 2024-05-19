@@ -6,7 +6,7 @@
 #ifndef BASKETPROPERTIES_H
 #define BASKETPROPERTIES_H
 
-#include <KIconButton>
+#include <KIconTheme>
 #include <QDialog>
 #include <QtCore/QMap>
 

@@ -27,7 +27,7 @@ public Q_SLOTS:
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void wheelEvent(QWheelEvent *event) override;
-    void enterEvent(QEvent *event) override;
+    void enterEvent(QEnterEvent *event) override;
     void insertFromMimeData(const QMimeData *source) override;
 Q_SIGNALS:
     void escapePressed();

@@ -14,7 +14,7 @@
 #include <QtGui/QPixmap>
 
 #include <QColorDialog>
-#include <QDesktopWidget>
+// #include <QDesktopWidget>
 #include <QDrag>
 #include <QLocale>
 #include <QMimeData>
@@ -643,7 +643,7 @@ void KColorCombo2::showPopup()
         setRainbowPreset();
 
     // Compute where to show the popup:
-    QRect desk = qApp->desktop()->screenGeometry(this);
+    QRect desk = qApp->primaryScreen()->geometry();
 
     QPoint popupPoint = mapToGlobal(QPoint(0, 0));
 

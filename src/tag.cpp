@@ -67,7 +67,7 @@ State *State::nextState(bool cycle /*= true*/)
             // Find the next state:
             State *next = *(++it);
             if (it == states.end())
-                return (cycle ? states.first() : 0);
+                return (cycle ? states.first() : nullptr);
             return next;
         }
     // Should not happens:
@@ -103,31 +103,31 @@ QString State::toCSS(const QString &gradientFolderPath, const QString &gradientF
 {
     QString css;
     if (bold())
-        css += " font-weight: bold;";
+        css += QStringLiteral(" font-weight: bold;");
     if (italic())
-        css += " font-style: italic;";
+        css += QStringLiteral(" font-style: italic;");
     if (underline() && strikeOut())
-        css += " text-decoration: underline line-through;";
+        css += QStringLiteral(" text-decoration: underline line-through;");
     else if (underline())
-        css += " text-decoration: underline;";
+        css += QStringLiteral(" text-decoration: underline;");
     else if (strikeOut())
-        css += " text-decoration: line-through;";
+        css += QStringLiteral(" text-decoration: line-through;");
     if (textColor().isValid())
-        css += " color: " + textColor().name() + ';';
+        css += QStringLiteral(" color: ") + textColor().name() + QLatin1Char(';');
     if (!fontName().isEmpty()) {
         QString fontFamily = Tools::cssFontDefinition(fontName(), /*onlyFontFamily=*/true);
-        css += " font-family: " + fontFamily + ';';
+        css += QStringLiteral(" font-family: ") + fontFamily + QLatin1Char(';');
     }
     if (fontSize() > 0)
-        css += " font-size: " + QString::number(fontSize()) + "px;";
+        css += QStringLiteral(" font-size: ") + QString::number(fontSize()) + QStringLiteral("px;");
     if (backgroundColor().isValid()) {
-        css += " background-color: " + backgroundColor().name() + ";";
+        css += QStringLiteral(" background-color: ") + backgroundColor().name() + QStringLiteral(";");
     }
 
     if (css.isEmpty())
         return QString();
     else
-        return "   .tag_" + id() + " {" + css + " }\n";
+        return QStringLiteral("   .tag_") + id() + QStringLiteral(" {") + css + QStringLiteral(" }\n");
 }
 
 void State::merge(const List &states, State *result, int *emblemsCount, bool *haveInvisibleTags, const QColor &backgroundColor)
@@ -221,12 +221,12 @@ Tag::Tag()
 {
     static int tagNumber = 0;
     ++tagNumber;
-    QString sAction = "tag_shortcut_number_" + QString::number(tagNumber);
+    QString sAction = QStringLiteral("tag_shortcut_number_") + QString::number(tagNumber);
 
     KActionCollection *ac = Global::bnpView->actionCollection();
     m_action = ac->addAction(sAction, Global::bnpView, SLOT(activatedTagShortcut()));
-    m_action->setText("FAKE TEXT");
-    m_action->setIcon(QIcon::fromTheme("FAKE ICON"));
+    m_action->setText(QStringLiteral("FAKE TEXT"));
+    m_action->setIcon(QIcon::fromTheme(QStringLiteral("FAKE ICON")));
 
     ac->setShortcutsConfigurable(m_action, false); // We do it in the tag properties dialog
 
@@ -241,7 +241,7 @@ Tag::~Tag()
 void Tag::setName(const QString &name)
 {
     m_name = name;
-    m_action->setText("TAG SHORTCUT: " + name); // TODO: i18n  (for debug purpose only by now).
+    m_action->setText(QStringLiteral("TAG SHORTCUT: ") + name); // TODO: i18n  (for debug purpose only by now).
 }
 
 State *Tag::stateById(const QString &id)
@@ -274,36 +274,36 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
     QMap<QString, QString> mergedStates;
 
     bool merge = !path.isEmpty();
-    QString fullPath = (merge ? path : Global::savesFolder() + "tags.xml");
-    QString doctype = "basketTags";
+    QString fullPath = (merge ? path : Global::savesFolder() + QStringLiteral("tags.xml"));
+    QString doctype = QStringLiteral("basketTags");
 
     QDir dir;
     if (!dir.exists(fullPath)) {
         if (merge)
             return mergedStates;
-        DEBUG_WIN << "Tags file does not exist: Creating it...";
+        DEBUG_WIN << QStringLiteral("Tags file does not exist: Creating it...");
         createDefaultTagsSet(fullPath);
     }
 
     QScopedPointer<QDomDocument> document(XMLWork::openFile(doctype, fullPath));
     if (!document) {
-        DEBUG_WIN << "<font color=red>FAILED to read the tags file</font>";
+        DEBUG_WIN << QStringLiteral("<font color=red>FAILED to read the tags file</font>");
         return mergedStates;
     }
 
     QDomElement docElem = document->documentElement();
     if (!merge)
-        nextStateUid = docElem.attribute("nextStateUid", QString::number(nextStateUid)).toLong();
+        nextStateUid = docElem.attribute(QStringLiteral("nextStateUid"), QString::number(nextStateUid)).toLong();
 
     QDomNode node = docElem.firstChild();
     while (!node.isNull()) {
         QDomElement element = node.toElement();
-        if ((!element.isNull()) && element.tagName() == "tag") {
+        if ((!element.isNull()) && element.tagName() == QStringLiteral("tag")) {
             Tag *tag = new Tag();
             // Load properties:
-            QString name = XMLWork::getElementText(element, "name");
-            QString shortcut = XMLWork::getElementText(element, "shortcut");
-            QString inherited = XMLWork::getElementText(element, "inherited", "false");
+            QString name = XMLWork::getElementText(element, QStringLiteral("name"));
+            QString shortcut = XMLWork::getElementText(element, QStringLiteral("shortcut"));
+            QString inherited = XMLWork::getElementText(element, QStringLiteral("inherited"), QStringLiteral("false"));
             tag->setName(name);
             tag->setShortcut(QKeySequence(shortcut));
             tag->setInheritedBySiblings(XMLWork::trueOrFalse(inherited));
@@ -311,27 +311,27 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
             QDomNode subNode = element.firstChild();
             while (!subNode.isNull()) {
                 QDomElement subElement = subNode.toElement();
-                if ((!subElement.isNull()) && subElement.tagName() == "state") {
-                    State *state = new State(subElement.attribute("id"), tag);
-                    state->setName(XMLWork::getElementText(subElement, "name"));
-                    state->setEmblem(XMLWork::getElementText(subElement, "emblem"));
-                    QDomElement textElement = XMLWork::getElement(subElement, "text");
-                    state->setBold(XMLWork::trueOrFalse(textElement.attribute("bold", "false")));
-                    state->setItalic(XMLWork::trueOrFalse(textElement.attribute("italic", "false")));
-                    state->setUnderline(XMLWork::trueOrFalse(textElement.attribute("underline", "false")));
-                    state->setStrikeOut(XMLWork::trueOrFalse(textElement.attribute("strikeOut", "false")));
-                    QString textColor = textElement.attribute("color", QString());
+                if ((!subElement.isNull()) && subElement.tagName() == QStringLiteral("state")) {
+                    State *state = new State(subElement.attribute(QStringLiteral("id")), tag);
+                    state->setName(XMLWork::getElementText(subElement, QStringLiteral("name")));
+                    state->setEmblem(XMLWork::getElementText(subElement, QStringLiteral("emblem")));
+                    QDomElement textElement = XMLWork::getElement(subElement, QStringLiteral("text"));
+                    state->setBold(XMLWork::trueOrFalse(textElement.attribute(QStringLiteral("bold"), QStringLiteral("false"))));
+                    state->setItalic(XMLWork::trueOrFalse(textElement.attribute(QStringLiteral("italic"), QStringLiteral("false"))));
+                    state->setUnderline(XMLWork::trueOrFalse(textElement.attribute(QStringLiteral("underline"), QStringLiteral("false"))));
+                    state->setStrikeOut(XMLWork::trueOrFalse(textElement.attribute(QStringLiteral("strikeOut"), QStringLiteral("false"))));
+                    QString textColor = textElement.attribute(QStringLiteral("color"), QString());
                     state->setTextColor(textColor.isEmpty() ? QColor() : QColor(textColor));
-                    QDomElement fontElement = XMLWork::getElement(subElement, "font");
-                    state->setFontName(fontElement.attribute("name", QString()));
-                    QString fontSize = fontElement.attribute("size", QString());
+                    QDomElement fontElement = XMLWork::getElement(subElement, QStringLiteral("font"));
+                    state->setFontName(fontElement.attribute(QStringLiteral("name"), QString()));
+                    QString fontSize = fontElement.attribute(QStringLiteral("size"), QString());
                     state->setFontSize(fontSize.isEmpty() ? -1 : fontSize.toInt());
-                    QString backgroundColor = XMLWork::getElementText(subElement, "backgroundColor", QString());
+                    QString backgroundColor = XMLWork::getElementText(subElement, QStringLiteral("backgroundColor"), QString());
                     state->setBackgroundColor(backgroundColor.isEmpty() ? QColor() : QColor(backgroundColor));
-                    QDomElement textEquivalentElement = XMLWork::getElement(subElement, "textEquivalent");
-                    state->setTextEquivalent(textEquivalentElement.attribute("string", QString()));
-                    state->setOnAllTextLines(XMLWork::trueOrFalse(textEquivalentElement.attribute("onAllTextLines", "false")));
-                    QString allowXRef = XMLWork::getElementText(subElement, "allowCrossReferences", "true");
+                    QDomElement textEquivalentElement = XMLWork::getElement(subElement, QStringLiteral("textEquivalent"));
+                    state->setTextEquivalent(textEquivalentElement.attribute(QStringLiteral("string"), QString()));
+                    state->setOnAllTextLines(XMLWork::trueOrFalse(textEquivalentElement.attribute(QStringLiteral("onAllTextLines"), QStringLiteral("false"))));
+                    QString allowXRef = XMLWork::getElementText(subElement, QStringLiteral("allowCrossReferences"), QStringLiteral("true"));
                     state->setAllowCrossReferences(XMLWork::trueOrFalse(allowXRef));
                     tag->appendState(state);
                 }
@@ -356,7 +356,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
                         for (State::List::iterator it = tag->states().begin(); it != tag->states().end(); ++it) {
                             State *state = *it;
                             QString uid = state->id();
-                            QString newUid = "tag_state_" + QString::number(getNextStateUid());
+                            QString newUid = QStringLiteral("tag_state_") + QString::number(getNextStateUid());
                             state->setId(newUid);
                             mergedStates[uid] = newUid;
                         }
@@ -464,8 +464,8 @@ Tag *Tag::tagSimilarTo(Tag *tagToTest)
 
 void Tag::saveTags()
 {
-    DEBUG_WIN << "Saving tags...";
-    saveTagsTo(all, Global::savesFolder() + "tags.xml");
+    DEBUG_WIN << QStringLiteral("Saving tags...");
+    saveTagsTo(all, Global::savesFolder() + QStringLiteral("tags.xml"));
 
     GitWrapper::commitTagsXml();
 }
@@ -473,56 +473,56 @@ void Tag::saveTags()
 void Tag::saveTagsTo(QList<Tag *> &list, const QString &fullPath)
 {
     // Create Document:
-    QDomDocument document(/*doctype=*/"basketTags");
-    QDomElement root = document.createElement("basketTags");
-    root.setAttribute("nextStateUid", static_cast<long long int>(nextStateUid));
+    QDomDocument document(/*doctype=*/QStringLiteral("basketTags"));
+    QDomElement root = document.createElement(QStringLiteral("basketTags"));
+    root.setAttribute(QStringLiteral("nextStateUid"), static_cast<long long int>(nextStateUid));
     document.appendChild(root);
 
     // Save all tags:
     for (List::iterator it = list.begin(); it != list.end(); ++it) {
         Tag *tag = *it;
         // Create tag node:
-        QDomElement tagNode = document.createElement("tag");
+        QDomElement tagNode = document.createElement(QStringLiteral("tag"));
         root.appendChild(tagNode);
         // Save tag properties:
-        XMLWork::addElement(document, tagNode, "name", tag->name());
-        XMLWork::addElement(document, tagNode, "shortcut", tag->shortcut().toString());
-        XMLWork::addElement(document, tagNode, "inherited", XMLWork::trueOrFalse(tag->inheritedBySiblings()));
+        XMLWork::addElement(document, tagNode, QStringLiteral("name"), tag->name());
+        XMLWork::addElement(document, tagNode, QStringLiteral("shortcut"), tag->shortcut().toString());
+        XMLWork::addElement(document, tagNode, QStringLiteral("inherited"), XMLWork::trueOrFalse(tag->inheritedBySiblings()));
         // Save all states:
         for (State::List::iterator it2 = (*it)->states().begin(); it2 != (*it)->states().end(); ++it2) {
             State *state = *it2;
             // Create state node:
-            QDomElement stateNode = document.createElement("state");
+            QDomElement stateNode = document.createElement(QStringLiteral("state"));
             tagNode.appendChild(stateNode);
             // Save state properties:
-            stateNode.setAttribute("id", state->id());
-            XMLWork::addElement(document, stateNode, "name", state->name());
-            XMLWork::addElement(document, stateNode, "emblem", state->emblem());
-            QDomElement textNode = document.createElement("text");
+            stateNode.setAttribute(QStringLiteral("id"), state->id());
+            XMLWork::addElement(document, stateNode, QStringLiteral("name"), state->name());
+            XMLWork::addElement(document, stateNode, QStringLiteral("emblem"), state->emblem());
+            QDomElement textNode = document.createElement(QStringLiteral("text"));
             stateNode.appendChild(textNode);
             QString textColor = (state->textColor().isValid() ? state->textColor().name() : QString());
-            textNode.setAttribute("bold", XMLWork::trueOrFalse(state->bold()));
-            textNode.setAttribute("italic", XMLWork::trueOrFalse(state->italic()));
-            textNode.setAttribute("underline", XMLWork::trueOrFalse(state->underline()));
-            textNode.setAttribute("strikeOut", XMLWork::trueOrFalse(state->strikeOut()));
-            textNode.setAttribute("color", textColor);
-            QDomElement fontNode = document.createElement("font");
+            textNode.setAttribute(QStringLiteral("bold"), XMLWork::trueOrFalse(state->bold()));
+            textNode.setAttribute(QStringLiteral("italic"), XMLWork::trueOrFalse(state->italic()));
+            textNode.setAttribute(QStringLiteral("underline"), XMLWork::trueOrFalse(state->underline()));
+            textNode.setAttribute(QStringLiteral("strikeOut"), XMLWork::trueOrFalse(state->strikeOut()));
+            textNode.setAttribute(QStringLiteral("color"), textColor);
+            QDomElement fontNode = document.createElement(QStringLiteral("font"));
             stateNode.appendChild(fontNode);
-            fontNode.setAttribute("name", state->fontName());
-            fontNode.setAttribute("size", state->fontSize());
+            fontNode.setAttribute(QStringLiteral("name"), state->fontName());
+            fontNode.setAttribute(QStringLiteral("size"), state->fontSize());
             QString backgroundColor = (state->backgroundColor().isValid() ? state->backgroundColor().name() : QString());
-            XMLWork::addElement(document, stateNode, "backgroundColor", backgroundColor);
-            QDomElement textEquivalentNode = document.createElement("textEquivalent");
+            XMLWork::addElement(document, stateNode, QStringLiteral("backgroundColor"), backgroundColor);
+            QDomElement textEquivalentNode = document.createElement(QStringLiteral("textEquivalent"));
             stateNode.appendChild(textEquivalentNode);
-            textEquivalentNode.setAttribute("string", state->textEquivalent());
-            textEquivalentNode.setAttribute("onAllTextLines", XMLWork::trueOrFalse(state->onAllTextLines()));
-            XMLWork::addElement(document, stateNode, "allowCrossReferences", XMLWork::trueOrFalse(state->allowCrossReferences()));
+            textEquivalentNode.setAttribute(QStringLiteral("string"), state->textEquivalent());
+            textEquivalentNode.setAttribute(QStringLiteral("onAllTextLines"), XMLWork::trueOrFalse(state->onAllTextLines()));
+            XMLWork::addElement(document, stateNode, QStringLiteral("allowCrossReferences"), XMLWork::trueOrFalse(state->allowCrossReferences()));
         }
     }
 
     // Write to Disk:
-    if (!FileStorage::safelySaveToFile(fullPath, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + document.toString()))
-        DEBUG_WIN << "<font color=red>FAILED to save tags</font>!";
+    if (!FileStorage::safelySaveToFile(fullPath, QStringLiteral("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n") + document.toString()))
+        DEBUG_WIN << QStringLiteral("<font color=red>FAILED to save tags</font>!");
 }
 
 void Tag::copyTo(Tag *other)
@@ -534,7 +534,7 @@ void Tag::copyTo(Tag *other)
 
 void Tag::createDefaultTagsSet(const QString &fullPath)
 {
-    QString xml = QString(
+    QString xml = QStringLiteral(
                       "<!DOCTYPE basketTags>\n"
                       "<basketTags>\n"
                       "  <tag>\n"
@@ -593,7 +593,7 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
                       .arg(i18n("To Do"), i18n("Unchecked"), i18n("Done")) // %1 %2 %3
                       .arg(i18n("Progress"), i18n("0 %"), i18n("25 %"))    // %4 %5 %6
                       .arg(i18n("50 %"), i18n("75 %"), i18n("100 %"))      // %7 %8 %9
-        + QString(
+        + QStringLiteral(
               "  <tag>\n"
               "    <name>%1</name>\n" // "Priority"
               "    <shortcut>Ctrl+3</shortcut>\n"
@@ -648,7 +648,7 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
               .arg(i18n("Priority"), i18n("Low"), i18n("Medium"))      // %1 %2 %3
               .arg(i18n("High"), i18n("Preference"), i18n("Bad"))      // %4 %5 %6
               .arg(i18n("Good"), i18n("Excellent"), i18n("Highlight")) // %7 %8 %9
-        + QString(
+        + QStringLiteral(
               "  <tag>\n"
               "    <name>%1</name>\n" // "Important"
               "    <shortcut>Ctrl+6</shortcut>\n"
@@ -719,7 +719,7 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
               .arg(i18n("Important"), i18n("Very Important"), i18n("Information"))    // %1 %2 %3
               .arg(i18n("Idea"), i18nc("The initial of 'Idea'", "I."), i18n("Title")) // %4 %5 %6
               .arg(i18n("Code"), i18n("Work"), i18nc("The initial of 'Work'", "W."))  // %7 %8 %9
-        + QString(
+        + QStringLiteral(
               "  <tag>\n"
               "    <state id=\"personal\">\n"
               "      <name>%1</name>\n" // "Personal"
@@ -742,12 +742,12 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
     QFile file(fullPath);
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setCodec("UTF-8");
-        stream << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
+        stream.setEncoding(QStringConverter::Utf8);
+        stream << QStringLiteral("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
         stream << xml;
         file.close();
     } else
-        DEBUG_WIN << "<font color=red>FAILED to create the tags file</font>!";
+        DEBUG_WIN << QStringLiteral("<font color=red>FAILED to create the tags file</font>!");
 }
 
 const QRegularExpression& Tag::regexpDetectTagsInPlainText()
@@ -766,7 +766,7 @@ void Tag::updateCaches()
             if (textEquivalent.isEmpty()) continue;
 
             dictStatesByEquiv[textEquivalent] = state;
-            patternAllTags.append(QRegularExpression::escape(textEquivalent)).append("|");
+            patternAllTags.append(QRegularExpression::escape(textEquivalent)).append(QStringLiteral("|"));
         }
     }
     if (patternAllTags.isEmpty())
@@ -776,7 +776,7 @@ void Tag::updateCaches()
     }
 
     patternAllTags.chop(1);
-    patternAllTags = QString(("\\G\\s*?(%1)")).arg(patternAllTags);
+    patternAllTags = QStringLiteral("\\G\\s*?(%1)").arg(patternAllTags);
 
     regexpDetectTags = QRegularExpression(patternAllTags, QRegularExpression::UseUnicodePropertiesOption);
     regexpDetectTags.optimize();

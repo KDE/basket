@@ -19,7 +19,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
 #include <QtCore/QMimeData>
-#include <QtCore/QRegExp>
+#include <QtCore/QRegularExpression>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 #include <QtCore/QVector>
@@ -71,13 +71,13 @@ Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool
     if (reallyPlainText)
     {
         note = new Note(parent);
-        TextContent *content = new TextContent(note, createFileForNewNote(parent, "txt"));
+        TextContent *content = new TextContent(note, createFileForNewNote(parent, QStringLiteral("txt")));
         content->setText(text);
         content->saveToFile();
     }
         else
     {
-        textConverted = QString("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>%1</body></html>")
+        textConverted = QStringLiteral("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>%1</body></html>")
             .arg(Tools::textToHTMLWithoutP(textConverted));
 
         note = createNoteHtml(textConverted, parent);
@@ -95,7 +95,7 @@ Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool
 Note *NoteFactory::createNoteHtml(const QString &html, BasketScene *parent)
 {
     Note *note = new Note(parent);
-    HtmlContent *content = new HtmlContent(note, createFileForNewNote(parent, "html"));
+    HtmlContent *content = new HtmlContent(note, createFileForNewNote(parent, QStringLiteral("html")));
     content->setHtml(html);
     content->saveToFile();
     return note;
@@ -139,7 +139,7 @@ Note *NoteFactory::createNoteCrossReference(const QUrl &url, const QString &titl
 Note *NoteFactory::createNoteImage(const QPixmap &image, BasketScene *parent)
 {
     Note *note = new Note(parent);
-    ImageContent *content = new ImageContent(note, createFileForNewNote(parent, "png"));
+    ImageContent *content = new ImageContent(note, createFileForNewNote(parent, QStringLiteral("png")));
     content->setPixmap(image);
     content->saveToFile();
     return note;
@@ -160,7 +160,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
     QStringList list;
 
     // Split lines:
-    QStringList texts = text.split('\n');
+    QStringList texts = text.split(QLatin1Char('\n'));
 
     // For each lines:
     QStringList::iterator it;
@@ -176,22 +176,24 @@ QStringList NoteFactory::textToURLList(const QString &text)
         QString ltext = (*it).toLower();
 
         /* Search for mail address ("*@*.*" ; "*" can contain '_', '-', or '.') and add protocol to it */
-        QString mailExpString = "[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+";
-        QRegExp mailExp("^" + mailExpString + '$');
-        if (mailExp.exactMatch(ltext)) {
-            ltext.insert(0, "mailto:");
-            (*it).insert(0, "mailto:");
+        QString mailExpString = QStringLiteral("[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+");
+        QRegularExpression mailExp(QRegularExpression::anchoredPattern(QStringLiteral("^") + mailExpString + QLatin1Char('$')));
+        
+        if (ltext.indexOf(mailExp) != -1) {
+            ltext.insert(0, QStringLiteral("mailto:"));
+            (*it).insert(0, QStringLiteral("mailto:"));
         }
 
         // TODO: Recognize "<link>" (link between '<' and '>')
         // TODO: Replace " at " by "@" and " dot " by "." to look for e-mail addresses
 
         /* Search for mail address like "Name <address@provider.net>" */
-        QRegExp namedMailExp("^([\\w\\s]+)\\s<(" + mailExpString + ")>$");
+        QRegularExpression namedMailExp(QRegularExpression::anchoredPattern(QStringLiteral("^([\\w\\s]+)\\s<(") + mailExpString + QStringLiteral(")>$")));
         // namedMailExp.setCaseSensitive(true); // For the name to be keeped with uppercases // DOESN'T WORK !
-        if (namedMailExp.exactMatch(ltext)) {
-            QString name = namedMailExp.cap(1);
-            QString address = "mailto:" + namedMailExp.cap(2);
+        if (ltext.indexOf(namedMailExp) != -1) {
+            QRegularExpressionMatch m = namedMailExp.match(ltext);
+            QString name = m.captured(1);
+            QString address = QStringLiteral("mailto:") + m.captured(2);
             // Threat it NOW, as it's an exception (it have a title):
             list.append(address);
             list.append(name);
@@ -199,16 +201,16 @@ QStringList NoteFactory::textToURLList(const QString &text)
         }
 
         /* Search for an url and create an URL note */
-        if ((ltext.startsWith('/') && ltext[1] != '/' && ltext[1] != '*') || // Take files but not C/C++/... comments !
+        if ((ltext.startsWith(QLatin1Char('/')) && ltext[1] != QLatin1Char('/') && ltext[1] != QLatin1Char('*')) || // Take files but not C/C++/... comments !
             ltext.startsWith(QLatin1String("file:")) || ltext.startsWith(QLatin1String("http://")) || ltext.startsWith(QLatin1String("https://")) || ltext.startsWith(QLatin1String("www.")) || ltext.startsWith(QLatin1String("ftp.")) ||
             ltext.startsWith(QLatin1String("ftp://")) || ltext.startsWith(QLatin1String("mailto:"))) {
             // First, correct the text to use the good format for the url
-            if (ltext.startsWith('/'))
-                (*it).insert(0, "file:");
+            if (ltext.startsWith(QLatin1Char('/')))
+                (*it).insert(0, QStringLiteral("file:"));
             if (ltext.startsWith(QLatin1String("www.")))
-                (*it).insert(0, "http://");
+                (*it).insert(0, QStringLiteral("http://"));
             if (ltext.startsWith(QLatin1String("ftp.")))
-                (*it).insert(0, "ftp://");
+                (*it).insert(0, QStringLiteral("ftp://"));
 
             // And create the Url note (or launcher if URL point a .desktop file)
             list.append(*it);
@@ -222,8 +224,8 @@ QStringList NoteFactory::textToURLList(const QString &text)
 Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
 {
     /* Search for a color (#RGB , #RRGGBB , #RRRGGGBBB , #RRRRGGGGBBBB) and create a color note */
-    QRegExp exp("^#(?:[a-fA-F\\d]{3}){1,4}$");
-    if (exp.exactMatch(text))
+    QRegularExpression exp(QRegularExpression::anchoredPattern(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$")));
+    if (text.indexOf(exp) != -1)
         return createNoteColor(QColor(text), parent);
 
     /* Try to convert the text as a URL or a list of URLs */
@@ -285,21 +287,21 @@ Note *NoteFactory::createNoteLauncher(const QString &command, const QString &nam
 
 QString NoteFactory::createNoteLauncherFile(const QString &command, const QString &name, const QString &icon, BasketScene *parent)
 {
-    QString content = QString(
+    QString content = QStringLiteral(
                           "[Desktop Entry]\n"
                           "Exec=%1\n"
                           "Name=%2\n"
                           "Icon=%3\n"
                           "Encoding=UTF-8\n"
                           "Type=Application\n")
-                          .arg(command, name, icon.isEmpty() ? QString("exec") : icon);
-    QString fileName = fileNameForNewNote(parent, "launcher.desktop");
+                          .arg(command, name, icon.isEmpty() ? QStringLiteral("exec") : icon);
+    QString fileName = fileNameForNewNote(parent, QStringLiteral("launcher.desktop"));
     QString fullPath = parent->fullPathForFileName(fileName);
     //  parent->dontCareOfCreation(fullPath);
     QFile file(fullPath);
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setCodec("UTF-8");
+        stream.setEncoding(QStringConverter::Utf8);
         stream << content;
         file.close();
         return fileName;
@@ -352,21 +354,21 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
 
     /* Debug */
     if (Global::debugWindow) {
-        *Global::debugWindow << "<b>Drop :</b>";
+        *Global::debugWindow << QStringLiteral("<b>Drop :</b>");
         for (int i = 0; i < formats.size(); ++i)
-            *Global::debugWindow << "\t[" + QString::number(i) + "] " + formats[i];
+            *Global::debugWindow << QStringLiteral("\t[") + QString::number(i) + QStringLiteral("] ") + formats[i];
         switch (action) { // The source want that we:
         case Qt::CopyAction:
-            *Global::debugWindow << ">> Drop action: Copy";
+            *Global::debugWindow << QStringLiteral(">> Drop action: Copy");
             break;
         case Qt::MoveAction:
-            *Global::debugWindow << ">> Drop action: Move";
+            *Global::debugWindow << QStringLiteral(">> Drop action: Move");
             break;
         case Qt::LinkAction:
-            *Global::debugWindow << ">> Drop action: Link";
+            *Global::debugWindow << QStringLiteral(">> Drop action: Link");
             break;
         default:
-            *Global::debugWindow << ">> Drop action: Unknown"; //  supported by Qt!
+            *Global::debugWindow << QStringLiteral(">> Drop action: Unknown"); //  supported by Qt!
         }
     }
 
@@ -389,9 +391,9 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
 
     // And then the hack (if provide color MIME type or a text that contains color), using createNote Color RegExp:
     QString hack;
-    QRegExp exp("^#(?:[a-fA-F\\d]{3}){1,4}$");
+    QRegularExpression exp(QRegularExpression::anchoredPattern(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$")));
     hack = source->text();
-    if (source->hasFormat("application/x-color") || (!hack.isNull() && exp.exactMatch(hack))) {
+    if (source->hasFormat(QStringLiteral("application/x-color")) || (!hack.isNull() && hack.indexOf(exp) != -1)) {
         QColor color = qvariant_cast<QColor>(source->colorData());
         if (color.isValid())
             return createNoteColor(color, parent);
@@ -429,14 +431,14 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
      *
      * Thanks to Dave Cridland for having said me that.
      */
-    if (source->hasFormat("text/x-moz-url")) { // FOR MOZILLA
+    if (source->hasFormat(QStringLiteral("text/x-moz-url"))) { // FOR MOZILLA
         // Get the array and create a QChar array of 1/2 of the size
-        QByteArray mozilla = source->data("text/x-moz-url");
+        QByteArray mozilla = source->data(QStringLiteral("text/x-moz-url"));
         QVector<QChar> chars(mozilla.count() / 2);
         // A small debug work to know the value of each bytes
         if (Global::debugWindow)
             for (int i = 0; i < mozilla.count(); i++)
-                *Global::debugWindow << QString("'") + QChar(mozilla[i]) + "' " + QString::number(int(mozilla[i]));
+                *Global::debugWindow << QStringLiteral("'") + QLatin1Char(mozilla[i]) + QStringLiteral("' ") + QString::number(int(mozilla[i]));
         // text/x-moz-url give the URL followed by the link title and separated by OxOA (10 decimal: new line?)
         uint size = 0;
         QChar *name = nullptr;
@@ -451,17 +453,17 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         // Create a QString that take the address of the first QChar and a length
         if (name == nullptr) { // We haven't found name (FIXME: Is it possible ?)
             QString normalHtml(&(chars[0]), chars.size());
-            return createNoteLink(normalHtml, parent);
+            return createNoteLink(QUrl(normalHtml), parent);
         } else {
             QString normalHtml(&(chars[0]), size);
             QString normalTitle(name, chars.size() - size - 1);
-            return createNoteLink(normalHtml, normalTitle, parent);
+            return createNoteLink(QUrl(normalHtml), normalTitle, parent);
         }
     }
 
-    if (source->hasFormat("text/html")) {
+    if (source->hasFormat(QStringLiteral("text/html"))) {
         QString html;
-        QString subtype("html");
+        QString subtype(QStringLiteral("html"));
         // If the text/html comes from Mozilla or GNOME it can be UTF-16 encoded: we need ExtendedTextDrag to check that
         ExtendedTextDrag::decode(source, html, subtype);
         return createNoteHtml(html, parent);
@@ -482,7 +484,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         while (!stream.atEnd())
             stream >> basketName >> folderName >> icon;
 
-        return createNoteCrossReference(QUrl("basket://" + folderName), basketName, icon, parent);
+        return createNoteCrossReference(QUrl(QStringLiteral("basket://") + folderName), basketName, icon, parent);
     }
 
     /* Unsuccessful drop */
@@ -492,14 +494,14 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         "It however created a generic note, allowing you to drag or copy it to an application that understand it.</p>"
         "<p>If you want the support of these data, please contact developer.</p>",
         QGuiApplication::applicationDisplayName());
-    KMessageBox::information(parent->graphicsView()->viewport(), message, i18n("Unsupported MIME Type(s)"), "unsupportedDropInfo", KMessageBox::AllowLink);
+    KMessageBox::information(parent->graphicsView()->viewport(), message, i18n("Unsupported MIME Type(s)"), QStringLiteral("unsupportedDropInfo"), KMessageBox::AllowLink);
     return note;
 }
 
 Note *NoteFactory::createNoteUnknown(const QMimeData *source, BasketScene *parent /*, const QString &annotations*/)
 {
     // Save the MimeSource in a file: create and open the file:
-    QString fileName = createFileForNewNote(parent, "unknown");
+    QString fileName = createFileForNewNote(parent, QStringLiteral("unknown"));
     QFile file(parent->fullPath() + fileName);
     if (!file.open(QIODevice::WriteOnly))
         return nullptr;
@@ -538,7 +540,7 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
         ;                // action is already set: no work to do
     else if (fromDrop) { // Compute if user should be asked or not
         for (QList<QUrl>::iterator it = urls.begin(); it != urls.end(); ++it)
-            if ((*it).scheme() != "mailto") { // Do not ask when dropping mail address :-)
+            if ((*it).scheme() != QStringLiteral("mailto")) { // Do not ask when dropping mail address :-)
                 shouldAsk++;
                 if (shouldAsk == 1 /*2*/) // Sufficient
                     break;
@@ -546,14 +548,14 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
         if (shouldAsk) {
             QMenu menu(parent->graphicsView());
             QList<QAction *> actList;
-            actList << new QAction(QIcon::fromTheme("go-jump"), i18n("&Move Here\tShift"), &menu) << new QAction(QIcon::fromTheme("edit-copy"), i18n("&Copy Here\tCtrl"), &menu)
-                    << new QAction(QIcon::fromTheme("insert-link"), i18n("&Link Here\tCtrl+Shift"), &menu);
+            actList << new QAction(QIcon::fromTheme(QStringLiteral("go-jump")), i18n("&Move Here\tShift"), &menu) << new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("&Copy Here\tCtrl"), &menu)
+                    << new QAction(QIcon::fromTheme(QStringLiteral("insert-link")), i18n("&Link Here\tCtrl+Shift"), &menu);
 
-            Q_FOREACH (QAction *a, actList)
+            for (QAction *a: actList)
                 menu.addAction(a);
 
             menu.addSeparator();
-            menu.addAction(QIcon::fromTheme("dialog-cancel"), i18n("C&ancel\tEscape"));
+            menu.addAction(QIcon::fromTheme(QStringLiteral("dialog-cancel")), i18n("C&ancel\tEscape"));
             int id = actList.indexOf(menu.exec(QCursor::pos()));
             switch (id) {
             case 0:
@@ -597,7 +599,7 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
     Note *firstNote = nullptr;
     Note *lastInserted = nullptr;
     for (QList<QUrl>::iterator it = urls.begin(); it != urls.end(); ++it) {
-        if (((*it).scheme() == "mailto") || (action == Qt::LinkAction))
+        if (((*it).scheme() == QStringLiteral("mailto")) || (action == Qt::LinkAction))
             note = createNoteLinkOrLauncher(*it, parent);
         //         else if (!(*it).isLocalFile()) {
         //             if (action != Qt::LinkAction && (maybeImageOrAnimation(*it)/* || maybeSound(*it)*/))
@@ -616,7 +618,7 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
 
         // If we got a new note, insert it in a linked list (we will return the first note of that list):
         if (note) {
-            DEBUG_WIN << "Drop URL: " + (*it).toDisplayString();
+            DEBUG_WIN << QStringLiteral("Drop URL: ") + (*it).toDisplayString();
             if (!firstNote)
                 firstNote = note;
             else {
@@ -689,32 +691,32 @@ Note *NoteFactory::decodeContent(QDataStream &stream, NoteType::Id type, BasketS
 
 bool NoteFactory::maybeText(const QMimeType &mimeType)
 {
-    return mimeType.inherits(MimeTypes::TEXT);
+    return mimeType.inherits(QLatin1String(MimeTypes::TEXT));
 }
 
 bool NoteFactory::maybeHtml(const QMimeType &mimeType)
 {
-    return mimeType.inherits(MimeTypes::HTML);
+    return mimeType.inherits(QLatin1String(MimeTypes::HTML));
 }
 
 bool NoteFactory::maybeImage(const QMimeType &mimeType)
 {
-    return mimeType.name().startsWith(MimeTypes::IMAGE);
+    return mimeType.name().startsWith(QLatin1String(MimeTypes::IMAGE));
 }
 
 bool NoteFactory::maybeAnimation(const QMimeType &mimeType)
 {
-    return mimeType.inherits(MimeTypes::ANIMATION) || mimeType.name() == MimeTypes::ANIMATION_MNG;
+    return mimeType.inherits(QLatin1String(MimeTypes::ANIMATION)) || mimeType.name() == QLatin1String(MimeTypes::ANIMATION_MNG);
 }
 
 bool NoteFactory::maybeSound(const QMimeType &mimeType)
 {
-    return mimeType.name().startsWith(MimeTypes::AUDIO);
+    return mimeType.name().startsWith(QLatin1String(MimeTypes::AUDIO));
 }
 
 bool NoteFactory::maybeLauncher(const QMimeType &mimeType)
 {
-    return mimeType.inherits(MimeTypes::LAUNCHER);
+    return mimeType.inherits(QLatin1String(MimeTypes::LAUNCHER));
 }
 
 ////////////// NEW:
@@ -725,7 +727,7 @@ Note *NoteFactory::copyFileAndLoad(const QUrl &url, BasketScene *parent)
     QString fullPath = parent->fullPathForFileName(fileName);
 
     if (Global::debugWindow)
-        *Global::debugWindow << "copyFileAndLoad: " + url.toDisplayString() + " to " + fullPath;
+        *Global::debugWindow << QStringLiteral("copyFileAndLoad: ") + url.toDisplayString() + QStringLiteral(" to ") + fullPath;
 
     //  QString annotations = i18n("Original file: %1", url.toDisplayString());
     //  parent->dontCareOfCreation(fullPath);
@@ -744,7 +746,7 @@ Note *NoteFactory::moveFileAndLoad(const QUrl &url, BasketScene *parent)
     QString fullPath = parent->fullPathForFileName(fileName);
 
     if (Global::debugWindow)
-        *Global::debugWindow << "moveFileAndLoad: " + url.toDisplayString() + " to " + fullPath;
+        *Global::debugWindow << QStringLiteral("moveFileAndLoad: ") + url.toDisplayString() + QStringLiteral(" to ") + fullPath;
 
     //  QString annotations = i18n("Original file: %1", url.toDisplayString());
     //  parent->dontCareOfCreation(fullPath);
@@ -764,7 +766,7 @@ Note *NoteFactory::loadFile(const QString &fileName, BasketScene *parent)
     if (!file.exists())
         return nullptr;
 
-    NoteType::Id type = typeForURL(parent->fullPathForFileName(fileName), parent);
+    NoteType::Id type = typeForURL(QUrl(parent->fullPathForFileName(fileName)), parent);
     Note *note = loadFile(fileName, type, parent);
     return note;
 }
@@ -820,9 +822,9 @@ NoteType::Id NoteFactory::typeForURL(const QUrl &url, BasketScene * /*parent*/)
 
     if (Global::debugWindow) {
         if (mimeType.isValid())
-            *Global::debugWindow << "typeForURL: " + url.toDisplayString() + " ; MIME type = " + mimeType.name();
+            *Global::debugWindow << QStringLiteral("typeForURL: ") + url.toDisplayString() + QStringLiteral(" ; MIME type = ") + mimeType.name();
         else
-            *Global::debugWindow << "typeForURL: mimeType is empty for " + url.toDisplayString();
+            *Global::debugWindow << QStringLiteral("typeForURL: mimeType is empty for ") + url.toDisplayString();
     }
 
     // Go from specific to more generic
@@ -858,10 +860,10 @@ QString NoteFactory::createFileForNewNote(BasketScene *parent, const QString &ex
     if (wantedName.isEmpty()) { // TODO: fileNameForNewNote(parent, "note1."+extension);
         QDir dir;
         int nb = parent->count() + 1;
-        QString time = QTime::currentTime().toString("hhmmss");
+        QString time = QTime::currentTime().toString(QStringLiteral("hhmmss"));
 
         for (;; ++nb) {
-            fileName = QString("note%1-%2.%3").arg(nb).arg(time).arg(extension);
+            fileName = QStringLiteral("note%1-%2.%3").arg(nb).arg(time).arg(extension);
             fullName = parent->fullPath() + fileName;
             dir = QDir(fullName);
             if (!dir.exists(fullName))
@@ -888,7 +890,7 @@ QUrl NoteFactory::filteredURL(const QUrl &url)
     bool isSlow = true;
     for (int i = 0; i < url.url().length(); ++i) {
         QChar c = url.url()[i];
-        if (!c.isLetterOrNumber() && c != '-' && c != '+') {
+        if (!c.isLetterOrNumber() && c != QLatin1Char('-') && c != QLatin1Char('+')) {
             isSlow = false;
             break;
         }
@@ -905,13 +907,13 @@ QUrl NoteFactory::filteredURL(const QUrl &url)
 QString NoteFactory::titleForURL(const QUrl &url)
 {
     QString title = url.toDisplayString();
-    QString home = "file:" + QDir::homePath() + '/';
+    QString home = QStringLiteral("file:") + QDir::homePath() + QLatin1Char('/');
 
     if (title.startsWith(QLatin1String("mailto:")))
         return title.remove(0, 7);
 
     if (title.startsWith(home))
-        title = "~/" + title.remove(0, home.length());
+        title = QStringLiteral("~/") + title.remove(0, home.length());
 
     if (title.startsWith(QLatin1String("file://")))
         title = title.remove(0, 7); // 7 == QString("file://").length() - 1
@@ -945,7 +947,7 @@ QString NoteFactory::titleForURL(const QUrl &url)
             title.truncate(title.length() - 11); // 11 == QString("/index.php5").length()
     }
 
-    if (title.length() > 2 && title.endsWith('/')) // length > 2 because "/" and "~/" shouldn't be transformed to QString() and "~"
+    if (title.length() > 2 && title.endsWith(QLatin1Char('/'))) // length > 2 because "/" and "~/" shouldn't be transformed to QString() and "~"
         title.truncate(title.length() - 1);        // eg. transform "www.kde.org/" to "www.kde.org"
 
     return title;
@@ -954,9 +956,9 @@ QString NoteFactory::titleForURL(const QUrl &url)
 QString NoteFactory::iconForURL(const QUrl &url)
 {
 
-    if (url.scheme() == "mailto") {
+    if (url.scheme() == QStringLiteral("mailto")) {
         return QStringLiteral("message");
-    } else if (url.scheme() == "http" || url.scheme() == "https") {
+    } else if (url.scheme() == QStringLiteral("http") || url.scheme() == QStringLiteral("https")) {
         return QStringLiteral("text-html");
     } else {
         return QStringLiteral("unknown");
@@ -974,17 +976,17 @@ QString NoteFactory::iconForCommand(const QString &command)
     QString icon;
 
     // 1. Use first word as icon (typically the program without argument)
-    icon = command.split(' ').first();
+    icon = command.split(QLatin1Char(' ')).first();
     // 2. If the command is a full path, take only the program file name
-    icon = icon.mid(icon.lastIndexOf('/') + 1); // strip path if given [But it doesn't care of such
+    icon = icon.mid(icon.lastIndexOf(QLatin1Char('/')) + 1); // strip path if given [But it doesn't care of such
     // "myprogram /my/path/argument" -> return "argument". Would
     // must first strip first word and then strip path... Useful ??
     // 3. Use characters before any '-' (e.g. use "gimp" icon if run command is "gimp-1.3")
     if (!isIconExist(icon))
-        icon = icon.split('-').first();
+        icon = icon.split(QLatin1Char('-')).first();
     // 4. If the icon still not findable, use a generic icon
     if (!isIconExist(icon))
-        icon = "exec";
+        icon = QStringLiteral("exec");
 
     return icon;
 }
@@ -1033,7 +1035,7 @@ Note *NoteFactory::importKMenuLauncher(BasketScene *parent)
         // * locateLocal() return a local file even if it is a system wide one (local one doesn't exists)
         // * desktopEntryPath() returns the full path for system wide resources, but relative path if in home
         QString serviceFilePath = dialog->service()->entryPath();
-        if (!serviceFilePath.startsWith('/'))
+        if (!serviceFilePath.startsWith(QLatin1Char('/')))
             serviceFilePath = dialog->service()->locateLocal();
         return createNoteLauncher(QUrl::fromUserInput(serviceFilePath), parent);
     }
@@ -1065,31 +1067,31 @@ Note *NoteFactory::importFileContent(BasketScene *parent)
 
 void NoteFactory::loadNode(const QDomElement &content, const QString &lowerTypeName, Note *parent, bool lazyLoad)
 {
-    if (lowerTypeName == "text") {
+    if (lowerTypeName == QStringLiteral("text")) {
         new TextContent(parent, content.text(), lazyLoad);
-    } else if (lowerTypeName == "html") {
+    } else if (lowerTypeName == QStringLiteral("html")) {
         new HtmlContent(parent, content.text(), lazyLoad);
-    } else if (lowerTypeName == "image") {
+    } else if (lowerTypeName == QStringLiteral("image")) {
         new ImageContent(parent, content.text(), lazyLoad);
-    } else if (lowerTypeName == "animation") {
+    } else if (lowerTypeName == QStringLiteral("animation")) {
         new AnimationContent(parent, content.text(), lazyLoad);
-    } else if (lowerTypeName == "sound") {
+    } else if (lowerTypeName == QStringLiteral("sound")) {
         new SoundContent(parent, content.text());
-    } else if (lowerTypeName == "file")  {
+    } else if (lowerTypeName == QStringLiteral("file"))  {
         new FileContent(parent, content.text());
-    } else if (lowerTypeName == "link") {
-        bool autoTitle = content.attribute("title") == content.text();
-        bool autoIcon = content.attribute("icon") == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
-        autoTitle = XMLWork::trueOrFalse(content.attribute("autoTitle"), autoTitle);
-        autoIcon = XMLWork::trueOrFalse(content.attribute("autoIcon"), autoIcon);
-        new LinkContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"), autoTitle, autoIcon);
-    } else if (lowerTypeName == "cross_reference") {
-        new CrossReferenceContent(parent, QUrl::fromUserInput(content.text()), content.attribute("title"), content.attribute("icon"));
-    } else if (lowerTypeName == "launcher") {
+    } else if (lowerTypeName == QStringLiteral("link")) {
+        bool autoTitle = content.attribute(QStringLiteral("title")) == content.text();
+        bool autoIcon = content.attribute(QStringLiteral("icon")) == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
+        autoTitle = XMLWork::trueOrFalse(content.attribute(QStringLiteral("autoTitle")), autoTitle);
+        autoIcon = XMLWork::trueOrFalse(content.attribute(QStringLiteral("autoIcon")), autoIcon);
+        new LinkContent(parent, QUrl::fromUserInput(content.text()), content.attribute(QStringLiteral("title")), content.attribute(QStringLiteral("icon")), autoTitle, autoIcon);
+    } else if (lowerTypeName == QStringLiteral("cross_reference")) {
+        new CrossReferenceContent(parent, QUrl::fromUserInput(content.text()), content.attribute(QStringLiteral("title")), content.attribute(QStringLiteral("icon")));
+    } else if (lowerTypeName == QStringLiteral("launcher")) {
         new LauncherContent(parent, content.text());
-    } else if (lowerTypeName == "color") {
+    } else if (lowerTypeName == QStringLiteral("color")) {
         new ColorContent(parent, QColor(content.text()));
-    } else if (lowerTypeName == "unknown") {
+    } else if (lowerTypeName == QStringLiteral("unknown")) {
         new UnknownContent(parent, content.text());
     }
 }

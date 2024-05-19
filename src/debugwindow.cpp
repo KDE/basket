@@ -51,7 +51,7 @@ DebugWindow &DebugWindow::operator<<(const QString msg)
 
 void DebugWindow::insertHLine()
 {
-    textBrowser->append("<hr>");
+    textBrowser->append(QStringLiteral("<hr>"));
 }
 
 void DebugWindow::closeEvent(QCloseEvent *event)

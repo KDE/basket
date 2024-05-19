@@ -346,11 +346,11 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_tags->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_moveUp = new QPushButton(mainWidget);
-    KGuiItem::assign(m_moveUp, KGuiItem(QString(), "arrow-up"));
+    KGuiItem::assign(m_moveUp, KGuiItem(QString(), QStringLiteral("arrow-up")));
     m_moveDown = new QPushButton(mainWidget);
-    KGuiItem::assign(m_moveDown, KGuiItem(QString(), "arrow-down"));
+    KGuiItem::assign(m_moveDown, KGuiItem(QString(), QStringLiteral("arrow-down")));
     m_deleteTag = new QPushButton(mainWidget);
-    KGuiItem::assign(m_deleteTag, KGuiItem(QString(), "edit-delete"));
+    KGuiItem::assign(m_deleteTag, KGuiItem(QString(), QStringLiteral("edit-delete")));
 
     m_moveUp->setToolTip(i18n("Move Up (Ctrl+Shift+Up)"));
     m_moveDown->setToolTip(i18n("Move Down (Ctrl+Shift+Down)"));
@@ -400,10 +400,10 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_allowCrossRefernce = new QCheckBox(i18n("Allow Cross Reference Links"), tagWidget);
 
     HelpLabel *allowCrossReferenceHelp = new HelpLabel(i18n("What does this do?"),
-        "<p>" + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + "</p>" + "<p>" +
-        i18n("From the top of the tree (Absolute path):") + "<br />" + i18n("[[/top level item/child|optional title]]") + "<p>" + "<p>" + i18n("Relative to the current basket:") +
-        "<br />" + i18n("[[../sibling|optional title]]") + "<br />" + i18n("[[child|optional title]]") + "<br />" + i18n("[[./child|optional title]]") + "<p>"+
-        "<p>" +i18n("Baskets matching is cAse inSEnsItive.") + "</p>",
+        QStringLiteral("<p>") + i18n("This option will enable you to type a cross reference link directly into a text note. Cross Reference links can have the following syntax:") + QStringLiteral("</p>") + QStringLiteral("<p>") +
+        i18n("From the top of the tree (Absolute path):") + QStringLiteral("<br />") + i18n("[[/top level item/child|optional title]]") + QStringLiteral("<p>") + QStringLiteral("<p>") + i18n("Relative to the current basket:") +
+        QStringLiteral("<br />") + i18n("[[../sibling|optional title]]") + QStringLiteral("<br />") + i18n("[[child|optional title]]") + QStringLiteral("<br />") + i18n("[[./child|optional title]]") + QStringLiteral("<p>")+
+        QStringLiteral("<p>") +i18n("Baskets matching is cAse inSEnsItive.") + QStringLiteral("</p>"),
         tagWidget);
 
     QGridLayout *tagGrid = new QGridLayout(tagWidget);
@@ -432,7 +432,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_emblem = new KIconButton(emblemWidget);
     m_emblem->setIconType(KIconLoader::NoGroup, KIconLoader::Action);
     m_emblem->setIconSize(16);
-    m_emblem->setIcon("edit-delete");
+    m_emblem->setIcon(QStringLiteral("edit-delete"));
     m_removeEmblem = new QPushButton(i18nc("Remove tag emblem", "Remo&ve"), emblemWidget);
     QLabel *emblemLabel = new QLabel(i18n("&Emblem:"), stateWidget);
     emblemLabel->setBuddy(m_emblem);
@@ -458,26 +458,26 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     backgroundColorLayout->addWidget(m_backgroundColor);
     backgroundColorLayout->addStretch();
 
-    QIcon boldIconSet = QIcon::fromTheme("format-text-bold");
+    QIcon boldIconSet = QIcon::fromTheme(QStringLiteral("format-text-bold"));
     m_bold = new QPushButton(boldIconSet, QString(), stateWidget);
     m_bold->setCheckable(true);
     int size = qMax(m_bold->sizeHint().width(), m_bold->sizeHint().height());
     m_bold->setFixedSize(size, size); // Make it square!
     m_bold->setToolTip(i18n("Bold"));
 
-    QIcon underlineIconSet = QIcon::fromTheme("format-text-underline");
+    QIcon underlineIconSet = QIcon::fromTheme(QStringLiteral("format-text-underline"));
     m_underline = new QPushButton(underlineIconSet, QString(), stateWidget);
     m_underline->setCheckable(true);
     m_underline->setFixedSize(size, size); // Make it square!
     m_underline->setToolTip(i18n("Underline"));
 
-    QIcon italicIconSet = QIcon::fromTheme("format-text-italic");
+    QIcon italicIconSet = QIcon::fromTheme(QStringLiteral("format-text-italic"));
     m_italic = new QPushButton(italicIconSet, QString(), stateWidget);
     m_italic->setCheckable(true);
     m_italic->setFixedSize(size, size); // Make it square!
     m_italic->setToolTip(i18n("Italic"));
 
-    QIcon strikeIconSet = QIcon::fromTheme("format-text-strikethrough");
+    QIcon strikeIconSet = QIcon::fromTheme(QStringLiteral("format-text-strikethrough"));
     m_strike = new QPushButton(strikeIconSet, QString(), stateWidget);
     m_strike->setCheckable(true);
     m_strike->setFixedSize(size, size); // Make it square!
@@ -510,15 +510,15 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QLabel *textEquivalentLabel = new QLabel(i18n("Te&xt equivalent:"), stateWidget);
     textEquivalentLabel->setBuddy(m_textEquivalent);
     QFont font = m_textEquivalent->font();
-    font.setFamily("monospace");
+    font.setFamily(QStringLiteral("monospace"));
     m_textEquivalent->setFont(font);
 
     HelpLabel *textEquivalentHelp = new HelpLabel(i18n("What is this for?"),
-                                                  "<p>" + i18n("When you copy and paste or drag and drop notes to a text editor, this text will be inserted as a textual equivalent of the tag.") + "</p>" +
+                                                  QStringLiteral("<p>") + i18n("When you copy and paste or drag and drop notes to a text editor, this text will be inserted as a textual equivalent of the tag.") + QStringLiteral("</p>") +
                                                       //      "<p>" + i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
                                                       i18n("For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, "
                                                            "representing an empty checkbox and a checked box.") +
-                                                      "</p>" + "<p align='center'><img src=\":images/tag_export_help.png\"></p>",
+                                                      QStringLiteral("</p>") + QStringLiteral("<p align='center'><img src=\":images/tag_export_help.png\"></p>"),
                                                   stateWidget);
     QHBoxLayout *textEquivalentHelpLayout = new QHBoxLayout;
     textEquivalentHelpLayout->addWidget(textEquivalentHelp);
@@ -527,8 +527,8 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_onEveryLines = new QCheckBox(i18n("On ever&y line"), stateWidget);
 
     HelpLabel *onEveryLinesHelp = new HelpLabel(i18n("What does this mean?"),
-                                                "<p>" + i18n("When a note has several lines, you can choose to export the tag or the state on the first line or on every line of the note.") + "</p>" +
-                                                    "<p align='center'><img src=\":images/tag_export_on_every_lines_help.png\"></p>" + "<p>" +
+                                                QStringLiteral("<p>") + i18n("When a note has several lines, you can choose to export the tag or the state on the first line or on every line of the note.") + QStringLiteral("</p>") +
+                                                    QStringLiteral("<p align='center'><img src=\":images/tag_export_on_every_lines_help.png\"></p>") + QStringLiteral("<p>") +
                                                     i18n("In the example above, the tag of the top note is only exported on the first line, while the tag of the bottom note is exported on every line of the note."),
                                                 stateWidget);
     QHBoxLayout *onEveryLinesHelpLayout = new QHBoxLayout;
@@ -685,7 +685,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     connect(moveAbove, &QAction::triggered, this, &TagsEditDialog::moveUp);
 
     QAction *moveBelow = new QAction(this);
-    moveBelow->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_Down);
+    moveBelow->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_Down);
     connect(moveBelow, &QAction::triggered, this, &TagsEditDialog::moveDown);
 
     QAction *rename = new QAction(this);
@@ -744,7 +744,7 @@ void TagsEditDialog::newTag()
 {
     // Add to the "model":
     TagCopy *newTagCopy = new TagCopy();
-    newTagCopy->stateCopies[0]->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
+    newTagCopy->stateCopies[0]->newState->setId(QStringLiteral("tag_state_") + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
     m_tagCopies.append(newTagCopy);
     m_addedStates.append(newTagCopy->stateCopies[0]->newState);
 
@@ -783,14 +783,14 @@ void TagsEditDialog::newState()
         firstState->setName(tagItem->tagCopy()->newTag->name());
         // Force emblem to exists for multi-state tags:
         if (firstState->emblem().isEmpty())
-            firstState->setEmblem("empty");
+            firstState->setEmblem(QStringLiteral("empty"));
         new TagListViewItem(tagItem, tagItem->tagCopy()->stateCopies[0]);
     }
 
     // Add to the "model":
     StateCopy *newStateCopy = new StateCopy();
     firstState->copyTo(newStateCopy->newState);
-    newStateCopy->newState->setId("tag_state_" + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
+    newStateCopy->newState->setId(QStringLiteral("tag_state_") + QString::number(Tag::getNextStateUid())); // TODO: Check if it's really unique
     newStateCopy->newState->setName(QString());                                            // We copied it too but it's likely the name will not be the same
     tagItem->tagCopy()->stateCopies.append(newStateCopy);
     m_addedStates.append(newStateCopy->newState);
@@ -936,25 +936,25 @@ void TagsEditDialog::moveDown()
 
 void TagsEditDialog::selectUp()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Up, Qt::KeyboardModifiers(), nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Up, Qt::KeyboardModifiers(), QString());
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectDown()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Down, Qt::KeyboardModifiers(), nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Down, Qt::KeyboardModifiers(), QString());
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectLeft()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, Qt::KeyboardModifiers(), nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, Qt::KeyboardModifiers(), QString());
     QApplication::postEvent(m_tags, keyEvent);
 }
 
 void TagsEditDialog::selectRight()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, Qt::KeyboardModifiers(), nullptr);
+    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, Qt::KeyboardModifiers(), QString());
     QApplication::postEvent(m_tags, keyEvent);
 }
 
@@ -967,9 +967,9 @@ void TagsEditDialog::deleteTag()
 
     int result = KMessageBox::Continue;
     if (item->tagCopy() && item->tagCopy()->oldTag)
-        result = KMessageBox::warningContinueCancel(this, i18n("Deleting the tag will remove it from every note it is currently assigned to."), i18n("Confirm Delete Tag"), KGuiItem(i18n("Delete Tag"), "edit-delete"));
+        result = KMessageBox::warningContinueCancel(this, i18n("Deleting the tag will remove it from every note it is currently assigned to."), i18n("Confirm Delete Tag"), KGuiItem(i18n("Delete Tag"), QStringLiteral("edit-delete")));
     else if (item->stateCopy() && item->stateCopy()->oldState)
-        result = KMessageBox::warningContinueCancel(this, i18n("Deleting the state will remove the tag from every note the state is currently assigned to."), i18n("Confirm Delete State"), KGuiItem(i18n("Delete State"), "edit-delete"));
+        result = KMessageBox::warningContinueCancel(this, i18n("Deleting the state will remove the tag from every note the state is currently assigned to."), i18n("Confirm Delete State"), KGuiItem(i18n("Delete State"), QStringLiteral("edit-delete")));
     if (result != KMessageBox::Continue)
         return;
 

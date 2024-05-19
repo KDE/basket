@@ -7,6 +7,7 @@
 #include "noteedit.h"
 
 #include <QAction>
+#include <QActionGroup>
 #include <QApplication>
 #include <QColorDialog>
 #include <QDialogButtonBox>
@@ -526,19 +527,19 @@ void HtmlEditor::detectTags()
 ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)
     : NoteEditor(imageContent)
 {
-    int choice = KMessageBox::questionYesNoCancel(parent,
+    int choice = KMessageBox::questionTwoActionsCancel(parent,
                                                   i18n("Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
                                                        "Do you want to open it with an application that understand it?"),
                                                   i18n("Edit Image Note"),
                                                   KStandardGuiItem::open(),
-                                                  KGuiItem(i18n("Load From &File..."), IconNames::DOCUMENT_IMPORT),
+                                                  KGuiItem(i18n("Load From &File..."), QLatin1String(IconNames::DOCUMENT_IMPORT)),
                                                   KStandardGuiItem::cancel());
 
     switch (choice) {
-    case (KMessageBox::Yes):
+    case (KMessageBox::Ok):
         note()->basket()->noteOpen(note());
         break;
-    case (KMessageBox::No): // Load from file
+    case (KMessageBox::SecondaryAction): // Load from file
         cancel();
         Global::bnpView->insertWizard(3); // 3 maps to m_actLoadFile
         break;
@@ -553,14 +554,14 @@ ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)
 AnimationEditor::AnimationEditor(AnimationContent *animationContent, QWidget *parent)
     : NoteEditor(animationContent)
 {
-    int choice = KMessageBox::questionYesNo(parent,
+    int choice = KMessageBox::questionTwoActions(parent,
                                             i18n("This animated image can not be edited here.\n"
                                                  "Do you want to open it with an application that understands it?"),
                                             i18n("Edit Animation Note"),
                                             KStandardGuiItem::open(),
                                             KStandardGuiItem::cancel());
 
-    if (choice == KMessageBox::Yes)
+    if (choice == KMessageBox::PrimaryAction)
         note()->basket()->noteOpen(note());
 }
 
@@ -727,7 +728,7 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
         m_url = new KUrlRequester(QUrl(QString()), wid);
         m_url->setMode(KFile::File | KFile::ExistingOnly);
     } else {
-        m_url = new KUrlRequester(m_noteContent->url().toDisplayString(), wid);
+        m_url = new KUrlRequester(QUrl(m_noteContent->url().toDisplayString()), wid);
         m_url->setMode(KFile::File | KFile::ExistingOnly);
     }
 
@@ -913,7 +914,7 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
 
     if (m_noteContent->url().isEmpty()) {
         BasketListViewItem *item = Global::bnpView->topLevelItem(0);
-        m_noteContent->setCrossReference(QUrl::fromUserInput(item->data(0, Qt::UserRole).toString()), m_targetBasket->currentText(), "edit-copy");
+        m_noteContent->setCrossReference(QUrl::fromUserInput(item->data(0, Qt::UserRole).toString()), m_targetBasket->currentText(), QStringLiteral("edit-copy"));
         this->urlChanged(0);
     } else {
         QString url = m_noteContent->url().url();
@@ -985,10 +986,10 @@ void CrossReferenceEditDialog::generateBasketList(KComboBox *targetList, BasketL
         QString pad;
         QString text = item->text(0); // user text
 
-        text.prepend(pad.fill(' ', indent * 2));
+        text.prepend(pad.fill(QLatin1Char(' '), indent * 2));
 
         // create the link text
-        QString link = "basket://";
+        QString link = QStringLiteral("basket://");
         link.append(bv->folderName().toLower()); // unique ref.
         QStringList data;
         data.append(link);
@@ -1173,7 +1174,7 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     richTextFont->setCurrentFont(defaultFont.family());
 
     QWidgetAction *action = new QWidgetAction(parent);
-    ac->addAction("richtext_font", action);
+    ac->addAction(QStringLiteral("richtext_font"), action);
     action->setDefaultWidget(richTextFont);
     action->setText(i18n("Font"));
     ac->setDefaultShortcut(action, Qt::Key_F6);
@@ -1181,7 +1182,7 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     richTextFontSize = new FontSizeCombo(/*rw=*/true, Global::activeMainWindow());
     richTextFontSize->setFontSize(defaultFont.pointSize());
     action = new QWidgetAction(parent);
-    ac->addAction("richtext_font_size", action);
+    ac->addAction(QStringLiteral("richtext_font_size"), action);
     action->setDefaultWidget(richTextFontSize);
     action->setText(i18n("Font Size"));
     ac->setDefaultShortcut(action, Qt::Key_F7);
@@ -1191,30 +1192,30 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     richTextColor->setFixedWidth(richTextColor->sizeHint().height() * 2);
     richTextColor->setColor(textColor);
     action = new QWidgetAction(parent);
-    ac->addAction("richtext_color", action);
+    ac->addAction(QStringLiteral("richtext_color"), action);
     action->setDefaultWidget(richTextColor);
     action->setText(i18n("Color"));
 
     KToggleAction *ta = nullptr;
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_bold", ta);
+    ac->addAction(QStringLiteral("richtext_bold"), ta);
     ta->setText(i18n("Bold"));
-    ta->setIcon(QIcon::fromTheme("format-text-bold"));
-    ac->setDefaultShortcut(ta, QKeySequence("Ctrl+B"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-bold")));
+    ac->setDefaultShortcut(ta, QKeySequence(QStringLiteral("Ctrl+B")));
     richTextBold = ta;
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_italic", ta);
+    ac->addAction(QStringLiteral("richtext_italic"), ta);
     ta->setText(i18n("Italic"));
-    ta->setIcon(QIcon::fromTheme("format-text-italic"));
-    ac->setDefaultShortcut(ta, QKeySequence("Ctrl+I"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-italic")));
+    ac->setDefaultShortcut(ta, QKeySequence(QStringLiteral("Ctrl+I")));
     richTextItalic = ta;
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_underline", ta);
+    ac->addAction(QStringLiteral("richtext_underline"), ta);
     ta->setText(i18n("Underline"));
-    ta->setIcon(QIcon::fromTheme("format-text-underline"));
-    ac->setDefaultShortcut(ta, QKeySequence("Ctrl+U"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-underline")));
+    ac->setDefaultShortcut(ta, QKeySequence(QStringLiteral("Ctrl+U")));
     richTextUnderline = ta;
 
 #if 0
@@ -1232,27 +1233,27 @@ void InlineEditors::initToolBars(KActionCollection *ac)
 #endif
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_left", ta);
+    ac->addAction(QStringLiteral("richtext_left"), ta);
     ta->setText(i18n("Align Left"));
-    ta->setIcon(QIcon::fromTheme("format-justify-left"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-left")));
     richTextLeft = ta;
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_center", ta);
+    ac->addAction(QStringLiteral("richtext_center"), ta);
     ta->setText(i18n("Centered"));
-    ta->setIcon(QIcon::fromTheme("format-justify-center"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-center")));
     richTextCenter = ta;
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_right", ta);
+    ac->addAction(QStringLiteral("richtext_right"), ta);
     ta->setText(i18n("Align Right"));
-    ta->setIcon(QIcon::fromTheme("format-justify-right"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-right")));
     richTextRight = ta;
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_block", ta);
+    ac->addAction(QStringLiteral("richtext_block"), ta);
     ta->setText(i18n("Justified"));
-    ta->setIcon(QIcon::fromTheme("format-justify-fill"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-fill")));
     richTextJustified = ta;
 
     QActionGroup *alignmentGroup = new QActionGroup(this);
@@ -1262,15 +1263,15 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     alignmentGroup->addAction(richTextJustified);
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_undo", ta);
+    ac->addAction(QStringLiteral("richtext_undo"), ta);
     ta->setText(i18n("Undo"));
-    ta->setIcon(QIcon::fromTheme("edit-undo"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
     richTextUndo = ta;
 
     ta = new KToggleAction(ac);
-    ac->addAction("richtext_redo", ta);
+    ac->addAction(QStringLiteral("richtext_redo"), ta);
     ta->setText(i18n("Redo"));
-    ta->setIcon(QIcon::fromTheme("edit-redo"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("edit-redo")));
     richTextRedo = ta;
 
     disableRichTextToolBar();
@@ -1280,7 +1281,7 @@ KToolBar *InlineEditors::richTextToolBar()
 {
     if (Global::activeMainWindow()) {
         Global::activeMainWindow()->toolBar(); // Make sure we create the main toolbar FIRST, so it will be on top of the edit toolbar!
-        return Global::activeMainWindow()->toolBar("richTextEditToolBar");
+        return Global::activeMainWindow()->toolBar(QStringLiteral("richTextEditToolBar"));
     } else
         return nullptr;
 }

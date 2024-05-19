@@ -1,6 +1,13 @@
 include_directories(${GPGME_INCLUDES})
 
-find_package(KF6Service)
+set(CMAKE_AUTOMOC ON)
+
+find_package(KF6FileMetaData REQUIRED)
+find_package(KF6I18n REQUIRED)
+find_package(KF6Service REQUIRED)
+find_package(KF6IconThemes REQUIRED)
+find_package(KF6Codecs REQUIRED)
+find_package(KF6WindowSystem)
 
 ########### next target ###############
 
@@ -43,7 +50,7 @@ set(libbasket_SRCS
     settings.cpp
     settings_versionsync.cpp
     softwareimporters.cpp
-        tag.cpp
+    tag.cpp
     tagsedit.cpp
     tools.cpp
     variouswidgets.cpp
@@ -66,12 +73,14 @@ target_link_libraries(LibBasket
     KF6::Archive
     KF6::ConfigWidgets
     KF6::CoreAddons
+    KF6::Codecs
     KF6::Crash
     KF6::DBusAddons
     KF6::FileMetaData
     KF6::GlobalAccel
     KF6::GuiAddons
     KF6::I18n
+    KF6::IconWidgets
     KF6::IconThemes
     KF6::KCMUtils
     KF6::KIOWidgets
@@ -104,7 +113,6 @@ set(basket_SRCS
     main.cpp
     mainwindow.cpp
     application.cpp
-
     basket.qrc
 )
 
@@ -119,44 +127,38 @@ endif()
 install(TARGETS basket DESTINATION ${KDE_INSTALL_BINDIR})
 
 add_library(basket_config_general MODULE kcm_basket/basket_config_general.cpp)
-# kcoreaddons_desktop_to_json(LibBasket "kcm_basket/basket_config_general.desktop" SERVICE_TYPES kcmodule.desktop)
-# target_link_libraries(basket_config_general "kcm_basket/basket_config_general.desktop")
+target_link_libraries(basket_config_general LibBasket)
 install(TARGETS basket_config_general DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 add_library(basket_config_baskets MODULE kcm_basket/basket_config_baskets.cpp)
-# kcoreaddons_desktop_to_json(LibBasket "kcm_basket/basket_config_baskets.desktop" SERVICE_TYPES kcmodule.desktop)
-# target_link_libraries(basket_config_baskets LibBasket)
+target_link_libraries(basket_config_baskets LibBasket)
 install(TARGETS basket_config_baskets DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 add_library(basket_config_new_notes MODULE kcm_basket/basket_config_new_notes.cpp)
-# kcoreaddons_desktop_to_json(LibBasket "kcm_basket/basket_config_new_notes.desktop" SERVICE_TYPES kcmodule.desktop)
-# target_link_libraries(basket_config_new_notes LibBasket)
+target_link_libraries(basket_config_new_notes LibBasket)
 install(TARGETS basket_config_new_notes DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 add_library(basket_config_notes_appearance MODULE kcm_basket/basket_config_notes_appearance.cpp)
-# kcoreaddons_desktop_to_json(LibBasket "kcm_basket/basket_config_notes_appearance.desktop" SERVICE_TYPES kcmodule.desktop)
-# target_link_libraries(basket_config_notes_appearance LibBasket)
+target_link_libraries(basket_config_notes_appearance LibBasket)
 install(TARGETS basket_config_notes_appearance DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 add_library(basket_config_apps MODULE kcm_basket/basket_config_apps.cpp)
-# kcoreaddons_desktop_to_json(LibBasket "kcm_basket/basket_config_apps.desktop" SERVICE_TYPES kcmodule.desktop)
-# target_link_libraries(basket_config_apps LibBasket)
+target_link_libraries(basket_config_apps LibBasket)
 install(TARGETS basket_config_apps DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 add_library(basket_config_version_sync MODULE kcm_basket/basket_config_version_sync.cpp)
-# kcoreaddons_desktop_to_json(LibBasket "kcm_basket/basket_config_version_sync.desktop" SERVICE_TYPES kcmodule.desktop)
-# target_link_libraries(basket_config_version_sync LibBasket)
+target_link_libraries(basket_config_version_sync LibBasket)
 install(TARGETS basket_config_version_sync DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 set(DESKTOP_FILES
-    kcm_basket/basket_config_general.desktop
-    kcm_basket/basket_config_baskets.desktop
-    kcm_basket/basket_config_new_notes.desktop
-    kcm_basket/basket_config_notes_appearance.desktop
-    kcm_basket/basket_config_apps.desktop
-    kcm_basket/basket_config_version_sync.desktop
+    kcm_basket/basket_config_general.json
+    kcm_basket/basket_config_baskets.json
+    kcm_basket/basket_config_new_notes.json
+    kcm_basket/basket_config_notes_appearance.json
+    kcm_basket/basket_config_apps.json
+    kcm_basket/basket_config_version_sync.json
 )
-install(FILES ${DESKTOP_FILES} DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(FILES ${DESKTOP_FILES} DESTINATION ${SERVICES_INSTALL_DIR})
 
 
 install(FILES org.kde.basket.desktop DESTINATION ${KDE_INSTALL_APPDIR})

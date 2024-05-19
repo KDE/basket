@@ -7,12 +7,12 @@
 #include "notedrag.h"
 
 #include <QApplication>
-#include <QDesktopWidget> //For qApp->desktop()
+// #include <QDesktopWidget> //For qApp->desktop()
 #include <QtCore/QBuffer>
 #include <QtCore/QDir>
 #include <QtCore/QList>
 #include <QtCore/QMimeData>
-#include <QtCore/QTextCodec>
+// #include <QtCore/QTextCodec>
 #include <QtCore/QTextStream>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QPainter>
@@ -63,7 +63,7 @@ QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *sour
         serializeNotes(noteList, stream, cutting);
         // Append the object:
         buffer.close();
-        mimeData->setData(NOTE_MIME_STRING, buffer.buffer());
+        mimeData->setData(QLatin1String(NOTE_MIME_STRING), buffer.buffer());
     }
 
     // The "Other Flavors" Serialization:
@@ -127,7 +127,7 @@ void NoteDrag::serializeText(NoteSelection *noteList, QMimeData* mimeData)
     for (NoteSelection *node = noteList->firstStacked(); node; node = node->nextStacked()) {
         text = node->note->toText(node->fullPath); // note->toText() and not note->content()->toText() because the first one will also export the tags as text.
         if (!text.isEmpty())
-            textEquivalent += (!textEquivalent.isEmpty() ? "\n" : QString()) + text;
+            textEquivalent += (!textEquivalent.isEmpty() ? QStringLiteral("\n") : QString()) + text;
     }
     if (!textEquivalent.isEmpty()) {
         mimeData->setText(textEquivalent);
@@ -141,15 +141,15 @@ void NoteDrag::serializeHtml(NoteSelection *noteList, QMimeData* mimeData)
     for (NoteSelection *node = noteList->firstStacked(); node; node = node->nextStacked()) {
         html = node->note->content()->toHtml(QString(), node->fullPath);
         if (!html.isEmpty())
-            htmlEquivalent += (!htmlEquivalent.isEmpty() ? "<br>\n" : QString()) + html;
+            htmlEquivalent += (!htmlEquivalent.isEmpty() ? QStringLiteral("<br>\n") : QString()) + html;
     }
     if (!htmlEquivalent.isEmpty()) {
         // Add HTML flavour:
         mimeData->setHtml(htmlEquivalent);
 
         // But also QTextEdit flavour, to be able to paste several notes to a text edit:
-        QByteArray byteArray = ("<!--StartFragment--><p>" + htmlEquivalent).toLocal8Bit();
-        mimeData->setData("application/x-qrichtext", byteArray);
+        QByteArray byteArray = (QStringLiteral("<!--StartFragment--><p>") + htmlEquivalent).toLocal8Bit();
+        mimeData->setData(QStringLiteral("application/x-qrichtext"), byteArray);
     }
 }
 
@@ -212,7 +212,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool
         // FIXME: If no, only provide that if there is only ONE URL.
         QString xMozUrl;
         for (int i = 0; i < urls.count(); ++i)
-            xMozUrl += (xMozUrl.isEmpty() ? QString() : "\n") + urls[i].toDisplayString() + '\n' + titles[i];
+            xMozUrl += (xMozUrl.isEmpty() ? QString() : QStringLiteral("\n")) + urls[i].toDisplayString() + QLatin1Char('\n') + titles[i];
         /*      Code for only one: ===============
                 xMozUrl = note->title() + "\n" + note->url().toDisplayString();*/
         QByteArray baMozUrl;
@@ -221,18 +221,18 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool
         // It's UTF16 (aka UCS2), but with the first two order bytes
         // stream.setEncoding(QTextStream::RawUnicode); // It's UTF16 (aka UCS2), but with the first two order bytes
         // FIXME: find out if this is really equivalent, as https://doc.qt.io/archives/3.3/qtextstream.html pretends
-        stream.setCodec("UTF-16");
+        stream.setEncoding(QStringConverter::Utf8);
 
         stream << xMozUrl;
 
-        mimeData->setData("text/x-moz-url", baMozUrl);
+        mimeData->setData(QStringLiteral("text/x-moz-url"), baMozUrl);
 
         if (cutting) {
             QByteArray arrayCut;
             arrayCut.resize(2);
             arrayCut[0] = '1';
             arrayCut[1] = 0;
-            mimeData->setData("application/x-kde-cutselection", arrayCut);
+            mimeData->setData(QStringLiteral("application/x-kde-cutselection"), arrayCut);
         }
     }
 }
@@ -280,7 +280,7 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
             bgColor = node->note->basket()->backgroundColor();
             needSpace = false;
         } else {
-            pixmap = node->note->content()->feedbackPixmap(/*maxWidth=*/qApp->desktop()->width() / 2, /*maxHeight=*/96);
+            pixmap = node->note->content()->feedbackPixmap(/*maxWidth=*/qApp->primaryScreen()->geometry().width() / 2, /*maxHeight=*/96);
             bgColor = node->note->backgroundColor();
             needSpace = node->note->content()->needSpaceForFeedbackPixmap();
         }
@@ -293,7 +293,7 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
             height += (i > 0 && needSpace ? 1 : 0) + pixmap.height() + SPACING + (needSpace ? 1 : 0);
             if (elipsisImage)
                 break;
-            if (height > qApp->desktop()->height() / 2)
+            if (height > qApp->primaryScreen()->geometry().height() / 2)
                 elipsisImage = true;
         }
     }
@@ -348,12 +348,12 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
 
 bool NoteDrag::canDecode(const QMimeData *source)
 {
-    return source->hasFormat(NOTE_MIME_STRING);
+    return source->hasFormat(QLatin1String(NOTE_MIME_STRING));
 }
 
 BasketScene *NoteDrag::basketOf(const QMimeData *source)
 {
-    QByteArray srcData = source->data(NOTE_MIME_STRING);
+    QByteArray srcData = source->data(QLatin1String(NOTE_MIME_STRING));
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
         QDataStream stream(&buffer);
@@ -371,7 +371,7 @@ QList<Note *> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
        Thus m_draggedNotes will contain many invalid pointer values.
        As a workaround, we use NoteDrag::selectedNotes now. */
 
-    QByteArray srcData = source->mimeData()->data(NOTE_MIME_STRING);
+    QByteArray srcData = source->mimeData()->data(QLatin1String(NOTE_MIME_STRING));
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
         QDataStream stream(&buffer);
@@ -404,7 +404,7 @@ void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
 
 Note *NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes)
 {
-    QByteArray srcData = source->data(NOTE_MIME_STRING);
+    QByteArray srcData = source->data(QLatin1String(NOTE_MIME_STRING));
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
         QDataStream stream(&buffer);
@@ -534,7 +534,7 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
 
 bool ExtendedTextDrag::decode(const QMimeData *e, QString &str)
 {
-    QString subtype("plain");
+    QString subtype(QStringLiteral("plain"));
     return decode(e, str, subtype);
 }
 
@@ -542,38 +542,41 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
 {
     // Get the string:
     bool ok;
-    str = e->text();
+    QString mime = e->text();
     ok = !str.isNull();
 
     // Test if it was a UTF-16 string (from eg. Mozilla):
     if (str.length() >= 2) {
-        if ((str[0] == 0xFF && str[1] == 0xFE) || (str[0] == 0xFE && str[1] == 0xFF)) {
-            QByteArray utf16 = e->data(QString("text/" + subtype).toLocal8Bit());
-            str = QTextCodec::codecForName("utf16")->toUnicode(utf16);
+        if ((mime[0] == QLatin1Char(0xFF) && mime[1] == QLatin1Char(0xFE)) || (mime[0] == QLatin1Char(0xFE) && mime[1] == QLatin1Char(0xFF))) {
+            auto fromUtf16 = QStringEncoder(QStringEncoder::Utf8);
+            QByteArray encodedString = fromUtf16(str);
+            str = QLatin1String(encodedString);
             return true;
         }
     }
 
     // Test if it was empty (sometimes, from GNOME or Mozilla)
-    if (str.length() == 0 && subtype == "plain") {
-        if (e->hasFormat("UTF8_STRING")) {
-            QByteArray utf8 = e->data("UTF8_STRING");
-            str = QTextCodec::codecForName("utf8")->toUnicode(utf8);
+    if (str.length() == 0 && subtype == QStringLiteral("plain")) {
+        if (e->hasFormat(QStringLiteral("UTF8_STRING"))) {
+            auto fromUtf8 = QStringEncoder(QStringEncoder::Utf16);
+            QByteArray encodedString = fromUtf8(str);
+            str = QLatin1String(encodedString);
             return true;
         }
-        if (e->hasFormat("text/unicode")) { // FIXME: It's UTF-16 without order bytes!!!
-            QByteArray utf16 = e->data("text/unicode");
-            str = QTextCodec::codecForName("utf16")->toUnicode(utf16);
+        if (e->hasFormat(QStringLiteral("text/unicode"))) { // FIXME: It's UTF-16 without order bytes!!!
+            auto fromUtf16 = QStringEncoder(QStringEncoder::Utf8);
+            QByteArray encodedString = fromUtf16(str);
+            str = QLatin1String(encodedString);
             return true;
         }
-        if (e->hasFormat("TEXT")) { // local encoding
-            QByteArray text = e->data("TEXT");
-            str = QString(text);
+        if (e->hasFormat(QStringLiteral("TEXT"))) { // local encoding
+            QByteArray text = e->data(QStringLiteral("TEXT"));
+            str = QLatin1String(text);
             return true;
         }
-        if (e->hasFormat("COMPOUND_TEXT")) { // local encoding
-            QByteArray text = e->data("COMPOUND_TEXT");
-            str = QString(text);
+        if (e->hasFormat(QStringLiteral("COMPOUND_TEXT"))) { // local encoding
+            QByteArray text = e->data(QStringLiteral("COMPOUND_TEXT"));
+            str = QLatin1String(text);
             return true;
         }
     }

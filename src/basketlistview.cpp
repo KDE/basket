@@ -10,7 +10,7 @@
 #include <QLocale>
 #include <QMimeData>
 #include <QToolTip>
-#include <QtCore/QRegExp>
+#include <QRegularExpression>
 #include <QtGui/QBitmap>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QDragLeaveEvent>
@@ -78,16 +78,17 @@ QString BasketListViewItem::escapedName(const QString &string)
 {
     // Underlining the Alt+Letter shortcut (and escape all other '&' characters), if any:
     QString basketName = string;
-    basketName.replace('&', "&&"); // First escape all the amperstamp
+    basketName.replace(QLatin1Char('&'), QStringLiteral("&&")); // First escape all the amperstamp
     QString letter;
-    QRegExp letterExp("^Alt\\+(?:Shift\\+)?(.)$");
+    QRegularExpression letterExp(QStringLiteral("^Alt\\+(?:Shift\\+)?(.)$"));
 
     QString basketShortcut = m_basket->shortcut().toString();
-    if (letterExp.indexIn(basketShortcut) != -1) {
+    if (basketShortcut.indexOf(letterExp) != -1) {
         int index;
-        letter = letterExp.cap(1);
+        QRegularExpressionMatch letterMatch = letterExp.match(basketShortcut);
+        letter = letterMatch.captured(1);
         if ((index = basketName.indexOf(letter)) != -1)
-            basketName.insert(index, '&');
+            basketName.insert(index, QLatin1Char('&'));
     }
 
     return basketName;
@@ -125,7 +126,7 @@ QStringList BasketListViewItem::childNamesTree(int deep)
     // Compute indentation spaces:
     QString spaces;
     for (int j = 0; j < deep; ++j)
-        spaces += "  ";
+        spaces += QStringLiteral("  ");
 
     // Append the names of sub baskets
     if (deep > 0)
@@ -257,7 +258,7 @@ void BasketListViewItem::setAbbreviated(bool b)
 }
 
 /** class BasketTreeListView: */
-QString BasketTreeListView::TREE_ITEM_MIME_STRING = "application/x-basket-item";
+QString BasketTreeListView::TREE_ITEM_MIME_STRING = QStringLiteral("application/x-basket-item");
 
 BasketTreeListView::BasketTreeListView(QWidget *parent)
     : QTreeWidget(parent)
@@ -277,11 +278,11 @@ QStringList BasketTreeListView::mimeTypes() const
 {
     QStringList types;
     types << TREE_ITEM_MIME_STRING;
-    types << NoteDrag::NOTE_MIME_STRING;
+    types << QLatin1String(NoteDrag::NOTE_MIME_STRING);
     return types;
 }
 
-QMimeData *BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> items) const
+QMimeData *BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> &items) const
 {
     QString mimeType = TREE_ITEM_MIME_STRING;
 
@@ -510,7 +511,7 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
 
         // Don't forget to update the key computation if parameters
         // affecting the rendering logic change
-        QString key = QString("BLIRR::%1.%2.%3.%4").arg(option.rect.width()).arg(option.rect.size().height()).arg(textWidth).arg(background.rgb());
+        QString key = QString(QStringLiteral("BLIRR::%1.%2.%3.%4")).arg(option.rect.width()).arg(option.rect.size().height()).arg(textWidth).arg(background.rgb());
         if (!QPixmapCache::find(key, &roundRectBmp)) {
             // Draw first time
 
@@ -544,19 +545,19 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
         effectiveWidth += countPixmap.width() + MARGIN;
     }
     if (showLoadingIcon) {
-        QPixmap icon = KIconLoader::global()->loadIcon(IconNames::LOADING, KIconLoader::NoGroup, BASKET_ICON_SIZE);
+        QPixmap icon = KIconLoader::global()->loadIcon(QLatin1String(IconNames::LOADING), KIconLoader::NoGroup, BASKET_ICON_SIZE);
         painter->drawPixmap(effectiveWidth, y, icon);
         effectiveWidth += BASKET_ICON_SIZE + MARGIN;
     }
     if (showEncryptedIcon && !showLoadingIcon) {
-        QPixmap icon = KIconLoader::global()->loadIcon(IconNames::LOCKED, KIconLoader::NoGroup, BASKET_ICON_SIZE);
+        QPixmap icon = KIconLoader::global()->loadIcon(QLatin1String(IconNames::LOCKED), KIconLoader::NoGroup, BASKET_ICON_SIZE);
         painter->drawPixmap(effectiveWidth, y, icon);
     }
 }
 
 QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const QFont &font, const QColor &color) const
 {
-    QString key = QString("BLI-%1.%2.%3.%4").arg(text).arg(height).arg(font.toString()).arg(color.rgb());
+    QString key = QString(QStringLiteral("BLI-%1.%2.%3.%4")).arg(text).arg(height).arg(font.toString()).arg(color.rgb());
     QPixmap cached;
     if (QPixmapCache::find(key, &cached)) {
         return cached;

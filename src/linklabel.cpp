@@ -125,38 +125,38 @@ LinkLook *LinkLook::lookForURL(const QUrl &url)
 QString LinkLook::toCSS(const QString &cssClass, const QColor &defaultTextColor) const
 {
     // Set the link class:
-    QString css = QString("{ display: block; width: 100%;");
+    QString css = QStringLiteral("{ display: block; width: 100%;");
     if (underlineOutside())
-        css += " text-decoration: underline;";
+        css += QStringLiteral(" text-decoration: underline;");
     else
-        css += " text-decoration: none;";
+        css += QStringLiteral(" text-decoration: none;");
     if (m_italic == true)
-        css += " font-style: italic;";
+        css += QStringLiteral(" font-style: italic;");
     if (m_bold == true)
-        css += " font-weight: bold;";
+        css += QStringLiteral(" font-weight: bold;");
     QColor textColor = (color().isValid() || m_useLinkColor ? effectiveColor() : defaultTextColor);
-    css += QString(" color: %1; }\n").arg(textColor.name());
+    css += QStringLiteral(" color: %1; }\n").arg(textColor.name());
 
     QString css2 = css;
-    css.prepend(QString("   .%1 a").arg(cssClass));
-    css2.prepend(QString("   a.%1").arg(cssClass));
+    css.prepend(QStringLiteral("   .%1 a").arg(cssClass));
+    css2.prepend(QStringLiteral("   a.%1").arg(cssClass));
 
     // Set the hover state class:
     QString hover;
     if (m_underlining == OnMouseHover)
-        hover = "text-decoration: underline;";
+        hover = QStringLiteral("text-decoration: underline;");
     else if (m_underlining == OnMouseOutside)
-        hover = "text-decoration: none;";
+        hover = QStringLiteral("text-decoration: none;");
     if (effectiveHoverColor() != effectiveColor()) {
         if (!hover.isEmpty())
-            hover += ' ';
-        hover += QString("color: %4;").arg(effectiveHoverColor().name());
+            hover += QLatin1Char(' ');
+        hover += QStringLiteral("color: %4;").arg(effectiveHoverColor().name());
     }
 
     // But include it only if it contain a different style than non-hover state:
     if (!hover.isEmpty()) {
-        css += QString("   .%1 a:hover { %2 }\n").arg(cssClass, hover);
-        css2 += QString("    a:hover.%1 { %2 }\n").arg(cssClass, hover);
+        css += QStringLiteral("   .%1 a:hover { %2 }\n").arg(cssClass, hover);
+        css2 += QStringLiteral("    a:hover.%1 { %2 }\n").arg(cssClass, hover);
     }
     return css + css2;
 }
@@ -319,7 +319,7 @@ void LinkLabel::setAlign(int hAlign, int vAlign)
         m_layout->addItem(m_spacer2);
 }
 
-void LinkLabel::enterEvent(QEvent *)
+void LinkLabel::enterEvent(QEnterEvent *)
 {
     m_isHovered = true;
 
@@ -495,7 +495,7 @@ QPixmap LinkDisplay::feedbackPixmap(qreal width, qreal height, const QPalette &p
     qreal theWidth = qMin(width, maxWidth());
     qreal theHeight = qMin(height, heightForWidth(theWidth));
     QPixmap pixmap(theWidth, theHeight);
-    pixmap.fill(palette.color(QPalette::Active, QPalette::Background));
+    pixmap.fill(palette.color(QPalette::Active, QPalette::Base));
     QPainter painter(&pixmap);
     paint(&painter,
           0,
@@ -566,18 +566,18 @@ QString LinkDisplay::toHtml(HTMLExporter *exporter, const QUrl &url, const QStri
 {
     QString linkIcon;
     if (m_look->previewEnabled() && !m_preview.isNull()) {
-        QString fileName = Tools::fileNameForNewFile("preview_" + url.fileName() + ".png", exporter->iconsFolderPath);
+        QString fileName = Tools::fileNameForNewFile(QStringLiteral("preview_") + url.fileName() + QStringLiteral(".png"), exporter->iconsFolderPath);
         QString fullPath = exporter->iconsFolderPath + fileName;
         m_preview.save(fullPath, "PNG");
-        linkIcon = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(exporter->iconsFolderName + fileName, QString::number(m_preview.width()), QString::number(m_preview.height()));
+        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(exporter->iconsFolderName + fileName, QString::number(m_preview.width()), QString::number(m_preview.height()));
     } else {
         linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon, m_look->iconSize());
-        linkIcon = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(linkIcon, QString::number(m_look->iconSize()), QString::number(m_look->iconSize()));
+        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(linkIcon, QString::number(m_look->iconSize()), QString::number(m_look->iconSize()));
     }
 
     QString linkTitle = Tools::textToHTMLWithoutP(title.isEmpty() ? m_title : title);
 
-    return QString("<a href=\"%1\">%2 %3</a>").arg(url.toDisplayString(), linkIcon, linkTitle);
+    return QStringLiteral("<a href=\"%1\">%2 %3</a>").arg(url.toDisplayString(), linkIcon, linkTitle);
 }
 
 /** LinkLookEditWidget **/

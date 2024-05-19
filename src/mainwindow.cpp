@@ -8,7 +8,7 @@
 
 #include <QAction>
 #include <QApplication>
-#include <QDesktopWidget>
+// #include <QDesktopWidget>
 #include <QLocale>
 #include <QStatusBar>
 #include <QtGui/QMoveEvent>
@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     //  InlineEditors::instance()->richTextToolBar();
     setStandardToolBarMenuEnabled(true);
 
-    createGUI("basketui.rc");
+    createGUI(QStringLiteral("basketui.rc"));
     KConfigGroup group = KSharedConfig::openConfig()->group(autoSaveGroup());
     applyMainWindowSettings(group);
 }
@@ -70,7 +70,7 @@ void MainWindow::setupActions()
 {
     actQuit = KStandardAction::quit(this, SLOT(quit()), actionCollection());
     QAction *a = nullptr;
-    a = actionCollection()->addAction("minimizeRestore", this, SLOT(minimizeRestore()));
+    a = actionCollection()->addAction(QStringLiteral("minimizeRestore"), this, SLOT(minimizeRestore()));
     a->setText(i18n("Minimize"));
     a->setIcon(QIcon::fromTheme(QString()));
     a->setShortcut(0);
@@ -132,7 +132,7 @@ void MainWindow::configureNotifications()
 void MainWindow::slotNewToolbarConfig() // This is called when OK or Apply is clicked
 {
     // ...if you use any action list, use plugActionList on each here...
-    createGUI("basketui.rc"); // TODO: Reconnect tags menu aboutToShow() ??
+    createGUI(QStringLiteral("basketui.rc")); // TODO: Reconnect tags menu aboutToShow() ??
     // TODO: Does this do anything?
     plugActionList(QString::fromLatin1("go_baskets_list"), actBasketsList);
     KConfigGroup group = KSharedConfig::openConfig()->group(autoSaveGroup());
@@ -154,7 +154,9 @@ void MainWindow::showSettingsDialog()
 
 void MainWindow::showShortcutsSettingsDialog()
 {
-    KShortcutsDialog::configure(actionCollection());
+    KShortcutsDialog d;
+    d.addCollection(actionCollection());
+    d.configure();
     //.setWindowTitle(..)
     // actionCollection()->writeSettings();
 }
@@ -168,8 +170,8 @@ void MainWindow::ensurePolished()
     //  - Keep the window manager placing the window where it want and save this
     if (Settings::mainWindowSize().isEmpty()) {
         //      qDebug() << "Main Window Position: Initial Set in show()";
-        int defaultWidth = qApp->desktop()->width() * 5 / 6;
-        int defaultHeight = qApp->desktop()->height() * 5 / 6;
+        int defaultWidth = qApp->primaryScreen()->geometry().width() * 5 / 6;
+        int defaultHeight = qApp->primaryScreen()->geometry().height() * 5 / 6;
         resize(defaultWidth, defaultHeight); // sizeHint() is bad (too small) and we want the user to have a good default area size
         shouldSave = true;
     } else {
@@ -246,7 +248,7 @@ bool MainWindow::askForQuit()
 {
     QString message = i18n("<p>Do you really want to quit %1?</p>", QGuiApplication::applicationDisplayName());
 
-    int really = KMessageBox::warningContinueCancel(this, message, i18n("Quit Confirm"), KStandardGuiItem::quit(), KStandardGuiItem::cancel(), "confirmQuitAsking");
+    int really = KMessageBox::warningContinueCancel(this, message, i18n("Quit Confirm"), KStandardGuiItem::quit(), KStandardGuiItem::cancel(), QStringLiteral("confirmQuitAsking"));
 
     if (really == KMessageBox::Cancel) {
         m_quit = false;

@@ -12,7 +12,7 @@
 class QColor;
 class QPixmap;
 class QString;
-class QStringList;
+// class QStringList;
 
 class QUrl;
 class QMimeType;

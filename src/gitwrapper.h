@@ -30,8 +30,8 @@ public:
     static void commitTagsXml();                              // commits and checks baskets.xml
 
 private:
-    static bool commitPattern(git_repository *repo, QString pattern = "*", QString message = "AutoCommit");
-    static bool commitIndex(git_repository *repo, git_index *index, QString message = "AutoCommit");
+    static bool commitPattern(git_repository *repo, QString pattern = QStringLiteral("*"), QString message = QStringLiteral("AutoCommit"));
+    static bool commitIndex(git_repository *repo, git_index *index, QString message = QString(QStringLiteral("AutoCommit")));
     static void removeDeletedFromIndex(git_repository *repo, git_index *index);
     static git_repository *openRepository();
     static QDateTime getLastCommitDate(git_repository *repo);

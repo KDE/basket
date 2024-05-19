@@ -16,20 +16,20 @@
 
 void setupCmdLineOptions(QCommandLineParser *opts)
 {
-    opts->addOption(QCommandLineOption(QStringList() << "d"
-                                                     << "debug",
+    opts->addOption(QCommandLineOption(QStringList() << QStringLiteral("d")
+                                                     << QStringLiteral("debug"),
                                        i18n("Show the debug window")));
-    opts->addOption(QCommandLineOption(QStringList() << "f"
-                                                     << "data-folder",
+    opts->addOption(QCommandLineOption(QStringList() << QStringLiteral("f")
+                                                     << QStringLiteral("data-folder"),
                                        i18n("Custom folder to load and save baskets and other application data."),
                                        i18nc("Command line help: --data-folder <FOLDER>", "folder")));
-    opts->addOption(QCommandLineOption("start-hidden",
+    opts->addOption(QCommandLineOption(QStringLiteral("start-hidden"),
                                        i18n("Automatically hide the main window in the system tray on startup."))); //
-    opts->addOption(QCommandLineOption(QStringList() << "k"
-                                                     << "use-drkonqi",
+    opts->addOption(QCommandLineOption(QStringList() << QStringLiteral("k")
+                                                     << QStringLiteral("use-drkonqi"),
                                        i18n("On crash, use the standard KDE crash handler rather than send an email.")));
 
-    opts->addPositionalArgument("file", i18n("Open a basket archive or template."));
+    opts->addPositionalArgument(QStringLiteral("file"), i18n("Open a basket archive or template."));
 }
 
 #endif // BASKET_OPTIONS_H

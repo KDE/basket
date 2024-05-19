@@ -7,13 +7,14 @@
 #include "basket_options.h"
 #include <QCommandLineOption>
 #include <QCommandLineParser>
+#include <QDir>
 #include <config.h>
 #include <kconfig.h> // TMP IN ALPHA 1
 
 #include "application.h"
 #include "backup.h"
 #include "global.h"
-#include "kde4_migration.h"
+// #include "kde4_migration.h"
 #include "mainwindow.h"
 #include "settings.h"
 
@@ -34,16 +35,16 @@ int main(int argc, char *argv[])
     opts->process(app);
     KAboutData::applicationData().processCommandLine(opts); // show author, license information and exit
 
-    {
-        Kde4Migrator migrator;
-        if (migrator.migrateKde4Data())
-            migrator.showPostMigrationDialog();
-    }
+    // {
+    //     Kde4Migrator migrator;
+    //     if (migrator.migrateKde4Data())
+    //         migrator.showPostMigrationDialog();
+    // }
 
     app.tryLoadFile(opts->positionalArguments(), QDir::currentPath());
 
     // Initialize the config file
-    Global::basketConfig = KSharedConfig::openConfig("basketrc");
+    Global::basketConfig = KSharedConfig::openConfig(QStringLiteral("basketrc"));
 
     Backup::figureOutBinaryPath(argv0, app);
 
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
     win->show();
 
     // Self-test of the presence of basketui.rc (the only required file after basket executable)
-    if (Global::bnpView->popupMenu("basket") == nullptr)
+    if (Global::bnpView->popupMenu(QStringLiteral("basket")) == nullptr)
         // An error message will be show by BNPView::popupMenu()
         return 1;
 

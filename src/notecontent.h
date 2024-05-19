@@ -14,7 +14,7 @@
 #include <QXmlStreamWriter>
 #include <QtCore/QObject>
 
-#include <phonon/phononnamespace.h>
+// #include <phonon/phononnamespace.h>
 
 #include "basket_export.h"
 #include "linklabel.h"
@@ -30,7 +30,7 @@ class QPixmap;
 class QPoint;
 class QRect;
 class QString;
-class QStringList;
+// class QStringList;
 class QTextDocument;
 class QWidget;
 
@@ -46,6 +46,7 @@ namespace Phonon
 {
 class MediaObject;
 }
+
 
 class BasketScene;
 struct FilterData;
@@ -539,7 +540,7 @@ public:
     }
     Phonon::MediaObject *music;
 private Q_SLOTS:
-    void stateChanged(Phonon::State, Phonon::State);
+    void stateChanged(int, int);
 };
 
 /** Real implementation of link notes:

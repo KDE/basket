@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>VersionSyncPage</class>
- <widget class="KCModule" name="VersionSyncPage">
+ <widget class="QWidget" name="VersionSyncPage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -73,14 +73,14 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
+ <!--<customwidgets>
   <customwidget>
    <class>KCModule</class>
    <extends>QWidget</extends>
    <header>kcmodule.h</header>
    <container>1</container>
   </customwidget>
- </customwidgets>
+ </customwidgets>-->
  <resources/>
  <connections/>
 </ui>

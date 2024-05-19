@@ -9,7 +9,7 @@ using namespace KFileMetaData::Property;
 
 void MetaDataExtractionResult::add(Property property, const QVariant &value)
 {
-    m_groups[property] = value;
+    m_groups.replace(property, value);
 }
 
 QList<QPair<QString, QString>> MetaDataExtractionResult::preferredGroups()
@@ -48,7 +48,7 @@ QList<QPair<QString, QString>> MetaDataExtractionResult::preferredGroups()
     if (m_groups.count() == 0)
         return result;
 
-    KFileMetaData::PropertyMap groups = m_groups;
+    KFileMetaData::PropertyMultiMap groups = m_groups;
 
     for (int i = 0; i < preferredItems.count(); i++) {
         QVariant value = groups.take(preferredItems[i]);
