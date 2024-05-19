@@ -11,5 +11,4 @@ install(TARGETS basketthumbcreator DESTINATION ${KDE_INSTALL_PLUGINDIR})
 
 ########### install files ###############
 
-install(FILES basketthumbcreator.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
 install(FILES basket.xml DESTINATION ${KDE_INSTALL_MIMEDIR})

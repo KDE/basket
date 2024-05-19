@@ -1,14 +1,5 @@
 include_directories(${GPGME_INCLUDES})
 
-set(CMAKE_AUTOMOC ON)
-
-find_package(KF6FileMetaData REQUIRED)
-find_package(KF6I18n REQUIRED)
-find_package(KF6Service REQUIRED)
-find_package(KF6IconThemes REQUIRED)
-find_package(KF6Codecs REQUIRED)
-find_package(KF6WindowSystem)
-
 ########### next target ###############
 
 set(libbasket_SRCS
@@ -149,17 +140,6 @@ install(TARGETS basket_config_apps DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms
 add_library(basket_config_version_sync MODULE kcm_basket/basket_config_version_sync.cpp)
 target_link_libraries(basket_config_version_sync LibBasket)
 install(TARGETS basket_config_version_sync DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
-
-set(DESKTOP_FILES
-    kcm_basket/basket_config_general.json
-    kcm_basket/basket_config_baskets.json
-    kcm_basket/basket_config_new_notes.json
-    kcm_basket/basket_config_notes_appearance.json
-    kcm_basket/basket_config_apps.json
-    kcm_basket/basket_config_version_sync.json
-)
-
-install(FILES ${DESKTOP_FILES} DESTINATION ${SERVICES_INSTALL_DIR})
 
 
 install(FILES org.kde.basket.desktop DESTINATION ${KDE_INSTALL_APPDIR})

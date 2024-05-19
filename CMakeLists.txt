@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.5)
 project(Basket VERSION 2.49.90)
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF6_DEP_VERSION "6.2.0")
+set(KF_MIN_VERSION "6.2.0")
 
 set(APP_SUFFIX 6)
 set(LIB_PREFIX Qt6::)
@@ -16,8 +16,8 @@ set(LIB_PREFIX Qt6::)
 # Options
 option(ENABLE_GPG "Enabled GPG Support" OFF)
 
-
-set(CMAKE_BUILD_PARALLEL_LEVEL 12)
+# for local usage only
+# set(CMAKE_BUILD_PARALLEL_LEVEL 12)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fno-delete-null-pointer-checks")
@@ -28,16 +28,14 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
-
 # ECM
 include(FeatureSummary)
-find_package(ECM ${KF6_DEP_VERSION} QUIET REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} QUIET REQUIRED NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
-include(KDEInstallDirs5)
 include(KDEInstallDirs6)
 include(ECMSetupVersion)
 include(KDECMakeSettings)
@@ -80,8 +78,9 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Core5Compat
 )
 
-find_package(KF6 REQUIRED COMPONENTS
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
+    Codecs
     Completion
     Config
     ConfigWidgets #KCM
@@ -105,8 +104,6 @@ find_package(KF6 REQUIRED COMPONENTS
     XmlGui
 )
 
-
-find_package(KF6ConfigWidgets REQUIRED)
 
 find_package(Phonon4Qt6 REQUIRED)
 

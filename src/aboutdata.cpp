@@ -20,7 +20,7 @@ AboutData::AboutData()
                  KAboutLicense::GPL_V2,
                  i18n("Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"),
                  QString(),
-                 QStringLiteral("https://basket.kde.org/"))
+                 QStringLiteral("https://basket-notepads.github.io/"))
 {
     // Pass basket.kde.org to constructor to be used as D-Bus domain name, but set the displayed address below
     setHomepage(QStringLiteral("https://invent.kde.org/utilities/basket"));
