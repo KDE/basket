@@ -20,11 +20,11 @@ AboutData::AboutData()
                  KAboutLicense::GPL_V2,
                  i18n("Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"),
                  QString(),
-                 QStringLiteral("https://basket-notepads.github.io/"))
+                 QStringLiteral("https://basket.kde.org/"))
 {
     // Pass basket.kde.org to constructor to be used as D-Bus domain name, but set the displayed address below
     setHomepage(QStringLiteral("https://invent.kde.org/utilities/basket"));
-    setBugAddress("https://bugs.kde.org/buglist.cgi?component=general&list_id=1738678&product=basket&resolution=---");
+    setBugAddress("https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=basket");
 
     addAuthor(i18n("Carl Schwan"), i18n("Co-Maintainer"), QStringLiteral("carl@carlschwan.eu"), QStringLiteral("https://carlschwan.eu"));
     addAuthor(i18n("Niccolò Venerandi"), i18n("Co-Maintainer"), QStringLiteral("niccolo@venerandi.com"), QStringLiteral("https://niccolo.venerandi.com/"));

@@ -150,7 +150,7 @@
     <p xml:lang="zh-CN">它可以用来整理记事贴，跟踪待办事项的完成情况以及更多用途。</p>
     <p xml:lang="zh-TW">它讓您排列筆記、追蹤待辦事項等等。</p>
   </description>
-  <url type="homepage">https://basket-notepads.github.io/</url>
+  <url type="homepage">https://invent.kde.org/utilities/basket</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=basket</url>
   <url type="help">https://docs.kde.org/?application=kdevelop</url>
   <url type="donation">https://www.kde.org/community/donations/?app=basket</url>

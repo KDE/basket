@@ -61,7 +61,7 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
 
     QWidget *page = new QWidget(this);
     QVBoxLayout *pageVBoxLayout = new QVBoxLayout(page);
-    pageVBoxLayout->unsetContentsMargins();
+    pageVBoxLayout->setContentsMargins({});
     mainLayout->addWidget(page);
 
     //  pageVBoxLayout->setSpacing(spacingHint());

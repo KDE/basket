@@ -228,8 +228,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     if (!file.open(QIODevice::WriteOnly))
         return;
     stream.setDevice(&file);
-    stream.setEncoding(QStringConverter::Utf8);
-
+    
     // Output the header:
     QString borderColor;
     if (hasBackgroundColor && hasTextColor) {

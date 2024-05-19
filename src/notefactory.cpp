@@ -301,7 +301,6 @@ QString NoteFactory::createNoteLauncherFile(const QString &command, const QStrin
     QFile file(fullPath);
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Utf8);
         stream << content;
         file.close();
         return fileName;

@@ -60,7 +60,6 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
     QFile file(fullPath + QStringLiteral("/.basket"));
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Utf8);
         int nbColumns = (templateName == QStringLiteral("mindmap") || templateName == QStringLiteral("free") ? 0 : templateName.left(1).toInt());
         BasketScene *currentBasket = Global::bnpView->currentBasket();
         int columnWidth = (currentBasket && nbColumns > 0 ? (currentBasket->graphicsView()->viewport()->width() - (nbColumns - 1) * Note::RESIZER_WIDTH) / nbColumns : 0);

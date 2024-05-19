@@ -220,8 +220,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool
         // It's UTF16 (aka UCS2), but with the first two order bytes
         // stream.setEncoding(QTextStream::RawUnicode); // It's UTF16 (aka UCS2), but with the first two order bytes
         // FIXME: find out if this is really equivalent, as https://doc.qt.io/archives/3.3/qtextstream.html pretends
-        stream.setEncoding(QStringConverter::Utf8);
-
+        
         stream << xMozUrl;
 
         mimeData->setData(QStringLiteral("text/x-moz-url"), baMozUrl);
