@@ -144,6 +144,7 @@ target_link_libraries(basket_config_version_sync LibBasket)
 install(TARGETS basket_config_version_sync DESTINATION ${KDE_INSTALL_PLUGINDIR}/pim/kcms/basket/)
 
 
+
 install(FILES org.kde.basket.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.basket.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
