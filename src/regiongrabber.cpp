@@ -7,7 +7,6 @@
 #include "regiongrabber.h"
 
 #include <QApplication>
-// #include <QDesktopWidget>
 #include <QLocale>
 #include <QToolTip>
 #include <QtGui/QMouseEvent>
