@@ -158,6 +158,7 @@ set(DESKTOP_FILES
     kcm_basket/basket_config_apps.json
     kcm_basket/basket_config_version_sync.json
 )
+
 install(FILES ${DESKTOP_FILES} DESTINATION ${SERVICES_INSTALL_DIR})
 
 

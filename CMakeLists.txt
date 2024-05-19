@@ -37,14 +37,12 @@ feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKA
 
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
-
-include(ECMSetupVersion)
-include(KDEInstallDirs)
 include(KDEInstallDirs5)
+include(KDEInstallDirs6)
+include(ECMSetupVersion)
 include(KDECMakeSettings)
 include(KDEClangFormat)
 include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDEInstallDirs)
 include(ECMInstallIcons)
 
 ecm_setup_version(
