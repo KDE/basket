@@ -29,7 +29,6 @@ class QPixmap;
 class QPoint;
 class QRect;
 class QString;
-// class QStringList;
 class QTextDocument;
 class QWidget;
 
