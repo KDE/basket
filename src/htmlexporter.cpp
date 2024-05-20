@@ -346,7 +346,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream << " </head>\n"
               " <body>\n"
               "  <h1><img src=\""
-           << basketIcon32 << "\" width=\"32\" height=\"32\" alt=\"\"> " << Tools::textToHTMLWithoutP(basket->basketName()) << "</h1>\n";
+           << QLatin1String(QUrl(basketIcon32).toEncoded()) << "\" width=\"32\" height=\"32\" alt=\"\"> " << Tools::textToHTMLWithoutP(basket->basketName()) << "</h1>\n";
 
     if (withBasketTree)
         writeBasketTree(basket);
@@ -456,7 +456,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
         for (Note *child = note->firstChild(); child; child = child->next()) {
             stream << spaces.fill(QLatin1Char(' '), indent);
             if (i == 0)
-                stream << " <tr><td class=\"groupHandle\"><img src=\"" << imagesFolderName << (note->isFolded() ? "expand_group_" : "fold_group_") << backgroundColorName << ".png"
+                stream << " <tr><td class=\"groupHandle\"><img src=\"" << QLatin1String(QUrl(imagesFolderName).toEncoded()) << (note->isFolded() ? "expand_group_" : "fold_group_") << backgroundColorName << ".png"
                        << "\" width=\"" << Note::EXPANDER_WIDTH << "\" height=\"" << Note::EXPANDER_HEIGHT << "\"></td>\n";
             else if (i == 1)
                 stream << " <tr><td class=\"freeSpace\" rowspan=\"" << note->countDirectChilds() << "\"></td>\n";
@@ -484,7 +484,7 @@ void HTMLExporter::exportNote(Note *note, int indent)
                 if (!(*it)->emblem().isEmpty()) {
                     int emblemSize = 16;
                     QString iconFileName = copyIcon((*it)->emblem(), emblemSize);
-                    stream << "<img src=\"" << iconsFolderName << iconFileName << "\" width=\"" << emblemSize << "\" height=\"" << emblemSize << "\" alt=\"" << (*it)->textEquivalent() << "\" title=\"" << (*it)->fullName() << "\">";
+                    stream << "<img src=\"" << QLatin1String(QUrl(iconsFolderName + iconFileName).toEncoded()) << "\" width=\"" << emblemSize << "\" height=\"" << emblemSize << "\" alt=\"" << (*it)->textEquivalent() << "\" title=\"" << (*it)->fullName() << "\">";
                 }
             stream << "</nobr></td>";
         }

@@ -41,7 +41,6 @@ KIO::ThumbnailResult BasketThumbCreator::create(const KIO::ThumbnailRequest &req
     QFile file(request.url().toString());
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Utf8);
         QString line = stream.readLine();
         if (line != QStringLiteral("BasKetNP:archive") && line != QStringLiteral("BasKetNP:template")) {
             file.close();

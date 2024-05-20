@@ -7,7 +7,8 @@
 #include "note.h"
 
 #include <QApplication>
-#include <QGraphicsItemAnimation>
+#include <QAbstractAnimation>
+#include <QTimeLine>
 #include <QGraphicsView>
 #include <QLocale> //For KGLobal::locale(
 #include <QStyle>
@@ -22,6 +23,7 @@
 #include <math.h>   // sqrt() and pow() functions
 #include <stdlib.h> // rand() function
 
+#include "animation.h"
 #include "basketscene.h"
 #include "common.h"
 #include "debugwindow.h"
@@ -64,7 +66,8 @@ qreal Note::EMBLEM_SIZE = 16;
 qreal Note::MIN_HEIGHT = 2 * NOTE_MARGIN + EMBLEM_SIZE;
 
 Note::Note(BasketScene *parent)
-    : d(new NotePrivate)
+    : QObject (parent)
+    , d(new NotePrivate)
     , m_groupWidth(250)
     , m_isFolded(false)
     , m_firstChild(nullptr)
@@ -84,7 +87,21 @@ Note::Note(BasketScene *parent)
     , m_emblemsCount(0)
     , m_haveInvisibleTags(false)
     , m_matching(true)
+    , m_target_x(0)
+    , m_target_y(0)
 {
+    m_target_x = x();
+    m_target_y = y();
+    m_animX = new NoteAnimation(this, "x");
+    m_animY = new NoteAnimation(this, "y");
+    m_animX->setEasingCurve(QEasingCurve::InOutQuad);
+    m_animY->setEasingCurve(QEasingCurve::InOutQuad);
+    m_basket->addAnimation(m_animX);
+    m_basket->addAnimation(m_animY);
+    
+    connect(m_animX, SIGNAL(valueChanged), this, SLOT(xAnimated));
+    connect(m_animY, SIGNAL(valueChanged), this, SLOT(yAnimated));
+    
     setHeight(MIN_HEIGHT);
     if (m_basket) {
         m_basket->addItem(this);
@@ -97,6 +114,8 @@ Note::~Note()
         if (m_content && m_content->graphicsItem()) {
             m_basket->removeItem(m_content->graphicsItem());
         }
+        m_basket->removeAnimation(m_animX);
+        m_basket->removeAnimation(m_animY);
         m_basket->removeItem(this);
     }
     delete m_content;
@@ -876,6 +895,14 @@ Qt::CursorShape Note::cursorFromZone(Zone zone) const
     }
 }
 
+qreal Note::targetX() const {
+    return m_target_x;
+}
+
+qreal Note::targetY() const {
+    return m_target_y;
+}
+
 qreal Note::height() const
 {
     return d->height;
@@ -1057,30 +1084,8 @@ bool Note::showSubNotes()
     return !m_isFolded || basket()->isFiltering();
 }
 
-void Note::relayoutAt(qreal ax, qreal ay)
-{
-    if (!matching())
-        return;
 
-    m_computedAreas = false;
-    m_areas.clear();
-
-    // Don't relayout free notes one under the other, because by definition they are freely positioned!
-    if (isFree()) {
-        ax = x();
-        ay = y();
-        // If it's a column, it always have the same "fixed" position (no animation):
-    } else if (isColumn()) {
-        ax = (prev() ? prev()->rightLimit() + RESIZER_WIDTH : 0);
-        ay = 0;
-        setX(ax);
-        setY(ay);
-        // But relayout others vertically if they are inside such primary groups or if it is a "normal" basket:
-    } else {
-        setX(ax);
-        setY(ay);
-    }
-
+void Note::relayoutChildren(qreal ax, qreal ay, bool animate) {
     // Then, relayout sub-notes (only the first, if the group is folded) and so, assign an height to the group:
     if (isGroup()) {
         qreal h = 0;
@@ -1088,7 +1093,7 @@ void Note::relayoutAt(qreal ax, qreal ay)
         bool first = true;
         while (child) {
             if (child->matching() && (!m_isFolded || first || basket()->isFiltering())) { // Don't use showSubNotes() but use !m_isFolded because we don't want a relayout for the animated collapsing notes
-                child->relayoutAt(ax + width(), ay + h);
+                child->relayoutAt(ax + width(), ay + h, animate);
                 h += child->height();
                 if (!child->isVisible())
                     child->show();
@@ -1099,8 +1104,8 @@ void Note::relayoutAt(qreal ax, qreal ay)
             }
             // For future animation when re-match, but on bottom of already matched notes!
             // Find parent primary note and set the Y to THAT y:
-            // if (!child->matching())
-            //    child->setY(parentPrimaryNote()->y());
+            if (!child->matching())
+               child->setY(parentPrimaryNote()->y(), animate);
             child = child->next();
             first = false;
         }
@@ -1118,6 +1123,33 @@ void Note::relayoutAt(qreal ax, qreal ay)
         // and NEED RELAYOUT
         setWidth(finalRightLimit() - x());
     }
+}
+
+void Note::relayoutAt(qreal ax, qreal ay, bool animate)
+{
+    if (!matching())
+        return;
+
+    m_computedAreas = false;
+    m_areas.clear();
+
+    // Don't relayout free notes one under the other, because by definition they are freely positioned!
+    if (isFree()) {
+        ax = x();
+        ay = y();
+        // If it's a column, it always have the same "fixed" position (no animation):
+    } else if (isColumn()) {
+        ax = (prev() ? prev()->rightLimit() + RESIZER_WIDTH : 0);
+        ay = 0;
+        setX(ax, animate);
+        setY(ay, animate);
+        // But relayout others vertically if they are inside such primary groups or if it is a "normal" basket:
+    } else {
+        setX(ax, animate);
+        setY(ay, animate);
+    }
+
+    relayoutChildren(ax, ay, animate);
 
     // Set the basket area limits (but not for child notes: no need, because they will look for their parent note):
     if (!parentNote()) {
@@ -1134,21 +1166,56 @@ void Note::relayoutAt(qreal ax, qreal ay)
     }
 }
 
-void Note::setXRecursively(qreal x)
-{
-    setX(x);
-
-    FOR_EACH_CHILD(child)
-    child->setXRecursively(x + width());
+void Note::relayoutAt(QPointF pos, bool animate) {
+    relayoutAt(pos.rx(), pos.ry(), animate);
 }
 
-void Note::setYRecursively(qreal y)
+void Note::setX(qreal x, bool animate) {
+    qDebug() << "setX: " << x << " : " << animate;
+    if (!animate)
+        QGraphicsItemGroup::setX(x);
+    else {
+        m_target_x = x;
+        m_animX->setEndValue(x);
+        m_animX->start();
+    }
+}
+
+void Note::setY(qreal y, bool animate) {
+    if (!animate)
+        QGraphicsItemGroup::setY(y);
+    else {
+        m_target_y = y;
+        m_animY->setEndValue(y);
+        m_animY->start();
+    }
+}
+
+
+void Note::setXRecursively(qreal x, bool animate)
 {
-    setY(y);
+    setX(x, animate);
 
     FOR_EACH_CHILD(child)
-    child->setYRecursively(y);
+    child->setXRecursively(x + width(), animate);
 }
+
+void Note::setYRecursively(qreal y, bool animate)
+{
+    setY(y, animate);
+
+    FOR_EACH_CHILD(child)
+    child->setYRecursively(y, animate);
+}
+
+void Note::xAnimated(const QVariant &x) {
+    return;
+}
+
+void Note::yAnimated(const QVariant &y) {
+   return; 
+}
+
 
 void Note::hideRecursively()
 {

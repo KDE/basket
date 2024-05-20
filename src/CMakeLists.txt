@@ -4,6 +4,7 @@ include_directories(${GPGME_INCLUDES})
 
 set(libbasket_SRCS
     aboutdata.cpp
+    animation.cpp
     archive.cpp
     backgroundmanager.cpp
     backup.cpp

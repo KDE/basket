@@ -2414,6 +2414,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
     Tag *currentTag;
     State *currentState;
     int i = 10;
+    
     for (it = Tag::all.begin(); it != Tag::all.end(); ++it) {
         // Current tag and first state of it:
         currentTag = *it;
@@ -2428,7 +2429,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
         // The previously set ID will be set in the actions themselves as data.
         mi->setData(i);
-
+        
         if (referenceNote && referenceNote->hasTag(currentTag))
             mi->setChecked(true);
 

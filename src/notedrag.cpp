@@ -450,8 +450,8 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
             if (isFolded)
                 note->toggleFolded();
             if (moveNotes) {
-                note->setX(oldNote->x());           // We don't move groups but re-create them (every children can to not be selected)
-                note->setY(oldNote->y());           // We just set the position of the copied group so the animation seems as if the group is the same as (or a copy of) the old.
+                note->setX(oldNote->targetX());           // We don't move groups but re-create them (every children can to not be selected)
+                note->setY(oldNote->targetX());           // We just set the position of the copied group so the animation seems as if the group is the same as (or a copy of) the old.
                 note->setHeight(oldNote->height()); // Idem: the only use of Note::setHeight()
                 parent->removeItem(oldNote);
             }

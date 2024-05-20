@@ -12,6 +12,7 @@
 #include <QtCore/QList>
 #include <QtCore/QSet>
 
+#include "animation.h"
 #include "basket_export.h"
 #include "tag.h"
 
@@ -24,8 +25,6 @@ class NoteSelection;
 class QPainter;
 class QPixmap;
 class QString;
-class QGraphicsItemAnimation;
-class QTimeLine;
 
 class NotePrivate;
 
@@ -39,8 +38,12 @@ class NotePrivate;
  * @endcode
  * @author Sébastien Laoût
  */
-class BASKET_EXPORT Note : public QGraphicsItemGroup
+class BASKET_EXPORT Note : public QObject, public QGraphicsItemGroup
 {
+    Q_OBJECT
+    Q_PROPERTY(qreal x READ x WRITE setX NOTIFY xChanged FINAL)
+    Q_PROPERTY(qreal y READ y WRITE setY NOTIFY yChanged FINAL)
+    
     /// CONSTRUCTOR AND DESTRUCTOR:
 public:
     explicit Note(BasketScene *parent = nullptr);
@@ -56,14 +59,34 @@ public:
     Note *next() const;
     Note *prev() const;
 
+private:
+    qreal m_target_x;
+    qreal m_target_y;
 public:
+    qreal targetX() const;
+    qreal targetY() const;
     void setWidth(qreal width);
     void setWidthForceRelayout(qreal width);
     //! Do not use it unless you know what you do!
     void setInitialHeight(qreal height);
 
-    void setXRecursively(qreal ax);
-    void setYRecursively(qreal ay);
+    void relayoutChildren(qreal ax, qreal ay, bool animate=false);
+    void relayoutAt(QPointF pos, bool animate=false);
+    void relayoutAt(qreal ax, qreal ay, bool animate=false);
+    void setX(qreal ax, bool animate=false);
+    void setY(qreal ay, bool animate=false);
+    void setXRecursively(qreal ax, bool animate=false);
+    void setYRecursively(qreal ay, bool animate=false);
+    
+Q_SIGNALS:
+    void xChanged();
+    void yChanged();
+    
+private Q_SLOTS:
+    void xAnimated(const QVariant &x);
+    void yAnimated(const QVariant &y);
+    
+public:
     void hideRecursively();
     qreal width() const;
     qreal height() const;
@@ -73,7 +96,7 @@ public:
     QRectF visibleRect();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-    void relayoutAt(qreal ax, qreal ay);
+    
     qreal contentX() const;
     qreal minWidth() const;
     qreal minRight();
@@ -231,11 +254,12 @@ public:
 
     /// MANAGE ANIMATION:
 private:
-    QGraphicsItemAnimation *m_animation;
+    NoteAnimation *m_animX;
+    NoteAnimation *m_animY;
 
 public:
-    bool initAnimationLoad(QTimeLine *timeLine);
-    void animationFinished();
+    // bool initAnimationLoad(QTimeLine *timeLine);
+    // void animationFinished();
 
     /// USER INTERACTION:
 public:

@@ -150,7 +150,6 @@ void FormatImporter::importBaskets()
     QFile file(Global::basketsFolder() + QStringLiteral("baskets.xml"));
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Utf8);
         QString xml = document.toString();
         stream << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
         stream << xml;
@@ -257,7 +256,6 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                 QFile file(launcherFullPath);
                 if (file.open(QIODevice::WriteOnly)) {
                     QTextStream stream(&file);
-                    stream.setEncoding(QStringConverter::Utf8);
                     stream << launcherContent;
                     file.close();
                 }
@@ -283,7 +281,6 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     QFile file(Global::basketsFolder() + folderName + QStringLiteral("/.basket"));
     if (file.open(QIODevice::WriteOnly)) {
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Utf8);
         //      QString xml = document->toString();
         //      stream << "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
         //      stream << xml;

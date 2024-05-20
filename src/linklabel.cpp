@@ -569,10 +569,10 @@ QString LinkDisplay::toHtml(HTMLExporter *exporter, const QUrl &url, const QStri
         QString fileName = Tools::fileNameForNewFile(QStringLiteral("preview_") + url.fileName() + QStringLiteral(".png"), exporter->iconsFolderPath);
         QString fullPath = exporter->iconsFolderPath + fileName;
         m_preview.save(fullPath, "PNG");
-        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(exporter->iconsFolderName + fileName, QString::number(m_preview.width()), QString::number(m_preview.height()));
+        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QLatin1String(QUrl(exporter->iconsFolderName + fileName).toEncoded()), QString::number(m_preview.width()), QString::number(m_preview.height()));
     } else {
         linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon, m_look->iconSize());
-        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(linkIcon, QString::number(m_look->iconSize()), QString::number(m_look->iconSize()));
+        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QLatin1String(QUrl(linkIcon).toEncoded()), QString::number(m_look->iconSize()), QString::number(m_look->iconSize()));
     }
 
     QString linkTitle = Tools::textToHTMLWithoutP(title.isEmpty() ? m_title : title);

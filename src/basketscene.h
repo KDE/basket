@@ -14,8 +14,11 @@
 #include <QtGui/QClipboard>
 #include <QtGui/QTextCursor>
 
+
 #include "config.h"
 #include "note.h" // For Note::Zone
+#include "animation.h"
+
 
 class QFrame;
 class QPixmap;
@@ -104,14 +107,16 @@ private:
     Note *m_movingNote;
     QPoint m_pickedHandle;
     QSet<Note *> m_notesToBeDeleted;
-
+    BasketAnimations *m_animations;
 public:
     qreal tmpWidth;
     qreal tmpHeight;
 
 public:
+    void addAnimation(NoteAnimation *animation);
+    void removeAnimation(NoteAnimation *animation);
     void unsetNotesWidth();
-    void relayoutNotes();
+    void relayoutNotes(bool animate=false);
     Note *noteAt(QPointF pos);
     inline Note *firstNote()
     {
@@ -154,7 +159,7 @@ public:
     /// <<  After that, you should delete the notes yourself. Do not call prepend/append/group... functions two times: unplug and ok
     void ungroupNote(Note *group); /// << Unplug @p group but put child notes at its place.
     /// And this one do almost all the above methods depending on the context:
-    void insertNote(Note *note, Note *clicked, int zone, const QPointF &pos = QPointF());
+    void insertNote(Note *note, Note *clicked, int zone, const QPointF &pos = QPointF(), bool animate=false);
     void insertCreatedNote(Note *note);
     /// And working with selections:
     void unplugSelection(NoteSelection *selection);

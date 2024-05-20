@@ -13,7 +13,7 @@
 AboutData::AboutData()
     : KAboutData(AboutData::componentName(),
                  AboutData::displayName(),
-                 QLatin1String(VERSION),
+                 QStringLiteral(VERSION),
                  i18n("<p><b>Taking care of your ideas.</b></p>"
     "<p>A note-taking application that makes it easy to record ideas as you think, and quickly find them later. "
     "Organizing your notes has never been so easy.</p>"),

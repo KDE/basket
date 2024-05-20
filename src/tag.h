@@ -283,7 +283,7 @@ public:
     StateAction(State *state, const QKeySequence &shortcut, QWidget *parent, bool withTagName = false);
 
     ~StateAction() override;
-
+    
 private:
     State *m_state;
     QString m_name;
