@@ -4,6 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
+#include <iostream>
+#include <boost/stacktrace.hpp>
+
+
 #include "note.h"
 
 #include <QApplication>
@@ -94,8 +98,8 @@ Note::Note(BasketScene *parent)
     m_target_y = y();
     m_animX = new NoteAnimation(this, "x");
     m_animY = new NoteAnimation(this, "y");
-    m_animX->setEasingCurve(QEasingCurve::InOutQuad);
-    m_animY->setEasingCurve(QEasingCurve::InOutQuad);
+    // m_animX->setEasingCurve(QEasingCurve::InOutQuad);
+    // m_animY->setEasingCurve(QEasingCurve::InOutQuad);
     m_basket->addAnimation(m_animX);
     m_basket->addAnimation(m_animY);
     
@@ -1129,14 +1133,14 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
 {
     if (!matching())
         return;
-
+    qDebug() << "Note::relayoutAt: " << ax << ", " << ay << " : " << animate;
     m_computedAreas = false;
     m_areas.clear();
 
     // Don't relayout free notes one under the other, because by definition they are freely positioned!
     if (isFree()) {
-        ax = x();
-        ay = y();
+        ax = targetX();
+        ay = targetY();
         // If it's a column, it always have the same "fixed" position (no animation):
     } else if (isColumn()) {
         ax = (prev() ? prev()->rightLimit() + RESIZER_WIDTH : 0);
@@ -1148,7 +1152,7 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
         setX(ax, animate);
         setY(ay, animate);
     }
-
+    
     relayoutChildren(ax, ay, animate);
 
     // Set the basket area limits (but not for child notes: no need, because they will look for their parent note):
@@ -1170,11 +1174,13 @@ void Note::relayoutAt(QPointF pos, bool animate) {
     relayoutAt(pos.rx(), pos.ry(), animate);
 }
 
+
+
 void Note::setX(qreal x, bool animate) {
-    qDebug() << "setX: " << x << " : " << animate;
-    if (!animate)
+    if (!animate) {
         QGraphicsItemGroup::setX(x);
-    else {
+    } else {
+        qDebug() << "Note::setX: " << x << " : " << animate;
         m_target_x = x;
         m_animX->setEndValue(x);
         m_animX->start();
@@ -1182,9 +1188,10 @@ void Note::setX(qreal x, bool animate) {
 }
 
 void Note::setY(qreal y, bool animate) {
-    if (!animate)
+    if (!animate) {
         QGraphicsItemGroup::setY(y);
-    else {
+    } else {
+        qDebug() << "Note::setY: " << y << " : " << animate;
         m_target_y = y;
         m_animY->setEndValue(y);
         m_animY->start();
@@ -1194,18 +1201,22 @@ void Note::setY(qreal y, bool animate) {
 
 void Note::setXRecursively(qreal x, bool animate)
 {
+    qDebug() << "Note::setXRecursively: " << x << " : " << animate;
     setX(x, animate);
 
     FOR_EACH_CHILD(child)
-    child->setXRecursively(x + width(), animate);
+    { child->setXRecursively(x + width(), animate); }
+    qDebug() << "Xrecursive done";
 }
 
 void Note::setYRecursively(qreal y, bool animate)
 {
+    qDebug() << "Note::setYRecursively: " << y << " : " << animate;
     setY(y, animate);
 
     FOR_EACH_CHILD(child)
-    child->setYRecursively(y, animate);
+    { child->setYRecursively(y, animate); }
+    qDebug() << "Yrecursive done";
 }
 
 void Note::xAnimated(const QVariant &x) {

@@ -1822,6 +1822,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
                 n->setOnTop(true);
         }
         
+        qDebug() << "animate? " << animateNewPosition;
         insertNote(note, clicked, zone, pos, animateNewPosition);
 
         // If moved a note on bottom, contentsHeight has been diminished, then view scrolled up, and we should re-scroll the view down:
@@ -3140,7 +3141,7 @@ void BasketScene::relayoutNotes(bool animate)
 {
     if (Global::bnpView->currentBasket() != this)
         return; // Optimize load time, and basket will be relaid out when activated, anyway
-
+    qDebug() << "relayoutNotes";
     int h = 0;
     tmpWidth = 0;
     tmpHeight = 0;
