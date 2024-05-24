@@ -13,4 +13,3 @@ set(BASKET_TEST_SRC
 )
 
 ecm_add_tests(${BASKET_TEST_SRC} LINK_LIBRARIES LibBasket Qt6::Test)
-

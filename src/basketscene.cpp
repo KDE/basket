@@ -1196,13 +1196,14 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_startOfShiftSelectionNote(nullptr)
     , m_finishLoadOnFirstShow(false)
     , m_relayoutOnNextShow(false)
+    , m_animated(true)
 {
     m_view = new BasketView(this);
     m_view->setFocusPolicy(Qt::StrongFocus);
     m_view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     
     m_animations = new BasketAnimations(this);
-    m_animations->start();
+    enableAnimation();
     
     // We do this in the basket properties dialog (and keep it in sync with the
     // global one)
@@ -3118,6 +3119,19 @@ void BasketScene::recomputeBlankRects()
     // See the drawing of blank areas in BasketScene::drawContents()
     if (hasBackgroundImage() && !isTiledBackground())
         substractRectOnAreas(QRectF(0, 0, backgroundPixmap()->width(), backgroundPixmap()->height()), m_blankAreas, false);
+}
+
+bool BasketScene::isAnimated() {
+    return m_animated;
+}
+void BasketScene::enableAnimation(void) {
+    m_animations->start();
+    m_animated = true;
+}
+
+void BasketScene::disableAnimation(void) {
+    m_animations->stop();
+    m_animated = false;
 }
 
 void BasketScene::addAnimation(NoteAnimation *animation) {

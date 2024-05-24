@@ -152,6 +152,7 @@ public:
         m_firstChild = note;
     }
     bool isShown();
+    bool isAnimated();
     bool toggleFolded();
 
     Note *noteAt(QPointF pos);

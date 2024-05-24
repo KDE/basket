@@ -100,8 +100,6 @@ Note::Note(BasketScene *parent)
     m_animY = new NoteAnimation(this, "y");
     // m_animX->setEasingCurve(QEasingCurve::InOutQuad);
     // m_animY->setEasingCurve(QEasingCurve::InOutQuad);
-    m_basket->addAnimation(m_animX);
-    m_basket->addAnimation(m_animY);
     
     connect(m_animX, SIGNAL(valueChanged), this, SLOT(xAnimated));
     connect(m_animY, SIGNAL(valueChanged), this, SLOT(yAnimated));
@@ -109,6 +107,8 @@ Note::Note(BasketScene *parent)
     setHeight(MIN_HEIGHT);
     if (m_basket) {
         m_basket->addItem(this);
+        m_basket->addAnimation(m_animX);
+        m_basket->addAnimation(m_animY);
     }
 }
 
@@ -1177,7 +1177,7 @@ void Note::relayoutAt(QPointF pos, bool animate) {
 
 
 void Note::setX(qreal x, bool animate) {
-    if (!animate) {
+    if (!animate || !isAnimated()) {
         QGraphicsItemGroup::setX(x);
     } else {
         qDebug() << "Note::setX: " << x << " : " << animate;
@@ -1188,7 +1188,7 @@ void Note::setX(qreal x, bool animate) {
 }
 
 void Note::setY(qreal y, bool animate) {
-    if (!animate) {
+    if (!animate || !isAnimated()) {
         QGraphicsItemGroup::setY(y);
     } else {
         qDebug() << "Note::setY: " << y << " : " << animate;
@@ -2325,6 +2325,12 @@ Note *Note::prevShownInStack()
         prev = prev->prevInStack();
     return prev;
 }
+
+bool Note::isAnimated() {
+   return m_basket && basket()->isAnimated(); 
+    
+}
+
 
 bool Note::isShown()
 {

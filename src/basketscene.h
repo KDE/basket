@@ -108,13 +108,17 @@ private:
     QPoint m_pickedHandle;
     QSet<Note *> m_notesToBeDeleted;
     BasketAnimations *m_animations;
+    bool m_animated;
 public:
     qreal tmpWidth;
     qreal tmpHeight;
 
 public:
+    void disableAnimation();
+    void enableAnimation();
     void addAnimation(NoteAnimation *animation);
     void removeAnimation(NoteAnimation *animation);
+    bool isAnimated();
     void unsetNotesWidth();
     void relayoutNotes(bool animate=false);
     Note *noteAt(QPointF pos);
