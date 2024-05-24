@@ -81,6 +81,7 @@ target_link_libraries(LibBasket
     KF6::TextWidgets
     KF6::WindowSystem
     KF6::XmlGui
+    Qt6::Core
 )
 
 set_target_properties(LibBasket PROPERTIES
