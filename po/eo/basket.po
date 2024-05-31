@@ -1,15 +1,15 @@
 # translation of basket.pot to Esperanto
 # Copyright (C) 2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the basket package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2024-03-27 19:34+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-30 22:41+0200\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "olivermkellogg@gmail.com"
 
 #: devtools/weaver/main.cpp:18
 #, kde-format
@@ -618,7 +618,7 @@ msgstr "Aspekto"
 #: src/basketproperties.ui:39
 #, kde-format
 msgid "Background &image:"
-msgstr "Fona bildo:"
+msgstr "Fona b&ildo:"
 
 #. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
 #: src/basketproperties.ui:49
@@ -642,7 +642,7 @@ msgstr "Dispozicio"
 #: src/basketproperties.ui:72
 #, kde-format
 msgid "Col&umns:"
-msgstr "Kolumnoj:"
+msgstr "Kol&umnoj:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
 #: src/basketproperties.ui:79
@@ -859,7 +859,7 @@ msgstr "A&gordi..."
 #: src/basketscene.cpp:3181 src/basketscene.cpp:3224
 #, kde-format
 msgid "&Filter by this Tag"
-msgstr "Filtri per ĉi tiu Etikedo"
+msgstr "&Filtri per ĉi tiu Etikedo"
 
 #: src/basketscene.cpp:3227
 #, kde-format
@@ -875,36 +875,36 @@ msgstr "Etikedoj"
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<qt>Ĉu vi vere volas forogi ĉi tiun noton?</qt>"
+msgstr[1] "<qt>Ĉu vi vere volas forogi ĉi <b>%1</b> notojn?</qt>"
 
 #: src/basketscene.cpp:3881
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Forigi Noton"
+msgstr[1] "Forigi Notojn"
 
 #: src/basketscene.cpp:3980
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kopiis noton al tondujo."
+msgstr[1] "Kopiis notojn al tondujo."
 
 #: src/basketscene.cpp:3983
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tondis noton al tondujo."
+msgstr[1] "Tondis notojn al tondujo."
 
 #: src/basketscene.cpp:3986
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kopiis noton al elekto."
+msgstr[1] "Kopiis notojn al elekto."
 
 #: src/basketscene.cpp:4050 src/basketscene.cpp:4122
 #, kde-format
@@ -1195,7 +1195,7 @@ msgstr "&HTML-a retpaĝo..."
 #: src/bnpview.cpp:395
 #, kde-format
 msgid "Text &File..."
-msgstr "Teksta dosiero..."
+msgstr "Teksta &Dosiero..."
 
 #: src/bnpview.cpp:400
 #, kde-format
@@ -1336,7 +1336,7 @@ msgstr "Importi Lanĉilon por &tabla aplikaĵo..."
 #: src/bnpview.cpp:547
 #, kde-format
 msgid "Im&port Icon..."
-msgstr "Enporti piktogramon..."
+msgstr "En&porti piktogramon..."
 
 #: src/bnpview.cpp:552 src/noteedit.cpp:534
 #, kde-format
@@ -1366,7 +1366,7 @@ msgstr "Nova &Subkorbo..."
 #: src/bnpview.cpp:624
 #, kde-format
 msgid "New Si&bling Basket..."
-msgstr "Nova gefratiga Korbo..."
+msgstr "Nova Gefrata Kor&bo..."
 
 #: src/bnpview.cpp:627
 #, kde-format
@@ -1485,15 +1485,15 @@ msgstr "Neniuj notoj"
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 noto"
+msgstr[1] "%1 notoj"
 
 #: src/bnpview.cpp:1591
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 elektita"
+msgstr[1] "%1 elektitaj"
 
 #: src/bnpview.cpp:1592
 #, kde-format
@@ -1509,8 +1509,8 @@ msgstr "neniu filtrilo"
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 kongruo"
+msgstr[1] "%1 kongruoj"
 
 #: src/bnpview.cpp:1595
 #, kde-format
@@ -2802,7 +2802,7 @@ msgstr "Protekti korbon per &pasvorto"
 #: src/passwordlayout.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
-msgstr "Protekti korbon per privata ŝlosilo:"
+msgstr "Prote&kti korbon per privata ŝlosilo:"
 
 #: src/regiongrabber.cpp:103
 #, kde-format
@@ -2810,6 +2810,8 @@ msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
+"Elektu regionon per la muso. Por preni la momentkopion, premu la Enter-"
+"klavon. Premu Esc por ĉesigi."
 
 #: src/settings.cpp:390
 #, kde-format
