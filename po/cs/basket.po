@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2024-04-26 10:58+0200\n"
+"PO-Revision-Date: 2024-06-18 16:03+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -1267,7 +1267,7 @@ msgstr "Vybere všechny poznámky"
 #: src/bnpview.cpp:427
 #, kde-format
 msgid "U&nselect All"
-msgstr "Odz&načit vše"
+msgstr "Zr&ušit výběr všeho"
 
 #: src/bnpview.cpp:429
 #, kde-format
