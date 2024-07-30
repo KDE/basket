@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2024-07-28 15:11+0200\n"
+"PO-Revision-Date: 2024-07-29 18:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2726,16 +2726,18 @@ msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
 msgstr ""
+"A imaxe animada non pode editarse aquí.\n"
+"Quere abrila cunha aplicación compatíbel?"
 
 #: src/noteedit.cpp:559
 #, kde-format
 msgid "Edit Animation Note"
-msgstr ""
+msgstr "Editar a nota da animación"
 
 #: src/noteedit.cpp:652
 #, kde-format
 msgid "Edit Color Note"
-msgstr ""
+msgstr "Editar a nota da cor"
 
 #: src/noteedit.cpp:677
 #, kde-format
@@ -2744,131 +2746,133 @@ msgid ""
 "You however can drag or copy the note into an application that understands "
 "it."
 msgstr ""
+"O tipo desta nota é descoñecido e non pode editarse aquí.\n"
+"Porén, pode arrastrar e copiar a nota a unha aplicación que permita editala."
 
 #: src/noteedit.cpp:679
 #, kde-format
 msgid "Edit Unknown Note"
-msgstr ""
+msgstr "Editar a nota do obxecto descoñecido"
 
 #: src/noteedit.cpp:691
 #, kde-format
 msgid "Edit Link Note"
-msgstr ""
+msgstr "Editar a nota da ligazón"
 
 #: src/noteedit.cpp:711 src/noteedit.cpp:743
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "Automática"
 
 #: src/noteedit.cpp:723 src/noteedit.cpp:1045
 #, kde-format
 msgid "&Icon:"
-msgstr ""
+msgstr "&Icona:"
 
 #: src/noteedit.cpp:765 src/noteedit.cpp:932
 #, kde-format
 msgid "Ta&rget:"
-msgstr ""
+msgstr "&Destino:"
 
 #: src/noteedit.cpp:770
 #, kde-format
 msgid "&Title:"
-msgstr ""
+msgstr "&Título:"
 
 #: src/noteedit.cpp:901
 #, kde-format
 msgid "Edit Cross Reference"
-msgstr ""
+msgstr "Editar a referencia cruzada"
 
 #: src/noteedit.cpp:1019
 #, kde-format
 msgid "Edit Launcher Note"
-msgstr ""
+msgstr "Editar a nota do iniciador"
 
 #: src/noteedit.cpp:1033
 #, kde-format
 msgid "Choose a command to run:"
-msgstr ""
+msgstr "Escolla unha orde para executar:"
 
 #: src/noteedit.cpp:1050
 #, kde-format
 msgid "&Guess"
-msgstr ""
+msgstr "&Adiviñar"
 
 #: src/noteedit.cpp:1068
 #, kde-format
 msgid "Comman&d:"
-msgstr ""
+msgstr "Or&de:"
 
 #: src/noteedit.cpp:1073 src/tagsedit.cpp:388
 #, kde-format
 msgid "&Name:"
-msgstr ""
+msgstr "&Nome:"
 
 #: src/noteedit.cpp:1178
 #, kde-format
 msgid "Font"
-msgstr ""
+msgstr "Fonte"
 
 #: src/noteedit.cpp:1186
 #, kde-format
 msgid "Font Size"
-msgstr ""
+msgstr "Tamaño da letra"
 
 #: src/noteedit.cpp:1201 src/tagsedit.cpp:466
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Grosa"
 
 #: src/noteedit.cpp:1208 src/tagsedit.cpp:478
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Cursiva"
 
 #: src/noteedit.cpp:1215 src/tagsedit.cpp:472
 #, kde-format
 msgid "Underline"
-msgstr ""
+msgstr "Subliñar"
 
 #: src/noteedit.cpp:1223
 #, kde-format
 msgid "Superscript"
-msgstr ""
+msgstr "Superíndice"
 
 #: src/noteedit.cpp:1229
 #, kde-format
 msgid "Subscript"
-msgstr ""
+msgstr "Subíndice"
 
 #: src/noteedit.cpp:1236
 #, kde-format
 msgid "Align Left"
-msgstr ""
+msgstr "Aliñar á esquerda"
 
 #: src/noteedit.cpp:1242
 #, kde-format
 msgid "Centered"
-msgstr ""
+msgstr "Centrar"
 
 #: src/noteedit.cpp:1248
 #, kde-format
 msgid "Align Right"
-msgstr ""
+msgstr "Aliñar á dereita"
 
 #: src/noteedit.cpp:1254
 #, kde-format
 msgid "Justified"
-msgstr ""
+msgstr "Xustificar"
 
 #: src/noteedit.cpp:1266
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Desfacer"
 
 #: src/noteedit.cpp:1272
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Refacer"
 
 #: src/notefactory.cpp:491
 #, kde-format
@@ -2878,75 +2882,79 @@ msgid ""
 "understand it.</p><p>If you want the support of these data, please contact "
 "developer.</p>"
 msgstr ""
+"<p>%1 non permite os datos que soltou.<br>Porén, creouse unha nota xenérica "
+"que lle permite arrastrar e copiar os datos nunha aplicación que os permita."
+"</p><p>Se quere que se permitan estes datos, contacte co equipo de "
+"desenvolvemento.</p>"
 
 #: src/notefactory.cpp:495
 #, kde-format
 msgid "Unsupported MIME Type(s)"
-msgstr ""
+msgstr "Tipos MIME non permitidos"
 
 #: src/notefactory.cpp:549
 #, kde-format
 msgid "&Move Here\tShift"
-msgstr ""
+msgstr "&Mover aquí\tMaiús"
 
 #: src/notefactory.cpp:549
 #, kde-format
 msgid "&Copy Here\tCtrl"
-msgstr ""
+msgstr "&Copiar aquí\tCtrl"
 
 #: src/notefactory.cpp:550
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
-msgstr ""
+msgstr "&Ligar aquí\tCtrl+Maiús"
 
 #: src/notefactory.cpp:556
 #, kde-format
 msgid "C&ancel\tEscape"
-msgstr ""
+msgstr "C&ancelar\tEsc"
 
 #: src/notefactory.cpp:1047
 #, kde-format
 msgid "Import Icon as Image"
-msgstr ""
+msgstr "Importar a icona como imaxe"
 
 #: src/notefactory.cpp:1047
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
-msgstr ""
+msgstr "Escolla o tamaño da icona para importar como imaxe:"
 
 #: src/notefactory.cpp:1060
 #, kde-format
 msgid "Load File Content into a Note"
-msgstr ""
+msgstr "Cargar o contido do ficheiro nunha nota"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
 #: src/password.cpp:29 src/passwordlayout.ui:14 src/settings.cpp:541
 #, kde-format
 msgid "Password Protection"
-msgstr ""
+msgstr "Protección por contrasinal"
 
 #: src/password.cpp:58
 #, kde-format
 msgid "No private key selected."
-msgstr ""
+msgstr "Non seleccionou unha chave privada."
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passwordlayout.ui:29
 #, kde-format
 msgid "&No protection"
-msgstr ""
+msgstr "Se&n protección"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
 #: src/passwordlayout.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
-msgstr ""
+msgstr "&Protexer o cesto cun contrasinal"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
 #: src/passwordlayout.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
-msgstr ""
+msgstr "Protexer o cesto cunha &chave privada:"
 
 #: src/regiongrabber.cpp:103
 #, kde-format
@@ -2954,81 +2962,84 @@ msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
+"Seleccione unha zona co rato. Para facer unha captura, prema Intro. Prema "
+"Esc para saír."
 
 #: src/settings.cpp:390
 #, kde-format
 msgid "On left"
-msgstr ""
+msgstr "Na esquerda"
 
 #: src/settings.cpp:391
 #, kde-format
 msgid "On right"
-msgstr ""
+msgstr "Na dereita"
 
 #: src/settings.cpp:393
 #, kde-format
 msgid "&Basket tree position:"
-msgstr ""
+msgstr "Posición da ár&bore de cestos:"
 
 #: src/settings.cpp:398 src/settings.cpp:652
 #, kde-format
 msgid "On top"
-msgstr ""
+msgstr "Arriba"
 
 #: src/settings.cpp:399 src/settings.cpp:653
 #, kde-format
 msgid "On bottom"
-msgstr ""
+msgstr "Abaixo"
 
 #: src/settings.cpp:401
 #, kde-format
 msgid "&Filter bar position:"
-msgstr ""
+msgstr "Posición da barra de &filtro:"
 
 #: src/settings.cpp:445
 #, kde-format
 msgid "&Show tooltips in baskets"
-msgstr ""
+msgstr "Amo&sar indicacións emerxentes en cestos."
 
 #: src/settings.cpp:449
 #, kde-format
 msgid "&Big notes"
-msgstr ""
+msgstr "Notas &grandes"
 
 #: src/settings.cpp:455
 #, kde-format
 msgid "Behavior"
-msgstr ""
+msgstr "Comportamento"
 
 #: src/settings.cpp:460
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
+"&Transformar liñas que comezan con * ou - en listas en editores de texto."
 
 #: src/settings.cpp:464
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
-msgstr ""
+msgstr "Pe&dir confirmación antes de eliminar notas."
 
 #: src/settings.cpp:468
 #, kde-format
 msgid "Keep text formatting when pasting"
-msgstr ""
+msgstr "Manter o formato de texto ao pegar."
 
 #: src/settings.cpp:472
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "Detectar automaticamente etiquetas a partir do contido das notas."
 
 #: src/settings.cpp:479
 #, kde-format
 msgid "&Export tags in texts"
-msgstr ""
+msgstr "&Exportar as etiquetas dos textos."
 
 #: src/settings.cpp:482
 #, kde-format
 msgid "When does this apply?"
-msgstr ""
+msgstr "Isto cando ten efecto?"
 
 #: src/settings.cpp:483
 #, kde-format
@@ -3036,12 +3047,16 @@ msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
 msgstr ""
+"Isto ten efecto cando copia e pega ou arrastra e solta notas nun editor de "
+"texto."
 
 #: src/settings.cpp:483
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr ""
+"Se se activa, esta propiedade permítelle pegar as etiquetas como "
+"equivalentes textuais."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
 #: src/settings.cpp:484 src/tagsedit.cpp:519
@@ -3051,16 +3066,19 @@ msgid ""
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
 "empty checkbox and a checked box."
 msgstr ""
+"Por exemplo, unha lista de notas coas etiquetas <b>Pendente</b> e <b>Feito</"
+"b> se exporta como liñas precedidas por <b>[ ]</b> ou <b>[x]</b>, o que "
+"representa unha caixa para marcar, sen marcar e marcada respectivamente."
 
 #: src/settings.cpp:496
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
-msgstr ""
+msgstr "A&grupar unha nova nota ao premer na dereita da liña de inserción."
 
 #: src/settings.cpp:497
 #, kde-format
 msgid "How to group a new note?"
-msgstr ""
+msgstr "Como agrupar unha nova nota?"
 
 #: src/settings.cpp:498
 #, kde-format
@@ -3069,6 +3087,9 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
+"<p>Se se activa, a liña de inserción non só permite inserir notas na "
+"posición do cursor, senón que tamén permite agrupar unha nova nota coa que "
+"está baixo o cursor:</p>"
 
 #: src/settings.cpp:500
 #, kde-format
@@ -3078,101 +3099,106 @@ msgid ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
+"<p>Coloque o rato entre notas, onde quere engadir a nova nota.<br>Prema na "
+"<b>esquerda</b> da marca central da liña de inserción para <b>inserir</b> "
+"unha nota.<br>Prema na <b>dereita</b> para <b>agrupar</b> unha nota coa que "
+"estea <b>debaixo ou enriba</b> segundo a posición do rato.</p>"
 
 #: src/settings.cpp:516
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Non facer nada"
 
 #: src/settings.cpp:517
 #, kde-format
 msgid "Paste clipboard"
-msgstr ""
+msgstr "Pegar do portapapeis"
 
 #: src/settings.cpp:520
 #, kde-format
 msgid "Insert cross reference"
-msgstr ""
+msgstr "Inserir unha referencia cruzada"
 
 #: src/settings.cpp:521
 #, kde-format
 msgid "Insert launcher note"
-msgstr ""
+msgstr "Inserir unha nota de iniciador"
 
 #: src/settings.cpp:524
 #, kde-format
 msgid "Insert color from screen"
-msgstr ""
+msgstr "Inserir unha cor da pantalla"
 
 #: src/settings.cpp:525
 #, kde-format
 msgid "Load note from file"
-msgstr ""
+msgstr "Cargar unha nota dun ficheiro"
 
 #: src/settings.cpp:526
 #, kde-format
 msgid "Import Launcher for desktop application"
-msgstr ""
+msgstr "Importar o iniciador para aplicacións de escritorio"
 
 #: src/settings.cpp:527
 #, kde-format
 msgid "Import icon"
-msgstr ""
+msgstr "Importar unha icona"
 
 #: src/settings.cpp:530
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
-msgstr ""
+msgstr "Use &Maiús+prema central en calquera parte:"
 
 #: src/settings.cpp:535
 #, kde-format
 msgid "at cursor position"
-msgstr ""
+msgstr "na posición do cursor"
 
 #: src/settings.cpp:550
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
-msgstr ""
+msgstr "Bloquear a&utomaticamente os cestos protexidos cando leven pechados"
 
 #: src/settings.cpp:554
 #, kde-format
 msgid " minutes"
-msgstr ""
+msgstr " minutos"
 
 #: src/settings.cpp:565
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr ""
+"Usar o axente de GnuPG para cestos protexidos con chaves &privadas e públicas"
 
 #: src/settings.cpp:649
 #, kde-format
 msgid "&Place of new notes:"
-msgstr ""
+msgstr "&Lugar das novas notas:"
 
 #: src/settings.cpp:654
 #, kde-format
 msgid "At current note"
-msgstr ""
+msgstr "Na nota actual"
 
 #: src/settings.cpp:673
 #, kde-format
 msgid "&New images size:"
-msgstr ""
+msgstr "Tamaño das &novas imaxes:"
 
 #: src/settings.cpp:686
 #, kde-format
 msgid "&by"
-msgstr ""
+msgstr "&de"
 
 #: src/settings.cpp:691
 #, kde-format
 msgid "pixels"
-msgstr ""
+msgstr "píxeles"
 
 #: src/settings.cpp:693
 #, kde-format
 msgid "&Visualize..."
-msgstr ""
+msgstr "&Visualizar…"
 
 #: src/settings.cpp:701
 #, kde-format
@@ -3182,117 +3208,117 @@ msgstr "Ver o contido dos ficheiros engadidos para os seguintes tipos"
 #: src/settings.cpp:703
 #, kde-format
 msgid "&Plain text"
-msgstr ""
+msgstr "Texto sim&ple"
 
 #: src/settings.cpp:704
 #, kde-format
 msgid "&HTML page"
-msgstr ""
+msgstr "Páxina &HTML"
 
 #: src/settings.cpp:705
 #, kde-format
 msgid "&Image or animation"
-msgstr ""
+msgstr "&Imaxe ou animación"
 
 #: src/settings.cpp:706
 #, kde-format
 msgid "&Sound"
-msgstr ""
+msgstr "&Son"
 
 #: src/settings.cpp:776
 #, kde-format
 msgid "Conference audio record"
-msgstr ""
+msgstr "Gravación de son de conferencia"
 
 #: src/settings.cpp:777
 #, kde-format
 msgid "Annual report"
-msgstr ""
+msgstr "Informe anual"
 
 #: src/settings.cpp:778
 #, kde-format
 msgid "Home folder"
-msgstr ""
+msgstr "Cartafol persoal"
 
 #: src/settings.cpp:780
 #, kde-format
 msgid "Launch %1"
-msgstr ""
+msgstr "Iniciar %1"
 
 #: src/settings.cpp:781
 #, kde-format
 msgid "Another basket"
-msgstr ""
+msgstr "Outro cesto"
 
 #: src/settings.cpp:783
 #, kde-format
 msgid "&Sounds"
-msgstr ""
+msgstr "&Sons"
 
 #: src/settings.cpp:784
 #, kde-format
 msgid "&Files"
-msgstr ""
+msgstr "&Ficheiros"
 
 #: src/settings.cpp:785
 #, kde-format
 msgid "&Local Links"
-msgstr ""
+msgstr "&Ligazóns locais"
 
 #: src/settings.cpp:786
 #, kde-format
 msgid "&Network Links"
-msgstr ""
+msgstr "Ligazó&ns de rede"
 
 #: src/settings.cpp:787
 #, kde-format
 msgid "Launc&hers"
-msgstr ""
+msgstr "&Iniciadores"
 
 #: src/settings.cpp:788
 #, kde-format
 msgid "&Cross References"
-msgstr ""
+msgstr "Referencias &cruzadas"
 
 #: src/settings.cpp:831
 #, kde-format
 msgid "Open &text notes with a custom application:"
-msgstr ""
+msgstr "Abrir as notas de &texto cunha aplicación personalizada:"
 
 #: src/settings.cpp:832
 #, kde-format
 msgid "Open text notes with:"
-msgstr ""
+msgstr "Abrir as notas de texto con:"
 
 #: src/settings.cpp:839
 #, kde-format
 msgid "Open &image notes with a custom application:"
-msgstr ""
+msgstr "Abrir as notas de &imaxe cunha aplicación personalizada:"
 
 #: src/settings.cpp:840
 #, kde-format
 msgid "Open image notes with:"
-msgstr ""
+msgstr "Abrir as notas de imaxe con:"
 
 #: src/settings.cpp:847
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
-msgstr ""
+msgstr "Abrir as notas de &animación cunha aplicación personalizada:"
 
 #: src/settings.cpp:848
 #, kde-format
 msgid "Open animation notes with:"
-msgstr ""
+msgstr "Abrir as notas de animación con:"
 
 #: src/settings.cpp:855
 #, kde-format
 msgid "Open so&und notes with a custom application:"
-msgstr ""
+msgstr "Abrir as notas de &son cunha aplicación personalizada:"
 
 #: src/settings.cpp:856
 #, kde-format
 msgid "Open sound notes with:"
-msgstr ""
+msgstr "Abrir as notas de son con:"
 
 #: src/settings.cpp:864
 #, kde-format
@@ -3301,6 +3327,8 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
+"<p>Se se marca, a aplicación definida embaixo usarase ao abrir ese tipo de "
+"nota.</p><p>Senón, usarase a aplicación que configurase en Konqueror.</p>"
 
 #: src/settings.cpp:873
 #, kde-format
@@ -3308,11 +3336,13 @@ msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr ""
+"<p>Definir a aplicación que usar para abrir ese tipo de nota en vez de a "
+"aplicación configurada en Konqueror.</p>"
 
 #: src/settings.cpp:891
 #, kde-format
 msgid "How to change the application used to open Web links?"
-msgstr ""
+msgstr "Como cambiar a aplicación que se usa para abrir ligazóns web?"
 
 #: src/settings.cpp:892
 #, kde-format
@@ -3332,11 +3362,25 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the second help link.</p>"
 msgstr ""
+"<p>Ao abrir ligazóns web, ábrense en distintas aplicacións segundo o contido "
+"da ligazón (unha páxina web, unha imaxe, un documento PDF…), como se fosen "
+"ficheiros no computador.</p><p>Se prefire que todas se abran no navegador "
+"web, por exemplo se usa algo distinto de Plasma (GNOME, XFCE…), faga o "
+"seguinte:</p><ul><li>Abra a configuración do sistema de KDE (se non a atopa, "
+"probe a escribir «systemsettings» nun terminal);</li><li>Vaia a «Aplicacións "
+"→ Aplicacións predeterminadas»;</li><li>Escolla «Navegador web», marque «coa "
+"seguinte orde:» e escriba o nome do seu navegador web (por exemplo «firefox» "
+"ou «epiphany»).</li></ul><p>Agora, cando prema <i>calquera</i> ligazón que "
+"comeza por «https://…» abrirase no seu navegador web (por exemplo, en "
+"Mozilla Firefox ou en Epiphany).</p><p>Para unha configuración máis "
+"elaborada, como abrir só páxinas web no seu navegador web, consulte a "
+"segunda ligazón de axuda.</p>"
 
 #: src/settings.cpp:909
 #, kde-format
 msgid "How to change the applications used to open files and links?"
 msgstr ""
+"Como cambiar as aplicacións que se usan para abrir ficheiros e ligazóns?"
 
 #: src/settings.cpp:910
 #, kde-format
@@ -3355,336 +3399,350 @@ msgid ""
 "the applications list, add your Web browser as the first entry;</li><li>Do "
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 msgstr ""
+"<p>Faga o seguinte para definir a aplicación que usar para cada tipo de "
+"ficheiro. Isto tamén afecta a ligazóns web se escolle non abrilas "
+"sistematicamente nun navegador web (consulte a primeira ligazón de axuda). A "
+"configuración predeterminada debería abondar, pero este consello é útil se "
+"usa GNOME, XFCE ou outro entorno distinto de Plasma.</p><p>Isto é un exemplo "
+"de como abrir páxinas HTML no seu navegador web (e seguir usando outras "
+"aplicacións para outros enderezos ou ficheiros). Repita estes pasos para "
+"cada tipo de ficheiro que queira abrir nunha aplicación concreta.</"
+"p><ul><li>Abra a configuración do sistema de KDE (se non a atopa, escriba "
+"«systemsettings» nun terminal);</li><li>Vaia a «Aplicacións → Asociación de "
+"ficheiros»;</li><li>Na árbore, expanda «texto» e prema «html»;</li><li>Na "
+"lista de aplicacións, engada o seu navegador web como a primeira entrada;</"
+"li><li>Faga o mesmo para o tipo «aplicación» → «xhtml+xml».</li></ul>"
 
 #: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
-msgstr ""
+msgstr "Seguro que quere retirar as versións vellas de todos os cestos?"
 
 #: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Version Sync"
-msgstr ""
+msgstr "Sincronización de versións"
 
 #: src/settings_versionsync.cpp:90
 #, kde-format
 msgid "This will free %1 MB"
-msgstr ""
+msgstr "Isto liberará %1 MB"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
 #, kde-format
 msgid "Enable distributed version control"
-msgstr ""
+msgstr "Activar un control de versións distribuído."
 
 #. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
 #: src/settings_versionsync.ui:24
 #, kde-format
 msgid "BasKet is built without version control (libgit2) support"
 msgstr ""
+"BasKet está construído sen a funcionalidade de control de versións (libgit2)."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
 #: src/settings_versionsync.ui:34
 #, kde-format
 msgid "Control"
-msgstr ""
+msgstr "Control"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
 #: src/settings_versionsync.ui:45
 #, kde-format
 msgid "Clear version history"
-msgstr ""
+msgstr "Borrar o historial de versións"
 
 #. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
 #: src/settings_versionsync.ui:52
 #, kde-format
 msgid "TextLabel"
-msgstr ""
+msgstr "Etiqueta de texto"
 
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
-msgstr ""
+msgstr "Importar a xerarquía"
 
 #: src/softwareimporters.cpp:59
 #, kde-format
 msgid "How to Import the Notes?"
-msgstr ""
+msgstr "Como importar as notas?"
 
 #: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
-msgstr ""
+msgstr "&Manter a xerarquía orixinal (todas as notas en cestos independentes)."
 
 #: src/softwareimporters.cpp:64
 #, kde-format
 msgid "&First level notes in separate baskets"
-msgstr ""
+msgstr "As notas de &primeiro nivel en cestos independentes."
 
 #: src/softwareimporters.cpp:65
 #, kde-format
 msgid "&All notes in one basket"
-msgstr ""
+msgstr "Todas &as notas nun cesto."
 
 #: src/softwareimporters.cpp:111
 #, kde-format
 msgid "Import Text File"
-msgstr ""
+msgstr "Importar un ficheiro de texto"
 
 #: src/softwareimporters.cpp:115
 #, kde-format
 msgid "Format of the Text File"
-msgstr ""
+msgstr "Formato do ficheiro de texto"
 
 #: src/softwareimporters.cpp:120
 #, kde-format
 msgid "Notes separated by an &empty line"
-msgstr ""
+msgstr "Notas separadas por unha liña bal&eira"
 
 #: src/softwareimporters.cpp:121
 #, kde-format
 msgid "One &note per line"
-msgstr ""
+msgstr "Unha &nota por liña"
 
 #: src/softwareimporters.cpp:122
 #, kde-format
 msgid "Notes begin with a &dash (-)"
-msgstr ""
+msgstr "As notas comezan cun &guión (-)"
 
 #: src/softwareimporters.cpp:123
 #, kde-format
 msgid "Notes begin with a &star (*)"
-msgstr ""
+msgstr "As notas comezan cun a&sterisco (*)"
 
 #: src/softwareimporters.cpp:124
 #, kde-format
 msgid "&Use another separator:"
-msgstr ""
+msgstr "&Usar outro separador:"
 
 #: src/softwareimporters.cpp:140
 #, kde-format
 msgid "&All in one note"
-msgstr ""
+msgstr "Todo nunh&a nota"
 
 #: src/softwareimporters.cpp:221
 #, kde-format
 msgctxt "From TextFile.txt"
 msgid "From %1"
-msgstr ""
+msgstr "De %1"
 
 #: src/tag.cpp:82
 #, kde-format
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "To Do"
-msgstr ""
+msgstr "Pendente"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "Unchecked"
-msgstr ""
+msgstr "Sen marcar"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "Done"
-msgstr ""
+msgstr "Feito"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "Progress"
-msgstr ""
+msgstr "Progreso"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "0 %"
-msgstr ""
+msgstr "0%"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "25 %"
-msgstr ""
+msgstr "25%"
 
 #: src/tag.cpp:595
 #, kde-format
 msgid "50 %"
-msgstr ""
+msgstr "50%"
 
 #: src/tag.cpp:595
 #, kde-format
 msgid "75 %"
-msgstr ""
+msgstr "75%"
 
 #: src/tag.cpp:595
 #, kde-format
 msgid "100 %"
-msgstr ""
+msgstr "100%"
 
 #: src/tag.cpp:648
 #, kde-format
 msgid "Priority"
-msgstr ""
+msgstr "Prioridade"
 
 #: src/tag.cpp:648
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Baixa"
 
 #: src/tag.cpp:648
 #, kde-format
 msgid "Medium"
-msgstr ""
+msgstr "Media"
 
 #: src/tag.cpp:649
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #: src/tag.cpp:649
 #, kde-format
 msgid "Preference"
-msgstr ""
+msgstr "Preferencia"
 
 #: src/tag.cpp:649
 #, kde-format
 msgid "Bad"
-msgstr ""
+msgstr "Mala"
 
 #: src/tag.cpp:650
 #, kde-format
 msgid "Good"
-msgstr ""
+msgstr "Boa"
 
 #: src/tag.cpp:650
 #, kde-format
 msgid "Excellent"
-msgstr ""
+msgstr "Excelente"
 
 #: src/tag.cpp:650
 #, kde-format
 msgid "Highlight"
-msgstr ""
+msgstr "Realce"
 
 #: src/tag.cpp:719
 #, kde-format
 msgid "Important"
-msgstr ""
+msgstr "Importante"
 
 #: src/tag.cpp:719
 #, kde-format
 msgid "Very Important"
-msgstr ""
+msgstr "Moi importante"
 
 #: src/tag.cpp:719
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #: src/tag.cpp:720
 #, kde-format
 msgid "Idea"
-msgstr ""
+msgstr "Idea"
 
 #: src/tag.cpp:720
 #, kde-format
 msgctxt "The initial of 'Idea'"
 msgid "I."
-msgstr ""
+msgstr "I."
 
 #: src/tag.cpp:721
 #, kde-format
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #: src/tag.cpp:721
 #, kde-format
 msgid "Work"
-msgstr ""
+msgstr "Traballo"
 
 #: src/tag.cpp:721
 #, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
-msgstr ""
+msgstr "T."
 
 #: src/tag.cpp:739
 #, kde-format
 msgid "Personal"
-msgstr ""
+msgstr "Persoal"
 
 #: src/tag.cpp:739
 #, kde-format
 msgctxt "The initial of 'Personal'"
 msgid "P."
-msgstr ""
+msgstr "P."
 
 #: src/tag.cpp:739
 #, kde-format
 msgid "Funny"
-msgstr ""
+msgstr "Gracioso"
 
 #: src/tagsedit.cpp:314
 #, kde-format
 msgid "Customize Tags"
-msgstr ""
+msgstr "Personalizar as etiquetas"
 
 #: src/tagsedit.cpp:333
 #, kde-format
 msgid "Ne&w Tag"
-msgstr ""
+msgstr "No&va etiqueta"
 
 #: src/tagsedit.cpp:334
 #, kde-format
 msgid "New St&ate"
-msgstr ""
+msgstr "Novo est&ado"
 
 #: src/tagsedit.cpp:355
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr ""
+msgstr "Subir (Ctrl+Maiús+↑)"
 
 #: src/tagsedit.cpp:356
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr ""
+msgstr "Baixar (Ctrl+Maiús+↓)"
 
 #: src/tagsedit.cpp:357
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: src/tagsedit.cpp:380
 #, kde-format
 msgid "Tag"
-msgstr ""
+msgstr "Etiquetar"
 
 #: src/tagsedit.cpp:392
 #, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
-msgstr ""
+msgstr "&Retirar"
 
 #: src/tagsedit.cpp:393
 #, kde-format
 msgid "S&hortcut:"
-msgstr ""
+msgstr "&Atallo:"
 
 #: src/tagsedit.cpp:398
 #, kde-format
 msgid "&Inherited by new sibling notes"
-msgstr ""
+msgstr "&Herdado por novas notas paralelas"
 
 #: src/tagsedit.cpp:400
 #, kde-format
 msgid "Allow Cross Reference Links"
-msgstr ""
+msgstr "Permitir ligazóns de referencia cruzadas"
 
 #: src/tagsedit.cpp:402
 #, kde-format
 msgid "What does this do?"
-msgstr ""
+msgstr "Isto que fai?"
 
 #: src/tagsedit.cpp:403
 #, kde-format
@@ -3692,102 +3750,105 @@ msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
+"Esta opción permítelle escribir unha ligazón a unha referencia cruzada "
+"directamente nunha nota de texto. As ligazóns de referencias cruzadas teñen "
+"a seguinte sintaxe:"
 
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
-msgstr ""
+msgstr "Desde a cume da árbore (ruta absoluta):"
 
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
-msgstr ""
+msgstr "[[/elemento raíz/aniñado|título opcional]]"
 
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "Relative to the current basket:"
-msgstr ""
+msgstr "Relativa ao cesto actual:"
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[../sibling|optional title]]"
-msgstr ""
+msgstr "[[../outra-nota|título opcional]]"
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[child|optional title]]"
-msgstr ""
+msgstr "[[aniñada|título opcional]]"
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[./child|optional title]]"
-msgstr ""
+msgstr "[[./aniñada|título opcional]]"
 
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "A coincidencia entre cestos non distingue maiúsculas."
 
 #: src/tagsedit.cpp:420 src/tagsedit.cpp:1089 src/tagsedit.cpp:1105
 #, kde-format
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #: src/tagsedit.cpp:428
 #, kde-format
 msgid "Na&me:"
-msgstr ""
+msgstr "No&me:"
 
 #: src/tagsedit.cpp:436
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
-msgstr ""
+msgstr "Re&tirar"
 
 #: src/tagsedit.cpp:437
 #, kde-format
 msgid "&Emblem:"
-msgstr ""
+msgstr "&Emblema:"
 
 #: src/tagsedit.cpp:454
 #, kde-format
 msgid "&Background:"
-msgstr ""
+msgstr "&Fondo:"
 
 #: src/tagsedit.cpp:484
 #, kde-format
 msgid "Strike Through"
-msgstr ""
+msgstr "Riscar"
 
 #: src/tagsedit.cpp:486
 #, kde-format
 msgid "&Text:"
-msgstr ""
+msgstr "&Texto:"
 
 #: src/tagsedit.cpp:497
 #, kde-format
 msgid "Co&lor:"
-msgstr ""
+msgstr "Co&r:"
 
 #: src/tagsedit.cpp:502
 #, kde-format
 msgid "&Font:"
-msgstr ""
+msgstr "&Fonte:"
 
 #: src/tagsedit.cpp:506
 #, kde-format
 msgid "&Size:"
-msgstr ""
+msgstr "&Tamaño:"
 
 #: src/tagsedit.cpp:510
 #, kde-format
 msgid "Te&xt equivalent:"
-msgstr ""
+msgstr "Te&xto equivalente:"
 
 #: src/tagsedit.cpp:516
 #, kde-format
 msgid "What is this for?"
-msgstr ""
+msgstr "Isto para que é?"
 
 #: src/tagsedit.cpp:517
 #, kde-format
@@ -3795,16 +3856,18 @@ msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
 "will be inserted as a textual equivalent of the tag."
 msgstr ""
+"Cando copia e pega ou arrastra e solta notas nun editor de texto, este texto "
+"inserirase como equivalente textual da etiqueta."
 
 #: src/tagsedit.cpp:527
 #, kde-format
 msgid "On ever&y line"
-msgstr ""
+msgstr "En cada l&iña"
 
 #: src/tagsedit.cpp:529
 #, kde-format
 msgid "What does this mean?"
-msgstr ""
+msgstr "Isto que significa?"
 
 #: src/tagsedit.cpp:530
 #, kde-format
@@ -3812,6 +3875,8 @@ msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
 "on the first line or on every line of the note."
 msgstr ""
+"Cando unha nota ten varias liñas, pode escoller exportar a etiqueta ou o "
+"estado na primeira liña ou en cada liña da nota."
 
 #: src/tagsedit.cpp:532
 #, kde-format
@@ -3819,22 +3884,25 @@ msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
 msgstr ""
+"No exemplo de enriba, a etiqueta da nota superior só se exporta na primeira "
+"liña, mentres que a etiqueta da nota inferior se exporta en cada liña da "
+"nota."
 
 #: src/tagsedit.cpp:970
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
-msgstr ""
+msgstr "Eliminar a etiqueta elimínaa de cada nota á que está asignada."
 
 #: src/tagsedit.cpp:970
 #, kde-format
 msgid "Confirm Delete Tag"
-msgstr ""
+msgstr "Confirmar a eliminación de etiqueta"
 
 #: src/tagsedit.cpp:970
 #, kde-format
 msgid "Delete Tag"
-msgstr ""
+msgstr "Eliminar a etiqueta"
 
 #: src/tagsedit.cpp:972
 #, kde-format
@@ -3842,27 +3910,29 @@ msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
 msgstr ""
+"Eliminar o estado elimínao de cada etiqueta en cada nota na que o estado "
+"está asignado."
 
 #: src/tagsedit.cpp:972
 #, kde-format
 msgid "Confirm Delete State"
-msgstr ""
+msgstr "Confirmar a eliminación do estado "
 
 #: src/tagsedit.cpp:972
 #, kde-format
 msgid "Delete State"
-msgstr ""
+msgstr "Eliminar o estado"
 
 #: src/tools.cpp:800
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " — "
 
 #: src/variouswidgets.cpp:42
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: src/variouswidgets.cpp:79 src/variouswidgets.cpp:80
 #: src/variouswidgets.cpp:81 src/variouswidgets.cpp:82
@@ -3872,7 +3942,7 @@ msgstr ""
 #: src/variouswidgets.cpp:229 src/variouswidgets.cpp:230
 #, kde-format
 msgid "%1 by %1 pixels"
-msgstr ""
+msgstr "%1×%1 píxeles"
 
 #: src/variouswidgets.cpp:141
 #, kde-format
@@ -3880,3 +3950,5 @@ msgid ""
 "Resize the window to select the image size\n"
 "and close it or press Escape to accept changes."
 msgstr ""
+"Redimensione a xanela para seleccionar o tamaño da imaxe\n"
+"e péchea ou prema Esc para aceptar os cambios."
