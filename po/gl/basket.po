@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2024-07-29 18:15+0200\n"
+"PO-Revision-Date: 2024-08-10 09:35+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -35,7 +35,7 @@ msgstr "basketweaver"
 #: devtools/weaver/main.cpp:19
 #, kde-format
 msgid "Encodes and decodes .baskets files"
-msgstr "Codifica e descodifica ficheiros .basket."
+msgstr "Codifica e descodifica ficheiros .baskets."
 
 #: devtools/weaver/main.cpp:28
 #, kde-format
@@ -640,6 +640,7 @@ msgstr "(ningún)"
 msgid "Learn some tips..."
 msgstr "Aquí ten uns consellos…"
 
+# well-spelled: emas
 #: src/basketproperties.cpp:133
 #, kde-format
 msgid ""
