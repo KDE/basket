@@ -779,7 +779,7 @@ msgid ""
 "report the bug to the developer."
 msgstr ""
 "Esta mensaxe non debería aparecer nunha. Se aparece, o programa ten un "
-"fallo. Informe do fallo ao equipo de desenvolvemento."
+"fallo. Informe do fallo ao equipo desenvolvedor."
 
 #: src/basketscene.cpp:2719 src/basketscene.cpp:2772 src/basketscene.cpp:2781
 #, kde-format
@@ -2885,8 +2885,8 @@ msgid ""
 msgstr ""
 "<p>%1 non permite os datos que soltou.<br>Porén, creouse unha nota xenérica "
 "que lle permite arrastrar e copiar os datos nunha aplicación que os permita."
-"</p><p>Se quere que se permitan estes datos, contacte co equipo de "
-"desenvolvemento.</p>"
+"</p><p>Se quere que se permitan estes datos, contacte co equipo "
+"desenvolvedor.</p>"
 
 #: src/notefactory.cpp:495
 #, kde-format
