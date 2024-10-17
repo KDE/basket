@@ -1,16 +1,16 @@
 # Translation of basket.po to Catalan
-# Copyright (C) 2020-2023 This_file_is_part_of_KDE
+# Copyright (C) 2020-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2020, 2021, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:40+0000\n"
-"PO-Revision-Date: 2023-08-08 14:20+0200\n"
+"PO-Revision-Date: 2024-10-16 19:22+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 "X-Accelerator-Marker: &\n"
 
 #, kde-format
@@ -485,9 +485,9 @@ msgid ""
 "If something went wrong during the restoration process, you can re-use this "
 "folder to store your baskets and nothing will be lost."
 msgstr ""
-"Si quelcom ha anat malament durant el procés de restauració, podreu "
-"reutilitzar aquesta carpeta per a emmagatzemar les vostres cistelles i així "
-"no es perdrà res."
+"Si res ha anat malament durant el procés de restauració, podreu reutilitzar "
+"aquesta carpeta per a emmagatzemar les vostres cistelles i així no es perdrà "
+"res."
 
 #: src/backup.cpp:261
 #, kde-format
@@ -509,8 +509,8 @@ msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr ""
-"Si quelcom va malament durant el procés de restauració, llegiu el fitxer <b>"
-"%1</b>."
+"Si res va malament durant el procés de restauració, llegiu el fitxer <b>%1</"
+"b>."
 
 #: src/backup.cpp:268
 #, kde-format
@@ -2919,7 +2919,7 @@ msgid ""
 "developer.</p>"
 msgstr ""
 "<p>El %1 no admet les dades que heu deixat anar.<br>No obstant això, crearà "
-"una nota genèrica, permetent-vos arrossegar-la o copiar a una aplicació que "
+"una nota genèrica, que us permet arrossegar-la o copiar a una aplicació que "
 "l'entengui.</p><p>Si voleu el suport d'aquestes dades, contacteu amb el "
 "desenvolupador.</p>"
 
