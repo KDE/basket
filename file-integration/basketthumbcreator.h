@@ -20,11 +20,8 @@
 #pragma once
 
 #include <KIO/ThumbnailCreator>
-#include <qimage.h>
-#include <qstring.h>
 
 class BasketThumbCreator : public KIO::ThumbnailCreator
 {
     KIO::ThumbnailResult create(const KIO::ThumbnailRequest &request) override;
 };
-    

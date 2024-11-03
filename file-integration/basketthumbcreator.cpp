@@ -18,13 +18,13 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-// #include <KioArchive>
 #include <QTemporaryDir>
 #include <QTextStream>
-#include <qdir.h>
-#include <qfile.h>
-#include <qfileinfo.h>
-#include <qstringlist.h>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QStringList>
+#include <QImage>
 
 #include "basketthumbcreator.h"
 
@@ -102,15 +102,3 @@ KIO::ThumbnailResult BasketThumbCreator::create(const KIO::ThumbnailRequest &req
     }
     return KIO::ThumbnailResult::fail();
 }
-
-// ThumbCreator::Flags BasketThumbCreator::flags() const
-// {
-//     return (Flags)(DrawFrame | BlendIcon);
-// }
-
-// extern "C" {
-// Q_DECL_EXPORT KIO::ThumbnailCreator *new_creator()
-// {
-//     return new BasketThumbCreator();
-// }
-// };
