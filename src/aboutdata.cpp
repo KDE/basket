@@ -23,8 +23,7 @@ AboutData::AboutData()
                  QStringLiteral("https://basket.kde.org/"))
 {
     // Pass basket.kde.org to constructor to be used as D-Bus domain name, but set the displayed address below
-    setHomepage(QStringLiteral("https://invent.kde.org/utilities/basket"));
-    setBugAddress("https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=basket");
+    setHomepage(QStringLiteral("https://apps.kde.org/basket/"));
 
     addAuthor(i18n("Carl Schwan"), i18n("Co-Maintainer"), QStringLiteral("carl@carlschwan.eu"), QStringLiteral("https://carlschwan.eu"));
     addAuthor(i18n("Niccolò Venerandi"), i18n("Co-Maintainer"), QStringLiteral("niccolo@venerandi.com"), QStringLiteral("https://niccolo.venerandi.com/"));
