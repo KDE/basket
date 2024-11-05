@@ -340,11 +340,11 @@ bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString mes
         return false;
     }
     
-    const git_commit* parentarray[] = { commit };
+    const git_commit* parentarray[] = { const_cast<git_commit*>(commit) };
     
     QByteArray commitmessageba = message.toUtf8();
     const char *commitmessageCString = commitmessageba.data();
-    error = git_commit_create(&commit_id, repo, "HEAD", sig, sig, nullptr, commitmessageCString, tree, 1, parentarray);
+    error = git_commit_create(&commit_id, repo, "HEAD", sig, sig, nullptr, commitmessageCString, tree, 1, (const git_commit **)parentarray);
     if (error < 0) {
         gitErrorHandling();
         return false;
@@ -414,7 +414,7 @@ void GitWrapper::gitErrorHandling()
     qDebug() << "Error in git (error,class,message)" << e->klass << e->message;
 }
 
-#else
+#else // WITH_LIBGIT2
 // make everything noop
 void GitWrapper::initializeGitRepository(QString folder)
 {
@@ -459,4 +459,4 @@ void GitWrapper::gitErrorHandling()
 {
 }
 
-#endif // WITH_LIBGIT2
+#endif // NOT WITH_LIBGIT2
