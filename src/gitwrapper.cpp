@@ -340,7 +340,7 @@ bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString mes
         return false;
     }
     
-    const git_commit *parentarray[] = { commit };
+    const git_commit* parentarray[] = { commit };
     
     QByteArray commitmessageba = message.toUtf8();
     const char *commitmessageCString = commitmessageba.data();
