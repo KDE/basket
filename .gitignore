@@ -3,6 +3,7 @@
 qtcreator-build
 build/*
 *.user
+*.orig
 *~
 buil-dir/
 .flatpak-builder/
