@@ -459,4 +459,4 @@ void GitWrapper::gitErrorHandling()
 {
 }
 
-#endif
+#endif // WITH_LIBGIT2
