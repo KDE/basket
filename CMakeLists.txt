@@ -20,6 +20,10 @@ option(ENABLE_GIT "Enabled Git Support" ON)
 # for local usage only
 # set(CMAKE_BUILD_PARALLEL_LEVEL 12)
 
+# set compiler flags
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
+
+# do we use a GNU compiler?
 if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fno-delete-null-pointer-checks")
     # TODO: after removing kdelibs4support this could also be removed
@@ -51,12 +55,12 @@ ecm_setup_version(
 
 # GPG
 if (ENABLE_GPG)
-    find_package(Gpgme 1.1.7)
+    find_package(Gpgme 1.23.2)
 endif()
 
 # libgit2
 if (ENABLE_GIT)
-    find_package(Libgit2 1.8.2 QUIET)
+    find_package(Libgit2 1.8.4 QUIET)
     set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
         PURPOSE "Add git support to Basket"
         URL "https://libgit2.org"
