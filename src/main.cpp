@@ -15,6 +15,9 @@
 #include "backup.h"
 #include "global.h"
 #include "mainwindow.h"
+#ifdef DEBUG_PIPE
+#include "debugwindow.h"
+#endif
 #include "settings.h"
 
 int main(int argc, char *argv[])
@@ -52,7 +55,7 @@ int main(int argc, char *argv[])
     Global::mainWnd = win;
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);
-
+    
     win->show();
 
     // Self-test of the presence of basketui.rc (the only required file after basket executable)
@@ -60,6 +63,11 @@ int main(int argc, char *argv[])
         // An error message will be show by BNPView::popupMenu()
         return 1;
 
+#ifdef DEBUG_PIPE
+    // Install the debug message handler for external usage
+    qInstallMessageHandler(debugMessageHandler);
+#endif
+    
     /* Go */
     int result = app.exec();
     exit(result); // Do not clean up memory to not crash while deleting the QApplication, or do not hang up on session exit

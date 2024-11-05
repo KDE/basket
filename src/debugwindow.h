@@ -7,6 +7,11 @@
 #define DEBUGWINDOW_H
 
 #include <QWidget>
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
+#include <QLatin1String>
+#include <QStringLiteral>
 
 class QVBoxLayout;
 class QTextBrowser;
@@ -36,6 +41,10 @@ private:
     QVBoxLayout *layout;
     QTextBrowser *textBrowser;
 };
+
+#ifdef DEBUG_PIPE
+void debugMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
+#endif
 
 #define DEBUG_WIN                                                                                                                                                                                                                              \
     if (Global::debugWindow)                                                                                                                                                                                                                   \

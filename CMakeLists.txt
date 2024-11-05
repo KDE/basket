@@ -17,6 +17,7 @@ set(LIB_PREFIX Qt6::)
 option(BUILD_DEVTOOLS "Enabled Devtools" ON)
 option(ENABLE_GPG "Enabled GPG Support" OFF)
 option(ENABLE_GIT "Enabled Git Support" ON)
+option(DEBUG_PIPE "Enabled Named Debugging Pipe" OFF)
 
 # for local usage only
 # set(CMAKE_BUILD_PARALLEL_LEVEL 12)
@@ -76,6 +77,12 @@ else()
     else()
         MESSAGE(WARNING "Git2 not found, configuring without")
     endif()
+endif()
+
+# Debugging Pipe
+if (DEBUG_PIPE)
+    MESSAGE(STATUS "Enable Named Debugging Pipe")
+    add_definitions(-DDEBUG_PIPE)
 endif()
 
 # TODO make X11 optional

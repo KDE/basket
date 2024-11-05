@@ -49,6 +49,7 @@ set(libbasket_SRCS
     xmlwork.cpp
 )
 
+
 set(PIMO_CPP "") # One of the generated files
 
 ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
@@ -108,6 +109,10 @@ set(basket_SRCS
     application.cpp
     basket.qrc
 )
+
+if(DEBUG_PIPE)
+    list(APPEND basket_SRCS debugwindow.cpp)
+endif()
 
 add_executable(basket ${basket_SRCS})
 target_link_libraries(basket LibBasket)
