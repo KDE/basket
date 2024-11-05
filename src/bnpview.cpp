@@ -665,14 +665,14 @@ a = ac->addAction(QStringLiteral("insert_screen_color"), this, &BNPView::slotCol
     m_actDelBasket = a;
 
 #ifdef HAVE_LIBGPGME
-    a = ac->addAction("basket_password", this, SLOT(password()));
+    a = ac->addAction(QStringLiteral("basket_password"), this, SLOT(password()));
     a->setText(i18nc("Password protection", "Pass&word..."));
     a->setShortcut(0);
     m_actPassBasket = a;
 
-    a = ac->addAction("basket_lock", this, SLOT(lockBasket()));
+    a = ac->addAction(QStringLiteral("basket_lock"), this, SLOT(lockBasket()));
     a->setText(i18nc("Lock Basket", "&Lock"));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence("Ctrl+L"));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(QLatin1String("Ctrl+L")));
     m_actLockBasket = a;
 #endif
 

@@ -55,7 +55,7 @@ public:
         QVBoxLayout *vbox;
         QWidget *page = new QWidget(this);
         QLabel *labeltxt;
-        QPixmap keyPair = QIcon::fromTheme("kgpg_key2").pixmap(20, 20);
+        QPixmap keyPair = QIcon::fromTheme(QStringLiteral("kgpg_key2")).pixmap(20, 20);
 
         setMinimumSize(350, 100);
         keysListpr = new QTreeWidget(page);
@@ -94,8 +94,8 @@ public:
         QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
         okButton->setDefault(true);
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-        connect(buttonBox, &QDialogButtonBox::accepted, this, &KGpgMe::accept);
-        connect(buttonBox, &QDialogButtonBox::rejected, this, &KGpgMe::reject);
+        connect(buttonBox, &QDialogButtonBox::accepted, this, &KGpgSelKey::accept);
+        connect(buttonBox, &QDialogButtonBox::rejected, this, &KGpgSelKey::reject);
         mainLayout->addWidget(buttonBox);
     };
 
@@ -146,7 +146,7 @@ KGpgMe::~KGpgMe()
 void KGpgMe::clearCache()
 {
     if (m_cache.size() > 0) {
-        m_cache.fill('\0');
+        m_cache.fill(QLatin1Char('\0'));
         m_cache.truncate(0);
     }
 }
@@ -165,7 +165,7 @@ void KGpgMe::init(gpgme_protocol_t proto)
     if (err) {
         static QString lastErrorText;
 
-        QString text = QString("%1: %2").arg(gpgme_strsource(err), gpgme_strerror(err));
+        QString text = QLatin1String("%1: %2").arg(QLatin1String(gpgme_strsource(err)), QLatin1String(gpgme_strerror(err)));
         if (text != lastErrorText) {
             KMessageBox::error(qApp->activeWindow(), text);
             lastErrorText = text;
@@ -183,23 +183,23 @@ QString KGpgMe::checkForUtf8(QString txt)
     if (txt.isEmpty())
         return QString();
 
-    for (s = txt.toLatin1(); *s && !(*s & 0x80); s++)
+    for (s = txt.toStdString().c_str(); *s && !(*s & 0x80); s++)
         ;
-    if (*s && !strchr(txt.toLatin1(), 0xc3) && (txt.indexOf("\\x") == -1))
+    if (*s && !strchr(txt.toStdString().c_str(), 0xc3) && (txt.indexOf(QLatin1String("\\x")) == -1))
         return txt;
 
     // The string is not in UTF-8
     // if (strchr (txt.toLatin1(), 0xc3)) return (txt+" +++");
-    if (txt.indexOf("\\x") == -1)
+    if (txt.indexOf(QLatin1String("\\x")) == -1)
         return QString::fromUtf8(txt.toLatin1());
     //        if (!strchr (txt.toLatin1(), 0xc3) || (txt.indexOf("\\x")!=-1)) {
-    for (int idx = 0; (idx = txt.indexOf("\\x", idx)) >= 0; ++idx) {
+    for (int idx = 0; (idx = txt.indexOf(QLatin1String("\\x"), idx)) >= 0; ++idx) {
         char str[2] = "x";
         str[0] = (char)QString(txt.mid(idx + 2, 2)).toShort(0, 16);
-        txt.replace(idx, 4, str);
+        txt.replace(idx, 4, QLatin1String(str));
     }
-    if (!strchr(txt.toLatin1(), 0xc3))
-        return QString::fromUtf8(txt.toLatin1());
+    if (!strchr(txt.toStdString().c_str(), 0xc3))
+        return txt;
     else
         return QString::fromUtf8(QString::fromUtf8(txt.toLatin1()).toLatin1());
     // perform Utf8 twice, or some keys display badly
@@ -232,10 +232,10 @@ KGpgKeyList KGpgMe::keys(bool privateKeys /* = false */) const
 
                 if (!key->subkeys)
                     continue;
-                gpgkey.id = key->subkeys->keyid;
+                gpgkey.id = QLatin1String(key->subkeys->keyid);
                 if (key->uids) {
-                    gpgkey.name = key->uids->name;
-                    gpgkey.email = key->uids->email;
+                    gpgkey.name = QLatin1String(key->uids->name);
+                    gpgkey.email = QLatin1String(key->uids->email);
                 }
                 keys.append(gpgkey);
                 gpgme_key_unref(key);
@@ -250,7 +250,7 @@ KGpgKeyList KGpgMe::keys(bool privateKeys /* = false */) const
     }
 
     if (err) {
-        KMessageBox::error(qApp->activeWindow(), QString("%1: %2").arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
+        KMessageBox::error(qApp->activeWindow(), QStringLiteral("%1: %2").arg(QLatin1String(gpgme_strsource(err))).arg(QLatin1String(gpgme_strerror(err))));
     } else {
         result = gpgme_op_keylist_result(m_ctx);
         if (result->truncated) {
@@ -277,7 +277,7 @@ bool KGpgMe::encrypt(const QByteArray &inBuffer, unsigned long length, QByteArra
                 if (keyid.isNull()) {
                     key = NULL;
                 } else {
-                    err = gpgme_get_key(m_ctx, keyid.toLatin1(), &keys[0], 0);
+                    err = gpgme_get_key(m_ctx, keyid.toStdString().c_str(), &keys[0], 0);
                     key = keys;
                 }
 
@@ -286,7 +286,7 @@ bool KGpgMe::encrypt(const QByteArray &inBuffer, unsigned long length, QByteArra
                     if (!err) {
                         result = gpgme_op_encrypt_result(m_ctx);
                         if (result->invalid_recipients) {
-                            KMessageBox::error(qApp->activeWindow(), QString("%1: %2").arg(i18n("That public key is not meant for encryption")).arg(result->invalid_recipients->fpr));
+                            KMessageBox::error(qApp->activeWindow(), QStringLiteral("%1: %2").arg(i18n("That public key is not meant for encryption")).arg(QLatin1String(result->invalid_recipients->fpr)));
                         } else {
                             err = readToBuffer(out, outBuffer);
                         }
@@ -296,10 +296,10 @@ bool KGpgMe::encrypt(const QByteArray &inBuffer, unsigned long length, QByteArra
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        KMessageBox::error(qApp->activeWindow(), QString("%1: %2").arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
+        KMessageBox::error(qApp->activeWindow(), QStringLiteral("%1: %2").arg(QLatin1String(gpgme_strsource(err))).arg(QLatin1String(gpgme_strerror(err))));
     }
     if (err != GPG_ERR_NO_ERROR) {
-        DEBUG_WIN << "KGpgMe::encrypt error: " + QString::number(err);
+        DEBUG_WIN << QLatin1String("KGpgMe::encrypt error: ") + QString::number(err);
         clearCache();
     }
     if (keys[0])
@@ -327,7 +327,7 @@ bool KGpgMe::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
                 if (!err) {
                     result = gpgme_op_decrypt_result(m_ctx);
                     if (result->unsupported_algorithm) {
-                        KMessageBox::error(qApp->activeWindow(), QString("%1: %2").arg(i18n("Unsupported algorithm")).arg(result->unsupported_algorithm));
+                        KMessageBox::error(qApp->activeWindow(), QLatin1String("%1: %2").arg(i18n("Unsupported algorithm")).arg(QLatin1String(result->unsupported_algorithm)));
                     } else {
                         err = readToBuffer(out, outBuffer);
                     }
@@ -336,7 +336,7 @@ bool KGpgMe::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
         }
     }
     if (err != GPG_ERR_NO_ERROR && err != GPG_ERR_CANCELED) {
-        KMessageBox::error(qApp->activeWindow(), QString("%1: %2").arg(gpgme_strsource(err)).arg(gpgme_strerror(err)));
+        KMessageBox::error(qApp->activeWindow(), QStringLiteral("%1: %2").arg(QLatin1String(gpgme_strsource(err))).arg(QLatin1String(gpgme_strerror(err))));
     }
     if (err != GPG_ERR_NO_ERROR)
         clearCache();
@@ -376,9 +376,9 @@ gpgme_error_t KGpgMe::readToBuffer(gpgme_data_t in, QByteArray *outBuffer) const
 
 bool KGpgMe::isGnuPGAgentAvailable()
 {
-    QString agent_info = qgetenv("GPG_AGENT_INFO");
+    QString agent_info = QLatin1String(qgetenv("GPG_AGENT_INFO"));
 
-    if (agent_info.indexOf(':') > 0)
+    if (agent_info.indexOf(QLatin1Char(':')) > 0)
         return true;
     return false;
 }
@@ -388,16 +388,16 @@ void KGpgMe::setPassphraseCb()
     bool agent = false;
     QString agent_info;
 
-    agent_info = qgetenv("GPG_AGENT_INFO");
+    agent_info = QLatin1String(qgetenv("GPG_AGENT_INFO"));
 
     if (m_useGnuPGAgent) {
-        if (agent_info.indexOf(':'))
+        if (agent_info.indexOf(QLatin1Char(':')))
             agent = true;
         if (agent_info.startsWith(QLatin1String("disable:")))
-            setenv("GPG_AGENT_INFO", agent_info.mid(8).toLatin1(), 1);
+            setenv("GPG_AGENT_INFO", agent_info.mid(8).toStdString().c_str(), 1);
     } else {
         if (!agent_info.startsWith(QLatin1String("disable:")))
-            setenv("GPG_AGENT_INFO", "disable:" + agent_info.toLatin1(), 1);
+            setenv("GPG_AGENT_INFO", (std::string("disable:") + agent_info.toStdString()).c_str(), 1);
     }
     if (agent)
         gpgme_set_passphrase_cb(m_ctx, 0, 0);
@@ -414,16 +414,16 @@ gpgme_error_t KGpgMe::passphraseCb(void *hook, const char *uid_hint, const char 
 gpgme_error_t KGpgMe::passphrase(const char *uid_hint, const char * /*passphrase_info*/, int last_was_bad, int fd)
 {
     QString s;
-    QString gpg_hint = checkForUtf8(uid_hint);
+    QString gpg_hint = checkForUtf8(QLatin1String(uid_hint));
     bool canceled = false;
 
     if (last_was_bad) {
-        s += "<b>" + i18n("Wrong password.") + "</b><br><br>\n\n";
+        s += QStringLiteral("<b>") + i18n("Wrong password.") + QStringLiteral("</b><br><br>\n\n");
         clearCache();
     }
 
     if (!m_text.isEmpty())
-        s += m_text + "<br>";
+        s += m_text + QStringLiteral("<br>");
 
     if (!gpg_hint.isEmpty())
         s += gpg_hint;

@@ -2997,7 +2997,7 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
             m_button = new QPushButton(m_decryptBox);
             m_button->setText(i18n("&Unlock"));
             layout->addWidget(m_button, 1, 2);
-            connect(m_button, &QButton::clicked, this, &BasketScene::unlock);
+            connect(m_button, &QPushButton::clicked, this, &BasketScene::unlock);
 #endif
             QLabel *label = new QLabel(m_decryptBox);
             QString text = QStringLiteral("<b>") + i18n("Password protected basket.") + QStringLiteral("</b><br/>");

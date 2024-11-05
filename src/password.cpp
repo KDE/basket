@@ -8,6 +8,7 @@
 
 #ifdef HAVE_LIBGPGME
 
+#include <QString>
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QLocale>
@@ -65,7 +66,7 @@ QString PasswordDlg::key() const
     QString s = w->keyCombo->currentText();
     if (s.length() < 16)
         return QString();
-    int n = s.lastIndexOf(' ');
+    int n = s.lastIndexOf(QLatin1Char(' '));
     if (n < 0)
         return QString();
     return s.mid(n + 1);
@@ -114,7 +115,7 @@ Password::Password(QWidget *parent)
     for (KGpgKeyList::iterator it = list.begin(); it != list.end(); ++it) {
         QString name = gpg.checkForUtf8((*it).name);
 
-        keyCombo->addItem(QString("%1 <%2> %3").arg(name).arg((*it).email).arg((*it).id));
+        keyCombo->addItem(QLatin1String("%1 <%2> %3").arg(name).arg((*it).email).arg((*it).id));
     }
     publicPrivateRadioButton->setEnabled(keyCombo->count() > 0);
     keyCombo->setEnabled(keyCombo->count() > 0);
