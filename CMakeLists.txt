@@ -50,16 +50,17 @@ ecm_setup_version(
 
 # GPG
 if (ENABLE_GPG)
-    find_package(Gpgme)
+    find_package(Gpgme 1.1.7)
 endif()
 
 # libgit2
-find_package(Libgit2)
+find_package(Libgit2 1.8.2)
 set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
     PURPOSE "Add git support to Basket"
     URL "https://libgit2.org"
     TYPE OPTIONAL
 )
+
 if (LIBGIT2_FOUND)
     include_directories(${LIBGIT2_INCLUDE_DIR})
     add_definitions(-DWITH_LIBGIT2)

@@ -186,16 +186,21 @@ else() # not WIN32
     set( GPGME_PTHREAD_FOUND false )
     set( GPGME_PTH_FOUND     false )
 
-    find_program( _GPGMECONFIG_EXECUTABLE NAMES gpgme-config )
+    find_program( _GPGMECONFIG_EXECUTABLE NAMES gpgme-config gpgme-tool )
 
     # if gpgme-config has been found
     if ( _GPGMECONFIG_EXECUTABLE )
-
-      message( STATUS "Found gpgme-config at ${_GPGMECONFIG_EXECUTABLE}" )
-
-      exec_program( ${_GPGMECONFIG_EXECUTABLE} ARGS --version OUTPUT_VARIABLE GPGME_VERSION )
-
-      set( _GPGME_MIN_VERSION "1.1.7" )
+      if ( _GPGMECONFIG_EXECUTABLE EQUAL "/bin/gpgme-config")
+        message( STATUS "Found gpgme-config at ${_GPGMECONFIG_EXECUTABLE}" )
+        
+        exec_program( ${_GPGMECONFIG_EXECUTABLE} ARGS --version OUTPUT_VARIABLE GPGME_VERSION )
+      else()
+        message( STATUS "Found gpgme-tool at ${_GPGMECONFIG_EXECUTABLE}" )
+        set(_GPGMECONFIG_COMMAND "${_GPGMECONFIG_EXECUTABLE} --version | head -n1 | cut -d' ' -f2")
+        exec_program( ${_GPGMECONFIG_COMMAND} OUTPUT_VARIABLE GPGME_VERSION )
+      endif()
+      
+      set( _GPGME_MIN_VERSION ${Gpgme_FIND_VERSION} )
 
       if ( ${GPGME_VERSION} VERSION_LESS ${_GPGME_MIN_VERSION} )
 
