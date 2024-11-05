@@ -231,7 +231,6 @@ Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
     /* Try to convert the text as a URL or a list of URLs */
     QStringList uriList = textToURLList(text);
     if (!uriList.isEmpty()) {
-        // TODO: This code is almost duplicated from fropURLs()!
         Note *note;
         Note *firstNote = nullptr;
         Note *lastInserted = nullptr;

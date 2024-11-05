@@ -2497,6 +2497,7 @@ void LinkContent::decodeHtmlTitle()
 
     QString httpBuff = QLatin1String(m_httpBuff);
 
+    
     // todo: this should probably strip odd html tags like &nbsp; etc
     QRegularExpression reg(QStringLiteral("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>"), QRegularExpression::CaseInsensitiveOption);
     

@@ -142,7 +142,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
         ulong previewSize = QFile(tempFolder + QStringLiteral("preview.png")).size();
         ulong archiveSize = QFile(tempDestination).size();
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Latin1);
+        // stream.setEncoding(QStringConverter::Latin1);
         stream << "BasKetNP:archive\n"
                << "version:0.6.1\n"
                //             << "read-compatible:0.6.1\n"
@@ -335,7 +335,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     QFile file(path);
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Latin1);
+        // stream.setEncoding(QStringConverter::Latin1);
         QString line = stream.readLine();
         if (line != QStringLiteral("BasKetNP:archive")) {
             file.close();
@@ -517,7 +517,7 @@ Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath,
         ulong previewSize = QFile(previewImagePath).size();
         ulong archiveSize = QFile(tempDestinationFile).size();
         QTextStream stream(&file);
-        stream.setEncoding(QStringConverter::Latin1);
+        // stream.setEncoding(QStringConverter::Latin1);
         stream << "BasKetNP:archive\n"
                << "version:0.6.1\n"
                //             << "read-compatible:0.6.1\n"
