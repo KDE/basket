@@ -15,6 +15,7 @@ set(LIB_PREFIX Qt6::)
 
 # Options
 option(ENABLE_GPG "Enabled GPG Support" OFF)
+option(ENABLE_GIT "Enabled Git Support" ON)
 
 # for local usage only
 # set(CMAKE_BUILD_PARALLEL_LEVEL 12)
@@ -54,16 +55,25 @@ if (ENABLE_GPG)
 endif()
 
 # libgit2
-find_package(Libgit2 1.8.2)
-set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
-    PURPOSE "Add git support to Basket"
-    URL "https://libgit2.org"
-    TYPE OPTIONAL
-)
+if (ENABLE_GIT)
+    find_package(Libgit2 1.8.2 QUIET)
+    set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
+        PURPOSE "Add git support to Basket"
+        URL "https://libgit2.org"
+        TYPE OPTIONAL
+    )
+endif()
 
 if (LIBGIT2_FOUND)
+    MESSAGE("Git2 enabled and found")
     include_directories(${LIBGIT2_INCLUDE_DIR})
     add_definitions(-DWITH_LIBGIT2)
+else()
+    if (NOT ENABLE_GIT)
+        MESSAGE("Git2 disabled, configuring without")
+    else()
+        MESSAGE("Git2 not found, configuring without")
+    endif()
 endif()
 
 # TODO make X11 optional
@@ -109,11 +119,12 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
 find_package(Phonon4Qt6 REQUIRED)
 
 if (GPGME_FOUND)
+    MESSAGE("GPG enabled and found")
     set(HAVE_LIBGPGME 1)
     SET(LARGEFILE_SOURCE_1)
     ADD_DEFINITIONS(-D_FILE_OFFSET_BITS=64)
 else()
-    if (BASKET_DISABLE_GPG)
+    if (NOT ENABLE_GPG)
         MESSAGE("GPG disabled, configuring without")
     else()
         MESSAGE("GPG not found, configuring without")
