@@ -20,9 +20,6 @@ option(ENABLE_GIT "Enabled Git Support" ON)
 # for local usage only
 # set(CMAKE_BUILD_PARALLEL_LEVEL 12)
 
-# set compiler flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive")
-
 # do we use a GNU compiler?
 if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fno-delete-null-pointer-checks")
