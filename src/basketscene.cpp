@@ -4104,7 +4104,7 @@ void BasketScene::noteOpen(Note *note)
             job->start();
         } else {
             QList<QUrl> urls {url};
-            KService::Ptr service = KService::serviceByDesktopName(serviceLauncher);
+            KService::Ptr service = KService::serviceByStorageId(serviceLauncher);
             
             if (service) {
                 auto *job = new KIO::ApplicationLauncherJob(service);

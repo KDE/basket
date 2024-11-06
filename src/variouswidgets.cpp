@@ -54,9 +54,10 @@ void ServiceLaunchRequester::slotSelCommand()
 {
     KService::Ptr service = KService::serviceByStorageId(m_serviceLauncher);
     QString service_name;
-    if (service && service->isApplication())
-        service_name = service->name();
-    
+    if (service && service->isApplication()) {
+        QString exec = service->exec();
+        service_name = exec.split(QLatin1Char(' '), Qt::SkipEmptyParts).value(0);
+    }
     QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(QList<QUrl>(), m_message, service_name, this);
     dlg->exec();
     
@@ -64,7 +65,7 @@ void ServiceLaunchRequester::slotSelCommand()
         KService::Ptr selectedService = dlg->service();
         if (selectedService) {
             m_serviceLauncher = selectedService->storageId(); // e.g., "firefox"
-            Q_EMIT launcherChanged();
+            setServiceLauncher(m_serviceLauncher);
         }
         
     }
@@ -88,7 +89,7 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
     
     
     DEBUG_WIN << QStringLiteral("lookup service launcher: ") << serviceLauncher;
-    KService::Ptr service = KService::serviceByDesktopName(serviceLauncher);
+    KService::Ptr service = KService::serviceByStorageId(serviceLauncher);
     
     if (service && service->isApplication()) {
         KIconLoader *iconLoader = KIconLoader::global();
@@ -124,7 +125,7 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
     
     
     m_serviceChooser->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    
+    Q_EMIT launcherChanged();
 }
 
 void ServiceLaunchRequester::setFocus() {
