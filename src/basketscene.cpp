@@ -4094,20 +4094,24 @@ void BasketScene::noteOpen(Note *note)
     } else {
         Q_EMIT postMessage(message); // "Opening link target..." / "Launching application..." / "Opening note file..."
         // Finally do the opening job:
-        QString customCommand = note->content()->customOpenCommand();
-
+        QString serviceLauncher = note->content()->customServiceLauncher();
+        
         if (url.url().startsWith(QStringLiteral("basket://"))) {
             Q_EMIT crossReference(url.url());
-        } else if (customCommand.isEmpty()) {
-            KIO::OpenUrlJob *run = new KIO::OpenUrlJob(url, m_view->window());
-            run->setAutoDelete(true);
+        } else if (serviceLauncher.isEmpty()) {
+            KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, m_view->window());
+            job->setAutoDelete(true);
+            job->start();
         } else {
             QList<QUrl> urls {url};
-            KService::Ptr service(new KService(QStringLiteral("noteOpen"), customCommand, QString()));
-            auto *job = new KIO::ApplicationLauncherJob(service);
-            job->setUrls(urls);
-            job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_view->window()));
-            job->start();
+            KService::Ptr service = KService::serviceByDesktopName(serviceLauncher);
+            
+            if (service) {
+                auto *job = new KIO::ApplicationLauncherJob(service);
+                job->setUrls(urls);
+                job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, m_view->window()));
+                job->start();
+            }
         }
     }
 }
@@ -4121,13 +4125,13 @@ bool KRun__displayOpenWithDialog(const QList<QUrl> &lst, QWidget *window, bool t
         KMessageBox::error(window, i18n("You are not authorized to open this file.")); // TODO: Better message, i18n freeze :-(
         return false;
     }
-    KOpenWithDialog l(lst, text, QString(), nullptr);
-    if (l.exec() > 0) {
-        KService::Ptr service = l.service();
+    KOpenWithDialog dlg(lst, text, QString(), nullptr);
+    if (dlg.exec() > 0) {
+        KService::Ptr service = dlg.service();
         if (!service) {
-            service = new KService(QStringLiteral("noteOpenWith"), l.text(), QString());
+            service = new KService(QStringLiteral("noteOpenWith"), dlg.text(), QString());
         }
-
+        
         auto *job = new KIO::ApplicationLauncherJob(service);
         job->setUrls(lst);
         job->setUiDelegate(new KDialogJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window));

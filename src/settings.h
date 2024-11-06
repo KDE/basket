@@ -16,6 +16,7 @@
 
 #include "basket_export.h"
 #include "bnpview.h"
+#include "debugwindow.h"
 
 class KComboBox;
 
@@ -28,127 +29,8 @@ class QSpinBox;
 
 class LinkLook;
 class LinkLookEditWidget;
-class RunCommandRequester;
+class ServiceLaunchRequester;
 
-class BASKET_EXPORT GeneralPage : public KCModule
-{
-    Q_OBJECT
-public:
-    explicit GeneralPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
-    ~GeneralPage() override
-    {
-    }
-
-    void load() override;
-    void save() override;
-    void defaults() override;
-
-private:
-    // General
-    KComboBox *m_treeOnLeft;
-    KComboBox *m_filterOnTop;
-};
-
-class BASKET_EXPORT BasketsPage : public KCModule
-{
-    Q_OBJECT
-public:
-    explicit BasketsPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
-
-    void load() override;
-    void save() override;
-    void defaults() override;
-
-private:
-    // Appearance
-    QCheckBox *m_playAnimations;
-    QCheckBox *m_showNotesToolTip;
-    QCheckBox *m_bigNotes;
-
-    // Behavior
-    QCheckBox *m_autoBullet;
-    QCheckBox *m_confirmNoteDeletion;
-    QCheckBox *m_exportTextTags;
-    QCheckBox *m_detectTextTags;
-    QWidget *m_groupOnInsertionLineWidget;
-    QCheckBox *m_groupOnInsertionLine;
-    KComboBox *m_middleAction;
-    QCheckBox *m_pasteAsPlainText;
-
-    // Protection
-    QCheckBox *m_useGnuPGAgent;
-    QCheckBox *m_enableReLockTimeoutMinutes;
-    QSpinBox *m_reLockTimeoutMinutes;
-};
-
-class BASKET_EXPORT NewNotesPage : public KCModule
-{
-    Q_OBJECT
-public:
-    explicit NewNotesPage(QObject *parent, const KPluginMetaData &data);
-
-    void load() override;
-    void save() override;
-    void defaults() override;
-
-private Q_SLOTS:
-    void visualize();
-
-private:
-    // Notes Image Size
-    QSpinBox *m_imgSizeX;
-    QSpinBox *m_imgSizeY;
-    QPushButton *m_pushVisualize;
-
-    // Note Addition
-    KComboBox *m_newNotesPlace;
-    QCheckBox *m_viewTextFileContent;
-    QCheckBox *m_viewHtmlFileContent;
-    QCheckBox *m_viewImageFileContent;
-    QCheckBox *m_viewSoundFileContent;
-};
-
-class BASKET_EXPORT NotesAppearancePage : public KCModule
-{
-    Q_OBJECT
-public:
-    explicit NotesAppearancePage(QObject *parent, const KPluginMetaData &data);
-
-    void load() override;
-    void save() override;
-    void defaults() override;
-
-private:
-    // Link Looks
-    LinkLookEditWidget *m_soundLook;
-    LinkLookEditWidget *m_fileLook;
-    LinkLookEditWidget *m_localLinkLook;
-    LinkLookEditWidget *m_networkLinkLook;
-    LinkLookEditWidget *m_launcherLook;
-    LinkLookEditWidget *m_crossReferenceLook;
-};
-
-class BASKET_EXPORT ApplicationsPage : public KCModule
-{
-    Q_OBJECT
-public:
-    explicit ApplicationsPage(QObject *parent, const KPluginMetaData &data);
-
-    void load() override;
-    void save() override;
-    void defaults() override;
-
-private:
-    // Applications
-    QCheckBox *m_htmlUseProg;
-    QCheckBox *m_imageUseProg;
-    QCheckBox *m_animationUseProg;
-    QCheckBox *m_soundUseProg;
-    RunCommandRequester *m_htmlProg;
-    RunCommandRequester *m_imageProg;
-    RunCommandRequester *m_animationProg;
-    RunCommandRequester *m_soundProg;
-};
 
 /**
  * KSettings::Dialog wrapper to properly calculate appropriate window size
@@ -161,6 +43,19 @@ public:
     ~SettingsDialog() override;
     virtual int exec() override;
 
+Q_SIGNALS:
+    void applyRequested();
+    void acceptRequested();
+    void cancelRequested();
+    void defaultsRequested();
+    
+protected Q_SLOTS:
+    void slotApplyClicked();
+    void slotOkClicked();
+    void slotCancelClicked();
+    void slotDefaultsClicked();
+    void showEvent(QShowEvent *event) override;
+    
 private Q_SLOTS:
     void adjustSize();
 };
@@ -206,10 +101,12 @@ protected:
     static bool s_imageUseProg;
     static bool s_animationUseProg;
     static bool s_soundUseProg;
+    static bool s_linkUseProg;
     static QString s_htmlProg;
     static QString s_imageProg;
     static QString s_animationProg;
     static QString s_soundProg;
+    static QString s_linkProg;
     /** Insert Note Default Values */
     static int s_defImageX;
     static int s_defImageY;
@@ -332,6 +229,10 @@ public: /* And the following methods are just getter / setters */
     {
         return s_soundUseProg;
     }
+    static inline bool isLinkUseProg()
+    {
+        return s_linkUseProg;
+    }
     static inline QString htmlProg()
     {
         return s_htmlProg;
@@ -347,6 +248,10 @@ public: /* And the following methods are just getter / setters */
     static inline QString soundProg()
     {
         return s_soundProg;
+    }
+    static inline QString linkProg()
+    {
+        return s_linkProg;
     }
     /** Insert Note Default Values */
     static inline int defImageX()
@@ -498,6 +403,10 @@ public: /* And the following methods are just getter / setters */
     {
         s_soundUseProg = useProg;
     }
+    static inline void setIsLinkUseProg(bool useProg)
+    {
+        s_linkUseProg = useProg;
+    }
     static inline void setHtmlProg(const QString &prog)
     {
         s_htmlProg = prog;
@@ -513,6 +422,10 @@ public: /* And the following methods are just getter / setters */
     static inline void setSoundProg(const QString &prog)
     {
         s_soundProg = prog;
+    }
+    static inline void setLinkProg(const QString &prog)
+    {
+        s_linkProg = prog;
     }
     // Insert Note Default Values :
     static inline void setDefImageX(int val)
@@ -562,6 +475,177 @@ public:
 protected:
     static void loadLinkLook(LinkLook *look, const QString &name, const LinkLook &defaultLook);
     static void saveLinkLook(LinkLook *look, const QString &name);
+};
+
+
+
+class BASKET_EXPORT AbstractSettingsPage : public KCModule
+{
+    Q_OBJECT
+public:
+    using KCModule::KCModule;
+    explicit AbstractSettingsPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData())
+    : KCModule(parent, data) {
+        SettingsDialog *settings = qobject_cast<SettingsDialog *>(parent->parent());
+        connect(settings, &SettingsDialog::acceptRequested, this, &AbstractSettingsPage::slotAccept);
+        connect(settings, &SettingsDialog::applyRequested, this, &AbstractSettingsPage::slotApply);
+        connect(settings, &SettingsDialog::cancelRequested, this, &AbstractSettingsPage::slotCancel);
+        connect(settings, &SettingsDialog::defaultsRequested, this, &AbstractSettingsPage::slotDefaults);
+        AbstractSettingsPage::load();
+        
+    }
+    ~AbstractSettingsPage() override
+    {
+    }
+    
+    virtual void cancel() {};
+      
+    
+public Q_SLOTS:
+    inline void changed() {
+        markAsChanged();
+    }
+    
+    inline void slotApply() {
+        // procedures other than save()
+    }
+    
+    inline void slotAccept() {
+        save();
+    }
+    
+    inline void slotDefaults() {
+        defaults();
+    }
+    
+    inline void slotCancel() {
+        cancel();
+    }
+};
+
+
+class BASKET_EXPORT GeneralPage : public AbstractSettingsPage
+{
+    Q_OBJECT
+    
+public:
+    explicit GeneralPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
+    ~GeneralPage() override
+    {
+    }
+    
+    void load() override;
+    void save() override;
+    void defaults() override;
+    void cancel() override;
+    
+private:
+    // General
+    KComboBox *m_treeOnLeft;
+    KComboBox *m_filterOnTop;
+};
+
+class BASKET_EXPORT BasketsPage : public AbstractSettingsPage
+{
+    Q_OBJECT
+public:
+    explicit BasketsPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
+    
+    void load() override;
+    void save() override;
+    void defaults() override;
+    
+private:
+    // Appearance
+    QCheckBox *m_playAnimations;
+    QCheckBox *m_showNotesToolTip;
+    QCheckBox *m_bigNotes;
+    
+    // Behavior
+    QCheckBox *m_autoBullet;
+    QCheckBox *m_confirmNoteDeletion;
+    QCheckBox *m_exportTextTags;
+    QCheckBox *m_detectTextTags;
+    QWidget *m_groupOnInsertionLineWidget;
+    QCheckBox *m_groupOnInsertionLine;
+    KComboBox *m_middleAction;
+    QCheckBox *m_pasteAsPlainText;
+    
+    // Protection
+    QCheckBox *m_useGnuPGAgent;
+    QCheckBox *m_enableReLockTimeoutMinutes;
+    QSpinBox *m_reLockTimeoutMinutes;
+};
+
+class BASKET_EXPORT NewNotesPage : public AbstractSettingsPage
+{
+    Q_OBJECT
+public:
+    explicit NewNotesPage(QObject *parent, const KPluginMetaData &data);
+    
+    void load() override;
+    void save() override;
+    void defaults() override;
+    
+private Q_SLOTS:
+    void visualize();
+    
+private:
+    // Notes Image Size
+    QSpinBox *m_imgSizeX;
+    QSpinBox *m_imgSizeY;
+    QPushButton *m_pushVisualize;
+    
+    // Note Addition
+    KComboBox *m_newNotesPlace;
+    QCheckBox *m_viewTextFileContent;
+    QCheckBox *m_viewHtmlFileContent;
+    QCheckBox *m_viewImageFileContent;
+    QCheckBox *m_viewSoundFileContent;
+};
+
+class BASKET_EXPORT NotesAppearancePage : public AbstractSettingsPage
+{
+    Q_OBJECT
+public:
+    explicit NotesAppearancePage(QObject *parent, const KPluginMetaData &data);
+    
+    void load() override;
+    void save() override;
+    void defaults() override;
+    
+private:
+    // Link Looks
+    LinkLookEditWidget *m_soundLook;
+    LinkLookEditWidget *m_fileLook;
+    LinkLookEditWidget *m_localLinkLook;
+    LinkLookEditWidget *m_networkLinkLook;
+    LinkLookEditWidget *m_launcherLook;
+    LinkLookEditWidget *m_crossReferenceLook;
+};
+
+class BASKET_EXPORT ApplicationsPage : public AbstractSettingsPage
+{
+    Q_OBJECT
+public:
+    explicit ApplicationsPage(QObject *parent, const KPluginMetaData &data);
+    
+    void load() override;
+    void save() override;
+    void defaults() override;
+    
+private:
+    // Applications
+    QCheckBox *m_htmlUseProg;
+    QCheckBox *m_imageUseProg;
+    QCheckBox *m_animationUseProg;
+    QCheckBox *m_soundUseProg;
+    QCheckBox *m_linkUseProg;
+    ServiceLaunchRequester *m_htmlProg;
+    ServiceLaunchRequester *m_imageProg;
+    ServiceLaunchRequester *m_animationProg;
+    ServiceLaunchRequester *m_soundProg;
+    ServiceLaunchRequester *m_linkProg;
 };
 
 #endif // SETTINGS_H

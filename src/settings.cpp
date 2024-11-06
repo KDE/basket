@@ -65,10 +65,12 @@ bool Settings::s_htmlUseProg = false; // TODO: RENAME: s_*App (with KService!)
 bool Settings::s_imageUseProg = true;
 bool Settings::s_animationUseProg = true;
 bool Settings::s_soundUseProg = false;
+bool Settings::s_linkUseProg = false;
 QString Settings::s_htmlProg = QStringLiteral("quanta");
 QString Settings::s_imageProg = QStringLiteral("kolourpaint");
 QString Settings::s_animationProg = QStringLiteral("gimp");
 QString Settings::s_soundProg = QString();
+QString Settings::s_linkProg = QString();
 // Addictive Features:
 bool Settings::s_groupOnInsertionLine = false;
 int Settings::s_middleAction = 0;
@@ -88,6 +90,7 @@ bool Settings::s_versionSyncEnabled = false;
 
 void Settings::loadConfig()
 {
+    DEBUG_WIN << QStringLiteral("Load Configuration");
     LinkLook defaultSoundLook;
     LinkLook defaultFileLook;
     LinkLook defaultLocalLinkLook;
@@ -141,10 +144,12 @@ void Settings::loadConfig()
     setIsImageUseProg(config.readEntry("imageUseProg", true));
     setIsAnimationUseProg(config.readEntry("animationUseProg", true));
     setIsSoundUseProg(config.readEntry("soundUseProg", false));
-    setHtmlProg(config.readEntry("htmlProg", "quanta"));
-    setImageProg(config.readEntry("imageProg", "kolourpaint"));
-    setAnimationProg(config.readEntry("animationProg", "gimp"));
-    setSoundProg(config.readEntry("soundProg", QString()));
+    setIsLinkUseProg(config.readEntry("linkUseProg", false));
+    setHtmlProg(config.readEntry("htmlProg", "org.kde.kate"));
+    setImageProg(config.readEntry("imageProg", "org.kde.krita"));
+    setAnimationProg(config.readEntry("animationProg", "glaxnimate"));
+    setSoundProg(config.readEntry("soundProg", "org.kde.kwave"));
+    setLinkProg(config.readEntry("linkProg", "org.kde.falkon"));
 
     config = Global::config()->group(QStringLiteral("Note Addition"));
     setNewNotesPlace(config.readEntry("newNotesPlace", 1));
@@ -182,6 +187,7 @@ void Settings::loadConfig()
 
 void Settings::saveConfig()
 {
+    DEBUG_WIN << QStringLiteral("Save Configuration");
     saveLinkLook(LinkLook::soundLook, QStringLiteral("Sound Look"));
     saveLinkLook(LinkLook::fileLook, QStringLiteral("File Look"));
     saveLinkLook(LinkLook::localLinkLook, QStringLiteral("Local Link Look"));
@@ -224,10 +230,12 @@ void Settings::saveConfig()
     config.writeEntry("imageUseProg", isImageUseProg());
     config.writeEntry("animationUseProg", isAnimationUseProg());
     config.writeEntry("soundUseProg", isSoundUseProg());
+    config.writeEntry("linkUseProg", isLinkUseProg());
     config.writeEntry("htmlProg", htmlProg());
     config.writeEntry("imageProg", imageProg());
     config.writeEntry("animationProg", animationProg());
     config.writeEntry("soundProg", soundProg());
+    config.writeEntry("linkProg", linkProg());
 
     config = Global::config()->group(QStringLiteral("Note Addition"));
     config.writeEntry("newNotesPlace", newNotesPlace());
@@ -340,22 +348,36 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     QCoreApplication::addLibraryPath(QStringLiteral("/lib/plugins"));
     const QList<KPluginMetaData> availablePlugins = KPluginMetaData::findPlugins(QStringLiteral("pim/kcms/basket"));
     for (const KPluginMetaData &metaData : availablePlugins) {
-#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 84, 0)
+#if KCMUTILS_VERSION >= QT_VERSION_CHECK(6, 5, 0)
         addModule(metaData);
 #else
         addModule(metaData.pluginId());
 #endif
     }
+    
+    // Access the button box and connect the buttons
+    QDialogButtonBox *buttons = buttonBox();
+    
+    connect(buttons->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &SettingsDialog::slotOkClicked);
+    connect(buttons->button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &SettingsDialog::slotApplyClicked);
+    connect(buttons->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &SettingsDialog::slotCancelClicked);
+    connect(buttons->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::slotDefaultsClicked);
 }
 
 SettingsDialog::~SettingsDialog()
 {}
 
+void SettingsDialog::showEvent(QShowEvent *event) {
+    QDialog::showEvent(event);
+    // Run code that relies on the dialog being fully shown
+    QTimer::singleShot(0, this, &SettingsDialog::exec);
+}
+
 int SettingsDialog::exec(){
-    // Help, RestoreDefaults buttons not implemented!
-    //setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
+    int ret = KCMultiDialog::exec();
     QTimer::singleShot(0, this, SLOT(adjustSize()));
-    return KCMultiDialog::exec();
+    QTimer::singleShot(0, this, SLOT(loadAllPages()));
+    return ret;
 }
 
 void SettingsDialog::adjustSize()
@@ -366,19 +388,44 @@ void SettingsDialog::adjustSize()
 
     const int pageCount = model->rowCount();
     for (int pageId = 0; pageId < pageCount; ++pageId) {
-        QWidget *pageWidget = model->item(model->index(pageId, 0))->widget();
-        if (!pageWidget) continue;
-
-        maxPageSize = maxPageSize.expandedTo(pageWidget->sizeHint());
+        auto *page = model->item(model->index(pageId, 0));
+        if (!page) continue;
+        
+        KCModule *module = qobject_cast<KCModule *>(page->widget());
+        if (module) {
+          maxPageSize = maxPageSize.expandedTo(module->widget()->sizeHint());
+        }
+        
     }
 
     if (!maxPageSize.isEmpty())
         resize(1.25 * maxPageSize.width(), 1.25 * maxPageSize.height());
 }
 
+
+void SettingsDialog::slotCancelClicked() {
+    Q_EMIT cancelRequested();
+    accept(); // Close the dialog
+}
+
+void SettingsDialog::slotApplyClicked() {
+    // Q_EMIT applyRequested();
+}
+
+void SettingsDialog::slotOkClicked() {
+    Q_EMIT acceptRequested();
+    accept();  // Close the dialog
+}
+
+void SettingsDialog::slotDefaultsClicked() {
+    Q_EMIT defaultsRequested();
+}
+
+
+
 /** GeneralPage */
 GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
-    : KCModule(parent, data)
+    : AbstractSettingsPage(parent, data)
 {
     QFormLayout *layout = new QFormLayout(this->widget());
 
@@ -405,13 +452,14 @@ void GeneralPage::load()
 {
     m_treeOnLeft->setCurrentIndex((int)!Settings::treeOnLeft());
     m_filterOnTop->setCurrentIndex((int)!Settings::filterOnTop());
-
+    setNeedsSave(false);
 }
 
 void GeneralPage::save()
 {
     Settings::setTreeOnLeft(!m_treeOnLeft->currentIndex());
     Settings::setFilterOnTop(!m_filterOnTop->currentIndex());
+    setNeedsSave(false);
 }
 
 void GeneralPage::defaults()
@@ -419,10 +467,15 @@ void GeneralPage::defaults()
     // TODO
 }
 
+void GeneralPage::cancel()
+{
+    // TODO
+}
+
 /** BasketsPage */
 
 BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
-    : KCModule(parent, data)
+    : AbstractSettingsPage(parent, data)
 {
     QVBoxLayout *layout = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay;
@@ -437,11 +490,11 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     m_showNotesToolTip = new QCheckBox(i18n("&Show tooltips in baskets"), appearanceBox);
     appearanceLayout->addWidget(m_showNotesToolTip);
-    connect(m_showNotesToolTip, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_showNotesToolTip, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     m_bigNotes = new QCheckBox(i18n("&Big notes"), appearanceBox);
     appearanceLayout->addWidget(m_bigNotes);
-    connect(m_bigNotes, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_bigNotes, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     // Behavior:
 
@@ -452,25 +505,25 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     m_autoBullet = new QCheckBox(i18n("&Transform lines starting with * or - to lists in text editors"), behaviorBox);
     behaviorLayout->addWidget(m_autoBullet);
-    connect(m_autoBullet, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_autoBullet, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     m_confirmNoteDeletion = new QCheckBox(i18n("Ask confirmation before &deleting notes"), behaviorBox);
     behaviorLayout->addWidget(m_confirmNoteDeletion);
-    connect(m_confirmNoteDeletion, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_confirmNoteDeletion, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     m_pasteAsPlainText = new QCheckBox(i18n("Keep text formatting when pasting"), behaviorBox);
     behaviorLayout->addWidget(m_pasteAsPlainText);
-    connect(m_pasteAsPlainText, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_pasteAsPlainText, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     m_detectTextTags = new QCheckBox(i18n("Automatically detect tags from note's content"), behaviorBox);
     behaviorLayout->addWidget(m_detectTextTags);
-    connect(m_detectTextTags, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_detectTextTags, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     QWidget *widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
     hLay = new QHBoxLayout(widget);
     m_exportTextTags = new QCheckBox(i18n("&Export tags in texts"), widget);
-    connect(m_exportTextTags, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_exportTextTags, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     hLabel = new HelpLabel(i18n("When does this apply?"),
                            QStringLiteral("<p>") + i18n("It does apply when you copy and paste, or drag and drop notes to a text editor.") + QStringLiteral("</p>") + QStringLiteral("<p>") + i18n("If enabled, this property lets you paste the tags as textual equivalents.") + QStringLiteral("<br>") +
@@ -498,7 +551,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     hLayV->addWidget(helpV);
     hLayV->insertStretch(-1);
     layout->addWidget(m_groupOnInsertionLineWidget);
-    connect(m_groupOnInsertionLine, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+    connect(m_groupOnInsertionLine, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
@@ -550,7 +603,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     // hLay->addWidget(label);
     hLay->addStretch();
     //  layout->addLayout(hLay);
-    connect(m_enableReLockTimeoutMinutes, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_enableReLockTimeoutMinutes, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
     connect(m_reLockTimeoutMinutes, SIGNAL(valueChanged(int)), this->widget(), SLOT(changed()));
     connect(m_enableReLockTimeoutMinutes, SIGNAL(toggled(bool)), m_reLockTimeoutMinutes, SLOT(setEnabled(bool)));
 
@@ -558,7 +611,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     m_useGnuPGAgent = new QCheckBox(i18n("Use GnuPG agent for &private/public key protected baskets"), protectionBox);
     protectionLayout->addWidget(m_useGnuPGAgent);
     //  hLay->addWidget(m_useGnuPGAgent);
-    connect(m_useGnuPGAgent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_useGnuPGAgent, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
 #endif
 
     layout->insertStretch(-1);
@@ -592,6 +645,7 @@ void BasketsPage::load()
         m_useGnuPGAgent->setEnabled(false);
     }
 #endif
+    setNeedsSave(false);
 }
 
 void BasketsPage::save()
@@ -613,6 +667,7 @@ void BasketsPage::save()
 #ifdef HAVE_LIBGPGME
     Settings::setUseGnuPGAgent(m_useGnuPGAgent->isChecked());
 #endif
+    setNeedsSave(false);
 }
 
 void BasketsPage::defaults()
@@ -623,7 +678,7 @@ void BasketsPage::defaults()
 /** class NewNotesPage: */
 
 NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
-    : KCModule(parent, data)
+    : AbstractSettingsPage(parent, data)
 {
     QVBoxLayout *layout = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay;
@@ -701,10 +756,10 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     buttonGroup->setLayout(buttonLayout);
 
     layout->addWidget(buttonGroup);
-    connect(m_viewTextFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
-    connect(m_viewHtmlFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
-    connect(m_viewImageFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
-    connect(m_viewSoundFileContent, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
+    connect(m_viewTextFileContent, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
+    connect(m_viewHtmlFileContent, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
+    connect(m_viewImageFileContent, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
+    connect(m_viewSoundFileContent, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
 
     layout->insertStretch(-1);
     NewNotesPage::load();
@@ -721,6 +776,7 @@ void NewNotesPage::load()
     m_viewHtmlFileContent->setChecked(Settings::viewHtmlFileContent());
     m_viewImageFileContent->setChecked(Settings::viewImageFileContent());
     m_viewSoundFileContent->setChecked(Settings::viewSoundFileContent());
+    setNeedsSave(false);
 }
 
 void NewNotesPage::save()
@@ -734,6 +790,7 @@ void NewNotesPage::save()
     Settings::setViewHtmlFileContent(m_viewHtmlFileContent->isChecked());
     Settings::setViewImageFileContent(m_viewImageFileContent->isChecked());
     Settings::setViewSoundFileContent(m_viewSoundFileContent->isChecked());
+    setNeedsSave(false);
 }
 
 void NewNotesPage::defaults()
@@ -752,7 +809,7 @@ void NewNotesPage::visualize()
 /** class NotesAppearancePage: */
 
 NotesAppearancePage::NotesAppearancePage(QObject *parent, const KPluginMetaData &data)
-    : KCModule(parent, data)
+    : AbstractSettingsPage(parent, data)
 {
     QVBoxLayout *layout = new QVBoxLayout(this->widget());
     QTabWidget *tabs = new QTabWidget(this->widget());
@@ -783,6 +840,7 @@ void NotesAppearancePage::load()
     m_networkLinkLook->set(LinkLook::networkLinkLook);
     m_launcherLook->set(LinkLook::launcherLook);
     m_crossReferenceLook->set(LinkLook::crossReferenceLook);
+    setNeedsSave(false);
 }
 
 void NotesAppearancePage::save()
@@ -794,6 +852,7 @@ void NotesAppearancePage::save()
     m_launcherLook->saveChanges();
     m_crossReferenceLook->saveChanges();
     Global::bnpView->linkLookChanged();
+    setNeedsSave(false);
 }
 
 void NotesAppearancePage::defaults()
@@ -804,43 +863,51 @@ void NotesAppearancePage::defaults()
 /** class ApplicationsPage: */
 
 ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
-    : KCModule(parent, data)
+    : AbstractSettingsPage(parent, data)
 {
     /* Applications page */
     QVBoxLayout *layout = new QVBoxLayout(this->widget());
 
     m_htmlUseProg = new QCheckBox(i18n("Open &text notes with a custom application:"), this->widget());
-    m_htmlProg = new RunCommandRequester(QString(), i18n("Open text notes with:"), this->widget());
+    m_htmlProg = new ServiceLaunchRequester(QString(), i18n("Open text notes with:"), this->widget());
     QHBoxLayout *hLayH = new QHBoxLayout;
     hLayH->insertSpacing(-1, 20);
     hLayH->addWidget(m_htmlProg);
-    connect(m_htmlUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_htmlProg->lineEdit(), SIGNAL(textChanged(const QString &)), this->widget(), SLOT(changed()));
+    connect(m_htmlUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_htmlProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
 
     m_imageUseProg = new QCheckBox(i18n("Open &image notes with a custom application:"), this->widget());
-    m_imageProg = new RunCommandRequester(QString(), i18n("Open image notes with:"), this->widget());
+    m_imageProg = new ServiceLaunchRequester(QString(), i18n("Open image notes with:"), this->widget());
     QHBoxLayout *hLayI = new QHBoxLayout;
     hLayI->insertSpacing(-1, 20);
     hLayI->addWidget(m_imageProg);
-    connect(m_imageUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_imageProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
+    connect(m_imageUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_imageProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
 
     m_animationUseProg = new QCheckBox(i18n("Open a&nimation notes with a custom application:"), this->widget());
-    m_animationProg = new RunCommandRequester(QString(), i18n("Open animation notes with:"), this->widget());
+    m_animationProg = new ServiceLaunchRequester(QString(), i18n("Open animation notes with:"), this->widget());
     QHBoxLayout *hLayA = new QHBoxLayout;
     hLayA->insertSpacing(-1, 20);
     hLayA->addWidget(m_animationProg);
-    connect(m_animationUseProg, SIGNAL(stateChanged(int)), this, SLOT(changed()));
-    connect(m_animationProg->lineEdit(), SIGNAL(textChanged(const QString &)), this, SLOT(changed()));
+    connect(m_animationUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_animationProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
 
     m_soundUseProg = new QCheckBox(i18n("Open so&und notes with a custom application:"), this->widget());
-    m_soundProg = new RunCommandRequester(QString(), i18n("Open sound notes with:"), this->widget());
+    m_soundProg = new ServiceLaunchRequester(QString(), i18n("Open sound notes with:"), this->widget());
     QHBoxLayout *hLayS = new QHBoxLayout;
     hLayS->insertSpacing(-1, 20);
     hLayS->addWidget(m_soundProg);
-    connect(m_soundUseProg, SIGNAL(stateChanged(int)), this->widget(), SLOT(changed()));
-    connect(m_soundProg->lineEdit(), SIGNAL(textChanged(const QString &)), this->widget(), SLOT(changed()));
+    connect(m_soundUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_soundProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
 
+    m_linkUseProg = new QCheckBox(i18n("Open http link notes with a custom application:"), this->widget());
+    m_linkProg = new ServiceLaunchRequester(QString(), i18n("Open http link notes with:"), this->widget());
+    QHBoxLayout *hLayL = new QHBoxLayout;
+    hLayL->insertSpacing(-1, 20);
+    hLayL->addWidget(m_linkProg);
+    connect(m_linkUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_linkProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
+    
     QString whatsthis = i18n(
         "<p>If checked, the application defined below will be used when opening that type of note.</p>"
         "<p>Otherwise, the application you've configured in Konqueror will be used.</p>");
@@ -849,6 +916,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_imageUseProg->setWhatsThis(whatsthis);
     m_animationUseProg->setWhatsThis(whatsthis);
     m_soundUseProg->setWhatsThis(whatsthis);
+    m_linkUseProg->setWhatsThis(whatsthis);
 
     whatsthis = i18n(
         "<p>Define the application to use for opening that type of note instead of the "
@@ -858,7 +926,8 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_imageProg->setWhatsThis(whatsthis);
     m_animationProg->setWhatsThis(whatsthis);
     m_soundProg->setWhatsThis(whatsthis);
-
+    m_linkProg->setWhatsThis(whatsthis);
+    
     layout->addWidget(m_htmlUseProg);
     layout->addItem(hLayH);
     layout->addWidget(m_imageUseProg);
@@ -867,6 +936,8 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     layout->addItem(hLayA);
     layout->addWidget(m_soundUseProg);
     layout->addItem(hLayS);
+    layout->addWidget(m_linkUseProg);
+    layout->addItem(hLayL);
 
     QHBoxLayout *hLay = new QHBoxLayout;
     HelpLabel *hl1 = new HelpLabel(i18n("How to change the application used to open Web links?"),
@@ -909,43 +980,53 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     connect(m_imageUseProg, SIGNAL(toggled(bool)), m_imageProg, SLOT(setEnabled(bool)));
     connect(m_animationUseProg, SIGNAL(toggled(bool)), m_animationProg, SLOT(setEnabled(bool)));
     connect(m_soundUseProg, SIGNAL(toggled(bool)), m_soundProg, SLOT(setEnabled(bool)));
-
+    connect(m_linkUseProg, SIGNAL(toggled(bool)), m_linkProg, SLOT(setEnabled(bool)));
+    
     layout->insertStretch(-1);
     ApplicationsPage::load();
 }
 
 void ApplicationsPage::load()
 {
-    m_htmlProg->setRunCommand(Settings::htmlProg());
+    m_htmlProg->setServiceLauncher(Settings::htmlProg());
     m_htmlUseProg->setChecked(Settings::isHtmlUseProg());
     m_htmlProg->setEnabled(Settings::isHtmlUseProg());
 
-    m_imageProg->setRunCommand(Settings::imageProg());
+    m_imageProg->setServiceLauncher(Settings::imageProg());
     m_imageUseProg->setChecked(Settings::isImageUseProg());
     m_imageProg->setEnabled(Settings::isImageUseProg());
 
-    m_animationProg->setRunCommand(Settings::animationProg());
+    m_animationProg->setServiceLauncher(Settings::animationProg());
     m_animationUseProg->setChecked(Settings::isAnimationUseProg());
     m_animationProg->setEnabled(Settings::isAnimationUseProg());
 
-    m_soundProg->setRunCommand(Settings::soundProg());
+    m_soundProg->setServiceLauncher(Settings::soundProg());
     m_soundUseProg->setChecked(Settings::isSoundUseProg());
     m_soundProg->setEnabled(Settings::isSoundUseProg());
+    
+    m_linkProg->setServiceLauncher(Settings::linkProg());
+    m_linkUseProg->setChecked(Settings::isLinkUseProg());
+    m_linkProg->setEnabled(Settings::isLinkUseProg());
+    setNeedsSave(false);
 }
 
 void ApplicationsPage::save()
 {
     Settings::setIsHtmlUseProg(m_htmlUseProg->isChecked());
-    Settings::setHtmlProg(m_htmlProg->runCommand());
+    Settings::setHtmlProg(m_htmlProg->serviceLauncher());
 
     Settings::setIsImageUseProg(m_imageUseProg->isChecked());
-    Settings::setImageProg(m_imageProg->runCommand());
+    Settings::setImageProg(m_imageProg->serviceLauncher());
 
     Settings::setIsAnimationUseProg(m_animationUseProg->isChecked());
-    Settings::setAnimationProg(m_animationProg->runCommand());
+    Settings::setAnimationProg(m_animationProg->serviceLauncher());
 
     Settings::setIsSoundUseProg(m_soundUseProg->isChecked());
-    Settings::setSoundProg(m_soundProg->runCommand());
+    Settings::setSoundProg(m_soundProg->serviceLauncher());
+
+    Settings::setIsLinkUseProg(m_linkUseProg->isChecked());
+    Settings::setLinkProg(m_linkProg->serviceLauncher());
+    setNeedsSave(false);
 }
 
 void ApplicationsPage::defaults()

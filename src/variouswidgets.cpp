@@ -5,6 +5,7 @@
  */
 
 #include "variouswidgets.h"
+#include "debugwindow.h"
 
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
@@ -30,45 +31,104 @@
 #include <KLocalizedString>
 #include <KOpenWithDialog>
 
-/** class RunCommandRequester: */
+/** class ServiceLaunchRequester: */
 
-RunCommandRequester::RunCommandRequester(const QString &runCommand, const QString &message, QWidget *parent)
+ServiceLaunchRequester::ServiceLaunchRequester(const QString serviceLauncher, const QString message, QWidget *parent)
     : QWidget(parent)
+    , m_serviceLauncher(serviceLauncher)
+    , m_message(message)
 {
-    m_message = message;
-
     QHBoxLayout *layout = new QHBoxLayout(this);
-    m_runCommand = new QLineEdit(runCommand, this);
-    QPushButton *pb = new QPushButton(/*"C&hoose..."*/ i18n("..."), this);
-
-    pb->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-
-    layout->addWidget(m_runCommand);
-    layout->addWidget(pb);
-
-    connect(pb, &QPushButton::clicked, this, &RunCommandRequester::slotSelCommand);
+    m_serviceChooser = new QPushButton(this);
+    setServiceLauncher(serviceLauncher);
+    layout->addWidget(m_serviceChooser);
+    
+    connect(m_serviceChooser, &QPushButton::clicked, this, &ServiceLaunchRequester::slotSelCommand);
 }
 
-RunCommandRequester::~RunCommandRequester()
+ServiceLaunchRequester::~ServiceLaunchRequester()
 {
 }
 
-void RunCommandRequester::slotSelCommand()
+void ServiceLaunchRequester::slotSelCommand()
 {
-    QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(QList<QUrl>(), m_message, m_runCommand->text(), this);
+    KService::Ptr service = KService::serviceByStorageId(m_serviceLauncher);
+    QString service_name;
+    if (service && service->isApplication())
+        service_name = service->name();
+    
+    QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(QList<QUrl>(), m_message, service_name, this);
     dlg->exec();
-    if (!dlg->text().isEmpty())
-        m_runCommand->setText(dlg->text());
+    
+    if (!dlg->text().isEmpty()) {
+        KService::Ptr selectedService = dlg->service();
+        if (selectedService) {
+            m_serviceLauncher = selectedService->storageId(); // e.g., "firefox"
+            Q_EMIT launcherChanged();
+        }
+        
+    }
 }
 
-QString RunCommandRequester::runCommand()
+QString ServiceLaunchRequester::serviceLauncher()
 {
-    return m_runCommand->text();
+    return m_serviceLauncher;
 }
 
-void RunCommandRequester::setRunCommand(const QString &runCommand)
+void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
 {
-    m_runCommand->setText(runCommand);
+    m_serviceLauncher = serviceLauncher;
+    
+    QString iconPath;
+    QString name;
+    QString genericName;
+    QString displayName;
+    QString comment;
+    QIcon buttonIcon;
+    
+    
+    DEBUG_WIN << QStringLiteral("lookup service launcher: ") << serviceLauncher;
+    KService::Ptr service = KService::serviceByDesktopName(serviceLauncher);
+    
+    if (service && service->isApplication()) {
+        KIconLoader *iconLoader = KIconLoader::global();
+        
+        iconPath = iconLoader->iconPath(service->icon(), KIconLoader::Desktop, 24);
+        
+        if (!iconPath.isEmpty()) {
+            buttonIcon = QIcon(iconPath);
+        } else {
+            buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
+        }
+        
+        name = service->name();
+        genericName = service->genericName();
+        displayName = name;
+        if (!genericName.isEmpty())
+            displayName += QStringLiteral(" (") + genericName + QStringLiteral(")");
+        comment = service->comment();
+    } else {
+        buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
+        displayName = QStringLiteral("Choose an Application Launcher ...");
+        comment = QStringLiteral("Use KDE Plasma Application Launchers to open your Basket Notes");
+    }
+    
+    m_serviceChooser->setIcon(buttonIcon);
+    
+    // Optional: Adjust icon size if necessary
+    m_serviceChooser->setIconSize(QSize(24, 24));  // Set the icon size
+    
+    // Optional: You can also set the button text alignment
+    m_serviceChooser->setText(displayName);
+    m_serviceChooser->setToolTip(comment);
+    
+    
+    m_serviceChooser->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    
+}
+
+void ServiceLaunchRequester::setFocus() {
+    m_serviceChooser->setFocus();
 }
 
 /** class IconSizeCombo: */
