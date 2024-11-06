@@ -678,12 +678,12 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     connect(m_hoverColor, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
     connect(m_iconSize, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
     connect(m_preview, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
-
+    
     connect(m_italic, SIGNAL(stateChanged(int)), module, SLOT(changed()));
     connect(m_bold, SIGNAL(stateChanged(int)), module, SLOT(changed()));
     connect(m_underlining, SIGNAL(activated(int)), module, SLOT(changed()));
-    connect(m_color, SIGNAL(activated(int)), module, SLOT(changed()));
-    connect(m_hoverColor, SIGNAL(activated(int)), module, SLOT(changed()));
+    connect(m_color, SIGNAL(colorChanged(const QColor &)), module, SLOT(changed()));
+    connect(m_hoverColor, SIGNAL(colorChanged(const QColor &)), module, SLOT(changed()));
     connect(m_iconSize, SIGNAL(activated(int)), module, SLOT(changed()));
     connect(m_preview, SIGNAL(activated(int)), module, SLOT(changed()));
 }
@@ -716,6 +716,7 @@ void LinkLookEditWidget::slotChangeLook()
 {
     saveToLook(m_exLook);
     m_example->setLink(m_exTitle, m_exIcon, m_exLook); // and can't reload it at another size
+    
 }
 
 LinkLookEditWidget::~LinkLookEditWidget()
