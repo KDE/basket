@@ -48,11 +48,11 @@ ColorPicker::ColorPicker(QObject *parent)
 
 void ColorPicker::grabColor()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.portal.Desktop"),
-                                                          QLatin1String("/org/freedesktop/portal/desktop"),
-                                                          QLatin1String("org.freedesktop.portal.Screenshot"),
-                                                          QLatin1String("PickColor"));
-    message << QLatin1String("x11:") << QVariantMap{};
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.portal.Desktop"),
+                                                          QStringLiteral("/org/freedesktop/portal/desktop"),
+                                                          QStringLiteral("org.freedesktop.portal.Screenshot"),
+                                                          QStringLiteral("PickColor"));
+    message << QStringLiteral("x11:") << QVariantMap{};
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
@@ -63,8 +63,8 @@ void ColorPicker::grabColor()
         } else {
             QDBusConnection::sessionBus().connect(QString(),
                                                   reply.value().path(),
-                                                  QLatin1String("org.freedesktop.portal.Request"),
-                                                  QLatin1String("Response"),
+                                                  QStringLiteral("org.freedesktop.portal.Request"),
+                                                  QStringLiteral("Response"),
                                                   this,
                                                   SLOT(gotColorResponse(uint, QVariantMap)));
         }
@@ -74,8 +74,8 @@ void ColorPicker::grabColor()
 void ColorPicker::gotColorResponse(uint response, const QVariantMap& results)
 {
     if (!response) {
-        if (results.contains(QLatin1String("color"))) {
-            const QColor color = qdbus_cast<QColor>(results.value(QLatin1String("color")));
+        if (results.contains(QStringLiteral("color"))) {
+            const QColor color = qdbus_cast<QColor>(results.value(QStringLiteral("color")));
             Q_EMIT colorGrabbed(color);
         }
     } else {

@@ -39,7 +39,7 @@ bool ToolsTest::readAll(QString fileName, QString &text)
 {
     QFile f(fileName);
     if (!f.open(QFile::ReadOnly | QFile::Text)) {
-        qWarning() << QLatin1String("Failed to open data file %1 - skipping").arg(fileName).toUtf8();
+        qWarning() << QStringLiteral("Failed to open data file %1 - skipping").arg(fileName).toUtf8();
         return false;
     }
     QTextStream filestream(&f);
