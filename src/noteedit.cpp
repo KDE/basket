@@ -1031,7 +1031,7 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
 
     KService service(contentNote->fullPath());
 
-    m_command = new RunCommandRequester(service.exec(), i18n("Choose a command to run:"), page);
+    m_command = new ServiceLaunchRequester(service.storageId(), i18n("Choose a command to run:"), page);
     mainLayout->addWidget(m_command);
     m_name = new QLineEdit(service.name(), page);
     mainLayout->addWidget(m_name);
@@ -1062,12 +1062,12 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     hLay->addWidget(guessButton);
     hLay->addStretch();
 
-    m_command->lineEdit()->setMinimumWidth(m_command->lineEdit()->fontMetrics().maxWidth() * 20);
+    // m_command->lineEdit()->setMinimumWidth(m_command->lineEdit()->fontMetrics().maxWidth() * 20);
 
     QLabel *label1 = new QLabel(page);
     mainLayout->addWidget(label1);
     label1->setText(i18n("Comman&d:"));
-    label1->setBuddy(m_command->lineEdit());
+    // label1->setBuddy(m_command->lineEdit());
 
     QLabel *label2 = new QLabel(page);
     mainLayout->addWidget(label2);
@@ -1110,9 +1110,8 @@ LauncherEditDialog::~LauncherEditDialog()
 void LauncherEditDialog::ensurePolished()
 {
     QDialog::ensurePolished();
-    if (m_command->runCommand().isEmpty()) {
-        m_command->lineEdit()->setFocus();
-        m_command->lineEdit()->end(false);
+    if (m_command->serviceLauncher().isEmpty()) {
+        m_command->setFocus();
     } else {
         m_name->setFocus();
         m_name->end(false);
@@ -1126,19 +1125,19 @@ void LauncherEditDialog::slotOk()
 
     KDesktopFile dtFile(m_noteContent->fullPath());
     KConfigGroup grp = dtFile.desktopGroup();
-    grp.writeEntry("Exec", m_command->runCommand());
+    grp.writeEntry("Exec", m_command->serviceLauncher());
     grp.writeEntry("Name", m_name->text());
     grp.writeEntry("Icon", m_icon->icon());
 
     // Just for faster feedback: conf object will save to disk (and then
     // m_note->loadContent() called)
-    m_noteContent->setLauncher(m_name->text(), m_icon->icon(), m_command->runCommand());
+    m_noteContent->setLauncher(m_name->text(), m_icon->icon(), m_command->serviceLauncher());
     m_noteContent->setEdited();
 }
 
 void LauncherEditDialog::guessIcon()
 {
-    m_icon->setIcon(NoteFactory::iconForCommand(m_command->runCommand()));
+    m_icon->setIcon(NoteFactory::iconForCommand(m_command->serviceLauncher()));
 }
 
 /** class InlineEditors: */

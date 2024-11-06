@@ -1659,7 +1659,7 @@ void BNPView::updateNotesActions()
         m_type == Link ? i18n("&Save target as...")   : i18n("&Save a copy as...")
             // If useFile() there is always a file to open / open with / save, but :
         if (m_type == Link) {
-                if (url().toDisplayString().isEmpty() && runCommand().isEmpty())     // no URL nor runCommand :
+                if (url().toDisplayString().isEmpty() && serviceLauncher().isEmpty())     // no URL nor serviceLauncher :
         popupMenu->setItemEnabled(7, false);                       //  no possible Open !
                 if (url().toDisplayString().isEmpty())                               // no URL :
         popupMenu->setItemEnabled(8, false);                       //  no possible Open with !

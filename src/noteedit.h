@@ -32,7 +32,7 @@ class KColorCombo;
 
 class FontSizeCombo;
 class Note;
-class RunCommandRequester;
+class ServiceLaunchRequester;
 class FocusWidgetFilter;
 class BasketListViewItem;
 
@@ -298,7 +298,7 @@ protected Q_SLOTS:
 
 private:
     LauncherContent *m_noteContent;
-    RunCommandRequester *m_command;
+    ServiceLaunchRequester *m_command;
     QLineEdit *m_name;
     KIconButton *m_icon;
 };

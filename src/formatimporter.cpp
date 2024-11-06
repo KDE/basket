@@ -231,18 +231,18 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                 n = annotGroup;
             }
             // Import Launchers from 0.3.x, 0.4.0 and 0.5.0-alphas:
-            QString runCommand = e.attribute(QStringLiteral("runcommand"));                // Keep compatibility with 0.4.0 and 0.5.0-alphas versions
-            runCommand = XMLWork::getElementText(e, QStringLiteral("action"), runCommand); // Keep compatibility with 0.3.x versions
-            if (!runCommand.isEmpty()) {                                   // An import should be done
+            QString serviceLauncher = e.attribute(QStringLiteral("runcommand"));                // Keep compatibility with 0.4.0 and 0.5.0-alphas versions
+            serviceLauncher = XMLWork::getElementText(e, QStringLiteral("action"), serviceLauncher); // Keep compatibility with 0.3.x versions
+            if (!serviceLauncher.isEmpty()) {                                   // An import should be done
                 // Prepare the launcher note:
                 QString title = content.attribute(QStringLiteral("title"), QString());
                 QString icon = content.attribute(QStringLiteral("icon"), QString());
                 if (title.isEmpty())
-                    title = runCommand;
+                    title = serviceLauncher;
                 if (icon.isEmpty())
-                    icon = NoteFactory::iconForCommand(runCommand);
+                    icon = NoteFactory::iconForCommand(serviceLauncher);
                 // Import the launcher note:
-                // Adapted version of "QString launcherName = NoteFactory::createNoteLauncherFile(runCommand, title, icon, this)":
+                // Adapted version of "QString launcherName = NoteFactory::createNoteLauncherFile(serviceLauncher, title, icon, this)":
                 QString launcherContent = QStringLiteral(
                                               "[Desktop Entry]\n"
                                               "Exec=%1\n"
@@ -250,7 +250,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                                               "Icon=%3\n"
                                               "Encoding=UTF-8\n"
                                               "Type=Application\n")
-                                              .arg(runCommand, title, icon.isEmpty() ? QStringLiteral("exec") : icon);
+                                              .arg(serviceLauncher, title, icon.isEmpty() ? QStringLiteral("exec") : icon);
                 QString launcherFileName = Tools::fileNameForNewFile(QStringLiteral("launcher.desktop"), Global::basketsFolder() + folderName /*+ "/"*/);
                 QString launcherFullPath = Global::basketsFolder() + folderName /*+ "/"*/ + launcherFileName;
                 QFile file(launcherFullPath);

@@ -712,22 +712,34 @@ void UnknownContent::fontChanged()
     loadFromFile(/*lazyLoad=*/false);
 } // TODO: Optimize: setMimeTypes()
 
-// QString TextContent::customOpenCommand()      { return (Settings::isTextUseProg()      && ! Settings::textProg().isEmpty()      ? Settings::textProg()      : QString()); }
-QString HtmlContent::customOpenCommand()
+// QString TextContent::customServiceLauncher()      { return (Settings::isTextUseProg()      && ! Settings::textProg().isEmpty()      ? Settings::textProg()      : QString()); }
+QString HtmlContent::customServiceLauncher()
 {
     return (Settings::isHtmlUseProg() && !Settings::htmlProg().isEmpty() ? Settings::htmlProg() : QString());
 }
-QString ImageContent::customOpenCommand()
+QString ImageContent::customServiceLauncher()
 {
     return (Settings::isImageUseProg() && !Settings::imageProg().isEmpty() ? Settings::imageProg() : QString());
 }
-QString AnimationContent::customOpenCommand()
+QString AnimationContent::customServiceLauncher()
 {
     return (Settings::isAnimationUseProg() && !Settings::animationProg().isEmpty() ? Settings::animationProg() : QString());
 }
-QString SoundContent::customOpenCommand()
+QString SoundContent::customServiceLauncher()
 {
     return (Settings::isSoundUseProg() && !Settings::soundProg().isEmpty() ? Settings::soundProg() : QString());
+}
+QString LinkContent::customServiceLauncher()
+{
+    QUrl newUrl = this->url();
+    
+    // Provide service for HTTP requests, or just ignore it.
+    if (newUrl.scheme() == QStringLiteral("http") || newUrl.scheme() == QStringLiteral("https")) {
+        DEBUG_WIN << newUrl.toString() + QStringLiteral(" opens with ") + Settings::linkProg();
+        return (Settings::isLinkUseProg() && !Settings::linkProg().isEmpty() ? Settings::linkProg() : QString());
+    }
+    DEBUG_WIN << newUrl.toString() + QStringLiteral(" ignored");
+    return QString();
 }
 
 void LinkContent::serialize(QDataStream &stream)

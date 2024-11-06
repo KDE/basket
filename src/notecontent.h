@@ -205,7 +205,7 @@ public:
     } /// << @return the message to display according to @p where or nothing if it can't be done. @see OpenMessage describing the nature of the message that should be returned... The default implementation return an empty string. NOTE: If
       /// urlToOpen() is invalid and messageWhenOpening() is not empty, then the user will be prompted to edit the note (with the message returned by messageWhenOpening()) for eg. being able to edit URL of a link if it's empty when opening
       /// it...
-    virtual QString customOpenCommand()
+    virtual QString customServiceLauncher()
     {
         return QString();
     } /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the users in the setting (choice to use a custom app or not, and which app).
@@ -273,7 +273,7 @@ public:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
-    //  QString customOpenCommand();
+    //  QString customServiceLauncher();
     // Content-Specific Methods:
     void setText(const QString &text, bool lazyLoad = false); /// << Change the text note-content and relayout the note.
     QString text()
@@ -322,7 +322,7 @@ public:
     QPixmap feedbackPixmap(qreal width, qreal height) override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
-    QString customOpenCommand() override;
+    QString customServiceLauncher() override;
     // Content-Specific Methods:
     void setHtml(const QString &html, bool lazyLoad = false); /// << Change the HTML note-content and relayout the note.
     QString html()
@@ -374,7 +374,7 @@ public:
     }
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
-    QString customOpenCommand() override;
+    QString customServiceLauncher() override;
     // Content-Specific Methods:
     void setPixmap(const QPixmap &pixmap); /// << Change the pixmap note-content and relayout the note.
     QPixmap pixmap()
@@ -426,7 +426,7 @@ public:
     bool saveToFile() override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
-    QString customOpenCommand() override;
+    QString customServiceLauncher() override;
     QGraphicsItem *graphicsItem() override
     {
         return &m_graphicsPixmap;
@@ -529,7 +529,7 @@ public:
     void setHoveredZone(int oldZone, int newZone) override;
     // Open Content or File:
     QString messageWhenOpening(OpenMessage where) override;
-    QString customOpenCommand() override;
+    QString customServiceLauncher() override;
     // Content-Specific Methods:
     void setFileName(const QString &fileName) override;
     LinkLook *linkLook() override
@@ -580,6 +580,7 @@ public:
     // Open Content or File:
     QUrl urlToOpen(bool /*with*/) override;
     QString messageWhenOpening(OpenMessage where) override;
+    QString customServiceLauncher() override;
     // Content-Specific Methods:
     void setLink(const QUrl &url, const QString &title, const QString &icon, bool autoTitle, bool autoIcon); /// << Change the link and relayout the note.
     QUrl url()
