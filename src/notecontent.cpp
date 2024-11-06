@@ -321,37 +321,37 @@ QString HtmlContent::toHtml(const QString & /*imageName*/, const QString & /*cut
 
 QString ImageContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QStringLiteral("<img src=\"%1\">").arg(QLatin1String(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toEncoded()));
+    return QStringLiteral("<img src=\"%1\">").arg(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toString());
 }
 
 QString AnimationContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QStringLiteral("<img src=\"%1\">").arg(QLatin1String(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toEncoded()));
+    return QStringLiteral("<img src=\"%1\">").arg(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toString());
 }
 
 QString SoundContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QLatin1String(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toEncoded()), fileName());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toString(), fileName());
 } // With the icon?
 
 QString FileContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QLatin1String(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toEncoded()), fileName());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toString(), fileName());
 } // With the icon?
 
 QString LinkContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QLatin1String(QUrl(url().toDisplayString()).toEncoded()), title());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QUrl(url().toDisplayString()).toString(), title());
 } // With the icon?
 
 QString CrossReferenceContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QLatin1String(QUrl(url().toDisplayString()).toEncoded()), title());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QUrl(url().toDisplayString()).toString(), title());
 } // With the icon?
 
 QString LauncherContent::toHtml(const QString & /*imageName*/, const QString &cuttedFullPath)
 {
-    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QLatin1String(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toEncoded()), name());
+    return QStringLiteral("<a href=\"%1\">%2</a>").arg(QUrl(cuttedFullPath.isEmpty() ? fullPath() : cuttedFullPath).toString(), name());
 } // With the icon?
 
 QString ColorContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
@@ -1261,7 +1261,7 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
         exporter->stream << "<a href=\"" << exporter->dataFolderName << imageName << "\" title=\"" << i18n("Click for full size view") << "\">";
     }
 
-    exporter->stream << "<img src=\"" << QLatin1String(QUrl(exporter->dataFolderName + imageName).toEncoded()) << "\" width=\"" << width << "\" height=\"" << height << "\" alt=\"\">";
+    exporter->stream << "<img src=\"" << QUrl(exporter->dataFolderName + imageName).toString() << "\" width=\"" << width << "\" height=\"" << height << "\" alt=\"\">";
 
     if (contentWidth <= m_pixmapItem.pixmap().width()) // Scaled down
         exporter->stream << "</a>";
@@ -1386,7 +1386,7 @@ void AnimationContent::movieFrameChanged()
 void AnimationContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 {
     exporter->stream << QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
-                            .arg(QLatin1String(QUrl(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true)).toEncoded()), QString::number(m_movie->currentPixmap().size().width()), QString::number(m_movie->currentPixmap().size().height()));
+                            .arg(QUrl(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true)).toString(), QString::number(m_movie->currentPixmap().size().width()), QString::number(m_movie->currentPixmap().size().height()));
 }
 
 /** class FileContent:
@@ -1829,7 +1829,7 @@ void LinkContent::startFetchingLinkTitle()
     QUrl newUrl = this->url();
 
     // If this is not an HTTP request, just ignore it.
-    if (newUrl.scheme() != QLatin1String("http") && newUrl.scheme() != QLatin1String("https")) {
+    if (newUrl.scheme() != QStringLiteral("http") && newUrl.scheme() != QStringLiteral("https")) {
         return;
     }
 
@@ -2043,7 +2043,7 @@ void CrossReferenceContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     QString url = m_url.url();
     QString title;
 
-    if (url.startsWith(QLatin1String("basket://")))
+    if (url.startsWith(QStringLiteral("basket://")))
         url = url.mid(9, url.length() - 9);
     if (url.endsWith(QLatin1Char('/')))
         url = url.left(url.length() - 1);
@@ -2068,7 +2068,7 @@ void CrossReferenceContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     }
 
     QString linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon, LinkLook::crossReferenceLook->iconSize());
-    linkIcon = QStringLiteral("<img src=\"%1\" alt=\"\">").arg(QLatin1String(QUrl(linkIcon).toEncoded()));
+    linkIcon = QStringLiteral("<img src=\"%1\" alt=\"\">").arg(QUrl(linkIcon).toString());
 
     exporter->stream << QStringLiteral("<a href=\"%1\">%2 %3</a>").arg(url, linkIcon, title);
 }
@@ -2329,7 +2329,7 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     painter.setBrush(color());
     painter.drawRoundedRect(0, 0, rectWidth, rectHeight, 2, 2);
     colorIcon.save(fullPath, "PNG");
-    QString iconHtml = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QLatin1String(QUrl(exporter->iconsFolderName + fileName).toEncoded()), QString::number(colorIcon.width()), QString::number(colorIcon.height()));
+    QString iconHtml = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QUrl(exporter->iconsFolderName + fileName).toString(), QString::number(colorIcon.width()), QString::number(colorIcon.height()));
 
     exporter->stream << iconHtml + QLatin1Char(' ') + color().name();
 }
@@ -2495,7 +2495,7 @@ void LinkContent::decodeHtmlTitle()
     // else
     //     textCodec = QTextCodec::codecForHtml(m_httpBuff, QTextCodec::codecForName("utf-8"));
 
-    QString httpBuff = QLatin1String(m_httpBuff);
+    QString httpBuff = QString::fromUtf8(m_httpBuff);
 
     
     // todo: this should probably strip odd html tags like &nbsp; etc

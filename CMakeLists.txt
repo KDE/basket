@@ -14,6 +14,7 @@ set(APP_SUFFIX 6)
 set(LIB_PREFIX Qt6::)
 
 # Options
+option(BUILD_DEVTOOLS "Enabled Devtools" ON)
 option(ENABLE_GPG "Enabled GPG Support" OFF)
 option(ENABLE_GIT "Enabled Git Support" ON)
 

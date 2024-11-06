@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
 
-    KAboutData aboutData(QStringLiteral("basketweaver"), i18n("basketweaver"), VERSION);
+    KAboutData aboutData(QStringLiteral("basketweaver"), i18n("basketweaver"), QStringLiteral(VERSION));
     aboutData.setShortDescription(i18n("Encodes and decodes .baskets files"));
 
     KAboutData::setApplicationData(aboutData);

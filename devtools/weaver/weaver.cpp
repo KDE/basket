@@ -95,7 +95,7 @@ bool Weaver::unweave()
     if (m_parser->isSet(m_basename)) {
         destination += m_parser->value(m_basename);
     } else {
-        destination += QFileInfo(m_in).baseName() + "_baskets";
+        destination += QFileInfo(m_in).baseName() + QStringLiteral("_baskets");
     }
 
     Archive::IOErrorCode errorCode = Archive::extractArchive(m_in, destination, !m_parser->isSet(m_force));
@@ -161,7 +161,7 @@ bool Weaver::isBasketSourceValid(const QString &basketsDirectory)
     }
 
     // test the existence of /baskets/baskets.xml
-    const QString basketTreePath = basketsDirectory + QDir::separator() + "baskets" + QDir::separator() + "baskets.xml";
+    const QString basketTreePath = basketsDirectory + QDir::separator() + QStringLiteral("baskets") + QDir::separator() + QStringLiteral("baskets.xml");
     if (!QFileInfo::exists(basketTreePath)) {
         return false;
     }
@@ -202,7 +202,7 @@ bool Weaver::isBasketSourceValid(const QString &basketsDirectory)
 
     // test whether the referenced subdirectories exist
     for (const QString &bskt : containedBaskets) {
-        const QString bsktPath = basketsDirectory + QDir::separator() + "baskets" + QDir::separator() + bskt;
+        const QString bsktPath = basketsDirectory + QDir::separator() + QStringLiteral("baskets") + QDir::separator() + bskt;
         if (!QFileInfo::exists(bsktPath)) {
             return false;
         }
@@ -222,7 +222,7 @@ bool Weaver::isBasketFile(const QString &basketsFile)
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
         QString line = stream.readLine();
-        stream.setCodec("ISO-8859-1");
+        
         if (line != QStringLiteral("BasKetNP:archive")) {
             file.close();
             return false;
@@ -230,7 +230,7 @@ bool Weaver::isBasketFile(const QString &basketsFile)
 
         while (!stream.atEnd()) {
             line = stream.readLine();
-            int index = line.indexOf(':');
+            int index = line.indexOf(QChar::fromLatin1(':'));
             QString key;
             QString value;
             if (index >= 0) {
@@ -266,7 +266,7 @@ bool Weaver::isBasketFile(const QString &basketsFile)
                 stream.seek(stream.pos() + size);
             }
             // test unknown embedded file, then skip block of given size
-            else if (key.endsWith('*')) {
+            else if (key.endsWith(QChar::fromLatin1('*'))) {
                 bool ok = false;
                 qint64 size = value.toULong(&ok);
                 if (!ok) {

@@ -14,7 +14,6 @@
 #include "application.h"
 #include "backup.h"
 #include "global.h"
-// #include "kde4_migration.h"
 #include "mainwindow.h"
 #include "settings.h"
 

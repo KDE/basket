@@ -115,7 +115,7 @@ Password::Password(QWidget *parent)
     for (KGpgKeyList::iterator it = list.begin(); it != list.end(); ++it) {
         QString name = gpg.checkForUtf8((*it).name);
 
-        keyCombo->addItem(QLatin1String("%1 <%2> %3").arg(name).arg((*it).email).arg((*it).id));
+        keyCombo->addItem(QStringLiteral("%1 <%2> %3").arg(name).arg((*it).email).arg((*it).id));
     }
     publicPrivateRadioButton->setEnabled(keyCombo->count() > 0);
     keyCombo->setEnabled(keyCombo->count() > 0);

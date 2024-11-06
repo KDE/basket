@@ -111,7 +111,7 @@ bool FileStorage::saveToFile(const QString &fullPath, const QByteArray &array, b
     }*/
 
     if (success)
-        return safelySaveToFile(fullPath, QLatin1String(tmp));
+        return safelySaveToFile(fullPath, tmp);
     else
         return false;
 }

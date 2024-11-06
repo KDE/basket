@@ -5071,7 +5071,7 @@ bool BasketScene::isFileEncrypted()
 
     if (file.open(QIODevice::ReadOnly)) {
         // Should be ASCII anyways
-        QString line = QLatin1String(file.readLine(32));
+        QString line = QString::fromUtf8(file.readLine(32));
         if (line.startsWith(QStringLiteral("-----BEGIN PGP MESSAGE-----")))
             return true;
     }

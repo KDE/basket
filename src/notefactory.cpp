@@ -202,14 +202,14 @@ QStringList NoteFactory::textToURLList(const QString &text)
 
         /* Search for an url and create an URL note */
         if ((ltext.startsWith(QLatin1Char('/')) && ltext[1] != QLatin1Char('/') && ltext[1] != QLatin1Char('*')) || // Take files but not C/C++/... comments !
-            ltext.startsWith(QLatin1String("file:")) || ltext.startsWith(QLatin1String("http://")) || ltext.startsWith(QLatin1String("https://")) || ltext.startsWith(QLatin1String("www.")) || ltext.startsWith(QLatin1String("ftp.")) ||
-            ltext.startsWith(QLatin1String("ftp://")) || ltext.startsWith(QLatin1String("mailto:"))) {
+            ltext.startsWith(QStringLiteral("file:")) || ltext.startsWith(QStringLiteral("http://")) || ltext.startsWith(QStringLiteral("https://")) || ltext.startsWith(QStringLiteral("www.")) || ltext.startsWith(QStringLiteral("ftp.")) ||
+            ltext.startsWith(QStringLiteral("ftp://")) || ltext.startsWith(QStringLiteral("mailto:"))) {
             // First, correct the text to use the good format for the url
             if (ltext.startsWith(QLatin1Char('/')))
                 (*it).insert(0, QStringLiteral("file:"));
-            if (ltext.startsWith(QLatin1String("www.")))
+            if (ltext.startsWith(QStringLiteral("www.")))
                 (*it).insert(0, QStringLiteral("http://"));
-            if (ltext.startsWith(QLatin1String("ftp.")))
+            if (ltext.startsWith(QStringLiteral("ftp.")))
                 (*it).insert(0, QStringLiteral("ftp://"));
 
             // And create the Url note (or launcher if URL point a .desktop file)
@@ -315,7 +315,7 @@ Note *NoteFactory::createNoteLinkOrLauncher(const QUrl &url, BasketScene *parent
     //            "Invalid entry (missing '=') at /my/file.ogg:11984"
     //            "Invalid entry (missing ']') at /my/file.ogg:11984"...
     KService::Ptr service;
-    if (url.fileName().endsWith(QLatin1String(".desktop")))
+    if (url.fileName().endsWith(QStringLiteral(".desktop")))
         service = new KService(url.path());
 
     // If link point to a .desktop file then add a launcher, otherwise it's a link
@@ -689,32 +689,32 @@ Note *NoteFactory::decodeContent(QDataStream &stream, NoteType::Id type, BasketS
 
 bool NoteFactory::maybeText(const QMimeType &mimeType)
 {
-    return mimeType.inherits(QLatin1String(MimeTypes::TEXT));
+    return mimeType.inherits(QString::fromUtf8(MimeTypes::TEXT));
 }
 
 bool NoteFactory::maybeHtml(const QMimeType &mimeType)
 {
-    return mimeType.inherits(QLatin1String(MimeTypes::HTML));
+    return mimeType.inherits(QString::fromUtf8(MimeTypes::HTML));
 }
 
 bool NoteFactory::maybeImage(const QMimeType &mimeType)
 {
-    return mimeType.name().startsWith(QLatin1String(MimeTypes::IMAGE));
+    return mimeType.name().startsWith(QString::fromUtf8(MimeTypes::IMAGE));
 }
 
 bool NoteFactory::maybeAnimation(const QMimeType &mimeType)
 {
-    return mimeType.inherits(QLatin1String(MimeTypes::ANIMATION)) || mimeType.name() == QLatin1String(MimeTypes::ANIMATION_MNG);
+    return mimeType.inherits(QString::fromUtf8(MimeTypes::ANIMATION)) || mimeType.name() == QString::fromUtf8(MimeTypes::ANIMATION_MNG);
 }
 
 bool NoteFactory::maybeSound(const QMimeType &mimeType)
 {
-    return mimeType.name().startsWith(QLatin1String(MimeTypes::AUDIO));
+    return mimeType.name().startsWith(QString::fromUtf8(MimeTypes::AUDIO));
 }
 
 bool NoteFactory::maybeLauncher(const QMimeType &mimeType)
 {
-    return mimeType.inherits(QLatin1String(MimeTypes::LAUNCHER));
+    return mimeType.inherits(QString::fromUtf8(MimeTypes::LAUNCHER));
 }
 
 ////////////// NEW:
@@ -897,7 +897,7 @@ QUrl NoteFactory::filteredURL(const QUrl &url)
         return url;
     else {
         QStringList list;
-        list << QLatin1String("kshorturifilter") << QLatin1String("kuriikwsfilter") << QLatin1String("kurisearchfilter") << QLatin1String("localdomainfilter") << QLatin1String("fixuphosturifilter");
+        list << QStringLiteral("kshorturifilter") << QStringLiteral("kuriikwsfilter") << QStringLiteral("kurisearchfilter") << QStringLiteral("localdomainfilter") << QStringLiteral("fixuphosturifilter");
         return KUriFilter::self()->filteredUri(url, list);
     }
 }
@@ -907,41 +907,41 @@ QString NoteFactory::titleForURL(const QUrl &url)
     QString title = url.toDisplayString();
     QString home = QStringLiteral("file:") + QDir::homePath() + QLatin1Char('/');
 
-    if (title.startsWith(QLatin1String("mailto:")))
+    if (title.startsWith(QStringLiteral("mailto:")))
         return title.remove(0, 7);
 
     if (title.startsWith(home))
         title = QStringLiteral("~/") + title.remove(0, home.length());
 
-    if (title.startsWith(QLatin1String("file://")))
+    if (title.startsWith(QStringLiteral("file://")))
         title = title.remove(0, 7); // 7 == QString("file://").length() - 1
-    else if (title.startsWith(QLatin1String("file:")))
+    else if (title.startsWith(QStringLiteral("file:")))
         title = title.remove(0, 5); // 5 == QString("file:").length() - 1
-    else if (title.startsWith(QLatin1String("http://www.")))
+    else if (title.startsWith(QStringLiteral("http://www.")))
         title = title.remove(0, 11); // 11 == QString("http://www.").length() - 1
-    else if (title.startsWith(QLatin1String("https://www.")))
+    else if (title.startsWith(QStringLiteral("https://www.")))
         title = title.remove(0, 12); // 12 == QString("https://www.").length() - 1
-    else if (title.startsWith(QLatin1String("http://")))
+    else if (title.startsWith(QStringLiteral("http://")))
         title = title.remove(0, 7); // 7 == QString("http://").length() - 1
-    else if (title.startsWith(QLatin1String("https://")))
+    else if (title.startsWith(QStringLiteral("https://")))
         title = title.remove(0, 8); // 8 == QString("https://").length() - 1
 
     if (!url.isLocalFile()) {
-        if (title.endsWith(QLatin1String("/index.html")) && title.length() > 11)
+        if (title.endsWith(QStringLiteral("/index.html")) && title.length() > 11)
             title.truncate(title.length() - 11); // 11 == QString("/index.html").length()
-        else if (title.endsWith(QLatin1String("/index.htm")) && title.length() > 10)
+        else if (title.endsWith(QStringLiteral("/index.htm")) && title.length() > 10)
             title.truncate(title.length() - 10); // 10 == QString("/index.htm").length()
-        else if (title.endsWith(QLatin1String("/index.xhtml")) && title.length() > 12)
+        else if (title.endsWith(QStringLiteral("/index.xhtml")) && title.length() > 12)
             title.truncate(title.length() - 12); // 12 == QString("/index.xhtml").length()
-        else if (title.endsWith(QLatin1String("/index.php")) && title.length() > 10)
+        else if (title.endsWith(QStringLiteral("/index.php")) && title.length() > 10)
             title.truncate(title.length() - 10); // 10 == QString("/index.php").length()
-        else if (title.endsWith(QLatin1String("/index.asp")) && title.length() > 10)
+        else if (title.endsWith(QStringLiteral("/index.asp")) && title.length() > 10)
             title.truncate(title.length() - 10); // 10 == QString("/index.asp").length()
-        else if (title.endsWith(QLatin1String("/index.php3")) && title.length() > 11)
+        else if (title.endsWith(QStringLiteral("/index.php3")) && title.length() > 11)
             title.truncate(title.length() - 11); // 11 == QString("/index.php3").length()
-        else if (title.endsWith(QLatin1String("/index.php4")) && title.length() > 11)
+        else if (title.endsWith(QStringLiteral("/index.php4")) && title.length() > 11)
             title.truncate(title.length() - 11); // 11 == QString("/index.php4").length()
-        else if (title.endsWith(QLatin1String("/index.php5")) && title.length() > 11)
+        else if (title.endsWith(QStringLiteral("/index.php5")) && title.length() > 11)
             title.truncate(title.length() - 11); // 11 == QString("/index.php5").length()
     }
 

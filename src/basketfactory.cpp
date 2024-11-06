@@ -63,7 +63,7 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
         int nbColumns = (templateName == QStringLiteral("mindmap") || templateName == QStringLiteral("free") ? 0 : templateName.left(1).toInt());
         BasketScene *currentBasket = Global::bnpView->currentBasket();
         int columnWidth = (currentBasket && nbColumns > 0 ? (currentBasket->graphicsView()->viewport()->width() - (nbColumns - 1) * Note::RESIZER_WIDTH) / nbColumns : 0);
-        stream << QLatin1String(
+        stream << QStringLiteral(
                       "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
                       "<!DOCTYPE basket>\n"
                       "<basket>\n"
@@ -74,7 +74,7 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
                       .arg((templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")), QString::number(nbColumns), (templateName == QStringLiteral("free") || templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")));
         if (nbColumns > 0)
             for (int i = 0; i < nbColumns; ++i)
-                stream << QLatin1String("  <group width=\"%1\"></group>\n").arg(QLatin1Char(columnWidth));
+                stream << QStringLiteral("  <group width=\"%1\"></group>\n").arg(QLatin1Char(columnWidth));
         stream << " </notes>\n"
                   "</basket>\n";
         file.close();

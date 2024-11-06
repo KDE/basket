@@ -278,7 +278,7 @@ QStringList BasketTreeListView::mimeTypes() const
 {
     QStringList types;
     types << TREE_ITEM_MIME_STRING;
-    types << QLatin1String(NoteDrag::NOTE_MIME_STRING);
+    types << QString::fromUtf8(NoteDrag::NOTE_MIME_STRING);
     return types;
 }
 
@@ -545,12 +545,12 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
         effectiveWidth += countPixmap.width() + MARGIN;
     }
     if (showLoadingIcon) {
-        QPixmap icon = KIconLoader::global()->loadIcon(QLatin1String(IconNames::LOADING), KIconLoader::NoGroup, BASKET_ICON_SIZE);
+        QPixmap icon = KIconLoader::global()->loadIcon(QString::fromUtf8(IconNames::LOADING), KIconLoader::NoGroup, BASKET_ICON_SIZE);
         painter->drawPixmap(effectiveWidth, y, icon);
         effectiveWidth += BASKET_ICON_SIZE + MARGIN;
     }
     if (showEncryptedIcon && !showLoadingIcon) {
-        QPixmap icon = KIconLoader::global()->loadIcon(QLatin1String(IconNames::LOCKED), KIconLoader::NoGroup, BASKET_ICON_SIZE);
+        QPixmap icon = KIconLoader::global()->loadIcon(QString::fromUtf8(IconNames::LOCKED), KIconLoader::NoGroup, BASKET_ICON_SIZE);
         painter->drawPixmap(effectiveWidth, y, icon);
     }
 }

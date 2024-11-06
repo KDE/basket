@@ -216,7 +216,7 @@ QList<State*> Tools::detectTags(const QString& text, int& prefixLength)
 QString Tools::crossReferenceForBasket(const QStringList& linkParts)
 {
     QString basketLink = linkParts.first();
-    if (!basketLink.startsWith(QLatin1String("basket://"))) return QString();
+    if (!basketLink.startsWith(QStringLiteral("basket://"))) return QString();
 
     QString url = basketLink.mid(9, basketLink.length() - 9);
     if (url.isEmpty()) return QString();
@@ -238,7 +238,7 @@ QString Tools::crossReferenceForHtml(const QStringList& linkParts, HTMLExporter 
 {
     QString basketLink = linkParts.first();
     QString title = linkParts.last().trimmed();
-    if (!basketLink.startsWith(QLatin1String("basket://"))) return QString();
+    if (!basketLink.startsWith(QStringLiteral("basket://"))) return QString();
 
     QString url = basketLink.mid(9, basketLink.length() - 9);
     if (url.isEmpty()) return QString();
@@ -271,7 +271,7 @@ QString Tools::crossReferenceForConversion(const QStringList& linkParts)
     QString basketLink = linkParts.first();
     QString title;
 
-    if (basketLink.startsWith(QLatin1String("basket://")))
+    if (basketLink.startsWith(QStringLiteral("basket://")))
         return QStringLiteral("[[%1|%2]]").arg(basketLink, linkParts.last());
 
     if (basketLink.endsWith(QLatin1Char('/')))

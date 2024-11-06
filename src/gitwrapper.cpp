@@ -117,7 +117,7 @@ void GitWrapper::commitCreateBasket()
         }
         // this is kind of hacky because somebody could come in between and we still have stuff open
         // change basket.xml
-        const QString basketxml(QLatin1String("baskets/baskets.xml"));
+        const QString basketxml(QStringLiteral("baskets/baskets.xml"));
         QByteArray basketxmlba = basketxml.toUtf8();
         char *basketxmlCString = basketxmlba.data();
         error = git_index_add_bypath(index, basketxmlCString);

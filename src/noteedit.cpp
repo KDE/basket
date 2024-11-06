@@ -532,7 +532,7 @@ ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)
                                                        "Do you want to open it with an application that understand it?"),
                                                   i18n("Edit Image Note"),
                                                   KStandardGuiItem::open(),
-                                                  KGuiItem(i18n("Load From &File..."), QLatin1String(IconNames::DOCUMENT_IMPORT)),
+                                                  KGuiItem(i18n("Load From &File..."), QString::fromUtf8(IconNames::DOCUMENT_IMPORT)),
                                                   KStandardGuiItem::cancel());
 
     switch (choice) {

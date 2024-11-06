@@ -62,7 +62,7 @@ QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *sour
         serializeNotes(noteList, stream, cutting);
         // Append the object:
         buffer.close();
-        mimeData->setData(QLatin1String(NOTE_MIME_STRING), buffer.buffer());
+        mimeData->setData(QString::fromUtf8(NOTE_MIME_STRING), buffer.buffer());
     }
 
     // The "Other Flavors" Serialization:
@@ -346,12 +346,12 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
 
 bool NoteDrag::canDecode(const QMimeData *source)
 {
-    return source->hasFormat(QLatin1String(NOTE_MIME_STRING));
+    return source->hasFormat(QString::fromUtf8(NOTE_MIME_STRING));
 }
 
 BasketScene *NoteDrag::basketOf(const QMimeData *source)
 {
-    QByteArray srcData = source->data(QLatin1String(NOTE_MIME_STRING));
+    QByteArray srcData = source->data(QString::fromUtf8(NOTE_MIME_STRING));
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
         QDataStream stream(&buffer);
@@ -369,7 +369,7 @@ QList<Note *> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
        Thus m_draggedNotes will contain many invalid pointer values.
        As a workaround, we use NoteDrag::selectedNotes now. */
 
-    QByteArray srcData = source->mimeData()->data(QLatin1String(NOTE_MIME_STRING));
+    QByteArray srcData = source->mimeData()->data(QString::fromUtf8(NOTE_MIME_STRING));
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
         QDataStream stream(&buffer);
@@ -402,7 +402,7 @@ void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
 
 Note *NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFiles, bool moveNotes)
 {
-    QByteArray srcData = source->data(QLatin1String(NOTE_MIME_STRING));
+    QByteArray srcData = source->data(QString::fromUtf8(NOTE_MIME_STRING));
     QBuffer buffer(&srcData);
     if (buffer.open(QIODevice::ReadOnly)) {
         QDataStream stream(&buffer);
@@ -549,7 +549,7 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
         if ((mime[0] == QLatin1Char(0xFF) && mime[1] == QLatin1Char(0xFE)) || (mime[0] == QLatin1Char(0xFE) && mime[1] == QLatin1Char(0xFF))) {
             auto fromUtf16 = QStringEncoder(QStringEncoder::Utf8);
             QByteArray encodedString = fromUtf16(str);
-            str = QLatin1String(encodedString);
+            str = QString::fromUtf8(encodedString);
             return true;
         }
     }
@@ -559,23 +559,23 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
         if (e->hasFormat(QStringLiteral("UTF8_STRING"))) {
             auto fromUtf8 = QStringEncoder(QStringEncoder::Utf16);
             QByteArray encodedString = fromUtf8(str);
-            str = QLatin1String(encodedString);
+            str = QString::fromUtf8(encodedString);
             return true;
         }
         if (e->hasFormat(QStringLiteral("text/unicode"))) { // FIXME: It's UTF-16 without order bytes!!!
             auto fromUtf16 = QStringEncoder(QStringEncoder::Utf8);
             QByteArray encodedString = fromUtf16(str);
-            str = QLatin1String(encodedString);
+            str = QString::fromUtf8(encodedString);
             return true;
         }
         if (e->hasFormat(QStringLiteral("TEXT"))) { // local encoding
             QByteArray text = e->data(QStringLiteral("TEXT"));
-            str = QLatin1String(text);
+            str = QString::fromUtf8(text);
             return true;
         }
         if (e->hasFormat(QStringLiteral("COMPOUND_TEXT"))) { // local encoding
             QByteArray text = e->data(QStringLiteral("COMPOUND_TEXT"));
-            str = QLatin1String(text);
+            str = QString::fromUtf8(text);
             return true;
         }
     }

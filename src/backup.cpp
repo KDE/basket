@@ -334,7 +334,7 @@ void Backup::figureOutBinaryPath(const char *argv0, QApplication &app)
        "./src/.libs/basket"     "/home/seb/prog/basket/debug/src/.lib/basket"   "/opt/kde3/bin/basket"
     */
 
-    binaryPath = QDir(QLatin1String(argv0)).canonicalPath();
+    binaryPath = QDir(QString::fromUtf8(argv0)).canonicalPath();
     if (binaryPath.isEmpty())
         binaryPath = app.applicationFilePath();
 }

@@ -183,7 +183,7 @@ void BNPView::addWelcomeBaskets()
 {
     // Possible paths where to find the welcome basket archive, trying the translated one, and falling back to the English one:
     QStringList possiblePaths;
-    if (QLatin1String(Tools::systemCodeset()) == QLatin1String("UTF-8")) { // Welcome baskets are encoded in UTF-8. If the system is not, then use the English version:
+    if (QString::fromUtf8(Tools::systemCodeset()) == QStringLiteral("UTF-8")) { // Welcome baskets are encoded in UTF-8. If the system is not, then use the English version:
         QString lang = QLocale().languageToString(QLocale().language());
         possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_") + lang + QStringLiteral(".baskets")));
         possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_") + lang.split(QLatin1Char('_'))[0] + QStringLiteral(".baskets")));
@@ -514,43 +514,43 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("insert_link"));
     a->setText(i18n("&Link"));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::LINK)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::LINK)));
     m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Y")));
     m_actInsertLink = a;
 
     a = ac->addAction(QStringLiteral("insert_cross_reference"));
     a->setText(i18n("Cross &Reference"));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::CROSS_REF)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::CROSS_REF)));
     m_actInsertCrossReference = a;
 
     a = ac->addAction(QStringLiteral("insert_image"));
     a->setText(i18n("&Image"));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::IMAGE)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::IMAGE)));
     m_actInsertImage = a;
 
     a = ac->addAction(QStringLiteral("insert_color"));
     a->setText(i18n("&Color"));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::COLOR)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::COLOR)));
     m_actInsertColor = a;
 
     a = ac->addAction(QStringLiteral("insert_launcher"));
     a->setText(i18n("L&auncher"));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::LAUNCH)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::LAUNCH)));
     m_actInsertLauncher = a;
 
     a = ac->addAction(QStringLiteral("insert_kmenu"));
     a->setText(i18n("Import Launcher for &desktop application..."));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::KMENU)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::KMENU)));
     m_actImportKMenu = a;
 
     a = ac->addAction(QStringLiteral("insert_icon"));
     a->setText(i18n("Im&port Icon..."));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::ICONS)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::ICONS)));
     m_actImportIcon = a;
 
     a = ac->addAction(QStringLiteral("insert_from_file"));
     a->setText(i18n("Load From &File..."));
-    a->setIcon(QIcon::fromTheme(QLatin1String(IconNames::DOCUMENT_IMPORT)));
+    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::DOCUMENT_IMPORT)));
     m_actLoadFile = a;
 
     //  connect( m_actInsertText, QAction::triggered, this, [this] () { insertEmpty(NoteType::Text); });
@@ -672,7 +672,7 @@ a = ac->addAction(QStringLiteral("insert_screen_color"), this, &BNPView::slotCol
 
     a = ac->addAction(QStringLiteral("basket_lock"), this, SLOT(lockBasket()));
     a->setText(i18nc("Lock Basket", "&Lock"));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QLatin1String("Ctrl+L")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+L")));
     m_actLockBasket = a;
 #endif
 
@@ -1519,7 +1519,7 @@ void BNPView::checkCleanup()
     QFileInfo fileInfo;
     QDir topDir(Global::basketsFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
     for (QString topDirEntry: topDir.entryList()) {
-        if (topDirEntry != QLatin1String(".") && topDirEntry != QLatin1String("..")) {
+        if (topDirEntry != QStringLiteral(".") && topDirEntry != QStringLiteral("..")) {
             fileInfo.setFile(Global::basketsFolder() + QLatin1Char('/') + topDirEntry);
             if (fileInfo.isDir()) {
                 dirList << topDirEntry + QLatin1Char('/');
