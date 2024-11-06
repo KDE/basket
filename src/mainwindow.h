@@ -34,6 +34,7 @@ private:
 public Q_SLOTS:
     bool askForQuit();
     /** Settings **/
+    SettingsDialog *settings();
     //  void toggleToolBar();
     void toggleStatusBar();
     void showShortcutsSettingsDialog();

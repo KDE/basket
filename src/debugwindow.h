@@ -13,6 +13,8 @@
 #include <QLatin1String>
 #include <QStringLiteral>
 
+#include "global.h"
+
 class QVBoxLayout;
 class QTextBrowser;
 class QString;

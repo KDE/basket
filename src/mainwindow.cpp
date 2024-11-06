@@ -91,6 +91,10 @@ void MainWindow::setupActions()
     actAppConfig = KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 }
 
+SettingsDialog *MainWindow::settings() {
+    return m_settings;
+}
+
 /*void MainWindow::toggleToolBar()
 {
     if (toolBar()->isVisible())
