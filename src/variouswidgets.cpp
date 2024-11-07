@@ -87,8 +87,6 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
     QString comment;
     QIcon buttonIcon;
     
-    
-    DEBUG_WIN << QStringLiteral("lookup service launcher: ") << serviceLauncher;
     KService::Ptr service = KService::serviceByStorageId(serviceLauncher);
     
     if (service && service->isApplication()) {

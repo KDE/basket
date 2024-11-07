@@ -634,6 +634,12 @@ public:
     void save() override;
     void defaults() override;
     
+public Q_SLOTS:
+    bool launchKDEModule(const QString &command, const QStringList &args = {});
+    void openMenuEditor();
+    void openDefaultApplications();
+    void openFileAssociations();
+    
 private:
     // Applications
     QCheckBox *m_htmlUseProg;
@@ -646,6 +652,9 @@ private:
     ServiceLaunchRequester *m_animationProg;
     ServiceLaunchRequester *m_soundProg;
     ServiceLaunchRequester *m_linkProg;
+    QPushButton *m_menuEdit;
+    QPushButton *m_componentChooser;
+    QPushButton *m_fileTypes;
 };
 
 #endif // SETTINGS_H
