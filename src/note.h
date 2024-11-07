@@ -393,7 +393,7 @@ public:
     QString fullPath();
     Note *noteForFullPath(const QString &path);
 
-    // void update();
+    void update();
     void linkLookChanged();
 
     void usedStates(QList<State *> &states);

@@ -326,10 +326,10 @@ QString Note::fullPath()
         return QString();
 }
 
-/*void Note::update()
+void Note::update()
 {
-    update(0,0,boundingRect().width,boundingRect().height);
-}*/
+    QGraphicsItem::update(0,0,boundingRect().width(),boundingRect().height());
+}
 
 void Note::setFocused(bool focused)
 {
@@ -338,7 +338,7 @@ void Note::setFocused(bool focused)
 
     m_focused = focused;
     unbufferize();
-    update(); // FIXME: ???
+    update();
 }
 
 void Note::setSelected(bool selected)
@@ -361,7 +361,7 @@ void Note::setSelected(bool selected)
 
     m_selected = selected;
     unbufferize();
-    update(); // FIXME: ???
+    update();
 }
 
 void Note::resetWasInLastSelectionRect()
