@@ -29,7 +29,7 @@
         "Description[x-test]": "xxBasketsxx",
         "Description[zh_CN]": "笔记篮",
         "Description[zh_TW]": "筆記",
-        "Icon": "org.kde.basket",
+        "Icon": "basket",
         "Name": "Baskets",
         "Name[ca@valencia]": "Cistelles",
         "Name[ca]": "Cistelles",

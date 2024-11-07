@@ -31,7 +31,7 @@
         "Description[x-test]": "xxApplicationsxx",
         "Description[zh_CN]": "应用程序",
         "Description[zh_TW]": "應用程式",
-        "Icon": "system-run",
+        "Icon": "preferences-desktop-filetype-association",
         "Name": "Applications",
         "Name[ca@valencia]": "Aplicacions",
         "Name[ca]": "Aplicacions",

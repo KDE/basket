@@ -30,7 +30,7 @@
         "Description[x-test]": "xxNew Notesxx",
         "Description[zh_CN]": "新记事贴",
         "Description[zh_TW]": "新增筆記",
-        "Icon": "document-new",
+        "Icon": "knotes-symbolic",
         "Name": "New Notes",
         "Name[ca@valencia]": "Notes noves",
         "Name[ca]": "Notes noves",
