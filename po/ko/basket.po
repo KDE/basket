@@ -3177,7 +3177,7 @@ msgstr "소리(&S)"
 #: src/settings.cpp:776
 #, kde-format
 msgid "Conference audio record"
-msgstr "콘퍼런스 오디오 녹음"
+msgstr "컨퍼런스 오디오 녹음"
 
 #: src/settings.cpp:777
 #, kde-format
