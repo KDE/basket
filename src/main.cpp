@@ -10,6 +10,7 @@
 #include <QDir>
 #include <config.h>
 #include <kconfig.h> // TMP IN ALPHA 1
+#include <KCrash>
 
 #include "application.h"
 #include "backup.h"
@@ -30,6 +31,8 @@ int main(int argc, char *argv[])
 
     Global::commandLineOpts = new QCommandLineParser();
     Application app(argc, argv);
+
+    KCrash::initialize();
 
     QCommandLineParser *opts = Global::commandLineOpts;
     KAboutData::applicationData().setupCommandLine(opts); //--author, --license

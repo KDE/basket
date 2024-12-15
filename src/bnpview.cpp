@@ -41,10 +41,6 @@
 #include <KXMLGUIFactory>
 #include <KMessageWidget>
 
-#ifndef BASKET_USE_DRKONQI
-#include <KCrash>
-#endif // BASKET_USE_DRKONQI
-
 #include <cstdlib>
 #include <unistd.h> // usleep
 
