@@ -34,10 +34,10 @@
 	<chapter id="notice">
 		<title>NOTICE: handbook not written yet</title>
 		<para>&basket; still does not have a handbook, so contributors are welcome!
-			Check the <ulink url='https://l10n.kde.org/docs/doc-primer/index.html'>
+			Check the <ulink url="https://l10n.kde.org/docs/doc-primer/index.html">
 					KDE documentation</ulink> for the hints on the DocBook format.</para>
 			<para>Meanwhile, you can look for help on the Internet. In particular,
-				look through the <ulink url='https://basket-notepads.github.io'>old website</ulink> or
+				look through the <ulink url="https://basket-notepads.github.io">old website</ulink> or
 					check Linux magazines if you have access to them, for example:
 				<itemizedlist>
 					<listitem><para>
@@ -110,7 +110,7 @@
 
 						<sect2 id="basket-archive-file-structure">
 							<title>File Structure</title>
-							<para>The archive file is devided into the structures: file header, preview image header, a preview image (.png), archive header, and a gunzipped tar archive (.tar.gz) containing a baskets file tree as illustrated in the following sketch</para>
+							<para>The archive file is divided into the structures: file header, preview image header, a preview image (.png), archive header, and a gunzipped tar archive (.tar.gz) containing a baskets file tree as illustrated in the following sketch</para>
 							<mediaobject  id="basket-archive-file-structure-graph">
 								<imageobject> 
 									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
@@ -151,7 +151,7 @@ preview*:12000
 
 						<sect2 id="content-archive-file-header">
 							<title>BasKet content archive header</title>
-							<para>Just like for the previe image file, the content archive is preceded by a string specifying its size. That string directly follows the file stream of the preview image.</para>
+							<para>Just like for the preview image file, the content archive is preceded by a string specifying its size. That string directly follows the file stream of the archive.</para>
 							<para>That string must be <code>archive*:&lt;size&gt;</code> followed by a line feed symbol, in ISO-8869-1 encoding. The parameter <code>&lt;size&gt;</code> is a unsigned long integer in string format.</para>
 							<para>An example:</para>
 							<programlisting>
@@ -163,7 +163,7 @@ archive*:1245000
 
 						<sect2 id="content-archive-file">
 							<title>BasKet content archive</title>
-							<para> The content archive contains the BasKet file tree compressed in to a gzipped tar archive (.tar.gz). Its size is size is specified by the content header.</para>
+							<para> The content archive contains the BasKet file tree compressed in to a gzipped tar archive (.tar.gz). Its size is specified by the content header.</para>
 						</sect2>
 
 						<sect2 id="basket-archive-file-content-example">
