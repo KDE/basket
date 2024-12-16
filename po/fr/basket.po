@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:40+0000\n"
+"POT-Creation-Date: 2024-12-16 00:48+0000\n"
 "PO-Revision-Date: 2024-05-07 07:43+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -156,7 +156,7 @@ msgstr ""
 "Ce fichier a été créé avec une version plus récente de BasKet Note Pads. Il "
 "pourrait ne pas être totalement pris en charge."
 
-#: src/aboutdata.cpp:13
+#: src/aboutdata.cpp:17
 #, kde-format
 msgid ""
 "<p><b>Taking care of your ideas.</b></p><p>A note-taking application that "
@@ -168,74 +168,74 @@ msgstr ""
 "retrouver rapidement plus tard. Organiser vos notes n'a jamais été aussi "
 "facile.</p>"
 
-#: src/aboutdata.cpp:25
+#: src/aboutdata.cpp:21
 #, kde-format
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
 msgstr ""
 "Copyright © 2003–2007, Sébastien Laoût, Copyright © 2013–2019, Gleb Baryshev"
 
-#: src/aboutdata.cpp:33
+#: src/aboutdata.cpp:28
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/aboutdata.cpp:33 src/aboutdata.cpp:34
+#: src/aboutdata.cpp:28 src/aboutdata.cpp:29
 #, kde-format
 msgid "Co-Maintainer"
 msgstr "Mainteneur associé"
 
-#: src/aboutdata.cpp:34
+#: src/aboutdata.cpp:29
 #, kde-format
 msgid "Niccolò Venerandi"
 msgstr "Niccolò Venerandi"
 
-#: src/aboutdata.cpp:35
+#: src/aboutdata.cpp:30
 #, kde-format
 msgid "OmegaPhil"
 msgstr "OmegaPhil"
 
-#: src/aboutdata.cpp:35
+#: src/aboutdata.cpp:30
 #, kde-format
 msgid "Paste as plaintext option"
 msgstr "Coller avec l'option « Texte brut »"
 
-#: src/aboutdata.cpp:36
+#: src/aboutdata.cpp:31
 #, kde-format
 msgid "Kelvie Wong"
 msgstr "Kelvie Wong"
 
-#: src/aboutdata.cpp:36
+#: src/aboutdata.cpp:31
 #, kde-format
 msgid "Ex-Maintainer"
 msgstr "Ancien mainteneur"
 
-#: src/aboutdata.cpp:37
+#: src/aboutdata.cpp:32
 #, kde-format
 msgid "Sébastien Laoût"
 msgstr "Sébastien Laoût"
 
-#: src/aboutdata.cpp:37
+#: src/aboutdata.cpp:32
 #, kde-format
 msgid "Original Author"
 msgstr "Auteur originel"
 
-#: src/aboutdata.cpp:38
+#: src/aboutdata.cpp:33
 #, kde-format
 msgid "Petri Damstén"
 msgstr "Petri Damstén"
 
-#: src/aboutdata.cpp:38
+#: src/aboutdata.cpp:33
 #, kde-format
 msgid "Basket encryption, Kontact integration, KnowIt importer"
 msgstr "Chiffrement des paniers, intégration dans Kontact, importateur KnowIt"
 
-#: src/aboutdata.cpp:39
+#: src/aboutdata.cpp:34
 #, kde-format
 msgid "Alex Gontmakher"
 msgstr "Alex Gontmakher"
 
-#: src/aboutdata.cpp:39
+#: src/aboutdata.cpp:34
 #, kde-format
 msgid ""
 "Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, "
@@ -245,22 +245,22 @@ msgstr ""
 "copier / coller HTML, info-bulle sur le nom des paniers, déposer sur le nom "
 "des paniers"
 
-#: src/aboutdata.cpp:40
+#: src/aboutdata.cpp:35
 #, kde-format
 msgid "Marco Martin"
 msgstr "Marco Martin"
 
-#: src/aboutdata.cpp:40
+#: src/aboutdata.cpp:35
 #, kde-format
 msgid "Original icon"
 msgstr "Icône originelle"
 
-#: src/aboutdata.cpp:50
+#: src/aboutdata.cpp:45
 #, kde-format
 msgid "BasKet Note Pads"
 msgstr "Blocs notes BasKet"
 
-#: src/archive.cpp:51 src/bnpview.cpp:2025
+#: src/archive.cpp:51 src/bnpview.cpp:2021
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Enregistrer en tant qu'archive de paniers"
@@ -393,7 +393,7 @@ msgstr "Dernière sauvegarde : %1"
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Choisir un dossier où déplacer les paniers"
 
-#: src/backup.cpp:161 src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/backup.cpp:161 src/bnpview.cpp:2026 src/htmlexporter.cpp:64
 #, kde-format
 msgid "&Overwrite"
 msgstr "Écras&er"
@@ -432,38 +432,38 @@ msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Paniers_%1"
 
-#: src/backup.cpp:197 src/backup.cpp:242 src/bnpview.cpp:2022
-#: src/bnpview.cpp:2063 src/htmlexporter.cpp:51
-#, kde-format
-msgid "All Files"
-msgstr "Tous les fichiers"
-
-#: src/backup.cpp:197 src/backup.cpp:242
+#: src/backup.cpp:198 src/backup.cpp:247
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archive « tar » compressée par Gzip"
 
-#: src/backup.cpp:198 src/backup.cpp:206
+#: src/backup.cpp:200 src/backup.cpp:249 src/bnpview.cpp:2018
+#: src/bnpview.cpp:2059 src/htmlexporter.cpp:53
+#, kde-format
+msgid "All Files"
+msgstr "Tous les fichiers"
+
+#: src/backup.cpp:202 src/backup.cpp:210
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Enregistrer les paniers"
 
-#: src/backup.cpp:207
+#: src/backup.cpp:211
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Enregistrement des paniers en cours. Veuillez patienter..."
 
-#: src/backup.cpp:243 src/bnpview.cpp:2064
+#: src/backup.cpp:252 src/bnpview.cpp:2060
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Ouvrir une archive de paniers"
 
-#: src/backup.cpp:254
+#: src/backup.cpp:263
 #, kde-format
 msgid "README.txt"
 msgstr "LISEZMOI.txt"
 
-#: src/backup.cpp:258
+#: src/backup.cpp:267
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -472,7 +472,7 @@ msgstr ""
 "Ceci est une copie de sécurité de vos paniers comme ils étaient avant le "
 "démarrage de la restauration de la sauvegarde %1."
 
-#: src/backup.cpp:259
+#: src/backup.cpp:268
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -481,7 +481,7 @@ msgstr ""
 "Si la restauration a été un succès et que vous avez restauré ce que vous "
 "vouliez restaurer, vous pouvez supprimer ce dossier."
 
-#: src/backup.cpp:260
+#: src/backup.cpp:269
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -491,7 +491,7 @@ msgstr ""
 "pouvez réutiliser ce dossier pour enregistrer vos paniers et rien ne sera "
 "perdu."
 
-#: src/backup.cpp:261
+#: src/backup.cpp:270
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -500,12 +500,12 @@ msgstr ""
 "Choisissez « Panier » / « Sauvegarder et restaurer... » / « Utiliser un "
 "autre dossier existant... » et sélectionnez ce dossier."
 
-#: src/backup.cpp:265
+#: src/backup.cpp:274
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Restauration de <b>%1</b>. Veuillez patienter..."
 
-#: src/backup.cpp:265
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -514,12 +514,12 @@ msgstr ""
 "Si quelque chose se passe mal durant la restauration, lisez le fichier <b>"
 "%1</b>."
 
-#: src/backup.cpp:268
+#: src/backup.cpp:277
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Restaurer les paniers"
 
-#: src/backup.cpp:299
+#: src/backup.cpp:308
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -529,12 +529,12 @@ msgstr ""
 "corrompue. Il est impossible de l'importer. Vos anciens paniers ont été "
 "préservés à la place."
 
-#: src/backup.cpp:299
+#: src/backup.cpp:308
 #, kde-format
 msgid "Restore Error"
 msgstr "Erreur de restauration"
 
-#: src/backup.cpp:307
+#: src/backup.cpp:316
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -543,18 +543,18 @@ msgstr ""
 "Votre sauvegarde a été restaurée avec succès dans <b>%1</b>. %2 va être "
 "redémarré pour prendre en compte ces changements."
 
-#: src/backup.cpp:341
+#: src/backup.cpp:350
 #, kde-format
 msgid "Restart"
 msgstr "Redémarrage"
 
-#: src/backup.cpp:357
+#: src/backup.cpp:367
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Panier avant restauration"
 
-#: src/backup.cpp:362
+#: src/backup.cpp:372
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -602,33 +602,33 @@ msgstr "Ouvrir une archive de paniers ou un modèle."
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr "Désolé, mais la création d'un dossier pour ce nouveau panier a échoué."
 
-#: src/basketfactory.cpp:54 src/basketfactory.cpp:84 src/basketfactory.cpp:105
+#: src/basketfactory.cpp:54 src/basketfactory.cpp:83 src/basketfactory.cpp:104
 #, kde-format
 msgid "Basket Creation Failed"
 msgstr "Échec de la création de panier"
 
-#: src/basketfactory.cpp:84
+#: src/basketfactory.cpp:83
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
 msgstr "Désolé, mais la copie du modèle pour ce nouveau panier a échoué."
 
-#: src/basketfactory.cpp:105
+#: src/basketfactory.cpp:104
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr ""
 "Désolé, mais la personnalisation du modèle pour ce nouveau panier a échoué."
 
-#: src/basketlistview.cpp:624
+#: src/basketlistview.cpp:625
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:626
+#: src/basketlistview.cpp:627
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:629
+#: src/basketlistview.cpp:630
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -690,109 +690,109 @@ msgstr ""
 "sélection dans le panier courant depuis n'importe où.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:440 src/tagsedit.cpp:1096
+#: src/basketproperties.ui:27 src/settings.cpp:484 src/tagsedit.cpp:1096
 #, kde-format
 msgid "Appearance"
 msgstr "Apparence"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: src/basketproperties.ui:39
+#: src/basketproperties.ui:48
 #, kde-format
 msgid "Background &image:"
 msgstr "&Image d'arrière-plan :"
 
 #. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
-#: src/basketproperties.ui:49
+#: src/basketproperties.ui:58
 #, kde-format
 msgid "&Background color:"
 msgstr "&Couleur d'arrière-plan :"
 
 #. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: src/basketproperties.ui:56
+#: src/basketproperties.ui:65
 #, kde-format
 msgid "&Text color:"
 msgstr "Couleur du &texte :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
-#: src/basketproperties.ui:66
+#: src/basketproperties.ui:75
 #, kde-format
 msgid "Disposition"
 msgstr "Disposition"
 
 #. i18n: ectx: property (text), widget (QRadioButton, columnForm)
-#: src/basketproperties.ui:72
+#: src/basketproperties.ui:81
 #, kde-format
 msgid "Col&umns:"
 msgstr "Colo&nnes :"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
-#: src/basketproperties.ui:79
+#: src/basketproperties.ui:88
 #, kde-format
 msgid "&Free-form"
 msgstr "Lib&re"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mindMap)
-#: src/basketproperties.ui:105
+#: src/basketproperties.ui:114
 #, kde-format
 msgid "&Mind map"
 msgstr "Carte &mentale"
 
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: src/basketproperties.ui:115
+#: src/basketproperties.ui:124
 #, kde-format
 msgid "Keyboard Shortcut"
 msgstr "Raccourci clavier"
 
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: src/basketproperties.ui:133
+#: src/basketproperties.ui:151
 #, kde-format
 msgid "S&how this basket"
 msgstr "Affic&her ce panier"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: src/basketproperties.ui:140
+#: src/basketproperties.ui:158
 #, kde-format
 msgid "Show this basket (&global shortcut)"
 msgstr "Afficher ce panier (raccourci &global)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: src/basketproperties.ui:147
+#: src/basketproperties.ui:165
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
 msgstr "&Basculer vers ce panier (raccourci global)"
 
-#: src/basketscene.cpp:297
+#: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "La nouvelle note ne correspond pas au filtre et est cachée."
 
-#: src/basketscene.cpp:299
+#: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "Une nouvelle note ne correspond pas au filtre et est cachée."
 
-#: src/basketscene.cpp:301
+#: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr ""
 "Certaines nouvelles notes ne correspondent pas au filtre et sont cachées."
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Les nouvelles notes ne correspondent pas au filtre et sont cachées."
 
-#: src/basketscene.cpp:1437 src/notecontent.cpp:82
+#: src/basketscene.cpp:1448 src/notecontent.cpp:82
 #, kde-format
 msgid "Group"
 msgstr "Grouper"
 
-#: src/basketscene.cpp:1439
+#: src/basketscene.cpp:1450
 #, kde-format
 msgid "Insert"
 msgstr "Insérer"
 
-#: src/basketscene.cpp:2282
+#: src/basketscene.cpp:2296
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -801,7 +801,7 @@ msgstr ""
 "Ce message ne devrait jamais apparaître. Si c'est le cas, cette application "
 "est boguée ! Merci de rapporter ce bogue au développeur."
 
-#: src/basketscene.cpp:2719 src/basketscene.cpp:2772 src/basketscene.cpp:2781
+#: src/basketscene.cpp:2733 src/basketscene.cpp:2786 src/basketscene.cpp:2795
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -810,57 +810,57 @@ msgstr ""
 "Insérer une note ici\n"
 "Clic droit pour plus d'options"
 
-#: src/basketscene.cpp:2738
+#: src/basketscene.cpp:2752
 #, kde-format
 msgid "Resize those columns"
 msgstr "Redimensionner ces colonnes"
 
-#: src/basketscene.cpp:2738
+#: src/basketscene.cpp:2752
 #, kde-format
 msgid "Resize this group"
 msgstr "Redimensionner ce groupe"
 
-#: src/basketscene.cpp:2738
+#: src/basketscene.cpp:2752
 #, kde-format
 msgid "Resize this note"
 msgstr "Redimensionner cette note"
 
-#: src/basketscene.cpp:2741
+#: src/basketscene.cpp:2755
 #, kde-format
 msgid "Select or move this note"
 msgstr "Sélectionner ou déplacer cette note"
 
-#: src/basketscene.cpp:2744
+#: src/basketscene.cpp:2758
 #, kde-format
 msgid "Select or move this group"
 msgstr "Sélectionner ou déplacer ce groupe"
 
-#: src/basketscene.cpp:2747
+#: src/basketscene.cpp:2761
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Attribuer ou retirer des marques de cette note"
 
-#: src/basketscene.cpp:2755
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2757
+#: src/basketscene.cpp:2771
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Marques attribuées</b> : %1"
 
-#: src/basketscene.cpp:2764
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Expand this group"
 msgstr "Développer ce groupe"
 
-#: src/basketscene.cpp:2764
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Collapse this group"
 msgstr "Replier ce groupe"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2789
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -869,7 +869,7 @@ msgstr ""
 "Regrouper une note avec celle en dessous\n"
 "Clic droit pour plus d'options"
 
-#: src/basketscene.cpp:2778
+#: src/basketscene.cpp:2792
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -878,54 +878,54 @@ msgstr ""
 "Regrouper une note avec celle au-dessus\n"
 "Clic droit pour plus d'options"
 
-#: src/basketscene.cpp:2796
+#: src/basketscene.cpp:2810
 #, kde-format
 msgid "Added"
 msgstr "Ajouté"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2811
 #, kde-format
 msgid "Last Modification"
 msgstr "Dernière modification"
 
-#: src/basketscene.cpp:2802
+#: src/basketscene.cpp:2816
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b> : %2"
 
-#: src/basketscene.cpp:2806
+#: src/basketscene.cpp:2820
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Cliquez sur la droite pour grouper au lieu d'insérer"
 
-#: src/basketscene.cpp:2808
+#: src/basketscene.cpp:2822
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Cliquez sur la gauche pour insérer au lieu de grouper"
 
-#: src/basketscene.cpp:2984
+#: src/basketscene.cpp:2998
 #, kde-format
 msgid "&Unlock"
 msgstr "&Déverrouiller"
 
-#: src/basketscene.cpp:2989
+#: src/basketscene.cpp:3003
 #, kde-format
 msgid "Password protected basket."
 msgstr "Panier protégé par mot de passe."
 
-#: src/basketscene.cpp:2991
+#: src/basketscene.cpp:3005
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Cliquez Déverrouiller pour le consulter."
 
-#: src/basketscene.cpp:2993
+#: src/basketscene.cpp:3007
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr ""
 "La cryptographie n'est pas prise en charge par<br/>cette version de %1."
 
-#: src/basketscene.cpp:3005
+#: src/basketscene.cpp:3019
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -934,37 +934,37 @@ msgstr ""
 "<small>Pour que les paniers restent déverrouillés, changez le temps<br>de "
 "verrouillage automatique dans les options de l'application.</small>"
 
-#: src/basketscene.cpp:3032 src/basketstatusbar.cpp:89 src/bnpview.cpp:1586
+#: src/basketscene.cpp:3046 src/basketstatusbar.cpp:89 src/bnpview.cpp:1582
 #, kde-format
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: src/basketscene.cpp:3172 src/basketscene.cpp:3214
+#: src/basketscene.cpp:3207 src/basketscene.cpp:3249
 #, kde-format
 msgid "&Remove"
 msgstr "Supp&rimer"
 
-#: src/basketscene.cpp:3175 src/basketscene.cpp:3218 src/bnpview.cpp:2459
+#: src/basketscene.cpp:3210 src/basketscene.cpp:3253 src/bnpview.cpp:2456
 #, kde-format
 msgid "&Customize..."
 msgstr "&Personnaliser..."
 
-#: src/basketscene.cpp:3181 src/basketscene.cpp:3224
+#: src/basketscene.cpp:3216 src/basketscene.cpp:3259
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Filtrer cette marque"
 
-#: src/basketscene.cpp:3227
+#: src/basketscene.cpp:3262
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Filtrer cet &état"
 
-#: src/basketscene.cpp:3308
+#: src/basketscene.cpp:3343
 #, kde-format
 msgid "Tags"
 msgstr "Marques"
 
-#: src/basketscene.cpp:3880
+#: src/basketscene.cpp:3917
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
@@ -973,51 +973,51 @@ msgstr[1] ""
 "<qt>Voulez-vous réellement supprimer le panier <b>%1</b> et son contenu ?</"
 "qt>"
 
-#: src/basketscene.cpp:3881
+#: src/basketscene.cpp:3918
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Supprimer la note"
 msgstr[1] "Supprimer l'état"
 
-#: src/basketscene.cpp:3980
+#: src/basketscene.cpp:4017
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Note copiée dans le presse-papier."
 msgstr[1] "Notes copiées dans le presse-papiers."
 
-#: src/basketscene.cpp:3983
+#: src/basketscene.cpp:4020
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Déplacer la note dans le presse-papiers"
 msgstr[1] "Déplacer les notes dans le presse-papiers"
 
-#: src/basketscene.cpp:3986
+#: src/basketscene.cpp:4023
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Note copiée dans la sélection."
 msgstr[1] "Notes copiées dans la sélection."
 
-#: src/basketscene.cpp:4050 src/basketscene.cpp:4122
+#: src/basketscene.cpp:4087 src/basketscene.cpp:4163
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Impossible d'ouvrir cette note."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4052 src/basketui.rc:40
+#: src/basketscene.cpp:4089 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&Éditer"
 
-#: src/basketscene.cpp:4084
+#: src/basketscene.cpp:4125
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Vous n'êtes pas autorisé à ouvrir ce fichier."
 
-#: src/basketscene.cpp:4143
+#: src/basketscene.cpp:4184
 #, kde-format
 msgid "Save to File"
 msgstr "Enregistrer dans un fichier"
@@ -1119,17 +1119,17 @@ msgstr "Barre principale"
 msgid "Text Formatting Toolbar"
 msgstr "Barre de mise en forme de texte"
 
-#: src/bnpview.cpp:168 src/bnpview.cpp:1226
+#: src/bnpview.cpp:164 src/bnpview.cpp:1222
 #, kde-format
 msgid "General"
 msgstr "Général"
 
-#: src/bnpview.cpp:233
+#: src/bnpview.cpp:229
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Coller le contenu du presse-papiers dans le panier courant"
 
-#: src/bnpview.cpp:235
+#: src/bnpview.cpp:231
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1138,12 +1138,12 @@ msgstr ""
 "Vous permet de coller le contenu du presse-papiers dans le panier courant "
 "sans avoir à ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:240
+#: src/bnpview.cpp:236
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "Coller la sélection dans le panier courant"
 
-#: src/bnpview.cpp:242
+#: src/bnpview.cpp:238
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1152,12 +1152,12 @@ msgstr ""
 "Vous permet de coller la sélection dans le panier courant sans avoir à "
 "ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:247
+#: src/bnpview.cpp:243
 #, kde-format
 msgid "Create a new basket"
 msgstr "Crée un nouveau panier"
 
-#: src/bnpview.cpp:249
+#: src/bnpview.cpp:245
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1169,12 +1169,12 @@ msgstr ""
 "pour ajouter un objet, coller le contenu du presse-papiers ou coller la "
 "sélection dans le panier courant)."
 
-#: src/bnpview.cpp:254
+#: src/bnpview.cpp:250
 #, kde-format
 msgid "Go to previous basket"
 msgstr "Aller au panier précédent"
 
-#: src/bnpview.cpp:256
+#: src/bnpview.cpp:252
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1183,12 +1183,12 @@ msgstr ""
 "Vous permet de changer le panier courant pour le précédent sans avoir à "
 "ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:260
+#: src/bnpview.cpp:256
 #, kde-format
 msgid "Go to next basket"
 msgstr "Aller au panier suivant"
 
-#: src/bnpview.cpp:262
+#: src/bnpview.cpp:258
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1197,24 +1197,24 @@ msgstr ""
 "Vous permet de changer le panier courant pour le suivant sans avoir à ouvrir "
 "la fenêtre principale."
 
-#: src/bnpview.cpp:266
+#: src/bnpview.cpp:262
 #, kde-format
 msgid "Insert text note"
 msgstr "Insérer une note texte"
 
-#: src/bnpview.cpp:268
+#: src/bnpview.cpp:264
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr ""
 "Ajouter un texte au panier courant sans avoir à ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:273 src/settings.cpp:518
+#: src/bnpview.cpp:269 src/settings.cpp:562
 #, kde-format
 msgid "Insert image note"
 msgstr "Insérer une note image"
 
-#: src/bnpview.cpp:275
+#: src/bnpview.cpp:271
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1223,24 +1223,24 @@ msgstr ""
 "Ajouter une image au panier courant sans avoir à ouvrir la fenêtre "
 "principale."
 
-#: src/bnpview.cpp:279 src/settings.cpp:519
+#: src/bnpview.cpp:275 src/settings.cpp:563
 #, kde-format
 msgid "Insert link note"
 msgstr "Insérer une note lien"
 
-#: src/bnpview.cpp:281
+#: src/bnpview.cpp:277
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr ""
 "Ajouter un lien au panier courant sans avoir à ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:285 src/settings.cpp:522
+#: src/bnpview.cpp:281 src/settings.cpp:566
 #, kde-format
 msgid "Insert color note"
 msgstr "Insérer une note couleur"
 
-#: src/bnpview.cpp:287
+#: src/bnpview.cpp:283
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
@@ -1249,12 +1249,12 @@ msgstr ""
 "Ajouter une couleur au panier courant sans avoir à ouvrir la fenêtre "
 "principale."
 
-#: src/bnpview.cpp:291
+#: src/bnpview.cpp:287
 #, kde-format
 msgid "Pick color from screen"
 msgstr "Puiser une couleur sur l'écran"
 
-#: src/bnpview.cpp:293
+#: src/bnpview.cpp:289
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1263,12 +1263,12 @@ msgstr ""
 "Ajouter une couleur puisée sur un pixel à l'écran dans le panier courant "
 "sans avoir à ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:298 src/settings.cpp:523
+#: src/bnpview.cpp:294 src/settings.cpp:567
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Capturer une zone de l'écran"
 
-#: src/bnpview.cpp:300
+#: src/bnpview.cpp:296
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1277,12 +1277,12 @@ msgstr ""
 "Capturer une zone de l'écran en tant qu'image dans le panier courant sans "
 "avoir à ouvrir la fenêtre principale."
 
-#: src/bnpview.cpp:306
+#: src/bnpview.cpp:302
 #, kde-format
 msgid "Insert plain text note"
 msgstr "Insérer une note texte"
 
-#: src/bnpview.cpp:308
+#: src/bnpview.cpp:304
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1291,12 +1291,12 @@ msgstr ""
 "Ajouter une note texte au panier courant sans avoir à ouvrir la fenêtre "
 "principale."
 
-#: src/bnpview.cpp:317
+#: src/bnpview.cpp:313
 #, kde-format
 msgid "Baskets"
 msgstr "Paniers"
 
-#: src/bnpview.cpp:362
+#: src/bnpview.cpp:358
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1310,362 +1310,362 @@ msgstr ""
 "d'autres. Vous pouvez naviguer entre eux en cliquant sur un panier pour "
 "l'ouvrir, ou les réorganiser en utilisant le glisser / déposer."
 
-#: src/bnpview.cpp:377 src/bnpview.cpp:383
+#: src/bnpview.cpp:373 src/bnpview.cpp:379
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "&Archive de paniers..."
 
-#: src/bnpview.cpp:389
+#: src/bnpview.cpp:385
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "&Page Internet au format « HTML »..."
 
-#: src/bnpview.cpp:395
+#: src/bnpview.cpp:391
 #, kde-format
 msgid "Text &File..."
 msgstr "&Fichier texte..."
 
-#: src/bnpview.cpp:400
+#: src/bnpview.cpp:396
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&Sauvegarder et restaurer..."
 
-#: src/bnpview.cpp:404
+#: src/bnpview.cpp:400
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&Vérifier && nettoyer..."
 
-#: src/bnpview.cpp:415
+#: src/bnpview.cpp:411
 #, kde-format
 msgid "D&elete"
 msgstr "Suppri&mer"
 
-#: src/bnpview.cpp:424
+#: src/bnpview.cpp:420
 #, kde-format
 msgid "Selects all notes"
 msgstr "Sélectionner toutes les notes"
 
-#: src/bnpview.cpp:427
+#: src/bnpview.cpp:423
 #, kde-format
 msgid "U&nselect All"
 msgstr "Tout &désélectionner"
 
-#: src/bnpview.cpp:429
+#: src/bnpview.cpp:425
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "Désélectionne toutes les notes sélectionnées"
 
-#: src/bnpview.cpp:432
+#: src/bnpview.cpp:428
 #, kde-format
 msgid "&Invert Selection"
 msgstr "In&verser la sélection"
 
-#: src/bnpview.cpp:436
+#: src/bnpview.cpp:432
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Inverse la sélection des notes"
 
-#: src/bnpview.cpp:439
+#: src/bnpview.cpp:435
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "Effa&cer la mise en forme"
 
-#: src/bnpview.cpp:443
+#: src/bnpview.cpp:439
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "Modifi&er..."
 
-#: src/bnpview.cpp:450
+#: src/bnpview.cpp:446
 #, kde-format
 msgid "&Open"
 msgstr "&Ouvrir"
 
-#: src/bnpview.cpp:454
+#: src/bnpview.cpp:450
 #, kde-format
 msgid "Open &With..."
 msgstr "Ouvrir &avec..."
 
-#: src/bnpview.cpp:459
+#: src/bnpview.cpp:455
 #, kde-format
 msgid "&Save to File..."
 msgstr "&Enregistrer dans un fichier..."
 
-#: src/bnpview.cpp:463
+#: src/bnpview.cpp:459
 #, kde-format
 msgid "&Group"
 msgstr "&Grouper"
 
-#: src/bnpview.cpp:469
+#: src/bnpview.cpp:465
 #, kde-format
 msgid "U&ngroup"
 msgstr "Dég&rouper"
 
-#: src/bnpview.cpp:474
+#: src/bnpview.cpp:470
 #, kde-format
 msgid "Move on &Top"
 msgstr "Déplacer en &haut"
 
-#: src/bnpview.cpp:480
+#: src/bnpview.cpp:476
 #, kde-format
 msgid "Move &Up"
 msgstr "Déplacer au-&dessus"
 
-#: src/bnpview.cpp:486
+#: src/bnpview.cpp:482
 #, kde-format
 msgid "Move &Down"
 msgstr "Déplacer en desso&us"
 
-#: src/bnpview.cpp:492
+#: src/bnpview.cpp:488
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "Déplacer en &bas"
 
-#: src/bnpview.cpp:503
+#: src/bnpview.cpp:499
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Texte simple"
 
-#: src/bnpview.cpp:510
+#: src/bnpview.cpp:506
 #, kde-format
 msgid "&Text"
 msgstr "&Texte"
 
-#: src/bnpview.cpp:516
+#: src/bnpview.cpp:512
 #, kde-format
 msgid "&Link"
 msgstr "&Lien"
 
-#: src/bnpview.cpp:522
+#: src/bnpview.cpp:518
 #, kde-format
 msgid "Cross &Reference"
 msgstr "&Référence croisée"
 
-#: src/bnpview.cpp:527
+#: src/bnpview.cpp:523
 #, kde-format
 msgid "&Image"
 msgstr "&Image"
 
-#: src/bnpview.cpp:532
+#: src/bnpview.cpp:528
 #, kde-format
 msgid "&Color"
 msgstr "&Couleur"
 
-#: src/bnpview.cpp:537
+#: src/bnpview.cpp:533
 #, kde-format
 msgid "L&auncher"
 msgstr "L&anceur"
 
-#: src/bnpview.cpp:542
+#: src/bnpview.cpp:538
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Importer un lanceur &depuis l'application de bureau..."
 
-#: src/bnpview.cpp:547
+#: src/bnpview.cpp:543
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Im&porter une icône..."
 
-#: src/bnpview.cpp:552 src/noteedit.cpp:534
+#: src/bnpview.cpp:548 src/noteedit.cpp:535
 #, kde-format
 msgid "Load From &File..."
 msgstr "Charger depuis un &fichier..."
 
-#: src/bnpview.cpp:570
+#: src/bnpview.cpp:566
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "C&ouleur sur l'écran"
 
-#: src/bnpview.cpp:578
+#: src/bnpview.cpp:574
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Capturer une &zone de l'écran"
 
-#: src/bnpview.cpp:613
+#: src/bnpview.cpp:609
 #, kde-format
 msgid "&New Basket..."
 msgstr "&Nouveau panier..."
 
-#: src/bnpview.cpp:619
+#: src/bnpview.cpp:615
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "Nouveau &sous-panier..."
 
-#: src/bnpview.cpp:624
+#: src/bnpview.cpp:620
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Nouveau panier &voisin..."
 
-#: src/bnpview.cpp:627
+#: src/bnpview.cpp:623
 #, kde-format
 msgid "&New"
 msgstr "&Nouveau"
 
-#: src/bnpview.cpp:637
+#: src/bnpview.cpp:633
 #, kde-format
 msgid "&Properties..."
 msgstr "&Propriétés..."
 
-#: src/bnpview.cpp:643
+#: src/bnpview.cpp:639
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Trier les enfants de façon ascendante"
 
-#: src/bnpview.cpp:648
+#: src/bnpview.cpp:644
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Trier les enfants de façon descendante"
 
-#: src/bnpview.cpp:653
+#: src/bnpview.cpp:649
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Trier les fratries de façon ascendante"
 
-#: src/bnpview.cpp:658
+#: src/bnpview.cpp:654
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Trier les fratries de façon descendante"
 
-#: src/bnpview.cpp:663
+#: src/bnpview.cpp:659
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "Supp&rimer"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:665
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Mot de pa&sse..."
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:670
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&Verrouillé"
 
-#: src/bnpview.cpp:687
+#: src/bnpview.cpp:683
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtrer"
 
-#: src/bnpview.cpp:697
+#: src/bnpview.cpp:693
 #, kde-format
 msgid "&Search All"
 msgstr "Tout &rechercher"
 
-#: src/bnpview.cpp:705
+#: src/bnpview.cpp:701
 #, kde-format
 msgid "&Reset Filter"
 msgstr "Vider le filt&re"
 
-#: src/bnpview.cpp:713
+#: src/bnpview.cpp:709
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&Panier précédent"
 
-#: src/bnpview.cpp:719
+#: src/bnpview.cpp:715
 #, kde-format
 msgid "&Next Basket"
 msgstr "Panier &suivant"
 
-#: src/bnpview.cpp:725
+#: src/bnpview.cpp:721
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&Replier ce panier"
 
-#: src/bnpview.cpp:731
+#: src/bnpview.cpp:727
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Développer ce panier"
 
-#: src/bnpview.cpp:739
+#: src/bnpview.cpp:735
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr ""
 "Conversion de notes au format texte simple en notes au format texte enrichi"
 
-#: src/bnpview.cpp:748
+#: src/bnpview.cpp:744
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "Paniers de &bienvenue"
 
-#: src/bnpview.cpp:1011
+#: src/bnpview.cpp:1007
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Conversion des notes au format texte brut"
 
-#: src/bnpview.cpp:1012
+#: src/bnpview.cpp:1008
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr ""
 "Conversion des notes au format texte brut en notes au format texte enrichi..."
 
-#: src/bnpview.cpp:1584
+#: src/bnpview.cpp:1580
 #, kde-format
 msgid "Locked"
 msgstr "Verrouillé"
 
-#: src/bnpview.cpp:1588
+#: src/bnpview.cpp:1584
 #, kde-format
 msgid "No notes"
 msgstr "Pas de note"
 
-#: src/bnpview.cpp:1590
+#: src/bnpview.cpp:1586
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 note"
 msgstr[1] "%1 notes"
 
-#: src/bnpview.cpp:1591
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 sélectionné"
 msgstr[1] "%1 sélectionnés"
 
-#: src/bnpview.cpp:1592
+#: src/bnpview.cpp:1588
 #, kde-format
 msgid "all matches"
 msgstr "toutes correspondent"
 
-#: src/bnpview.cpp:1592
+#: src/bnpview.cpp:1588
 #, kde-format
 msgid "no filter"
 msgstr "pas de filtre"
 
-#: src/bnpview.cpp:1594
+#: src/bnpview.cpp:1590
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 correspondance"
 msgstr[1] "%1 correspondances"
 
-#: src/bnpview.cpp:1595
+#: src/bnpview.cpp:1591
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1730
+#: src/bnpview.cpp:1726
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr ""
 "Les notes au format texte brut ont été converties en notes au format texte "
 "enrichi."
 
-#: src/bnpview.cpp:1730 src/bnpview.cpp:1732
+#: src/bnpview.cpp:1726 src/bnpview.cpp:1728
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Conversion terminée"
 
-#: src/bnpview.cpp:1732
+#: src/bnpview.cpp:1728
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Il n'y a pas de notes au format texte brut à convertir."
 
-#: src/bnpview.cpp:1749
+#: src/bnpview.cpp:1745
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1685,17 +1685,17 @@ msgstr ""
 "vous êtes sûr que l'application est correctement installée mais avec une "
 "version précédente, essayez de supprimer le fichier %5basketui.rc</p>"
 
-#: src/bnpview.cpp:1763
+#: src/bnpview.cpp:1759
 #, kde-format
 msgid "Resource not Found"
 msgstr "Impossible de trouver la ressource"
 
-#: src/bnpview.cpp:1792
+#: src/bnpview.cpp:1788
 #, kde-format
 msgid "Cannot add note."
 msgstr "Impossible d'ajouter une note."
 
-#: src/bnpview.cpp:1939
+#: src/bnpview.cpp:1935
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
@@ -1703,17 +1703,17 @@ msgstr ""
 "<qt>Voulez-vous réellement supprimer le panier <b>%1</b> et son contenu ?</"
 "qt>"
 
-#: src/bnpview.cpp:1940
+#: src/bnpview.cpp:1936
 #, kde-format
 msgid "Remove Basket"
 msgstr "Supprimer le panier"
 
-#: src/bnpview.cpp:1941
+#: src/bnpview.cpp:1937
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Supprimer le panier"
 
-#: src/bnpview.cpp:1950
+#: src/bnpview.cpp:1946
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1722,37 +1722,37 @@ msgstr ""
 "<qt><b>%1</b> possède les paniers fils suivants.<br>Voulez-vous les "
 "supprimer aussi ?</qt>"
 
-#: src/bnpview.cpp:1952
+#: src/bnpview.cpp:1948
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Supprimer les paniers fils"
 
-#: src/bnpview.cpp:1953
+#: src/bnpview.cpp:1949
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&Supprimer les paniers fils"
 
-#: src/bnpview.cpp:2022 src/bnpview.cpp:2063
+#: src/bnpview.cpp:2018 src/bnpview.cpp:2059
 #, kde-format
 msgid "Basket Archives"
 msgstr "Archives de paniers"
 
-#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/bnpview.cpp:2026 src/htmlexporter.cpp:64
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "Un fichier <b>%1</b> existe déjà. Voulez-vous vraiment l'écraser ?"
 
-#: src/bnpview.cpp:2030 src/htmlexporter.cpp:62
+#: src/bnpview.cpp:2026 src/htmlexporter.cpp:64
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Écraser le fichier ?"
 
-#: src/bnpview.cpp:2448
+#: src/bnpview.cpp:2445
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Attribuer une nouvelle marque..."
 
-#: src/bnpview.cpp:2453
+#: src/bnpview.cpp:2450
 #, kde-format
 msgid "&Remove All"
 msgstr "&Tout supprimer"
@@ -1767,12 +1767,12 @@ msgstr "Veuillez saisir le mot de passe pour la clé privée suivante :"
 msgid "Please enter the password for the basket <b>%1</b>:"
 msgstr "Veuillez saisir le mot de passe pour le panier <i>%1</i> :"
 
-#: src/common.cpp:98
+#: src/common.cpp:96
 #, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
 msgstr "Veuillez assigner un mot de passe au panier <i>%1</i> :"
 
-#: src/common.cpp:148
+#: src/common.cpp:146
 #, kde-format
 msgid "Error while saving: "
 msgstr "Erreur lors de l'enregistrement :"
@@ -1812,7 +1812,7 @@ msgstr "Taux d'échantillonnage"
 msgid "Track number"
 msgstr "Numéro de piste"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2119
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2133
 #, kde-format
 msgid "Comment"
 msgstr "Commentaire"
@@ -1915,52 +1915,52 @@ msgstr "Importation d'un dossier reflété"
 msgid "Set current basket to %1"
 msgstr "Définit le panier courant comme %1"
 
-#: src/htmlexporter.cpp:51
+#: src/htmlexporter.cpp:53
 #, kde-format
 msgid "HTML Documents"
 msgstr "Documents HTML"
 
-#: src/htmlexporter.cpp:55 src/htmlexporter.cpp:72
+#: src/htmlexporter.cpp:57 src/htmlexporter.cpp:74
 #, kde-format
 msgid "Export to HTML"
 msgstr "Exporter en HTML"
 
-#: src/htmlexporter.cpp:73
+#: src/htmlexporter.cpp:75
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "Exportation en HTML. Veuillez patienter..."
 
-#: src/htmlexporter.cpp:108 src/htmlexporter.cpp:144 src/htmlexporter.cpp:153
+#: src/htmlexporter.cpp:110 src/htmlexporter.cpp:146 src/htmlexporter.cpp:155
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_fichiers"
 
-#: src/htmlexporter.cpp:114 src/htmlexporter.cpp:158
+#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:160
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "Icônes"
 
-#: src/htmlexporter.cpp:115 src/htmlexporter.cpp:159
+#: src/htmlexporter.cpp:117 src/htmlexporter.cpp:161
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "Images"
 
-#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:156
+#: src/htmlexporter.cpp:118 src/htmlexporter.cpp:158
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "paniers"
 
-#: src/htmlexporter.cpp:148 src/htmlexporter.cpp:154 src/htmlexporter.cpp:155
+#: src/htmlexporter.cpp:150 src/htmlexporter.cpp:156 src/htmlexporter.cpp:157
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "données"
 
-#: src/htmlexporter.cpp:390
+#: src/htmlexporter.cpp:391
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
@@ -1970,7 +1970,7 @@ msgstr ""
 "conserver ses informations sous la main."
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:501
-#: src/variouswidgets.cpp:357
+#: src/variouswidgets.cpp:416
 #, kde-format
 msgid "(Default)"
 msgstr "(Par défaut)"
@@ -1994,47 +1994,6 @@ msgstr "R :%1, G :%2, B :%3"
 msgctxt "color"
 msgid "(Default)"
 msgstr "(Par défaut)"
-
-#: src/kde4_migration.h:68
-#, kde-format
-msgid ""
-"Failed to migrate Basket data from KDE4. You will need to close Basket and "
-"copy the basket folder manually.\n"
-"Source: %1\n"
-"Destination: %2\n"
-"Reason: %3"
-msgstr ""
-"Échec de la migration des données de Basket à partir de KDE 4. Vous devez "
-"fermer Basket et copier manuellement le dossier. \n"
-"Source : %1\n"
-"Destination : %2\n"
-"Raison : %3"
-
-#: src/kde4_migration.h:93
-#, kde-format
-msgid "Choose action"
-msgstr "Choisissez une action"
-
-#: src/kde4_migration.h:95
-#, kde-format
-msgid ""
-"Basket data from KDE4 have been successfully migrated to %1.\n"
-"Unless you are planning to run KDE4 version again, you can delete the old "
-"folder %2"
-msgstr ""
-"Les données de paniers de KDE 4 ont été migrées avec succès vers %1. \n"
-"Sauf si vous avez en tête d'utiliser de nouveau KDE 4, vous pouvez supprimer "
-"l'ancien dossier %2."
-
-#: src/kde4_migration.h:99
-#, kde-format
-msgid "Delete (to Trash)"
-msgstr "Supprimer (vers la Corbeille)"
-
-#: src/kde4_migration.h:100
-#, kde-format
-msgid "Keep"
-msgstr "Conserver"
 
 #: src/kgpgme.cpp:47
 #, kde-format
@@ -2201,12 +2160,12 @@ msgstr "Exemple"
 msgid "Minimize"
 msgstr "Réduire"
 
-#: src/mainwindow.cpp:247
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Voulez-vous réellement quitter %1 ?</p>"
 
-#: src/mainwindow.cpp:249
+#: src/mainwindow.cpp:255
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Confirmer pour quitter"
@@ -2403,349 +2362,349 @@ msgstr "Éditer cette couleur"
 msgid "Edit this unknown object"
 msgstr "Éditer cet objet inconnu"
 
-#: src/notecontent.cpp:967
+#: src/notecontent.cpp:979
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Ouverture du texte brut..."
 
-#: src/notecontent.cpp:969
+#: src/notecontent.cpp:981
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Ouverture des textes bruts..."
 
-#: src/notecontent.cpp:971
+#: src/notecontent.cpp:983
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Ouverture du texte brut avec..."
 
-#: src/notecontent.cpp:973
+#: src/notecontent.cpp:985
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "Ouverture des textes bruts avec..."
 
-#: src/notecontent.cpp:975
+#: src/notecontent.cpp:987
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Ouvrir le texte brut avec :"
 
-#: src/notecontent.cpp:977
+#: src/notecontent.cpp:989
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Ouvrir les textes bruts avec :"
 
-#: src/notecontent.cpp:1085
+#: src/notecontent.cpp:1097
 #, kde-format
 msgid "Opening text..."
 msgstr "Ouverture du texte..."
 
-#: src/notecontent.cpp:1087
+#: src/notecontent.cpp:1099
 #, kde-format
 msgid "Opening texts..."
 msgstr "Ouverture des textes..."
 
-#: src/notecontent.cpp:1089
+#: src/notecontent.cpp:1101
 #, kde-format
 msgid "Opening text with..."
 msgstr "Ouverture du texte avec..."
 
-#: src/notecontent.cpp:1091
+#: src/notecontent.cpp:1103
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Ouverture des textes avec..."
 
-#: src/notecontent.cpp:1093
+#: src/notecontent.cpp:1105
 #, kde-format
 msgid "Open text with:"
 msgstr "Ouvrir ce texte avec :"
 
-#: src/notecontent.cpp:1095
+#: src/notecontent.cpp:1107
 #, kde-format
 msgid "Open texts with:"
 msgstr "Ouvrir ces textes avec :"
 
-#: src/notecontent.cpp:1217 src/notecontent.cpp:1433
+#: src/notecontent.cpp:1229 src/notecontent.cpp:1445
 #, kde-format
 msgid "Size"
 msgstr "Taille"
 
-#: src/notecontent.cpp:1217 src/variouswidgets.cpp:160
+#: src/notecontent.cpp:1229 src/variouswidgets.cpp:219
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 par %2 pixels"
 
-#: src/notecontent.cpp:1226
+#: src/notecontent.cpp:1238
 #, kde-format
 msgid "Opening image..."
 msgstr "Ouverture de l'image..."
 
-#: src/notecontent.cpp:1228
+#: src/notecontent.cpp:1240
 #, kde-format
 msgid "Opening images..."
 msgstr "Ouverture des images..."
 
-#: src/notecontent.cpp:1230
+#: src/notecontent.cpp:1242
 #, kde-format
 msgid "Opening image with..."
 msgstr "Ouverture de l'image avec..."
 
-#: src/notecontent.cpp:1232
+#: src/notecontent.cpp:1244
 #, kde-format
 msgid "Opening images with..."
 msgstr "Ouverture des images avec..."
 
-#: src/notecontent.cpp:1234
+#: src/notecontent.cpp:1246
 #, kde-format
 msgid "Open image with:"
 msgstr "Ouvrir l'image avec :"
 
-#: src/notecontent.cpp:1236
+#: src/notecontent.cpp:1248
 #, kde-format
 msgid "Open images with:"
 msgstr "Ouvrir les images avec :"
 
-#: src/notecontent.cpp:1261
+#: src/notecontent.cpp:1273
 #, kde-format
 msgid "Click for full size view"
 msgstr "Cliquez pour voir en taille réelle"
 
-#: src/notecontent.cpp:1346
+#: src/notecontent.cpp:1358
 #, kde-format
 msgid "Opening animation..."
 msgstr "Ouverture de l'animation..."
 
-#: src/notecontent.cpp:1348
+#: src/notecontent.cpp:1360
 #, kde-format
 msgid "Opening animations..."
 msgstr "Ouverture des animations..."
 
-#: src/notecontent.cpp:1350
+#: src/notecontent.cpp:1362
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Ouverture de l'animation avec..."
 
-#: src/notecontent.cpp:1352
+#: src/notecontent.cpp:1364
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Ouverture des animations avec..."
 
-#: src/notecontent.cpp:1354
+#: src/notecontent.cpp:1366
 #, kde-format
 msgid "Open animation with:"
 msgstr "Ouvrir l'animation avec :"
 
-#: src/notecontent.cpp:1356
+#: src/notecontent.cpp:1368
 #, kde-format
 msgid "Open animations with:"
 msgstr "Ouvrir les animations avec :"
 
-#: src/notecontent.cpp:1438
+#: src/notecontent.cpp:1450
 #, kde-format
 msgid "Type"
 msgstr "Type"
 
-#: src/notecontent.cpp:1479
+#: src/notecontent.cpp:1491
 #, kde-format
 msgid "Open this file"
 msgstr "Ouvrir ce fichier"
 
-#: src/notecontent.cpp:1498
+#: src/notecontent.cpp:1510
 #, kde-format
 msgid "Opening file..."
 msgstr "Ouverture du fichier..."
 
-#: src/notecontent.cpp:1500
+#: src/notecontent.cpp:1512
 #, kde-format
 msgid "Opening files..."
 msgstr "Ouverture des fichiers..."
 
-#: src/notecontent.cpp:1502
+#: src/notecontent.cpp:1514
 #, kde-format
 msgid "Opening file with..."
 msgstr "Ouverture du fichier avec..."
 
-#: src/notecontent.cpp:1504
+#: src/notecontent.cpp:1516
 #, kde-format
 msgid "Opening files with..."
 msgstr "Ouverture des fichiers avec..."
 
-#: src/notecontent.cpp:1506
+#: src/notecontent.cpp:1518
 #, kde-format
 msgid "Open file with:"
 msgstr "Ouvrir le fichier avec :"
 
-#: src/notecontent.cpp:1508
+#: src/notecontent.cpp:1520
 #, kde-format
 msgid "Open files with:"
 msgstr "Ouvrir les fichiers avec :"
 
-#: src/notecontent.cpp:1591
+#: src/notecontent.cpp:1603
 #, kde-format
 msgid "Open this sound"
 msgstr "Ouvrir ce son"
 
-#: src/notecontent.cpp:1617
+#: src/notecontent.cpp:1629
 #, kde-format
 msgid "Opening sound..."
 msgstr "Ouverture du son..."
 
-#: src/notecontent.cpp:1619
+#: src/notecontent.cpp:1631
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Ouverture des sons..."
 
-#: src/notecontent.cpp:1621
+#: src/notecontent.cpp:1633
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Ouverture du son avec..."
 
-#: src/notecontent.cpp:1623
+#: src/notecontent.cpp:1635
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Ouverture des sons avec..."
 
-#: src/notecontent.cpp:1625
+#: src/notecontent.cpp:1637
 #, kde-format
 msgid "Open sound with:"
 msgstr "Ouvrir le son avec :"
 
-#: src/notecontent.cpp:1627
+#: src/notecontent.cpp:1639
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Ouvrir les sons avec :"
 
-#: src/notecontent.cpp:1689 src/notecontent.cpp:1958
+#: src/notecontent.cpp:1701 src/notecontent.cpp:1972
 #, kde-format
 msgid "Target"
 msgstr "Cible"
 
-#: src/notecontent.cpp:1712 src/notecontent.cpp:1981
+#: src/notecontent.cpp:1724 src/notecontent.cpp:1995
 #, kde-format
 msgid "Open this link"
 msgstr "Ouvrir ce lien"
 
-#: src/notecontent.cpp:1738
+#: src/notecontent.cpp:1750
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Le lien n'a pas d'URL à ouvrir."
 
-#: src/notecontent.cpp:1742
+#: src/notecontent.cpp:1754
 #, kde-format
 msgid "Opening link target..."
 msgstr "Ouverture de la cible du lien..."
 
-#: src/notecontent.cpp:1744
+#: src/notecontent.cpp:1756
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Ouverture de la cible des liens..."
 
-#: src/notecontent.cpp:1746
+#: src/notecontent.cpp:1758
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Ouverture de la cible du lien avec..."
 
-#: src/notecontent.cpp:1748
+#: src/notecontent.cpp:1760
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Ouverture de la cible des liens avec..."
 
-#: src/notecontent.cpp:1750
+#: src/notecontent.cpp:1762
 #, kde-format
 msgid "Open link target with:"
 msgstr "Ouvrir la cible du lien avec :"
 
-#: src/notecontent.cpp:1752
+#: src/notecontent.cpp:1764
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Ouvrir de la cible des liens avec :"
 
-#: src/notecontent.cpp:1994
+#: src/notecontent.cpp:2008
 #, kde-format
 msgid "Link to %1"
 msgstr "Lier à %1"
 
-#: src/notecontent.cpp:2007
+#: src/notecontent.cpp:2021
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Le lien n'a pas de panier à ouvrir."
 
-#: src/notecontent.cpp:2011
+#: src/notecontent.cpp:2025
 #, kde-format
 msgid "Opening basket..."
 msgstr "Ouverture d'un panier..."
 
-#: src/notecontent.cpp:2116
+#: src/notecontent.cpp:2130
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(exécuter dans un terminal)</i>"
 
-#: src/notecontent.cpp:2121
+#: src/notecontent.cpp:2135
 #, kde-format
 msgid "Command"
 msgstr "Commande"
 
-#: src/notecontent.cpp:2145
+#: src/notecontent.cpp:2159
 #, kde-format
 msgid "Launch this application"
 msgstr "Lancer cette application"
 
-#: src/notecontent.cpp:2166
+#: src/notecontent.cpp:2180
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "Le lanceur n'a pas de commande à exécuter."
 
-#: src/notecontent.cpp:2170
+#: src/notecontent.cpp:2184
 #, kde-format
 msgid "Launching application..."
 msgstr "Lancement de l'application..."
 
-#: src/notecontent.cpp:2172
+#: src/notecontent.cpp:2186
 #, kde-format
 msgid "Launching applications..."
 msgstr "Lancement des applications..."
 
-#: src/notecontent.cpp:2290
+#: src/notecontent.cpp:2304
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2291
+#: src/notecontent.cpp:2305
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Rouge</i> : %1, <i>Vert</i> : %2, <i>Bleu</i> : %3,"
 
-#: src/notecontent.cpp:2292
+#: src/notecontent.cpp:2306
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2293
+#: src/notecontent.cpp:2307
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Teinte</i> : %1, <i>Saturation</i> : %2, <i>Valeur</i> : %3,"
 
-#: src/notecontent.cpp:2297
+#: src/notecontent.cpp:2311
 #, kde-format
 msgid "CSS Color Name"
 msgstr "Nom de couleur CSS"
 
-#: src/notecontent.cpp:2300
+#: src/notecontent.cpp:2314
 #, kde-format
 msgid "Is Web Color"
 msgstr "Est une couleur Web"
 
-#: src/notecontent.cpp:2300
+#: src/notecontent.cpp:2314
 #, kde-format
 msgid "Yes"
 msgstr "Oui"
 
-#: src/notecontent.cpp:2300
+#: src/notecontent.cpp:2314
 #, kde-format
 msgid "No"
 msgstr "Aucun"
 
-#: src/noteedit.cpp:530
+#: src/noteedit.cpp:531
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2756,12 +2715,12 @@ msgstr ""
 "Blocs notes BasKet inclura un éditeur d'image).\n"
 "Voulez-vous ouvrir une application qui comprend cet objet ?"
 
-#: src/noteedit.cpp:532
+#: src/noteedit.cpp:533
 #, kde-format
 msgid "Edit Image Note"
 msgstr "Édition de la note image"
 
-#: src/noteedit.cpp:557
+#: src/noteedit.cpp:558
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
@@ -2770,17 +2729,17 @@ msgstr ""
 "Les images animées ne peuvent pas être éditées ici.\n"
 "Voulez-vous ouvrir une application qui comprend cet objet ?"
 
-#: src/noteedit.cpp:559
+#: src/noteedit.cpp:560
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "Édition de la note animation"
 
-#: src/noteedit.cpp:652
+#: src/noteedit.cpp:653
 #, kde-format
 msgid "Edit Color Note"
 msgstr "Édition de la note couleur"
 
-#: src/noteedit.cpp:677
+#: src/noteedit.cpp:678
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2791,62 +2750,62 @@ msgstr ""
 "Vous pouvez par contre glisser ou copier cette note dans une application qui "
 "la comprend."
 
-#: src/noteedit.cpp:679
+#: src/noteedit.cpp:680
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "Édition de la note inconnue"
 
-#: src/noteedit.cpp:691
+#: src/noteedit.cpp:692
 #, kde-format
 msgid "Edit Link Note"
 msgstr "Édition de la note lien"
 
-#: src/noteedit.cpp:711 src/noteedit.cpp:743
+#: src/noteedit.cpp:712 src/noteedit.cpp:744
 #, kde-format
 msgid "Auto"
 msgstr "Auto"
 
-#: src/noteedit.cpp:723 src/noteedit.cpp:1045
+#: src/noteedit.cpp:724 src/noteedit.cpp:1046
 #, kde-format
 msgid "&Icon:"
 msgstr "&Icône :"
 
-#: src/noteedit.cpp:765 src/noteedit.cpp:932
+#: src/noteedit.cpp:766 src/noteedit.cpp:933
 #, kde-format
 msgid "Ta&rget:"
 msgstr "&Cible :"
 
-#: src/noteedit.cpp:770
+#: src/noteedit.cpp:771
 #, kde-format
 msgid "&Title:"
 msgstr "&Titre :"
 
-#: src/noteedit.cpp:901
+#: src/noteedit.cpp:902
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Modifier une référence croisée"
 
-#: src/noteedit.cpp:1019
+#: src/noteedit.cpp:1020
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Édition de la note lanceur"
 
-#: src/noteedit.cpp:1033
+#: src/noteedit.cpp:1034
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Choisissez une commande à exécuter :"
 
-#: src/noteedit.cpp:1050
+#: src/noteedit.cpp:1051
 #, kde-format
 msgid "&Guess"
 msgstr "&Deviner"
 
-#: src/noteedit.cpp:1068
+#: src/noteedit.cpp:1069
 #, kde-format
 msgid "Comman&d:"
 msgstr "&Commande :"
 
-#: src/noteedit.cpp:1073 src/tagsedit.cpp:388
+#: src/noteedit.cpp:1074 src/tagsedit.cpp:388
 #, kde-format
 msgid "&Name:"
 msgstr "&Nom :"
@@ -2970,12 +2929,12 @@ msgid "Load File Content into a Note"
 msgstr "Charger le contenu d'un fichier dans une note"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:29 src/passwordlayout.ui:14 src/settings.cpp:541
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:585
 #, kde-format
 msgid "Password Protection"
 msgstr "Protection par mot de passe"
 
-#: src/password.cpp:58
+#: src/password.cpp:59
 #, kde-format
 msgid "No private key selected."
 msgstr "Aucune clé privée sélectionnée."
@@ -3008,84 +2967,84 @@ msgstr ""
 "d'écran, veuillez appuyer sur la touche « Entrée ». Appuyer sur la touche "
 "« Échap » pour fermer."
 
-#: src/settings.cpp:390
+#: src/settings.cpp:432
 #, kde-format
 msgid "On left"
 msgstr "À gauche"
 
-#: src/settings.cpp:391
+#: src/settings.cpp:433
 #, kde-format
 msgid "On right"
 msgstr "À droite"
 
-#: src/settings.cpp:393
+#: src/settings.cpp:435
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&Position de l'arborescence des paniers :"
 
-#: src/settings.cpp:398 src/settings.cpp:652
+#: src/settings.cpp:440 src/settings.cpp:694
 #, kde-format
 msgid "On top"
 msgstr "En haut"
 
-#: src/settings.cpp:399 src/settings.cpp:653
+#: src/settings.cpp:441 src/settings.cpp:695
 #, kde-format
 msgid "On bottom"
 msgstr "En bas"
 
-#: src/settings.cpp:401
+#: src/settings.cpp:443
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "Position de la &barre de filtrage :"
 
-#: src/settings.cpp:445
+#: src/settings.cpp:489
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "Montr&er les info-bulles dans les paniers"
 
-#: src/settings.cpp:449
+#: src/settings.cpp:493
 #, kde-format
 msgid "&Big notes"
 msgstr "&Grosses notes"
 
-#: src/settings.cpp:455
+#: src/settings.cpp:499
 #, kde-format
 msgid "Behavior"
 msgstr "Comportement"
 
-#: src/settings.cpp:460
+#: src/settings.cpp:504
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "&Transformer les lignes commençant par * ou - en des listes dans les "
 "éditeurs de texte"
 
-#: src/settings.cpp:464
+#: src/settings.cpp:508
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "&Demander confirmation avant de supprimer des notes"
 
-#: src/settings.cpp:468
+#: src/settings.cpp:512
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Conserver le format du texte lors du coller"
 
-#: src/settings.cpp:472
+#: src/settings.cpp:516
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Détecter automatiquement les étiquettes à partir des contenus de notes"
 
-#: src/settings.cpp:479
+#: src/settings.cpp:523
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "E&xporter les marques dans les textes"
 
-#: src/settings.cpp:482
+#: src/settings.cpp:526
 #, kde-format
 msgid "When does this apply?"
 msgstr "Quand cela s'applique-t-il ?"
 
-#: src/settings.cpp:483
+#: src/settings.cpp:527
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3094,7 +3053,7 @@ msgstr ""
 "Cela s'applique lorsque vous copiez / collez, ou glissez / déposez des notes "
 "dans un éditeur de texte."
 
-#: src/settings.cpp:483
+#: src/settings.cpp:527
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
@@ -3103,7 +3062,7 @@ msgstr ""
 "tant qu'équivalents texte."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:484 src/tagsedit.cpp:519
+#: src/settings.cpp:528 src/tagsedit.cpp:519
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3114,18 +3073,18 @@ msgstr ""
 "b> est exportée en tant que lignes précédées de <b>[ ]</b> ou <b>[x]</b>, "
 "représentant des boîtes à cocher."
 
-#: src/settings.cpp:496
+#: src/settings.cpp:540
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr ""
 "&Grouper une nouvelle note en cliquant sur la droite de la ligne d'insertion"
 
-#: src/settings.cpp:497
+#: src/settings.cpp:541
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Comment grouper une nouvelle note ?"
 
-#: src/settings.cpp:498
+#: src/settings.cpp:542
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3137,7 +3096,7 @@ msgstr ""
 "mais elle vous permet aussi de grouper une nouvelle note avec celle sous le "
 "curseur de la souris :</p>"
 
-#: src/settings.cpp:500
+#: src/settings.cpp:544
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3151,250 +3110,225 @@ msgstr ""
 "sur la <b>droite</b> pour <b>grouper</b> une note, avec celle <b>du dessus "
 "ou du dessous</b>, en fonction de la position du curseur de la souris.</p>"
 
-#: src/settings.cpp:516
+#: src/settings.cpp:560
 #, kde-format
 msgid "Do nothing"
 msgstr "Ne rien faire"
 
-#: src/settings.cpp:517
+#: src/settings.cpp:561
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Coller le presse-papiers"
 
-#: src/settings.cpp:520
+#: src/settings.cpp:564
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Insérer une référence croisée"
 
-#: src/settings.cpp:521
+#: src/settings.cpp:565
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Insérer un lanceur"
 
-#: src/settings.cpp:524
+#: src/settings.cpp:568
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Puiser une couleur sur l'écran"
 
-#: src/settings.cpp:525
+#: src/settings.cpp:569
 #, kde-format
 msgid "Load note from file"
 msgstr "Charger une note depuis un fichier"
 
-#: src/settings.cpp:526
+#: src/settings.cpp:570
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Importer un lanceur depuis une application de bureau"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:571
 #, kde-format
 msgid "Import icon"
 msgstr "Importer une icône"
 
-#: src/settings.cpp:530
+#: src/settings.cpp:574
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Maj+clic-milieu n'importe où :"
 
-#: src/settings.cpp:535
+#: src/settings.cpp:579
 #, kde-format
 msgid "at cursor position"
 msgstr "à la position du curseur de la souris"
 
-#: src/settings.cpp:550
+#: src/settings.cpp:594
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "&Verrouiller automatiquement les paniers fermés pendant"
 
-#: src/settings.cpp:554
+#: src/settings.cpp:598
 #, kde-format
 msgid " minutes"
 msgstr " minutes"
 
-#: src/settings.cpp:565
+#: src/settings.cpp:609
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr ""
 "Utiliser l'agent « GnuPG » pour les paniers prot&égés par clé privée / "
 "publique"
 
-#: src/settings.cpp:649
+#: src/settings.cpp:691
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Place des nouvelles notes :"
 
-#: src/settings.cpp:654
+#: src/settings.cpp:696
 #, kde-format
 msgid "At current note"
 msgstr "À la note courante"
 
-#: src/settings.cpp:673
+#: src/settings.cpp:715
 #, kde-format
 msgid "&New images size:"
 msgstr "Taille des &nouvelles images :"
 
-#: src/settings.cpp:686
+#: src/settings.cpp:728
 #, kde-format
 msgid "&by"
 msgstr "pa&r"
 
-#: src/settings.cpp:691
+#: src/settings.cpp:733
 #, kde-format
 msgid "pixels"
 msgstr "pixels"
 
-#: src/settings.cpp:693
+#: src/settings.cpp:735
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Visualiser..."
 
-#: src/settings.cpp:701
+#: src/settings.cpp:743
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Voir le contenu des fichiers ajoutés pour les types suivants"
 
-#: src/settings.cpp:703
+#: src/settings.cpp:745
 #, kde-format
 msgid "&Plain text"
 msgstr "&Texte brut"
 
-#: src/settings.cpp:704
+#: src/settings.cpp:746
 #, kde-format
 msgid "&HTML page"
 msgstr "&Page HTML"
 
-#: src/settings.cpp:705
+#: src/settings.cpp:747
 #, kde-format
 msgid "&Image or animation"
 msgstr "Image ou &animation"
 
-#: src/settings.cpp:706
+#: src/settings.cpp:748
 #, kde-format
 msgid "&Sound"
 msgstr "&Son"
 
-#: src/settings.cpp:776
+#: src/settings.cpp:816
 #, kde-format
 msgid "Conference audio record"
 msgstr "Enregistrement audio de la conférence"
 
-#: src/settings.cpp:777
+#: src/settings.cpp:817
 #, kde-format
 msgid "Annual report"
 msgstr "Rapport annuel"
 
-#: src/settings.cpp:778
+#: src/settings.cpp:818
 #, kde-format
 msgid "Home folder"
 msgstr "Dossier personnel"
 
-#: src/settings.cpp:780
+#: src/settings.cpp:820
 #, kde-format
 msgid "Launch %1"
 msgstr "Lancer %1"
 
-#: src/settings.cpp:781
+#: src/settings.cpp:821
 #, kde-format
 msgid "Another basket"
 msgstr "Autre panier"
 
-#: src/settings.cpp:783
+#: src/settings.cpp:823
 #, kde-format
 msgid "&Sounds"
 msgstr "&Sons"
 
-#: src/settings.cpp:784
+#: src/settings.cpp:824
 #, kde-format
 msgid "&Files"
 msgstr "&Fichiers"
 
-#: src/settings.cpp:785
+#: src/settings.cpp:825
 #, kde-format
 msgid "&Local Links"
 msgstr "Liens locau&x"
 
-#: src/settings.cpp:786
+#: src/settings.cpp:826
 #, kde-format
 msgid "&Network Links"
 msgstr "Lie&ns réseaux"
 
-#: src/settings.cpp:787
+#: src/settings.cpp:827
 #, kde-format
 msgid "Launc&hers"
 msgstr "L&anceurs"
 
-#: src/settings.cpp:788
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Cross References"
 msgstr "Référence &croisée"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:869
 #, kde-format
-msgid "Open &text notes with a custom application:"
-msgstr "Ouvrir les notes &textes avec une application personnalisée :"
+msgid "General Launch Associations"
+msgstr ""
 
-#: src/settings.cpp:832
-#, kde-format
-msgid "Open text notes with:"
-msgstr "Ouvrir les notes textes avec :"
-
-#: src/settings.cpp:839
-#, kde-format
-msgid "Open &image notes with a custom application:"
-msgstr "Ouvrir les notes &images avec une application personnalisée :"
-
-#: src/settings.cpp:840
-#, kde-format
-msgid "Open image notes with:"
-msgstr "Ouvrir les notes images avec :"
-
-#: src/settings.cpp:847
-#, kde-format
-msgid "Open a&nimation notes with a custom application:"
-msgstr "Ouvrir les notes &animations avec une application personnalisée :"
-
-#: src/settings.cpp:848
-#, kde-format
-msgid "Open animation notes with:"
-msgstr "Ouvrir les notes animations avec :"
-
-#: src/settings.cpp:855
-#, kde-format
-msgid "Open so&und notes with a custom application:"
-msgstr "Ouvrir les notes &sons avec une application personnalisée :"
-
-#: src/settings.cpp:856
-#, kde-format
-msgid "Open sound notes with:"
-msgstr "Ouvrir les notes sons avec :"
-
-#: src/settings.cpp:864
+#: src/settings.cpp:871
 #, kde-format
 msgid ""
-"<p>If checked, the application defined below will be used when opening that "
-"type of note.</p><p>Otherwise, the application you've configured in "
-"Konqueror will be used.</p>"
+"<p>On modern desktop environments, launcher configurations provide "
+"information to the system about how to handle an application.These files are "
+"essential for integrating applications into the desktop environment, to "
+"list, lookup and launch apps with specific configurations</p><p>Here is how "
+"to do if you want to launch Falkon Browser with a specific profile.</"
+"p><ul><li>Open the KDE Menu Editor, and type \"Falkon\" in the search filter;"
+"</li><li>Select \"Falkon\" desktop launcher, right-click, copy and paste;</"
+"li><li>Edit the \"General\" property fields like \"Name\", \"Description\" "
+"or \"Comment\".</li><li>Edit the \"Command-line arguments\" field to "
+"something like \"--profile 'Your-Extensive-Hobby' %%u\".</li></ul><p>Now, "
+"when you choose your new launcher as basket link notes launcher, basket will "
+"open HTTP links with Falkon's \"Your-Extensive-Hobby\" profile</p><p>For "
+"more fine-grained configuration (like opening pdf documents preferably with "
+"Falkon), read the second button tooltip.</p>"
 msgstr ""
-"<p>Si coché, l'application définie ci-dessous sera utilisée pour ouvrir ce "
-"type de note.</p><p>Sinon, l'application configurée dans Konqueror sera "
-"utilisée.</p>"
 
-#: src/settings.cpp:873
-#, kde-format
-msgid ""
-"<p>Define the application to use for opening that type of note instead of "
-"the application configured in Konqueror.</p>"
-msgstr ""
-"<p>Définir l'application à utiliser pour ouvrir ce type de note au lieu de "
-"celle configurée dans Konqueror.</p>"
-
-#: src/settings.cpp:891
-#, kde-format
-msgid "How to change the application used to open Web links?"
-msgstr "Comment changer l'application utilisée pour ouvrir les liens Web ?"
-
-#: src/settings.cpp:892
-#, kde-format
+#: src/settings.cpp:883
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>When opening Web links, they are opened in different applications, "
+#| "depending on the content of the link (a Web page, an image, a PDF "
+#| "document...), such as if they were files on your computer.</p><p>Here is "
+#| "how to do if you want every Web addresses to be opened in your Web "
+#| "browser. It is useful if you are not using Plasma (if you are using eg. "
+#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
+#| "available, try to type \"systemsettings\" in a command line terminal);</"
+#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
+#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
+#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
+#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
+#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
+#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
+#| "(like opening only Web pages in your Web browser), read the second help "
+#| "link.</p>"
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3409,7 +3343,7 @@ msgid ""
 "you click <i>any</i> link that start with \"https://...\", it will be opened "
 "in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p><p>For more "
 "fine-grained configuration (like opening only Web pages in your Web "
-"browser), read the second help link.</p>"
+"browser), read the third button tooltip.</p>"
 msgstr ""
 "<p>Lorsque vous ouvrez des liens Internet, ils sont ouverts dans différentes "
 "applications, selon le contenu du lien (une page Internet, une image, un "
@@ -3429,14 +3363,7 @@ msgstr ""
 "(comme ouvrir uniquement les pages Internet dans votre navigateur Internet), "
 "lisez le second lien d'aide.</p>"
 
-#: src/settings.cpp:909
-#, kde-format
-msgid "How to change the applications used to open files and links?"
-msgstr ""
-"Comment changer les applications utilisées pour ouvrir les fichiers et les "
-"liens ?"
-
-#: src/settings.cpp:910
+#: src/settings.cpp:895
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3471,18 +3398,101 @@ msgstr ""
 "première entrée,</li><li>Faites la même chose pour le type « application / "
 "xhtml+xml ».</li></ul>"
 
-#: src/settings_versionsync.cpp:79
+#: src/settings.cpp:944
+#, kde-format
+msgid "Specific Basket Associations"
+msgstr ""
+
+#: src/settings.cpp:946
+#, kde-format
+msgid "Open &text notes with a custom application:"
+msgstr "Ouvrir les notes &textes avec une application personnalisée :"
+
+#: src/settings.cpp:947
+#, kde-format
+msgid "Open text notes with:"
+msgstr "Ouvrir les notes textes avec :"
+
+#: src/settings.cpp:954
+#, kde-format
+msgid "Open &image notes with a custom application:"
+msgstr "Ouvrir les notes &images avec une application personnalisée :"
+
+#: src/settings.cpp:955
+#, kde-format
+msgid "Open image notes with:"
+msgstr "Ouvrir les notes images avec :"
+
+#: src/settings.cpp:962
+#, kde-format
+msgid "Open a&nimation notes with a custom application:"
+msgstr "Ouvrir les notes &animations avec une application personnalisée :"
+
+#: src/settings.cpp:963
+#, kde-format
+msgid "Open animation notes with:"
+msgstr "Ouvrir les notes animations avec :"
+
+#: src/settings.cpp:970
+#, kde-format
+msgid "Open so&und notes with a custom application:"
+msgstr "Ouvrir les notes &sons avec une application personnalisée :"
+
+#: src/settings.cpp:971
+#, kde-format
+msgid "Open sound notes with:"
+msgstr "Ouvrir les notes sons avec :"
+
+#: src/settings.cpp:978
+#, fuzzy, kde-format
+#| msgid "Open &text notes with a custom application:"
+msgid "Open http link notes with a custom application:"
+msgstr "Ouvrir les notes &textes avec une application personnalisée :"
+
+#: src/settings.cpp:979
+#, fuzzy, kde-format
+#| msgid "Open text notes with:"
+msgid "Open http link notes with:"
+msgstr "Ouvrir les notes textes avec :"
+
+#: src/settings.cpp:987
+#, kde-format
+msgid ""
+"<p>If checked, the application defined below will be used when opening that "
+"type of note.</p><p>Otherwise, the application you've configured in "
+"Konqueror will be used.</p>"
+msgstr ""
+"<p>Si coché, l'application définie ci-dessous sera utilisée pour ouvrir ce "
+"type de note.</p><p>Sinon, l'application configurée dans Konqueror sera "
+"utilisée.</p>"
+
+#: src/settings.cpp:997
+#, kde-format
+msgid ""
+"<p>Define the application to use for opening that type of note instead of "
+"the application configured in Konqueror.</p>"
+msgstr ""
+"<p>Définir l'application à utiliser pour ouvrir ce type de note au lieu de "
+"celle configurée dans Konqueror.</p>"
+
+#: src/settings_versionsync.cpp:75
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr ""
 "Voulez-vous vraiment supprimer les versions anciennes de tous les paniers ?"
 
-#: src/settings_versionsync.cpp:79
+#: src/settings_versionsync.cpp:75
+#, fuzzy, kde-format
+#| msgid "Remove Basket"
+msgid "Remove old Baskets"
+msgstr "Supprimer le panier"
+
+#: src/settings_versionsync.cpp:75
 #, kde-format
 msgid "Version Sync"
 msgstr "Synchronisation de versions"
 
-#: src/settings_versionsync.cpp:90
+#: src/settings_versionsync.cpp:86
 #, kde-format
 msgid "This will free %1 MB"
 msgstr "Cela va libérer %1 Mo"
@@ -3984,28 +3994,23 @@ msgstr "Confirmer la suppression d'un état"
 msgid "Delete State"
 msgstr "Supprimer l'état"
 
-#: src/tools.cpp:800
+#: src/tools.cpp:804
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:42
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#: src/variouswidgets.cpp:79 src/variouswidgets.cpp:80
-#: src/variouswidgets.cpp:81 src/variouswidgets.cpp:82
-#: src/variouswidgets.cpp:83 src/variouswidgets.cpp:84
-#: src/variouswidgets.cpp:225 src/variouswidgets.cpp:226
-#: src/variouswidgets.cpp:227 src/variouswidgets.cpp:228
-#: src/variouswidgets.cpp:229 src/variouswidgets.cpp:230
+#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
+#: src/variouswidgets.cpp:140 src/variouswidgets.cpp:141
+#: src/variouswidgets.cpp:142 src/variouswidgets.cpp:143
+#: src/variouswidgets.cpp:284 src/variouswidgets.cpp:285
+#: src/variouswidgets.cpp:286 src/variouswidgets.cpp:287
+#: src/variouswidgets.cpp:288 src/variouswidgets.cpp:289
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 par %1 pixels"
 
-#: src/variouswidgets.cpp:141
+#: src/variouswidgets.cpp:200
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -4013,6 +4018,48 @@ msgid ""
 msgstr ""
 "Redimensionnez la fenêtre pour sélectionner la taille de l'image\n"
 "et fermez la ou appuyer sur la touche « Entrée » pour valider."
+
+#~ msgid ""
+#~ "Failed to migrate Basket data from KDE4. You will need to close Basket "
+#~ "and copy the basket folder manually.\n"
+#~ "Source: %1\n"
+#~ "Destination: %2\n"
+#~ "Reason: %3"
+#~ msgstr ""
+#~ "Échec de la migration des données de Basket à partir de KDE 4. Vous devez "
+#~ "fermer Basket et copier manuellement le dossier. \n"
+#~ "Source : %1\n"
+#~ "Destination : %2\n"
+#~ "Raison : %3"
+
+#~ msgid "Choose action"
+#~ msgstr "Choisissez une action"
+
+#~ msgid ""
+#~ "Basket data from KDE4 have been successfully migrated to %1.\n"
+#~ "Unless you are planning to run KDE4 version again, you can delete the old "
+#~ "folder %2"
+#~ msgstr ""
+#~ "Les données de paniers de KDE 4 ont été migrées avec succès vers %1. \n"
+#~ "Sauf si vous avez en tête d'utiliser de nouveau KDE 4, vous pouvez "
+#~ "supprimer l'ancien dossier %2."
+
+#~ msgid "Delete (to Trash)"
+#~ msgstr "Supprimer (vers la Corbeille)"
+
+#~ msgid "Keep"
+#~ msgstr "Conserver"
+
+#~ msgid "How to change the application used to open Web links?"
+#~ msgstr "Comment changer l'application utilisée pour ouvrir les liens Web ?"
+
+#~ msgid "How to change the applications used to open files and links?"
+#~ msgstr ""
+#~ "Comment changer les applications utilisées pour ouvrir les fichiers et "
+#~ "les liens ?"
+
+#~ msgid "..."
+#~ msgstr "..."
 
 #~ msgid "Choose an Existing Folder to Store Baskets"
 #~ msgstr "Choix d'un dossier existant où enregistrer les paniers"
