@@ -3,26 +3,26 @@
 # Copyright (C) 2003-2005.
 #
 # Jasper van der Marel <jasper.van.der.marel@wanadoo.nl>, 2004.
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2021-02-07 15:41+0100\n"
+"PO-Revision-Date: 2024-12-16 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.1\n"
+"X-Generator: Lokalize 24.12.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - t/m 2021"
+msgstr "Freek de Kruijf - t/m 2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -3266,7 +3266,7 @@ msgstr "&Kruisverwijzingen"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Algemene start-associaties"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3286,25 +3286,24 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>Op moderne bureaubladomgevingen, leveren starterconfiguraties informatie "
+"aan het systeem over hoe een toepassing te behandelen. Deze bestanden zijn "
+"essentieel voor het integreren van toepassingen in de bureaubladomgeving, "
+"om  een lijst te maken, opzoeken en straten van toepassingen met specifieke "
+"configuraties</p><p>Hier is hoe dat te doen als u de Falkon-browser met een "
+"specifiek profiel wilt starten.</p><ul><li>Open de KDE menubewerker en typ "
+"\"Falkon\" in het zoekfilter;</li><li>Selecteer \"Falkon\" "
+"bureaubladstarter, klik rechts, kopieer en plak;</li><li>Bewerkt de "
+"eigenschapvelden \"Algemeen\" zoals \"Naam\", \"Beschrijving\" of "
+"\"Commentaar\".</li><li>Bewerk het veld \"Opdrachtregelargumenten\" naar "
+"zoiets als \"--profile 'Uw-extensieve-hobby' %%u\".</li></ul><p>Als u nu uw "
+"nieuwe starter als basket koppeling notities starter kiest, zal basket HTTP-"
+"koppelingen openen met het profiel \"Uw-extensieve-hobby\"</p><p>Voor meer "
+"verfijnde configuratie (zoals het openen van pdf-documenten bij voorkeur met "
+"Falkon), lees de tekstballon van de tweede knop.</p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3334,8 +3333,8 @@ msgstr ""
 "ul><p>Wanneer u nu klitk op <i>elke</i> koppeling die begint met "
 "\"https://...\", zal deze geopend worden in uw webbrowser (bijv. Mozilla "
 "Firefox of Epiphany of...).</p><p>Voor een verfijnde configuratie (zoals "
-"alleen webpagina's openen in uw webbrowser), lees de tweede helpkoppeling.</"
-"p>"
+"alleen webpagina's openen in uw webbrowser), lees de tekstballon bij de "
+"derde knop.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3372,7 +3371,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Specifieke associaties van Basket"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3415,16 +3414,14 @@ msgid "Open sound notes with:"
 msgstr "Geluidsnotities openen met:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "&Tekstnotities met een eigen toepassing openen:"
+msgstr "Notities bij http-koppeling met een eigen toepassing openen:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Tekstnotities openen met:"
+msgstr "Notities bij http-koppeling openen met:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3452,10 +3449,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Wilt u oude versies van alle baskets verwijderen?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Basket verwijderen"
+msgstr "Oude Baskets verwijderen"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2022-03-26 14:18+0100\n"
-"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
+"PO-Revision-Date: 2024-12-16 10:57+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3260,7 +3260,7 @@ msgstr "&Navzkrižni sklici"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Splošne asociacije zagona"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3280,25 +3280,24 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>V sodobnih namiznih okoljih konfiguracije zaganjalnika zagotavljajo "
+"sistemu informacije o tem, kako ravnati z aplikacijo. Te datoteke so "
+"bistvene za integracijo aplikacij v namizno okolje, za seznam, iskanje in "
+"zagon aplikacij s posebnimi konfiguracijami</p><p >Takole je opisano, kako "
+"storiti, če želite zagnati brskalnik Falkon z določenim profilom.</"
+"p><ul><li>Odprite urejevalnik menija KDE in v iskalni filter vnesite "
+"»Falkon«;</li><li >Izberite Zaganjalnik namizja »Falkon«, z desno miškino "
+"tipko kliknite, kopirajte in prilepite;</li><li>Uredite polja lastnosti "
+"»Splošno«, kot je »Ime«, »Opis« ali »Komentar«.</li><li>Uredite Polje "
+"»Argumenti ukazne vrstice« na nekaj takega kot »--profil 'Your-Extensive-"
+"Hobby' %%u«.</li></ul><p>Zdaj, ko izberete svoj novi zaganjalnik kot "
+"zaganjalnik opomb povezav programa basket , bo program basket odprl povezave "
+"HTTP s Falkonovim profilom \"Your-Extensive-Hobby\"</p><p>Za natančnejšo "
+"konfiguracijo (na primer odpiranje dokumentov pdf, po možnosti s Falkonom), "
+"preberite opis orodja drugega gumba.</p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3315,20 +3314,21 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 msgstr ""
-"<p>Pri odpiranju spletnih povezav se odpirajo v različnih aplikacijah, "
-"odvisno od vsebine povezave (spletne strani, slike, dokumenta PDF...), npr. "
-"če so datoteke v vašem računalniku.</p><p>Če želite, da se v spletnem "
-"brskalniku odprejo vsi spletni naslovi, naredite naslednje. Koristno je, če "
-"ne uporabljate Plasme (da uporabljate npr. GNOME, XFCE...).</"
-"p><ul><li>Odprite sistemske nastavitve KDE (če ni na voljo, poskusite vnesti "
-"»sistemske nastavitve« v terminal ukazne vrstice);</li><li>Odprite razdelek "
-"»Aplikacije« in nato »Privzeti programi«;</li><li>Izberite »Spletni "
-"brskalnik«, potrdite »z naslednjim ukazom:« in vnesite ime svojega spletnega "
-"brskalnika (npr. »firefox« ali »epiphany«).</li></ul><p>Zdaj se, ko "
-"kliknete  <i>poljubno</i> povezavo, ki se začne s »https://…«, odpre v vašem "
-"spletnem brskalniku (npr. Mozilla Firefox ali Epiphany ali ...).</p><p>Za "
-"bolj fino prilagajanje (npr. odpiranje samo spletnih strani v spletnem "
-"brskalniku) preberite drugo povezavo pomoči.</p>"
+"<p>Ko odpirate spletne povezave, se odprejo v različnih aplikacijah, odvisno "
+"od vsebine povezave (spletna stran, slika, dokument PDF ...), prav tako kot, "
+"če bi bile datoteke na vašem računalniku.</ p><p>Oglejte si, kako to "
+"storiti, če želite, da se vsi spletni naslovi odprejo v vašem spletnem "
+"brskalniku. Uporabno je, če ne uporabljate Plasma (če uporabljate npr. "
+"GNOME, XFCE...).</p><ul><li>Odprite sistemske nastavitve KDE (če niso na "
+"voljo, poskusite vnesti \" sistemske nastavitve\" v terminalu ukazne "
+"vrstice);</li><li>Pojdite na \"Aplikacije\" in nato razdelek \"Privzete "
+"aplikacije\";</li><li>Izberite \"Spletni brskalnik\", označite \"z "
+"naslednjim ukazom: \" in vnesite ime svojega Spletni brskalnik (na primer "
+"»firefox« ali »epiphany«).</li></ul><p>Zdaj, ko kliknete <i>katero koli</i> "
+"povezavo, ki se začne z »https://...« , se bo odprlo v vašem spletnem "
+"brskalniku (npr. Mozilla Firefox ali Epiphany ali ...).</p><p>Za natančnejšo "
+"konfiguracijo (na primer odpiranje samo spletnih strani v spletnem "
+"brskalniku) preberite tretji orodni namig gumba.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3365,7 +3365,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Specifične asociacije programa Basket"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3408,16 +3408,14 @@ msgid "Open sound notes with:"
 msgstr "Odpri zvočne opombe z:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Odpri &besedilne opombe s programom po meri:"
+msgstr "Odpri opombe povezav http s programom po meri:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Odpri besedilne opombe z:"
+msgstr "Odpri opombe povezav http z:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3445,10 +3443,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Ali res želite odstraniti stare različice za vse košare?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Odstrani košaro"
+msgstr "Odstrani stare košare"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format

@@ -3,22 +3,22 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2021-02-07 08:38+0200\n"
+"PO-Revision-Date: 2024-12-16 12:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.11.70\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3288,7 +3288,7 @@ msgstr "Пере&хресні посилання"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Загальні прив'язки запуску"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3308,25 +3308,24 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>У сучасних стільничних середовищах у налаштуваннях засобу запуску "
+"зберігається загальносистемні дані щодо того, як працювати з програмою. Ці "
+"файли є критичними для інтеграції програм до стільничного середовища, для "
+"побудови списку, пошуку та запуску програм із певними налаштуваннями.</"
+"p><p>Ось, що слід зробити для запуску навігатора Falkon із вказаним профілем:"
+"</p><ul><li>відкрийте редактор меню KDE і введіть «Falkon» у поле для пошуку;"
+"</li><li>виберіть засіб запуску «Falkon», клацніть правою кнопкою миші, "
+"скопіюйте і вставте;</li><li>змініть поля властивостей «Загальне», зокрема "
+"«Назву», «Опис» або «Коментар».</li><li>змініть вміст поля «Параметри "
+"командного рядка» на щось подібне до «--profile 'Ваше-хобі' %%u».</li></"
+"ul><p>Тепер, коли ви вибиратимете ваш новий засіб запуску як запис нотаток "
+"посилання на кошик, кошик відкриє посилання HTTP з використанням профілю "
+"Falkon «Ваше-хобі»</p><p>Для точнішого налаштовування (наприклад, відкриття "
+"документів pdf з пріоритетом Falkon), прочитайте підказку до другої кнопки.</"
+"p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3359,7 +3358,7 @@ msgstr ""
 "посилання у вашій улюбленій програмі для перегляду інтернету (тобто Mozilla "
 "Firefox, Epiphany...).</p><p>Щоб дізнатися про точніше налаштовування "
 "(зокрема відкриття лише вебсторінок у вашій програмі для перегляду "
-"інтернету), ознайомтеся із другим довідковим посиланням.</p>"
+"інтернету), ознайомтеся із підказкою до третьої кнопки.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3399,7 +3398,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Специфічні прив'язки кошиків"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3442,16 +3441,14 @@ msgid "Open sound notes with:"
 msgstr "Відкривати нотатки зі звуками за допомогою:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Відкривати &текстові нотатки за допомогою нетипової програми:"
+msgstr "Відкривати нотатки із посиланням http за допомогою нетипової програми:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Відкривати текстові нотатки за допомогою:"
+msgstr "Відкривати нотатки із посиланнями http за допомогою:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3479,10 +3476,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Ви справді хочете вилучити застарілі версії для усіх кошиків?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Вилучення кошика"
+msgstr "Вилучити застарілі кошики"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format

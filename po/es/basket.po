@@ -1,17 +1,17 @@
 # Translation of basket to Spanish
 # Copyright (C) 2005, 2006, 2007 Free Software Foundation, Inc.
 #
-# Sébastien Laoût <slaout@linux62.org>, 2005.
-# Rafael Rodríguez <rafael.rodriguez.tf@gmail.com>, 2006.
-# Rafael Rodríguez Martín <apt-drink@telefonica.net>, 2006.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007.
+# SPDX-FileCopyrightText: 2005 Sébastien Laoût <slaout@linux62.org>
+# SPDX-FileCopyrightText: 2006 Rafael Rodríguez <rafael.rodriguez.tf@gmail.com>
+# SPDX-FileCopyrightText: 2006 Rafael Rodríguez Martín <apt-drink@telefonica.net>
+# SPDX-FileCopyrightText: 2007 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: es\n"
+"Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2024-12-16 00:22+0100\n"
+"PO-Revision-Date: 2024-12-16 11:56+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3272,7 +3272,7 @@ msgstr "Referencias &cruzadas"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Asociaciones generales de lanzamiento"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3292,25 +3292,25 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>En los entornos de escritorio modernos, las configuraciones de "
+"lanzamiento proporcionan información al sistema sobre cómo se maneja una "
+"aplicación. Estos archivos son esenciales para integrar aplicaciones en el "
+"entorno de escritorio, para listar, buscar y lanzar aplicaciones con "
+"configuraciones específicas.</p><p>Por ejemplo, así es cómo se hace para "
+"lanzar el navegador Falkon con un determinado perfil.</p><ul><li>Abra el "
+"«Editor del menú de KDE» y escriba «Falkon» en el filtro de búsqueda.</"
+"li><li>Seleccione el lanzador de escritorio «Falkon», haga clic derecho, "
+"copie y pegue.</li><li>En la propiedad «General», modifique los campos "
+"«Nombre», «Descripción» y «Comentario».</li><li>Modifique el campo "
+"«Argumentos de la línea de órdenes» con algo similar a «--profile 'Nombre-de-"
+"ocupación' %%u».</li></ul><p>Ahora, cuando escoja el nuevo lanzador como "
+"lanzador para las notas de enlaces de Basket, Basket abrirá los enlaces HTTP "
+"con el perfil «Nombre-de-ocupación» de Falkon.</p><p>Para afinar más la "
+"configuración (como abrir documentos PDF preferiblemente con Falkon), lea la "
+"ayuda emergente del segundo botón.</p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3340,8 +3340,8 @@ msgstr ""
 "ul><p>Ahora, cuando pulse <i>cualquier</i> enlace que empiece con "
 "«https://...», se abrirá en su navegador web (como Mozilla Firefox o "
 "Epiphany, por ejemplo).</p><p>Para una configuración más precisa (como abrir "
-"solo las páginas web en su navegador web), lea el segundo enlace de ayuda.</"
-"p>"
+"solo las páginas web en su navegador web), lea la ayuda emergente del tercer "
+"botón.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3379,7 +3379,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Asociaciones específicas de Basket"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3422,16 +3422,14 @@ msgid "Open sound notes with:"
 msgstr "Abrir las notas de sonido con:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Abrir las notas de &texto con una aplicación personalizada:"
+msgstr "Abrir las notas de enlaces HTTP con una aplicación personalizada:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Abrir las notas de texto con:"
+msgstr "Abrir las notas de enlaces HTTP con:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3459,10 +3457,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "¿Realmente desea eliminar las versiones antiguas de todas las cestas?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Eliminar la cesta"
+msgstr "Eliminar cestas antiguas"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format

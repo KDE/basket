@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Ukrainian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>Підручник з &basket;</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>7 листопада 2016 року</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>Подбає про ваші ідеї.</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>KDE</keyword>
+			<keyword
+>BasKet</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>ЗАУВАЖЕННЯ: підручник ще не написано</title>
+		<para
+>У &basket; все ще немає підручника, тому ми будемо раді вашим внескам! Ознайомтеся із <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+>документацією KDE</ulink
+>, щоб дізнатися більше про формат DocBook.</para>
+			<para
+>Тим часом, можете пошукати довідку в інтернеті. Зокрема, ознайомтеся зі <ulink url="https://basket-notepads.github.io"
+>старим сайтом</ulink
+> або публікаціями з журналів про Linux, якщо ви маєте до них доступ. Приклад: <itemizedlist>
+					<listitem
+><para
+><quote
+>Підручник: Basket: зафіксуйте ваші думки.</quote
+> Linux Format 120 (Andy Channelle) </para
+></listitem>
+					<listitem
+><para
+><quote
+>Віртуальний кошик. Збереження, упорядкування та архівування за допомогою Basket KDE</quote
+> Linux Magazine 54 (Stefanie Teufel) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>Вступ</title>
+				<para
+>&basket; — в основному універсальна програма для запису нотаток, але зокрема:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>Користування BasKet</title>
+				<para
+></para>
+				<sect1>
+					<title
+>Синхронізація версій</title>
+					<para
+>Якщо увімкнено, синхронізація версій передає ваші кошики та нотатки у систему керування версіями. Наразі це експериментальна функція, і реалізовано лише найпростіші функції, тому може знадобитися додаткове програмне забезпечення та ручне налаштування. Ось деякі з речей, які можна зробити за допомогою зовнішніх інструментів (але поки не інтерфейсу Basket):</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>отримання застарілих версій та скасування змін</para>
+						</listitem>
+						<listitem>
+							<para
+>синхронізація кошиків на декількох комп'ютерах (об'єднання змін)</para>
+						</listitem>
+						<listitem>
+							<para
+>записування резервних копій кошиків до віддаленого сховища</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>Щоб увімкнути її, скористайтеся пунктами <menuchoice
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати нотатники BasKet</guimenuitem
+> </menuchoice
+> → <guibutton
+>Синхронізація версій</guibutton
+> і <guibutton
+>Увімкнути розподілену систему керування версіями</guibutton
+>. Буде ініціалізовано сховище git у <filename
+>~/.kde/share/apps/basket/baskets</filename
+>, для якого можна використовувати стандартні інструменти git.</para>
+						<sect2>
+							<title
+>Спорожнення журналу версій</title>
+							<para
+>Створення журналу може бути корисним у таких випадках:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>ви замкнули кошик і хочете вилучити будь-які попередні незашифровані версії (які ще зберігаються у системі)</para>
+								</listitem>
+								<listitem>
+									<para
+>ви хочете звільнити трохи місця на диску (може бути корисним, якщо ви вставляєте багато зображень та інших файлів у Basket)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>Зауважте, що вам доведеться повторити будь-які налаштовування вручну, які ви виконували для сховища git.</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>Структура файла BasKet</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>Вступ</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>Формат файлів архівів BasKet</title>
+						<para
+>Формат файлів BasKet (.baskets) має структуру, яка включає запаковані tar дані та зображення попереднього перегляду. Останньою версією формату архіву є 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>Структура файлів</title>
+							<para
+>The archive file is divided into the structures: file header, preview image header, a preview image (.png), archive header, and a gunzipped tar archive (.tar.gz) containing a baskets file tree as illustrated in the following sketch</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>Заголовок файла архіву</title>
+							<para
+>Заголовок файла є короткою структурою, що складається з рядків даних, декларації файла та версії формату</para>
+
+							<para
+>У перших 17 байтах міститься буквально рядок <code
+>BasKetNP:archive</code
+>, за яким має бути символ заповнення рядка (0x0A) у кодуванні ISO-8859-1.</para>
+							<para
+>Другим рядком є буквально рядок <code
+>version:0.6.1</code
+>, наприкінці якого теж має бути символ заповнення рядка (0x0A) у кодуванні ISO-8859-1.</para>
+							<para
+>Приклад:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>Заголовок зображення попереднього перегляду</title>
+							<para
+>У поточній версії файл архіву кошиків містить файл попереднього перегляду, який є похідним з початкових даних кошика.</para>
+							<para
+>Одразу після заголовка файла слід вказати буквально рядок <code
+>preview*:&lt;розмір&gt;</code
+> у кодуванні ISO-8859-1, знову ж таки із завершенням символом заповнення рядка. Параметр <code
+>&lt;розмір&gt;</code
+> є рядком з десяткових цифр. Він оголошує розмір зображення попереднього перегляду у байтах. <code
+>&lt;розмір&gt;</code
+> має належати до типу довгого цілого числа без знаку.</para>
+							<para
+>Приклад:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>Файл зображення попереднього перегляду</title>
+							<para
+>Зображення попереднього перегляду належить до типу .png. Його розмір визначається заголовком зображення попереднього перегляду. Файл зображення попереднього перегляду буде вставлено як файловий потік, одразу після заголовка зображення попереднього перегляду.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>Заголовок архіву даних BasKet</title>
+							<para
+>Just like for the preview image file, the content archive is preceded by a string specifying its size. That string directly follows the file stream of the archive.</para>
+							<para
+>Цим рядком має бути рядок <code
+>archive*:&lt;розмір&gt;</code
+>, за яким слідує символ заповнення рядка у кодуванні ISO-8869-1. Параметр <code
+>&lt;розмір&gt;</code
+> має належати до типу довгих цілих чисел без знаку у рядковому форматі.</para>
+							<para
+>Приклад:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>Архів з даними BasKet</title>
+							<para
+>The content archive contains the BasKet file tree compressed in to a gzipped tar archive (.tar.gz). Its size is specified by the content header.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>Приклад байтового потоку</title>
+							<para
+>У наведеній нижче таблиці показано ключові частини вмісту файла архіву basket. У лівому стовпчику вказано зміщення у файловому потоці. У центральному стовпчику подано байтовий потік з поточним зміщенням у шістнадцятковому форматі. У правому стовпчику показано придатні до друку символи у файловому потоці за поточним зміщенням.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>Питання. відповіді і підказки</title>
+
+					<qandaset id="faq">
+						<title
+>Поширені питання та відповіді на них</title>
+						<qandaentry>
+							<question>
+								<para
+>Питання 1</para>
+							</question>
+							<answer>
+								<para
+>Відповідь</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->

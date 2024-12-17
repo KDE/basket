@@ -3,14 +3,14 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2020, 2021, 2022.
 # SPDX-FileCopyrightText: 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2024-10-16 19:22+0200\n"
+"PO-Revision-Date: 2024-12-16 12:09+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Accelerator-Marker: &\n"
 
 #, kde-format
@@ -2807,12 +2807,12 @@ msgstr "&Nom:"
 #: src/noteedit.cpp:1178
 #, kde-format
 msgid "Font"
-msgstr "Tipus de lletra"
+msgstr "Lletra"
 
 #: src/noteedit.cpp:1186
 #, kde-format
 msgid "Font Size"
-msgstr "Mida del tipus de lletra"
+msgstr "Mida de la lletra"
 
 #: src/noteedit.cpp:1201 src/tagsedit.cpp:466
 #, kde-format
@@ -3282,8 +3282,9 @@ msgstr "Referències &creuades"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Associacions de llançament generals"
 
+# skip-rule: t-apo_ini
 #: src/settings.cpp:871
 #, kde-format
 msgid ""
@@ -3302,25 +3303,25 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>En entorns d'escriptori moderns, les configuracions del llançador "
+"proporcionen informació al sistema sobre com gestionar una aplicació. "
+"Aquests fitxers són essencials per a integrar aplicacions a l'entorn "
+"d'escriptori, per a llistar, cercar i llançar aplicacions amb configuracions "
+"específiques</p><p>Aquesta és la manera de fer-ho si voleu llançar el "
+"navegador Falkon amb un perfil específic.</p><ul><li>Obriu el navegador de "
+"menús de KDE i escriviu «Falkon» al filtre de cerca;</li><li>Seleccioneu el "
+"llançador de l'escriptori «Falkon», feu clic dret, copieu i enganxeu;</"
+"li><li>Editeu els camps de propietats «General» com «Name», «Description», o "
+"«Comment».</li><li>Editeu el camp «Command-line arguments» a alguna cosa com "
+"«--profile 'El llançador d'enllaços exhaustiu' %%u».</li></ul><p>Ara, quan "
+"trieu el vostre llançador nou com a llançador de notes d'enllaç de cistella, "
+"la cistella obrirà els enllaços HTTP amb el perfil «El llançador d'enllaços "
+"exhaustius» del Falkon</p><p>Per a una configuració més fina (com obrir "
+"documents PDF preferiblement amb el Falkon), llegiu el consell d'eina del "
+"segon botó.</p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3351,7 +3352,7 @@ msgstr ""
 "comenci amb «https://...», s'obrirà en el vostre navegador web (p. ex., el "
 "Mozilla Firefox o Epiphany...).</p><p>Per a una configuració més precisa "
 "(com obrir només les pàgines web en el vostre navegador web), llegiu el "
-"segon enllaç d'ajuda.</p>"
+"consell d'eina del tercer botó.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3389,7 +3390,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Associacions específiques de les cistelles"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3432,16 +3433,14 @@ msgid "Open sound notes with:"
 msgstr "Obre les notes de so amb:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Obre les notes de &text amb una aplicació personalitzada:"
+msgstr "Obre les notes d'enllaços HTTP amb una aplicació personalitzada:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Obre les notes de text amb:"
+msgstr "Obre les notes d'enllaços HTTP amb:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3469,10 +3468,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Realment voleu eliminar les versions antigues de totes les cistelles?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Elimina la cistella"
+msgstr "Elimina les cistelles antigues"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format
@@ -3889,7 +3887,7 @@ msgstr "Co&lor:"
 #: src/tagsedit.cpp:502
 #, kde-format
 msgid "&Font:"
-msgstr "&Tipus de lletra:"
+msgstr "&Lletra:"
 
 #: src/tagsedit.cpp:506
 #, kde-format
