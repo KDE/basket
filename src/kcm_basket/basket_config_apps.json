@@ -1,8 +1,24 @@
 {
     "KPlugin": {
         "Description": "Applications",
+        "Description[ca]": "Aplicacions",
+        "Description[es]": "Aplicaciones",
+        "Description[eu]": "Aplikazioak",
+        "Description[ia]": "Applicationes",
+        "Description[nl]": "Toepassingen",
+        "Description[tr]": "Uygulamalar",
+        "Description[uk]": "Програми",
+        "Description[x-test]": "xxApplicationsxx",
         "Icon": "preferences-desktop-filetype-association",
         "Name": "Applications",
+        "Name[ca]": "Aplicacions",
+        "Name[es]": "Aplicaciones",
+        "Name[eu]": "Aplikazioak",
+        "Name[ia]": "Applicationes",
+        "Name[nl]": "Toepassingen",
+        "Name[tr]": "Uygulamalar",
+        "Name[uk]": "Програми",
+        "Name[x-test]": "xxApplicationsxx",
         "ServiceTypes": [
             "KCModule"
         ]

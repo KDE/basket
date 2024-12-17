@@ -1,8 +1,24 @@
 {
     "KPlugin": {
         "Description": "Baskets",
+        "Description[ca]": "Cistelles",
+        "Description[es]": "Cestas",
+        "Description[eu]": "Saskiak",
+        "Description[ia]": "Panieros",
+        "Description[nl]": "Baskets",
+        "Description[tr]": "Sepetler",
+        "Description[uk]": "Кошики",
+        "Description[x-test]": "xxBasketsxx",
         "Icon": "basket",
         "Name": "Baskets",
+        "Name[ca]": "Cistelles",
+        "Name[es]": "Baskets",
+        "Name[eu]": "Saskiak",
+        "Name[ia]": "Panieros",
+        "Name[nl]": "Baskets",
+        "Name[tr]": "Sepetler",
+        "Name[uk]": "Кошики",
+        "Name[x-test]": "xxBasketsxx",
         "ServiceTypes": [
             "KCModule"
         ]

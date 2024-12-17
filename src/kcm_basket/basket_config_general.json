@@ -1,8 +1,24 @@
 {
     "KPlugin": {
         "Description": "General",
+        "Description[ca]": "General",
+        "Description[es]": "General",
+        "Description[eu]": "Orokorra",
+        "Description[ia]": "General",
+        "Description[nl]": "Algemeen",
+        "Description[tr]": "Genel",
+        "Description[uk]": "Загальне",
+        "Description[x-test]": "xxGeneralxx",
         "Icon": "configure",
         "Name": "General",
+        "Name[ca]": "General",
+        "Name[es]": "General",
+        "Name[eu]": "Orokorra",
+        "Name[ia]": "General",
+        "Name[nl]": "Algemeen",
+        "Name[tr]": "Genel",
+        "Name[uk]": "Загальне",
+        "Name[x-test]": "xxGeneralxx",
         "ServiceTypes": [
             "KCModule"
         ]

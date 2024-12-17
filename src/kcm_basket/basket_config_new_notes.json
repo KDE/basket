@@ -1,8 +1,24 @@
 {
     "KPlugin": {
         "Description": "New Notes",
+        "Description[ca]": "Notes noves",
+        "Description[es]": "Nuevas notas",
+        "Description[eu]": "Ohar berriak",
+        "Description[ia]": "Nove notas",
+        "Description[nl]": "Nieuwe notities",
+        "Description[tr]": "Yeni Notlar",
+        "Description[uk]": "Нові нотатки",
+        "Description[x-test]": "xxNew Notesxx",
         "Icon": "knotes-symbolic",
         "Name": "New Notes",
+        "Name[ca]": "Notes noves",
+        "Name[es]": "Nuevas notas",
+        "Name[eu]": "Ohar berriak",
+        "Name[ia]": "Nove notas",
+        "Name[nl]": "Nieuwe notities",
+        "Name[tr]": "Yeni Notlar",
+        "Name[uk]": "Нові нотатки",
+        "Name[x-test]": "xxNew Notesxx",
         "ServiceTypes": [
             "KCModule"
         ]

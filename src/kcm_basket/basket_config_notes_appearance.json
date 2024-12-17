@@ -1,8 +1,24 @@
 {
     "KPlugin": {
         "Description": "Notes Appearance",
+        "Description[ca]": "Aparença de les notes",
+        "Description[es]": "Aspecto de las notas",
+        "Description[eu]": "Oharren itxura",
+        "Description[ia]": "Apparentia de Notas",
+        "Description[nl]": "Uiterlijk van notities",
+        "Description[tr]": "Notlar Görünüşü",
+        "Description[uk]": "Вигляд нотаток",
+        "Description[x-test]": "xxNotes Appearancexx",
         "Icon": "preferences-desktop-theme",
         "Name": "Notes Appearance",
+        "Name[ca]": "Aparença de les notes",
+        "Name[es]": "Aspecto de las notas",
+        "Name[eu]": "Oharren itxura",
+        "Name[ia]": "Apparentia de notas",
+        "Name[nl]": "Uiterlijk van notities",
+        "Name[tr]": "Notlar Görünüşü",
+        "Name[uk]": "Вигляд нотаток",
+        "Name[x-test]": "xxNotes Appearancexx",
         "ServiceTypes": [
             "KCModule"
         ]
