@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>Het handboek van &basket;</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>2016-11-07</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>Zorgen voor uw ideeën.</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>KDE</keyword>
+			<keyword
+>BasKet</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>OPMERKING: handboek nog niet geschreven</title>
+		<para
+>&basket; heeft nog steeds geen handboek, dus zijn medewerkers welkom! Bekijk de <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+> KDE documentatie</ulink
+> voor de tips over het DocBook-format.</para>
+			<para
+>Ondertussen kunt u op het internet zoeken naar hulp. Zoek speciaal in de <ulink url="https://basket-notepads.github.io"
+>oude website</ulink
+> of, bijvoorbeeld, kijk in Linux magazines als u er toegang toe hebt: <itemizedlist>
+					<listitem
+><para
+><quote
+>Inleiding: Basket: vang uw gedachten.</quote
+> Linux Format 120 (Andy Channelle) </para
+></listitem>
+					<listitem
+><para
+><quote
+>Een virtuele mand. Opslaan, sorteren en vullen met KDE&apos;s Basket</quote
+> Linux Magazine 54 (Stefanie Teufel) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>Inleiding</title>
+				<para
+>&basket; is hoofdzakelijk een maker voor notities, maar een speciale:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>BasKet gebruiken</title>
+				<para
+></para>
+				<sect1>
+					<title
+>Versiesynchronisatie</title>
+					<para
+>Indien ingeschakeld zet Version Sync uw mandjes en notities onder versiecontrole. Dit is nu een experimentele functie en alleen erg basis functies zijn geïmplementeerd, het kan dus extra software en enig handmatig opzetten vereisen. Dit zijn enige van de dingen die gedaan kunnen worden met externe hulpmiddelen (maar nog geen Basket interface):</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>bekijk oude revisies en draai de wijzigingen terug</para>
+						</listitem>
+						<listitem>
+							<para
+>synchroniseer mandjes op verschillende computers (merg de wijziging) </para>
+						</listitem>
+						<listitem>
+							<para
+>verstuur reservekopieën van mandjes naar opslagruimte op afstand</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>Om het in te schakelen, selecteer <menuchoice
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Notepads van BasKet configureren</guimenuitem
+> </menuchoice
+> → <guibutton
+>Synchronisatie van versie</guibutton
+> en <guibutton
+>Gedistribueerde controle op versie inschakelen</guibutton
+>. Het zal de git-opslagruimte initialiseren in <filename
+>~/.kde/share/apps/basket/baskets</filename
+>, waarop standaard git-hulpmiddelen gebruikt kunnen worden.</para>
+						<sect2>
+							<title
+>Versiegeschiedenis wordt gewist</title>
+							<para
+>Versiegeschiedenis wissen kan in deze gevallen nuttig zijn:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>u hebt een mandje vergrendeld en wilt elke vorige niet versleutelde versies verwijderen (die nog steeds in het systeem zijn opgeslagen)</para>
+								</listitem>
+								<listitem>
+									<para
+>u wilt enige schijfruimte vrij maken (kan nodig zijn als u heel wat afbeeldingen of andere bestanden in Basket hebt opgeslagen)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>Merk op dat u elke handmatige opzet opnieuw moet doen die  deed op de git-opslagruimte.</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>Bestandsstructuur van BasKet</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>Inleiding</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>Bestandsformaat van BasKet-archief</title>
+						<para
+>Het bestandsformaat van BasKet (.baskets) is een structuur die een gecomprimeerde tar en een voorbeeldafbeelding inpakt. De laatste versie van het archiefformaat is 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>Bestandsstructuur</title>
+							<para
+>Het archiefbestand is opgedeeld in de structuren: bestandskop, voorbeeldafbeeldingkop, een voorbeeldafbeelding (.png), archiefkop en een gunzipped tar-archief (.tar.gz) een boomstructuur van basketbestanden bevat zoals geïllustreerd in de volgende schets</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>Archiefbestandskop</title>
+							<para
+>De bestandskop is een korte structuur, bestaande uit regels van tekenreeksen, de bestandsdeclarator en de versie van het formaat</para>
+
+							<para
+>De eerste 17 bytes bevatten de letterlijke tekenreeks <code
+>BasKetNP:archive</code
+> gevolgd door een symbool nieuwe-regel (0x0A) in ISO-8859-1 codering.</para>
+							<para
+>De tweede tekenreeks de letterlijke tekenreeks <code
+>version:0.6.</code
+> gevolgd door een symbool nieuwe-regel (0x0A) in ISO-8859-1 codering.</para>
+							<para
+>Een voorbeeld:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>Voorbeeldafbeeldingskop</title>
+							<para
+>Op dit moment bevat het basket-archiefbestand een voorbeeldbestand die is afgeleid uit de inhoud van het eerste mandje.</para>
+							<para
+>Direct na de bestandskop een letterlijke tekenreeks <code
+>preview*:&lt;size&gt;</code
+> in ISO-8859-1 codering, opnieuw gevolgd door een symbool nieuwe-regel. De parameter <code
+>&lt;size&gt;</code
+> is een tekenreeks van decimale cijfers. Het geeft de grootte in bytes van de voorbeeldafbeelding. <code
+>&lt;size&gt;</code
+> is van het type lang zonder teken.</para>
+							<para
+>Een voorbeeld:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>Voorbeeldafbeeldingsbestand</title>
+							<para
+>De voorbeeldafbeelding is van het type .png. Zijn grootte is gespecificeerd door de voorbeeldafbeeldingskop. Het voorbeeldafbeeldingsbestand is ingevoegd als bestandsstream en volgt direct op de voorbeeldafbeeldingskop.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>Kop van inhoud van archief van BasKet</title>
+							<para
+>Net als voor het voorbeeldafbeeldingsbestand wordt de inhoud van het archief voorafgegaan door een tekenreeks die zijn grootte specificeert. Die tekenreeks wordt direct gevolgd door de bestandsstream van het archief.</para>
+							<para
+>Die tekenreeks moet <code
+>archive*:&lt;size&gt;</code
+> zijn gevolgd door een symbool nieuwe-regel in ISO-8869-1 codering. De parameter <code
+>&lt;size&gt;</code
+> is een lang geheel getal zonder teken in formaat tekenreeks.</para>
+							<para
+>Een voorbeeld:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>Inhoud van archief van BasKet</title>
+							<para
+>De inhoud van het archief bevat de bestandsboomstructuur van BasKet gecomprimeerd naar een gzipped tar-archief (.tar.gz). Zijn grootte is gespecificeerd door de inhoudskop.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>Voorbeeld byte-stream</title>
+							<para
+>De volgende tabel toont sleuteldelen van de inhoud van het archiefbestand van basket. De linker kolom specificeert de offset in de bestandsstream. De middelste kolom geeft de bytestream op de huidige offset in hexadecimaal formaat. De rechter kolom toont afdrukbare tekens in de bestandsstream op de huidige offset.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>Vragen, antwoorden en tips</title>
+
+					<qandaset id="faq">
+						<title
+>Veel voorkomende vragen</title>
+						<qandaentry>
+							<question>
+								<para
+>Vraag 1</para>
+							</question>
+							<answer>
+								<para
+>Het antwoord</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->

@@ -3904,20 +3904,3 @@ msgid ""
 msgstr ""
 "Endra storleiken på vindauget for å velja biletstorleik, og\n"
 "lukk vindauget eller trykk «Escape» for å bruka endringane."
-
-#, fuzzy
-#~ msgid "Choose action"
-#~ msgstr "Vel kommandoen som skal køyrast:"
-
-#, fuzzy
-#~ msgid "Delete (to Trash)"
-#~ msgstr "Fjern merkelapp"
-
-#~ msgid "How to change the application used to open Web links?"
-#~ msgstr "Korleis endra programmet brukt til å opna nettadresser?"
-
-#~ msgid "How to change the applications used to open files and links?"
-#~ msgstr "Korleis endra programma brukt til å opna filer og lenkjer?"
-
-#~ msgid "..."
-#~ msgstr " …"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2024-12-14 10:30+0100\n"
+"PO-Revision-Date: 2024-12-16 22:09+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3244,7 +3244,7 @@ msgstr "Referencias &cruzadas"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Asociacións de inicio xerais"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3264,26 +3264,25 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>En contornos de escritorio modernos, as configuracións de inicio fornecen "
+"información ao sistema sobre como xestionar a aplicación correspondente. "
+"Estes ficheiros de configuración son esenciais para integrar as aplicacións "
+"no contorno de escritorio, para listar, buscar e iniciar aplicacións con "
+"configuracións específicas.</p><p>Por exemplo, isto é o que tería que facer "
+"para iniciar o navegador Falkon cun perfil concreto.</p><ul><li>Abra p "
+"editor de menú de KDE, e escriba «Falkon» no filtro de busca.</"
+"li><li>Seleccione o iniciador de escritorio de «Falkon», cópiea e péguea.</"
+"li><li>Edite is campos da propiedade «Xeral» como «Nome», «Descrición» ou "
+"«Comentario».</li><li>Edite o campo de «Argumentos da liña de ordes» e poña "
+"algo como «--profile \"O-Seu-Pasatempo\" %%u».</li></ul><p>Agora, cando "
+"escolla o novo iniciador como iniciador de notas de ligazón de cesto, Basket "
+"abrirá as ligazóns HTTP co perfil «O-Seu-Pasatempo» de Falkon.</p><p>Para "
+"configuracións máis granulares (como preferir abrir documentos PDF con "
+"Falkon), consulte a mensaxe emerxente do segundo botón.</p>"
 
 # skip-rule: trasno-find_reverse
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3312,7 +3311,7 @@ msgstr ""
 "comeza por «https://…» abrirase no seu navegador web (por exemplo, en "
 "Mozilla Firefox ou en Epiphany).</p><p>Para unha configuración máis "
 "elaborada, como abrir só páxinas web no seu navegador web, consulte a "
-"segunda ligazón de axuda.</p>"
+"mensaxe emerxente do terceiro botón.</p>"
 
 # skip-rule: trasno-command, trasno-find_reverse
 #: src/settings.cpp:895
@@ -3349,7 +3348,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Asociacións específicas de Basket"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3392,16 +3391,14 @@ msgid "Open sound notes with:"
 msgstr "Abrir as notas de son con:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Abrir as notas de &texto cunha aplicación personalizada:"
+msgstr "Abrir as notas de ligazón HTTP cunha aplicación personalizada:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Abrir as notas de texto con:"
+msgstr "Abrir as notas de ligazón HTTP con:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3428,10 +3425,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Seguro que quere retirar as versións vellas de todos os cestos?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Retirar o cesto"
+msgstr "Retirar o cestos vellos"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format

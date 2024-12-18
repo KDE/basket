@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>El manual del &basket;</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>7 de novembre de 2016</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>Tenir cura de les vostres idees.</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>KDE</keyword>
+			<keyword
+>BasKet</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>AVÍS: Encara no s'ha escrit el manual</title>
+		<para
+>El &basket; encara no té el manual, per tant, donem la benvinguda a col·laboradors! Reviseu la <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+>documentació de KDE</ulink
+> per a trobar consells sobre el format DocBook.</para>
+			<para
+>Mentrestant, podeu buscar ajuda a Internet. En particular, doneu una ullada al <ulink url="https://basket-notepads.github.io"
+>lloc web antic</ulink
+> o consulteu les revistes del Linux si hi teniu accés, per exemple: <itemizedlist>
+					<listitem
+><para
+>«Tutorial: Basket: Capture your thoughts» Linux Format 120 (Andy Channelle) </para
+></listitem>
+					<listitem
+><para
+>«A Virtual Basket. Storing, sorting, and filing with KDE&apos;s Basket» Linux Magazine 54 (Stefanie Teufel) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>Introducció</title>
+				<para
+>El &basket; és principalment per a prendre tota mena de notes, però una en particular:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>Ús del BasKet</title>
+				<para
+></para>
+				<sect1>
+					<title
+>Sincronització de versions</title>
+					<para
+>Quan està activat, la sincronització de versions posa les vostres cistelles i notes sota un control de versió. Actualment es tracta d'una característica experimental i només s'implementen funcions molt bàsiques, per la qual cosa pot requerir programari addicional i alguna configuració manual. Aquestes són algunes de les coses que es poden fer utilitzant eines externes (però encara no estan a la interfície de Basket):</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>extreure revisions antigues i revertir els canvis</para>
+						</listitem>
+						<listitem>
+							<para
+>sincronitzar cistelles en diversos ordinadors (fusiona els canvis)</para>
+						</listitem>
+						<listitem>
+							<para
+>pujar còpies de seguretat de les cistelles a repositoris remots</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>Per a activar-lo, seleccioneu <menuchoice
+> <guimenu
+>Configuració</guimenu
+> <guimenuitem
+>Configura els quaderns de notes del BasKet</guimenuitem
+> </menuchoice
+> → <guibutton
+>Sincronitza la versió</guibutton
+> i <guibutton
+>Activa el control de versions distribuïdes</guibutton
+>. Inicialitzarà el repositori «git» a <filename
+>~/.kde/share/apps/basket/baskets</filename
+>, sobre el qual es poden utilitzar les eines estàndard del «git».</para>
+						<sect2>
+							<title
+>Neteja de l'historial de versions</title>
+							<para
+>Netejar l'historial pot ser útil en aquests casos:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>heu bloquejat una cistella i voleu eliminar qualsevol versió sense encriptar anterior (que encara s'emmagatzema al sistema)</para>
+								</listitem>
+								<listitem>
+									<para
+>voleu alliberar una mica d'espai en disc (pot ser important si inseriu moltes imatges o altres fitxers al Basket)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>Tingueu en compte que haureu de refer qualsevol configuració manual que hàgiu fet al repositori «git».</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>Estructura del fitxer BasKet</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>Introducció</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>Format de fitxer d'arxiu BasKet</title>
+						<para
+>El format de fitxer BasKet (.baskets) és una estructura que embolcalla un «tar» comprimit i una imatge de vista prèvia. La darrera versió del format d'arxiu és 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>Estructura de fitxers</title>
+							<para
+>El fitxer d'arxiu es divideix en les estructures: capçalera de fitxer, una capçalera d'imatge de vista prèvia, una imatge de vista prèvia (.png), una capçalera d'arxiu i un arxiu «tar» comprimit amb «gunzip» (.tar.gz) que conté un arbre de fitxers de cistelles com s'il·lustra en l'esbós següent</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>Capçalera del fitxer d'arxiu</title>
+							<para
+>La capçalera del fitxer és una estructura curta, que consisteix en línies de cadenes, el declarador del fitxer i la versió del format</para>
+
+							<para
+>Els primers 17 bytes contenen la cadena literal <code
+>BasKetNP:archive</code
+> seguida d'un símbol de línia nova (0x0A) en la codificació ISO-8859-1.</para>
+							<para
+>La segona cadena és una cadena literal <code
+>versió:0.6.1</code
+> seguida d'un símbol de línia nova (0x0A) en la codificació ISO-8859-1.</para>
+							<para
+>Un exemple:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>Capçalera de la imatge de vista prèvia</title>
+							<para
+>Actualment, el fitxer d'arxiu de la cistella conté un fitxer de vista prèvia que es deriva del primer contingut de la cistella.</para>
+							<para
+>Seguint directament la capçalera del fitxer, una cadena literal <code
+>preview*:&lt;size&gt;</code
+> en la codificació ISO-8859-1, de nou seguida d'un símbol de línia nova. El paràmetre <code
+>&lt;size&gt;</code
+> és una cadena de nombres decimals. Declara la mida en bytes de la imatge de vista prèvia. <code
+>&lt;size&gt;</code
+> és de tipus llarg sense signe.</para>
+							<para
+>Un exemple:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>Fitxer d'imatge de la vista prèvia</title>
+							<para
+>La imatge de vista prèvia és del tipus «.png». La seva mida s'especifica a la capçalera de la vista prèvia de la imatge. El fitxer d'imatge de vista prèvia s'insereix com a flux de fitxers, i segueix directament la capçalera de la imatge de vista prèvia.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>Capçalera d'arxiu de contingut del BasKet</title>
+							<para
+>Igual que per al fitxer d'imatge de vista prèvia, l'arxiu de contingut està precedit per una cadena que especifica la seva mida. Aquesta cadena segueix directament el flux de fitxers de l'arxiu.</para>
+							<para
+>Aquesta cadena ha de ser <code
+>archive*:&lt;size&gt;</code
+> seguida d'un símbol de línia nova en la codificació ISO-8869-1. El paràmetre <code
+>&lt;size&gt;</code
+> és un enter llarg sense signe en format de cadena.</para>
+							<para
+>Un exemple:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>Arxiu de contingut del BasKet</title>
+							<para
+>L'arxiu de contingut conté l'arbre de fitxers BasKet comprimit a un arxiu «tar» comprimit amb «gzip» (.tar.gz). La seva mida s'especifica a la capçalera de contingut.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>Exemple de flux de bytes</title>
+							<para
+>La taula següent mostra les parts clau del contingut del fitxer d'arxiu «basket». La columna esquerra especifica el desplaçament en el flux de fitxers. La columna central dona el flux de bytes en el desplaçament actual en format hexadecimal. La columna dreta mostra els caràcters imprimibles dins del flux de fitxers en el desplaçament actual.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>Preguntes, respostes i consells</title>
+
+					<qandaset id="faq">
+						<title
+>Preguntes més freqüents</title>
+						<qandaentry>
+							<question>
+								<para
+>Pregunta 1</para>
+							</question>
+							<answer>
+								<para
+>La resposta</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->

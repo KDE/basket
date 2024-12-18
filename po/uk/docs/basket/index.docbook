@@ -159,7 +159,7 @@
 							<title
 >Структура файлів</title>
 							<para
->The archive file is divided into the structures: file header, preview image header, a preview image (.png), archive header, and a gunzipped tar archive (.tar.gz) containing a baskets file tree as illustrated in the following sketch</para>
+>Файл архіву поділено на структури: заголовок файла, заголовок зображення попереднього перегляду, зображення попереднього перегляду (.png), заголовок архіву і запакований gunzip архів tar (.tar.gz), що містить ієрархію файла кошиків, як це проілюстровано на наведеному нижче ескізі</para>
 							<mediaobject  id="basket-archive-file-structure-graph">
 								<imageobject
 > 
@@ -224,7 +224,7 @@ preview*:12000
 							<title
 >Заголовок архіву даних BasKet</title>
 							<para
->Just like for the preview image file, the content archive is preceded by a string specifying its size. That string directly follows the file stream of the archive.</para>
+>Подібно до файла зображення попереднього перегляду, перед архівом даних має бути вказано рядок, що визначає розмір архіву. За цим рядком безпосередньо слідує файловий потік архіву даних.</para>
 							<para
 >Цим рядком має бути рядок <code
 >archive*:&lt;розмір&gt;</code
@@ -244,7 +244,7 @@ archive*:1245000
 							<title
 >Архів з даними BasKet</title>
 							<para
->The content archive contains the BasKet file tree compressed in to a gzipped tar archive (.tar.gz). Its size is specified by the content header.</para>
+>Архів даних містить ієрархію файлів BasKet, стиснуту за до стиснутого gzip архіву tar (.tar.gz). Його розмір визначається заголовком даних.</para>
 						</sect2>
 
 						<sect2 id="basket-archive-file-content-example">
