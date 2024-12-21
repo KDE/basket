@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2024-12-19 22:37+0530\n"
+"PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -673,13 +673,13 @@ msgstr "पृष्ठभूमि & छवि: ."
 #: src/basketproperties.ui:58
 #, kde-format
 msgid "&Background color:"
-msgstr "&पृष्ठभूमि रंगः : १."
+msgstr "&पृष्ठभूमि रंगः :"
 
 #. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
 #: src/basketproperties.ui:65
 #, kde-format
 msgid "&Text color:"
-msgstr "&पाठवर्णः : १."
+msgstr "&पाठवर्णः :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
 #: src/basketproperties.ui:75
@@ -691,7 +691,7 @@ msgstr "स्वभावः"
 #: src/basketproperties.ui:81
 #, kde-format
 msgid "Col&umns:"
-msgstr "स्तम्भः : १."
+msgstr "स्तम्भः :"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
 #: src/basketproperties.ui:88
@@ -1699,7 +1699,7 @@ msgstr "कृपया टोकरीं प्रति गुप्तशब
 #: src/common.cpp:146
 #, kde-format
 msgid "Error while saving: "
-msgstr "रक्षणकाले त्रुटिः : १."
+msgstr "रक्षणकाले त्रुटिः :"
 
 #: src/debugwindow.cpp:23
 #, kde-format
@@ -1789,7 +1789,7 @@ msgstr "Filter पुनः सेट् कुर्वन्तु"
 #: src/filter.cpp:47
 #, kde-format
 msgid "&Filter: "
-msgstr "&छिद्रक : १."
+msgstr "&छिद्रक :"
 
 #: src/filter.cpp:51
 #, kde-format
@@ -1804,12 +1804,12 @@ msgstr "सर्वाणि टोकरीनि छानयन्तु"
 #: src/filter.cpp:134
 #, kde-format
 msgid "(Not tagged)"
-msgstr "(टैग् न कृतम्) २."
+msgstr "(टैग् न कृतम्)"
 
 #: src/filter.cpp:135
 #, kde-format
 msgid "(Tagged)"
-msgstr "(टैग्ड्) ९."
+msgstr "(टैग्ड्)"
 
 #: src/formatimporter.cpp:118
 #, kde-format
@@ -1935,7 +1935,7 @@ msgstr "आईडी"
 #: src/kgpgme.cpp:69
 #, kde-format
 msgid "Choose a secret key:"
-msgstr "गुप्तकुंजी चिनोतु : १."
+msgstr "गुप्तकुंजी चिनोतु :"
 
 #: src/kgpgme.cpp:257
 #, kde-format
@@ -1995,7 +1995,7 @@ msgstr "यदा मूषकः बहिः भवति"
 #: src/linklabel.cpp:607
 #, kde-format
 msgid "&Underline:"
-msgstr "&अधोरेखा : १."
+msgstr "&अधोरेखा :"
 
 #: src/linklabel.cpp:614
 #, kde-format
@@ -2005,12 +2005,12 @@ msgstr "वर्ण:"
 #: src/linklabel.cpp:621
 #, kde-format
 msgid "&Mouse hover color:"
-msgstr "&माउस होवर रंगः : १."
+msgstr "&माउस होवर रंगः :"
 
 #: src/linklabel.cpp:630
 #, kde-format
 msgid "&Icon size:"
-msgstr "&चिह्न आकारः : १."
+msgstr "&चिह्न आकारः :"
 
 #: src/linklabel.cpp:636
 #, kde-format
@@ -2035,7 +2035,7 @@ msgstr "चिह्नस्य आकारस्य त्रिगुणम�
 #: src/linklabel.cpp:641
 #, kde-format
 msgid "&Preview:"
-msgstr "&पूर्वावलोकनम् : १."
+msgstr "&पूर्वावलोकनम् :"
 
 #: src/linklabel.cpp:643
 #, kde-format
@@ -2127,12 +2127,12 @@ msgstr "निःशुल्कः"
 #: src/newbasketdialog.cpp:195
 #, kde-format
 msgid "&Template:"
-msgstr "&टेम्पलेट: १."
+msgstr "&टेम्पलेट:"
 
 #: src/newbasketdialog.cpp:205
 #, kde-format
 msgid "(Baskets)"
-msgstr "(टोकरी) ९."
+msgstr "(टोकरी)"
 
 #: src/newbasketdialog.cpp:207
 #, kde-format
@@ -2480,12 +2480,12 @@ msgstr "ध्वनयः उद्घाटयन्..."
 #: src/notecontent.cpp:1637
 #, kde-format
 msgid "Open sound with:"
-msgstr "मुक्तध्वनिः सह : १."
+msgstr "मुक्तध्वनिः सह :"
 
 #: src/notecontent.cpp:1639
 #, kde-format
 msgid "Open sounds with:"
-msgstr "मुक्तध्वनयः सह : १."
+msgstr "मुक्तध्वनयः सह :"
 
 #: src/notecontent.cpp:1701 src/notecontent.cpp:1972
 #, kde-format
@@ -2682,7 +2682,7 @@ msgstr "ऑटो"
 #: src/noteedit.cpp:724 src/noteedit.cpp:1046
 #, kde-format
 msgid "&Icon:"
-msgstr "&चिह्नम् : १."
+msgstr "&चिह्नम् :"
 
 #: src/noteedit.cpp:766 src/noteedit.cpp:933
 #, kde-format
@@ -2891,7 +2891,7 @@ msgstr "दक्षिणे"
 #: src/settings.cpp:435
 #, kde-format
 msgid "&Basket tree position:"
-msgstr "&टोकरी वृक्षस्य स्थितिः : १."
+msgstr "&टोकरी वृक्षस्य स्थितिः :"
 
 #: src/settings.cpp:440 src/settings.cpp:694
 #, kde-format
@@ -3079,7 +3079,7 @@ msgstr "&private/public कुञ्जी संरक्षितानां 
 #: src/settings.cpp:691
 #, kde-format
 msgid "&Place of new notes:"
-msgstr "&नवीनटिप्पणीनां स्थानम् : १."
+msgstr "&नवीनटिप्पणीनां स्थानम् :"
 
 #: src/settings.cpp:696
 #, kde-format
@@ -3089,7 +3089,7 @@ msgstr "वर्तमान टिप्पण्यां"
 #: src/settings.cpp:715
 #, kde-format
 msgid "&New images size:"
-msgstr "&नवीनचित्रस्य आकारः : १."
+msgstr "&नवीनचित्रस्य आकारः :"
 
 #: src/settings.cpp:728
 #, kde-format
@@ -3509,27 +3509,27 @@ msgstr "विकासः"
 #: src/tag.cpp:594
 #, kde-format
 msgid "0 %"
-msgstr "० % ९."
+msgstr "० %"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "25 %"
-msgstr "२५ % २."
+msgstr "२५ %"
 
 #: src/tag.cpp:595
 #, kde-format
 msgid "50 %"
-msgstr "५० % ९."
+msgstr "५० %"
 
 #: src/tag.cpp:595
 #, kde-format
 msgid "75 %"
-msgstr "७५ % ९."
+msgstr "७५ %"
 
 #: src/tag.cpp:595
 #, kde-format
 msgid "100 %"
-msgstr "१०० % २."
+msgstr "१०० %"
 
 #: src/tag.cpp:648
 #, kde-format
@@ -3652,12 +3652,12 @@ msgstr "New St&ate"
 #: src/tagsedit.cpp:355
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "उपरि गच्छतु (Ctrl+Shift+Up) २."
+msgstr "उपरि गच्छतु (Ctrl+Shift+Up)"
 
 #: src/tagsedit.cpp:356
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "अधः गच्छन्तु (Ctrl+Shift+Down) २."
+msgstr "अधः गच्छन्तु (Ctrl+Shift+Down)"
 
 #: src/tagsedit.cpp:357
 #, kde-format
@@ -3717,7 +3717,7 @@ msgstr "[[/शीर्ष स्तरीय मद/बाल|वैकल्�
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "Relative to the current basket:"
-msgstr "वर्तमान टोकरीयाः सापेक्षम् : १."
+msgstr "वर्तमान टोकरीयाः सापेक्षम् :"
 
 #: src/tagsedit.cpp:405
 #, kde-format
@@ -3758,7 +3758,7 @@ msgstr "अपाकरोति"
 #: src/tagsedit.cpp:437
 #, kde-format
 msgid "&Emblem:"
-msgstr "&चिह्नम् : १."
+msgstr "&चिह्नम् :"
 
 #: src/tagsedit.cpp:454
 #, kde-format
@@ -3783,7 +3783,7 @@ msgstr "वर्ण:"
 #: src/tagsedit.cpp:502
 #, kde-format
 msgid "&Font:"
-msgstr "&फॉन्टः : १."
+msgstr "&फॉन्टः :"
 
 #: src/tagsedit.cpp:506
 #, kde-format
@@ -3793,7 +3793,7 @@ msgstr "&आकृति:"
 #: src/tagsedit.cpp:510
 #, kde-format
 msgid "Te&xt equivalent:"
-msgstr "ते&xt समतुल्यः : १."
+msgstr "ते&xt समतुल्यः :"
 
 #: src/tagsedit.cpp:516
 #, kde-format
@@ -3876,7 +3876,7 @@ msgstr "राज्यं विलोपयन्तु"
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr "– ९."
+msgstr "–"
 
 #: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
 #: src/variouswidgets.cpp:140 src/variouswidgets.cpp:141
