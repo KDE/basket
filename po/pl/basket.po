@@ -1,16 +1,16 @@
 # translation of pl_PL.po to Polish
-# This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-#
+# This file is distributed under the same license as the PACKAGE package.
 # Pawe�Kot <pkot@bezsensu.pl>, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2006.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2022-04-10 08:58+0200\n"
+"PO-Revision-Date: 2024-12-21 11:59+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3253,7 +3254,7 @@ msgstr "Odnośniki bibliografi&czne"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Ogólne skojarzenia uruchamiania"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3273,25 +3274,22 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>W nowoczesnych środowiskach pulpitu, pliki uruchamiające określają "
+"systemowi sposób obsługi aplikacji. Pliki te są niezbędne w do wypisywania, "
+"wyszukiwania i uruchamiania aplikacji o szczególnych ustawieniach w tych "
+"środowiskach</p><p>Oto jak uruchamia się Przeglądarkę Falkon z danym "
+"profilem.</p><ul><li>Otwórz Edytora Menu KDE i wpisz \"Falkon\" w polu "
+"wyszukiwania;</li><li>Zaznacz wpis \"Falkon\", naciśnij prawym, skopiuj i "
+"wklej;</li><li>Zmień \"Ogólne\" pola takie jak \"Nazwa\", \"Opis\" czy "
+"\"Uwagi\".</li><li>Zmień pole \"Argumenty wiersza poleceń\" na \"--profile "
+"'Twoje-Hobby' %%u\".</li></ul><p>Teraz, gdy wybierzesz nowy plik "
+"uruchamiający jako uruchamiacz odnośnika w notatkach basket, to basket "
+"otworzy ten odnośnik HTTP w profilu Falkona o nazwie \"Twoje-Hobby\"</"
+"p><p>Dokładniejsze ustawienia (np. otwieranie dokumentów pdf w Falkonie) "
+"opisane są we wskazówce do drugiego przycisku.</p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3321,7 +3319,7 @@ msgstr ""
 "odnośnik zaczynający się na \"https://...\" zostanie otwarty w przeglądarce "
 "sieciowej (np. Mozilla Firefox lub Epiphany lub...).</p><p>Dokładniejsze "
 "ustawienia (np. otwieranie tylko stron sieciowych w przeglądarce sieciowej) "
-"opisane są w drugim odnośniku.</p>"
+"opisane są we wskazówce do drugiego przycisku.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3357,7 +3355,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Szczególne skojarzenia Basketa"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3400,16 +3398,14 @@ msgid "Open sound notes with:"
 msgstr "Otwórz pliki dźwiękowe w:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Otwórz notatki &tekstowe w programie użytkownika:"
+msgstr "Otwórz odnośniki http w notatkach we wskazanej aplikacji:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Otwórz notatki tekstowe w:"
+msgstr "Otwórz odnośniki http w notatkach w:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3437,10 +3433,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Czy na pewno usunąć stare wersje wszystkich koszyków?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Usuń koszyk"
+msgstr "Usuń stare koszyki"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format
