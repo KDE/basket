@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/basket/basket.pot\n"
-"X-Crowdin-File-ID: 12066\n"
+"X-Crowdin-File: /kf6-trunk/messages/basket/basket.pot\n"
+"X-Crowdin-File-ID: 56816\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3197,16 +3197,14 @@ msgid "Open sound notes with:"
 msgstr "打开声音记事贴方式："
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "用自定义程序打开文本记事贴 (&T)："
+msgstr ""
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "打开文本记事贴方式："
+msgstr ""
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3229,10 +3227,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr ""
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "移除笔记篮"
+msgstr ""
 
 #: src/settings_versionsync.cpp:75
 #, kde-format
@@ -3750,29 +3747,3 @@ msgid ""
 msgstr ""
 "调整窗口到选择图片大小\n"
 "关闭退出后会自动保存改变."
-
-#~ msgid "Choose action"
-#~ msgstr "选择操作"
-
-#~ msgid ""
-#~ "Basket data from KDE4 have been successfully migrated to %1.\n"
-#~ "Unless you are planning to run KDE4 version again, you can delete the old "
-#~ "folder %2"
-#~ msgstr ""
-#~ "来自 KDE4 版的 Basket 数据已成功迁移到 %1。\n"
-#~ "除非您打算再次运行 KDE4 版本，否则您可以删除旧文件夹 %2"
-
-#~ msgid "Delete (to Trash)"
-#~ msgstr "删除 (回收站)"
-
-#~ msgid "Keep"
-#~ msgstr "保留"
-
-#~ msgid "How to change the application used to open Web links?"
-#~ msgstr "如何改变打开网页链接的程序?"
-
-#~ msgid "How to change the applications used to open files and links?"
-#~ msgstr "如何改变打开文件和链接的程序?"
-
-#~ msgid "..."
-#~ msgstr "..."
