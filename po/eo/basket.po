@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2024-05-30 22:41+0200\n"
+"PO-Revision-Date: 2024-12-26 21:43+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -3187,16 +3187,14 @@ msgid "Open sound notes with:"
 msgstr "Malfermi sonnotojn kun:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Malfermi &tekstajn notojn per propra aplikaĵo:"
+msgstr "Malfermi http-ligilajn notojn per tajlorita aplikaĵo:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Malfermi tekstajn notojn kun:"
+msgstr "Malfermi http-ligilajn notojn per:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3219,10 +3217,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Ĉu vi vere volas forigi malnovajn versiojn por ĉiuj korboj?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Forigi Korbon"
+msgstr "Forigi nalnovajn Korbojn"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format
@@ -3720,7 +3717,7 @@ msgstr "Forigi Ŝtaton"
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr "–"
+msgstr " – "
 
 #: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
 #: src/variouswidgets.cpp:140 src/variouswidgets.cpp:141
@@ -3738,22 +3735,3 @@ msgid ""
 "Resize the window to select the image size\n"
 "and close it or press Escape to accept changes."
 msgstr ""
-
-#~ msgid "Choose action"
-#~ msgstr "Elekti agon"
-
-#~ msgid "Delete (to Trash)"
-#~ msgstr "Forigi (al Rubujo)"
-
-#~ msgid "Keep"
-#~ msgstr "Konservi"
-
-#~ msgid "How to change the application used to open Web links?"
-#~ msgstr "Kiel ŝanĝi la aplikaĵon uzatan por malfermi Retajn ligilojn?"
-
-#~ msgid "How to change the applications used to open files and links?"
-#~ msgstr ""
-#~ "Kiel ŝanĝi la aplikaĵojn uzatajn por malfermi dosierojn kaj ligilojn?"
-
-#~ msgid "..."
-#~ msgstr "..."

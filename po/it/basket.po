@@ -1,20 +1,20 @@
 # translation of BasKet to Italian
 #
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2006, 2007, 2014, 2016, 2018, 2020, 2021.
+# SPDX-FileCopyrightText: 2006, 2007, 2014, 2016, 2018, 2020, 2021, 2024 Luigi Toscano <luigi.toscano@tiscali.it>
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-16 00:48+0000\n"
-"PO-Revision-Date: 2021-03-07 14:56+0100\n"
+"PO-Revision-Date: 2024-12-17 00:18+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 25.03.70\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -3268,7 +3268,7 @@ msgstr "Riferimenti in&crociati"
 #: src/settings.cpp:869
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Associazioni di avvio generali"
 
 #: src/settings.cpp:871
 #, kde-format
@@ -3288,25 +3288,25 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>Negli ambienti desktop moderni, la configurazione dell'avviatore fornisce "
+"al sistema informazioni su come gestire un'applicazione. Questi file sono "
+"essenziali per integrare le applicazioni nell'ambiene destkio, per elencare, "
+"cercare ed eseguire applicazioni con configurazioni specifiche</p><p>Di "
+"seguito è spiegato come fare per eseguire il browser Falkon con un profilo "
+"specifico.</p><ul><li>Apri l'editor di menu di KDE, e digita «Falkon» nel "
+"filtro di ricerca;</li><li>Seleziona l'esecutore desktop «Falkon», clic sol "
+"pulsante destro, copia e incolla;</li><li>Modifica i campi delle proprietà "
+"della sezione «Generali» come «Nome», «Descrizione» o «Commento».</li><li> "
+"Modifica il campo «Argomenti della riga di comando» in qualcosa come «--"
+"profile 'il-tuo-vasto-passatempo' %u».</li></ul>Adesso, quando scegli il "
+"nuovo avviatore come avviatore delle note collegamento di basket, Basket "
+"aprirà i collegamenti HTTP con il profilo «il-tuo-vasto-passatempo»<p></"
+"p>Per una configurazione più raffinata (come aprire dei documenti PDF "
+"preferibilmente con Falkon), consulta il suggerimento del secondo pulsante."
+"<p>"
 
 #: src/settings.cpp:883
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3337,7 +3337,7 @@ msgstr ""
 "collegamento che inizia per \"https://...\", questo verrà aperto nel tuo "
 "browser (ad esempio Mozilla Firefox o Epiphany o ...).</p><p>Per una "
 "configurazione più accurata (come aprire solo le pagine Web nel browser), "
-"leggi il secondo collegamento di aiuto.</p>"
+"leggi il suggerimento del terzo pulsante.</p>"
 
 #: src/settings.cpp:895
 #, kde-format
@@ -3375,7 +3375,7 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Associazioni specifiche di Basket"
 
 #: src/settings.cpp:946
 #, kde-format
@@ -3418,16 +3418,14 @@ msgid "Open sound notes with:"
 msgstr "Apri note di tipo suono con:"
 
 #: src/settings.cpp:978
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Apri note di &testo con un'applicazione personalizzata:"
+msgstr "Apri note con collegameni http con un'applicazione personalizzata:"
 
 #: src/settings.cpp:979
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Apri note di testo con:"
+msgstr "Apri note con collegamenti http con:"
 
 #: src/settings.cpp:987
 #, kde-format
@@ -3455,10 +3453,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Vuoi veramente rimuovere le vecchie versioni di tutti i cesti?"
 
 #: src/settings_versionsync.cpp:75
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Rimuovi cesto"
+msgstr "Rimuovi vecchi cesti"
 
 #: src/settings_versionsync.cpp:75
 #, kde-format
