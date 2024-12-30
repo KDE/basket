@@ -10,9 +10,6 @@ project(Basket VERSION 2.49.90)
 set(QT_MIN_VERSION "6.5.0")
 set(KF_MIN_VERSION "6.2.0")
 
-set(APP_SUFFIX 6)
-set(LIB_PREFIX Qt6::)
-
 # Options
 option(BUILD_DEVTOOLS "Enabled Devtools" ON)
 option(ENABLE_GPG "Enabled GPG Support" OFF)
