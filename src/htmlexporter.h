@@ -7,6 +7,7 @@
 #ifndef HTMLEXPORTER_H
 #define HTMLEXPORTER_H
 
+#include <QtCore/QScopedPointer>
 #include <QtCore/QString>
 #include <QtCore/QTextStream>
 
