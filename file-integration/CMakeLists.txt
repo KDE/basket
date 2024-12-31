@@ -1,4 +1,4 @@
-set(basketthumbcreator_PART_SRCS basketthumbcreator.cpp)
+set(basketthumbcreator_PART_SRCS basketthumbcreator.cpp basketthumbcreator.h)
 
 add_library(basketthumbcreator MODULE ${basketthumbcreator_PART_SRCS})
 

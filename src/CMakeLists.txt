@@ -3,50 +3,50 @@ include_directories(${GPGME_INCLUDES})
 ########### next target ###############
 
 set(libbasket_SRCS
-    aboutdata.cpp
-    animation.cpp
-    archive.cpp
-    backgroundmanager.cpp
-    backup.cpp
-    basketfactory.cpp
-    basketlistview.cpp
-    basketproperties.cpp
-    basketscene.cpp
-    basketstatusbar.cpp
-    basketview.cpp
+    aboutdata.cpp aboutdata.h
+    animation.cpp animation.h
+    archive.cpp archive.h
+    backgroundmanager.cpp backgroundmanager.h
+    backup.cpp backup.h
+    basketfactory.cpp basketfactory.h
+    basketlistview.cpp basketlistview.h
+    basketproperties.cpp basketproperties.h
+    basketscene.cpp basketscene.h
+    basketstatusbar.cpp basketstatusbar.h
+    basketview.cpp basketview.h
     bnpview.cpp
-    colorpicker.cpp
-    common.cpp
-    debugwindow.cpp
-    decoratedbasket.cpp
-    file_metadata.cpp
-    filter.cpp
-    focusedwidgets.cpp
-    formatimporter.cpp
-    global.cpp
-    gitwrapper.cpp
-    htmlexporter.cpp
-    history.cpp
-    kcolorcombo2.cpp
-    kgpgme.cpp
-    linklabel.cpp
-    newbasketdialog.cpp
-    note.cpp
-    notecontent.cpp
-    notedrag.cpp
-    noteedit.cpp
-    notefactory.cpp
-    noteselection.cpp
-    password.cpp
-    regiongrabber.cpp
-    settings.cpp
-    settings_versionsync.cpp
-    softwareimporters.cpp
-    tag.cpp
-    tagsedit.cpp
-    tools.cpp
-    variouswidgets.cpp
-    xmlwork.cpp
+    colorpicker.cpp colorpicker.h
+    common.cpp common.h
+    debugwindow.cpp debugwindow.h
+    decoratedbasket.cpp decoratedbasket.h
+    file_metadata.cpp file_metadata.h
+    filter.cpp filter.h
+    focusedwidgets.cpp focusedwidgets.h
+    formatimporter.cpp formatimporter.h
+    global.cpp global.h
+    gitwrapper.cpp gitwrapper.h
+    htmlexporter.cpp htmlexporter.h
+    history.cpp history.h
+    kcolorcombo2.cpp kcolorcombo2.h
+    kgpgme.cpp kgpgme.h
+    linklabel.cpp linklabel.h
+    newbasketdialog.cpp newbasketdialog.h
+    note.cpp note.h
+    notecontent.cpp notecontent.h
+    notedrag.cpp notedrag.h
+    noteedit.cpp noteedit.h
+    notefactory.cpp notefactory.h
+    noteselection.cpp noteselection.h
+    password.cpp password.h
+    regiongrabber.cpp regiongrabber.h
+    settings.cpp settings.h
+    settings_versionsync.cpp settings_versionsync.h
+    softwareimporters.cpp softwareimporters.h
+    tag.cpp tag.h
+    tagsedit.cpp tagsedit.h
+    tools.cpp tools.h
+    variouswidgets.cpp variouswidgets.h
+    xmlwork.cpp xmlwork.h
 )
 
 
@@ -105,13 +105,13 @@ endif ()
 
 set(basket_SRCS
     main.cpp
-    mainwindow.cpp
-    application.cpp
+    mainwindow.cpp mainwindow.h
+    application.cpp application.h
     basket.qrc
 )
 
 if(DEBUG_PIPE)
-    list(APPEND basket_SRCS debugwindow.cpp)
+    list(APPEND basket_SRCS debugwindow.cpp debugwindow.h)
 endif()
 
 add_executable(basket ${basket_SRCS})
