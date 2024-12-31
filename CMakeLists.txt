@@ -104,7 +104,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     Crash
     DBusAddons
-    DocTools
     FileMetaData
     GlobalAccel
     GuiAddons
@@ -119,6 +118,11 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     WidgetsAddons
     WindowSystem
     XmlGui
+)
+find_package(KF6DocTools ${KF_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
 )
 
 
@@ -147,7 +151,12 @@ add_definitions(-DQT_NO_KEYWORDS)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_subdirectory(doc)
+if(KF6DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
+
+
 add_subdirectory(src)
 add_subdirectory(tags)
 add_subdirectory(welcome)
