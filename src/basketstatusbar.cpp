@@ -178,11 +178,7 @@ void BasketStatusBar::setUnsavedStatus(bool isUnsaved)
     }
 
     if (isUnsaved) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
         if (m_savedStatus->pixmap(Qt::ReturnByValueConstant::ReturnByValue).isNull()) {
-#else
-        if (m_savedStatus->pixmap()->isNull()) {
-#endif
             m_savedStatus->setPixmap(m_savedStatusPixmap);
         }
     } else {
