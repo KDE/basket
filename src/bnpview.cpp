@@ -12,12 +12,12 @@
 #include <QGraphicsView>
 #include <QMenu>
 #include <QProgressDialog>
+#include <QRegularExpression>
 #include <QStackedWidget>
 #include <QUndoStack>
 #include <QtCore/QDir>
 #include <QtCore/QEvent>
 #include <QtCore/QList>
-#include <QRegularExpression>
 #include <QtGui/QHideEvent>
 #include <QtGui/QImage>
 #include <QtGui/QKeyEvent>
@@ -35,11 +35,11 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 // #include <KPassivePopup>
+#include <KMessageWidget>
 #include <KStandardShortcut>
 #include <KToggleAction>
 #include <KWindowSystem>
 #include <KXMLGUIFactory>
-#include <KMessageWidget>
 
 #include <cstdlib>
 #include <unistd.h> // usleep
@@ -76,7 +76,7 @@
 #include <QStandardPaths>
 #include <qdbusconnection.h>
 
-//#include "bnpviewadaptor.h"
+// #include "bnpviewadaptor.h"
 
 /** class BNPView: */
 
@@ -148,7 +148,7 @@ void BNPView::lateInit()
     DEBUG_WIN << QStringLiteral("Baskets are loaded from ") + Global::basketsFolder();
 
     NoteDrag::createAndEmptyCuttingTmpFolder(); // If last exec hasn't done it: clean the temporary folder we will use
-    Tag::loadTags();                            // Tags should be ready before loading baskets, but tags need the mainContainer to be ready to create KActions!
+    Tag::loadTags(); // Tags should be ready before loading baskets, but tags need the mainContainer to be ready to create KActions!
     load();
 
     // If no basket has been found, try to import from an older version,
@@ -179,10 +179,13 @@ void BNPView::addWelcomeBaskets()
 {
     // Possible paths where to find the welcome basket archive, trying the translated one, and falling back to the English one:
     QStringList possiblePaths;
-    if (QString::fromUtf8(Tools::systemCodeset()) == QStringLiteral("UTF-8")) { // Welcome baskets are encoded in UTF-8. If the system is not, then use the English version:
+    if (QString::fromUtf8(Tools::systemCodeset())
+        == QStringLiteral("UTF-8")) { // Welcome baskets are encoded in UTF-8. If the system is not, then use the English version:
         QString lang = QLocale().languageToString(QLocale().language());
-        possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_") + lang + QStringLiteral(".baskets")));
-        possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_") + lang.split(QLatin1Char('_'))[0] + QStringLiteral(".baskets")));
+        possiblePaths.append(
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_") + lang + QStringLiteral(".baskets")));
+        possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                                    QStringLiteral("basket/welcome/Welcome_") + lang.split(QLatin1Char('_'))[0] + QStringLiteral(".baskets")));
     }
     possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_en_US.baskets")));
 
@@ -434,7 +437,7 @@ void BNPView::setupActions()
     m_actClearFormatting = ac->addAction(QStringLiteral("note_clear"), this, SLOT(clearFormattingNote()));
     m_actClearFormatting->setText(i18n("&Clear Formatting"));
     m_actClearFormatting->setIcon(QIcon::fromTheme(QStringLiteral("text-plain")));
-	
+
     a = ac->addAction(QStringLiteral("note_edit"), this, SLOT(editNote()));
     a->setText(i18nc("Verb; not Menu", "&Edit..."));
     // a->setIcon(QIcon::fromTheme("edit"));
@@ -550,19 +553,37 @@ void BNPView::setupActions()
     m_actLoadFile = a;
 
     //  connect( m_actInsertText, QAction::triggered, this, [this] () { insertEmpty(NoteType::Text); });
-    connect(m_actInsertHtml, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Html); });
-    connect(m_actInsertImage, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Image); });
-    connect(m_actInsertLink, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Link); });
-    connect(m_actInsertCrossReference, &QAction::triggered, this, [this] () { insertEmpty(NoteType::CrossReference); });
-    connect(m_actInsertColor, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Color); });
-    connect(m_actInsertLauncher, &QAction::triggered, this, [this] () { insertEmpty(NoteType::Launcher); });
+    connect(m_actInsertHtml, &QAction::triggered, this, [this]() {
+        insertEmpty(NoteType::Html);
+    });
+    connect(m_actInsertImage, &QAction::triggered, this, [this]() {
+        insertEmpty(NoteType::Image);
+    });
+    connect(m_actInsertLink, &QAction::triggered, this, [this]() {
+        insertEmpty(NoteType::Link);
+    });
+    connect(m_actInsertCrossReference, &QAction::triggered, this, [this]() {
+        insertEmpty(NoteType::CrossReference);
+    });
+    connect(m_actInsertColor, &QAction::triggered, this, [this]() {
+        insertEmpty(NoteType::Color);
+    });
+    connect(m_actInsertLauncher, &QAction::triggered, this, [this]() {
+        insertEmpty(NoteType::Launcher);
+    });
 
-    connect(m_actImportKMenu, &QAction::triggered, this, [this] () { insertWizard(1); });
-    connect(m_actImportIcon, &QAction::triggered, this, [this] () { insertWizard(2); });
-    connect(m_actLoadFile, &QAction::triggered, this, [this] () { insertWizard(3); });
+    connect(m_actImportKMenu, &QAction::triggered, this, [this]() {
+        insertWizard(1);
+    });
+    connect(m_actImportIcon, &QAction::triggered, this, [this]() {
+        insertWizard(2);
+    });
+    connect(m_actLoadFile, &QAction::triggered, this, [this]() {
+        insertWizard(3);
+    });
 
 #ifndef _WIN32
-a = ac->addAction(QStringLiteral("insert_screen_color"), this, &BNPView::slotColorFromScreen);
+    a = ac->addAction(QStringLiteral("insert_screen_color"), this, &BNPView::slotColorFromScreen);
     a->setText(i18n("C&olor from Screen"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("kcolorchooser")));
     m_actColorPicker = a;
@@ -575,8 +596,8 @@ a = ac->addAction(QStringLiteral("insert_screen_color"), this, &BNPView::slotCol
     a->setIcon(QIcon::fromTheme(QStringLiteral("ksnapshot")));
     m_actGrabScreenshot = a;
 
-    //connect(m_actGrabScreenshot, SIGNAL(regionGrabbed(const QPixmap&)), this, SLOT(screenshotGrabbed(const QPixmap&)));
-    //connect(m_colorPicker, SIGNAL(canceledPick()), this, SLOT(colorPickingCanceled()));
+    // connect(m_actGrabScreenshot, SIGNAL(regionGrabbed(const QPixmap&)), this, SLOT(screenshotGrabbed(const QPixmap&)));
+    // connect(m_colorPicker, SIGNAL(canceledPick()), this, SLOT(colorPickingCanceled()));
 
     //  m_insertActions.append( m_actInsertText     );
     m_insertActions.append(m_actInsertHtml);
@@ -876,7 +897,9 @@ void BNPView::load(QTreeWidgetItem *item, const QDomElement &baskets)
                 BasketListViewItem *basketItem = appendBasket(basket, item);
                 basketItem->setExpanded(!XMLWork::trueOrFalse(element.attribute(QStringLiteral("folded"), QStringLiteral("false")), false));
                 basket->loadProperties(XMLWork::getElement(element, QStringLiteral("properties")));
-                if (XMLWork::trueOrFalse(element.attribute(QStringLiteral("lastOpened"), element.attribute(QStringLiteral("lastOpened"), QStringLiteral("false"))), false)) // Compat with 0.6.0-Alphas
+                if (XMLWork::trueOrFalse(
+                        element.attribute(QStringLiteral("lastOpened"), element.attribute(QStringLiteral("lastOpened"), QStringLiteral("false"))),
+                        false)) // Compat with 0.6.0-Alphas
                     setCurrentBasket(basket);
                 // Load Sub-baskets:
                 load(basketItem, element);
@@ -1220,7 +1243,7 @@ void BNPView::removeBasket(BasketScene *basket)
     // If there is no basket anymore, add a new one:
     if (!nextBasketItem) {
         BasketFactory::newBasket(QString(), i18n("General"));
-    } else {    // No need to save two times if we add a basket
+    } else { // No need to save two times if we add a basket
         save();
     }
 }
@@ -1309,7 +1332,6 @@ void BNPView::updateBasketListViewItem(BasketScene *basket)
         } else {
             item->setBackground(0, QBrush());
         }
-
     }
 
     // Don't save if we are loading!
@@ -1514,13 +1536,16 @@ void BNPView::checkCleanup()
     QString subDirEntry;
     QFileInfo fileInfo;
     QDir topDir(Global::basketsFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
-    for (QString topDirEntry: topDir.entryList()) {
+    for (QString topDirEntry : topDir.entryList()) {
         if (topDirEntry != QStringLiteral(".") && topDirEntry != QStringLiteral("..")) {
             fileInfo.setFile(Global::basketsFolder() + QLatin1Char('/') + topDirEntry);
             if (fileInfo.isDir()) {
                 dirList << topDirEntry + QLatin1Char('/');
-                QDir basketDir(Global::basketsFolder() + QLatin1Char('/') + topDirEntry, QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
-                for (QString subDirEntry: basketDir.entryList()) {
+                QDir basketDir(Global::basketsFolder() + QLatin1Char('/') + topDirEntry,
+                               QString(),
+                               QDir::Name | QDir::IgnoreCase,
+                               QDir::TypeMask | QDir::Hidden);
+                for (QString subDirEntry : basketDir.entryList()) {
                     if (subDirEntry != QStringLiteral(".") && subDirEntry != QStringLiteral("..")) {
                         fileList << topDirEntry + QLatin1Char('/') + subDirEntry;
                     }
@@ -1541,13 +1566,13 @@ void BNPView::checkCleanup()
     DEBUG_WIN << QStringLiteral("Directories remaining (not in any basket): ") + QString::number(dirList.count());
     DEBUG_WIN << QStringLiteral("Files remaining (not in any basket): ") + QString::number(fileList.count());
 
-    for (QString topDirEntry: dirList) {
+    for (QString topDirEntry : dirList) {
         DEBUG_WIN << QStringLiteral("<font color='red'>") + topDirEntry + QStringLiteral(" does not belong to any basket!</font>");
         // Tools::deleteRecursively(Global::basketsFolder() + '/' + topDirEntry);
         // DEBUG_WIN << "<font color='red'>\t" + topDirEntry + " removed!</font>";
         Tools::trashRecursively(Global::basketsFolder() + QStringLiteral("/") + topDirEntry);
         DEBUG_WIN << QStringLiteral("<font color='red'>\t") + topDirEntry + QStringLiteral(" trashed!</font>");
-        for (QString subDirEntry: fileList) {
+        for (QString subDirEntry : fileList) {
             fileInfo.setFile(Global::basketsFolder() + QLatin1Char('/') + subDirEntry);
             if (!fileInfo.isFile()) {
                 fileList.removeAll(subDirEntry);
@@ -1555,7 +1580,7 @@ void BNPView::checkCleanup()
             }
         }
     }
-    for (QString subDirEntry: fileList) {
+    for (QString subDirEntry : fileList) {
         DEBUG_WIN << QStringLiteral("<font color='red'>") + subDirEntry + QStringLiteral(" does not belong to any note!</font>");
         // Tools::deleteRecursively(Global::basketsFolder() + '/' + subDirEntry);
         // DEBUG_WIN << "<font color='red'>\t" + subDirEntry + " removed!</font>";
@@ -1611,7 +1636,7 @@ void BNPView::updateNotesActions()
     bool severalSelected = currentBasket()->countSelecteds() >= 2;
 
     NoteType::Id selectedType = NoteType::Unknown;
-    if (oneSelected && currentBasket()->theSelectedNote()){
+    if (oneSelected && currentBasket()->theSelectedNote()) {
         selectedType = currentBasket()->theSelectedNote()->content()->type();
     }
     // FIXME: m_actCheckNotes is also modified in void BNPView::areSelectedNotesCheckedChanged(bool checked)
@@ -1637,7 +1662,7 @@ void BNPView::updateNotesActions()
     m_actClearFormatting->setEnabled(!isLocked && !currentBasket()->isDuringEdit() && selectedType == NoteType::Html);
     m_actOpenNote->setEnabled(oneOrSeveralSelected);
     m_actOpenNoteWith->setEnabled(oneSelected); // TODO: oneOrSeveralSelected IF SAME TYPE
-    m_actSaveNoteAs->setEnabled(oneSelected);   // IDEM?
+    m_actSaveNoteAs->setEnabled(oneSelected); // IDEM?
     m_actGroup->setEnabled(!isLocked && severalSelected && (!selectedGroup || selectedGroup->isColumn()));
     m_actUngroup->setEnabled(!isLocked && selectedGroup && !selectedGroup->isColumn());
     m_actMoveOnTop->setEnabled(!isLocked && oneOrSeveralSelected && !currentBasket()->isFreeLayout());
@@ -1852,7 +1877,6 @@ void BNPView::screenshotGrabbed(const QPixmap &pixmap)
 
     if (m_colorPickWasShown)
         showMainWindow();
-
 }
 
 BasketScene *BNPView::basketForFolderName(const QString &folderName)
@@ -1931,22 +1955,25 @@ void BNPView::delBasket()
     //  DecoratedBasket *decoBasket    = currentDecoratedBasket();
     BasketScene *basket = currentBasket();
 
-    int really = KMessageBox::questionTwoActions(this,
-                                            i18n("<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>", Tools::textToHTMLWithoutP(basket->basketName())),
-                                            i18n("Remove Basket"),
-                                            KGuiItem(i18n("&Remove Basket"), QStringLiteral("edit-delete")),
-                                            KStandardGuiItem::cancel());
+    int really = KMessageBox::questionTwoActions(
+        this,
+        i18n("<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>", Tools::textToHTMLWithoutP(basket->basketName())),
+        i18n("Remove Basket"),
+        KGuiItem(i18n("&Remove Basket"), QStringLiteral("edit-delete")),
+        KStandardGuiItem::cancel());
 
     if (really == KMessageBox::Ok)
         return;
 
     QStringList basketsList = listViewItemForBasket(basket)->childNamesTree(0);
     if (basketsList.count() > 0) {
-        int deleteChilds = KMessageBox::questionTwoActionsList(this,
-                                                          i18n("<qt><b>%1</b> has the following children baskets.<br>Do you want to remove them too?</qt>", Tools::textToHTMLWithoutP(basket->basketName())),
-                                                          basketsList,
-                                                          i18n("Remove Children Baskets"),
-                                                          KGuiItem(i18n("&Remove Children Baskets"), QStringLiteral("edit-delete")), KStandardGuiItem::cancel());
+        int deleteChilds = KMessageBox::questionTwoActionsList(
+            this,
+            i18n("<qt><b>%1</b> has the following children baskets.<br>Do you want to remove them too?</qt>", Tools::textToHTMLWithoutP(basket->basketName())),
+            basketsList,
+            i18n("Remove Children Baskets"),
+            KGuiItem(i18n("&Remove Children Baskets"), QStringLiteral("edit-delete")),
+            KStandardGuiItem::cancel());
 
         if (deleteChilds == KMessageBox::Cancel)
             return;
@@ -2023,7 +2050,12 @@ void BNPView::saveAsArchive()
             return;
         if (dir.exists(destination)) {
             int result = KMessageBox::questionTwoActionsCancel(
-                this, QStringLiteral("<qt>") + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()), i18n("Overwrite File?"), KGuiItem(i18n("&Overwrite"), QStringLiteral("document-save")), KStandardGuiItem::discard());
+                this,
+                QStringLiteral("<qt>")
+                    + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()),
+                i18n("Overwrite File?"),
+                KGuiItem(i18n("&Overwrite"), QStringLiteral("document-save")),
+                KStandardGuiItem::discard());
             if (result == KMessageBox::Cancel)
                 return;
             else if (result == KMessageBox::Ok)
@@ -2031,7 +2063,8 @@ void BNPView::saveAsArchive()
         } else
             askAgain = false;
     }
-    bool withSubBaskets = true; // KMessageBox::questionYesNo(this, i18n("Do you want to export sub-baskets too?"), i18n("Save as Basket Archive")) == KMessageBox::Yes;
+    bool withSubBaskets =
+        true; // KMessageBox::questionYesNo(this, i18n("Do you want to export sub-baskets too?"), i18n("Save as Basket Archive")) == KMessageBox::Yes;
 
     config.writeEntry("lastFolder", QUrl::fromLocalFile(destination).adjusted(QUrl::RemoveFilename).path());
     config.sync();
@@ -2333,7 +2366,6 @@ void BNPView::reloadBasket(const QString &folderName)
     basketForFolderName(folderName)->reload();
 }
 
-
 void BNPView::changedSelectedNotes()
 {
     //  tabChanged(0); // FIXME: NOT OPTIMIZED
@@ -2395,7 +2427,7 @@ void BNPView::populateTagsMenu()
     populateTagsMenu(*menu, referenceNote);
 
     m_lastOpenedTagsMenu = menu;
-    //connect(menu, &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
+    // connect(menu, &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
 }
 
 void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
@@ -2410,7 +2442,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
     Tag *currentTag;
     State *currentState;
     int i = 10;
-    
+
     for (it = Tag::all.begin(); it != Tag::all.end(); ++it) {
         // Current tag and first state of it:
         currentTag = *it;
@@ -2425,7 +2457,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
         // The previously set ID will be set in the actions themselves as data.
         mi->setData(i);
-        
+
         if (referenceNote && referenceNote->hasTag(currentTag))
             mi->setChecked(true);
 
@@ -2464,7 +2496,9 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
 void BNPView::connectTagsMenu()
 {
-    connect(popupMenu(QStringLiteral("tags")), &QMenu::aboutToShow, this, [this]() { this->populateTagsMenu(); });
+    connect(popupMenu(QStringLiteral("tags")), &QMenu::aboutToShow, this, [this]() {
+        this->populateTagsMenu();
+    });
     connect(popupMenu(QStringLiteral("tags")), &QMenu::aboutToHide, this, &BNPView::disconnectTagsMenu);
 }
 
@@ -2500,28 +2534,26 @@ void BNPView::loadCrossReference(QString link)
 
 QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent)
 {
-    if (pages.isEmpty()) return QString();
+    if (pages.isEmpty())
+        return QString();
     QString page = QUrl::fromPercentEncoding(pages.takeFirst().toUtf8()).trimmed();
 
-    if (page == QStringLiteral(".."))
-    {
-        QTreeWidgetItem *p = parent? parent->parent() : m_tree->currentItem()->parent();
+    if (page == QStringLiteral("..")) {
+        QTreeWidgetItem *p = parent ? parent->parent() : m_tree->currentItem()->parent();
         return this->folderFromBasketNameLink(pages, p);
     }
 
-    if (page == QStringLiteral("."))
-    {
-        parent = parent? parent : m_tree->currentItem();
+    if (page == QStringLiteral(".")) {
+        parent = parent ? parent : m_tree->currentItem();
         return this->folderFromBasketNameLink(pages, parent);
     }
 
-    if (!parent && page.isEmpty())
-    {
+    if (!parent && page.isEmpty()) {
         parent = m_tree->invisibleRootItem();
         return this->folderFromBasketNameLink(pages, parent);
     }
 
-    parent = parent? parent : m_tree->currentItem();
+    parent = parent ? parent : m_tree->currentItem();
     QRegularExpression re(QStringLiteral(":\\{([0-9]+)\\}"));
     int pos = 0;
 
@@ -2532,7 +2564,7 @@ QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *pa
     if (pos != -1) {
         basketNum = m.captured(1).toInt();
     }
-    
+
     page = page.left(page.length() - m.capturedLength());
 
     for (int i = 0; i < parent->childCount(); i++) {

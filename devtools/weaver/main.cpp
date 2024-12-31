@@ -34,26 +34,22 @@ int main(int argc, char **argv)
                                   QStringLiteral("image"));
     parser.addOption(previewImg);
 
-    QCommandLineOption mode_unweave(QStringList()
-                                        << QStringLiteral("u") << QStringLiteral("unweave") << QStringLiteral("x"),
+    QCommandLineOption mode_unweave(QStringList() << QStringLiteral("u") << QStringLiteral("unweave") << QStringLiteral("x"),
                                     i18n("Decodes the <file>. Cannot be used together with --weave."),
                                     QStringLiteral("file"));
     parser.addOption(mode_unweave);
 
-    QCommandLineOption mode_weave(QStringList()
-                                      << QStringLiteral("w") << QStringLiteral("weave") << QStringLiteral("c"),
+    QCommandLineOption mode_weave(QStringList() << QStringLiteral("w") << QStringLiteral("weave") << QStringLiteral("c"),
                                   i18n("Encodes the <directory>. Cannot be used together with --unweave."),
                                   QStringLiteral("directory"));
     parser.addOption(mode_weave);
 
-    QCommandLineOption basename(
-        QStringList() << QStringLiteral("n") << QStringLiteral("name"),
-        i18n("This optional value will be used to label the new content within the optionally given output directory"),
-        QStringLiteral("fileName"));
+    QCommandLineOption basename(QStringList() << QStringLiteral("n") << QStringLiteral("name"),
+                                i18n("This optional value will be used to label the new content within the optionally given output directory"),
+                                QStringLiteral("fileName"));
     parser.addOption(basename);
 
-    QCommandLineOption forceOption(QStringList() << QStringLiteral("f") << QStringLiteral("force"),
-                                   i18n("Overwrite existing files."));
+    QCommandLineOption forceOption(QStringList() << QStringLiteral("f") << QStringLiteral("force"), i18n("Overwrite existing files."));
     parser.addOption(forceOption);
 
     parser.process(app);

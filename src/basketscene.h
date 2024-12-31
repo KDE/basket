@@ -14,11 +14,9 @@
 #include <QtGui/QClipboard>
 #include <QtGui/QTextCursor>
 
-
+#include "animation.h"
 #include "config.h"
 #include "note.h" // For Note::Zone
-#include "animation.h"
-
 
 class QFrame;
 class QPixmap;
@@ -66,7 +64,11 @@ class BasketScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    enum EncryptionTypes { NoEncryption = 0, PasswordEncryption = 1, PrivateKeyEncryption = 2 };
+    enum EncryptionTypes {
+        NoEncryption = 0,
+        PasswordEncryption = 1,
+        PrivateKeyEncryption = 2
+    };
 
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
@@ -109,6 +111,7 @@ private:
     QSet<Note *> m_notesToBeDeleted;
     BasketAnimations *m_animations;
     bool m_animated;
+
 public:
     qreal tmpWidth;
     qreal tmpHeight;
@@ -120,7 +123,7 @@ public:
     void removeAnimation(NoteAnimation *animation);
     bool isAnimated();
     void unsetNotesWidth();
-    void relayoutNotes(bool animate=false);
+    void relayoutNotes(bool animate = false);
     Note *noteAt(QPointF pos);
     inline Note *firstNote()
     {
@@ -154,16 +157,19 @@ public:
     /// NOTES INSERTION AND REMOVAL:
 public:
     /// The following methods assume that the note(s) to insert already all have 'this' as the parent basket:
-    void appendNoteIn(Note *note, Note *in);         /// << Add @p note (and the next linked notes) as the last note(s) of the group @p in.
-    void appendNoteAfter(Note *note, Note *after);   /// << Add @p note (and the next linked notes) just after (just below) the note @p after.
+    void appendNoteIn(Note *note, Note *in); /// << Add @p note (and the next linked notes) as the last note(s) of the group @p in.
+    void appendNoteAfter(Note *note, Note *after); /// << Add @p note (and the next linked notes) just after (just below) the note @p after.
     void appendNoteBefore(Note *note, Note *before); /// << Add @p note (and the next linked notes) just before (just above) the note @p before.
-    void groupNoteAfter(Note *note, Note *with);     /// << Add a group at @p with place, move @p with in it, and add @p note (and the next linked notes) just after the group.
-    void groupNoteBefore(Note *note, Note *with);    /// << Add a group at @p with place, move @p with in it, and add @p note (and the next linked notes) just before the group.
-    void unplugNote(Note *note);                     /// << Unplug @p note (and its child notes) from the basket (and also decrease counts...).
+    void groupNoteAfter(Note *note,
+                        Note *with); /// << Add a group at @p with place, move @p with in it, and add @p note (and the next linked notes) just after the group.
+    void
+    groupNoteBefore(Note *note,
+                    Note *with); /// << Add a group at @p with place, move @p with in it, and add @p note (and the next linked notes) just before the group.
+    void unplugNote(Note *note); /// << Unplug @p note (and its child notes) from the basket (and also decrease counts...).
     /// <<  After that, you should delete the notes yourself. Do not call prepend/append/group... functions two times: unplug and ok
     void ungroupNote(Note *group); /// << Unplug @p group but put child notes at its place.
     /// And this one do almost all the above methods depending on the context:
-    void insertNote(Note *note, Note *clicked, int zone, const QPointF &pos = QPointF(), bool animate=false);
+    void insertNote(Note *note, Note *clicked, int zone, const QPointF &pos = QPointF(), bool animate = false);
     void insertCreatedNote(Note *note);
     /// And working with selections:
     void unplugSelection(NoteSelection *selection);
@@ -359,7 +365,9 @@ public:
         return m_inserterGroup;
     }
 public Q_SLOTS:
-    void doHoverEffects(Note *note, Note::Zone zone, const QPointF &pos = QPointF(0, 0)); /// << @p pos is optional and only used to show the link target in the statusbar
+    void doHoverEffects(Note *note,
+                        Note::Zone zone,
+                        const QPointF &pos = QPointF(0, 0)); /// << @p pos is optional and only used to show the link target in the statusbar
     void doHoverEffects(const QPointF &pos);
     void doHoverEffects(); // The same, but using the current cursor position
     void mouseEnteredEditorWidget();
@@ -441,9 +449,9 @@ private:
 
     /// COMMUNICATION WITH ITS CONTAINER:
 Q_SIGNALS:
-    void postMessage(const QString &message);      /// << Post a temporary message in the statusBar.
+    void postMessage(const QString &message); /// << Post a temporary message in the statusBar.
     void setStatusBarText(const QString &message); /// << Set the permanent statusBar text or reset it if message isEmpty().
-    void resetStatusBarText();                     /// << Equivalent to setStatusBarText(QString()).
+    void resetStatusBarText(); /// << Equivalent to setStatusBarText(QString()).
     void propertiesChanged(BasketScene *basket);
     void countsChanged(BasketScene *basket);
 public Q_SLOTS:
@@ -534,7 +542,11 @@ public Q_SLOTS:
     void moveSelectionTo(Note *here, bool below);
 
 public:
-    enum CopyMode { CopyToClipboard, CopyToSelection, CutToClipboard };
+    enum CopyMode {
+        CopyToClipboard,
+        CopyToSelection,
+        CutToClipboard
+    };
     void doCopy(CopyMode copyMode);
     bool selectionIsOneGroup();
     Note *selectedGroup();
@@ -658,7 +670,12 @@ public:
     Note *noteOnHome();
     Note *noteOnEnd();
 
-    enum NoteOn { LEFT_SIDE = 1, RIGHT_SIDE, TOP_SIDE, BOTTOM_SIDE };
+    enum NoteOn {
+        LEFT_SIDE = 1,
+        RIGHT_SIDE,
+        TOP_SIDE,
+        BOTTOM_SIDE
+    };
     Note *noteOn(NoteOn side);
 
     /// REIMPLEMENTED:

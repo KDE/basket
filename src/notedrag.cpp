@@ -119,7 +119,7 @@ void NoteDrag::serializeNotes(NoteSelection *noteList, QDataStream &stream, bool
     stream << (quint64)0; // Mark the end of the notes in this group/hierarchy.
 }
 
-void NoteDrag::serializeText(NoteSelection *noteList, QMimeData* mimeData)
+void NoteDrag::serializeText(NoteSelection *noteList, QMimeData *mimeData)
 {
     QString textEquivalent;
     QString text;
@@ -133,7 +133,7 @@ void NoteDrag::serializeText(NoteSelection *noteList, QMimeData* mimeData)
     }
 }
 
-void NoteDrag::serializeHtml(NoteSelection *noteList, QMimeData* mimeData)
+void NoteDrag::serializeHtml(NoteSelection *noteList, QMimeData *mimeData)
 {
     QString htmlEquivalent;
     QString html;
@@ -152,7 +152,7 @@ void NoteDrag::serializeHtml(NoteSelection *noteList, QMimeData* mimeData)
     }
 }
 
-void NoteDrag::serializeImage(NoteSelection *noteList, QMimeData* mimeData)
+void NoteDrag::serializeImage(NoteSelection *noteList, QMimeData *mimeData)
 {
     QList<QPixmap> pixmaps;
     QPixmap pixmap;
@@ -188,7 +188,7 @@ void NoteDrag::serializeImage(NoteSelection *noteList, QMimeData* mimeData)
     }
 }
 
-void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool cutting)
+void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData *mimeData, bool cutting)
 {
     QList<QUrl> urls;
     QStringList titles;
@@ -220,7 +220,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData* mimeData, bool
         // It's UTF16 (aka UCS2), but with the first two order bytes
         // stream.setEncoding(QTextStream::RawUnicode); // It's UTF16 (aka UCS2), but with the first two order bytes
         // FIXME: find out if this is really equivalent, as https://doc.qt.io/archives/3.3/qtextstream.html pretends
-        
+
         stream << xMozUrl;
 
         mimeData->setData(QStringLiteral("text/x-moz-url"), baMozUrl);
@@ -414,7 +414,7 @@ Note *NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFi
         Note *hierarchy = decodeHierarchy(stream, parent, moveFiles, moveNotes, basket);
         // In case we moved notes from one basket to another, save the source basket where notes were removed:
         basket->filterAgainDelayed(); // Delayed, because if a note is moved to the same basket, the note is not at its
-        basket->save();               //  new position yet, and the call to ensureNoteVisible would make the interface flicker!!
+        basket->save(); //  new position yet, and the call to ensureNoteVisible would make the interface flicker!!
         return hierarchy;
     } else
         return nullptr;
@@ -451,8 +451,9 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                 note->toggleFolded();
             if (moveNotes) {
                 qDebug() << "move notes";
-                note->setX(oldNote->targetX());           // We don't move groups but re-create them (every children can to not be selected)
-                note->setY(oldNote->targetY());           // We just set the position of the copied group so the animation seems as if the group is the same as (or a copy of) the old.
+                note->setX(oldNote->targetX()); // We don't move groups but re-create them (every children can to not be selected)
+                note->setY(oldNote->targetY()); // We just set the position of the copied group so the animation seems as if the group is the same as (or a copy
+                                                // of) the old.
                 note->setHeight(oldNote->height()); // Idem: the only use of Note::setHeight()
                 parent->removeItem(oldNote);
             }
@@ -471,7 +472,9 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                     QString newFileName = Tools::fileNameForNewFile(fileName, parent->fullPath());
                     note->content()->setFileName(newFileName);
 
-                    KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
+                    KIO::CopyJob *copyJob = KIO::move(QUrl::fromLocalFile(fullPath),
+                                                      QUrl::fromLocalFile(parent->fullPath() + newFileName),
+                                                      KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                     parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
                 }
                 note->setGroupWidth(groupWidth);
@@ -492,9 +495,13 @@ Note *NoteDrag::decodeHierarchy(QDataStream &stream, BasketScene *parent, bool m
                 // NoteFactory::createFileForNewNote(parent, QString(), fileName);
                 KIO::CopyJob *copyJob;
                 if (moveFiles) {
-                    copyJob = KIO::move(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
+                    copyJob = KIO::move(QUrl::fromLocalFile(fullPath),
+                                        QUrl::fromLocalFile(parent->fullPath() + newFileName),
+                                        KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 } else {
-                    copyJob = KIO::copy(QUrl::fromLocalFile(fullPath), QUrl::fromLocalFile(parent->fullPath() + newFileName), KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
+                    copyJob = KIO::copy(QUrl::fromLocalFile(fullPath),
+                                        QUrl::fromLocalFile(parent->fullPath() + newFileName),
+                                        KIO::Overwrite | KIO::Resume | KIO::HideProgressInfo);
                 }
                 parent->connect(copyJob, &KIO::CopyJob::copyingDone, parent, &BasketScene::slotCopyingDone2);
 

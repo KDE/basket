@@ -5,18 +5,17 @@
  */
 
 #include <iostream>
-//#include <boost/stacktrace.hpp>
-
+// #include <boost/stacktrace.hpp>
 
 #include "note.h"
 
-#include <QApplication>
 #include <QAbstractAnimation>
-#include <QTimeLine>
+#include <QApplication>
 #include <QGraphicsView>
 #include <QLocale> //For KGLobal::locale(
 #include <QStyle>
 #include <QStyleOption>
+#include <QTimeLine>
 #include <QtCore/QList>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
@@ -24,7 +23,7 @@
 
 #include <KIconLoader>
 
-#include <math.h>   // sqrt() and pow() functions
+#include <math.h> // sqrt() and pow() functions
 #include <stdlib.h> // rand() function
 
 #include "animation.h"
@@ -70,7 +69,7 @@ qreal Note::EMBLEM_SIZE = 16;
 qreal Note::MIN_HEIGHT = 2 * NOTE_MARGIN + EMBLEM_SIZE;
 
 Note::Note(BasketScene *parent)
-    : QObject (parent)
+    : QObject(parent)
     , d(new NotePrivate)
     , m_groupWidth(250)
     , m_isFolded(false)
@@ -100,10 +99,10 @@ Note::Note(BasketScene *parent)
     m_animY = new NoteAnimation(this, "y");
     // m_animX->setEasingCurve(QEasingCurve::InOutQuad);
     // m_animY->setEasingCurve(QEasingCurve::InOutQuad);
-    
+
     connect(m_animX, SIGNAL(valueChanged), this, SLOT(xAnimated));
     connect(m_animY, SIGNAL(valueChanged), this, SLOT(yAnimated));
-    
+
     setHeight(MIN_HEIGHT);
     if (m_basket) {
         m_basket->addItem(this);
@@ -328,7 +327,7 @@ QString Note::fullPath()
 
 void Note::update()
 {
-    QGraphicsItem::update(0,0,boundingRect().width(),boundingRect().height());
+    QGraphicsItem::update(0, 0, boundingRect().width(), boundingRect().height());
 }
 
 void Note::setFocused(bool focused)
@@ -792,7 +791,10 @@ qreal Note::contentX() const
 QRectF Note::zoneRect(Note::Zone zone, const QPointF &pos)
 {
     if (zone >= Emblem0)
-        return QRect(HANDLE_WIDTH + (NOTE_MARGIN + EMBLEM_SIZE) * (zone - Emblem0), INSERTION_HEIGHT, NOTE_MARGIN + EMBLEM_SIZE, height() - 2 * INSERTION_HEIGHT);
+        return QRect(HANDLE_WIDTH + (NOTE_MARGIN + EMBLEM_SIZE) * (zone - Emblem0),
+                     INSERTION_HEIGHT,
+                     NOTE_MARGIN + EMBLEM_SIZE,
+                     height() - 2 * INSERTION_HEIGHT);
 
     qreal yExp;
     qreal right;
@@ -816,7 +818,10 @@ QRectF Note::zoneRect(Note::Zone zone, const QPointF &pos)
             return QRectF(d->width - NOTE_MARGIN, 0, NOTE_MARGIN, d->height);
         }
     case Note::TagsArrow:
-        return QRectF(HANDLE_WIDTH + (NOTE_MARGIN + EMBLEM_SIZE) * m_emblemsCount, INSERTION_HEIGHT, NOTE_MARGIN + TAG_ARROW_WIDTH + NOTE_MARGIN, d->height - 2 * INSERTION_HEIGHT);
+        return QRectF(HANDLE_WIDTH + (NOTE_MARGIN + EMBLEM_SIZE) * m_emblemsCount,
+                      INSERTION_HEIGHT,
+                      NOTE_MARGIN + TAG_ARROW_WIDTH + NOTE_MARGIN,
+                      d->height - 2 * INSERTION_HEIGHT);
     case Note::Custom0:
     case Note::Content:
         rect = content()->zoneRect(zone, pos - QPointF(contentX(), NOTE_MARGIN));
@@ -899,11 +904,13 @@ Qt::CursorShape Note::cursorFromZone(Zone zone) const
     }
 }
 
-qreal Note::targetX() const {
+qreal Note::targetX() const
+{
     return m_target_x;
 }
 
-qreal Note::targetY() const {
+qreal Note::targetY() const
+{
     return m_target_y;
 }
 
@@ -1088,20 +1095,21 @@ bool Note::showSubNotes()
     return !m_isFolded || basket()->isFiltering();
 }
 
-
-void Note::relayoutChildren(qreal ax, qreal ay, bool animate) {
+void Note::relayoutChildren(qreal ax, qreal ay, bool animate)
+{
     // Then, relayout sub-notes (only the first, if the group is folded) and so, assign an height to the group:
     if (isGroup()) {
         qreal h = 0;
         Note *child = firstChild();
         bool first = true;
         while (child) {
-            if (child->matching() && (!m_isFolded || first || basket()->isFiltering())) { // Don't use showSubNotes() but use !m_isFolded because we don't want a relayout for the animated collapsing notes
+            if (child->matching() && (!m_isFolded || first || basket()->isFiltering())) { // Don't use showSubNotes() but use !m_isFolded because we don't want
+                                                                                          // a relayout for the animated collapsing notes
                 child->relayoutAt(ax + width(), ay + h, animate);
                 h += child->height();
                 if (!child->isVisible())
                     child->show();
-            } else {                                   // In case the user collapse a group, then move it and then expand it:
+            } else { // In case the user collapse a group, then move it and then expand it:
                 child->setXRecursively(x() + width()); //  notes SHOULD have a good X coordinate, and not the old one!
                 if (child->isVisible())
                     child->hideRecursively();
@@ -1109,7 +1117,7 @@ void Note::relayoutChildren(qreal ax, qreal ay, bool animate) {
             // For future animation when re-match, but on bottom of already matched notes!
             // Find parent primary note and set the Y to THAT y:
             if (!child->matching())
-               child->setY(parentPrimaryNote()->y(), animate);
+                child->setY(parentPrimaryNote()->y(), animate);
             child = child->next();
             first = false;
         }
@@ -1152,7 +1160,7 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
         setX(ax, animate);
         setY(ay, animate);
     }
-    
+
     relayoutChildren(ax, ay, animate);
 
     // Set the basket area limits (but not for child notes: no need, because they will look for their parent note):
@@ -1170,13 +1178,13 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
     }
 }
 
-void Note::relayoutAt(QPointF pos, bool animate) {
+void Note::relayoutAt(QPointF pos, bool animate)
+{
     relayoutAt(pos.rx(), pos.ry(), animate);
 }
 
-
-
-void Note::setX(qreal x, bool animate) {
+void Note::setX(qreal x, bool animate)
+{
     if (!animate || !isAnimated()) {
         QGraphicsItemGroup::setX(x);
     } else {
@@ -1187,7 +1195,8 @@ void Note::setX(qreal x, bool animate) {
     }
 }
 
-void Note::setY(qreal y, bool animate) {
+void Note::setY(qreal y, bool animate)
+{
     if (!animate || !isAnimated()) {
         QGraphicsItemGroup::setY(y);
     } else {
@@ -1198,14 +1207,15 @@ void Note::setY(qreal y, bool animate) {
     }
 }
 
-
 void Note::setXRecursively(qreal x, bool animate)
 {
     qDebug() << "Note::setXRecursively: " << x << " : " << animate;
     setX(x, animate);
 
     FOR_EACH_CHILD(child)
-    { child->setXRecursively(x + width(), animate); }
+    {
+        child->setXRecursively(x + width(), animate);
+    }
     qDebug() << "Xrecursive done";
 }
 
@@ -1215,18 +1225,21 @@ void Note::setYRecursively(qreal y, bool animate)
     setY(y, animate);
 
     FOR_EACH_CHILD(child)
-    { child->setYRecursively(y, animate); }
+    {
+        child->setYRecursively(y, animate);
+    }
     qDebug() << "Yrecursive done";
 }
 
-void Note::xAnimated(const QVariant &x) {
+void Note::xAnimated(const QVariant &x)
+{
     return;
 }
 
-void Note::yAnimated(const QVariant &y) {
-   return; 
+void Note::yAnimated(const QVariant &y)
+{
+    return;
 }
-
 
 void Note::hideRecursively()
 {
@@ -1294,7 +1307,7 @@ QColor expanderBackground(qreal height, qreal y, const QColor &foreground)
     if (height <= 3 || y <= 0 || y >= height - 1)
         return foreground;
 
-    const QColor dark = foreground.darker(110);   // 1/1.1 of brightness
+    const QColor dark = foreground.darker(110); // 1/1.1 of brightness
     const QColor light = foreground.lighter(150); // 50% brighter
 
     float h1, h2, s1, s2, v1, v2;
@@ -1314,7 +1327,14 @@ QColor expanderBackground(qreal height, qreal y, const QColor &foreground)
     return QColor::fromHsvF(h1 + ((h2 - h1) * y) / (ng - 1), s1 + ((s2 - s1) * y) / (ng - 1), v1 + ((v2 - v1) * y) / (ng - 1));
 }
 
-void Note::drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, const QColor &lightForeground)
+void Note::drawHandle(QPainter *painter,
+                      qreal x,
+                      qreal y,
+                      qreal width,
+                      qreal height,
+                      const QColor &background,
+                      const QColor &foreground,
+                      const QColor &lightForeground)
 {
     const QPen backgroundPen(background);
     const QPen foregroundPen(foreground);
@@ -1623,8 +1643,11 @@ bool Note::recomputeAreas(Note *note, bool noteIsAfterThis)
         noteIsAfterThis = true;
     // Only compute overlapping of notes AFTER this, or ON TOP this:
     // else if ( note->matching() && noteIsAfterThis && (!isOnTop() || (isOnTop() && note->isOnTop())) || (!isOnTop() && note->isOnTop()) ) {
-    else if (note->matching() && noteIsAfterThis && ((!(isOnTop() || isEditing()) || ((isOnTop() || isEditing()) && (note->isOnTop() || note->isEditing()))) || (!(isOnTop() || isEditing()) && (note->isOnTop() || note->isEditing())))) {
-        // if (!(isSelected() && !note->isSelected())) { // FIXME: FIXME: FIXME: FIXME: This last condition was added LATE, so we should look if it's ALWAYS good:
+    else if (note->matching() && noteIsAfterThis
+             && ((!(isOnTop() || isEditing()) || ((isOnTop() || isEditing()) && (note->isOnTop() || note->isEditing())))
+                 || (!(isOnTop() || isEditing()) && (note->isOnTop() || note->isEditing())))) {
+        // if (!(isSelected() && !note->isSelected())) { // FIXME: FIXME: FIXME: FIXME: This last condition was added LATE, so we should look if it's ALWAYS
+        // good:
         substractRectOnAreas(note->visibleRect(), m_areas, true);
         if (note->hasResizer())
             substractRectOnAreas(note->resizerRect(), m_areas, true);
@@ -1774,7 +1797,8 @@ void Note::draw(QPainter *painter, const QRectF & /*clipRect*/)
     qreal xIcon = HANDLE_WIDTH + NOTE_MARGIN;
     for (State::List::Iterator it = m_states.begin(); it != m_states.end(); ++it) {
         if (!(*it)->emblem().isEmpty()) {
-            QPixmap stateEmblem = KIconLoader::global()->loadIcon((*it)->emblem(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, false);
+            QPixmap stateEmblem =
+                KIconLoader::global()->loadIcon((*it)->emblem(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, false);
 
             painter2.drawPixmap(xIcon, yIcon, stateEmblem);
             xIcon += NOTE_MARGIN + EMBLEM_SIZE;
@@ -2326,11 +2350,10 @@ Note *Note::prevShownInStack()
     return prev;
 }
 
-bool Note::isAnimated() {
-   return m_basket && basket()->isAnimated(); 
-    
+bool Note::isAnimated()
+{
+    return m_basket && basket()->isAnimated();
 }
-
 
 bool Note::isShown()
 {
@@ -2581,7 +2604,8 @@ bool Note::saveAgain()
             result = false;
     }
     if (!result) {
-        DEBUG_WIN << QStringLiteral("Note::saveAgain returned false for %1:%2").arg((content() != nullptr) ? content()->typeName() : QStringLiteral("null"), toText(QString()));
+        DEBUG_WIN << QStringLiteral("Note::saveAgain returned false for %1:%2")
+                         .arg((content() != nullptr) ? content()->typeName() : QStringLiteral("null"), toText(QString()));
     }
     return result;
 }
@@ -2592,7 +2616,10 @@ bool Note::convertTexts()
 
     if (content() && content()->lowerTypeName() == QStringLiteral("text")) {
         QString text = ((TextContent *)content())->text();
-        QString html = QStringLiteral("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>") + Tools::textToHTMLWithoutP(text) + QStringLiteral("</body></html>");
+        QString html =
+            QStringLiteral(
+                "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>")
+            + Tools::textToHTMLWithoutP(text) + QStringLiteral("</body></html>");
         FileStorage::saveToFile(fullPath(), html);
         setContent(new HtmlContent(this, content()->fileName()));
         convertedNotes = true;

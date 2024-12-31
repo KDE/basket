@@ -72,7 +72,12 @@ void VersionSyncPage::onCheckBoxEnableClicked()
 
 void VersionSyncPage::onButtonClearHistoryClicked()
 {
-    if (KMessageBox::questionTwoActions(this->widget(), i18n("Do you really want to remove old versions for all baskets?"), i18n("Remove old Baskets"), KGuiItem(i18n("Version Sync")), KStandardGuiItem::cancel()) == KMessageBox::Ok) {
+    if (KMessageBox::questionTwoActions(this->widget(),
+                                        i18n("Do you really want to remove old versions for all baskets?"),
+                                        i18n("Remove old Baskets"),
+                                        KGuiItem(i18n("Version Sync")),
+                                        KStandardGuiItem::cancel())
+        == KMessageBox::Ok) {
         Tools::deleteRecursively(Global::gitFolder());
         ui->buttonClearHistory->setEnabled(false);
         setHistorySize(0);

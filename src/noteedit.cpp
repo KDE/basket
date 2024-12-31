@@ -314,8 +314,12 @@ HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget *parent)
     connect(InlineEditors::instance()->richTextFontSize, &FontSizeCombo::sizeChanged, textEdit, &FocusedTextEdit::setFontPointSize);
     connect(InlineEditors::instance()->richTextColor, &KColorCombo::activated, textEdit, &FocusedTextEdit::setTextColor);
 
-    connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::escapePressed, textEdit, [&textEdit]() { textEdit->setFocus(); });
-    connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::returnPressed, textEdit, [&textEdit]() { textEdit->setFocus(); });
+    connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::escapePressed, textEdit, [&textEdit]() {
+        textEdit->setFocus();
+    });
+    connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::returnPressed, textEdit, [&textEdit]() {
+        textEdit->setFocus();
+    });
     connect(InlineEditors::instance()->richTextFont, SIGNAL(activated(int)), textEdit, SLOT(setFocus()));
 
     connect(InlineEditors::instance()->richTextFontSize, SIGNAL(activated(int)), textEdit, SLOT(setFocus()));
@@ -500,25 +504,27 @@ void HtmlEditor::validate()
 
 void HtmlEditor::detectTags()
 {
-    QTextDocument * doc = textEdit()->document();
-    const QTextBlock& block = doc->firstBlock();
-    if (!block.isValid() || block.begin() == block.end()) return;
+    QTextDocument *doc = textEdit()->document();
+    const QTextBlock &block = doc->firstBlock();
+    if (!block.isValid() || block.begin() == block.end())
+        return;
 
-    const QTextFragment& fragment = block.begin().fragment();
-    if (!fragment.isValid() || fragment.length() == 0) return;
-    //Process unstyled text only
-    const QTextCharFormat& charFmt = fragment.charFormat();
-    if (charFmt.propertyCount() > 0) return;
+    const QTextFragment &fragment = block.begin().fragment();
+    if (!fragment.isValid() || fragment.length() == 0)
+        return;
+    // Process unstyled text only
+    const QTextCharFormat &charFmt = fragment.charFormat();
+    if (charFmt.propertyCount() > 0)
+        return;
 
     QString newText = fragment.text();
     int prefixLength;
     QTextCursor cursor(block);
-    const QList<State*>& states = Tools::detectTags(fragment.text(), prefixLength);
+    const QList<State *> &states = Tools::detectTags(fragment.text(), prefixLength);
     cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::KeepAnchor, prefixLength);
     cursor.removeSelectedText();
 
-    for (State* state: states)
-    {
+    for (State *state : states) {
         note()->addState(state, true);
     }
 }
@@ -527,13 +533,14 @@ void HtmlEditor::detectTags()
 ImageEditor::ImageEditor(ImageContent *imageContent, QWidget *parent)
     : NoteEditor(imageContent)
 {
-    int choice = KMessageBox::questionTwoActionsCancel(parent,
-                                                  i18n("Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
-                                                       "Do you want to open it with an application that understand it?"),
-                                                  i18n("Edit Image Note"),
-                                                  KStandardGuiItem::open(),
-                                                  KGuiItem(i18n("Load From &File..."), QString::fromUtf8(IconNames::DOCUMENT_IMPORT)),
-                                                  KStandardGuiItem::cancel());
+    int choice = KMessageBox::questionTwoActionsCancel(
+        parent,
+        i18n("Images can not be edited here at the moment (the next version of BasKet Note Pads will include an image editor).\n"
+             "Do you want to open it with an application that understand it?"),
+        i18n("Edit Image Note"),
+        KStandardGuiItem::open(),
+        KGuiItem(i18n("Load From &File..."), QString::fromUtf8(IconNames::DOCUMENT_IMPORT)),
+        KStandardGuiItem::cancel());
 
     switch (choice) {
     case (KMessageBox::Ok):
@@ -555,11 +562,11 @@ AnimationEditor::AnimationEditor(AnimationContent *animationContent, QWidget *pa
     : NoteEditor(animationContent)
 {
     int choice = KMessageBox::questionTwoActions(parent,
-                                            i18n("This animated image can not be edited here.\n"
-                                                 "Do you want to open it with an application that understands it?"),
-                                            i18n("Edit Animation Note"),
-                                            KStandardGuiItem::open(),
-                                            KStandardGuiItem::cancel());
+                                                 i18n("This animated image can not be edited here.\n"
+                                                      "Do you want to open it with an application that understands it?"),
+                                                 i18n("Edit Animation Note"),
+                                                 KStandardGuiItem::open(),
+                                                 KStandardGuiItem::cancel());
 
     if (choice == KMessageBox::PrimaryAction)
         note()->basket()->noteOpen(note());
@@ -738,7 +745,8 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
         m_title->setText(m_noteContent->title());
     }
 
-    QUrl filteredURL = NoteFactory::filteredURL(QUrl::fromUserInput(m_url->lineEdit()->text())); // KURIFilter::self()->filteredURI(KUrl(m_url->lineEdit()->text()));
+    QUrl filteredURL =
+        NoteFactory::filteredURL(QUrl::fromUserInput(m_url->lineEdit()->text())); // KURIFilter::self()->filteredURI(KUrl(m_url->lineEdit()->text()));
     m_icon->setIconType(KIconLoader::NoGroup, KIconLoader::MimeType);
     m_icon->setIconSize(LinkLook::lookForURL(filteredURL)->iconSize());
     m_autoIcon = new QPushButton(i18n("Auto"), wid); // Create before to know size here:
@@ -782,8 +790,12 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     connect(m_url, &KUrlRequester::textChanged, this, &LinkEditDialog::urlChanged);
     connect(m_title, &QLineEdit::textChanged, this, &LinkEditDialog::doNotAutoTitle);
     connect(m_icon, &KIconButton::iconChanged, this, &LinkEditDialog::doNotAutoIcon);
-    connect(m_autoTitle, &QPushButton::clicked, this, [this](bool) { guessTitle(); });
-    connect(m_autoIcon, &QPushButton::clicked, this, [this](bool) { guessIcon(); });
+    connect(m_autoTitle, &QPushButton::clicked, this, [this](bool) {
+        guessTitle();
+    });
+    connect(m_autoIcon, &QPushButton::clicked, this, [this](bool) {
+        guessIcon();
+    });
 
     QWidget *stretchWidget = new QWidget(page);
     mainLayout->addWidget(stretchWidget);
@@ -877,9 +889,9 @@ void LinkEditDialog::slotOk()
 
     /* Change icon size if link look have changed */
     LinkLook *linkLook = LinkLook::lookForURL(filteredURL);
-    QString icon = m_icon->icon();                                     // When we change size, icon isn't changed and keep it's old size
+    QString icon = m_icon->icon(); // When we change size, icon isn't changed and keep it's old size
     m_icon->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum); // Reset size policy
-    m_icon->setIconSize(linkLook->iconSize());                         //  So I store it's name and reload it after size change !
+    m_icon->setIconSize(linkLook->iconSize()); //  So I store it's name and reload it after size change !
     m_icon->setIcon(icon);
     int minSize = m_autoIcon->sizeHint().height();
     // Make the icon button at least the same height than the other buttons for a better alignment (nicer to the eyes):
@@ -914,7 +926,9 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
 
     if (m_noteContent->url().isEmpty()) {
         BasketListViewItem *item = Global::bnpView->topLevelItem(0);
-        m_noteContent->setCrossReference(QUrl::fromUserInput(item->data(0, Qt::UserRole).toString()), m_targetBasket->currentText(), QStringLiteral("edit-copy"));
+        m_noteContent->setCrossReference(QUrl::fromUserInput(item->data(0, Qt::UserRole).toString()),
+                                         m_targetBasket->currentText(),
+                                         QStringLiteral("edit-copy"));
         this->urlChanged(0);
     } else {
         QString url = m_noteContent->url().url();
@@ -965,8 +979,9 @@ CrossReferenceEditDialog::~CrossReferenceEditDialog()
 void CrossReferenceEditDialog::urlChanged(const int index)
 {
     if (m_targetBasket)
-        m_noteContent->setCrossReference(
-            QUrl::fromUserInput(m_targetBasket->itemData(index, Qt::UserRole).toStringList().first()), m_targetBasket->currentText().trimmed(), m_targetBasket->itemData(index, Qt::UserRole).toStringList().last());
+        m_noteContent->setCrossReference(QUrl::fromUserInput(m_targetBasket->itemData(index, Qt::UserRole).toStringList().first()),
+                                         m_targetBasket->currentText().trimmed(),
+                                         m_targetBasket->itemData(index, Qt::UserRole).toStringList().last());
 }
 
 void CrossReferenceEditDialog::slotOk()

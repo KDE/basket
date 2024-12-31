@@ -7,13 +7,12 @@
 #ifndef NOTECONTENT_H
 #define NOTECONTENT_H
 
-#include <QMap>
 #include <QGraphicsItem>
-#include <QUrl>
+#include <QMap>
 #include <QNetworkAccessManager>
+#include <QUrl>
 #include <QXmlStreamWriter>
 #include <QtCore/QObject>
-
 
 #include "basket_export.h"
 #include "linklabel.h"
@@ -44,7 +43,6 @@ namespace Phonon
 {
 class MediaObject;
 }
-
 
 class BasketScene;
 struct FilterData;
@@ -82,7 +80,20 @@ private:
  */
 namespace NoteType
 {
-enum Id { Group = 255, Text = 1, Html, Image, Animation, Sound, File, Link, CrossReference, Launcher, Color, Unknown }; // Always positive
+enum Id {
+    Group = 255,
+    Text = 1,
+    Html,
+    Image,
+    Animation,
+    Sound,
+    File,
+    Link,
+    CrossReference,
+    Launcher,
+    Color,
+    Unknown
+}; // Always positive
 
 QString typeToName(const NoteType::Id noteType);
 QString typeToLowerName(const NoteType::Id noteType);
@@ -99,27 +110,41 @@ class BASKET_EXPORT NoteContent
 public:
     // Constructor and destructor:
     explicit NoteContent(Note *parent, const NoteType::Id type, const QString &fileName = QString());
-    virtual ~NoteContent() {}
+    virtual ~NoteContent()
+    {
+    }
     // Note Type Information
-    NoteType::Id type() const { return m_type; }                                         /// << @return the internal number that identify that note type.
-    QString typeName() const { return NoteType::typeToName(type()); }                    /// << @return the translated type name to display in the user interface.
-    QString lowerTypeName() const { return NoteType::typeToLowerName(type()); }          /// << @return the type name in lowercase without space, for eg. saving.
+    NoteType::Id type() const
+    {
+        return m_type;
+    } /// << @return the internal number that identify that note type.
+    QString typeName() const
+    {
+        return NoteType::typeToName(type());
+    } /// << @return the translated type name to display in the user interface.
+    QString lowerTypeName() const
+    {
+        return NoteType::typeToLowerName(type());
+    } /// << @return the type name in lowercase without space, for eg. saving.
     // Simple Abstract Generic Methods:
-    virtual QString toText(const QString &cuttedFullPath);                               /// << @return a plain text equivalent of the content.
-    virtual QString toHtml(const QString &imageName, const QString &cuttedFullPath) = 0; /// << @return an HTML text equivalent of the content. @param imageName Save image in this Qt resource.
+    virtual QString toText(const QString &cuttedFullPath); /// << @return a plain text equivalent of the content.
+    virtual QString
+    toHtml(const QString &imageName,
+           const QString &cuttedFullPath) = 0; /// << @return an HTML text equivalent of the content. @param imageName Save image in this Qt resource.
     virtual QPixmap toPixmap()
     {
         return QPixmap();
-    }                                                                              /// << @return an image equivalent of the content.
-    virtual void toLink(QUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
-    virtual bool useFile() const = 0;                                              /// << @return true if it use a file to store the content.
-    virtual bool canBeSavedAs() const = 0;                                         /// << @return true if the content can be saved as a file by the user.
-    virtual QString saveAsFilters() const = 0;                                     /// << @return the filters for the user to choose a file destination to save the note as.
-    virtual bool match(const FilterData &data) = 0;                                /// << @return true if the content match the filter criteria.
+    } /// << @return an image equivalent of the content.
+    virtual void
+    toLink(QUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
+    virtual bool useFile() const = 0; /// << @return true if it use a file to store the content.
+    virtual bool canBeSavedAs() const = 0; /// << @return true if the content can be saved as a file by the user.
+    virtual QString saveAsFilters() const = 0; /// << @return the filters for the user to choose a file destination to save the note as.
+    virtual bool match(const FilterData &data) = 0; /// << @return true if the content match the filter criteria.
     // Complex Abstract Generic Methods:
     virtual void exportToHTML(HTMLExporter *exporter, int indent) = 0; /// << Export the note in an HTML file.
-    virtual QString cssClass() const = 0;                              /// << @return the CSS class of the note when exported to HTML
-    virtual qreal setWidthAndGetHeight(qreal width) = 0;               /// << Relayout content with @p width (never less than minWidth()). @return its new height.
+    virtual QString cssClass() const = 0; /// << @return the CSS class of the note when exported to HTML
+    virtual qreal setWidthAndGetHeight(qreal width) = 0; /// << Relayout content with @p width (never less than minWidth()). @return its new height.
     virtual bool loadFromFile(bool /*lazyLoad*/)
     {
         return false;
@@ -135,12 +160,12 @@ public:
     virtual QString linkAt(const QPointF & /*pos*/)
     {
         return QString();
-    }                                                  /// << @return the link anchor at position @p pos or QString() if there is no link.
+    } /// << @return the link anchor at position @p pos or QString() if there is no link.
     virtual void saveToNode(QXmlStreamWriter &stream); /// << Save the note in the basket XML file. By default it store the filename if a file is used.
-    virtual void fontChanged() = 0;                    /// << If your content display textual data, called when the font have changed (from tags or basket font)
+    virtual void fontChanged() = 0; /// << If your content display textual data, called when the font have changed (from tags or basket font)
     virtual void linkLookChanged()
     {
-    }                                            /// << If your content use LinkDisplay with preview enabled, reload the preview (can have changed size)
+    } /// << If your content use LinkDisplay with preview enabled, reload the preview (can have changed size)
     virtual QString editToolTipText() const = 0; /// << @return "Edit this [text|image|...]" to put in the tooltip for the note's content zone.
     virtual QMap<QString, QString> toolTipInfos()
     {
@@ -150,7 +175,7 @@ public:
     virtual int zoneAt(const QPointF & /*pos*/)
     {
         return 0;
-    }                                                               /// << If your note-type have custom zones, @return the zone at @p pos or 0 if it's not a custom zone!
+    } /// << If your note-type have custom zones, @return the zone at @p pos or 0 if it's not a custom zone!
     virtual QRectF zoneRect(int /*zone*/, const QPointF & /*pos*/); /// << Idem, @return the rect of the custom zone
     virtual QString zoneTip(int /*zone*/)
     {
@@ -177,7 +202,7 @@ public:
     } /// << @return true if the dragging process should serialize the filename (and move the file if cutting).
     virtual void addAlternateDragObjects(QMimeData * /*dragObj*/)
     {
-    }                                                              /// << If you offer more than toText/Html/Image/Link(), this will be called if this is the only selected.
+    } /// << If you offer more than toText/Html/Image/Link(), this will be called if this is the only selected.
     virtual QPixmap feedbackPixmap(qreal width, qreal height) = 0; /// << @return the pixmap to put under the cursor while dragging this object.
     virtual bool needSpaceForFeedbackPixmap()
     {
@@ -189,31 +214,35 @@ public:
         return 0;
     } /// << If the editor should be indented (eg. to not cover an icon), return the number of pixels.
     // Open Content or File:
-    virtual QUrl urlToOpen(bool /*with*/); /// << @return the URL to open the note, or an invalid QUrl if it's not openable. If @p with if false, it's a normal "Open". If it's true, it's for an "Open with..." action. The default
-                                           /// implementation return the fullPath() if the note useFile() and nothing if not.
+    virtual QUrl urlToOpen(
+        bool /*with*/); /// << @return the URL to open the note, or an invalid QUrl if it's not openable. If @p with if false, it's a normal "Open". If it's
+                        /// true, it's for an "Open with..." action. The default implementation return the fullPath() if the note useFile() and nothing if not.
     enum OpenMessage {
-        OpenOne,              /// << Message to send to the statusbar when opening this note.
-        OpenSeveral,          /// << Message to send to the statusbar when opening several notes of this type.
-        OpenOneWith,          /// << Message to send to the statusbar when doing "Open With..." on this note.
-        OpenSeveralWith,      /// << Message to send to the statusbar when doing "Open With..." several notes of this type.
-        OpenOneWithDialog,    /// << Prompt-message of the "Open With..." dialog for this note.
+        OpenOne, /// << Message to send to the statusbar when opening this note.
+        OpenSeveral, /// << Message to send to the statusbar when opening several notes of this type.
+        OpenOneWith, /// << Message to send to the statusbar when doing "Open With..." on this note.
+        OpenSeveralWith, /// << Message to send to the statusbar when doing "Open With..." several notes of this type.
+        OpenOneWithDialog, /// << Prompt-message of the "Open With..." dialog for this note.
         OpenSeveralWithDialog /// << Prompt-message of the "Open With..." dialog for several notes of this type.
     };
     virtual QString messageWhenOpening(OpenMessage /*where*/)
     {
         return QString();
-    } /// << @return the message to display according to @p where or nothing if it can't be done. @see OpenMessage describing the nature of the message that should be returned... The default implementation return an empty string. NOTE: If
-      /// urlToOpen() is invalid and messageWhenOpening() is not empty, then the user will be prompted to edit the note (with the message returned by messageWhenOpening()) for eg. being able to edit URL of a link if it's empty when opening
-      /// it...
+    } /// << @return the message to display according to @p where or nothing if it can't be done. @see OpenMessage describing the nature of the message that
+      /// should be returned... The default implementation return an empty string. NOTE: If urlToOpen() is invalid and messageWhenOpening() is not empty, then
+      /// the user will be prompted to edit the note (with the message returned by messageWhenOpening()) for eg. being able to edit URL of a link if it's empty
+      /// when opening it...
     virtual QString customServiceLauncher()
     {
         return QString();
-    } /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the users in the setting (choice to use a custom app or not, and which app).
+    } /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the
+      /// users in the setting (choice to use a custom app or not, and which app).
     // Common File Management:                                            ///    (and do save changes) and optionally hide the toolbar.
     virtual void setFileName(const QString &fileName); /// << Set the filename. Reimplement it if you eg. want to update the view when the filename is changed.
-    bool trySetFileName(const QString &fileName);      /// << Set the new filename and return true. Can fail and return false if a file with this fileName already exists.
-    QString fullPath();                                /// << Get the absolute path of the file where this content is stored on disk.
-    QUrl fullPathUrl();                                /// << Get the absolute path of the file where this content is stored on disk as QUrl
+    bool
+    trySetFileName(const QString &fileName); /// << Set the new filename and return true. Can fail and return false if a file with this fileName already exists.
+    QString fullPath(); /// << Get the absolute path of the file where this content is stored on disk.
+    QUrl fullPathUrl(); /// << Get the absolute path of the file where this content is stored on disk as QUrl
     QString fileName() const
     {
         return m_fileName;
@@ -225,15 +254,17 @@ public:
     Note *note()
     {
         return m_note;
-    }                      /// << Get the note managing this content.
+    } /// << Get the note managing this content.
     BasketScene *basket(); /// << Get the basket containing the note managing this content.
     virtual QGraphicsItem *graphicsItem() = 0;
 
 public:
     void setEdited(); /// << Mark the note as edited NOW: change the "last modification time and time" AND save the basket to XML file.
 protected:
-    void contentChanged(qreal newMinWidth); /// << When the content has changed, inherited classes should call this to specify its new minimum size and trigger a basket relayout.
+    void contentChanged(qreal newMinWidth); /// << When the content has changed, inherited classes should call this to specify its new minimum size and trigger
+                                            /// a basket relayout.
     NoteType::Id m_type = NoteType::Unknown;
+
 private:
     Note *m_note;
     QString m_fileName;
@@ -619,7 +650,7 @@ protected:
     QNetworkAccessManager *m_access_manager;
     QNetworkReply *m_reply;
     QByteArray m_httpBuff; ///< Accumulator for downloaded HTTP data with yet unknown encoding
-    bool m_acceptingData;  ///< When false, don't accept any HTTP data
+    bool m_acceptingData; ///< When false, don't accept any HTTP data
     // File Preview Management:
 protected Q_SLOTS:
     void httpReadyRead();
@@ -632,7 +663,7 @@ protected:
     KIO::PreviewJob *m_previewJob;
 
 private:
-    void decodeHtmlTitle();      ///< Detect encoding of \p m_httpBuff and extract the title from HTML
+    void decodeHtmlTitle(); ///< Detect encoding of \p m_httpBuff and extract the title from HTML
     void endFetchingLinkTitle(); ///< Extract title and clear http buffer
 };
 
@@ -739,7 +770,9 @@ public:
     QUrl urlToOpen(bool with) override;
     QString messageWhenOpening(OpenMessage where) override;
     // Content-Specific Methods:
-    void setLauncher(const QString &name, const QString &icon, const QString &exec); /// << Change the launcher note-content and relayout the note. Normally called by loadFromFile (no save done).
+    void setLauncher(const QString &name,
+                     const QString &icon,
+                     const QString &exec); /// << Change the launcher note-content and relayout the note. Normally called by loadFromFile (no save done).
     QString name()
     {
         return m_name;

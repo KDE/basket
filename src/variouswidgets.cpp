@@ -42,7 +42,7 @@ ServiceLaunchRequester::ServiceLaunchRequester(const QString serviceLauncher, co
     m_serviceChooser = new QPushButton(this);
     setServiceLauncher(serviceLauncher);
     layout->addWidget(m_serviceChooser);
-    
+
     connect(m_serviceChooser, &QPushButton::clicked, this, &ServiceLaunchRequester::slotSelCommand);
 }
 
@@ -60,14 +60,13 @@ void ServiceLaunchRequester::slotSelCommand()
     }
     QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(QList<QUrl>(), m_message, service_name, this);
     dlg->exec();
-    
+
     if (!dlg->text().isEmpty()) {
         KService::Ptr selectedService = dlg->service();
         if (selectedService) {
             m_serviceLauncher = selectedService->storageId(); // e.g., "firefox"
             setServiceLauncher(m_serviceLauncher);
         }
-        
     }
 }
 
@@ -79,27 +78,27 @@ QString ServiceLaunchRequester::serviceLauncher()
 void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
 {
     m_serviceLauncher = serviceLauncher;
-    
+
     QString iconPath;
     QString name;
     QString genericName;
     QString displayName;
     QString comment;
     QIcon buttonIcon;
-    
+
     KService::Ptr service = KService::serviceByStorageId(serviceLauncher);
-    
+
     if (service && service->isApplication()) {
         KIconLoader *iconLoader = KIconLoader::global();
-        
+
         iconPath = iconLoader->iconPath(service->icon(), KIconLoader::Desktop, 24);
-        
+
         if (!iconPath.isEmpty()) {
             buttonIcon = QIcon(iconPath);
         } else {
             buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
         }
-        
+
         name = service->name();
         genericName = service->genericName();
         displayName = name;
@@ -111,22 +110,22 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
         displayName = QStringLiteral("Choose an Application Launcher ...");
         comment = QStringLiteral("Use KDE Plasma Application Launchers to open your Basket Notes");
     }
-    
+
     m_serviceChooser->setIcon(buttonIcon);
-    
+
     // Optional: Adjust icon size if necessary
-    m_serviceChooser->setIconSize(QSize(24, 24));  // Set the icon size
-    
+    m_serviceChooser->setIconSize(QSize(24, 24)); // Set the icon size
+
     // Optional: You can also set the button text alignment
     m_serviceChooser->setText(displayName);
     m_serviceChooser->setToolTip(comment);
-    
-    
+
     m_serviceChooser->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     Q_EMIT launcherChanged();
 }
 
-void ServiceLaunchRequester::setFocus() {
+void ServiceLaunchRequester::setFocus()
+{
     m_serviceChooser->setFocus();
 }
 
@@ -420,7 +419,7 @@ FontSizeCombo::FontSizeCombo(bool rw, bool withDefault, QWidget *parent)
     for (QList<int>::Iterator it = sizes.begin(); it != sizes.end(); ++it)
         addItem(QString::number(*it));
 
-    //connect(this, &FontSizeCombo::activated, this, &FontSizeCombo::textChangedInCombo);
+    // connect(this, &FontSizeCombo::activated, this, &FontSizeCombo::textChangedInCombo);
     connect(this, &FontSizeCombo::editTextChanged, this, &FontSizeCombo::textChangedInCombo);
 
     // TODO: 01617 void KFontSizeAction::setFontSize( int size )

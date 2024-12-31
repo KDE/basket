@@ -6,12 +6,12 @@
 #ifndef DEBUGWINDOW_H
 #define DEBUGWINDOW_H
 
-#include <QWidget>
-#include <QFile>
-#include <QTextStream>
 #include <QDebug>
+#include <QFile>
 #include <QLatin1String>
 #include <QStringLiteral>
+#include <QTextStream>
+#include <QWidget>
 
 #include "global.h"
 
@@ -48,8 +48,8 @@ private:
 void debugMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
 #endif
 
-#define DEBUG_WIN                                                                                                                                                                                                                              \
-    if (Global::debugWindow)                                                                                                                                                                                                                   \
+#define DEBUG_WIN                                                                                                                                              \
+    if (Global::debugWindow)                                                                                                                                   \
     *Global::debugWindow
 
 #endif // DEBUGWINDOW_H

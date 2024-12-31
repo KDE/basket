@@ -60,34 +60,33 @@
 
 Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool reallyPlainText /* = false*/)
 {
-    QList<State*> tags; int tagsLength = 0; Note* note;
+    QList<State *> tags;
+    int tagsLength = 0;
+    Note *note;
 
-    if (Settings::detectTextTags())
-    {
+    if (Settings::detectTextTags()) {
         tags = Tools::detectTags(text, tagsLength);
     }
     QString textConverted = text.mid(tagsLength);
 
-    if (reallyPlainText)
-    {
+    if (reallyPlainText) {
         note = new Note(parent);
         TextContent *content = new TextContent(note, createFileForNewNote(parent, QStringLiteral("txt")));
         content->setText(text);
         content->saveToFile();
-    }
-        else
-    {
-        textConverted = QStringLiteral("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>%1</body></html>")
-            .arg(Tools::textToHTMLWithoutP(textConverted));
+    } else {
+        textConverted = QStringLiteral(
+                            "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" "
+                            "/></head><body>%1</body></html>")
+                            .arg(Tools::textToHTMLWithoutP(textConverted));
 
         note = createNoteHtml(textConverted, parent);
     }
 
     if (note)
-    for (State* state: tags)
-    {
-        note->addState(state, true);
-    }
+        for (State *state : tags) {
+            note->addState(state, true);
+        }
 
     return note;
 }
@@ -178,7 +177,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
         /* Search for mail address ("*@*.*" ; "*" can contain '_', '-', or '.') and add protocol to it */
         QString mailExpString = QStringLiteral("[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+");
         QRegularExpression mailExp(QRegularExpression::anchoredPattern(QStringLiteral("^") + mailExpString + QLatin1Char('$')));
-        
+
         if (ltext.indexOf(mailExp) != -1) {
             ltext.insert(0, QStringLiteral("mailto:"));
             (*it).insert(0, QStringLiteral("mailto:"));
@@ -202,8 +201,9 @@ QStringList NoteFactory::textToURLList(const QString &text)
 
         /* Search for an url and create an URL note */
         if ((ltext.startsWith(QLatin1Char('/')) && ltext[1] != QLatin1Char('/') && ltext[1] != QLatin1Char('*')) || // Take files but not C/C++/... comments !
-            ltext.startsWith(QStringLiteral("file:")) || ltext.startsWith(QStringLiteral("http://")) || ltext.startsWith(QStringLiteral("https://")) || ltext.startsWith(QStringLiteral("www.")) || ltext.startsWith(QStringLiteral("ftp.")) ||
-            ltext.startsWith(QStringLiteral("ftp://")) || ltext.startsWith(QStringLiteral("mailto:"))) {
+            ltext.startsWith(QStringLiteral("file:")) || ltext.startsWith(QStringLiteral("http://")) || ltext.startsWith(QStringLiteral("https://"))
+            || ltext.startsWith(QStringLiteral("www.")) || ltext.startsWith(QStringLiteral("ftp.")) || ltext.startsWith(QStringLiteral("ftp://"))
+            || ltext.startsWith(QStringLiteral("mailto:"))) {
             // First, correct the text to use the good format for the url
             if (ltext.startsWith(QLatin1Char('/')))
                 (*it).insert(0, QStringLiteral("file:"));
@@ -492,7 +492,11 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         "It however created a generic note, allowing you to drag or copy it to an application that understand it.</p>"
         "<p>If you want the support of these data, please contact developer.</p>",
         QGuiApplication::applicationDisplayName());
-    KMessageBox::information(parent->graphicsView()->viewport(), message, i18n("Unsupported MIME Type(s)"), QStringLiteral("unsupportedDropInfo"), KMessageBox::AllowLink);
+    KMessageBox::information(parent->graphicsView()->viewport(),
+                             message,
+                             i18n("Unsupported MIME Type(s)"),
+                             QStringLiteral("unsupportedDropInfo"),
+                             KMessageBox::AllowLink);
     return note;
 }
 
@@ -534,8 +538,8 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
     bool ctrlPressed = keyinfo.isKeyPressed(Qt::Key_Control);
     bool modified = fromDrop && (shiftPressed || ctrlPressed);
 
-    if (modified)        // Then no menu + modified action
-        ;                // action is already set: no work to do
+    if (modified) // Then no menu + modified action
+        ; // action is already set: no work to do
     else if (fromDrop) { // Compute if user should be asked or not
         for (QList<QUrl>::iterator it = urls.begin(); it != urls.end(); ++it)
             if ((*it).scheme() != QStringLiteral("mailto")) { // Do not ask when dropping mail address :-)
@@ -546,10 +550,11 @@ Note *NoteFactory::dropURLs(QList<QUrl> urls, BasketScene *parent, Qt::DropActio
         if (shouldAsk) {
             QMenu menu(parent->graphicsView());
             QList<QAction *> actList;
-            actList << new QAction(QIcon::fromTheme(QStringLiteral("go-jump")), i18n("&Move Here\tShift"), &menu) << new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("&Copy Here\tCtrl"), &menu)
+            actList << new QAction(QIcon::fromTheme(QStringLiteral("go-jump")), i18n("&Move Here\tShift"), &menu)
+                    << new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("&Copy Here\tCtrl"), &menu)
                     << new QAction(QIcon::fromTheme(QStringLiteral("insert-link")), i18n("&Link Here\tCtrl+Shift"), &menu);
 
-            for (QAction *a: actList)
+            for (QAction *a : actList)
                 menu.addAction(a);
 
             menu.addSeparator();
@@ -897,7 +902,8 @@ QUrl NoteFactory::filteredURL(const QUrl &url)
         return url;
     else {
         QStringList list;
-        list << QStringLiteral("kshorturifilter") << QStringLiteral("kuriikwsfilter") << QStringLiteral("kurisearchfilter") << QStringLiteral("localdomainfilter") << QStringLiteral("fixuphosturifilter");
+        list << QStringLiteral("kshorturifilter") << QStringLiteral("kuriikwsfilter") << QStringLiteral("kurisearchfilter")
+             << QStringLiteral("localdomainfilter") << QStringLiteral("fixuphosturifilter");
         return KUriFilter::self()->filteredUri(url, list);
     }
 }
@@ -946,14 +952,13 @@ QString NoteFactory::titleForURL(const QUrl &url)
     }
 
     if (title.length() > 2 && title.endsWith(QLatin1Char('/'))) // length > 2 because "/" and "~/" shouldn't be transformed to QString() and "~"
-        title.truncate(title.length() - 1);        // eg. transform "www.kde.org/" to "www.kde.org"
+        title.truncate(title.length() - 1); // eg. transform "www.kde.org/" to "www.kde.org"
 
     return title;
 }
 
 QString NoteFactory::iconForURL(const QUrl &url)
 {
-
     if (url.scheme() == QStringLiteral("mailto")) {
         return QStringLiteral("message");
     } else if (url.scheme() == QStringLiteral("http") || url.scheme() == QStringLiteral("https")) {
@@ -1044,7 +1049,11 @@ Note *NoteFactory::importIcon(BasketScene *parent)
 {
     QString iconName = KIconDialog::getIcon(KIconLoader::Desktop, KIconLoader::Application, false, Settings::defIconSize());
     if (!iconName.isEmpty()) {
-        QPointer<IconSizeDialog> dialog = new IconSizeDialog(i18n("Import Icon as Image"), i18n("Choose the size of the icon to import as an image:"), iconName, Settings::defIconSize(), nullptr);
+        QPointer<IconSizeDialog> dialog = new IconSizeDialog(i18n("Import Icon as Image"),
+                                                             i18n("Choose the size of the icon to import as an image:"),
+                                                             iconName,
+                                                             Settings::defIconSize(),
+                                                             nullptr);
         dialog->exec();
         if (dialog->iconSize() > 0) {
             Settings::setDefIconSize(dialog->iconSize());
@@ -1075,16 +1084,24 @@ void NoteFactory::loadNode(const QDomElement &content, const QString &lowerTypeN
         new AnimationContent(parent, content.text(), lazyLoad);
     } else if (lowerTypeName == QStringLiteral("sound")) {
         new SoundContent(parent, content.text());
-    } else if (lowerTypeName == QStringLiteral("file"))  {
+    } else if (lowerTypeName == QStringLiteral("file")) {
         new FileContent(parent, content.text());
     } else if (lowerTypeName == QStringLiteral("link")) {
         bool autoTitle = content.attribute(QStringLiteral("title")) == content.text();
         bool autoIcon = content.attribute(QStringLiteral("icon")) == NoteFactory::iconForURL(QUrl::fromUserInput(content.text()));
         autoTitle = XMLWork::trueOrFalse(content.attribute(QStringLiteral("autoTitle")), autoTitle);
         autoIcon = XMLWork::trueOrFalse(content.attribute(QStringLiteral("autoIcon")), autoIcon);
-        new LinkContent(parent, QUrl::fromUserInput(content.text()), content.attribute(QStringLiteral("title")), content.attribute(QStringLiteral("icon")), autoTitle, autoIcon);
+        new LinkContent(parent,
+                        QUrl::fromUserInput(content.text()),
+                        content.attribute(QStringLiteral("title")),
+                        content.attribute(QStringLiteral("icon")),
+                        autoTitle,
+                        autoIcon);
     } else if (lowerTypeName == QStringLiteral("cross_reference")) {
-        new CrossReferenceContent(parent, QUrl::fromUserInput(content.text()), content.attribute(QStringLiteral("title")), content.attribute(QStringLiteral("icon")));
+        new CrossReferenceContent(parent,
+                                  QUrl::fromUserInput(content.text()),
+                                  content.attribute(QStringLiteral("title")),
+                                  content.attribute(QStringLiteral("icon")));
     } else if (lowerTypeName == QStringLiteral("launcher")) {
         new LauncherContent(parent, content.text());
     } else if (lowerTypeName == QStringLiteral("color")) {

@@ -22,8 +22,8 @@ extern "C" {
 
 #include "global.h"
 
-#define GIT_RETURN_IF_DISABLED()                                                                                                                                                                                                               \
-    if (!Settings::versionSyncEnabled())                                                                                                                                                                                                       \
+#define GIT_RETURN_IF_DISABLED()                                                                                                                               \
+    if (!Settings::versionSyncEnabled())                                                                                                                       \
         return;
 
 QMutex GitWrapper::gitMutex;
@@ -308,7 +308,7 @@ bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString mes
     }
 
     git_commit *commit = nullptr; /* parent */
-    git_oid oid_parent_commit;    /* the SHA1 for last commit */
+    git_oid oid_parent_commit; /* the SHA1 for last commit */
 
     error = git_reference_name_to_id(&oid_parent_commit, repo, "HEAD");
     if (error < 0) {
@@ -339,9 +339,9 @@ bool GitWrapper::commitIndex(git_repository *repo, git_index *index, QString mes
         gitErrorHandling();
         return false;
     }
-    
-    const git_commit* parentarray[] = { const_cast<git_commit*>(commit) };
-    
+
+    const git_commit *parentarray[] = {const_cast<git_commit *>(commit)};
+
     QByteArray commitmessageba = message.toUtf8();
     const char *commitmessageCString = commitmessageba.data();
     error = git_commit_create(&commit_id, repo, "HEAD", sig, sig, nullptr, commitmessageCString, tree, 1, (const git_commit **)parentarray);
@@ -398,9 +398,9 @@ QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
     if (error < 0)
         return QDateTime();
     int64_t time = static_cast<int64_t>(git_commit_time(head));
-    
+
     QDateTime date;
-    QTime t(0,0,0);
+    QTime t(0, 0, 0);
     t.addSecs(time);
     date.setTime(t);
 

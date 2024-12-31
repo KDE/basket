@@ -9,16 +9,16 @@
 
 #ifndef _WIN32
 
+#include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusMetaType>
+#include <QDBusObjectPath>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
-#include <QDBusObjectPath>
-#include <QDBusConnection>
 #include <QDebug>
 
-QDBusArgument &operator <<(QDBusArgument &arg, const QColor &color)
+QDBusArgument &operator<<(QDBusArgument &arg, const QColor &color)
 {
     arg.beginStructure();
     arg << color.redF() << color.greenF() << color.blueF();
@@ -26,7 +26,7 @@ QDBusArgument &operator <<(QDBusArgument &arg, const QColor &color)
     return arg;
 }
 
-const QDBusArgument &operator >>(const QDBusArgument &arg, QColor &color)
+const QDBusArgument &operator>>(const QDBusArgument &arg, QColor &color)
 {
     double red, green, blue;
     arg.beginStructure();
@@ -55,7 +55,7 @@ void ColorPicker::grabColor()
     message << QStringLiteral("x11:") << QVariantMap{};
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this] (QDBusPendingCallWatcher *watcher) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QDBusObjectPath> reply = *watcher;
         if (reply.isError()) {
             qWarning() << "Couldn't get reply";
@@ -71,7 +71,7 @@ void ColorPicker::grabColor()
     });
 }
 
-void ColorPicker::gotColorResponse(uint response, const QVariantMap& results)
+void ColorPicker::gotColorResponse(uint response, const QVariantMap &results)
 {
     if (!response) {
         if (results.contains(QStringLiteral("color"))) {

@@ -43,15 +43,15 @@ public: // TODO: make private?
     QString fileName; // eg.: "foo.html"
 
     // Absolute & relative paths for the current basket to be exported:
-    QString basketFilePath;    // eg.: "/home/seb/foo.html" or "/home/seb/foo.html_files/baskets/basketN.html"
-    QString filesFolderPath;   // eg.: "/home/seb/foo.html_files/"
-    QString filesFolderName;   // eg.: "foo.html_files/" or "../"
-    QString iconsFolderPath;   // eg.: "/home/seb/foo.html_files/icons/"
-    QString iconsFolderName;   // eg.: "foo.html_files/icons/" or "../icons/"
-    QString imagesFolderPath;  // eg.: "/home/seb/foo.html_files/images/"
-    QString imagesFolderName;  // eg.: "foo.html_files/images/" or "../images/"
-    QString dataFolderPath;    // eg.: "/home/seb/foo.html_files/data/" or "/home/seb/foo.html_files/baskets/basketN-data/"
-    QString dataFolderName;    // eg.: "foo.html_files/data/" or "basketN-data/"
+    QString basketFilePath; // eg.: "/home/seb/foo.html" or "/home/seb/foo.html_files/baskets/basketN.html"
+    QString filesFolderPath; // eg.: "/home/seb/foo.html_files/"
+    QString filesFolderName; // eg.: "foo.html_files/" or "../"
+    QString iconsFolderPath; // eg.: "/home/seb/foo.html_files/icons/"
+    QString iconsFolderName; // eg.: "foo.html_files/icons/" or "../icons/"
+    QString imagesFolderPath; // eg.: "/home/seb/foo.html_files/images/"
+    QString imagesFolderName; // eg.: "foo.html_files/images/" or "../images/"
+    QString dataFolderPath; // eg.: "/home/seb/foo.html_files/data/" or "/home/seb/foo.html_files/baskets/basketN-data/"
+    QString dataFolderName; // eg.: "foo.html_files/data/" or "basketN-data/"
     QString basketsFolderPath; // eg.: "/home/seb/foo.html_files/baskets/"
     QString basketsFolderName; // eg.: "foo.html_files/baskets/" or QString()
 

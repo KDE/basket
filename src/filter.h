@@ -23,7 +23,13 @@ class State;
 struct FilterData {
 public:
     // Useful Enum for tagFilterType:
-    enum TagFilterType { DontCareTagsFilter = 0, NotTaggedFilter, TaggedFilter, TagFilter, StateFilter };
+    enum TagFilterType {
+        DontCareTagsFilter = 0,
+        NotTaggedFilter,
+        TaggedFilter,
+        TagFilter,
+        StateFilter
+    };
     // Constructor and Destructor:
     FilterData()
     {

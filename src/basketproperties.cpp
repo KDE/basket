@@ -112,9 +112,10 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     columnCount->setRange(1, 20);
     columnCount->setValue(m_basket->columnsCount());
     connect(columnCount, SIGNAL(valueChanged(int)), this, SLOT(selectColumnsLayout()));
-    
+
     int height = qMax(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equally-spaced!
-    mindMap->setMinimumSize(mindMap->sizeHint().width(), height);                      // Because the m_columnCount can be higher, and make radio1 and radio2 more spaced than radio2 and radio3.
+    mindMap->setMinimumSize(mindMap->sizeHint().width(),
+                            height); // Because the m_columnCount can be higher, and make radio1 and radio2 more spaced than radio2 and radio3.
 
     if (!m_basket->isFreeLayout())
         columnForm->setChecked(true);
@@ -126,21 +127,24 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     mindMap->hide();
 
     // Keyboard Shortcut:
-    QList<QKeySequence> shortcuts {m_basket->shortcut()};
+    QList<QKeySequence> shortcuts{m_basket->shortcut()};
     shortcut->setShortcut(shortcuts);
 
-    HelpLabel *helpLabel = new HelpLabel(i18n("Learn some tips..."),
-                                         i18n("<p><strong>Easily Remember your Shortcuts</strong>:<br>"
-                                              "With the first option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> will underline that letter in the basket tree.<br>"
-                                              "For instance, if you are assigning the shortcut <i>Alt+T</i> to a basket named <i>Tips</i>, the basket will be displayed as <i><u>T</u>ips</i> in the tree. "
-                                              "It helps you visualize the shortcuts to remember them more quickly.</p>"
-                                              "<p><strong>Local vs Global</strong>:<br>"
-                                              "The first option allows you to show the basket while the main window is active. "
-                                              "Global shortcuts are valid from anywhere, even if the window is hidden.</p>"
-                                              "<p><strong>Show vs Switch</strong>:<br>"
-                                              "The last option makes this basket the current one without opening the main window. "
-                                              "It is useful in addition to the configurable global shortcuts, eg. to paste the clipboard or the selection into the current basket from anywhere.</p>"),
-                                         nullptr);
+    HelpLabel *helpLabel = new HelpLabel(
+        i18n("Learn some tips..."),
+        i18n("<p><strong>Easily Remember your Shortcuts</strong>:<br>"
+             "With the first option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> will underline that letter in the basket tree.<br>"
+             "For instance, if you are assigning the shortcut <i>Alt+T</i> to a basket named <i>Tips</i>, the basket will be displayed as <i><u>T</u>ips</i> "
+             "in the tree. "
+             "It helps you visualize the shortcuts to remember them more quickly.</p>"
+             "<p><strong>Local vs Global</strong>:<br>"
+             "The first option allows you to show the basket while the main window is active. "
+             "Global shortcuts are valid from anywhere, even if the window is hidden.</p>"
+             "<p><strong>Show vs Switch</strong>:<br>"
+             "The last option makes this basket the current one without opening the main window. "
+             "It is useful in addition to the configurable global shortcuts, eg. to paste the clipboard or the selection into the current basket from "
+             "anywhere.</p>"),
+        nullptr);
 
     shortcutLayout->addWidget(helpLabel);
     connect(shortcut, &KShortcutWidget::shortcutChanged, this, &BasketPropertiesDialog::capturedShortcut);
@@ -198,7 +202,11 @@ void BasketPropertiesDialog::applyChanges()
 
     Ui::BasketPropertiesUi *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this);
     // Should be called LAST, because it will emit the propertiesChanged() signal and the tree will be able to show the newly set Alt+Letter shortcut:
-    m_basket->setAppearance(propsUi->icon->icon(), propsUi->name->text(), m_backgroundImagesMap[backgroundImage->currentIndex()], m_backgroundColor->color(), m_textColor->color());
+    m_basket->setAppearance(propsUi->icon->icon(),
+                            propsUi->name->text(),
+                            m_backgroundImagesMap[backgroundImage->currentIndex()],
+                            m_backgroundColor->color(),
+                            m_textColor->color());
     GitWrapper::commitBasket(m_basket);
     m_basket->save();
 }

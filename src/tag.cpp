@@ -174,7 +174,8 @@ void State::merge(const List &states, State *result, int *emblemsCount, bool *ha
             isVisible = true;
         }
         if (state->backgroundColor().isValid() && !result->backgroundColor().isValid() && state->backgroundColor() != backgroundColor) { // vv
-            result->setBackgroundColor(state->backgroundColor());                                                                        // This is particular: if the note background color is the same as the basket one, don't use that.
+            result->setBackgroundColor(
+                state->backgroundColor()); // This is particular: if the note background color is the same as the basket one, don't use that.
             isVisible = true;
         }
         // If it's not visible, well, at least one tag is not visible: the note will display "..." at the tags arrow place to show that:
@@ -210,7 +211,7 @@ long Tag::nextStateUid = 1;
 
 QRegularExpression Tag::regexpDetectTags = QRegularExpression();
 
-QHash<QString, State*> Tag::dictStatesByEquiv = QHash<QString, State*>();
+QHash<QString, State *> Tag::dictStatesByEquiv = QHash<QString, State *>();
 
 long Tag::getNextStateUid()
 {
@@ -591,8 +592,8 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
                       "  </tag>\n"
                       "\n")
                       .arg(i18n("To Do"), i18n("Unchecked"), i18n("Done")) // %1 %2 %3
-                      .arg(i18n("Progress"), i18n("0 %"), i18n("25 %"))    // %4 %5 %6
-                      .arg(i18n("50 %"), i18n("75 %"), i18n("100 %"))      // %7 %8 %9
+                      .arg(i18n("Progress"), i18n("0 %"), i18n("25 %")) // %4 %5 %6
+                      .arg(i18n("50 %"), i18n("75 %"), i18n("100 %")) // %7 %8 %9
         + QStringLiteral(
               "  <tag>\n"
               "    <name>%1</name>\n" // "Priority"
@@ -645,8 +646,8 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
               "    </state>\n"
               "  </tag>\n"
               "\n")
-              .arg(i18n("Priority"), i18n("Low"), i18n("Medium"))      // %1 %2 %3
-              .arg(i18n("High"), i18n("Preference"), i18n("Bad"))      // %4 %5 %6
+              .arg(i18n("Priority"), i18n("Low"), i18n("Medium")) // %1 %2 %3
+              .arg(i18n("High"), i18n("Preference"), i18n("Bad")) // %4 %5 %6
               .arg(i18n("Good"), i18n("Excellent"), i18n("Highlight")) // %7 %8 %9
         + QStringLiteral(
               "  <tag>\n"
@@ -716,9 +717,9 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
               "  </tag>"
               "\n"
               "\n")
-              .arg(i18n("Important"), i18n("Very Important"), i18n("Information"))    // %1 %2 %3
+              .arg(i18n("Important"), i18n("Very Important"), i18n("Information")) // %1 %2 %3
               .arg(i18n("Idea"), i18nc("The initial of 'Idea'", "I."), i18n("Title")) // %4 %5 %6
-              .arg(i18n("Code"), i18n("Work"), i18nc("The initial of 'Work'", "W."))  // %7 %8 %9
+              .arg(i18n("Code"), i18n("Work"), i18nc("The initial of 'Work'", "W.")) // %7 %8 %9
         + QStringLiteral(
               "  <tag>\n"
               "    <state id=\"personal\">\n"
@@ -749,7 +750,7 @@ void Tag::createDefaultTagsSet(const QString &fullPath)
         DEBUG_WIN << QStringLiteral("<font color=red>FAILED to create the tags file</font>!");
 }
 
-const QRegularExpression& Tag::regexpDetectTagsInPlainText()
+const QRegularExpression &Tag::regexpDetectTagsInPlainText()
 {
     return regexpDetectTags;
 }
@@ -757,19 +758,17 @@ const QRegularExpression& Tag::regexpDetectTagsInPlainText()
 void Tag::updateCaches()
 {
     QString patternAllTags;
-    for (Tag* tag: Tag::all)
-    {
-        for (State* state: tag->states())
-        {
+    for (Tag *tag : Tag::all) {
+        for (State *state : tag->states()) {
             QString textEquivalent = state->textEquivalent().trimmed();
-            if (textEquivalent.isEmpty()) continue;
+            if (textEquivalent.isEmpty())
+                continue;
 
             dictStatesByEquiv[textEquivalent] = state;
             patternAllTags.append(QRegularExpression::escape(textEquivalent)).append(QStringLiteral("|"));
         }
     }
-    if (patternAllTags.isEmpty())
-    {
+    if (patternAllTags.isEmpty()) {
         regexpDetectTags.setPattern(QString());
         return;
     }
@@ -800,6 +799,5 @@ StateAction::~StateAction()
 {
     // pass
 }
-
 
 #include "moc_tag.cpp"

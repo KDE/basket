@@ -17,27 +17,24 @@ class Note;
 
 class BasketAnimations : public QParallelAnimationGroup
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  /// CONSTRUCTOR AND DESTRUCTOR:
-  BasketAnimations(QObject *parent = nullptr)
-   : QParallelAnimationGroup(parent) {};
-  ~BasketAnimations() override {};
-  
+    /// CONSTRUCTOR AND DESTRUCTOR:
+    BasketAnimations(QObject *parent = nullptr)
+        : QParallelAnimationGroup(parent) {};
+    ~BasketAnimations() override {};
 };
-  
-
 
 class NoteAnimation : public QPropertyAnimation
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  /// CONSTRUCTOR AND DESTRUCTOR:
-  NoteAnimation(Note *target, const QByteArray &propertyName, QObject *parent = nullptr);
-  ~NoteAnimation() override {};
-  
+    /// CONSTRUCTOR AND DESTRUCTOR:
+    NoteAnimation(Note *target, const QByteArray &propertyName, QObject *parent = nullptr);
+    ~NoteAnimation() override {};
+
 Q_SIGNALS:
-  void valueChanged(const QVariant &value);
+    void valueChanged(const QVariant &value);
 };
 
 #endif // ANIMATION_H

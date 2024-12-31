@@ -45,20 +45,20 @@ public:
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
-    static QString savesFolder();       /// << @return e.g. "/home/username/.local/share/basket/".
-    static QString basketsFolder();     /// << @return e.g. "/home/username/.local/share/basket/baskets/".
+    static QString savesFolder(); /// << @return e.g. "/home/username/.local/share/basket/".
+    static QString basketsFolder(); /// << @return e.g. "/home/username/.local/share/basket/baskets/".
     static QString backgroundsFolder(); /// << @return e.g. "/home/username/.local/share/basket/backgrounds/".
-    static QString templatesFolder();   /// << @return e.g. "/home/username/.local/share/basket/templates/".
-    static QString tempCutFolder();     /// << @return e.g. "/home/username/.local/share/basket/temp-cut/".   (was ".tmp/")
-    static QString gitFolder();         /// << @return e.g. "/home/username/.local/share/basket/.git/".
+    static QString templatesFolder(); /// << @return e.g. "/home/username/.local/share/basket/templates/".
+    static QString tempCutFolder(); /// << @return e.g. "/home/username/.local/share/basket/temp-cut/".   (was ".tmp/")
+    static QString gitFolder(); /// << @return e.g. "/home/username/.local/share/basket/.git/".
 
     // Various Things:
     /** Initialize git repository if Version sync is enabled
         @param savesFolder Path returned by savesFolder()  */
     static void initializeGitIfNeeded(QString savesFolder);
-    static QString openNoteIcon();          /// << @return the icon used for the "Open" action on notes.
+    static QString openNoteIcon(); /// << @return the icon used for the "Open" action on notes.
     static KMainWindow *activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
-    static MainWindow *mainWindow();        /// << @returns Main window (always not NULL after it has been actually created)
+    static MainWindow *mainWindow(); /// << @returns Main window (always not NULL after it has been actually created)
     static KConfig *config();
 };
 

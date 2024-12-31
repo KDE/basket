@@ -31,12 +31,12 @@ public:
     ~ServiceLaunchRequester() override;
     QString serviceLauncher();
     void setServiceLauncher(const QString &serviceLauncher);
-   
+
     void setFocus();
-    
+
 Q_SIGNALS:
     void launcherChanged();
-    
+
 private Q_SLOTS:
     void slotSelCommand();
 

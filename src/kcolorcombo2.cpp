@@ -28,8 +28,8 @@
 #include <KLocalizedString>
 #include <KStandardShortcut>
 
-//#define DEBUG_COLOR_ARRAY
-//#define OUTPUT_GIMP_PALETTE
+// #define DEBUG_COLOR_ARRAY
+// #define OUTPUT_GIMP_PALETTE
 
 /** class KColorPopup: */
 
@@ -539,7 +539,7 @@ QPixmap KColorCombo2::colorRectPixmap(const QColor &color, bool isDefault, int w
 
     // Draw mask (make the four corners transparent):
     maskPainter.fillRect(0, 0, width, height, Qt::color1); // opaque
-    maskPainter.setPen(Qt::color0);                        // transparent
+    maskPainter.setPen(Qt::color0); // transparent
     maskPainter.drawPoint(0, 0);
     maskPainter.drawPoint(0, height - 1);
     maskPainter.drawPoint(width - 1, height - 1);
@@ -631,10 +631,11 @@ void KColorCombo2::deleteColorArray()
 
 void KColorCombo2::updateComboBox()
 {
-    int height = colorRectHeight() * 2 / 3;                                                 // fontMetrics().boundingRect(i18n("(Default)")).height() + 2
+    int height = colorRectHeight() * 2 / 3; // fontMetrics().boundingRect(i18n("(Default)")).height() + 2
     QPixmap pixmap = colorRectPixmap(effectiveColor(), !m_color.isValid(), height, height); // TODO: isDefaultColorSelected()
     setItemIcon(/*index=*/0, pixmap);
-    setItemText(/*index=*/0, (m_color.isValid() ? QString(i18n("R:%1, G:%2, B:%3", m_color.red(), m_color.green(), m_color.blue())) : i18nc("color", "(Default)")));
+    setItemText(/*index=*/0,
+                (m_color.isValid() ? QString(i18n("R:%1, G:%2, B:%3", m_color.red(), m_color.green(), m_color.blue())) : i18nc("color", "(Default)")));
 }
 
 void KColorCombo2::showPopup()

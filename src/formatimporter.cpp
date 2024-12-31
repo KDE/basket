@@ -97,10 +97,11 @@ void FormatImporter::importBaskets()
     // Then load the baskets that weren't loaded (import < 0.5.0 ones):
     QDir dir(Global::savesFolder(), QString(), QDir::Name | QDir::IgnoreCase, QDir::Dirs | QDir::NoSymLinks);
     QStringList list = dir.entryList();
-    if (list.count() > 2)                                                                          // Pass "." and ".."
-        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)                      // For each folder
-            if (*it != QStringLiteral(".") && *it != QStringLiteral("..") && dir.exists(Global::savesFolder() + *it + QStringLiteral("/.basket"))) // If it can be a basket folder
-                if (!(baskets.contains((*it) + QLatin1Char('/'))) && baskets.contains(*it))                     // And if it is not already in the imported baskets list
+    if (list.count() > 2) // Pass "." and ".."
+        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) // For each folder
+            if (*it != QStringLiteral(".") && *it != QStringLiteral("..")
+                && dir.exists(Global::savesFolder() + *it + QStringLiteral("/.basket"))) // If it can be a basket folder
+                if (!(baskets.contains((*it) + QLatin1Char('/'))) && baskets.contains(*it)) // And if it is not already in the imported baskets list
                     baskets.append(*it);
 
     qDebug() << "Import Baskets: Found " << baskets.count() << " baskets to import.";
@@ -115,8 +116,10 @@ void FormatImporter::importBaskets()
         QString folderName = *it;
         if (folderName.startsWith(QLatin1Char('/'))) { // It was a folder mirror:
             KMessageBox::information(nullptr,
-                                     i18n("<p>Folder mirroring is not possible anymore (see <a href='https://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"
-                                          "<p>The folder <b>%1</b> has been copied for the basket needs. You can either delete this folder or delete the basket, or use both. But remember that "
+                                     i18n("<p>Folder mirroring is not possible anymore (see <a "
+                                          "href='https://basket-notepads.github.io'>basket-notepads.github.io</a> for more information).</p>"
+                                          "<p>The folder <b>%1</b> has been copied for the basket needs. You can either delete this folder or delete the "
+                                          "basket, or use both. But remember that "
                                           "modifying one will not modify the other anymore as they are now separate entities.</p>",
                                           folderName),
                                      i18n("Folder Mirror Import"),
@@ -231,9 +234,9 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
                 n = annotGroup;
             }
             // Import Launchers from 0.3.x, 0.4.0 and 0.5.0-alphas:
-            QString serviceLauncher = e.attribute(QStringLiteral("runcommand"));                // Keep compatibility with 0.4.0 and 0.5.0-alphas versions
+            QString serviceLauncher = e.attribute(QStringLiteral("runcommand")); // Keep compatibility with 0.4.0 and 0.5.0-alphas versions
             serviceLauncher = XMLWork::getElementText(e, QStringLiteral("action"), serviceLauncher); // Keep compatibility with 0.3.x versions
-            if (!serviceLauncher.isEmpty()) {                                   // An import should be done
+            if (!serviceLauncher.isEmpty()) { // An import should be done
                 // Prepare the launcher note:
                 QString title = content.attribute(QStringLiteral("title"), QString());
                 QString icon = content.attribute(QStringLiteral("icon"), QString());

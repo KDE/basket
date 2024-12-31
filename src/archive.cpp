@@ -53,7 +53,9 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     dialog.setCancelButton(nullptr);
     dialog.setAutoClose(true);
 
-    dialog.setRange(0, /*Preparation:*/ 1 + /*Finishing:*/ 1 + /*Basket:*/ 1 + /*SubBaskets:*/ (withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
+    dialog.setRange(0,
+                    /*Preparation:*/ 1 + /*Finishing:*/ 1 + /*Basket:*/ 1
+                        + /*SubBaskets:*/ (withSubBaskets ? Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)) : 0));
     dialog.setValue(0);
     dialog.show();
 
@@ -183,7 +185,12 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     dir.rmdir(tempFolder);
 }
 
-void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress)
+void Archive::saveBasketToArchive(BasketScene *basket,
+                                  bool recursive,
+                                  KTar *tar,
+                                  QStringList &backgrounds,
+                                  const QString &tempFolder,
+                                  QProgressDialog *progress)
 {
     // Basket need to be loaded for tags exportation.
     // We load it NOW so that the progress bar really reflect the state of the exportation:
@@ -197,7 +204,9 @@ void Archive::saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar
     // Save basket icon:
     QString tempIconFile = tempFolder + QStringLiteral("icon.png");
     if (!basket->icon().isEmpty() && basket->icon() != QStringLiteral("basket")) {
-        QPixmap icon = KIconLoader::global()->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), /*path_store=*/nullptr, /*canReturnNull=*/true);
+        QPixmap icon =
+            KIconLoader::global()
+                ->loadIcon(basket->icon(), KIconLoader::Small, 16, KIconLoader::DefaultState, QStringList(), /*path_store=*/nullptr, /*canReturnNull=*/true);
         if (!icon.isNull()) {
             icon.save(tempIconFile, "PNG");
             QString iconFileName = basket->icon().replace(QLatin1Char('/'), QLatin1Char('_'));
@@ -388,10 +397,12 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 }
                 stream.seek(stream.pos() + size);
             } else if (key == QStringLiteral("archive*")) {
-                if (version != QStringLiteral("0.6.1") && readCompatibleVersions.contains(QStringLiteral("0.6.1")) && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
+                if (version != QStringLiteral("0.6.1") && readCompatibleVersions.contains(QStringLiteral("0.6.1"))
+                    && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
                     retCode = IOErrorCode::PossiblyCompatibleBasketVersion;
                 }
-                if (version != QStringLiteral("0.6.1") && !readCompatibleVersions.contains(QStringLiteral("0.6.1")) && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
+                if (version != QStringLiteral("0.6.1") && !readCompatibleVersions.contains(QStringLiteral("0.6.1"))
+                    && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
                     file.close();
                     Tools::deleteRecursively(l_destination);
                     return IOErrorCode::IncompatibleBasketVersion;
@@ -459,7 +470,8 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
     return retCode;
 }
 
-Archive::IOErrorCode Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination, const bool protectDestination)
+Archive::IOErrorCode
+Archive::createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination, const bool protectDestination)
 {
     QDir source(sourcePath);
     QFileInfo destinationFile(destination);
@@ -580,7 +592,9 @@ void Archive::importTagEmblems(const QString &extractionFolder)
                 if ((!subElement.isNull()) && subElement.tagName() == QStringLiteral("state")) {
                     QString emblemName = XMLWork::getElementText(subElement, QStringLiteral("emblem"));
                     if (!emblemName.isEmpty()) {
-                        QPixmap emblem = KIconLoader::global()->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
+                        QPixmap emblem =
+                            KIconLoader::global()
+                                ->loadIcon(emblemName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
                         // The icon does not exists on that computer, import it:
                         if (emblem.isNull()) {
                             // Of the emblem path was eg. "/home/seb/emblem.png", it was exported as "tag-emblems/_home_seb_emblem.png".
@@ -612,7 +626,10 @@ void Archive::importArchivedBackgroundImages(const QString &extractionFolder)
     QString destFolder = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/basket/backgrounds/");
     QDir().mkpath(destFolder); // does not exist at the first run when addWelcomeBaskets is called
 
-    QDir dir(extractionFolder + QStringLiteral("backgrounds/"), /*nameFilder=*/QStringLiteral("*.png"), /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
+    QDir dir(extractionFolder + QStringLiteral("backgrounds/"),
+             /*nameFilder=*/QStringLiteral("*.png"),
+             /*sortSpec=*/QDir::Name | QDir::IgnoreCase,
+             /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
     QStringList files = dir.entryList();
     for (QStringList::Iterator it = files.begin(); it != files.end(); ++it) {
         QString image = *it;
@@ -667,7 +684,9 @@ void Archive::renameBasketFolder(const QString &extractionFolder, QDomNode &bask
                 dir.mkdir(Global::basketsFolder() + newFolderName);
                 // Rename the merged tag ids:
                 //              if (mergedStates.count() > 0) {
-                renameMergedStatesAndBasketIcon(extractionFolder + QStringLiteral("baskets/") + folderName + QStringLiteral(".basket"), mergedStates, extractionFolder);
+                renameMergedStatesAndBasketIcon(extractionFolder + QStringLiteral("baskets/") + folderName + QStringLiteral(".basket"),
+                                                mergedStates,
+                                                extractionFolder);
                 //              }
                 // Child baskets:
                 QDomNode node = element.firstChild();
@@ -696,7 +715,8 @@ void Archive::importBasketIcon(QDomElement properties, const QString &extraction
 {
     QString iconName = XMLWork::getElementText(properties, QStringLiteral("icon"));
     if (!iconName.isEmpty() && iconName != QStringLiteral("basket")) {
-        QPixmap icon = KIconLoader::global()->loadIcon(iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
+        QPixmap icon =
+            KIconLoader::global()->loadIcon(iconName, KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
         // The icon does not exists on that computer, import it:
         if (icon.isNull()) {
             QDir dir;
@@ -767,7 +787,8 @@ void Archive::loadExtractedBaskets(const QString &extractionFolder, QDomNode &ba
                 copier.moveFolder(extractionFolder + QStringLiteral("baskets/") + folderName, Global::basketsFolder() + newFolderName);
                 // Append and load the basket in the tree:
                 BasketScene *basket = Global::bnpView->loadBasket(newFolderName);
-                BasketListViewItem *basketItem = Global::bnpView->appendBasket(basket, (basket && parent ? Global::bnpView->listViewItemForBasket(parent) : nullptr));
+                BasketListViewItem *basketItem =
+                    Global::bnpView->appendBasket(basket, (basket && parent ? Global::bnpView->listViewItemForBasket(parent) : nullptr));
                 basketItem->setExpanded(!XMLWork::trueOrFalse(element.attribute(QStringLiteral("folded"), QStringLiteral("false")), false));
                 QDomElement properties = XMLWork::getElement(element, QStringLiteral("properties"));
                 importBasketIcon(properties, extractionFolder); // Rename the icon fileName if necessary

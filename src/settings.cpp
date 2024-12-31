@@ -18,20 +18,20 @@
 #include <QLocale>
 #include <QMimeDatabase>
 #include <QMimeType>
-#include <QPushButton>
 #include <QPluginLoader>
+#include <QPushButton>
 #include <QSpinBox>
 #include <QTabWidget>
 #include <QUrl>
 #include <QVBoxLayout>
 
-#include <QProcess>
-#include <kcmutils_version.h>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KPluginMetaData>
 #include <KIO/Global>
 #include <KLocalizedString>
+#include <KPluginMetaData>
+#include <QProcess>
+#include <kcmutils_version.h>
 
 #include "aboutdata.h"
 #include "basketscene.h"
@@ -174,10 +174,10 @@ void Settings::loadConfig()
     //  }
     if (!config.readEntry("alreadySetToolbarSettings", false)) {
         config.writeEntry("IconText", "IconOnly"); // In 0.6.0 Alpha versions, it was made "IconTextRight". We're back to IconOnly
-        config.writeEntry("Index", "0");           // Make sure the main toolbar is the first...
+        config.writeEntry("Index", "0"); // Make sure the main toolbar is the first...
         config = Global::config()->group(QStringLiteral("MainWindow Toolbar richTextEditToolBar"));
         config.writeEntry("Position", "Top"); // In 0.6.0 Alpha versions, it was made "Bottom"
-        config.writeEntry("Index", "1");      // ... and the rich text toolbar is on the right of the main toolbar
+        config.writeEntry("Index", "1"); // ... and the rich text toolbar is on the right of the main toolbar
         config = Global::config()->group(QStringLiteral("MainWindow Toolbar mainToolBar"));
         config.writeEntry("alreadySetToolbarSettings", true);
     }
@@ -355,10 +355,10 @@ SettingsDialog::SettingsDialog(QWidget *parent)
         addModule(metaData.pluginId());
 #endif
     }
-    
+
     // Access the button box and connect the buttons
     QDialogButtonBox *buttons = buttonBox();
-    
+
     connect(buttons->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &SettingsDialog::slotOkClicked);
     connect(buttons->button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &SettingsDialog::slotApplyClicked);
     connect(buttons->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &SettingsDialog::slotCancelClicked);
@@ -366,15 +366,18 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 }
 
 SettingsDialog::~SettingsDialog()
-{}
+{
+}
 
-void SettingsDialog::showEvent(QShowEvent *event) {
+void SettingsDialog::showEvent(QShowEvent *event)
+{
     QDialog::showEvent(event);
     // Run code that relies on the dialog being fully shown
     QTimer::singleShot(0, this, &SettingsDialog::exec);
 }
 
-int SettingsDialog::exec(){
+int SettingsDialog::exec()
+{
     int ret = KCMultiDialog::exec();
     QTimer::singleShot(0, this, SLOT(adjustSize()));
     QTimer::singleShot(0, this, SLOT(loadAllPages()));
@@ -385,41 +388,43 @@ void SettingsDialog::adjustSize()
 {
     QSize maxPageSize;
     const KPageWidgetModel *model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
-    if (!model) return;
+    if (!model)
+        return;
 
     const int pageCount = model->rowCount();
     for (int pageId = 0; pageId < pageCount; ++pageId) {
         auto *page = model->item(model->index(pageId, 0));
-        if (!page) continue;
-    
+        if (!page)
+            continue;
+
         maxPageSize = maxPageSize.expandedTo(page->widget()->sizeHint());
-    
     }
 
     if (!maxPageSize.isEmpty())
         resize(1.25 * maxPageSize.width(), 1.25 * maxPageSize.height());
 }
 
-
-void SettingsDialog::slotCancelClicked() {
+void SettingsDialog::slotCancelClicked()
+{
     Q_EMIT cancelRequested();
     accept(); // Close the dialog
 }
 
-void SettingsDialog::slotApplyClicked() {
+void SettingsDialog::slotApplyClicked()
+{
     // Q_EMIT applyRequested();
 }
 
-void SettingsDialog::slotOkClicked() {
+void SettingsDialog::slotOkClicked()
+{
     Q_EMIT acceptRequested();
-    accept();  // Close the dialog
+    accept(); // Close the dialog
 }
 
-void SettingsDialog::slotDefaultsClicked() {
+void SettingsDialog::slotDefaultsClicked()
+{
     Q_EMIT defaultsRequested();
 }
-
-
 
 /** GeneralPage */
 GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
@@ -523,12 +528,14 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     m_exportTextTags = new QCheckBox(i18n("&Export tags in texts"), widget);
     connect(m_exportTextTags, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
-    hLabel = new HelpLabel(i18n("When does this apply?"),
-                           QStringLiteral("<p>") + i18n("It does apply when you copy and paste, or drag and drop notes to a text editor.") + QStringLiteral("</p>") + QStringLiteral("<p>") + i18n("If enabled, this property lets you paste the tags as textual equivalents.") + QStringLiteral("<br>") +
-                               i18n("For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, "
-                                    "representing an empty checkbox and a checked box.") +
-                               QStringLiteral("</p>") + QStringLiteral("<p align='center'><img src=\":/images/tag_export_help.png\"></p>"),
-                           widget);
+    hLabel = new HelpLabel(
+        i18n("When does this apply?"),
+        QStringLiteral("<p>") + i18n("It does apply when you copy and paste, or drag and drop notes to a text editor.") + QStringLiteral("</p>")
+            + QStringLiteral("<p>") + i18n("If enabled, this property lets you paste the tags as textual equivalents.") + QStringLiteral("<br>")
+            + i18n("For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, "
+                   "representing an empty checkbox and a checked box.")
+            + QStringLiteral("</p>") + QStringLiteral("<p align='center'><img src=\":/images/tag_export_help.png\"></p>"),
+        widget);
     hLay->addWidget(m_exportTextTags);
     hLay->addWidget(hLabel);
     hLay->setContentsMargins(0, 0, 0, 0);
@@ -538,13 +545,15 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     behaviorLayout->addWidget(m_groupOnInsertionLineWidget);
     QHBoxLayout *hLayV = new QHBoxLayout(m_groupOnInsertionLineWidget);
     m_groupOnInsertionLine = new QCheckBox(i18n("&Group a new note when clicking on the right of the insertion line"), m_groupOnInsertionLineWidget);
-    HelpLabel *helpV = new HelpLabel(i18n("How to group a new note?"),
-                                     i18n("<p>When this option is enabled, the insertion-line not only allows you to insert notes at the cursor position, but also allows you to group a new note with the one under the cursor:</p>") +
-                                         QStringLiteral("<p align='center'><img src=\":/images/insertion_help.png\"></p>") +
-                                         i18n("<p>Place your mouse between notes, where you want to add a new one.<br>"
-                                              "Click on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note.<br>"
-                                              "Click on the <b>right</b> to <b>group</b> a note, with the one <b>below or above</b>, depending on where your mouse is.</p>"),
-                                     m_groupOnInsertionLineWidget);
+    HelpLabel *helpV =
+        new HelpLabel(i18n("How to group a new note?"),
+                      i18n("<p>When this option is enabled, the insertion-line not only allows you to insert notes at the cursor position, but also allows you "
+                           "to group a new note with the one under the cursor:</p>")
+                          + QStringLiteral("<p align='center'><img src=\":/images/insertion_help.png\"></p>")
+                          + i18n("<p>Place your mouse between notes, where you want to add a new one.<br>"
+                                 "Click on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note.<br>"
+                                 "Click on the <b>right</b> to <b>group</b> a note, with the one <b>below or above</b>, depending on where your mouse is.</p>"),
+                      m_groupOnInsertionLineWidget);
     hLayV->addWidget(m_groupOnInsertionLine);
     hLayV->addWidget(helpV);
     hLayV->insertStretch(-1);
@@ -867,44 +876,49 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     QVBoxLayout *layout = new QVBoxLayout(this->widget());
 
     QGroupBox *launchGroup = new QGroupBox(i18n("General Launch Associations"), this->widget());
-    
-    QString menuEditTooltip(i18n("<p>On modern desktop environments, launcher configurations provide information to the system about how to handle an application." 
-    "These files are essential for integrating applications into the desktop environment, to list, lookup and launch apps with specific configurations</p>"
-    "<p>Here is how to do if you want to launch Falkon Browser with a specific profile.</p>"
-    "<ul>"
-    "<li>Open the KDE Menu Editor, and type \"Falkon\" in the search filter;</li>"
-    "<li>Select \"Falkon\" desktop launcher, right-click, copy and paste;</li>"
-    "<li>Edit the \"General\" property fields like \"Name\", \"Description\" or \"Comment\".</li>"
-    "<li>Edit the \"Command-line arguments\" field to something like \"--profile 'Your-Extensive-Hobby' %%u\".</li>"
-    "</ul>"
-    "<p>Now, when you choose your new launcher as basket link notes launcher, basket will open HTTP links with Falkon's \"Your-Extensive-Hobby\" profile</p>"
-    "<p>For more fine-grained configuration (like opening pdf documents preferably with Falkon), read the second button tooltip.</p>"));
-    
-    QString componentChooserTooltip(i18n("<p>When opening Web links, they are opened in different applications, depending on the content of the link "
-    "(a Web page, an image, a PDF document...), such as if they were files on your computer.</p>"
-    "<p>Here is how to do if you want every Web addresses to be opened in your Web browser. "
-    "It is useful if you are not using Plasma (if you are using eg. GNOME, XFCE...).</p>"
-    "<ul>"
-    "<li>Open the KDE System Settings (if it is not available, try to type \"systemsettings\" in a command line terminal);</li>"
-    "<li>Go to the \"Applications\" and then \"Default Applications\" section;</li>"
-    "<li>Choose \"Web Browser\", check \"with the following command:\" and enter the name of your Web browser (like \"firefox\" or \"epiphany\").</li>"
-    "</ul>"
-    "<p>Now, when you click <i>any</i> link that start with \"https://...\", it will be opened in your Web browser (eg. Mozilla Firefox or Epiphany or...).</p>"
-    "<p>For more fine-grained configuration (like opening only Web pages in your Web browser), read the third button tooltip.</p>"));
-    
-    QString fileAssociationsTooltip(i18n("<p>Here is how to set the application to be used for each type of file. "
-    "This also applies to Web links if you choose not to open them systematically in a Web browser (see the first help link). "
-    "The default settings should be good enough for you, but this tip is useful if you are using GNOME, XFCE, or another environment than Plasma.</p>"
-    "<p>This is an example of how to open HTML pages in your Web browser (and keep using the other applications for other addresses or files). "
-    "Repeat these steps for each type of file you want to open in a specific application.</p>"
-    "<ul>"
-    "<li>Open the KDE System Settings (if it is not available, try to type \"systemsettings\" in a command line terminal);</li>"
-    "<li>Go to the \"Applications\" and then \"File Associations\" section;</li>"
-    "<li>In the tree, expand \"text\" and click \"html\";</li>"
-    "<li>In the applications list, add your Web browser as the first entry;</li>"
-    "<li>Do the same for the type \"application -> xhtml+xml\".</li>"
-    "</ul>"));
-    
+
+    QString menuEditTooltip(i18n(
+        "<p>On modern desktop environments, launcher configurations provide information to the system about how to handle an application."
+        "These files are essential for integrating applications into the desktop environment, to list, lookup and launch apps with specific configurations</p>"
+        "<p>Here is how to do if you want to launch Falkon Browser with a specific profile.</p>"
+        "<ul>"
+        "<li>Open the KDE Menu Editor, and type \"Falkon\" in the search filter;</li>"
+        "<li>Select \"Falkon\" desktop launcher, right-click, copy and paste;</li>"
+        "<li>Edit the \"General\" property fields like \"Name\", \"Description\" or \"Comment\".</li>"
+        "<li>Edit the \"Command-line arguments\" field to something like \"--profile 'Your-Extensive-Hobby' %%u\".</li>"
+        "</ul>"
+        "<p>Now, when you choose your new launcher as basket link notes launcher, basket will open HTTP links with Falkon's \"Your-Extensive-Hobby\" "
+        "profile</p>"
+        "<p>For more fine-grained configuration (like opening pdf documents preferably with Falkon), read the second button tooltip.</p>"));
+
+    QString componentChooserTooltip(
+        i18n("<p>When opening Web links, they are opened in different applications, depending on the content of the link "
+             "(a Web page, an image, a PDF document...), such as if they were files on your computer.</p>"
+             "<p>Here is how to do if you want every Web addresses to be opened in your Web browser. "
+             "It is useful if you are not using Plasma (if you are using eg. GNOME, XFCE...).</p>"
+             "<ul>"
+             "<li>Open the KDE System Settings (if it is not available, try to type \"systemsettings\" in a command line terminal);</li>"
+             "<li>Go to the \"Applications\" and then \"Default Applications\" section;</li>"
+             "<li>Choose \"Web Browser\", check \"with the following command:\" and enter the name of your Web browser (like \"firefox\" or \"epiphany\").</li>"
+             "</ul>"
+             "<p>Now, when you click <i>any</i> link that start with \"https://...\", it will be opened in your Web browser (eg. Mozilla Firefox or Epiphany "
+             "or...).</p>"
+             "<p>For more fine-grained configuration (like opening only Web pages in your Web browser), read the third button tooltip.</p>"));
+
+    QString fileAssociationsTooltip(
+        i18n("<p>Here is how to set the application to be used for each type of file. "
+             "This also applies to Web links if you choose not to open them systematically in a Web browser (see the first help link). "
+             "The default settings should be good enough for you, but this tip is useful if you are using GNOME, XFCE, or another environment than Plasma.</p>"
+             "<p>This is an example of how to open HTML pages in your Web browser (and keep using the other applications for other addresses or files). "
+             "Repeat these steps for each type of file you want to open in a specific application.</p>"
+             "<ul>"
+             "<li>Open the KDE System Settings (if it is not available, try to type \"systemsettings\" in a command line terminal);</li>"
+             "<li>Go to the \"Applications\" and then \"File Associations\" section;</li>"
+             "<li>In the tree, expand \"text\" and click \"html\";</li>"
+             "<li>In the applications list, add your Web browser as the first entry;</li>"
+             "<li>Do the same for the type \"application -> xhtml+xml\".</li>"
+             "</ul>"));
+
     QVBoxLayout *vLay = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay = new QHBoxLayout(launchGroup);
     m_menuEdit = new QPushButton();
@@ -915,7 +929,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_menuEdit->setToolTip(menuEditTooltip);
     connect(m_menuEdit, SIGNAL(clicked()), this, SLOT(openMenuEditor()));
     hLay->addWidget(m_menuEdit);
-    
+
     m_componentChooser = new QPushButton();
     buttonIcon = QIcon::fromTheme(QStringLiteral("preferences-desktop-default-applications"));
     m_componentChooser->setIcon(buttonIcon);
@@ -924,7 +938,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_componentChooser->setToolTip(componentChooserTooltip);
     connect(m_componentChooser, SIGNAL(clicked()), this, SLOT(openDefaultApplications()));
     hLay->addWidget(m_componentChooser);
-    
+
     m_fileTypes = new QPushButton();
     buttonIcon = QIcon::fromTheme(QStringLiteral("preferences-desktop-filetype-association"));
     m_fileTypes->setIcon(buttonIcon);
@@ -933,16 +947,15 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_fileTypes->setToolTip(fileAssociationsTooltip);
     connect(m_fileTypes, SIGNAL(clicked()), this, SLOT(openFileAssociations()));
     hLay->addWidget(m_fileTypes);
-    
+
     vLay->addLayout(hLay);
-    vLay->setAlignment(hLay, Qt::AlignHCenter);  // Center align horizontally
+    vLay->setAlignment(hLay, Qt::AlignHCenter); // Center align horizontally
     launchGroup->setLayout(vLay);
     layout->addWidget(launchGroup);
-    
-    
+
     vLay = new QVBoxLayout(this->widget());
     QGroupBox *basketLaunchGroup = new QGroupBox(i18n("Specific Basket Associations"), this->widget());
-    
+
     m_htmlUseProg = new QCheckBox(i18n("Open &text notes with a custom application:"), this->widget());
     m_htmlProg = new ServiceLaunchRequester(QString(), i18n("Open text notes with:"), this->widget());
     QHBoxLayout *hLayH = new QHBoxLayout();
@@ -982,7 +995,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     hLayL->addWidget(m_linkProg);
     connect(m_linkUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_linkProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
-    
+
     QString whatsthis = i18n(
         "<p>If checked, the application defined below will be used when opening that type of note.</p>"
         "<p>Otherwise, the application you've configured in Konqueror will be used.</p>");
@@ -1002,7 +1015,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_animationProg->setWhatsThis(whatsthis);
     m_soundProg->setWhatsThis(whatsthis);
     m_linkProg->setWhatsThis(whatsthis);
-    
+
     vLay->addWidget(m_htmlUseProg);
     vLay->addItem(hLayH);
     vLay->addWidget(m_imageUseProg);
@@ -1013,15 +1026,15 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     vLay->addItem(hLayS);
     vLay->addWidget(m_linkUseProg);
     vLay->addItem(hLayL);
-    
+
     basketLaunchGroup->setLayout(vLay);
-    
+
     connect(m_htmlUseProg, SIGNAL(toggled(bool)), m_htmlProg, SLOT(setEnabled(bool)));
     connect(m_imageUseProg, SIGNAL(toggled(bool)), m_imageProg, SLOT(setEnabled(bool)));
     connect(m_animationUseProg, SIGNAL(toggled(bool)), m_animationProg, SLOT(setEnabled(bool)));
     connect(m_soundUseProg, SIGNAL(toggled(bool)), m_soundProg, SLOT(setEnabled(bool)));
     connect(m_linkUseProg, SIGNAL(toggled(bool)), m_linkProg, SLOT(setEnabled(bool)));
-    
+
     layout->addWidget(basketLaunchGroup);
     layout->insertStretch(-1);
     ApplicationsPage::load();
@@ -1044,7 +1057,7 @@ void ApplicationsPage::load()
     m_soundProg->setServiceLauncher(Settings::soundProg());
     m_soundUseProg->setChecked(Settings::isSoundUseProg());
     m_soundProg->setEnabled(Settings::isSoundUseProg());
-    
+
     m_linkProg->setServiceLauncher(Settings::linkProg());
     m_linkUseProg->setChecked(Settings::isLinkUseProg());
     m_linkProg->setEnabled(Settings::isLinkUseProg());
@@ -1075,8 +1088,8 @@ void ApplicationsPage::defaults()
     // TODO
 }
 
-
-bool ApplicationsPage::launchKDEModule(const QString &command, const QStringList &args) {
+bool ApplicationsPage::launchKDEModule(const QString &command, const QStringList &args)
+{
     // Execute the command synchronously
     int ret = QProcess::execute(command, args);
     if (ret != 0) {
@@ -1085,15 +1098,18 @@ bool ApplicationsPage::launchKDEModule(const QString &command, const QStringList
     return true;
 }
 
-void ApplicationsPage::openMenuEditor() {
+void ApplicationsPage::openMenuEditor()
+{
     launchKDEModule(QStringLiteral("kmenuedit"));
 }
 
-void ApplicationsPage::openDefaultApplications() {
+void ApplicationsPage::openDefaultApplications()
+{
     launchKDEModule(QStringLiteral("kcmshell6"), {QStringLiteral("componentchooser")});
 }
 
-void ApplicationsPage::openFileAssociations() {
+void ApplicationsPage::openFileAssociations()
+{
     launchKDEModule(QStringLiteral("kcmshell6"), {QStringLiteral("filetypes")});
 }
 

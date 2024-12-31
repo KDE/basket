@@ -9,14 +9,13 @@
 #include <KLocalizedString>
 #include <QApplication>
 
-
 AboutData::AboutData()
     : KAboutData(AboutData::componentName(),
                  AboutData::displayName(),
                  QStringLiteral(VERSION),
                  i18n("<p><b>Taking care of your ideas.</b></p>"
-    "<p>A note-taking application that makes it easy to record ideas as you think, and quickly find them later. "
-    "Organizing your notes has never been so easy.</p>"),
+                      "<p>A note-taking application that makes it easy to record ideas as you think, and quickly find them later. "
+                      "Organizing your notes has never been so easy.</p>"),
                  KAboutLicense::GPL_V2,
                  i18n("Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"),
                  QString(),
@@ -31,7 +30,9 @@ AboutData::AboutData()
     addAuthor(i18n("Kelvie Wong"), i18n("Ex-Maintainer"), QStringLiteral("kelvie@ieee.org"));
     addAuthor(i18n("Sébastien Laoût"), i18n("Original Author"), QStringLiteral("slaout@linux62.org"));
     addAuthor(i18n("Petri Damstén"), i18n("Basket encryption, Kontact integration, KnowIt importer"), QStringLiteral("damu@iki.fi"));
-    addAuthor(i18n("Alex Gontmakher"), i18n("Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, drop to basket name"), QStringLiteral("gsasha@cs.technion.ac.il"));
+    addAuthor(i18n("Alex Gontmakher"),
+              i18n("Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, drop to basket name"),
+              QStringLiteral("gsasha@cs.technion.ac.il"));
     addAuthor(i18n("Marco Martin"), i18n("Original icon"), QStringLiteral("m4rt@libero.it"));
 }
 

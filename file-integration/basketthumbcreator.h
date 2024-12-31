@@ -25,4 +25,3 @@ class BasketThumbCreator : public KIO::ThumbnailCreator
 {
     KIO::ThumbnailResult create(const KIO::ThumbnailRequest &request) override;
 };
-    

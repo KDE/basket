@@ -8,8 +8,8 @@
 #define SETTINGS_H
 
 #include <KCModule>
-#include <KMainWindow> //For Global::mainWindow()
 #include <KCMultiDialog>
+#include <KMainWindow> //For Global::mainWindow()
 
 #include <QAction> //For UseSysTray
 #include <QtCore/QDate>
@@ -31,7 +31,6 @@ class LinkLook;
 class LinkLookEditWidget;
 class ServiceLaunchRequester;
 
-
 /**
  * KSettings::Dialog wrapper to properly calculate appropriate window size
  */
@@ -48,14 +47,14 @@ Q_SIGNALS:
     void acceptRequested();
     void cancelRequested();
     void defaultsRequested();
-    
+
 protected Q_SLOTS:
     void slotApplyClicked();
     void slotOkClicked();
     void slotCancelClicked();
     void slotDefaultsClicked();
     void showEvent(QShowEvent *event) override;
-    
+
 private Q_SLOTS:
     void adjustSize();
 };
@@ -477,68 +476,69 @@ protected:
     static void saveLinkLook(LinkLook *look, const QString &name);
 };
 
-
-
 class BASKET_EXPORT AbstractSettingsPage : public KCModule
 {
     Q_OBJECT
 public:
     using KCModule::KCModule;
     explicit AbstractSettingsPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData())
-    : KCModule(parent, data) {
+        : KCModule(parent, data)
+    {
         SettingsDialog *settings = qobject_cast<SettingsDialog *>(parent->parent());
         connect(settings, &SettingsDialog::acceptRequested, this, &AbstractSettingsPage::slotAccept);
         connect(settings, &SettingsDialog::applyRequested, this, &AbstractSettingsPage::slotApply);
         connect(settings, &SettingsDialog::cancelRequested, this, &AbstractSettingsPage::slotCancel);
         connect(settings, &SettingsDialog::defaultsRequested, this, &AbstractSettingsPage::slotDefaults);
         AbstractSettingsPage::load();
-        
     }
     ~AbstractSettingsPage() override
     {
     }
-    
+
     virtual void cancel() {};
-      
-    
+
 public Q_SLOTS:
-    inline void changed() {
+    inline void changed()
+    {
         markAsChanged();
     }
-    
-    inline void slotApply() {
+
+    inline void slotApply()
+    {
         // procedures other than save()
     }
-    
-    inline void slotAccept() {
+
+    inline void slotAccept()
+    {
         save();
     }
-    
-    inline void slotDefaults() {
+
+    inline void slotDefaults()
+    {
         defaults();
     }
-    
-    inline void slotCancel() {
+
+    inline void slotCancel()
+    {
         cancel();
     }
 };
 
-
 class BASKET_EXPORT GeneralPage : public AbstractSettingsPage
 {
     Q_OBJECT
-    
+
 public:
     explicit GeneralPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
     ~GeneralPage() override
     {
     }
-    
+
     void load() override;
     void save() override;
     void defaults() override;
     void cancel() override;
-    
+
 private:
     // General
     KComboBox *m_treeOnLeft;
@@ -550,17 +550,17 @@ class BASKET_EXPORT BasketsPage : public AbstractSettingsPage
     Q_OBJECT
 public:
     explicit BasketsPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
-    
+
     void load() override;
     void save() override;
     void defaults() override;
-    
+
 private:
     // Appearance
     QCheckBox *m_playAnimations;
     QCheckBox *m_showNotesToolTip;
     QCheckBox *m_bigNotes;
-    
+
     // Behavior
     QCheckBox *m_autoBullet;
     QCheckBox *m_confirmNoteDeletion;
@@ -570,7 +570,7 @@ private:
     QCheckBox *m_groupOnInsertionLine;
     KComboBox *m_middleAction;
     QCheckBox *m_pasteAsPlainText;
-    
+
     // Protection
     QCheckBox *m_useGnuPGAgent;
     QCheckBox *m_enableReLockTimeoutMinutes;
@@ -582,20 +582,20 @@ class BASKET_EXPORT NewNotesPage : public AbstractSettingsPage
     Q_OBJECT
 public:
     explicit NewNotesPage(QObject *parent, const KPluginMetaData &data);
-    
+
     void load() override;
     void save() override;
     void defaults() override;
-    
+
 private Q_SLOTS:
     void visualize();
-    
+
 private:
     // Notes Image Size
     QSpinBox *m_imgSizeX;
     QSpinBox *m_imgSizeY;
     QPushButton *m_pushVisualize;
-    
+
     // Note Addition
     KComboBox *m_newNotesPlace;
     QCheckBox *m_viewTextFileContent;
@@ -609,11 +609,11 @@ class BASKET_EXPORT NotesAppearancePage : public AbstractSettingsPage
     Q_OBJECT
 public:
     explicit NotesAppearancePage(QObject *parent, const KPluginMetaData &data);
-    
+
     void load() override;
     void save() override;
     void defaults() override;
-    
+
 private:
     // Link Looks
     LinkLookEditWidget *m_soundLook;
@@ -629,17 +629,17 @@ class BASKET_EXPORT ApplicationsPage : public AbstractSettingsPage
     Q_OBJECT
 public:
     explicit ApplicationsPage(QObject *parent, const KPluginMetaData &data);
-    
+
     void load() override;
     void save() override;
     void defaults() override;
-    
+
 public Q_SLOTS:
     bool launchKDEModule(const QString &command, const QStringList &args = {});
     void openMenuEditor();
     void openDefaultApplications();
     void openFileAssociations();
-    
+
 private:
     // Applications
     QCheckBox *m_htmlUseProg;

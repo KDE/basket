@@ -18,13 +18,13 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#include <QTemporaryDir>
-#include <QTextStream>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
-#include <QStringList>
 #include <QImage>
+#include <QStringList>
+#include <QTemporaryDir>
+#include <QTextStream>
 
 #include "basketthumbcreator.h"
 

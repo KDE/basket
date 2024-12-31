@@ -7,15 +7,14 @@
 #ifndef TAG_H
 #define TAG_H
 
-#include <QtCore/QList>
-#include <QRegularExpression>
 #include <KToggleAction>
+#include <QRegularExpression>
+#include <QtCore/QList>
 
 class QColor;
 class QFont;
 class QPainter;
 class QString;
-
 
 class QKeySequence;
 
@@ -198,18 +197,20 @@ public:
     static State *stateByTextEquiv(const QString &text);
     static Tag *tagForKAction(QAction *action);
     static Tag *tagSimilarTo(Tag *tagToTest);
-    static QMap<QString, QString> loadTags(const QString &path = QString() /*, bool merge = false*/); /// << Load the tags contained in the XML file @p path or those in the application settings if @p path isEmpty(). If @p merge is true and
-                                                                                                      /// a tag with the id of a tag that should be loaded already exist, the tag will get a new id. Otherwise, the tag will be dismissed.
+    static QMap<QString, QString> loadTags(
+        const QString &path = QString() /*, bool merge = false*/); /// << Load the tags contained in the XML file @p path or those in the application settings
+                                                                   /// if @p path isEmpty(). If @p merge is true and a tag with the id of a tag that should be
+                                                                   /// loaded already exist, the tag will get a new id. Otherwise, the tag will be dismissed.
     static void saveTags();
     static void saveTagsTo(QList<Tag *> &list, const QString &fullPath);
     static void createDefaultTagsSet(const QString &file);
     static long getNextStateUid();
     static void updateCaches();
-    static const QRegularExpression& regexpDetectTagsInPlainText();
+    static const QRegularExpression &regexpDetectTagsInPlainText();
 
 private:
     static long nextStateUid;
-    static QHash<QString, State*> dictStatesByEquiv;
+    static QHash<QString, State *> dictStatesByEquiv;
     static QRegularExpression regexpDetectTags;
 
 public:
@@ -283,7 +284,7 @@ public:
     StateAction(State *state, const QKeySequence &shortcut, QWidget *parent, bool withTagName = false);
 
     ~StateAction() override;
-    
+
 private:
     State *m_state;
     QString m_name;

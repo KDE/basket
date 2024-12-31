@@ -23,11 +23,11 @@ class GitWrapper
 public:
     static QMutex gitMutex;
     static void initializeGitRepository(QString folder);
-    static void commitBasketView();                           // commits the whole directory
-    static void commitCreateBasket();                         // commits and checks baskets/baskets.xml
+    static void commitBasketView(); // commits the whole directory
+    static void commitCreateBasket(); // commits and checks baskets/baskets.xml
     static void commitDeleteBasket(QString basketFolderName); // deletes a basket directory
-    static void commitBasket(BasketScene *basket);            // commits and checks baskets/$BASKETNAME
-    static void commitTagsXml();                              // commits and checks baskets.xml
+    static void commitBasket(BasketScene *basket); // commits and checks baskets/$BASKETNAME
+    static void commitTagsXml(); // commits and checks baskets.xml
 
 private:
     static bool commitPattern(git_repository *repo, QString pattern = QStringLiteral("*"), QString message = QStringLiteral("AutoCommit"));

@@ -377,8 +377,8 @@ void LinkLabel::setPaletteBackgroundColor(const QColor &color)
 
 int LinkLabel::heightForWidth(int w) const
 {
-    int iconS = (m_icon->isVisible()) ? m_look->iconSize() : 0;                   // Icon size
-    int iconW = iconS;                                                            // Icon width to remove to w
+    int iconS = (m_icon->isVisible()) ? m_look->iconSize() : 0; // Icon size
+    int iconW = iconS; // Icon width to remove to w
     int titleH = (m_title->isVisible()) ? m_title->heightForWidth(w - iconW) : 0; // Title height
 
     return (titleH >= iconS) ? titleH : iconS; // No margin for the moment !
@@ -445,10 +445,19 @@ void LinkDisplay::setWidth(qreal width)
  *       in (@p x, @p y, @p width, @p height)
  *       using @p palette for the button drawing (if @p isHovered)
  *       and the LinkLook color() for the text,
- *       unless [the LinkLook !color.isValid() and it does not useLinkColor()] or [@p isDefaultColor is false]: in this case it will use @p palette's active text color.
- *       It will draw the button if @p isIconButtonHovered.
+ *       unless [the LinkLook !color.isValid() and it does not useLinkColor()] or [@p isDefaultColor is false]: in this case it will use @p palette's active
+ * text color. It will draw the button if @p isIconButtonHovered.
  */
-void LinkDisplay::paint(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QPalette &palette, bool isDefaultColor, bool isSelected, bool isHovered, bool isIconButtonHovered) const
+void LinkDisplay::paint(QPainter *painter,
+                        qreal x,
+                        qreal y,
+                        qreal width,
+                        qreal height,
+                        const QPalette &palette,
+                        bool isDefaultColor,
+                        bool isSelected,
+                        bool isHovered,
+                        bool isIconButtonHovered) const
 {
     qreal BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     qreal LINK_MARGIN = BUTTON_MARGIN + 2;
@@ -481,13 +490,19 @@ void LinkDisplay::paint(QPainter *painter, qreal x, qreal y, qreal width, qreal 
         painter->setPen(qApp->palette().color(QPalette::HighlightedText));
     } else if (isIconButtonHovered)
         painter->setPen(m_look->effectiveHoverColor());
-    else if (!isDefaultColor || (!m_look->color().isValid() && !m_look->useLinkColor())) // If the color is FORCED or if the link color default to the text color:
+    else if (!isDefaultColor
+             || (!m_look->color().isValid() && !m_look->useLinkColor())) // If the color is FORCED or if the link color default to the text color:
         painter->setPen(palette.color(QPalette::Active, QPalette::WindowText));
     else
         painter->setPen(m_look->effectiveColor());
     // Draw the text:
     painter->setFont(labelFont(m_font, isIconButtonHovered));
-    painter->drawText(x + BUTTON_MARGIN - 1 + iconPreviewWidth + LINK_MARGIN, y, width - BUTTON_MARGIN + 1 - iconPreviewWidth - LINK_MARGIN, height, Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap, m_title);
+    painter->drawText(x + BUTTON_MARGIN - 1 + iconPreviewWidth + LINK_MARGIN,
+                      y,
+                      width - BUTTON_MARGIN + 1 - iconPreviewWidth - LINK_MARGIN,
+                      height,
+                      Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap,
+                      m_title);
 }
 
 QPixmap LinkDisplay::feedbackPixmap(qreal width, qreal height, const QPalette &palette, bool isDefaultColor)
@@ -552,7 +567,9 @@ qreal LinkDisplay::heightForWidth(qreal width) const
     qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
     qreal iconPreviewHeight = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.height() : 0));
 
-    QRectF textRect = QFontMetrics(labelFont(m_font, false)).boundingRect(0, 0, width - BUTTON_MARGIN + 1 - iconPreviewWidth - LINK_MARGIN, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_title);
+    QRectF textRect =
+        QFontMetrics(labelFont(m_font, false))
+            .boundingRect(0, 0, width - BUTTON_MARGIN + 1 - iconPreviewWidth - LINK_MARGIN, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_title);
     return qMax(textRect.height(), iconPreviewHeight + 2 * BUTTON_MARGIN - 2);
 }
 
@@ -569,10 +586,12 @@ QString LinkDisplay::toHtml(HTMLExporter *exporter, const QUrl &url, const QStri
         QString fileName = Tools::fileNameForNewFile(QStringLiteral("preview_") + url.fileName() + QStringLiteral(".png"), exporter->iconsFolderPath);
         QString fullPath = exporter->iconsFolderPath + fileName;
         m_preview.save(fullPath, "PNG");
-        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QUrl(exporter->iconsFolderName + fileName).toString(), QString::number(m_preview.width()), QString::number(m_preview.height()));
+        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
+                       .arg(QUrl(exporter->iconsFolderName + fileName).toString(), QString::number(m_preview.width()), QString::number(m_preview.height()));
     } else {
         linkIcon = exporter->iconsFolderName + exporter->copyIcon(m_icon, m_look->iconSize());
-        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QUrl(linkIcon).toString(), QString::number(m_look->iconSize()), QString::number(m_look->iconSize()));
+        linkIcon = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
+                       .arg(QUrl(linkIcon).toString(), QString::number(m_look->iconSize()), QString::number(m_look->iconSize()));
     }
 
     QString linkTitle = Tools::textToHTMLWithoutP(title.isEmpty() ? m_title : title);
@@ -640,20 +659,21 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     m_label = new QLabel(this);
     m_label->setText(i18n("&Preview:"));
     m_label->setBuddy(m_preview);
-    m_hLabel = new HelpLabel(i18n("You disabled preview but still see images?"),
-                             i18n("<p>This is normal because there are several type of notes.<br>"
-                                  "This setting only applies to file and local link notes.<br>"
-                                  "The images you see are image notes, not file notes.<br>"
-                                  "File notes are generic documents, whereas image notes are pictures you can draw in.</p>"
-                                  "<p>When dropping files to baskets, %1 detects their type and shows you the content of the files.<br>"
-                                  "For instance, when dropping image or text files, image and text notes are created for them.<br>"
-                                  "For type of files %2 does not understand, they are shown as generic file notes with just an icon or file preview and a filename.</p>"
-                                  "<p>If you do not want the application to create notes depending on the content of the files you drop, "
-                                  "go to the \"General\" page and uncheck \"Image or animation\" in the \"View Content of Added Files for the Following Types\" group.</p>",
-                                  // TODO: Note: you can resize down maximum size of images...
-                                  QGuiApplication::applicationDisplayName(),
-                                  QGuiApplication::applicationDisplayName()),
-                             this);
+    m_hLabel = new HelpLabel(
+        i18n("You disabled preview but still see images?"),
+        i18n("<p>This is normal because there are several type of notes.<br>"
+             "This setting only applies to file and local link notes.<br>"
+             "The images you see are image notes, not file notes.<br>"
+             "File notes are generic documents, whereas image notes are pictures you can draw in.</p>"
+             "<p>When dropping files to baskets, %1 detects their type and shows you the content of the files.<br>"
+             "For instance, when dropping image or text files, image and text notes are created for them.<br>"
+             "For type of files %2 does not understand, they are shown as generic file notes with just an icon or file preview and a filename.</p>"
+             "<p>If you do not want the application to create notes depending on the content of the files you drop, "
+             "go to the \"General\" page and uncheck \"Image or animation\" in the \"View Content of Added Files for the Following Types\" group.</p>",
+             // TODO: Note: you can resize down maximum size of images...
+             QGuiApplication::applicationDisplayName(),
+             QGuiApplication::applicationDisplayName()),
+        this);
     gl->addWidget(m_label, 4, 0);
     gl->addWidget(m_preview, 4, 1);
     gl->addWidget(m_hLabel, 5, 1, 1, 2);
@@ -678,7 +698,7 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     connect(m_hoverColor, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
     connect(m_iconSize, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
     connect(m_preview, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
-    
+
     connect(m_italic, SIGNAL(stateChanged(int)), module, SLOT(changed()));
     connect(m_bold, SIGNAL(stateChanged(int)), module, SLOT(changed()));
     connect(m_underlining, SIGNAL(activated(int)), module, SLOT(changed()));
@@ -716,7 +736,6 @@ void LinkLookEditWidget::slotChangeLook()
 {
     saveToLook(m_exLook);
     m_example->setLink(m_exTitle, m_exIcon, m_exLook); // and can't reload it at another size
-    
 }
 
 LinkLookEditWidget::~LinkLookEditWidget()
@@ -730,7 +749,13 @@ void LinkLookEditWidget::saveChanges()
 
 void LinkLookEditWidget::saveToLook(LinkLook *look)
 {
-    look->setLook(m_italic->isChecked(), m_bold->isChecked(), m_underlining->currentIndex(), m_color->color(), m_hoverColor->color(), m_iconSize->iconSize(), (look->canPreview() ? m_preview->currentIndex() : LinkLook::None));
+    look->setLook(m_italic->isChecked(),
+                  m_bold->isChecked(),
+                  m_underlining->currentIndex(),
+                  m_color->color(),
+                  m_hoverColor->color(),
+                  m_iconSize->iconSize(),
+                  (look->canPreview() ? m_preview->currentIndex() : LinkLook::None));
 }
 
 #include "moc_linklabel.cpp"

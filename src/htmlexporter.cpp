@@ -24,9 +24,8 @@
 #include <KMessageBox>
 
 #include <KIO/CopyJob> //For KIO::copy
-#include <KIO/Job>
 #include <KIO/FileCopyJob> //For KIO::file_copy
-
+#include <KIO/Job>
 
 #include <QApplication>
 #include <QFileDialog>
@@ -61,7 +60,12 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
         // File already existing? Ask for overriding:
         if (dir.exists(destination)) {
             int result = KMessageBox::questionTwoActionsCancel(
-                nullptr, QStringLiteral("<qt>") + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()), i18n("Overwrite File?"), KGuiItem(i18n("&Overwrite"), QStringLiteral("document-save")), KStandardGuiItem::discard());
+                nullptr,
+                QStringLiteral("<qt>")
+                    + i18n("The file <b>%1</b> already exists. Do you really want to overwrite it?", QUrl::fromLocalFile(destination).fileName()),
+                i18n("Overwrite File?"),
+                KGuiItem(i18n("&Overwrite"), QStringLiteral("document-save")),
+                KStandardGuiItem::discard());
             if (result == KMessageBox::Cancel)
                 return;
             else if (result == KMessageBox::Ok)
@@ -93,7 +97,9 @@ HTMLExporter::~HTMLExporter()
 
 void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
 {
-    dialog->setRange(0, /*Preparation:*/ 1 + /*Finishing:*/ 1 + /*Basket:*/ 1 + /*SubBaskets:*/ Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)));
+    dialog->setRange(0,
+                     /*Preparation:*/ 1 + /*Finishing:*/ 1 + /*Basket:*/ 1
+                         + /*SubBaskets:*/ Global::bnpView->basketCount(Global::bnpView->listViewItemForBasket(basket)));
     dialog->setValue(0);
     qApp->processEvents();
 
@@ -113,8 +119,8 @@ void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
     dir.mkdir(filesFolderPath);
 
     // Create sub-folders:
-    iconsFolderPath = filesFolderPath + i18nc("HTML export folder (icons)", "icons") + QLatin1Char('/');       // eg.: "/home/seb/foo.html_files/icons/"
-    imagesFolderPath = filesFolderPath + i18nc("HTML export folder (images)", "images") + QLatin1Char('/');    // eg.: "/home/seb/foo.html_files/images/"
+    iconsFolderPath = filesFolderPath + i18nc("HTML export folder (icons)", "icons") + QLatin1Char('/'); // eg.: "/home/seb/foo.html_files/icons/"
+    imagesFolderPath = filesFolderPath + i18nc("HTML export folder (images)", "images") + QLatin1Char('/'); // eg.: "/home/seb/foo.html_files/images/"
     basketsFolderPath = filesFolderPath + i18nc("HTML export folder (baskets)", "baskets") + QLatin1Char('/'); // eg.: "/home/seb/foo.html_files/baskets/"
     dir.mkdir(iconsFolderPath);
     dir.mkdir(imagesFolderPath);
@@ -147,7 +153,8 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     if (isSubBasket) {
         basketFilePath = basketsFolderPath + basket->folderName().left(basket->folderName().length() - 1) + QStringLiteral(".html");
         filesFolderName = QStringLiteral("../");
-        dataFolderName = basket->folderName().left(basket->folderName().length() - 1) + QLatin1Char('-') + i18nc("HTML export folder (data)", "data") + QLatin1Char('/');
+        dataFolderName =
+            basket->folderName().left(basket->folderName().length() - 1) + QLatin1Char('-') + i18nc("HTML export folder (data)", "data") + QLatin1Char('/');
         dataFolderPath = basketsFolderPath + dataFolderName;
         basketsFolderName = QString();
     } else {
@@ -157,8 +164,10 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         dataFolderPath = filesFolderPath + i18nc("HTML export folder (data)", "data") + QLatin1Char('/');
         basketsFolderName = filesFolderName + i18nc("HTML export folder (baskets)", "baskets") + QLatin1Char('/');
     }
-    iconsFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (icons)", "icons") + QLatin1Char('/');    // eg.: "foo.html_files/icons/"   or "../icons/"
-    imagesFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (images)", "images") + QLatin1Char('/'); // eg.: "foo.html_files/images/"  or "../images/"
+    iconsFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (icons)", "icons")
+        + QLatin1Char('/'); // eg.: "foo.html_files/icons/"   or "../icons/"
+    imagesFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (images)", "images")
+        + QLatin1Char('/'); // eg.: "foo.html_files/images/"  or "../images/"
 
     qDebug() << "Exporting ================================================";
     qDebug() << "  filePath:" << filePath;
@@ -187,13 +196,13 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     if (hasBackgroundColor) {
         expandGroup.fill(basket->backgroundColor());
     } else {
-         expandGroup.fill(QColor(Qt::GlobalColor::transparent));
+        expandGroup.fill(QColor(Qt::GlobalColor::transparent));
     }
     QPainter painter(&expandGroup);
     if (hasBackgroundColor) {
         Note::drawExpander(&painter, 0, 0, basket->backgroundColor(), /*expand=*/true, basket);
     } else {
-        Note::drawExpander(&painter, 0, 0,QColor(Qt::GlobalColor::transparent), /*expand=*/true, basket);
+        Note::drawExpander(&painter, 0, 0, QColor(Qt::GlobalColor::transparent), /*expand=*/true, basket);
     }
     painter.end();
     if (hasBackgroundColor) {
@@ -228,7 +237,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     if (!file.open(QIODevice::WriteOnly))
         return;
     stream.setDevice(&file);
-    
+
     // Output the header:
     QString borderColor;
     if (hasBackgroundColor && hasTextColor) {
@@ -306,13 +315,19 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
               "   .tags { width: 1px; white-space: nowrap; }\n"
               "   .tags img { padding-right: 2px; }\n";
     if (hasTextColor) {
-        stream << LinkLook::soundLook->toCSS(QStringLiteral("sound"), basket->textColor()) << LinkLook::fileLook->toCSS(QStringLiteral("file"), basket->textColor())
-               << LinkLook::localLinkLook->toCSS(QStringLiteral("local"), basket->textColor()) << LinkLook::networkLinkLook->toCSS(QStringLiteral("network"), basket->textColor())
-               << LinkLook::launcherLook->toCSS(QStringLiteral("launcher"), basket->textColor()) << LinkLook::crossReferenceLook->toCSS(QStringLiteral("cross_reference"), basket->textColor());
+        stream << LinkLook::soundLook->toCSS(QStringLiteral("sound"), basket->textColor())
+               << LinkLook::fileLook->toCSS(QStringLiteral("file"), basket->textColor())
+               << LinkLook::localLinkLook->toCSS(QStringLiteral("local"), basket->textColor())
+               << LinkLook::networkLinkLook->toCSS(QStringLiteral("network"), basket->textColor())
+               << LinkLook::launcherLook->toCSS(QStringLiteral("launcher"), basket->textColor())
+               << LinkLook::crossReferenceLook->toCSS(QStringLiteral("cross_reference"), basket->textColor());
     } else {
-        stream << LinkLook::soundLook->toCSS(QStringLiteral("sound"), QColor(Qt::GlobalColor::black)) << LinkLook::fileLook->toCSS(QStringLiteral("file"), QColor(Qt::GlobalColor::black))
-               << LinkLook::localLinkLook->toCSS(QStringLiteral("local"), QColor(Qt::GlobalColor::black)) << LinkLook::networkLinkLook->toCSS(QStringLiteral("network"), QColor(Qt::GlobalColor::black))
-               << LinkLook::launcherLook->toCSS(QStringLiteral("launcher"), QColor(Qt::GlobalColor::black)) << LinkLook::crossReferenceLook->toCSS(QStringLiteral("cross_reference"), QColor(Qt::GlobalColor::black));
+        stream << LinkLook::soundLook->toCSS(QStringLiteral("sound"), QColor(Qt::GlobalColor::black))
+               << LinkLook::fileLook->toCSS(QStringLiteral("file"), QColor(Qt::GlobalColor::black))
+               << LinkLook::localLinkLook->toCSS(QStringLiteral("local"), QColor(Qt::GlobalColor::black))
+               << LinkLook::networkLinkLook->toCSS(QStringLiteral("network"), QColor(Qt::GlobalColor::black))
+               << LinkLook::launcherLook->toCSS(QStringLiteral("launcher"), QColor(Qt::GlobalColor::black))
+               << LinkLook::crossReferenceLook->toCSS(QStringLiteral("cross_reference"), QColor(Qt::GlobalColor::black));
     }
     stream << "   .unknown { margin: 1px 2px; border: 1px solid " << borderColor << "; -moz-border-radius: 4px; }\n";
     QList<State *> states = basket->usedStates();
@@ -337,7 +352,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     }
     painter.end();
 
-    if(hasBackgroundColor) {
+    if (hasBackgroundColor) {
         columnHandle.save(imagesFolderPath + QStringLiteral("column_handle_") + backgroundColorName + QStringLiteral(".png"), "PNG");
     } else {
         columnHandle.save(imagesFolderPath + QStringLiteral("column_handle_transparent.png"), "PNG");
@@ -360,7 +375,6 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
 
     stream << "  <div class=\"basketSurrounder\">\n";
 
-
     stream << "   <div class=\"basket\" style=\"position: relative; min-width: 100%; min-height: calc(100vh - 100px); ";
     if (!basket->isColumnsLayout()) {
         stream << "height: " << basket->sceneRect().height() << "px; width: " << basket->sceneRect().width() << "px; ";
@@ -371,7 +385,6 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
         stream << "   <table>\n"
                   "    <tr>\n";
     }
-
 
     for (Note *note = basket->firstNote(); note; note = note->next()) {
         exportNote(note, /*indent=*/(basket->isFreeLayout() ? 4 : 5));
@@ -388,7 +401,10 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream << QStringLiteral(
                   "  </div>\n"
                   "  <p class=\"credits\">%1</p>\n")
-                  .arg(i18n("Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep information at hand.", KAboutData::applicationData().homepage(), QGuiApplication::applicationDisplayName(), QStringLiteral(VERSION)));
+                  .arg(i18n("Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep information at hand.",
+                            KAboutData::applicationData().homepage(),
+                            QGuiApplication::applicationDisplayName(),
+                            QStringLiteral(VERSION)));
 
     stream << " </body>\n"
               "</html>\n";
@@ -419,8 +435,8 @@ void HTMLExporter::exportNote(Note *note, int indent)
             // and try make it the same on a 1024*768 display in a Web browser:
             int availableSpaceForColumnsInThisBasket = note->basket()->sceneRect().width() - (note->basket()->columnsCount() - 1) * Note::RESIZER_WIDTH;
             int availableSpaceForColumnsInBrowser = 1024 /* typical screen width */
-                - 25                                     /* window border and scrollbar width */
-                - 2 * 5                                  /* page margin */
+                - 25 /* window border and scrollbar width */
+                - 2 * 5 /* page margin */
                 - (note->basket()->columnsCount() - 1) * Note::RESIZER_WIDTH;
             if (availableSpaceForColumnsInThisBasket <= 0)
                 availableSpaceForColumnsInThisBasket = 1;
@@ -448,15 +464,19 @@ void HTMLExporter::exportNote(Note *note, int indent)
 
     QString freeStyle;
     if (note->isFree())
-        freeStyle = QStringLiteral(" style=\"position: absolute; left: ") + QString::number(note->x()) + QStringLiteral("px; top: ") + QString::number(note->y()) + QStringLiteral("px; width: ") + QString::number(note->groupWidth()) + QStringLiteral("px\"");
+        freeStyle = QStringLiteral(" style=\"position: absolute; left: ") + QString::number(note->x()) + QStringLiteral("px; top: ")
+            + QString::number(note->y()) + QStringLiteral("px; width: ") + QString::number(note->groupWidth()) + QStringLiteral("px\"");
 
     if (note->isGroup()) {
-        stream << '\n' << spaces.fill(QLatin1Char(' '), indent) << "<table" << freeStyle << ">\n"; // Note content is expected to be on the same HTML line, but NOT groups
+        stream << '\n'
+               << spaces.fill(QLatin1Char(' '), indent) << "<table" << freeStyle
+               << ">\n"; // Note content is expected to be on the same HTML line, but NOT groups
         int i = 0;
         for (Note *child = note->firstChild(); child; child = child->next()) {
             stream << spaces.fill(QLatin1Char(' '), indent);
             if (i == 0)
-                stream << " <tr><td class=\"groupHandle\"><img src=\"" << QUrl(imagesFolderName).toString() << (note->isFolded() ? "expand_group_" : "fold_group_") << backgroundColorName << ".png"
+                stream << " <tr><td class=\"groupHandle\"><img src=\"" << QUrl(imagesFolderName).toString()
+                       << (note->isFolded() ? "expand_group_" : "fold_group_") << backgroundColorName << ".png"
                        << "\" width=\"" << Note::EXPANDER_WIDTH << "\" height=\"" << Note::EXPANDER_HEIGHT << "\"></td>\n";
             else if (i == 1)
                 stream << " <tr><td class=\"freeSpace\" rowspan=\"" << note->countDirectChilds() << "\"></td>\n";
@@ -484,7 +504,8 @@ void HTMLExporter::exportNote(Note *note, int indent)
                 if (!(*it)->emblem().isEmpty()) {
                     int emblemSize = 16;
                     QString iconFileName = copyIcon((*it)->emblem(), emblemSize);
-                    stream << "<img src=\"" << QUrl(iconsFolderName + iconFileName).toString() << "\" width=\"" << emblemSize << "\" height=\"" << emblemSize << "\" alt=\"" << (*it)->textEquivalent() << "\" title=\"" << (*it)->fullName() << "\">";
+                    stream << "<img src=\"" << QUrl(iconsFolderName + iconFileName).toString() << "\" width=\"" << emblemSize << "\" height=\"" << emblemSize
+                           << "\" alt=\"" << (*it)->textEquivalent() << "\" title=\"" << (*it)->fullName() << "\">";
                 }
             stream << "</nobr></td>";
         }
@@ -525,7 +546,6 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
     }
     spanStyle += QStringLiteral("\"");
 
-
     // Write the basket tree line:
     stream << spaces.fill(QLatin1Char(' '), indent) << "<li><a" << cssClass << " href=\"" << link
            << "\">"
@@ -533,7 +553,8 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
            << spanStyle << " title=\"" << Tools::textToHTMLWithoutP(basket->basketName())
            << "\">"
               "<img src=\""
-           << iconsFolderName << copyIcon(basket->icon(), 16) << "\" width=\"16\" height=\"16\" alt=\"\">" << Tools::textToHTMLWithoutP(basket->basketName()) << "</span></a>";
+           << iconsFolderName << copyIcon(basket->icon(), 16) << "\" width=\"16\" height=\"16\" alt=\"\">" << Tools::textToHTMLWithoutP(basket->basketName())
+           << "</span></a>";
 
     // Write the sub-baskets lines & end the current one:
     BasketListViewItem *item = Global::bnpView->listViewItemForBasket(basket);
@@ -564,7 +585,7 @@ QString HTMLExporter::copyIcon(const QString &iconName, int size)
     fileName = QStringLiteral("ico") + QString::number(size) + QLatin1Char('_') + fileName.replace(QLatin1Char('/'), QLatin1Char('_')) + QStringLiteral(".png");
     QString fullPath = iconsFolderPath + fileName;
     if (!QFile::exists(fullPath)) {
-    KIconLoader::global()->loadIcon(iconName,KIconLoader::Desktop,size).save(fullPath, "PNG");
+        KIconLoader::global()->loadIcon(iconName, KIconLoader::Desktop, size).save(fullPath, "PNG");
     }
     return fileName;
 }

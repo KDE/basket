@@ -74,12 +74,12 @@ FilterBar::FilterBar(QWidget *parent)
     hBox->addWidget(m_tagsBox);
     hBox->addWidget(m_inAllBasketsButton);
 
-    //connect(&m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkBar()));
+    // connect(&m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkBar()));
     connect(m_resetButton, &QToolButton::clicked, this, &FilterBar::reset);
     connect(m_lineEdit, &QLineEdit::textChanged, this, &FilterBar::changeFilter);
     connect(m_tagsBox, SIGNAL(activated(int)), this, SLOT(tagChanged(int)));
 
-    //connect(m_inAllBasketsButton, SIGNAL(clicked()), this, SLOT(inAllBaskets()));
+    // connect(m_inAllBasketsButton, SIGNAL(clicked()), this, SLOT(inAllBaskets()));
     m_inAllBasketsButton->setDefaultAction(Global::bnpView->m_actFilterAllBaskets);
 
     FocusWidgetFilter *lineEditF = new FocusWidgetFilter(m_lineEdit);
@@ -151,7 +151,8 @@ void FilterBar::repopulateTagsCombo()
             text = state->name();
             icon = state->emblem();
         }
-        emblem = KIconLoader::global()->loadIcon(icon, KIconLoader::Desktop, ICON_SIZE, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
+        emblem =
+            KIconLoader::global()->loadIcon(icon, KIconLoader::Desktop, ICON_SIZE, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/true);
         m_tagsBox->insertItem(index, emblem, text);
         // Update the mapping:
         m_tagsMap.insert(index, tag);

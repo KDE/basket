@@ -11,7 +11,6 @@
 #include <KFileMetaData/ExtractionResult>
 #include <KFileMetaData/ExtractorCollection>
 
-
 /// Store and retrieve metadata extraction results
 class MetaDataExtractionResult : public KFileMetaData::ExtractionResult
 {

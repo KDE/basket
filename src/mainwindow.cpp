@@ -91,7 +91,8 @@ void MainWindow::setupActions()
     actAppConfig = KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
 }
 
-SettingsDialog *MainWindow::settings() {
+SettingsDialog *MainWindow::settings()
+{
     return m_settings;
 }
 
@@ -146,7 +147,7 @@ void MainWindow::slotNewToolbarConfig() // This is called when OK or Apply is cl
 void MainWindow::showSettingsDialog()
 {
     if (!m_settings)
-        m_settings = new SettingsDialog (qApp->activeWindow());
+        m_settings = new SettingsDialog(qApp->activeWindow());
 
     if (Global::activeMainWindow()) {
         m_settings->exec();
@@ -252,7 +253,12 @@ bool MainWindow::askForQuit()
 {
     QString message = i18n("<p>Do you really want to quit %1?</p>", QGuiApplication::applicationDisplayName());
 
-    int really = KMessageBox::warningContinueCancel(this, message, i18n("Quit Confirm"), KStandardGuiItem::quit(), KStandardGuiItem::cancel(), QStringLiteral("confirmQuitAsking"));
+    int really = KMessageBox::warningContinueCancel(this,
+                                                    message,
+                                                    i18n("Quit Confirm"),
+                                                    KStandardGuiItem::quit(),
+                                                    KStandardGuiItem::cancel(),
+                                                    QStringLiteral("confirmQuitAsking"));
 
     if (really == KMessageBox::Cancel) {
         m_quit = false;

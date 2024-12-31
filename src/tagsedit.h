@@ -105,8 +105,8 @@ public:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
     TagListViewItem *currentItem() const; // Reimplemented to cast the return value
-    TagListViewItem *firstChild() const;  // Reimplemented to cast the return value
-    TagListViewItem *lastItem() const;    // Reimplemented to cast the return value
+    TagListViewItem *firstChild() const; // Reimplemented to cast the return value
+    TagListViewItem *lastItem() const; // Reimplemented to cast the return value
 Q_SIGNALS:
     void deletePressed();
     void doubleClickedItem();

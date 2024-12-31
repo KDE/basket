@@ -8,10 +8,10 @@
 
 #include <QApplication>
 #include <QLocale>
+#include <QScreen>
 #include <QToolTip>
 #include <QtGui/QMouseEvent>
 #include <QtGui/QPainter>
-#include <QScreen>
 
 #include <KLocalizedString>
 #include <KWindowSystem>
@@ -38,7 +38,7 @@ RegionGrabber::RegionGrabber()
     handles << &TLHandle << &TRHandle << &BLHandle << &BRHandle << &LHandle << &THandle << &RHandle << &BHandle;
     setMouseTracking(true);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
-    
+
     int timeout = 50;
     QTimer::singleShot(timeout, this, SLOT(init()));
     connect(&idleTimer, &QTimer::timeout, this, &RegionGrabber::displayHelp);
@@ -119,7 +119,8 @@ void RegionGrabber::paintEvent(QPaintEvent *e)
     QRect textRect = painter.boundingRect(rect(), Qt::AlignLeft, txt);
     QRect boundingRect = textRect.adjusted(-4, 0, 0, 0);
 
-    if (textRect.width() < r.width() - 2 * handleSize && textRect.height() < r.height() - 2 * handleSize && (r.width() > 100 && r.height() > 100)) { // center, unsuitable for small selections
+    if (textRect.width() < r.width() - 2 * handleSize && textRect.height() < r.height() - 2 * handleSize
+        && (r.width() > 100 && r.height() > 100)) { // center, unsuitable for small selections
         boundingRect.moveCenter(r.center());
         textRect.moveCenter(r.center());
     } else if (r.y() - 3 > textRect.height() && r.x() + textRect.width() < rect().right()) { // on top, left aligned
@@ -146,7 +147,7 @@ void RegionGrabber::paintEvent(QPaintEvent *e)
         painter.setPen(handleColor);
         handleColor.setAlpha(60);
         painter.setBrush(handleColor);
-        painter.drawRects(handleMask().begin(),handleMask().rectCount());
+        painter.drawRects(handleMask().begin(), handleMask().rectCount());
     }
 }
 
@@ -228,7 +229,7 @@ void RegionGrabber::mouseMoveEvent(QMouseEvent *e)
         if (selection.isNull())
             return;
         bool found = false;
-        for (QRect *r: handles) {
+        for (QRect *r : handles) {
             if (r->contains(e->pos())) {
                 mouseOverHandle = r;
                 found = true;
@@ -309,7 +310,7 @@ QRegion RegionGrabber::handleMask() const
 {
     // note: not normalized QRects are bad here, since they will not be drawn
     QRegion mask;
-    for (QRect *rect: handles)
+    for (QRect *rect : handles)
         mask += QRegion(*rect);
     return mask;
 }

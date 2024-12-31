@@ -16,7 +16,6 @@
 #include "bnpview.h"
 #include "global.h"
 
-
 bool FileStorage::loadFromFile(const QString &fullPath, QString *string)
 {
     QByteArray array;
@@ -27,7 +26,6 @@ bool FileStorage::loadFromFile(const QString &fullPath, QString *string)
     } else
         return false;
 }
-
 
 bool FileStorage::loadFromFile(const QString &fullPath, QByteArray *array)
 {
@@ -132,7 +130,7 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
 
     // The error dialog is static to make sure we never show the dialog twice,
     static const uint maxDelay = 60 * 1000; // ms
-    uint retryDelay = 1000;                 // ms
+    uint retryDelay = 1000; // ms
     bool success = false;
     do {
         QSaveFile saveFile(fullPath);

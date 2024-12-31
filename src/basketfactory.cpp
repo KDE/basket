@@ -38,7 +38,7 @@ QString BasketFactory::newFolderName()
         fullPath = Global::basketsFolder() + folderName;
         dir = QDir(fullPath);
         if (!dir.exists()) // OK : The folder do not yet exists :
-            break;         //  We've found one !
+            break; //  We've found one !
     }
 
     return folderName;
@@ -62,7 +62,8 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
         QTextStream stream(&file);
         int nbColumns = (templateName == QStringLiteral("mindmap") || templateName == QStringLiteral("free") ? 0 : templateName.left(1).toInt());
         BasketScene *currentBasket = Global::bnpView->currentBasket();
-        int columnWidth = (currentBasket && nbColumns > 0 ? (currentBasket->graphicsView()->viewport()->width() - (nbColumns - 1) * Note::RESIZER_WIDTH) / nbColumns : 0);
+        int columnWidth =
+            (currentBasket && nbColumns > 0 ? (currentBasket->graphicsView()->viewport()->width() - (nbColumns - 1) * Note::RESIZER_WIDTH) / nbColumns : 0);
         stream << QStringLiteral(
                       "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
                       "<!DOCTYPE basket>\n"
@@ -71,7 +72,10 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
                       "  <disposition mindMap=\"%1\" columnCount=\"%2\" free=\"%3\" />\n"
                       " </properties>\n"
                       " <notes>\n")
-                      .arg((templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")), QString::number(nbColumns), (templateName == QStringLiteral("free") || templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")));
+                      .arg((templateName == QStringLiteral("mindmap") ? QStringLiteral("true") : QStringLiteral("false")),
+                           QString::number(nbColumns),
+                           (templateName == QStringLiteral("free") || templateName == QStringLiteral("mindmap") ? QStringLiteral("true")
+                                                                                                                : QStringLiteral("false")));
         if (nbColumns > 0)
             for (int i = 0; i < nbColumns; ++i)
                 stream << QStringLiteral("  <group width=\"%1\"></group>\n").arg(QLatin1Char(columnWidth));

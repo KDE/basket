@@ -9,8 +9,8 @@
 
 #ifndef _WIN32
 
-#include <QObject>
 #include <QColor>
+#include <QObject>
 
 /**
  * @brief This class allows to pick a color on the screen.
@@ -42,7 +42,7 @@ Q_SIGNALS:
     void colorGrabbed(const QColor &color);
 
 protected Q_SLOTS:
-    void gotColorResponse(uint response, const QVariantMap& results);
+    void gotColorResponse(uint response, const QVariantMap &results);
 };
 
 #endif

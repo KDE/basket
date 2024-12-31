@@ -6,7 +6,6 @@
 
 #include "weaver.h"
 
-
 // TODO include libBasket instead of hardcoded link
 #include "../../src/archive.h"
 
@@ -222,7 +221,7 @@ bool Weaver::isBasketFile(const QString &basketsFile)
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream stream(&file);
         QString line = stream.readLine();
-        
+
         if (line != QStringLiteral("BasKetNP:archive")) {
             file.close();
             return false;
@@ -241,8 +240,7 @@ bool Weaver::isBasketFile(const QString &basketsFile)
                 value = QString();
             }
             // only test existence of keywords
-            if (key == QStringLiteral("version") || key == QStringLiteral("read-compatible") ||
-                key == QStringLiteral("write-compatible")) {
+            if (key == QStringLiteral("version") || key == QStringLiteral("read-compatible") || key == QStringLiteral("write-compatible")) {
                 continue;
             }
             // test for existence, then skip block of given size

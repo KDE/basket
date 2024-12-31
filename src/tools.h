@@ -46,7 +46,7 @@ BASKET_EXPORT QString textToHTMLWithoutP(const QString &text);
 BASKET_EXPORT QString htmlToParagraph(const QString &html);
 BASKET_EXPORT QString htmlToText(const QString &html);
 
-//Discards styles of tags applied to the note
+// Discards styles of tags applied to the note
 BASKET_EXPORT QString textDocumentToMinimalHTML(QTextDocument *document); //!< Avoid unneeded spans and style attributes
 
 BASKET_EXPORT QString detectURLs(const QString &text);
@@ -60,17 +60,17 @@ BASKET_EXPORT QString detectCrossReferences(const QString &text, bool userLink =
  * @param prefixLength Length of a chunk that contains all recognized tags
  * @return detected tags
  */
-QList<State*> detectTags(const QString& text, int& prefixLength);
+QList<State *> detectTags(const QString &text, int &prefixLength);
 
 // private functions:
-//Returns an empty string in case of failure
-BASKET_EXPORT QString crossReferenceForBasket(const QStringList& linkParts);
+// Returns an empty string in case of failure
+BASKET_EXPORT QString crossReferenceForBasket(const QStringList &linkParts);
 
-//Returns an empty string in case of failure
-BASKET_EXPORT QString crossReferenceForHtml(const QStringList& linkParts, HTMLExporter *exporter);
+// Returns an empty string in case of failure
+BASKET_EXPORT QString crossReferenceForHtml(const QStringList &linkParts, HTMLExporter *exporter);
 
-//Returns an empty string in case of failure
-BASKET_EXPORT QString crossReferenceForConversion(const QStringList& linkParts);
+// Returns an empty string in case of failure
+BASKET_EXPORT QString crossReferenceForConversion(const QStringList &linkParts);
 
 // String Manipulations:
 BASKET_EXPORT QString stripEndWhiteSpaces(const QString &string);

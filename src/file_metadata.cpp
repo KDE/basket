@@ -36,8 +36,9 @@ QList<QPair<QString, QString>> MetaDataExtractionResult::preferredGroups()
         // According to KDE 3 services/kfile_*.desktop
 
         // audio
-        preferredItems << Property::Title << Property::Artist << Property::Album << Property::TrackNumber << Property::Genre << Property::BitRate << Property::Duration << Property::CreationDate << Property::Comment << Property::SampleRate
-                       << Property::Channels << Property::Copyright;
+        preferredItems << Property::Title << Property::Artist << Property::Album << Property::TrackNumber << Property::Genre << Property::BitRate
+                       << Property::Duration << Property::CreationDate << Property::Comment << Property::SampleRate << Property::Channels
+                       << Property::Copyright;
         // video
         preferredItems /*<< Property::Duration*/ << Property::FrameRate;
         // text

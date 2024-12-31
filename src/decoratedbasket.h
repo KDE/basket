@@ -25,7 +25,7 @@ class DecoratedBasket : public QWidget
     Q_OBJECT
 public:
     DecoratedBasket(QWidget *parent, const QString &folderName);
-    ~DecoratedBasket() override  = default;
+    ~DecoratedBasket() override = default;
     void setFilterBarPosition(bool onTop);
     void resetFilter();
     void setFilterBarVisible(bool show, bool switchFocus = true);

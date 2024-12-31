@@ -6,9 +6,9 @@
 
 #include "decoratedbasket.h"
 
+#include <KMessageWidget>
 #include <QGraphicsView>
 #include <QVBoxLayout>
-#include <KMessageWidget>
 
 #include "basketscene.h"
 #include "filter.h"

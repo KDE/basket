@@ -37,7 +37,7 @@ QString Global::savesFolder()
 {
     static QString *folder = nullptr; // Memorize the folder to do not have to re-compute it each time it's needed
 
-    if (folder == nullptr) {                  // Initialize it if not yet done
+    if (folder == nullptr) { // Initialize it if not yet done
         if (!s_customSavesFolder.isEmpty()) { // Passed by command line (for development & debug purpose)
             QDir dir;
             dir.mkdir(s_customSavesFolder);

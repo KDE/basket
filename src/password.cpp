@@ -8,11 +8,11 @@
 
 #ifdef HAVE_LIBGPGME
 
-#include <QString>
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QLocale>
 #include <QPushButton>
+#include <QString>
 #include <QVBoxLayout>
 
 #include <KConfigGroup>

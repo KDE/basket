@@ -184,7 +184,7 @@ public Q_SLOTS:
 
     void loadCrossReference(QString link);
 
-    //Returns an empty string to indicate failure to find a corresponding basket
+    // Returns an empty string to indicate failure to find a corresponding basket
     QString folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent = nullptr);
 
     void sortChildrenAsc();
@@ -277,7 +277,7 @@ private:
     DecoratedBasket *currentDecoratedBasket();
 
 public:
-    BasketScene *loadBasket(const QString &folderName);                                 // Public only for class Archive
+    BasketScene *loadBasket(const QString &folderName); // Public only for class Archive
     BasketListViewItem *appendBasket(BasketScene *basket, QTreeWidgetItem *parentItem); // Public only for class Archive
 
     BasketScene *basketForFolderName(const QString &folderName);

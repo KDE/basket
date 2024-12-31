@@ -15,7 +15,6 @@
 #include <QtCore/QMimeData>
 #include <QtCore/QObject>
 #include <QtCore/QRegularExpression>
-#include <QtCore/QRegularExpression>
 #include <QtCore/QString>
 #include <QtCore/QTime>
 #include <QtGui/QFont>
@@ -65,7 +64,8 @@ void StopWatch::check(int id)
     double time = starts[id].msecsTo(QTime::currentTime()) / 1000.0;
     totals[id] += time;
     counts[id]++;
-    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id] << " s, average: " << totals[id] / counts[id] << " s]" << Qt::endl;
+    qDebug() << Q_FUNC_INFO << "Timer_" << id << ": " << time << " s    [" << counts[id] << " times, total: " << totals[id]
+             << " s, average: " << totals[id] / counts[id] << " s]" << Qt::endl;
 }
 
 QString Tools::textToHTML(const QString &text)
@@ -77,7 +77,8 @@ QString Tools::textToHTML(const QString &text)
 
     // convertFromPlainText() replace "\n\n" by "</p>\n<p>": we don't want that
     QString htmlString = Qt::convertFromPlainText(text, Qt::WhiteSpaceNormal);
-    return htmlString.replace(QStringLiteral("</p>\n"), QStringLiteral("<br>\n<br>\n")).replace(QStringLiteral("\n<p>"), QStringLiteral("\n")); // Don't replace first and last tags
+    return htmlString.replace(QStringLiteral("</p>\n"), QStringLiteral("<br>\n<br>\n"))
+        .replace(QStringLiteral("\n<p>"), QStringLiteral("\n")); // Don't replace first and last tags
 }
 
 QString Tools::textToHTMLWithoutP(const QString &text)
@@ -95,8 +96,7 @@ QString Tools::htmlToParagraph(const QString &html)
     QRegularExpression patternBodyTag(QStringLiteral("<body.*?>"));
     QRegularExpressionMatch bodyTag = patternBodyTag.match(result);
 
-    if (bodyTag.hasMatch())
-    {
+    if (bodyTag.hasMatch()) {
         result = result.mid(bodyTag.capturedEnd(0));
     }
 
@@ -162,7 +162,7 @@ QString Tools::detectCrossReferences(const QString &text, bool userLink, HTMLExp
     int urlLen;
 
     QRegularExpression urlEx(QStringLiteral("\\[\\[(.+)\\]\\]"));
-    
+
     while ((urlPos = richText.indexOf(urlEx, urlPos)) >= 0) {
         QRegularExpressionMatch m = urlEx.match(richText);
         urlLen = m.capturedLength();
@@ -189,59 +189,62 @@ QString Tools::detectCrossReferences(const QString &text, bool userLink, HTMLExp
     return richText;
 }
 
-QList<State*> Tools::detectTags(const QString& text, int& prefixLength)
+QList<State *> Tools::detectTags(const QString &text, int &prefixLength)
 {
-    QList<State*> tagsDetected;
+    QList<State *> tagsDetected;
     prefixLength = 0;
     QRegularExpressionMatchIterator matchIt = Tag::regexpDetectTagsInPlainText().globalMatch(text);
-    while (matchIt.hasNext())
-    {
+    while (matchIt.hasNext()) {
         QRegularExpressionMatch match = matchIt.next();
         prefixLength = match.capturedEnd(0);
-        const QString& stateRepr = match.captured(1);
-        State* state = Tag::stateByTextEquiv(stateRepr);
-        if (state) tagsDetected.append(state);
+        const QString &stateRepr = match.captured(1);
+        State *state = Tag::stateByTextEquiv(stateRepr);
+        if (state)
+            tagsDetected.append(state);
     }
 
-    //if tags are found, eat possible trailing whitespaces as well
-    if (prefixLength)
-    {
+    // if tags are found, eat possible trailing whitespaces as well
+    if (prefixLength) {
         prefixLength = text.indexOf(QRegularExpression(QStringLiteral("[^\\s]")), prefixLength);
         if (prefixLength == -1)
-           prefixLength = text.length();
+            prefixLength = text.length();
     }
     return tagsDetected;
 }
 
-QString Tools::crossReferenceForBasket(const QStringList& linkParts)
+QString Tools::crossReferenceForBasket(const QStringList &linkParts)
 {
     QString basketLink = linkParts.first();
-    if (!basketLink.startsWith(QStringLiteral("basket://"))) return QString();
+    if (!basketLink.startsWith(QStringLiteral("basket://")))
+        return QString();
 
     QString url = basketLink.mid(9, basketLink.length() - 9);
-    if (url.isEmpty()) return QString();
+    if (url.isEmpty())
+        return QString();
 
     QString title = linkParts.last().trimmed();
     QString css = LinkLook::crossReferenceLook->toCSS(QStringLiteral("cross_reference"), QColor());
     QString classes = QStringLiteral("cross_reference");
 
     QString anchor = QStringLiteral("<style>%1</style><a href=\"%2\" class=\"%3\">%4</a>")
-        .arg(css)
-        .arg(basketLink)
-        .arg(classes)
-        .arg(QUrl::fromPercentEncoding(title.toUtf8()));
+                         .arg(css)
+                         .arg(basketLink)
+                         .arg(classes)
+                         .arg(QUrl::fromPercentEncoding(title.toUtf8()));
 
     return anchor;
 }
 
-QString Tools::crossReferenceForHtml(const QStringList& linkParts, HTMLExporter *exporter)
+QString Tools::crossReferenceForHtml(const QStringList &linkParts, HTMLExporter *exporter)
 {
     QString basketLink = linkParts.first();
     QString title = linkParts.last().trimmed();
-    if (!basketLink.startsWith(QStringLiteral("basket://"))) return QString();
+    if (!basketLink.startsWith(QStringLiteral("basket://")))
+        return QString();
 
     QString url = basketLink.mid(9, basketLink.length() - 9);
-    if (url.isEmpty()) return QString();
+    if (url.isEmpty())
+        return QString();
 
     BasketScene *basket = Global::bnpView->basketForFolderName(url);
 
@@ -262,11 +265,12 @@ QString Tools::crossReferenceForHtml(const QStringList& linkParts, HTMLExporter 
     }
 
     QString classes = QStringLiteral("cross_reference");
-    QString anchor = QStringLiteral("<a href=\"") + url + QStringLiteral("\" class=\"") + classes + QStringLiteral("\">") + QUrl::fromPercentEncoding(title.toUtf8()) + QStringLiteral("</a>");
+    QString anchor = QStringLiteral("<a href=\"") + url + QStringLiteral("\" class=\"") + classes + QStringLiteral("\">")
+        + QUrl::fromPercentEncoding(title.toUtf8()) + QStringLiteral("</a>");
     return anchor;
 }
 
-QString Tools::crossReferenceForConversion(const QStringList& linkParts)
+QString Tools::crossReferenceForConversion(const QStringList &linkParts)
 {
     QString basketLink = linkParts.first();
     QString title;
@@ -285,7 +289,8 @@ QString Tools::crossReferenceForConversion(const QStringList& linkParts)
         title = linkParts.last().trimmed();
 
     QString url = Global::bnpView->folderFromBasketNameLink(pages);
-    if (url.isEmpty()) return QString();
+    if (url.isEmpty())
+        return QString();
 
     return QStringLiteral("[[basket://%1|%2]]").arg(url, title);
 }
@@ -321,8 +326,8 @@ QString Tools::htmlToText(const QString &html)
     int pos2;
     QString tag, tag3;
     // To manage lists:
-    int deep = 0;     // The deep of the current line in imbriqued lists
-    QList<bool> ul;   // true if current list is a <ul> one, false if it's an <ol> one
+    int deep = 0; // The deep of the current line in imbriqued lists
+    QList<bool> ul; // true if current list is a <ul> one, false if it's an <ol> one
     QList<int> lines; // The line number if it is an <ol> list
     // We're removing every other tags, or replace them in the case of li:
     while ((pos = text.indexOf(QStringLiteral("<")), pos) != -1) {
@@ -390,7 +395,7 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
     QString docContent = document->toHtml();
     document->setDefaultFont(originalFont);
 
-    //Tag styles appear in html output as body styles. Remove them to preserve internal formatting.
+    // Tag styles appear in html output as body styles. Remove them to preserve internal formatting.
     QRegularExpression patternBodyTag(QStringLiteral("<body.*?>"));
     QRegularExpressionMatch bodyTag = patternBodyTag.match(docContent);
 
@@ -403,7 +408,8 @@ QString Tools::textDocumentToMinimalHTML(QTextDocument *document)
 QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
 {
     // The font definition:
-    QString definition = font.key() + (font.italic() ? QStringLiteral("italic ") : QString()) + (font.bold() ? QStringLiteral("bold ") : QString()) + QString::number(QFontInfo(font).pixelSize()) + QStringLiteral("px ");
+    QString definition = font.key() + (font.italic() ? QStringLiteral("italic ") : QString()) + (font.bold() ? QStringLiteral("bold ") : QString())
+        + QString::number(QFontInfo(font).pixelSize()) + QStringLiteral("px ");
 
     // Then, try to match the font name with a standard CSS font family:
     QString genericFont;
@@ -411,11 +417,13 @@ QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
         genericFont = QStringLiteral("serif");
     }
     // No "else if" because "sans serif" must be counted as "sans". So, the order between "serif" and "sans" is important
-    if (definition.contains(QStringLiteral("sans"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("arial"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("helvetica"), Qt::CaseInsensitive)) {
+    if (definition.contains(QStringLiteral("sans"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("arial"), Qt::CaseInsensitive)
+        || definition.contains(QStringLiteral("helvetica"), Qt::CaseInsensitive)) {
         genericFont = QStringLiteral("sans-serif");
     }
-    if (definition.contains(QStringLiteral("mono"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("courier"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("typewriter"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("console"), Qt::CaseInsensitive) ||
-        definition.contains(QStringLiteral("terminal"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("news"), Qt::CaseInsensitive)) {
+    if (definition.contains(QStringLiteral("mono"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("courier"), Qt::CaseInsensitive)
+        || definition.contains(QStringLiteral("typewriter"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("console"), Qt::CaseInsensitive)
+        || definition.contains(QStringLiteral("terminal"), Qt::CaseInsensitive) || definition.contains(QStringLiteral("news"), Qt::CaseInsensitive)) {
         genericFont = QStringLiteral("monospace");
     }
 
@@ -443,164 +451,161 @@ QString Tools::stripEndWhiteSpaces(const QString &string)
         return string.left(i);
 }
 
-QString Tools::cssColorName(const QString& colorHex)
+QString Tools::cssColorName(const QString &colorHex)
 {
-    static const QMap<QString, QString> cssColors = {
-        {QStringLiteral("#00ffff"), QStringLiteral("aqua")    },
-        {QStringLiteral("#000000"), QStringLiteral("black")   },
-        {QStringLiteral("#0000ff"), QStringLiteral("blue")    },
-        {QStringLiteral("#ff00ff"), QStringLiteral("fuchsia") },
-        {QStringLiteral("#808080"), QStringLiteral("gray")    },
-        {QStringLiteral("#008000"), QStringLiteral("green")   },
-        {QStringLiteral("#00ff00"), QStringLiteral("lime")    },
-        {QStringLiteral("#800000"), QStringLiteral("maroon")  },
-        {QStringLiteral("#000080"), QStringLiteral("navy")    },
-        {QStringLiteral("#808000"), QStringLiteral("olive")   },
-        {QStringLiteral("#800080"), QStringLiteral("purple")  },
-        {QStringLiteral("#ff0000"), QStringLiteral("red")     },
-        {QStringLiteral("#c0c0c0"), QStringLiteral("silver")  },
-        {QStringLiteral("#008080"), QStringLiteral("teal")    },
-        {QStringLiteral("#ffffff"), QStringLiteral("white")   },
-        {QStringLiteral("#ffff00"), QStringLiteral("yellow")  },
-        // CSS extended colors
-        {QStringLiteral("#f0f8ff"), QStringLiteral("aliceblue")            },
-        {QStringLiteral("#faebd7"), QStringLiteral("antiquewhite")         },
-        {QStringLiteral("#7fffd4"), QStringLiteral("aquamarine")           },
-        {QStringLiteral("#f0ffff"), QStringLiteral("azure")                },
-        {QStringLiteral("#f5f5dc"), QStringLiteral("beige")                },
-        {QStringLiteral("#ffe4c4"), QStringLiteral("bisque")               },
-        {QStringLiteral("#ffebcd"), QStringLiteral("blanchedalmond")       },
-        {QStringLiteral("#8a2be2"), QStringLiteral("blueviolet")           },
-        {QStringLiteral("#a52a2a"), QStringLiteral("brown")                },
-        {QStringLiteral("#deb887"), QStringLiteral("burlywood")            },
-        {QStringLiteral("#5f9ea0"), QStringLiteral("cadetblue")            },
-        {QStringLiteral("#7fff00"), QStringLiteral("chartreuse")           },
-        {QStringLiteral("#d2691e"), QStringLiteral("chocolate")            },
-        {QStringLiteral("#ff7f50"), QStringLiteral("coral")                },
-        {QStringLiteral("#6495ed"), QStringLiteral("cornflowerblue")       },
-        {QStringLiteral("#fff8dc"), QStringLiteral("cornsilk")             },
-        {QStringLiteral("#dc1436"), QStringLiteral("crimson")              },
-        {QStringLiteral("#00ffff"), QStringLiteral("cyan")                 },
-        {QStringLiteral("#00008b"), QStringLiteral("darkblue")             },
-        {QStringLiteral("#008b8b"), QStringLiteral("darkcyan")             },
-        {QStringLiteral("#b8860b"), QStringLiteral("darkgoldenrod")        },
-        {QStringLiteral("#a9a9a9"), QStringLiteral("darkgray")             },
-        {QStringLiteral("#006400"), QStringLiteral("darkgreen")            },
-        {QStringLiteral("#bdb76b"), QStringLiteral("darkkhaki")            },
-        {QStringLiteral("#8b008b"), QStringLiteral("darkmagenta")          },
-        {QStringLiteral("#556b2f"), QStringLiteral("darkolivegreen")       },
-        {QStringLiteral("#ff8c00"), QStringLiteral("darkorange")           },
-        {QStringLiteral("#9932cc"), QStringLiteral("darkorchid")           },
-        {QStringLiteral("#8b0000"), QStringLiteral("darkred")              },
-        {QStringLiteral("#e9967a"), QStringLiteral("darksalmon")           },
-        {QStringLiteral("#8fbc8f"), QStringLiteral("darkseagreen")         },
-        {QStringLiteral("#483d8b"), QStringLiteral("darkslateblue")        },
-        {QStringLiteral("#2f4f4f"), QStringLiteral("darkslategray")        },
-        {QStringLiteral("#00ced1"), QStringLiteral("darkturquoise")        },
-        {QStringLiteral("#9400d3"), QStringLiteral("darkviolet")           },
-        {QStringLiteral("#ff1493"), QStringLiteral("deeppink")             },
-        {QStringLiteral("#00bfff"), QStringLiteral("deepskyblue")          },
-        {QStringLiteral("#696969"), QStringLiteral("dimgray")              },
-        {QStringLiteral("#1e90ff"), QStringLiteral("dodgerblue")           },
-        {QStringLiteral("#b22222"), QStringLiteral("firebrick")            },
-        {QStringLiteral("#fffaf0"), QStringLiteral("floralwhite")          },
-        {QStringLiteral("#228b22"), QStringLiteral("forestgreen")          },
-        {QStringLiteral("#dcdcdc"), QStringLiteral("gainsboro")            },
-        {QStringLiteral("#f8f8ff"), QStringLiteral("ghostwhite")           },
-        {QStringLiteral("#ffd700"), QStringLiteral("gold")                 },
-        {QStringLiteral("#daa520"), QStringLiteral("goldenrod")            },
-        {QStringLiteral("#adff2f"), QStringLiteral("greenyellow")          },
-        {QStringLiteral("#f0fff0"), QStringLiteral("honeydew")             },
-        {QStringLiteral("#ff69b4"), QStringLiteral("hotpink")              },
-        {QStringLiteral("#cd5c5c"), QStringLiteral("indianred")            },
-        {QStringLiteral("#4b0082"), QStringLiteral("indigo")               },
-        {QStringLiteral("#fffff0"), QStringLiteral("ivory")                },
-        {QStringLiteral("#f0e68c"), QStringLiteral("khaki")                },
-        {QStringLiteral("#e6e6fa"), QStringLiteral("lavender")             },
-        {QStringLiteral("#fff0f5"), QStringLiteral("lavenderblush")        },
-        {QStringLiteral("#7cfc00"), QStringLiteral("lawngreen")            },
-        {QStringLiteral("#fffacd"), QStringLiteral("lemonchiffon")         },
-        {QStringLiteral("#add8e6"), QStringLiteral("lightblue")            },
-        {QStringLiteral("#f08080"), QStringLiteral("lightcoral")           },
-        {QStringLiteral("#e0ffff"), QStringLiteral("lightcyan")            },
-        {QStringLiteral("#fafad2"), QStringLiteral("lightgoldenrodyellow") },
-        {QStringLiteral("#90ee90"), QStringLiteral("lightgreen")           },
-        {QStringLiteral("#d3d3d3"), QStringLiteral("lightgrey")            },
-        {QStringLiteral("#ffb6c1"), QStringLiteral("lightpink")            },
-        {QStringLiteral("#ffa07a"), QStringLiteral("lightsalmon")          },
-        {QStringLiteral("#20b2aa"), QStringLiteral("lightseagreen")        },
-        {QStringLiteral("#87cefa"), QStringLiteral("lightskyblue")         },
-        {QStringLiteral("#778899"), QStringLiteral("lightslategray")       },
-        {QStringLiteral("#b0c4de"), QStringLiteral("lightsteelblue")       },
-        {QStringLiteral("#ffffe0"), QStringLiteral("lightyellow")          },
-        {QStringLiteral("#32cd32"), QStringLiteral("limegreen")            },
-        {QStringLiteral("#faf0e6"), QStringLiteral("linen")                },
-        {QStringLiteral("#ff00ff"), QStringLiteral("magenta")              },
-        {QStringLiteral("#66cdaa"), QStringLiteral("mediumaquamarine")     },
-        {QStringLiteral("#0000cd"), QStringLiteral("mediumblue")           },
-        {QStringLiteral("#ba55d3"), QStringLiteral("mediumorchid")         },
-        {QStringLiteral("#9370db"), QStringLiteral("mediumpurple")         },
-        {QStringLiteral("#3cb371"), QStringLiteral("mediumseagreen")       },
-        {QStringLiteral("#7b68ee"), QStringLiteral("mediumslateblue")      },
-        {QStringLiteral("#00fa9a"), QStringLiteral("mediumspringgreen")    },
-        {QStringLiteral("#48d1cc"), QStringLiteral("mediumturquoise")      },
-        {QStringLiteral("#c71585"), QStringLiteral("mediumvioletred")      },
-        {QStringLiteral("#191970"), QStringLiteral("midnightblue")         },
-        {QStringLiteral("#f5fffa"), QStringLiteral("mintcream")            },
-        {QStringLiteral("#ffe4e1"), QStringLiteral("mistyrose")            },
-        {QStringLiteral("#ffe4b5"), QStringLiteral("moccasin")             },
-        {QStringLiteral("#ffdead"), QStringLiteral("navajowhite")          },
-        {QStringLiteral("#fdf5e6"), QStringLiteral("oldlace")              },
-        {QStringLiteral("#6b8e23"), QStringLiteral("olivedrab")            },
-        {QStringLiteral("#ffa500"), QStringLiteral("orange")               },
-        {QStringLiteral("#ff4500"), QStringLiteral("orangered")            },
-        {QStringLiteral("#da70d6"), QStringLiteral("orchid")               },
-        {QStringLiteral("#eee8aa"), QStringLiteral("palegoldenrod")        },
-        {QStringLiteral("#98fb98"), QStringLiteral("palegreen")            },
-        {QStringLiteral("#afeeee"), QStringLiteral("paleturquoise")        },
-        {QStringLiteral("#db7093"), QStringLiteral("palevioletred")        },
-        {QStringLiteral("#ffefd5"), QStringLiteral("papayawhip")           },
-        {QStringLiteral("#ffdab9"), QStringLiteral("peachpuff")            },
-        {QStringLiteral("#cd853f"), QStringLiteral("peru")                 },
-        {QStringLiteral("#ffc0cb"), QStringLiteral("pink")                 },
-        {QStringLiteral("#dda0dd"), QStringLiteral("plum")                 },
-        {QStringLiteral("#b0e0e6"), QStringLiteral("powderblue")           },
-        {QStringLiteral("#bc8f8f"), QStringLiteral("rosybrown")            },
-        {QStringLiteral("#4169e1"), QStringLiteral("royalblue")            },
-        {QStringLiteral("#8b4513"), QStringLiteral("saddlebrown")          },
-        {QStringLiteral("#fa8072"), QStringLiteral("salmon")               },
-        {QStringLiteral("#f4a460"), QStringLiteral("sandybrown")           },
-        {QStringLiteral("#2e8b57"), QStringLiteral("seagreen")             },
-        {QStringLiteral("#fff5ee"), QStringLiteral("seashell")             },
-        {QStringLiteral("#a0522d"), QStringLiteral("sienna")               },
-        {QStringLiteral("#87ceeb"), QStringLiteral("skyblue")              },
-        {QStringLiteral("#6a5acd"), QStringLiteral("slateblue")            },
-        {QStringLiteral("#708090"), QStringLiteral("slategray")            },
-        {QStringLiteral("#fffafa"), QStringLiteral("snow")                 },
-        {QStringLiteral("#00ff7f"), QStringLiteral("springgreen")          },
-        {QStringLiteral("#4682b4"), QStringLiteral("steelblue")            },
-        {QStringLiteral("#d2b48c"), QStringLiteral("tan")                  },
-        {QStringLiteral("#d8bfd8"), QStringLiteral("thistle")              },
-        {QStringLiteral("#ff6347"), QStringLiteral("tomato")               },
-        {QStringLiteral("#40e0d0"), QStringLiteral("turquoise")            },
-        {QStringLiteral("#ee82ee"), QStringLiteral("violet")               },
-        {QStringLiteral("#f5deb3"), QStringLiteral("wheat")                },
-        {QStringLiteral("#f5f5f5"), QStringLiteral("whitesmoke")           },
-        {QStringLiteral("#9acd32"), QStringLiteral("yellowgreen")          } };
+    static const QMap<QString, QString> cssColors = {{QStringLiteral("#00ffff"), QStringLiteral("aqua")},
+                                                     {QStringLiteral("#000000"), QStringLiteral("black")},
+                                                     {QStringLiteral("#0000ff"), QStringLiteral("blue")},
+                                                     {QStringLiteral("#ff00ff"), QStringLiteral("fuchsia")},
+                                                     {QStringLiteral("#808080"), QStringLiteral("gray")},
+                                                     {QStringLiteral("#008000"), QStringLiteral("green")},
+                                                     {QStringLiteral("#00ff00"), QStringLiteral("lime")},
+                                                     {QStringLiteral("#800000"), QStringLiteral("maroon")},
+                                                     {QStringLiteral("#000080"), QStringLiteral("navy")},
+                                                     {QStringLiteral("#808000"), QStringLiteral("olive")},
+                                                     {QStringLiteral("#800080"), QStringLiteral("purple")},
+                                                     {QStringLiteral("#ff0000"), QStringLiteral("red")},
+                                                     {QStringLiteral("#c0c0c0"), QStringLiteral("silver")},
+                                                     {QStringLiteral("#008080"), QStringLiteral("teal")},
+                                                     {QStringLiteral("#ffffff"), QStringLiteral("white")},
+                                                     {QStringLiteral("#ffff00"), QStringLiteral("yellow")},
+                                                     // CSS extended colors
+                                                     {QStringLiteral("#f0f8ff"), QStringLiteral("aliceblue")},
+                                                     {QStringLiteral("#faebd7"), QStringLiteral("antiquewhite")},
+                                                     {QStringLiteral("#7fffd4"), QStringLiteral("aquamarine")},
+                                                     {QStringLiteral("#f0ffff"), QStringLiteral("azure")},
+                                                     {QStringLiteral("#f5f5dc"), QStringLiteral("beige")},
+                                                     {QStringLiteral("#ffe4c4"), QStringLiteral("bisque")},
+                                                     {QStringLiteral("#ffebcd"), QStringLiteral("blanchedalmond")},
+                                                     {QStringLiteral("#8a2be2"), QStringLiteral("blueviolet")},
+                                                     {QStringLiteral("#a52a2a"), QStringLiteral("brown")},
+                                                     {QStringLiteral("#deb887"), QStringLiteral("burlywood")},
+                                                     {QStringLiteral("#5f9ea0"), QStringLiteral("cadetblue")},
+                                                     {QStringLiteral("#7fff00"), QStringLiteral("chartreuse")},
+                                                     {QStringLiteral("#d2691e"), QStringLiteral("chocolate")},
+                                                     {QStringLiteral("#ff7f50"), QStringLiteral("coral")},
+                                                     {QStringLiteral("#6495ed"), QStringLiteral("cornflowerblue")},
+                                                     {QStringLiteral("#fff8dc"), QStringLiteral("cornsilk")},
+                                                     {QStringLiteral("#dc1436"), QStringLiteral("crimson")},
+                                                     {QStringLiteral("#00ffff"), QStringLiteral("cyan")},
+                                                     {QStringLiteral("#00008b"), QStringLiteral("darkblue")},
+                                                     {QStringLiteral("#008b8b"), QStringLiteral("darkcyan")},
+                                                     {QStringLiteral("#b8860b"), QStringLiteral("darkgoldenrod")},
+                                                     {QStringLiteral("#a9a9a9"), QStringLiteral("darkgray")},
+                                                     {QStringLiteral("#006400"), QStringLiteral("darkgreen")},
+                                                     {QStringLiteral("#bdb76b"), QStringLiteral("darkkhaki")},
+                                                     {QStringLiteral("#8b008b"), QStringLiteral("darkmagenta")},
+                                                     {QStringLiteral("#556b2f"), QStringLiteral("darkolivegreen")},
+                                                     {QStringLiteral("#ff8c00"), QStringLiteral("darkorange")},
+                                                     {QStringLiteral("#9932cc"), QStringLiteral("darkorchid")},
+                                                     {QStringLiteral("#8b0000"), QStringLiteral("darkred")},
+                                                     {QStringLiteral("#e9967a"), QStringLiteral("darksalmon")},
+                                                     {QStringLiteral("#8fbc8f"), QStringLiteral("darkseagreen")},
+                                                     {QStringLiteral("#483d8b"), QStringLiteral("darkslateblue")},
+                                                     {QStringLiteral("#2f4f4f"), QStringLiteral("darkslategray")},
+                                                     {QStringLiteral("#00ced1"), QStringLiteral("darkturquoise")},
+                                                     {QStringLiteral("#9400d3"), QStringLiteral("darkviolet")},
+                                                     {QStringLiteral("#ff1493"), QStringLiteral("deeppink")},
+                                                     {QStringLiteral("#00bfff"), QStringLiteral("deepskyblue")},
+                                                     {QStringLiteral("#696969"), QStringLiteral("dimgray")},
+                                                     {QStringLiteral("#1e90ff"), QStringLiteral("dodgerblue")},
+                                                     {QStringLiteral("#b22222"), QStringLiteral("firebrick")},
+                                                     {QStringLiteral("#fffaf0"), QStringLiteral("floralwhite")},
+                                                     {QStringLiteral("#228b22"), QStringLiteral("forestgreen")},
+                                                     {QStringLiteral("#dcdcdc"), QStringLiteral("gainsboro")},
+                                                     {QStringLiteral("#f8f8ff"), QStringLiteral("ghostwhite")},
+                                                     {QStringLiteral("#ffd700"), QStringLiteral("gold")},
+                                                     {QStringLiteral("#daa520"), QStringLiteral("goldenrod")},
+                                                     {QStringLiteral("#adff2f"), QStringLiteral("greenyellow")},
+                                                     {QStringLiteral("#f0fff0"), QStringLiteral("honeydew")},
+                                                     {QStringLiteral("#ff69b4"), QStringLiteral("hotpink")},
+                                                     {QStringLiteral("#cd5c5c"), QStringLiteral("indianred")},
+                                                     {QStringLiteral("#4b0082"), QStringLiteral("indigo")},
+                                                     {QStringLiteral("#fffff0"), QStringLiteral("ivory")},
+                                                     {QStringLiteral("#f0e68c"), QStringLiteral("khaki")},
+                                                     {QStringLiteral("#e6e6fa"), QStringLiteral("lavender")},
+                                                     {QStringLiteral("#fff0f5"), QStringLiteral("lavenderblush")},
+                                                     {QStringLiteral("#7cfc00"), QStringLiteral("lawngreen")},
+                                                     {QStringLiteral("#fffacd"), QStringLiteral("lemonchiffon")},
+                                                     {QStringLiteral("#add8e6"), QStringLiteral("lightblue")},
+                                                     {QStringLiteral("#f08080"), QStringLiteral("lightcoral")},
+                                                     {QStringLiteral("#e0ffff"), QStringLiteral("lightcyan")},
+                                                     {QStringLiteral("#fafad2"), QStringLiteral("lightgoldenrodyellow")},
+                                                     {QStringLiteral("#90ee90"), QStringLiteral("lightgreen")},
+                                                     {QStringLiteral("#d3d3d3"), QStringLiteral("lightgrey")},
+                                                     {QStringLiteral("#ffb6c1"), QStringLiteral("lightpink")},
+                                                     {QStringLiteral("#ffa07a"), QStringLiteral("lightsalmon")},
+                                                     {QStringLiteral("#20b2aa"), QStringLiteral("lightseagreen")},
+                                                     {QStringLiteral("#87cefa"), QStringLiteral("lightskyblue")},
+                                                     {QStringLiteral("#778899"), QStringLiteral("lightslategray")},
+                                                     {QStringLiteral("#b0c4de"), QStringLiteral("lightsteelblue")},
+                                                     {QStringLiteral("#ffffe0"), QStringLiteral("lightyellow")},
+                                                     {QStringLiteral("#32cd32"), QStringLiteral("limegreen")},
+                                                     {QStringLiteral("#faf0e6"), QStringLiteral("linen")},
+                                                     {QStringLiteral("#ff00ff"), QStringLiteral("magenta")},
+                                                     {QStringLiteral("#66cdaa"), QStringLiteral("mediumaquamarine")},
+                                                     {QStringLiteral("#0000cd"), QStringLiteral("mediumblue")},
+                                                     {QStringLiteral("#ba55d3"), QStringLiteral("mediumorchid")},
+                                                     {QStringLiteral("#9370db"), QStringLiteral("mediumpurple")},
+                                                     {QStringLiteral("#3cb371"), QStringLiteral("mediumseagreen")},
+                                                     {QStringLiteral("#7b68ee"), QStringLiteral("mediumslateblue")},
+                                                     {QStringLiteral("#00fa9a"), QStringLiteral("mediumspringgreen")},
+                                                     {QStringLiteral("#48d1cc"), QStringLiteral("mediumturquoise")},
+                                                     {QStringLiteral("#c71585"), QStringLiteral("mediumvioletred")},
+                                                     {QStringLiteral("#191970"), QStringLiteral("midnightblue")},
+                                                     {QStringLiteral("#f5fffa"), QStringLiteral("mintcream")},
+                                                     {QStringLiteral("#ffe4e1"), QStringLiteral("mistyrose")},
+                                                     {QStringLiteral("#ffe4b5"), QStringLiteral("moccasin")},
+                                                     {QStringLiteral("#ffdead"), QStringLiteral("navajowhite")},
+                                                     {QStringLiteral("#fdf5e6"), QStringLiteral("oldlace")},
+                                                     {QStringLiteral("#6b8e23"), QStringLiteral("olivedrab")},
+                                                     {QStringLiteral("#ffa500"), QStringLiteral("orange")},
+                                                     {QStringLiteral("#ff4500"), QStringLiteral("orangered")},
+                                                     {QStringLiteral("#da70d6"), QStringLiteral("orchid")},
+                                                     {QStringLiteral("#eee8aa"), QStringLiteral("palegoldenrod")},
+                                                     {QStringLiteral("#98fb98"), QStringLiteral("palegreen")},
+                                                     {QStringLiteral("#afeeee"), QStringLiteral("paleturquoise")},
+                                                     {QStringLiteral("#db7093"), QStringLiteral("palevioletred")},
+                                                     {QStringLiteral("#ffefd5"), QStringLiteral("papayawhip")},
+                                                     {QStringLiteral("#ffdab9"), QStringLiteral("peachpuff")},
+                                                     {QStringLiteral("#cd853f"), QStringLiteral("peru")},
+                                                     {QStringLiteral("#ffc0cb"), QStringLiteral("pink")},
+                                                     {QStringLiteral("#dda0dd"), QStringLiteral("plum")},
+                                                     {QStringLiteral("#b0e0e6"), QStringLiteral("powderblue")},
+                                                     {QStringLiteral("#bc8f8f"), QStringLiteral("rosybrown")},
+                                                     {QStringLiteral("#4169e1"), QStringLiteral("royalblue")},
+                                                     {QStringLiteral("#8b4513"), QStringLiteral("saddlebrown")},
+                                                     {QStringLiteral("#fa8072"), QStringLiteral("salmon")},
+                                                     {QStringLiteral("#f4a460"), QStringLiteral("sandybrown")},
+                                                     {QStringLiteral("#2e8b57"), QStringLiteral("seagreen")},
+                                                     {QStringLiteral("#fff5ee"), QStringLiteral("seashell")},
+                                                     {QStringLiteral("#a0522d"), QStringLiteral("sienna")},
+                                                     {QStringLiteral("#87ceeb"), QStringLiteral("skyblue")},
+                                                     {QStringLiteral("#6a5acd"), QStringLiteral("slateblue")},
+                                                     {QStringLiteral("#708090"), QStringLiteral("slategray")},
+                                                     {QStringLiteral("#fffafa"), QStringLiteral("snow")},
+                                                     {QStringLiteral("#00ff7f"), QStringLiteral("springgreen")},
+                                                     {QStringLiteral("#4682b4"), QStringLiteral("steelblue")},
+                                                     {QStringLiteral("#d2b48c"), QStringLiteral("tan")},
+                                                     {QStringLiteral("#d8bfd8"), QStringLiteral("thistle")},
+                                                     {QStringLiteral("#ff6347"), QStringLiteral("tomato")},
+                                                     {QStringLiteral("#40e0d0"), QStringLiteral("turquoise")},
+                                                     {QStringLiteral("#ee82ee"), QStringLiteral("violet")},
+                                                     {QStringLiteral("#f5deb3"), QStringLiteral("wheat")},
+                                                     {QStringLiteral("#f5f5f5"), QStringLiteral("whitesmoke")},
+                                                     {QStringLiteral("#9acd32"), QStringLiteral("yellowgreen")}};
 
     return cssColors.value(colorHex, QString());
 }
 
-
 bool Tools::isWebColor(const QColor &color)
 {
-    int r = color.red();   // The 216 web colors are those colors whose RGB (Red, Green, Blue)
+    int r = color.red(); // The 216 web colors are those colors whose RGB (Red, Green, Blue)
     int g = color.green(); //  values are all in the set (0, 51, 102, 153, 204, 255).
     int b = color.blue();
 
-    return ((r == 0 || r == 51 || r == 102 || r == 153 || r == 204 || r == 255) &&
-            (g == 0 || g == 51 || g == 102 || g == 153 || g == 204 || g == 255) &&
-            (b == 0 || b == 51 || b == 102 || b == 153 || b == 204 || b == 255));
+    return ((r == 0 || r == 51 || r == 102 || r == 153 || r == 204 || r == 255) && (g == 0 || g == 51 || g == 102 || g == 153 || g == 204 || g == 255)
+            && (b == 0 || b == 51 || b == 102 || b == 153 || b == 204 || b == 255));
 }
 
 QColor Tools::mixColor(const QColor &color1, const QColor &color2, const float ratio)
@@ -742,7 +747,7 @@ QString Tools::fileNameForNewFile(const QString &wantedName, const QString &dest
             number = theNumber;
             fileName.truncate(extNumber);
         } // else :
-    }     // else fileName = fileName and number = 2 (because if the file already exists, the generated name is at last the 2nd)
+    } // else fileName = fileName and number = 2 (because if the file already exists, the generated name is at last the 2nd)
 
     QString finalName;
     for (/*int number = 2*/;; ++number) { // TODO: FIXME: If overflow ???
@@ -764,7 +769,7 @@ qint64 Tools::computeSizeRecursively(const QString &path)
     result += file.size();
     if (file.isDir()) {
         QFileInfoList children = QDir(path).entryInfoList(QDir::Dirs | QDir::Files | QDir::NoSymLinks | QDir::NoDotAndDotDot | QDir::Hidden);
-        for (const QFileInfo &child: children)
+        for (const QFileInfo &child : children)
             result += computeSizeRecursively(child.absoluteFilePath());
     }
     return result;
@@ -791,7 +796,7 @@ bool Tools::isAFileCut(const QMimeData *source)
 
 void Tools::printChildren(QObject *parent)
 {
-    for (const auto& obj : parent->children()) {
+    for (const auto &obj : parent->children()) {
         qDebug() << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << Qt::endl;
     }
 }

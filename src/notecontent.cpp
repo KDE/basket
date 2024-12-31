@@ -11,7 +11,6 @@
 #include <QMimeDatabase>
 #include <QTextBlock>
 // #include <QTextCodec>
-#include <QWidget>
 #include <QBuffer>
 #include <QDateTime>
 #include <QDir>
@@ -19,8 +18,9 @@
 #include <QFileInfo>
 #include <QRegularExpression>
 #include <QStringList>
+#include <QWidget>
 #include <QtGui/QAbstractTextDocumentLayout>
-#include <QtGui/QBitmap>                     //For QPixmap::createHeuristicMask()
+#include <QtGui/QBitmap> //For QPixmap::createHeuristicMask()
 #include <QtGui/QFontMetrics>
 #include <QtGui/QMovie>
 #include <QtGui/QPainter>
@@ -71,7 +71,16 @@ void LinkDisplayItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *,
         return;
 
     QRectF rect = boundingRect();
-    m_linkDisplay.paint(painter, 0, 0, rect.width(), rect.height(), m_note->palette(), true, m_note->isSelected(), m_note->hovered(), m_note->hovered() && m_note->hoveredZone() == Note::Custom0);
+    m_linkDisplay.paint(painter,
+                        0,
+                        0,
+                        rect.width(),
+                        rect.height(),
+                        m_note->palette(),
+                        true,
+                        m_note->isSelected(),
+                        m_note->hovered(),
+                        m_note->hovered() && m_note->hoveredZone() == Note::Custom0);
 }
 
 //** NoteType functions
@@ -137,7 +146,7 @@ QString NoteType::typeToLowerName(const NoteType::Id noteType)
     return QStringLiteral("unknown");
 }
 
-NoteType::Id NoteType::typeFromLowerName(const QString& lowerTypeName)
+NoteType::Id NoteType::typeFromLowerName(const QString &lowerTypeName)
 {
     if (lowerTypeName == QStringLiteral("group")) {
         return NoteType::Group;
@@ -151,7 +160,7 @@ NoteType::Id NoteType::typeFromLowerName(const QString& lowerTypeName)
         return NoteType::Animation;
     } else if (lowerTypeName == QStringLiteral("sound")) {
         return NoteType::Sound;
-    } else if (lowerTypeName == QStringLiteral("file"))  {
+    } else if (lowerTypeName == QStringLiteral("file")) {
         return NoteType::File;
     } else if (lowerTypeName == QStringLiteral("link")) {
         return NoteType::Link;
@@ -166,7 +175,6 @@ NoteType::Id NoteType::typeFromLowerName(const QString& lowerTypeName)
     }
     return NoteType::Unknown;
 }
-
 
 /** class NoteContent:
  */
@@ -240,7 +248,8 @@ void NoteContent::contentChanged(qreal newMinWidth)
     m_minWidth = newMinWidth;
     if (note()) {
         //      note()->unbufferize();
-        note()->requestRelayout(); // TODO: It should re-set the width!  m_width = 0 ?   contentChanged: setWidth, geteight, if size havent changed, only repaint and not relayout
+        note()->requestRelayout(); // TODO: It should re-set the width!  m_width = 0 ?   contentChanged: setWidth, geteight, if size havent changed, only
+                                   // repaint and not relayout
     }
 }
 
@@ -315,7 +324,7 @@ QString TextContent::toHtml(const QString & /*imageName*/, const QString & /*cut
 
 QString HtmlContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    //extract HTML content exactly as is, with no further processing applied
+    // extract HTML content exactly as is, with no further processing applied
     return m_graphicsTextItem.document()->toHtml();
 }
 
@@ -712,7 +721,8 @@ void UnknownContent::fontChanged()
     loadFromFile(/*lazyLoad=*/false);
 } // TODO: Optimize: setMimeTypes()
 
-// QString TextContent::customServiceLauncher()      { return (Settings::isTextUseProg()      && ! Settings::textProg().isEmpty()      ? Settings::textProg()      : QString()); }
+// QString TextContent::customServiceLauncher()      { return (Settings::isTextUseProg()      && ! Settings::textProg().isEmpty()      ? Settings::textProg() :
+// QString()); }
 QString HtmlContent::customServiceLauncher()
 {
     return (Settings::isHtmlUseProg() && !Settings::htmlProg().isEmpty() ? Settings::htmlProg() : QString());
@@ -732,7 +742,7 @@ QString SoundContent::customServiceLauncher()
 QString LinkContent::customServiceLauncher()
 {
     QUrl newUrl = this->url();
-    
+
     // Provide service for HTTP requests, or just ignore it.
     if (newUrl.scheme() == QStringLiteral("http") || newUrl.scheme() == QStringLiteral("https")) {
         DEBUG_WIN << newUrl.toString() + QStringLiteral(" opens with ") + Settings::linkProg();
@@ -864,7 +874,9 @@ QPixmap ColorContent::feedbackPixmap(qreal width, qreal height)
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
-    m_colorItem.paint(&painter, nullptr, nullptr); //, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
+    m_colorItem.paint(&painter,
+                      nullptr,
+                      nullptr); //, pixmap.width(), pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.end();
 
     return pixmap;
@@ -899,7 +911,9 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
 
     QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
     QPainter painter(&pixmap);
-    m_unknownItem.paint(&painter, nullptr, nullptr); //, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
+    m_unknownItem.paint(&painter,
+                        nullptr,
+                        nullptr); //, pixmap.width() + 1, pixmap.height(), palette, false, false, false); // We don't care of the three last boolean parameters.
     painter.setPen(note()->backgroundColor().darker(FEEDBACK_DARKING));
     painter.drawPoint(0, 0);
     painter.drawPoint(pixmap.width() - 1, 0);
@@ -1004,11 +1018,14 @@ void TextContent::setText(const QString &text, bool lazyLoad)
 void TextContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    QString html = QStringLiteral("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>") +
-            Tools::detectCrossReferences(
-                    Tools::detectURLs(Tools::textToHTMLWithoutP(text().replace(QLatin1Char('\t'), QStringLiteral("                ")))),
-                    false, exporter); // Don't collapse multiple spaces!
-    exporter->stream << html.replace(QStringLiteral("  "), QStringLiteral(" &nbsp;")).replace(QLatin1Char('\n'), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
+    QString html =
+        QStringLiteral(
+            "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"qrichtext\" content=\"1\" /></head><body>")
+        + Tools::detectCrossReferences(Tools::detectURLs(Tools::textToHTMLWithoutP(text().replace(QLatin1Char('\t'), QStringLiteral("                ")))),
+                                       false,
+                                       exporter); // Don't collapse multiple spaces!
+    exporter->stream << html.replace(QStringLiteral("  "), QStringLiteral(" &nbsp;"))
+                            .replace(QLatin1Char('\n'), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class HtmlContent:
@@ -1133,7 +1150,9 @@ void HtmlContent::exportToHTML(HTMLExporter *exporter, int indent)
     if (note()->allowCrossReferences())
         convert = Tools::detectCrossReferences(convert, false, exporter);
 
-    exporter->stream << Tools::htmlToParagraph(convert).replace(QStringLiteral("  "), QStringLiteral(" &nbsp;")).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
+    exporter->stream << Tools::htmlToParagraph(convert)
+                            .replace(QStringLiteral("  "), QStringLiteral(" &nbsp;"))
+                            .replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class ImageContent:
@@ -1203,7 +1222,7 @@ bool ImageContent::finishLazyLoad()
     }
 
     qDebug() << "FAILED TO LOAD ImageContent: " << fullPath();
-    m_format = "PNG";       // If the image is set later, it should be saved without destruction, so we use PNG by default.
+    m_format = "PNG"; // If the image is set later, it should be saved without destruction, so we use PNG by default.
     pixmap = QPixmap(1, 1); // Create a 1x1 pixels image instead of an undefined one.
     pixmap.fill();
     pixmap.setMask(pixmap.createHeuristicMask());
@@ -1225,10 +1244,7 @@ bool ImageContent::saveToFile()
 
 QMap<QString, QString> ImageContent::toolTipInfos()
 {
-    return {
-        {i18n("Size"), i18n("%1 by %2 pixels", QString::number(m_pixmapItem.pixmap().width()),
-                                               QString::number(m_pixmapItem.pixmap().height()))}
-    };
+    return {{i18n("Size"), i18n("%1 by %2 pixels", QString::number(m_pixmapItem.pixmap().width()), QString::number(m_pixmapItem.pixmap().height()))}};
 }
 
 QString ImageContent::messageWhenOpening(OpenMessage where)
@@ -1273,7 +1289,8 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
         exporter->stream << "<a href=\"" << exporter->dataFolderName << imageName << "\" title=\"" << i18n("Click for full size view") << "\">";
     }
 
-    exporter->stream << "<img src=\"" << QUrl(exporter->dataFolderName + imageName).toString() << "\" width=\"" << width << "\" height=\"" << height << "\" alt=\"\">";
+    exporter->stream << "<img src=\"" << QUrl(exporter->dataFolderName + imageName).toString() << "\" width=\"" << width << "\" height=\"" << height
+                     << "\" alt=\"\">";
 
     if (contentWidth <= m_pixmapItem.pixmap().width()) // Scaled down
         exporter->stream << "</a>";
@@ -1398,7 +1415,9 @@ void AnimationContent::movieFrameChanged()
 void AnimationContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
 {
     exporter->stream << QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
-                            .arg(QUrl(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true)).toString(), QString::number(m_movie->currentPixmap().size().width()), QString::number(m_movie->currentPixmap().size().height()));
+                            .arg(QUrl(exporter->dataFolderName + exporter->copyFile(fullPath(), /*createIt=*/true)).toString(),
+                                 QString::number(m_movie->currentPixmap().size().width()),
+                                 QString::number(m_movie->currentPixmap().size().height()));
 }
 
 /** class FileContent:
@@ -1453,7 +1472,7 @@ QMap<QString, QString> FileContent::toolTipInfos()
     MetaDataExtractionResult result(fullPath(), mime.name());
 
     KFileMetaData::ExtractorCollection extractorCollection;
-    const QList<KFileMetaData::Extractor*> exList = extractorCollection.fetchExtractors(mime.name());
+    const QList<KFileMetaData::Extractor *> exList = extractorCollection.fetchExtractors(mime.name());
     for (KFileMetaData::Extractor *ex : exList) {
         ex->extract(&result);
         const auto groups = result.preferredGroups();
@@ -1528,7 +1547,10 @@ void FileContent::setFileName(const QString &fileName)
     NoteContent::setFileName(fileName);
     QUrl url = QUrl::fromLocalFile(fullPath());
     if (FileContent::linkLook()->previewEnabled())
-        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), FileContent::linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
+        m_linkDisplayItem.linkDisplay().setLink(fileName,
+                                                NoteFactory::iconForURL(url),
+                                                FileContent::linkLook(),
+                                                note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
     else
         m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), FileContent::linkLook(), note()->font());
     startFetchingUrlPreview();
@@ -1545,7 +1567,11 @@ void FileContent::linkLookChanged()
 void FileContent::newPreview(const KFileItem &, const QPixmap &preview)
 {
     LinkLook *linkLook = this->linkLook();
-    m_linkDisplayItem.linkDisplay().setLink(fileName(), NoteFactory::iconForURL(QUrl::fromLocalFile(fullPath())), (linkLook->previewEnabled() ? preview : QPixmap()), linkLook, note()->font());
+    m_linkDisplayItem.linkDisplay().setLink(fileName(),
+                                            NoteFactory::iconForURL(QUrl::fromLocalFile(fullPath())),
+                                            (linkLook->previewEnabled() ? preview : QPixmap()),
+                                            linkLook,
+                                            note()->font());
     contentChanged(m_linkDisplayItem.linkDisplay().minWidth());
 }
 
@@ -1576,7 +1602,9 @@ void FileContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay()
+                            .toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString())
+                            .replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class SoundContent:
@@ -1642,13 +1670,15 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
     }
 }
 
-
 void SoundContent::setFileName(const QString &fileName)
 {
     NoteContent::setFileName(fileName);
     QUrl url = QUrl::fromLocalFile(fullPath());
     if (SoundContent::linkLook()->previewEnabled()) {
-        m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), SoundContent::linkLook(), note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
+        m_linkDisplayItem.linkDisplay().setLink(fileName,
+                                                NoteFactory::iconForURL(url),
+                                                SoundContent::linkLook(),
+                                                note()->font()); // FIXME: move iconForURL outside of NoteFactory !!!!!
     } else {
         m_linkDisplayItem.linkDisplay().setLink(fileName, NoteFactory::iconForURL(url), QPixmap(), SoundContent::linkLook(), note()->font());
     }
@@ -1697,9 +1727,7 @@ void LinkContent::saveToNode(QXmlStreamWriter &stream)
 
 QMap<QString, QString> LinkContent::toolTipInfos()
 {
-    return {
-        { i18n("Target"), m_url.toDisplayString() }
-    };
+    return {{i18n("Target"), m_url.toDisplayString()}};
 }
 
 int LinkContent::zoneAt(const QPointF &pos)
@@ -1930,7 +1958,9 @@ void LinkContent::exportToHTML(HTMLExporter *exporter, int indent)
     */
 
     QString spaces;
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, linkURL, linkTitle).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay()
+                            .toHtml(exporter, linkURL, linkTitle)
+                            .replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class CrossReferenceContent:
@@ -1968,9 +1998,7 @@ void CrossReferenceContent::saveToNode(QXmlStreamWriter &stream)
 
 QMap<QString, QString> CrossReferenceContent::toolTipInfos()
 {
-    return {
-        { i18n("Target"), m_url.toDisplayString() }
-    };
+    return {{i18n("Target"), m_url.toDisplayString()}};
 }
 
 int CrossReferenceContent::zoneAt(const QPointF &pos)
@@ -2207,7 +2235,9 @@ void LauncherContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
     QString fileName = exporter->copyFile(fullPath(), /*createIt=*/true);
-    exporter->stream << m_linkDisplayItem.linkDisplay().toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString()).replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
+    exporter->stream << m_linkDisplayItem.linkDisplay()
+                            .toHtml(exporter, QUrl::fromLocalFile(exporter->dataFolderName + fileName), QString())
+                            .replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1));
 }
 
 /** class ColorItem:
@@ -2302,7 +2332,10 @@ QMap<QString, QString> ColorContent::toolTipInfos()
     color().getHsv(&hue, &saturation, &value);
 
     toolTip.insert(i18nc("RGB Colorspace: Red/Green/Blue", "RGB"),
-                   i18n("<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,", QString::number(color().red()), QString::number(color().green()), QString::number(color().blue())));
+                   i18n("<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,",
+                        QString::number(color().red()),
+                        QString::number(color().green()),
+                        QString::number(color().blue())));
     toolTip.insert(i18nc("HSV Colorspace: Hue/Saturation/Value", "HSV"),
                    i18n("<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,", QString::number(hue), QString::number(saturation), QString::number(value)));
 
@@ -2341,7 +2374,8 @@ void ColorContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     painter.setBrush(color());
     painter.drawRoundedRect(0, 0, rectWidth, rectHeight, 2, 2);
     colorIcon.save(fullPath, "PNG");
-    QString iconHtml = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">").arg(QUrl(exporter->iconsFolderName + fileName).toString(), QString::number(colorIcon.width()), QString::number(colorIcon.height()));
+    QString iconHtml = QStringLiteral("<img src=\"%1\" width=\"%2\" height=\"%3\" alt=\"\">")
+                           .arg(QUrl(exporter->iconsFolderName + fileName).toString(), QString::number(colorIcon.width()), QString::number(colorIcon.height()));
 
     exporter->stream << iconHtml + QLatin1Char(' ') + color().name();
 }
@@ -2384,7 +2418,12 @@ void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     painter->drawPoint(width - 2, 1);
 
     painter->setPen(palette.color(QPalette::Active, QPalette::WindowText));
-    painter->drawText(DECORATION_MARGIN, DECORATION_MARGIN, width - 2 * DECORATION_MARGIN, height - 2 * DECORATION_MARGIN, Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap, m_mimeTypes);
+    painter->drawText(DECORATION_MARGIN,
+                      DECORATION_MARGIN,
+                      width - 2 * DECORATION_MARGIN,
+                      height - 2 * DECORATION_MARGIN,
+                      Qt::AlignLeft | Qt::AlignVCenter | Qt::TextWordWrap,
+                      m_mimeTypes);
 }
 
 void UnknownItem::setMimeTypes(QString mimeTypes)
@@ -2492,7 +2531,8 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
 void UnknownContent::exportToHTML(HTMLExporter *exporter, int indent)
 {
     QString spaces;
-    exporter->stream << "<div class=\"unknown\">" << mimeTypes().replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1 + 1)) << "</div>";
+    exporter->stream << "<div class=\"unknown\">"
+                     << mimeTypes().replace(QStringLiteral("\n"), QLatin1Char('\n') + spaces.fill(QLatin1Char(' '), indent + 1 + 1)) << "</div>";
 }
 
 void LinkContent::decodeHtmlTitle()
@@ -2509,10 +2549,9 @@ void LinkContent::decodeHtmlTitle()
 
     QString httpBuff = QString::fromUtf8(m_httpBuff);
 
-    
     // todo: this should probably strip odd html tags like &nbsp; etc
     QRegularExpression reg(QStringLiteral("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>"), QRegularExpression::CaseInsensitiveOption);
-    
+
     // qDebug() << *m_httpBuff << " bytes: " << bytes_read;
 
     if (httpBuff.indexOf(reg) >= 0) {

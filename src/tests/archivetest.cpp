@@ -5,8 +5,8 @@
 
 #include <KTar>
 
-#include <QObject>
 #include <QDir>
+#include <QObject>
 #include <QtTest/QtTest>
 
 #include <algorithm>

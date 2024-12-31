@@ -53,11 +53,15 @@ OpaqueBackgroundEntry::~OpaqueBackgroundEntry()
 BackgroundManager::BackgroundManager()
 {
     /// qDebug() << "BackgroundManager: Found the following background images in  ";
-    QStringList directories = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation) /* WARNING: no more trailing slashes */; // eg. { "/home/seb/.kde/share/apps/", "/usr/share/apps/" }
+    QStringList directories = QStandardPaths::standardLocations(
+        QStandardPaths::GenericDataLocation) /* WARNING: no more trailing slashes */; // eg. { "/home/seb/.kde/share/apps/", "/usr/share/apps/" }
     // For each folder:
     for (QStringList::Iterator it = directories.begin(); it != directories.end(); ++it) {
         // For each file in those directories:
-        QDir dir(*it + QStringLiteral("basket/backgrounds/"), /*nameFilder=*/QStringLiteral("*.png"), /*sortSpec=*/QDir::Name | QDir::IgnoreCase, /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
+        QDir dir(*it + QStringLiteral("basket/backgrounds/"),
+                 /*nameFilder=*/QStringLiteral("*.png"),
+                 /*sortSpec=*/QDir::Name | QDir::IgnoreCase,
+                 /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
         ///     qDebug() << *it + "basket/backgrounds/  ";
         QStringList files = dir.entryList();
         for (QStringList::Iterator it2 = files.begin(); it2 != files.end(); ++it2) // TODO: If an image name is present in two folders?
@@ -271,7 +275,8 @@ QPixmap *BackgroundManager::preview(const QString &image)
     // Already used? Good: we don't have to load it...
     if (!entry->pixmap) {
         // Note: it's a code duplication from BackgroundManager::subscribe(const QString &image),
-        // Because, as we are loading the pixmap we ALSO need to know if it's a tile or not, in case that image will soon be used (and not destroyed by the garbager):
+        // Because, as we are loading the pixmap we ALSO need to know if it's a tile or not, in case that image will soon be used (and not destroyed by the
+        // garbager):
         entry->pixmap = new QPixmap(entry->location);
         // Try to figure out if it's a tiled background image or not (default to NO):
         KConfig config(entry->location + QStringLiteral(".config"));

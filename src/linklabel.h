@@ -34,8 +34,18 @@ class KCModule;
 class LinkLook
 {
 public:
-    enum Underlining { Always = 0, Never, OnMouseHover, OnMouseOutside };
-    enum Preview { None = 0, IconSize, TwiceIconSize, ThreeIconSize };
+    enum Underlining {
+        Always = 0,
+        Never,
+        OnMouseHover,
+        OnMouseOutside
+    };
+    enum Preview {
+        None = 0,
+        IconSize,
+        TwiceIconSize,
+        ThreeIconSize
+    };
     explicit LinkLook(bool useLinkColor = true, bool canPreview = true);
     LinkLook(const LinkLook &other);
     void setLook(bool italic, bool bold, int underlining, QColor color, QColor hoverColor, int iconSize, int preview /*= None*/);
@@ -127,7 +137,13 @@ class LinkLabel : public QFrame
     Q_OBJECT
 public:
     LinkLabel(int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    LinkLabel(const QString &title, const QString &icon, LinkLook *look, int hAlign, int vAlign, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    LinkLabel(const QString &title,
+              const QString &icon,
+              LinkLook *look,
+              int hAlign,
+              int vAlign,
+              QWidget *parent = nullptr,
+              Qt::WindowFlags f = Qt::WindowFlags());
     ~LinkLabel() override;
 
 public:
@@ -168,9 +184,16 @@ class LinkDisplay
 public:
     LinkDisplay(); /// << Create a new empty unselected LinkDisplay. Please then call setLink() to make sense.
     // Configure the link displayer:
-    void setLink(const QString &title, const QString &icon, LinkLook *look, const QFont &font); /// << Change the content and disposition. minWidth(), width() & height() can have changed. Keep the old preview (if any)
-    void setLink(const QString &title, const QString &icon, const QPixmap &preview, LinkLook *look, const QFont &font); /// << Idem but change the preview too (or remove it if it is invalid)
-    void setWidth(qreal width);                                                                                         /// << Set a new width. @see height() that will be computed.
+    void setLink(const QString &title,
+                 const QString &icon,
+                 LinkLook *look,
+                 const QFont &font); /// << Change the content and disposition. minWidth(), width() & height() can have changed. Keep the old preview (if any)
+    void setLink(const QString &title,
+                 const QString &icon,
+                 const QPixmap &preview,
+                 LinkLook *look,
+                 const QFont &font); /// << Idem but change the preview too (or remove it if it is invalid)
+    void setWidth(qreal width); /// << Set a new width. @see height() that will be computed.
     // Get its properties:
     qreal minWidth() const
     {
@@ -189,16 +212,28 @@ public:
         return m_height;
     } /// << @return the height if the link after having set it a width.
     // And finally, use it:
-    void paint(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QPalette &palette, bool isDefaultColor, bool isSelected, bool isHovered, bool isIconButtonHovered)
-        const;                                                                                       /// << Draw the link on a painter. Set textColor to be !isValid() to use the LinkLook color. Otherwise it will use this color!
-    QPixmap feedbackPixmap(qreal width, qreal height, const QPalette &palette, bool isDefaultColor); /// << @return the pixmap to put under the cursor while dragging this object.
+    void paint(QPainter *painter,
+               qreal x,
+               qreal y,
+               qreal width,
+               qreal height,
+               const QPalette &palette,
+               bool isDefaultColor,
+               bool isSelected,
+               bool isHovered,
+               bool isIconButtonHovered)
+        const; /// << Draw the link on a painter. Set textColor to be !isValid() to use the LinkLook color. Otherwise it will use this color!
+    QPixmap feedbackPixmap(qreal width,
+                           qreal height,
+                           const QPalette &palette,
+                           bool isDefaultColor); /// << @return the pixmap to put under the cursor while dragging this object.
     // Eventually get some information about the link display:
     bool iconButtonAt(const QPointF &pos) const; /// << @return true if the icon button is under point @p pos.
-    QRectF iconButtonRect() const;               /// << @return the rectangle of the icon button.
+    QRectF iconButtonRect() const; /// << @return the rectangle of the icon button.
     // Utility function:
     QFont labelFont(QFont font, bool isIconButtonHovered) const; /// << @return the font for this link, according to parent font AND LinkLook!
-    qreal heightForWidth(qreal width) const;                     /// << @return the needed height to display the link in function of a width.
-    QString toHtml(const QString &imageName) const;              /// << Convert the link to HTML code, using the LinkLook to style it.
+    qreal heightForWidth(qreal width) const; /// << @return the needed height to display the link in function of a width.
+    QString toHtml(const QString &imageName) const; /// << Convert the link to HTML code, using the LinkLook to style it.
     QString toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title = QString());
 
 private:

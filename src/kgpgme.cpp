@@ -26,7 +26,7 @@
 #include <KPasswordDialog>
 #include <QApplication>
 
-#include <errno.h>  //For errno
+#include <errno.h> //For errno
 #include <locale.h> //For LC_ALL, etc.
 #include <unistd.h> //For write
 
@@ -286,7 +286,10 @@ bool KGpgMe::encrypt(const QByteArray &inBuffer, unsigned long length, QByteArra
                     if (!err) {
                         result = gpgme_op_encrypt_result(m_ctx);
                         if (result->invalid_recipients) {
-                            KMessageBox::error(qApp->activeWindow(), QStringLiteral("%1: %2").arg(i18n("That public key is not meant for encryption")).arg(QStringView(result->invalid_recipients->fpr)));
+                            KMessageBox::error(qApp->activeWindow(),
+                                               QStringLiteral("%1: %2")
+                                                   .arg(i18n("That public key is not meant for encryption"))
+                                                   .arg(QStringView(result->invalid_recipients->fpr)));
                         } else {
                             err = readToBuffer(out, outBuffer);
                         }
@@ -327,7 +330,8 @@ bool KGpgMe::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
                 if (!err) {
                     result = gpgme_op_decrypt_result(m_ctx);
                     if (result->unsupported_algorithm) {
-                        KMessageBox::error(qApp->activeWindow(), QStringLiteral("%1: %2").arg(i18n("Unsupported algorithm")).arg(QStringView(result->unsupported_algorithm)));
+                        KMessageBox::error(qApp->activeWindow(),
+                                           QStringLiteral("%1: %2").arg(i18n("Unsupported algorithm")).arg(QStringView(result->unsupported_algorithm)));
                     } else {
                         err = readToBuffer(out, outBuffer);
                     }

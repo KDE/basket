@@ -58,7 +58,8 @@ public:
     /**
      * @brief createArchiveFromSource encodes a basket directory into a .baskets file
      *
-     * Be aware, this function currently does not validate the sourcePath's structure. The caller of this function needs to make sure the basket directory is a valid source.
+     * Be aware, this function currently does not validate the sourcePath's structure. The caller of this function needs to make sure the basket directory is a
+     * valid source.
      *
      * @param sourcePath specifies the directory to be encoded
      * @param previewImage specifies an optional .png image
@@ -66,15 +67,20 @@ public:
      * @param protectDestination decides whether the destination will be replaced if it has been present
      * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
      */
-    BASKET_EXPORT static IOErrorCode createArchiveFromSource(const QString &sourcePath, const QString &previewImage, const QString &destination = QString(), const bool protectDestination = true);
+    BASKET_EXPORT static IOErrorCode createArchiveFromSource(const QString &sourcePath,
+                                                             const QString &previewImage,
+                                                             const QString &destination = QString(),
+                                                             const bool protectDestination = true);
 
 private:
     // Convenient Methods for Saving:
-    static void saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress);
+    static void
+    saveBasketToArchive(BasketScene *basket, bool recursive, KTar *tar, QStringList &backgrounds, const QString &tempFolder, QProgressDialog *progress);
     static void listUsedTags(BasketScene *basket, bool recursive, QList<Tag *> &list);
     // Convenient Methods for Loading:
     static void renameBasketFolders(const QString &extractionFolder, QMap<QString, QString> &mergedStates);
-    static void renameBasketFolder(const QString &extractionFolder, QDomNode &basketNode, QMap<QString, QString> &folderMap, QMap<QString, QString> &mergedStates);
+    static void
+    renameBasketFolder(const QString &extractionFolder, QDomNode &basketNode, QMap<QString, QString> &folderMap, QMap<QString, QString> &mergedStates);
     static void renameMergedStatesAndBasketIcon(const QString &fullPath, QMap<QString, QString> &mergedStates, const QString &extractionFolder);
     static void renameMergedStates(QDomNode notes, QMap<QString, QString> &mergedStates);
     static void importBasketIcon(QDomElement properties, const QString &extractionFolder);

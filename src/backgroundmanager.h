@@ -6,10 +6,10 @@
 #ifndef BACKGROUNDMANAGER_H
 #define BACKGROUNDMANAGER_H
 
+#include <QColor>
 #include <QList>
 #include <QObject>
 #include <QTimer>
-#include <QColor>
 
 class QPixmap;
 class QString;
@@ -30,8 +30,8 @@ protected:
 
     QString name;
     QString location;
-    bool tiled;       /// << Only valid after some object subscribed to this image! Because it's only read at this time.
-    QPixmap *pixmap;  /// << Only valid (non-null) after some object subscribed to this image! Because it's only read at this time.
+    bool tiled; /// << Only valid after some object subscribed to this image! Because it's only read at this time.
+    QPixmap *pixmap; /// << Only valid (non-null) after some object subscribed to this image! Because it's only read at this time.
     QPixmap *preview; /// << Only valid (non-null) after some object requested the preview.
     int customersCount;
 };
@@ -88,7 +88,8 @@ public:
     BackgroundManager();
     ~BackgroundManager() override;
     /// SUBSCRIPTION TO IMAGES:
-    bool subscribe(const QString &image);                      /// << @Return true if the loading is a success. In the counter-case, calling methods below is unsafe with this @p image name.
+    bool subscribe(
+        const QString &image); /// << @Return true if the loading is a success. In the counter-case, calling methods below is unsafe with this @p image name.
     bool subscribe(const QString &image, const QColor &color); /// << Idem.
     void unsubscribe(const QString &image);
     void unsubscribe(const QString &image, const QColor &color);
@@ -101,7 +102,8 @@ public:
     QStringList imageNames();
     QPixmap *preview(const QString &image);
     /// USED FOR EXPORTATION:
-    QString pathForImageName(const QString &image); /// << It is STRONGLY advised to not use those two methods unless it's to copy (export) the images or something like that...
+    QString pathForImageName(
+        const QString &image); /// << It is STRONGLY advised to not use those two methods unless it's to copy (export) the images or something like that...
     QString previewPathForImageName(const QString &image);
     /// USED FOR IMPORTATION:
     void addImage(const QString &fullPath);

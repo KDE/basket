@@ -5,12 +5,12 @@
  */
 
 #include "basket_options.h"
+#include <KCrash>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDir>
 #include <config.h>
 #include <kconfig.h> // TMP IN ALPHA 1
-#include <KCrash>
 
 #include "application.h"
 #include "backup.h"
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     Global::mainWnd = win;
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);
-    
+
     win->show();
 
     // Self-test of the presence of basketui.rc (the only required file after basket executable)
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     // Install the debug message handler for external usage
     qInstallMessageHandler(debugMessageHandler);
 #endif
-    
+
     /* Go */
     int result = app.exec();
     exit(result); // Do not clean up memory to not crash while deleting the QApplication, or do not hang up on session exit

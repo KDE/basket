@@ -9,8 +9,8 @@
 #include <QDebug>
 #include <QLocale>
 #include <QMimeData>
-#include <QToolTip>
 #include <QRegularExpression>
+#include <QToolTip>
 #include <QtGui/QBitmap>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QDragLeaveEvent>
@@ -98,7 +98,8 @@ void BasketListViewItem::setup()
 {
     setText(/*column=*/0, escapedName(m_basket->basketName()));
 
-    QPixmap icon = KIconLoader::global()->loadIcon(m_basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/false);
+    QPixmap icon =
+        KIconLoader::global()->loadIcon(m_basket->icon(), KIconLoader::NoGroup, 16, KIconLoader::DefaultState, QStringList(), nullptr, /*canReturnNull=*/false);
 
     setIcon(/*column=*/0, icon);
     /*
@@ -106,8 +107,8 @@ void BasketListViewItem::setup()
 
         bool withIcon = m_stateCopy || (m_tagCopy && !m_tagCopy->isMultiState());
         State* state = (m_tagCopy ? m_tagCopy->stateCopies[0]->newState : m_stateCopy->newState);
-        brush.setColor(isSelected() ? qApp->palette().color(QPalette::Highlight)  : (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() : viewport->palette().color(viewwport->backgroundRole())));
-        setBackground(brush);
+        brush.setColor(isSelected() ? qApp->palette().color(QPalette::Highlight)  : (withIcon && state->backgroundColor().isValid() ? state->backgroundColor() :
+       viewport->palette().color(viewwport->backgroundRole()))); setBackground(brush);
         */
 }
 
@@ -496,9 +497,15 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
         showEncryptedIcon = basket->isLocked() || basketInTree->haveHiddenChildsLocked();
         bool childrenAreLoading = basketInTree->haveHiddenChildsLoading() || basketInTree->haveHiddenChildsLocked();
 
-        countPixmap = foundCountPixmap(!basket->isLoaded(), basket->countFounds(), childrenAreLoading, basketInTree->countHiddenChildsFound(), m_basketTree->font(), option.rect.height() - 2 * MARGIN);
+        countPixmap = foundCountPixmap(!basket->isLoaded(),
+                                       basket->countFounds(),
+                                       childrenAreLoading,
+                                       basketInTree->countHiddenChildsFound(),
+                                       m_basketTree->font(),
+                                       option.rect.height() - 2 * MARGIN);
     }
-    int effectiveWidth = option.rect.right() - (countPixmap.isNull() ? 0 : countPixmap.width() + MARGIN) - (showLoadingIcon || showEncryptedIcon ? BASKET_ICON_SIZE + MARGIN : 0);
+    int effectiveWidth = option.rect.right() - (countPixmap.isNull() ? 0 : countPixmap.width() + MARGIN)
+        - (showLoadingIcon || showEncryptedIcon ? BASKET_ICON_SIZE + MARGIN : 0);
 
     bool drawRoundRect = basket->backgroundColorSetting().isValid() || basket->textColorSetting().isValid();
 
@@ -511,7 +518,8 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
 
         // Don't forget to update the key computation if parameters
         // affecting the rendering logic change
-        QString key = QString(QStringLiteral("BLIRR::%1.%2.%3.%4")).arg(option.rect.width()).arg(option.rect.size().height()).arg(textWidth).arg(background.rgb());
+        QString key =
+            QString(QStringLiteral("BLIRR::%1.%2.%3.%4")).arg(option.rect.width()).arg(option.rect.size().height()).arg(textWidth).arg(background.rgb());
         if (!QPixmapCache::find(key, &roundRectBmp)) {
             // Draw first time
 
@@ -581,7 +589,7 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
     QPainter curvePainter(&curvedRectangle);
     curvePainter.setPen(Qt::color1);
     curvePainter.setBrush(Qt::color1);
-    curvePainter.setClipRect(0, 0, 3 * (height / 5), 3 * (height));                     // If the width is small, don't fill the right part of the pixmap
+    curvePainter.setClipRect(0, 0, 3 * (height / 5), 3 * (height)); // If the width is small, don't fill the right part of the pixmap
     curvePainter.drawEllipse(0, 3 * (-height / 4), 3 * (height), 3 * (height * 3 / 2)); // Don't forget we double the sizes
     curvePainter.setClipRect(3 * (width - height / 5), 0, 3 * (height / 5), 3 * (height));
     curvePainter.drawEllipse(3 * (width - height), 3 * (-height / 4), 3 * (height), 3 * (height * 3 / 2));

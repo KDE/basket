@@ -60,9 +60,9 @@ void DebugWindow::closeEvent(QCloseEvent *event)
     QWidget::closeEvent(event);
 }
 
-
 #ifdef DEBUG_PIPE
-void debugMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+void debugMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
     QFile file(QStringLiteral("/tmp/basket_debug_pipe"));
     if (file.open(QIODevice::WriteOnly | QIODevice::Append)) {
         QTextStream out(&file);

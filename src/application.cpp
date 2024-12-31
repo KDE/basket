@@ -84,7 +84,7 @@ void Application::onActivateRequested(const QStringList &args, const QString &wo
 {
     if (MainWindow *wnd = Global::mainWindow()) {
         // Restore window:
-        wnd->show();                           // from tray
+        wnd->show(); // from tray
         wnd->setWindowState(Qt::WindowActive); // from minimized
         // Raise to the top
         wnd->raise();

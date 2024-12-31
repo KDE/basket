@@ -43,7 +43,7 @@ class BASKET_EXPORT Note : public QObject, public QGraphicsItemGroup
     Q_OBJECT
     Q_PROPERTY(qreal x READ x WRITE setX NOTIFY xChanged FINAL)
     Q_PROPERTY(qreal y READ y WRITE setY NOTIFY yChanged FINAL)
-    
+
     /// CONSTRUCTOR AND DESTRUCTOR:
 public:
     explicit Note(BasketScene *parent = nullptr);
@@ -62,6 +62,7 @@ public:
 private:
     qreal m_target_x;
     qreal m_target_y;
+
 public:
     qreal targetX() const;
     qreal targetY() const;
@@ -70,22 +71,22 @@ public:
     //! Do not use it unless you know what you do!
     void setInitialHeight(qreal height);
 
-    void relayoutChildren(qreal ax, qreal ay, bool animate=false);
-    void relayoutAt(QPointF pos, bool animate=false);
-    void relayoutAt(qreal ax, qreal ay, bool animate=false);
-    void setX(qreal ax, bool animate=false);
-    void setY(qreal ay, bool animate=false);
-    void setXRecursively(qreal ax, bool animate=false);
-    void setYRecursively(qreal ay, bool animate=false);
-    
+    void relayoutChildren(qreal ax, qreal ay, bool animate = false);
+    void relayoutAt(QPointF pos, bool animate = false);
+    void relayoutAt(qreal ax, qreal ay, bool animate = false);
+    void setX(qreal ax, bool animate = false);
+    void setY(qreal ay, bool animate = false);
+    void setXRecursively(qreal ax, bool animate = false);
+    void setYRecursively(qreal ay, bool animate = false);
+
 Q_SIGNALS:
     void xChanged();
     void yChanged();
-    
+
 private Q_SLOTS:
     void xAnimated(const QVariant &x);
     void yAnimated(const QVariant &y);
-    
+
 public:
     void hideRecursively();
     qreal width() const;
@@ -96,7 +97,7 @@ public:
     QRectF visibleRect();
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-    
+
     qreal contentX() const;
     qreal minWidth() const;
     qreal minRight();
@@ -220,7 +221,14 @@ public:
     void drawBufferOnScreen(QPainter *painter, const QPixmap &contentPixmap);
     static void getGradientColors(const QColor &originalBackground, QColor *colorTop, QColor *colorBottom);
     static void drawExpander(QPainter *painter, qreal x, qreal y, const QColor &background, bool expand, BasketScene *basket);
-    void drawHandle(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, const QColor &lightForeground);
+    void drawHandle(QPainter *painter,
+                    qreal x,
+                    qreal y,
+                    qreal width,
+                    qreal height,
+                    const QColor &background,
+                    const QColor &foreground,
+                    const QColor &lightForeground);
     void drawResizer(QPainter *painter, qreal x, qreal y, qreal width, qreal height, const QColor &background, const QColor &foreground, bool rounded);
     void drawRoundings(QPainter *painter, qreal x, qreal y, int type, qreal width = 0, qreal height = 0);
     void unbufferizeAll();
@@ -364,9 +372,9 @@ public:
     void recomputeStyle();
     void recomputeAllStyles();
     bool removedStates(const QList<State *> &deletedStates);
-    QFont font();             // Computed!
+    QFont font(); // Computed!
     QColor backgroundColor(); // Computed!
-    QColor textColor();       // Computed!
+    QColor textColor(); // Computed!
     bool allowCrossReferences();
 
     /// FILTERING:

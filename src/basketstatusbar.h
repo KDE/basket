@@ -33,7 +33,7 @@ public:
 public Q_SLOTS:
     /** GUI Main Window actions **/
     void setStatusBarHint(const QString &hint); /// << Set a specific message or update if hint is empty
-    void updateStatusBarHint();                 /// << Display the current state message (dragging, editing) or reset the startsbar message
+    void updateStatusBarHint(); /// << Display the current state message (dragging, editing) or reset the startsbar message
     void postStatusbarMessage(const QString &text);
     void setSelectionStatus(const QString &s);
     void setLockStatus(bool isLocked);
