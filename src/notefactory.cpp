@@ -432,16 +432,16 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
     if (source->hasFormat(QStringLiteral("text/x-moz-url"))) { // FOR MOZILLA
         // Get the array and create a QChar array of 1/2 of the size
         QByteArray mozilla = source->data(QStringLiteral("text/x-moz-url"));
-        QVector<QChar> chars(mozilla.count() / 2);
+        QVector<QChar> chars(mozilla.size() / 2);
         // A small debug work to know the value of each bytes
         if (Global::debugWindow)
-            for (int i = 0; i < mozilla.count(); i++)
+            for (int i = 0; i < mozilla.size(); i++)
                 *Global::debugWindow << QStringLiteral("'") + QLatin1Char(mozilla[i]) + QStringLiteral("' ") + QString::number(int(mozilla[i]));
         // text/x-moz-url give the URL followed by the link title and separated by OxOA (10 decimal: new line?)
         uint size = 0;
         QChar *name = nullptr;
         // For each little endian mozilla chars, copy it to the array of QChars
-        for (int i = 0; i < mozilla.count(); i += 2) {
+        for (int i = 0; i < mozilla.size(); i += 2) {
             chars[i / 2] = QChar(mozilla[i], mozilla[i + 1]);
             if (mozilla.at(i) == 0x0A) {
                 size = i / 2;
@@ -516,7 +516,7 @@ Note *NoteFactory::createNoteUnknown(const QMimeData *source, BasketScene *paren
     // Echo the length (in bytes) and then the data, and then same for next MIME type:
     for (int i = 0; i < formats.size(); ++i) {
         QByteArray data = source->data(formats[i]);
-        stream << (quint32)data.count();
+        stream << (quint32)data.size();
         stream.writeRawData(data.data(), data.count());
     }
     file.close();

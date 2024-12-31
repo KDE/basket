@@ -810,6 +810,7 @@ QString Tools::makeStandardCaption(const QString &userCaption)
 QByteArray Tools::systemCodeset()
 {
     QByteArray codeset;
+#if 0 // TODO verify
 #if _LANGINFO_H
     // Qt since 4.2 always returns 'System' as codecForLocale and libraries like for example
     // KEncodingFileDialog expects real encoding name. So on systems that have langinfo.h use
@@ -822,6 +823,7 @@ QByteArray Tools::systemCodeset()
         // means ascii, "C"; QTextCodec doesn't know, so avoid warning
         codeset = "ISO-8859-1";
     }
+#endif
 #endif
     return codeset;
 }

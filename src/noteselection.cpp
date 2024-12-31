@@ -46,9 +46,6 @@ NoteSelection *NoteSelection::nextStacked()
 
 NoteSelection *NoteSelection::firstStacked()
 {
-    if (!this)
-        return nullptr;
-
     if (note && note->content())
         return this;
     else
@@ -57,7 +54,7 @@ NoteSelection *NoteSelection::firstStacked()
 
 void NoteSelection::append(NoteSelection *node)
 {
-    if (!this || !node)
+    if (!node)
         return;
 
     if (firstChild) {
@@ -76,9 +73,6 @@ void NoteSelection::append(NoteSelection *node)
 
 int NoteSelection::count()
 {
-    if (!this)
-        return 0;
-
     int count = 0;
 
     for (NoteSelection *node = this; node; node = node->next)
