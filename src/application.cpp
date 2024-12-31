@@ -31,6 +31,8 @@ Application::Application(int &argc, char **argv)
     , m_service(KDBusService::Unique)
 {
     KLocalizedString::setApplicationDomain("basket");
+    setWindowIcon(QIcon::fromTheme(QStringLiteral("basket")));
+
     KAboutData::setApplicationData(AboutData());
     // BasketPart::createAboutData();
 
