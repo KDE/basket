@@ -401,7 +401,7 @@ QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
 
     QDateTime date;
     QTime t(0, 0, 0);
-    t.addSecs(time);
+    t = t.addSecs(time);
     date.setTime(t);
 
     git_commit_free(head);
