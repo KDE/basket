@@ -5,7 +5,7 @@
  */
 
 #include <iostream>
-#include <boost/stacktrace.hpp>
+//#include <boost/stacktrace.hpp>
 
 
 #include "note.h"
