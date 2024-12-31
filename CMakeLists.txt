@@ -30,10 +30,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 # ECM
-include(FeatureSummary)
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
-set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
-feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 list(APPEND CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
@@ -44,7 +41,8 @@ include(KDEClangFormat)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(KDEGitCommitHooks)
-
+include(ECMDeprecationSettings)
+include(ECMFeatureSummary)
 
 ecm_setup_version(
     PROJECT
@@ -150,6 +148,10 @@ endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"basket\")
 add_definitions(-DQT_NO_KEYWORDS)
 
+ecm_set_disabled_deprecation_versions(QT 5.15.0
+    KF 6.10.0
+)
+
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
@@ -176,3 +178,5 @@ ki18n_install(po)
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+ecm_feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
