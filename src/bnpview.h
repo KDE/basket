@@ -52,7 +52,7 @@ class KMessageWidget;
 class BASKET_EXPORT BNPView : public QSplitter
 {
     Q_OBJECT
-    Q_CLASSINFO("D Bus Interface", "org.kde.basket.dbus");
+    Q_CLASSINFO("D Bus Interface", "org.kde.basket.dbus")
 
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
