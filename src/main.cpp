@@ -39,13 +39,6 @@ int main(int argc, char *argv[])
     setupCmdLineOptions(opts);
     opts->process(app);
     KAboutData::applicationData().processCommandLine(opts); // show author, license information and exit
-
-    // {
-    //     Kde4Migrator migrator;
-    //     if (migrator.migrateKde4Data())
-    //         migrator.showPostMigrationDialog();
-    // }
-
     app.tryLoadFile(opts->positionalArguments(), QDir::currentPath());
 
     // Initialize the config file
