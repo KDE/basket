@@ -1,7 +1,7 @@
 .*.swp
 .kdev4
 qtcreator-build
-build/*
+build*/*
 *.user
 *.orig
 *~
