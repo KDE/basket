@@ -8,22 +8,22 @@
 #include "tag.h"
 
 #include <QDebug>
+#include <QDir>
+#include <QFileInfo>
+#include <QFont>
+#include <QFontInfo>
 #include <QGuiApplication>
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <QtCore/QList>
-#include <QtCore/QMimeData>
-#include <QtCore/QObject>
-#include <QtCore/QRegularExpression>
-#include <QtCore/QString>
-#include <QtCore/QTime>
-#include <QtGui/QFont>
-#include <QtGui/QFontInfo>
-#include <QtGui/QImage>
-#include <QtGui/QPixmap>
+#include <QImage>
+#include <QList>
+#include <QMimeData>
+#include <QObject>
+#include <QPixmap>
+#include <QRegularExpression>
+#include <QString>
+#include <QTime>
 
 #include <QTextBlock>
-#include <QtGui/QTextDocument>
+#include <QTextDocument>
 
 #include <KIO/CopyJob> //For KIO::trash
 #include <KLocalizedString>

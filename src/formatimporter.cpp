@@ -6,11 +6,11 @@
 #include "formatimporter.h"
 
 #include <QApplication>
+#include <QDir>
 #include <QLocale>
-#include <QtCore/QDir>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QTextStream>
+#include <QString>
+#include <QStringList>
+#include <QTextStream>
 #include <QtXml/QDomDocument>
 
 #include <KIO/CopyJob>

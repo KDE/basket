@@ -7,8 +7,8 @@
 #define BASKETLISTVIEW_H
 
 #include <QStyledItemDelegate>
+#include <QTimer>
 #include <QTreeWidget>
-#include <QtCore/QTimer>
 
 class QPixmap;
 class QResizeEvent;

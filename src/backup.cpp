@@ -13,6 +13,7 @@
 
 #include <QApplication>
 #include <QDialogButtonBox>
+#include <QDir>
 #include <QFileDialog>
 #include <QGroupBox>
 #include <QHBoxLayout>
@@ -22,9 +23,8 @@
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QPushButton>
+#include <QTextStream>
 #include <QVBoxLayout>
-#include <QtCore/QDir>
-#include <QtCore/QTextStream>
 
 #include <KAboutData>
 #include <KConfig>

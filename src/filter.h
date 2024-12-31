@@ -6,8 +6,8 @@
 #ifndef FILTER_H
 #define FILTER_H
 
+#include <QMap>
 #include <QWidget>
-#include <QtCore/QMap>
 
 class QToolButton;
 

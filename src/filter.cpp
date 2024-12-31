@@ -10,8 +10,8 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QLocale>
+#include <QPixmap>
 #include <QToolButton>
-#include <QtGui/QPixmap>
 
 #include <KComboBox>
 #include <KIconLoader>

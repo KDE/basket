@@ -10,6 +10,7 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QCursor>
+#include <QEvent>
 #include <QFrame>
 #include <QGridLayout>
 #include <QGroupBox>
@@ -22,7 +23,6 @@
 #include <QStyle>
 #include <QUrl>
 #include <QVBoxLayout>
-#include <QtCore/QEvent>
 
 #include <KAboutData>
 #include <KCModule>

@@ -10,7 +10,7 @@
 #include <QDialog>
 
 #include <QListWidget>
-#include <QtCore/QMap>
+#include <QMap>
 
 class KIconButton;
 class QLineEdit;

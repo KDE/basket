@@ -12,14 +12,14 @@
 #include <QAbstractAnimation>
 #include <QApplication>
 #include <QGraphicsView>
+#include <QImage>
+#include <QList>
 #include <QLocale> //For KGLobal::locale(
+#include <QPainter>
+#include <QPixmap>
 #include <QStyle>
 #include <QStyleOption>
 #include <QTimeLine>
-#include <QtCore/QList>
-#include <QtGui/QImage>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
 
 #include <KIconLoader>
 

@@ -9,12 +9,12 @@
 #include <KActionCollection>
 #include <KLocalizedString>
 
+#include <QDir>
+#include <QFont>
 #include <QIcon>
+#include <QList>
 #include <QLocale>
-#include <QtCore/QDir>
-#include <QtCore/QList>
-#include <QtCore/QTextStream>
-#include <QtGui/QFont>
+#include <QTextStream>
 #include <QtXml/QDomDocument>
 
 #include "basketscene.h"

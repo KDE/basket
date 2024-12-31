@@ -5,10 +5,10 @@
 
 #include "basketfactory.h"
 
+#include <QDir>
 #include <QGraphicsView>
 #include <QLocale>
-#include <QtCore/QDir>
-#include <QtCore/QTextStream>
+#include <QTextStream>
 #include <QtXml/QDomElement>
 
 #include <KLocalizedString>

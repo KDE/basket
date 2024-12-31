@@ -6,13 +6,13 @@
 #ifndef BASKET_H
 #define BASKET_H
 
+#include <QClipboard>
 #include <QGraphicsScene>
+#include <QList>
+#include <QSet>
+#include <QTextCursor>
+#include <QTimer>
 #include <QXmlStreamWriter>
-#include <QtCore/QList>
-#include <QtCore/QSet>
-#include <QtCore/QTimer>
-#include <QtGui/QClipboard>
-#include <QtGui/QTextCursor>
 
 #include "animation.h"
 #include "config.h"

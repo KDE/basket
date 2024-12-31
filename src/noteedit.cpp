@@ -15,15 +15,15 @@
 #include <QGraphicsProxyWidget>
 #include <QGridLayout>
 #include <QHBoxLayout>
+#include <QKeyEvent>
 #include <QLabel>
 #include <QLineEdit>
 #include <QLocale>
 #include <QPushButton>
 #include <QScrollBar>
+#include <QTextCharFormat>
 #include <QVBoxLayout>
 #include <QWidgetAction>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QTextCharFormat>
 
 #include <KActionCollection>
 #include <KColorCombo>

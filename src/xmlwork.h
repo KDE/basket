@@ -7,8 +7,8 @@
 #ifndef XMLWORKXMLWORK_H
 #define XMLWORKXMLWORK_H
 
+#include <QString>
 #include <QXmlStreamWriter>
-#include <QtCore/QString>
 
 class QDomDocument;
 class QDomElement;

@@ -8,12 +8,12 @@
 #include <KConfig>
 #include <KConfigGroup>
 
+#include <QDir>
+#include <QImage>
+#include <QPainter>
+#include <QPixmap>
 #include <QStandardPaths>
 #include <QUrl>
-#include <QtCore/QDir>
-#include <QtGui/QImage>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
 
 /** class BackgroundEntry: */
 

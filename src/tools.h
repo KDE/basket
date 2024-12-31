@@ -9,7 +9,7 @@
 
 #include "basket_export.h"
 
-#include <QtCore/QVector>
+#include <QVector>
 
 class State;
 class QColor;

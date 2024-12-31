@@ -7,8 +7,8 @@
 #ifndef NOTESELECTION_H
 #define NOTESELECTION_H
 
-#include <QtCore/QList>
-#include <QtCore/QString>
+#include <QList>
+#include <QString>
 
 class Note;
 

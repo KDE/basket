@@ -14,12 +14,12 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QLocale>
+#include <QPixmap>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QStringList>
 #include <QStyle>
 #include <QVBoxLayout>
-#include <QtCore/QStringList>
-#include <QtGui/QPixmap>
 
 #include <KComboBox>
 #include <KConfigGroup>

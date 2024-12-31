@@ -8,8 +8,8 @@
 #define TAG_H
 
 #include <KToggleAction>
+#include <QList>
 #include <QRegularExpression>
-#include <QtCore/QList>
 
 class QColor;
 class QFont;

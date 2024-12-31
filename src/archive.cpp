@@ -6,21 +6,20 @@
 #include "archive.h"
 
 #include <QDebug>
+#include <QDir>
 #include <QGuiApplication>
+#include <QList>
 #include <QLocale>
+#include <QMap>
+#include <QPainter>
+#include <QPixmap>
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QStandardPaths>
+#include <QString>
 #include <QStringList>
 #include <QTemporaryDir>
-#include <QtCore/QDir>
-#include <QtCore/QList>
-#include <QtCore/QMap>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QTextStream>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
+#include <QTextStream>
 #include <QtXml/QDomDocument>
 
 #include <KAboutData>

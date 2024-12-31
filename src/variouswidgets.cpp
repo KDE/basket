@@ -8,23 +8,23 @@
 #include "debugwindow.h"
 
 #include <QDialogButtonBox>
+#include <QDrag>
+#include <QFontDatabase>
 #include <QHBoxLayout>
+#include <QKeyEvent>
 #include <QLabel>
 #include <QLineEdit>
+#include <QList>
 #include <QListWidget>
 #include <QLocale>
+#include <QPointer>
 #include <QPushButton>
+#include <QResizeEvent>
 #include <QSizeGrip>
 #include <QSizePolicy>
+#include <QString>
 #include <QVBoxLayout>
 #include <QWhatsThis>
-#include <QtCore/QList>
-#include <QtCore/QPointer>
-#include <QtCore/QString>
-#include <QtGui/QDrag>
-#include <QtGui/QFontDatabase>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QResizeEvent>
 
 #include <KConfigGroup>
 #include <KIconLoader>

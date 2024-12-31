@@ -8,10 +8,10 @@
 
 #include <QApplication>
 #include <QLocale>
+#include <QMouseEvent>
+#include <QPainter>
 #include <QScreen>
 #include <QToolTip>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPainter>
 
 #include <KLocalizedString>
 #include <KWindowSystem>

@@ -10,9 +10,9 @@
 #include <KMainWindow>
 
 #include <QApplication>
+#include <QDir>
 #include <QStandardPaths>
-#include <QtCore/QDir>
-#include <QtCore/QString>
+#include <QString>
 
 #include "bnpview.h"
 #include "gitwrapper.h"

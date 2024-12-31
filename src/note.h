@@ -7,10 +7,10 @@
 #ifndef NOTE_H
 #define NOTE_H
 
+#include <QDateTime>
 #include <QGraphicsItemGroup>
-#include <QtCore/QDateTime>
-#include <QtCore/QList>
-#include <QtCore/QSet>
+#include <QList>
+#include <QSet>
 
 #include "animation.h"
 #include "basket_export.h"

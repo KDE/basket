@@ -12,8 +12,8 @@
 
 #include <gpgme.h>
 
-#include <QtCore/QList>
-#include <QtCore/QString>
+#include <QList>
+#include <QString>
 
 /**
     @author Petri Damsten <damu@iki.fi>

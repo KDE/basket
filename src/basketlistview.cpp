@@ -6,22 +6,22 @@
 #include "basketlistview.h"
 
 #include <QApplication>
+#include <QBitmap>
 #include <QDebug>
+#include <QDragEnterEvent>
+#include <QDragLeaveEvent>
+#include <QDragMoveEvent>
+#include <QDropEvent>
+#include <QFocusEvent>
 #include <QLocale>
 #include <QMimeData>
+#include <QPainter>
+#include <QPixmap>
+#include <QPixmapCache>
 #include <QRegularExpression>
+#include <QResizeEvent>
+#include <QStandardItemModel>
 #include <QToolTip>
-#include <QtGui/QBitmap>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QDragLeaveEvent>
-#include <QtGui/QDragMoveEvent>
-#include <QtGui/QDropEvent>
-#include <QtGui/QFocusEvent>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
-#include <QtGui/QPixmapCache>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QStandardItemModel>
 
 #include <KIconLoader>
 #include <KLocalizedString>

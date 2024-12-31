@@ -6,9 +6,9 @@
 
 #include "xmlwork.h"
 
-#include <QtCore/QFile>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
+#include <QFile>
+#include <QString>
+#include <QStringList>
 #include <QtXml/QDomDocument>
 
 QDomDocument *XMLWork::openFile(const QString &name, const QString &filePath)

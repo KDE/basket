@@ -6,31 +6,31 @@
 
 #include "notefactory.h"
 
+#include <QBitmap> //For createHeuristicMask
+#include <QColor>
+#include <QDir>
 #include <QDomElement>
+#include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QGraphicsView>
 #include <QGuiApplication>
+#include <QImage>
+#include <QImageReader>
 #include <QLocale>
 #include <QMenu>
+#include <QMimeData>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QMovie>
+#include <QPixmap>
+#include <QRegularExpression>
+#include <QString>
+#include <QTextDocument> //For Qt::mightBeRichText(...)
+#include <QTextStream>
 #include <QUrl>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtCore/QMimeData>
-#include <QtCore/QRegularExpression>
-#include <QtCore/QString>
-#include <QtCore/QTextStream>
-#include <QtCore/QVector>
-#include <QtCore/qnamespace.h>
-#include <QtGui/QBitmap> //For createHeuristicMask
-#include <QtGui/QColor>
-#include <QtGui/QImage>
-#include <QtGui/QImageReader>
-#include <QtGui/QMovie>
-#include <QtGui/QPixmap>
-#include <QtGui/QTextDocument> //For Qt::mightBeRichText(...)
+#include <QVector>
+#include <qnamespace.h>
 
 #include <KAboutData> //For KGlobal::mainComponent().aboutData(...)
 #include <KIconDialog>

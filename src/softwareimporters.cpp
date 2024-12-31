@@ -7,6 +7,7 @@
 #include "softwareimporters.h"
 
 #include <QDialogButtonBox>
+#include <QDir>
 #include <QFileDialog>
 #include <QGroupBox>
 #include <QHBoxLayout>
@@ -14,12 +15,11 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QRegularExpression>
+#include <QStack>
 #include <QStandardPaths>
+#include <QString>
+#include <QTextStream>
 #include <QVBoxLayout>
-#include <QtCore/QDir>
-#include <QtCore/QStack>
-#include <QtCore/QString>
-#include <QtCore/QTextStream>
 #include <QtXml/QDomDocument>
 
 #include <KConfigGroup>

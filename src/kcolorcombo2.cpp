@@ -9,21 +9,21 @@
 #ifndef USE_OLD_KCOLORCOMBO
 
 #include <QApplication>
-#include <QtGui/QBitmap>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
+#include <QBitmap>
+#include <QPainter>
+#include <QPixmap>
 
 #include <QColorDialog>
 // #include <QDesktopWidget>
+#include <QClipboard>
 #include <QDrag>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QKeyEvent>
 #include <QLocale>
 #include <QMimeData>
-#include <QtGui/QClipboard>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QDropEvent>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPaintEvent>
+#include <QMouseEvent>
+#include <QPaintEvent>
 
 #include <KLocalizedString>
 #include <KStandardShortcut>

@@ -7,15 +7,15 @@
 #include "notedrag.h"
 
 #include <QApplication>
-#include <QtCore/QBuffer>
-#include <QtCore/QDir>
-#include <QtCore/QList>
-#include <QtCore/QMimeData>
-#include <QtCore/QStringEncoder>
-#include <QtCore/QTextStream>
-#include <QtGui/QDragEnterEvent>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
+#include <QBuffer>
+#include <QDir>
+#include <QDragEnterEvent>
+#include <QList>
+#include <QMimeData>
+#include <QPainter>
+#include <QPixmap>
+#include <QStringEncoder>
+#include <QTextStream>
 
 #include <KIO/CopyJob>
 

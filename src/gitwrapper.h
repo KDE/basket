@@ -8,7 +8,7 @@
 #ifndef GITWRAPPER_H
 #define GITWRAPPER_H
 
-#include <QtCore/QMutex>
+#include <QMutex>
 
 class git_repository;
 class git_index;

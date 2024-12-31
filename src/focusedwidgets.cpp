@@ -6,11 +6,11 @@
 #include "focusedwidgets.h"
 
 #include <QApplication>
+#include <QEvent>
+#include <QKeyEvent>
 #include <QMimeData>
 #include <QScrollBar>
-#include <QtCore/QEvent>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QWheelEvent>
+#include <QWheelEvent>
 
 #include "basketscene.h"
 #include "bnpview.h"

@@ -10,9 +10,9 @@
 #include <QGraphicsItem>
 #include <QMap>
 #include <QNetworkAccessManager>
+#include <QObject>
 #include <QUrl>
 #include <QXmlStreamWriter>
-#include <QtCore/QObject>
 
 #include "basket_export.h"
 #include "linklabel.h"

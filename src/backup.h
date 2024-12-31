@@ -8,7 +8,7 @@
 
 #include <QDialog>
 
-#include <QtCore/QThread>
+#include <QThread>
 
 class QApplication;
 class QLabel;

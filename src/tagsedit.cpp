@@ -10,22 +10,22 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QDialogButtonBox>
+#include <QEvent>
 #include <QFontComboBox>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QHeaderView> //For m_tags->header()
+#include <QKeyEvent>
 #include <QLabel>
 #include <QLineEdit>
+#include <QList>
 #include <QLocale>
+#include <QMouseEvent>
+#include <QPainter>
 #include <QPushButton>
+#include <QTimer>
 #include <QVBoxLayout>
-#include <QtCore/QEvent>
-#include <QtCore/QList>
-#include <QtCore/QTimer>
-#include <QtGui/QKeyEvent>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPainter>
 
 #include <KConfigGroup>
 #include <KIconButton>

@@ -5,9 +5,9 @@
 
 #include "debugwindow.h"
 
+#include <QCloseEvent>
+#include <QString>
 #include <QVBoxLayout>
-#include <QtCore/QString>
-#include <QtGui/QCloseEvent>
 
 #include <QLocale>
 #include <QTextBrowser>

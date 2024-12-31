@@ -12,7 +12,7 @@
 #include <KMainWindow> //For Global::mainWindow()
 
 #include <QAction> //For UseSysTray
-#include <QtCore/QDate>
+#include <QDate>
 
 #include "basket_export.h"
 #include "bnpview.h"

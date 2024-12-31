@@ -28,15 +28,15 @@
 #include <KIO/Job>
 
 #include <QApplication>
+#include <QDir>
+#include <QFile>
 #include <QFileDialog>
+#include <QList>
 #include <QLocale>
+#include <QPainter>
+#include <QPixmap>
 #include <QProgressDialog>
-#include <QtCore/QDir>
-#include <QtCore/QFile>
-#include <QtCore/QList>
-#include <QtCore/QTextStream>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
+#include <QTextStream>
 
 HTMLExporter::HTMLExporter(BasketScene *basket)
     : dialog(new QProgressDialog())

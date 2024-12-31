@@ -9,9 +9,9 @@
 #include <QStatusBar>
 
 #include <QLabel>
-#include <QtCore/QObject>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPixmap>
+#include <QMouseEvent>
+#include <QObject>
+#include <QPixmap>
 
 #include <KIconLoader>
 #include <KLocalizedString>

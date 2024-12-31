@@ -14,11 +14,11 @@
 
 #include <QDialogButtonBox>
 #include <QLabel>
+#include <QPixmap>
+#include <QPointer>
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QVBoxLayout>
-#include <QtCore/QPointer>
-#include <QtGui/QPixmap>
 
 #include <KConfigGroup>
 #include <KLocalizedString>

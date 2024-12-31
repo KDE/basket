@@ -11,20 +11,20 @@
 #include <QMimeDatabase>
 #include <QTextBlock>
 // #include <QTextCodec>
+#include <QAbstractTextDocumentLayout>
+#include <QBitmap> //For QPixmap::createHeuristicMask()
 #include <QBuffer>
 #include <QDateTime>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QFontMetrics>
+#include <QMovie>
+#include <QPainter>
+#include <QPixmap>
 #include <QRegularExpression>
 #include <QStringList>
 #include <QWidget>
-#include <QtGui/QAbstractTextDocumentLayout>
-#include <QtGui/QBitmap> //For QPixmap::createHeuristicMask()
-#include <QtGui/QFontMetrics>
-#include <QtGui/QMovie>
-#include <QtGui/QPainter>
-#include <QtGui/QPixmap>
 #include <QtNetwork/QNetworkReply>
 #include <QtXml/QDomElement>
 

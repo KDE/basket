@@ -9,8 +9,8 @@
 
 #include <QDialog>
 #include <QItemDelegate>
+#include <QList>
 #include <QTreeWidgetItem>
-#include <QtCore/QList>
 
 #include "tag.h"
 
