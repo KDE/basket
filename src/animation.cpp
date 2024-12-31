@@ -10,3 +10,5 @@ NoteAnimation::NoteAnimation(Note *target, const QByteArray &propertyName, QObje
     : QPropertyAnimation(qobject_cast<QObject *>(target), propertyName, parent)
 {
 }
+
+#include "moc_animation.cpp"
