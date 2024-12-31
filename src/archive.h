@@ -21,7 +21,6 @@ class QProgressDialog;
 class QDomElement;
 
 class KTar;
-class KProgress;
 
 /**
  * @author Sébastien Laoût <slaout@linux62.org>

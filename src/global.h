@@ -16,7 +16,6 @@ class KMainWindow;
 
 class DebugWindow;
 class BackgroundManager;
-class SystemTray;
 class BNPView;
 class QCommandLineParser;
 

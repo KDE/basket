@@ -22,21 +22,11 @@ class QFrame;
 class QPixmap;
 class QPushButton;
 
-class QDomDocument;
 class QDomElement;
 
-class QContextMenuEvent;
-class QDragLeaveEvent;
-class QDragEnterEvent;
-class QDragMoveEvent;
-class QDropEvent;
 class QEvent;
 class QFocusEvent;
-class QHelpEvent;
 class QKeyEvent;
-class QMouseEvent;
-class QResizeEvent;
-class QWheelEvent;
 
 class QAction;
 class KDirWatch;

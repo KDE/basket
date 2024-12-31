@@ -11,13 +11,11 @@
 
 class QString;
 class QGroupBox;
-class QDomElement;
 class QRadioButton;
 class KTextEdit;
 class QVBoxLayout;
 
 class BasketScene;
-class Note;
 
 /** The dialog to ask how to import hierarchical data.
  * @author Sébastien Laoût

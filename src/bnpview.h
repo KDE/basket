@@ -21,18 +21,15 @@ class QDomElement;
 
 class QStackedWidget;
 class QPixmap;
-class QTimer;
 class QTreeWidget;
 class QTreeWidgetItem;
 class QUndoStack;
 
-class QEvent;
 class QShowEvent;
 
 class QAction;
 class KToggleAction;
 class QMenu;
-class KTar;
 
 class ColorPicker;
 class RegionGrabber;
@@ -47,7 +44,6 @@ class Tag;
 class State;
 class Note;
 class KMainWindow;
-class KMessageWidget;
 
 class BASKET_EXPORT BNPView : public QSplitter
 {

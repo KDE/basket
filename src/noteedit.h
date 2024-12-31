@@ -16,7 +16,6 @@
 class QGraphicsProxyWidget;
 class QWidget;
 class QPushButton;
-class QKeyEvent;
 class QFontComboBox;
 class QTextCharFormat;
 class QAction;

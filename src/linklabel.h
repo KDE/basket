@@ -16,7 +16,6 @@ class QColor;
 class QLabel;
 class QBoxLayout;
 class QSpacerItem;
-class QPushButton;
 class QCheckBox;
 class QEvent;
 

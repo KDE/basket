@@ -13,7 +13,6 @@
 
 class QColor;
 class QFont;
-class QPainter;
 class QString;
 
 class QKeySequence;

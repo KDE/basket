@@ -13,8 +13,6 @@ class QEvent;
 class QKeyEvent;
 class QWheelEvent;
 
-class QMenu;
-
 class FocusedTextEdit : public KTextEdit
 {
     Q_OBJECT

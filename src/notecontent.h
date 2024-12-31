@@ -17,8 +17,6 @@
 #include "basket_export.h"
 #include "linklabel.h"
 
-class QDomElement;
-
 class QBuffer;
 class QColor;
 class QMimeData;

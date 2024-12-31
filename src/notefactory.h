@@ -8,11 +8,11 @@
 #define NOTEFACTORY_H
 
 #include "notecontent.h" //For NoteType::Id
+#include <QDomElement>
 
 class QColor;
 class QPixmap;
 class QString;
-// class QStringList;
 
 class QUrl;
 class QMimeType;

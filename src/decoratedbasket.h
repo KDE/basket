@@ -9,7 +9,6 @@
 class QString;
 class BasketScene;
 class QVBoxLayout;
-class QGraphicsView;
 
 #include <QWidget>
 

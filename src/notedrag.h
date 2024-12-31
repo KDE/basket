@@ -12,7 +12,6 @@
 #include <QList>
 
 class QDataStream;
-class QDragEnterEvent;
 class QPixmap;
 class QString;
 

@@ -12,15 +12,8 @@
 
 #include "ui_basketproperties.h"
 
-class KIconButton;
-class QLineEdit;
-class QGroupBox;
-class QVBoxLayout;
-class QRadioButton;
 class QString;
 
-class KComboBox;
-class KShortcutWidget;
 class QKeySequence;
 class KColorCombo2;
 
