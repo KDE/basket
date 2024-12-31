@@ -549,7 +549,7 @@ NoteSelection *Note::selectedNotes()
 
 bool Note::isAfter(Note *note)
 {
-    if (this == nullptr || note == nullptr)
+    if (note == nullptr)
         return true;
 
     Note *next = this;
