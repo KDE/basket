@@ -49,9 +49,6 @@ set(libbasket_SRCS
     xmlwork.cpp xmlwork.h
 )
 
-
-set(PIMO_CPP "") # One of the generated files
-
 ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
 
 qt6_add_dbus_adaptor(libbasket_SRCS org.kde.basket.BNPView.xml bnpview.h BNPView)
