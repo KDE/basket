@@ -71,6 +71,8 @@ qreal Note::MIN_HEIGHT = 2 * NOTE_MARGIN + EMBLEM_SIZE;
 Note::Note(BasketScene *parent)
     : QObject(parent)
     , d(new NotePrivate)
+    , m_target_x(0)
+    , m_target_y(0)
     , m_groupWidth(250)
     , m_isFolded(false)
     , m_firstChild(nullptr)
@@ -90,8 +92,6 @@ Note::Note(BasketScene *parent)
     , m_emblemsCount(0)
     , m_haveInvisibleTags(false)
     , m_matching(true)
-    , m_target_x(0)
-    , m_target_y(0)
 {
     m_target_x = x();
     m_target_y = y();

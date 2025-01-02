@@ -24,7 +24,7 @@
 
 PasswordDlg::PasswordDlg(QWidget *parent)
     : QDialog(parent)
-    , w(0)
+    , w(nullptr)
 {
     // QDialog options
     setWindowTitle(i18n("Password Protection"));

@@ -28,8 +28,8 @@ class PasswordDlg : public QDialog
 {
     Q_OBJECT
 public:
-    PasswordDlg(QWidget *parent = 0);
-    ~PasswordDlg();
+    explicit PasswordDlg(QWidget *parent = nullptr);
+    ~PasswordDlg() override;
 
     QString key() const;
     int type() const;

@@ -110,7 +110,7 @@ public:
 };
 
 KGpgMe::KGpgMe()
-    : m_ctx(0)
+    : m_ctx(nullptr)
     , m_useGnuPGAgent(true)
 {
     init(GPGME_PROTOCOL_OpenPGP);
@@ -132,7 +132,7 @@ KGpgMe::KGpgMe()
         }
 
     } else {
-        m_ctx = 0;
+        m_ctx = nullptr;
     }
 }
 
@@ -195,7 +195,7 @@ QString KGpgMe::checkForUtf8(QString txt)
     //        if (!strchr (txt.toLatin1(), 0xc3) || (txt.indexOf("\\x")!=-1)) {
     for (int idx = 0; (idx = txt.indexOf(QStringLiteral("\\x"), idx)) >= 0; ++idx) {
         char str[2] = "x";
-        str[0] = (char)QString(txt.mid(idx + 2, 2)).toShort(0, 16);
+        str[0] = (char)QString(txt.mid(idx + 2, 2)).toShort(nullptr, 16);
         txt.replace(idx, 4, QString::fromLatin1(str));
     }
     if (!strchr(txt.toStdString().c_str(), 0xc3))
@@ -221,8 +221,8 @@ KGpgKeyList KGpgMe::keys(bool privateKeys /* = false */) const
 {
     KGpgKeyList keys;
     gpgme_error_t err = 0, err2 = 0;
-    gpgme_key_t key = 0;
-    gpgme_keylist_result_t result = 0;
+    gpgme_key_t key = nullptr;
+    gpgme_keylist_result_t result = nullptr;
 
     if (m_ctx) {
         err = gpgme_op_keylist_start(m_ctx, NULL, privateKeys);
@@ -264,10 +264,10 @@ KGpgKeyList KGpgMe::keys(bool privateKeys /* = false */) const
 bool KGpgMe::encrypt(const QByteArray &inBuffer, unsigned long length, QByteArray *outBuffer, QString keyid /* = QString() */)
 {
     gpgme_error_t err = 0;
-    gpgme_data_t in = 0, out = 0;
+    gpgme_data_t in = nullptr, out = nullptr;
     gpgme_key_t keys[2] = {NULL, NULL};
     gpgme_key_t *key = NULL;
-    gpgme_encrypt_result_t result = 0;
+    gpgme_encrypt_result_t result = nullptr;
 
     outBuffer->resize(0);
     if (m_ctx) {
@@ -319,8 +319,8 @@ bool KGpgMe::encrypt(const QByteArray &inBuffer, unsigned long length, QByteArra
 bool KGpgMe::decrypt(const QByteArray &inBuffer, QByteArray *outBuffer)
 {
     gpgme_error_t err = 0;
-    gpgme_data_t in = 0, out = 0;
-    gpgme_decrypt_result_t result = 0;
+    gpgme_data_t in = nullptr, out = nullptr;
+    gpgme_decrypt_result_t result = nullptr;
 
     outBuffer->resize(0);
     if (m_ctx) {
@@ -407,7 +407,7 @@ void KGpgMe::setPassphraseCb()
             setenv("GPG_AGENT_INFO", (std::string("disable:") + agent_info.toStdString()).c_str(), 1);
     }
     if (agent)
-        gpgme_set_passphrase_cb(m_ctx, 0, 0);
+        gpgme_set_passphrase_cb(m_ctx, nullptr, nullptr);
     else
         gpgme_set_passphrase_cb(m_ctx, passphraseCb, this);
 }
