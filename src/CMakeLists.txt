@@ -51,9 +51,9 @@ set(libbasket_SRCS
 
 ki18n_wrap_ui(basket_FORM_HDRS passwordlayout.ui basketproperties.ui settings_versionsync.ui)
 
-qt6_add_dbus_adaptor(libbasket_SRCS org.kde.basket.BNPView.xml bnpview.h BNPView)
+qt_add_dbus_adaptor(libbasket_SRCS org.kde.basket.BNPView.xml bnpview.h BNPView)
 
-qt6_add_resources(basket_RESOURCES ../basket.qrc)
+qt_add_resources(basket_RESOURCES ../basket.qrc)
 
 add_library(LibBasket SHARED ${libbasket_SRCS} ${basket_FORM_HDRS} ${basket_RESOURCES})
 
