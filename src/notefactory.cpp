@@ -71,7 +71,7 @@ Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool
 
     if (reallyPlainText) {
         note = new Note(parent);
-        TextContent *content = new TextContent(note, createFileForNewNote(parent, QStringLiteral("txt")));
+        auto *content = new TextContent(note, createFileForNewNote(parent, QStringLiteral("txt")));
         content->setText(text);
         content->saveToFile();
     } else {
@@ -94,7 +94,7 @@ Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool
 Note *NoteFactory::createNoteHtml(const QString &html, BasketScene *parent)
 {
     Note *note = new Note(parent);
-    HtmlContent *content = new HtmlContent(note, createFileForNewNote(parent, QStringLiteral("html")));
+    auto *content = new HtmlContent(note, createFileForNewNote(parent, QStringLiteral("html")));
     content->setHtml(html);
     content->saveToFile();
     return note;
@@ -138,7 +138,7 @@ Note *NoteFactory::createNoteCrossReference(const QUrl &url, const QString &titl
 Note *NoteFactory::createNoteImage(const QPixmap &image, BasketScene *parent)
 {
     Note *note = new Note(parent);
-    ImageContent *content = new ImageContent(note, createFileForNewNote(parent, QStringLiteral("png")));
+    auto *content = new ImageContent(note, createFileForNewNote(parent, QStringLiteral("png")));
     content->setPixmap(image);
     content->saveToFile();
     return note;
@@ -216,7 +216,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
             list.append(*it);
             list.append(QString()); // We don't have any title
         } else
-            return QStringList(); // FAILED: treat the text as a text, and not as a URL list!
+            return {}; // FAILED: treat the text as a text, and not as a URL list!
     }
     return list;
 }
@@ -304,7 +304,7 @@ QString NoteFactory::createNoteLauncherFile(const QString &command, const QStrin
         file.close();
         return fileName;
     } else
-        return QString();
+        return {};
 }
 
 Note *NoteFactory::createNoteLinkOrLauncher(const QUrl &url, BasketScene *parent)
@@ -379,7 +379,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
 
     /* Else : Drop object to note */
 
-    QImage image = qvariant_cast<QImage>(source->imageData());
+    auto image = qvariant_cast<QImage>(source->imageData());
     if (!image.isNull())
         return createNoteImage(QPixmap::fromImage(image), parent);
 
@@ -392,7 +392,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
     QRegularExpression exp(QRegularExpression::anchoredPattern(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$")));
     hack = source->text();
     if (source->hasFormat(QStringLiteral("application/x-color")) || (!hack.isNull() && hack.indexOf(exp) != -1)) {
-        QColor color = qvariant_cast<QColor>(source->colorData());
+        auto color = qvariant_cast<QColor>(source->colorData());
         if (color.isValid())
             return createNoteColor(color, parent);
         //          if ( (note = createNoteColor(color, parent)) )

@@ -476,7 +476,7 @@ QColor KColorCombo2::colorAt(int column, int row) /* const*/
         setRainbowPreset();
 
     if (column < 0 || row < 0 || column >= m_columnCount || row >= m_rowCount)
-        return QColor();
+        return {};
 
     return m_colorArray[column][row];
 }
@@ -695,8 +695,8 @@ void KColorCombo2::mouseMoveEvent(QMouseEvent *event)
 {
     if ((event->buttons() & Qt::LeftButton) && (event->pos() - m_dragStartPos).manhattanLength() > qApp->startDragDistance()) {
         // Drag color object:
-        QMimeData *mimeData = new QMimeData;
-        QDrag *colorDrag = new QDrag(this);
+        auto *mimeData = new QMimeData;
+        auto *colorDrag = new QDrag(this);
         mimeData->setColorData(effectiveColor());
         // Replace the drag pixmap with our own rounded one, at the same position and dimensions:
         QPixmap pixmap = colorDrag->pixmap();
@@ -727,7 +727,7 @@ void KColorCombo2::keyPressEvent(QKeyEvent *event)
     QKeySequence key(event->key());
 
     if (KStandardShortcut::copy().contains(key)) {
-        QMimeData *mime = new QMimeData;
+        auto *mime = new QMimeData;
         mime->setColorData(effectiveColor());
         QApplication::clipboard()->setMimeData(mime, QClipboard::Clipboard);
     } else if (KStandardShortcut::paste().contains(key)) {

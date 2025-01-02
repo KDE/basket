@@ -70,9 +70,7 @@ BasketListViewItem::BasketListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem 
 {
 }
 
-BasketListViewItem::~BasketListViewItem()
-{
-}
+BasketListViewItem::~BasketListViewItem() = default;
 
 QString BasketListViewItem::escapedName(const QString &string)
 {
@@ -190,7 +188,7 @@ bool BasketListViewItem::isUnderDrag()
 bool BasketListViewItem::haveChildsLoading()
 {
     for (int i = 0; i < childCount(); i++) {
-        BasketListViewItem *childItem = (BasketListViewItem *)child(i);
+        auto *childItem = (BasketListViewItem *)child(i);
         if (!childItem->basket()->isLoaded() && !childItem->basket()->isLocked())
             return true;
         if (childItem->haveChildsLoading())
@@ -209,7 +207,7 @@ bool BasketListViewItem::haveHiddenChildsLoading()
 bool BasketListViewItem::haveChildsLocked()
 {
     for (int i = 0; i < childCount(); i++) {
-        BasketListViewItem *childItem = (BasketListViewItem *)child(i);
+        auto *childItem = (BasketListViewItem *)child(i);
         if (/*!*/ childItem->basket()->isLocked())
             return true;
         if (childItem->haveChildsLocked())
@@ -229,7 +227,7 @@ int BasketListViewItem::countChildsFound()
 {
     int count = 0;
     for (int i = 0; i < childCount(); i++) {
-        BasketListViewItem *childItem = (BasketListViewItem *)child(i);
+        auto *childItem = (BasketListViewItem *)child(i);
         count += childItem->basket()->countFounds();
         count += childItem->countChildsFound();
     }
@@ -294,11 +292,11 @@ QMimeData *BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> &items) c
         return new QMimeData();
 
     for (int i = 0; i < items.count(); ++i) {
-        BasketListViewItem *basketItem = static_cast<BasketListViewItem *>(items[i]);
+        auto *basketItem = static_cast<BasketListViewItem *>(items[i]);
         out << basketItem->basket()->basketName() << basketItem->basket()->folderName() << basketItem->basket()->icon();
     }
 
-    QMimeData *mimeData = new QMimeData();
+    auto *mimeData = new QMimeData();
 
     mimeData->setData(mimeType, data);
     return mimeData;
@@ -307,9 +305,9 @@ QMimeData *BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> &items) c
 bool BasketTreeListView::event(QEvent *e)
 {
     if (e->type() == QEvent::ToolTip) {
-        QHelpEvent *he = static_cast<QHelpEvent *>(e);
+        auto *he = static_cast<QHelpEvent *>(e);
         QTreeWidgetItem *item = itemAt(he->pos());
-        BasketListViewItem *bitem = dynamic_cast<BasketListViewItem *>(item);
+        auto *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (bitem && bitem->isAbbreviated()) {
             QRect rect = visualItemRect(bitem);
             QToolTip::showText(rect.topLeft(), bitem->basket()->basketName(), viewport(), rect);
@@ -337,7 +335,7 @@ void BasketTreeListView::mouseMoveEvent(QMouseEvent *event)
         return;
     }
 
-    QDrag *drag = new QDrag(this);
+    auto *drag = new QDrag(this);
     QMimeData *mimeData = this->mimeData(this->selectedItems());
     drag->setMimeData(mimeData);
 
@@ -384,7 +382,7 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
         qDebug() << "Forwarding dropped data to the basket";
         event->setDropAction(Qt::MoveAction);
         QTreeWidgetItem *item = itemAt(event->pos());
-        BasketListViewItem *bitem = dynamic_cast<BasketListViewItem *>(item);
+        auto *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (bitem) {
             bitem->basket()->blindDrop(event->mimeData(), event->dropAction(), event->source());
         } else {
@@ -406,7 +404,7 @@ void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
 
     if (!event->mimeData()->hasFormat(TREE_ITEM_MIME_STRING)) {
         QTreeWidgetItem *item = itemAt(event->pos());
-        BasketListViewItem *bitem = dynamic_cast<BasketListViewItem *>(item);
+        auto *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (m_autoOpenItem != item) {
             m_autoOpenItem = item;
             m_autoOpenTimer.setSingleShot(true);
@@ -441,7 +439,7 @@ void BasketTreeListView::setItemUnderDrag(BasketListViewItem *item)
 
 void BasketTreeListView::autoOpen()
 {
-    BasketListViewItem *item = (BasketListViewItem *)m_autoOpenItem;
+    auto *item = (BasketListViewItem *)m_autoOpenItem;
     if (item)
         Global::bnpView->setCurrentBasket(item->basket());
 }
@@ -622,7 +620,7 @@ QPixmap FoundCountIcon::circledTextPixmap(const QString &text, int height, const
 QPixmap FoundCountIcon::foundCountPixmap(bool isLoading, int countFound, bool childrenAreLoading, int countChildsFound, const QFont &font, int height) const
 {
     if (isLoading)
-        return QPixmap();
+        return {};
 
     QFont boldFont(font);
     boldFont.setBold(true);
@@ -639,7 +637,7 @@ QPixmap FoundCountIcon::foundCountPixmap(bool isLoading, int countFound, bool ch
         else if (countFound > 0)
             text = QString::number(countFound);
         else
-            return QPixmap();
+            return {};
     }
 
     return circledTextPixmap(text, height, boldFont, m_basketTree->palette().color(QPalette::HighlightedText));

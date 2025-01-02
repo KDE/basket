@@ -22,7 +22,7 @@ public:
     /// CONSTRUCTOR AND DESTRUCTOR:
     BasketAnimations(QObject *parent = nullptr)
         : QParallelAnimationGroup(parent) {};
-    ~BasketAnimations() override {};
+    ~BasketAnimations() override = default;
 };
 
 class NoteAnimation : public QPropertyAnimation
@@ -31,7 +31,7 @@ class NoteAnimation : public QPropertyAnimation
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
     NoteAnimation(Note *target, const QByteArray &propertyName, QObject *parent = nullptr);
-    ~NoteAnimation() override {};
+    ~NoteAnimation() override = default;
 
 Q_SIGNALS:
     void valueChanged(const QVariant &value);

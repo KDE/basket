@@ -76,19 +76,19 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     // QDialog options
     setWindowTitle(i18n("New Basket"));
 
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
 
     setObjectName("NewBasket");
     setModal(true);
 
-    QWidget *page = new QWidget(this);
-    QVBoxLayout *topLayout = new QVBoxLayout(page);
+    auto *page = new QWidget(this);
+    auto *topLayout = new QVBoxLayout(page);
 
     // Icon, Name and Background Color:
-    QHBoxLayout *nameLayout = new QHBoxLayout;
+    auto *nameLayout = new QHBoxLayout;
     // QHBoxLayout *nameLayout = new QHBoxLayout(this);
     m_icon = new KIconButton(page);
     m_icon->setIconType(KIconLoader::NoGroup, KIconLoader::Action);
@@ -114,8 +114,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     nameLayout->addWidget(m_backgroundColor);
     topLayout->addLayout(nameLayout);
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    QPushButton *button = new QPushButton(page);
+    auto *layout = new QHBoxLayout;
+    auto *button = new QPushButton(page);
     KGuiItem::assign(button, KGuiItem(i18n("&Manage Templates..."), QStringLiteral("configure")));
     connect(button, &QPushButton::clicked, this, &NewBasketDialog::manageTemplates);
     button->hide();
@@ -191,7 +191,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
 
     m_templates->setMinimumHeight(topLayout->minimumSize().width() * 9 / 16);
 
-    QLabel *label = new QLabel(page);
+    auto *label = new QLabel(page);
     label->setText(i18n("&Template:"));
     label->setBuddy(m_templates);
     layout->addWidget(label, /*stretch=*/0, Qt::AlignBottom);
@@ -206,13 +206,13 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     label = new QLabel(page);
     label->setText(i18n("C&reate in:"));
     label->setBuddy(m_createIn);
-    HelpLabel *helpLabel = new HelpLabel(i18n("How is it useful?"),
-                                         i18n("<p>Creating baskets inside of other baskets to form a hierarchy allows you to be more organized by eg.:</p><ul>"
-                                              "<li>Grouping baskets by themes or topics;</li>"
-                                              "<li>Grouping baskets in folders for different projects;</li>"
-                                              "<li>Making sections with sub-baskets representing chapters or pages;</li>"
-                                              "<li>Making a group of baskets to export together (to eg. email them to people).</li></ul>"),
-                                         page);
+    auto *helpLabel = new HelpLabel(i18n("How is it useful?"),
+                                    i18n("<p>Creating baskets inside of other baskets to form a hierarchy allows you to be more organized by eg.:</p><ul>"
+                                         "<li>Grouping baskets by themes or topics;</li>"
+                                         "<li>Grouping baskets in folders for different projects;</li>"
+                                         "<li>Making sections with sub-baskets representing chapters or pages;</li>"
+                                         "<li>Making a group of baskets to export together (to eg. email them to people).</li></ul>"),
+                                    page);
     layout->addWidget(label);
     layout->addWidget(m_createIn);
     layout->addWidget(helpLabel);
@@ -232,7 +232,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
 
     mainLayout->addWidget(page);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -292,9 +292,7 @@ int NewBasketDialog::populateBasketsList(QTreeWidgetItem *item, int indent, int 
     return index;
 }
 
-NewBasketDialog::~NewBasketDialog()
-{
-}
+NewBasketDialog::~NewBasketDialog() = default;
 
 void NewBasketDialog::ensurePolished()
 {

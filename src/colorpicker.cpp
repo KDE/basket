@@ -54,7 +54,7 @@ void ColorPicker::grabColor()
                                                           QStringLiteral("PickColor"));
     message << QStringLiteral("x11:") << QVariantMap{};
     QDBusPendingCall pendingCall = QDBusConnection::sessionBus().asyncCall(message);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingCall);
+    auto *watcher = new QDBusPendingCallWatcher(pendingCall);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QDBusObjectPath> reply = *watcher;
         if (reply.isError()) {
@@ -75,7 +75,7 @@ void ColorPicker::gotColorResponse(uint response, const QVariantMap &results)
 {
     if (!response) {
         if (results.contains(QStringLiteral("color"))) {
-            const QColor color = qdbus_cast<QColor>(results.value(QStringLiteral("color")));
+            const auto color = qdbus_cast<QColor>(results.value(QStringLiteral("color")));
             Q_EMIT colorGrabbed(color);
         }
     } else {

@@ -221,7 +221,7 @@ void BNPView::onFirstShow()
 
 void BNPView::setupGlobalShortcuts()
 {
-    KActionCollection *ac = new KActionCollection(this);
+    auto *ac = new KActionCollection(this);
     QAction *a = nullptr;
 
     // Ctrl+Shift+W only works when started standalone:
@@ -617,7 +617,7 @@ void BNPView::setupActions()
     // At this stage, main.cpp has not set qApp->mainWidget(), so Global::runInsideKontact()
     // returns true. We do it ourself:
     bool runInsideKontact = true;
-    QWidget *parentWidget = (QWidget *)parent();
+    auto *parentWidget = (QWidget *)parent();
     while (parentWidget) {
         if (parentWidget->inherits("MainWindow"))
             runInsideKontact = false;
@@ -641,7 +641,7 @@ void BNPView::setupActions()
     a->setText(i18n("New Si&bling Basket..."));
     actNewSiblingBasket = a;
 
-    KActionMenu *newBasketMenu = new KActionMenu(i18n("&New"), ac);
+    auto *newBasketMenu = new KActionMenu(i18n("&New"), ac);
     newBasketMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     ac->addAction(QStringLiteral("basket_new_menu"), newBasketMenu);
 
@@ -914,7 +914,7 @@ BasketScene *BNPView::loadBasket(const QString &folderName)
     if (folderName.isEmpty())
         return nullptr;
 
-    DecoratedBasket *decoBasket = new DecoratedBasket(m_stack, folderName);
+    auto *decoBasket = new DecoratedBasket(m_stack, folderName);
     BasketScene *basket = decoBasket->basket();
     m_stack->addWidget(decoBasket);
 
@@ -1003,13 +1003,13 @@ void BNPView::foldBasket()
     if (item && item->childCount() <= 0)
         item->setExpanded(false); // If Alt+Left is hit and there is nothing to close, make sure the focus will go to the parent basket
 
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, Qt::KeyboardModifiers());
+    auto *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Left, Qt::KeyboardModifiers());
     QApplication::postEvent(m_tree, keyEvent);
 }
 
 void BNPView::expandBasket()
 {
-    QKeyEvent *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, Qt::KeyboardModifiers());
+    auto *keyEvent = new QKeyEvent(QEvent::KeyPress, Qt::Key_Right, Qt::KeyboardModifiers());
     QApplication::postEvent(m_tree, keyEvent);
 }
 
@@ -1017,7 +1017,7 @@ void BNPView::closeAllEditors()
 {
     QTreeWidgetItemIterator it(m_tree);
     while (*it) {
-        BasketListViewItem *item = (BasketListViewItem *)(*it);
+        auto *item = (BasketListViewItem *)(*it);
         item->basket()->closeEditor();
         ++it;
     }
@@ -1035,7 +1035,7 @@ bool BNPView::convertTexts()
 
     QTreeWidgetItemIterator it(m_tree);
     while (*it) {
-        BasketListViewItem *item = (BasketListViewItem *)(*it);
+        auto *item = (BasketListViewItem *)(*it);
         if (item->basket()->convertTexts())
             convertedNotes = true;
 
@@ -1157,7 +1157,7 @@ BasketListViewItem *BNPView::listViewItemForBasket(BasketScene *basket)
 
 BasketScene *BNPView::currentBasket()
 {
-    DecoratedBasket *decoBasket = (DecoratedBasket *)m_stack->currentWidget();
+    auto *decoBasket = (DecoratedBasket *)m_stack->currentWidget();
     if (decoBasket)
         return decoBasket->basket();
     else
@@ -1166,7 +1166,7 @@ BasketScene *BNPView::currentBasket()
 
 BasketScene *BNPView::parentBasketOf(BasketScene *basket)
 {
-    BasketListViewItem *item = (BasketListViewItem *)(listViewItemForBasket(basket)->parent());
+    auto *item = (BasketListViewItem *)(listViewItemForBasket(basket)->parent());
     if (item)
         return item->basket();
     else
@@ -1224,7 +1224,7 @@ void BNPView::removeBasket(BasketScene *basket)
     // Strategy: get the next sibling, or the previous one if not found.
     // If there is no such one, get the parent basket:
     BasketListViewItem *basketItem = listViewItemForBasket(basket);
-    BasketListViewItem *nextBasketItem = (BasketListViewItem *)(m_tree->itemBelow(basketItem));
+    auto *nextBasketItem = (BasketListViewItem *)(m_tree->itemBelow(basketItem));
     if (!nextBasketItem)
         nextBasketItem = (BasketListViewItem *)m_tree->itemAbove(basketItem);
     if (!nextBasketItem)
@@ -1306,8 +1306,8 @@ void BNPView::filterPlacementChanged(bool onTop)
 {
     QTreeWidgetItemIterator it(m_tree);
     while (*it) {
-        BasketListViewItem *item = static_cast<BasketListViewItem *>(*it);
-        DecoratedBasket *decoration = static_cast<DecoratedBasket *>(item->basket()->parent());
+        auto *item = static_cast<BasketListViewItem *>(*it);
+        auto *decoration = static_cast<DecoratedBasket *>(item->basket()->parent());
         decoration->setFilterBarPosition(onTop);
         ++it;
     }
@@ -2310,7 +2310,7 @@ bool BNPView::changeNoteHtml(const QString content, const QString basket, const 
     Note *note = noteForFileName(noteName, *b);
     if (!note || note->content()->type() != NoteType::Html)
         return false;
-    HtmlContent *noteContent = (HtmlContent *)note->content();
+    auto *noteContent = (HtmlContent *)note->content();
     noteContent->setHtml(content);
     note->saveAgain();
     return true;
@@ -2452,7 +2452,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
         if (!currentTag->shortcut().isEmpty())
             sequence = currentTag->shortcut();
 
-        StateAction *mi = new StateAction(currentState, QKeySequence(sequence), this, true);
+        auto *mi = new StateAction(currentState, QKeySequence(sequence), this, true);
         mi->setShortcutContext(Qt::WidgetShortcut);
 
         // The previously set ID will be set in the actions themselves as data.
@@ -2474,7 +2474,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
     // I don't like how this is implemented; but I can't think of a better way
     // to do this, so I will have to leave it for now
-    QAction *act = new QAction(i18n("&Assign new Tag..."), &menu);
+    auto *act = new QAction(i18n("&Assign new Tag..."), &menu);
     act->setData(1);
     act->setEnabled(enable);
     menu.addAction(act);
@@ -2535,7 +2535,7 @@ void BNPView::loadCrossReference(QString link)
 QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *parent)
 {
     if (pages.isEmpty())
-        return QString();
+        return {};
     QString page = QUrl::fromPercentEncoding(pages.takeFirst().toUtf8()).trimmed();
 
     if (page == QStringLiteral("..")) {
@@ -2582,7 +2582,7 @@ QString BNPView::folderFromBasketNameLink(QStringList pages, QTreeWidgetItem *pa
         }
     }
 
-    return QString();
+    return {};
 }
 
 void BNPView::sortChildrenAsc()

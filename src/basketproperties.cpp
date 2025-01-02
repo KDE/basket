@@ -44,10 +44,10 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 {
     // Set up dialog options
     setWindowTitle(i18n("Basket Properties"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply, this);
-    QWidget *mainWidget = new QWidget(this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply, this);
+    auto *mainWidget = new QWidget(this);
     setupUi(mainWidget);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
@@ -60,7 +60,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     setObjectName("BasketProperties");
     setModal(true);
 
-    Ui::BasketPropertiesUi *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this); // cast to remove name ambiguity
+    auto *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this); // cast to remove name ambiguity
     propsUi->icon->setIconType(KIconLoader::NoGroup, KIconLoader::Application);
     propsUi->icon->setIconSize(16);
     propsUi->icon->setIcon(m_basket->icon());
@@ -130,7 +130,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     QList<QKeySequence> shortcuts{m_basket->shortcut()};
     shortcut->setShortcut(shortcuts);
 
-    HelpLabel *helpLabel = new HelpLabel(
+    auto *helpLabel = new HelpLabel(
         i18n("Learn some tips..."),
         i18n("<p><strong>Easily Remember your Shortcuts</strong>:<br>"
              "With the first option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> will underline that letter in the basket tree.<br>"
@@ -171,14 +171,12 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     connect(buttonBox->button(QDialogButtonBox::Apply), &QPushButton::clicked, this, &BasketPropertiesDialog::applyChanges);
 }
 
-BasketPropertiesDialog::~BasketPropertiesDialog()
-{
-}
+BasketPropertiesDialog::~BasketPropertiesDialog() = default;
 
 void BasketPropertiesDialog::ensurePolished()
 {
     QWidget::ensurePolished();
-    Ui::BasketPropertiesUi *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this);
+    auto *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this);
     propsUi->name->setFocus();
 }
 
@@ -200,7 +198,7 @@ void BasketPropertiesDialog::applyChanges()
         m_basket->setShortcut(shortcut->shortcut()[0], 2);
     }
 
-    Ui::BasketPropertiesUi *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this);
+    auto *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this);
     // Should be called LAST, because it will emit the propertiesChanged() signal and the tree will be able to show the newly set Alt+Letter shortcut:
     m_basket->setAppearance(propsUi->icon->icon(),
                             propsUi->name->text(),

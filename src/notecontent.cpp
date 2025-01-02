@@ -62,7 +62,7 @@ QRectF LinkDisplayItem::boundingRect() const
     if (m_note) {
         return QRect(0, 0, m_note->width() - m_note->contentX() - Note::NOTE_MARGIN, m_note->height() - 2 * Note::NOTE_MARGIN);
     }
-    return QRectF();
+    return {};
 }
 
 void LinkDisplayItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
@@ -203,9 +203,9 @@ void NoteContent::saveToNode(QXmlStreamWriter &stream)
 QRectF NoteContent::zoneRect(int zone, const QPointF & /*pos*/)
 {
     if (zone == Note::Content)
-        return QRectF(0, 0, note()->width(), note()->height()); // Too wide and height, but it will be clipped by Note::zoneRect()
+        return {0, 0, note()->width(), note()->height()}; // Too wide and height, but it will be clipped by Note::zoneRect()
     else
-        return QRectF();
+        return {};
 }
 
 QUrl NoteContent::urlToOpen(bool /*with*/)
@@ -235,7 +235,7 @@ QString NoteContent::fullPath()
     if (note() && useFile())
         return note()->fullPath();
     else
-        return QString();
+        return {};
 }
 
 QUrl NoteContent::fullPathUrl()
@@ -288,7 +288,7 @@ QString LinkContent::toText(const QString & /*cuttedFullPath*/)
     if (autoTitle())
         return url().toDisplayString();
     else if (title().isEmpty() && url().isEmpty())
-        return QString();
+        return {};
     else if (url().isEmpty())
         return title();
     else if (title().isEmpty())
@@ -299,7 +299,7 @@ QString LinkContent::toText(const QString & /*cuttedFullPath*/)
 QString CrossReferenceContent::toText(const QString & /*cuttedFullPath*/)
 {
     if (title().isEmpty() && url().isEmpty())
-        return QString();
+        return {};
     else if (url().isEmpty())
         return title();
     else if (title().isEmpty())
@@ -313,7 +313,7 @@ QString ColorContent::toText(const QString & /*cuttedFullPath*/)
 }
 QString UnknownContent::toText(const QString & /*cuttedFullPath*/)
 {
-    return QString();
+    return {};
 }
 
 // TODO: If imageName.isEmpty() return fullPath() because it's for external use, else return fileName() because it's to display in a tooltip
@@ -370,7 +370,7 @@ QString ColorContent::toHtml(const QString & /*imageName*/, const QString & /*cu
 
 QString UnknownContent::toHtml(const QString & /*imageName*/, const QString & /*cuttedFullPath*/)
 {
-    return QString();
+    return {};
 }
 
 QPixmap ImageContent::toPixmap()
@@ -534,11 +534,11 @@ QString LauncherContent::saveAsFilters() const
 }
 QString ColorContent::saveAsFilters() const
 {
-    return QString();
+    return {};
 }
 QString UnknownContent::saveAsFilters() const
 {
-    return QString();
+    return {};
 }
 
 bool TextContent::match(const FilterData &data)
@@ -633,19 +633,19 @@ QString UnknownContent::editToolTipText() const
 
 QString TextContent::cssClass() const
 {
-    return QString();
+    return {};
 }
 QString HtmlContent::cssClass() const
 {
-    return QString();
+    return {};
 }
 QString ImageContent::cssClass() const
 {
-    return QString();
+    return {};
 }
 QString AnimationContent::cssClass() const
 {
-    return QString();
+    return {};
 }
 QString SoundContent::cssClass() const
 {
@@ -669,11 +669,11 @@ QString LauncherContent::cssClass() const
 }
 QString ColorContent::cssClass() const
 {
-    return QString();
+    return {};
 }
 QString UnknownContent::cssClass() const
 {
-    return QString();
+    return {};
 }
 
 void TextContent::fontChanged()
@@ -749,7 +749,7 @@ QString LinkContent::customServiceLauncher()
         return (Settings::isLinkUseProg() && !Settings::linkProg().isEmpty() ? Settings::linkProg() : QString());
     }
     DEBUG_WIN << newUrl.toString() + QStringLiteral(" ignored");
-    return QString();
+    return {};
 }
 
 void LinkContent::serialize(QDataStream &stream)
@@ -983,7 +983,7 @@ bool TextContent::saveToFile()
 
 QString TextContent::linkAt(const QPointF & /*pos*/)
 {
-    return QString();
+    return {};
 }
 
 QString TextContent::messageWhenOpening(OpenMessage where)
@@ -1002,7 +1002,7 @@ QString TextContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open plain texts with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -1123,7 +1123,7 @@ QString HtmlContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open texts with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -1263,7 +1263,7 @@ QString ImageContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open images with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -1290,7 +1290,7 @@ void ImageContent::exportToHTML(HTMLExporter *exporter, int /*indent*/)
     }
 
     exporter->stream << "<img src=\"" << QUrl(exporter->dataFolderName + imageName).toString() << "\" width=\"" << width << "\" height=\"" << height
-                     << "\" alt=\"\">";
+                     << R"(" alt="">)";
 
     if (contentWidth <= m_pixmapItem.pixmap().width()) // Scaled down
         exporter->stream << "</a>";
@@ -1384,7 +1384,7 @@ QString AnimationContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open animations with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -1498,11 +1498,11 @@ QRectF FileContent::zoneRect(int zone, const QPointF & /*pos*/)
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
     if (zone == Note::Custom0)
-        return QRectF(linkRect.width(), 0, note()->width(), note()->height()); // Too wide and height, but it will be clipped by Note::zoneRect()
+        return {linkRect.width(), 0, note()->width(), note()->height()}; // Too wide and height, but it will be clipped by Note::zoneRect()
     else if (zone == Note::Content)
         return linkRect;
     else
-        return QRectF();
+        return {};
 }
 
 QString FileContent::zoneTip(int zone)
@@ -1538,7 +1538,7 @@ QString FileContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open files with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -1666,7 +1666,7 @@ QString SoundContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open sounds with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -1740,11 +1740,11 @@ QRectF LinkContent::zoneRect(int zone, const QPointF & /*pos*/)
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
     if (zone == Note::Custom0)
-        return QRectF(linkRect.width(), 0, note()->width(), note()->height()); // Too wide and height, but it will be clipped by Note::zoneRect()
+        return {linkRect.width(), 0, note()->width(), note()->height()}; // Too wide and height, but it will be clipped by Note::zoneRect()
     else if (zone == Note::Content)
         return linkRect;
     else
-        return QRectF();
+        return {};
 }
 
 QString LinkContent::zoneTip(int zone)
@@ -1764,7 +1764,7 @@ QString LinkContent::statusBarMessage(int zone)
     if (zone == Note::Custom0 || zone == Note::Content)
         return m_url.toDisplayString();
     else
-        return QString();
+        return {};
 }
 
 QUrl LinkContent::urlToOpen(bool /*with*/)
@@ -1791,7 +1791,7 @@ QString LinkContent::messageWhenOpening(OpenMessage where)
     case OpenSeveralWithDialog:
         return i18n("Open link targets with:");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -2011,11 +2011,11 @@ QRectF CrossReferenceContent::zoneRect(int zone, const QPointF & /*pos*/)
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
     if (zone == Note::Custom0)
-        return QRectF(linkRect.width(), 0, note()->width(), note()->height()); // Too wide and height, but it will be clipped by Note::zoneRect()
+        return {linkRect.width(), 0, note()->width(), note()->height()}; // Too wide and height, but it will be clipped by Note::zoneRect()
     else if (zone == Note::Content)
         return linkRect;
     else
-        return QRectF();
+        return {};
 }
 
 QString CrossReferenceContent::zoneTip(int zone)
@@ -2035,7 +2035,7 @@ QString CrossReferenceContent::statusBarMessage(int zone)
     if (zone == Note::Custom0 || zone == Note::Content)
         return i18n("Link to %1", this->title());
     else
-        return QString();
+        return {};
 }
 
 QUrl CrossReferenceContent::urlToOpen(bool /*with*/)
@@ -2052,7 +2052,7 @@ QString CrossReferenceContent::messageWhenOpening(OpenMessage where)
     case OpenOne:
         return i18n("Opening basket...");
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -2175,11 +2175,11 @@ QRectF LauncherContent::zoneRect(int zone, const QPointF & /*pos*/)
     QRectF linkRect = m_linkDisplayItem.linkDisplay().iconButtonRect();
 
     if (zone == Note::Custom0)
-        return QRectF(linkRect.width(), 0, note()->width(), note()->height()); // Too wide and height, but it will be clipped by Note::zoneRect()
+        return {linkRect.width(), 0, note()->width(), note()->height()}; // Too wide and height, but it will be clipped by Note::zoneRect()
     else if (zone == Note::Content)
         return linkRect;
     else
-        return QRectF();
+        return {};
 }
 
 QString LauncherContent::zoneTip(int zone)
@@ -2197,7 +2197,7 @@ Qt::CursorShape LauncherContent::cursorFromZone(int zone) const
 QUrl LauncherContent::urlToOpen(bool with)
 {
     if (KService(fullPath()).exec().isEmpty())
-        return QUrl();
+        return {};
 
     return (with ? QUrl() : QUrl::fromLocalFile(fullPath())); // Can open the application, but not with another application :-)
 }
@@ -2217,7 +2217,7 @@ QString LauncherContent::messageWhenOpening(OpenMessage where)
     case OpenOneWithDialog:
     case OpenSeveralWithDialog: // TODO: "Open this application with this file as parameter"?
     default:
-        return QString();
+        return {};
     }
 }
 
@@ -2261,7 +2261,7 @@ QRectF ColorItem::boundingRect() const
 {
     qreal rectHeight = (m_textRect.height() + 2) * 3 / 2;
     qreal rectWidth = rectHeight * 14 / 10; // 1.4 times the height, like A4 papers.
-    return QRectF(0, 0, rectWidth + RECT_MARGIN + m_textRect.width() + RECT_MARGIN, rectHeight);
+    return {0, 0, rectWidth + RECT_MARGIN + m_textRect.width() + RECT_MARGIN, rectHeight};
 }
 
 void ColorItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
@@ -2393,7 +2393,7 @@ UnknownItem::UnknownItem(Note *parent)
 
 QRectF UnknownItem::boundingRect() const
 {
-    return QRectF(0, 0, m_textRect.width() + 2 * DECORATION_MARGIN, m_textRect.height() + 2 * DECORATION_MARGIN);
+    return {0, 0, m_textRect.width() + 2 * DECORATION_MARGIN, m_textRect.height() + 2 * DECORATION_MARGIN};
 }
 
 void UnknownItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)

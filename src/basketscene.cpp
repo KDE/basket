@@ -67,7 +67,7 @@
 #include <KIO/CopyJob>
 #include <KIO/OpenUrlJob>
 
-#include <stdlib.h> // rand() function
+#include <cstdlib> // rand() function
 
 #include "animation.h"
 #include "backgroundmanager.h"
@@ -1505,7 +1505,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
             m_posToInsert = event->scenePos();
             // closeEditor();
             removeInserter(); // If clicked at an insertion line and the new note shows a dialog for editing,
-            NoteType::Id type = (NoteType::Id)0; //  hide that inserter before the note edition instead of after the dialog is closed
+            auto type = (NoteType::Id)0; //  hide that inserter before the note edition instead of after the dialog is closed
             switch (Settings::middleAction()) {
             case 1:
                 m_isInsertPopupMenu = true;
@@ -2143,7 +2143,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             m_posToInsert = event->scenePos();
             closeEditor();
             removeInserter(); // If clicked at an insertion line and the new note shows a dialog for editing,
-            NoteType::Id type = (NoteType::Id)0; //  hide that inserter before the note edition instead of after the dialog is closed
+            auto type = (NoteType::Id)0; //  hide that inserter before the note edition instead of after the dialog is closed
             switch (Settings::middleAction()) {
             case 5:
                 type = NoteType::Color;
@@ -2281,7 +2281,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
             } else if (link.startsWith(QStringLiteral("basket://"))) {
                 Q_EMIT crossReference(link);
             } else {
-                KIO::OpenUrlJob *run = new KIO::OpenUrlJob(QUrl::fromUserInput(link), m_view->window()); //  open the URL.
+                auto *run = new KIO::OpenUrlJob(QUrl::fromUserInput(link), m_view->window()); //  open the URL.
                 run->setAutoDelete(true);
             }
             break;
@@ -2961,9 +2961,9 @@ QColor alphaBlendColors(const QColor &bgColor, const QColor &fgColor, const int 
     if (alpha < 0)
         alpha = 0;
     int inv_alpha = 255 - alpha;
-    QColor result = QColor(qRgb(qRed(rgb_b) * inv_alpha / 255 + qRed(rgb) * alpha / 255,
-                                qGreen(rgb_b) * inv_alpha / 255 + qGreen(rgb) * alpha / 255,
-                                qBlue(rgb_b) * inv_alpha / 255 + qBlue(rgb) * alpha / 255));
+    auto result = QColor(qRgb(qRed(rgb_b) * inv_alpha / 255 + qRed(rgb) * alpha / 255,
+                              qGreen(rgb_b) * inv_alpha / 255 + qGreen(rgb) * alpha / 255,
+                              qBlue(rgb_b) * inv_alpha / 255 + qBlue(rgb) * alpha / 255));
 
     return result;
 }
@@ -3009,7 +3009,7 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
             m_decryptBox->setFrameShadow(QFrame::Plain);
             m_decryptBox->setLineWidth(1);
 
-            QGridLayout *layout = new QGridLayout(m_decryptBox);
+            auto *layout = new QGridLayout(m_decryptBox);
             layout->setContentsMargins(11, 11, 11, 11);
             layout->setSpacing(6);
 
@@ -3019,7 +3019,7 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
             layout->addWidget(m_button, 1, 2);
             connect(m_button, &QPushButton::clicked, this, &BasketScene::unlock);
 #endif
-            QLabel *label = new QLabel(m_decryptBox);
+            auto *label = new QLabel(m_decryptBox);
             QString text = QStringLiteral("<b>") + i18n("Password protected basket.") + QStringLiteral("</b><br/>");
 #ifdef HAVE_LIBGPGME
             label->setText(text + i18n("Press Unlock to access it."));
@@ -3028,11 +3028,11 @@ void BasketScene::drawForeground(QPainter *painter, const QRectF &rect)
 #endif
             label->setAlignment(Qt::AlignTop);
             layout->addWidget(label, 0, 1, 1, 2);
-            QLabel *pixmap = new QLabel(m_decryptBox);
+            auto *pixmap = new QLabel(m_decryptBox);
             pixmap->setPixmap(KIconLoader::global()->loadIcon(QStringLiteral("encrypted"), KIconLoader::NoGroup, KIconLoader::SizeHuge));
             layout->addWidget(pixmap, 0, 0, 2, 1);
 
-            QSpacerItem *spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+            auto *spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
             layout->addItem(spacer, 1, 1);
 
             label = new QLabel(QStringLiteral("<small>")
@@ -3145,13 +3145,13 @@ bool BasketScene::isAnimated()
 {
     return m_animated;
 }
-void BasketScene::enableAnimation(void)
+void BasketScene::enableAnimation()
 {
     m_animations->start();
     m_animated = true;
 }
 
-void BasketScene::disableAnimation(void)
+void BasketScene::disableAnimation()
 {
     m_animations->stop();
     m_animated = false;
@@ -3249,14 +3249,14 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
         int i = 10;
         // QActionGroup makes the actions exclusive; turns checkboxes into radio
         // buttons on some styles.
-        QActionGroup *emblemGroup = new QActionGroup(&menu);
+        auto *emblemGroup = new QActionGroup(&menu);
         for (it = tag->states().begin(); it != tag->states().end(); ++it) {
             currentState = *it;
             QKeySequence sequence;
             if (currentState == nextState && !tag->shortcut().isEmpty())
                 sequence = tag->shortcut();
 
-            StateAction *sa = new StateAction(currentState, QKeySequence(sequence), nullptr, false);
+            auto *sa = new StateAction(currentState, QKeySequence(sequence), nullptr, false);
             sa->setChecked(state == currentState);
             sa->setActionGroup(emblemGroup);
             sa->setData(i);
@@ -3269,7 +3269,7 @@ void BasketScene::popupEmblemMenu(Note *note, int emblemNumber)
 
         menu.addSeparator();
 
-        QAction *act = new QAction(&menu);
+        auto *act = new QAction(&menu);
         act->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
         act->setText(i18n("&Remove"));
         act->setShortcut(sequenceOnDelete ? sequence : QKeySequence());
@@ -3456,7 +3456,7 @@ void BasketScene::updateEditorAppearance()
         }
 
         // Ugly Hack around Qt bugs: placeCursor() don't call any signal:
-        HtmlEditor *htmlEditor = dynamic_cast<HtmlEditor *>(m_editor);
+        auto *htmlEditor = dynamic_cast<HtmlEditor *>(m_editor);
         if (htmlEditor) {
             if (m_editor->textEdit()->textCursor().atStart()) {
                 m_editor->textEdit()->moveCursor(QTextCursor::Right);
@@ -3607,7 +3607,7 @@ void BasketScene::placeEditor(bool /*andEnsureVisible*/ /*= false*/)
     if (!isDuringEdit())
         return;
 
-    QFrame *editorQFrame = dynamic_cast<QFrame *>(m_editor->graphicsWidget()->widget());
+    auto *editorQFrame = dynamic_cast<QFrame *>(m_editor->graphicsWidget()->widget());
     KTextEdit *textEdit = m_editor->textEdit();
     Note *note = m_editor->note();
 
@@ -3662,7 +3662,7 @@ void BasketScene::editorCursorPositionChanged()
     if (!isDuringEdit())
         return;
 
-    FocusedTextEdit *textEdit = dynamic_cast<FocusedTextEdit *>(m_editor->textEdit());
+    auto *textEdit = dynamic_cast<FocusedTextEdit *>(m_editor->textEdit());
 
     if (textEdit) {
         QPoint cursorPoint = textEdit->viewport()->mapToGlobal(textEdit->cursorRect().center());
@@ -4081,7 +4081,7 @@ void BasketScene::clearFormattingNote(Note *note)
     if (!note)
         return;
 
-    HtmlContent *contentHtml = dynamic_cast<HtmlContent *>(note->content());
+    auto *contentHtml = dynamic_cast<HtmlContent *>(note->content());
     if (contentHtml) {
         contentHtml->setHtml(Tools::textToHTML(note->content()->toText(QStringLiteral(""))));
     }
@@ -4125,7 +4125,7 @@ void BasketScene::noteOpen(Note *note)
         if (url.url().startsWith(QStringLiteral("basket://"))) {
             Q_EMIT crossReference(url.url());
         } else if (serviceLauncher.isEmpty()) {
-            KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, m_view->window());
+            auto *job = new KIO::OpenUrlJob(url, m_view->window());
             job->setAutoDelete(true);
             job->start();
         } else {

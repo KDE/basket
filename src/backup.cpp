@@ -54,13 +54,13 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     setModal(true);
     setWindowTitle(i18n("Backup & Restore"));
 
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
 
-    QWidget *page = new QWidget(this);
-    QVBoxLayout *pageVBoxLayout = new QVBoxLayout(page);
+    auto *page = new QWidget(this);
+    auto *pageVBoxLayout = new QVBoxLayout(page);
     pageVBoxLayout->setContentsMargins({});
     mainLayout->addWidget(page);
 
@@ -69,22 +69,22 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     QString savesFolder = Global::savesFolder();
     savesFolder = savesFolder.left(savesFolder.length() - 1); // savesFolder ends with "/"
 
-    QGroupBox *folderGroup = new QGroupBox(i18n("Save Folder"), page);
+    auto *folderGroup = new QGroupBox(i18n("Save Folder"), page);
     pageVBoxLayout->addWidget(folderGroup);
     mainLayout->addWidget(folderGroup);
-    QVBoxLayout *folderGroupLayout = new QVBoxLayout;
+    auto *folderGroupLayout = new QVBoxLayout;
     folderGroup->setLayout(folderGroupLayout);
     folderGroupLayout->addWidget(
         new QLabel(QStringLiteral("<qt><nobr>") + i18n("Your baskets are currently stored in that folder:<br><b>%1</b>", savesFolder), folderGroup));
-    QWidget *folderWidget = new QWidget;
+    auto *folderWidget = new QWidget;
     folderGroupLayout->addWidget(folderWidget);
 
-    QHBoxLayout *folderLayout = new QHBoxLayout(folderWidget);
+    auto *folderLayout = new QHBoxLayout(folderWidget);
     folderLayout->setContentsMargins(0, 0, 0, 0);
 
-    QPushButton *moveFolder = new QPushButton(i18n("&Move to Another Folder..."), folderWidget);
-    QPushButton *useFolder = new QPushButton(i18n("&Use Another Existing Folder..."), folderWidget);
-    HelpLabel *helpLabel = new HelpLabel(
+    auto *moveFolder = new QPushButton(i18n("&Move to Another Folder..."), folderWidget);
+    auto *useFolder = new QPushButton(i18n("&Use Another Existing Folder..."), folderWidget);
+    auto *helpLabel = new HelpLabel(
         i18n("Why to do that?"),
         i18n("<p>You can move the folder where %1 store your baskets to:</p><ul>"
              "<li>Store your baskets in a visible place in your home folder, like ~/Notes or ~/Baskets, so you can manually backup them when you want.</li>"
@@ -102,19 +102,19 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
     connect(moveFolder, &QPushButton::clicked, this, &BackupDialog::moveToAnotherFolder);
     connect(useFolder, &QPushButton::clicked, this, &BackupDialog::useAnotherExistingFolder);
 
-    QGroupBox *backupGroup = new QGroupBox(i18n("Backups"), page);
+    auto *backupGroup = new QGroupBox(i18n("Backups"), page);
     pageVBoxLayout->addWidget(backupGroup);
     mainLayout->addWidget(backupGroup);
-    QVBoxLayout *backupGroupLayout = new QVBoxLayout;
+    auto *backupGroupLayout = new QVBoxLayout;
     backupGroup->setLayout(backupGroupLayout);
-    QWidget *backupWidget = new QWidget;
+    auto *backupWidget = new QWidget;
     backupGroupLayout->addWidget(backupWidget);
 
-    QHBoxLayout *backupLayout = new QHBoxLayout(backupWidget);
+    auto *backupLayout = new QHBoxLayout(backupWidget);
     backupLayout->setContentsMargins(0, 0, 0, 0);
 
-    QPushButton *backupButton = new QPushButton(i18n("&Backup..."), backupWidget);
-    QPushButton *restoreButton = new QPushButton(i18n("&Restore a Backup..."), backupWidget);
+    auto *backupButton = new QPushButton(i18n("&Backup..."), backupWidget);
+    auto *restoreButton = new QPushButton(i18n("&Restore a Backup..."), backupWidget);
     m_lastBackup = new QLabel(QString(), backupWidget);
     backupLayout->addWidget(backupButton);
     backupLayout->addWidget(restoreButton);
@@ -127,15 +127,13 @@ BackupDialog::BackupDialog(QWidget *parent, const char *name)
 
     (new QWidget(page))->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &BackupDialog::reject);
     mainLayout->addWidget(buttonBox);
     buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
 }
 
-BackupDialog::~BackupDialog()
-{
-}
+BackupDialog::~BackupDialog() = default;
 
 void BackupDialog::populateLastBackup()
 {
@@ -284,7 +282,7 @@ void BackupDialog::restore()
     QString message = QStringLiteral("<p><nobr>") + i18n("Restoring <b>%1</b>. Please wait...", QUrl::fromLocalFile(path).fileName())
         + QStringLiteral("</nobr></p><p>") + i18n("If something goes wrong during the restoration process, read the file <b>%1</b>.", readmePath);
 
-    QProgressDialog *dialog = new QProgressDialog();
+    auto *dialog = new QProgressDialog();
     dialog->setWindowTitle(i18n("Restore Baskets"));
     dialog->setLabelText(message);
     dialog->setModal(/*modal=*/true);
@@ -395,7 +393,7 @@ QString Backup::newSafetyFolder()
             return fullPath;
     }
 
-    return QString();
+    return {};
 }
 
 /** class BackupThread: */

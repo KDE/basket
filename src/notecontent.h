@@ -56,9 +56,7 @@ public:
         : m_note(parent)
     {
     }
-    ~LinkDisplayItem() override
-    {
-    }
+    ~LinkDisplayItem() override = default;
     QRectF boundingRect() const override;
     void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
 
@@ -108,9 +106,7 @@ class BASKET_EXPORT NoteContent
 public:
     // Constructor and destructor:
     explicit NoteContent(Note *parent, const NoteType::Id type, const QString &fileName = QString());
-    virtual ~NoteContent()
-    {
-    }
+    virtual ~NoteContent() = default;
     // Note Type Information
     NoteType::Id type() const
     {
@@ -131,7 +127,7 @@ public:
            const QString &cuttedFullPath) = 0; /// << @return an HTML text equivalent of the content. @param imageName Save image in this Qt resource.
     virtual QPixmap toPixmap()
     {
-        return QPixmap();
+        return {};
     } /// << @return an image equivalent of the content.
     virtual void
     toLink(QUrl *url, QString *title, const QString &cuttedFullPath); /// << Set the link to the content. By default, it set them to fullPath() if useFile().
@@ -157,7 +153,7 @@ public:
     } /// << Save the content to the file. The default implementation does nothing. @see fileName().
     virtual QString linkAt(const QPointF & /*pos*/)
     {
-        return QString();
+        return {};
     } /// << @return the link anchor at position @p pos or QString() if there is no link.
     virtual void saveToNode(QXmlStreamWriter &stream); /// << Save the note in the basket XML file. By default it store the filename if a file is used.
     virtual void fontChanged() = 0; /// << If your content display textual data, called when the font have changed (from tags or basket font)
@@ -177,7 +173,7 @@ public:
     virtual QRectF zoneRect(int /*zone*/, const QPointF & /*pos*/); /// << Idem, @return the rect of the custom zone
     virtual QString zoneTip(int /*zone*/)
     {
-        return QString();
+        return {};
     } /// << Idem, @return the toolTip of the custom zone
     virtual Qt::CursorShape cursorFromZone(int /*zone*/) const
     {
@@ -188,7 +184,7 @@ public:
     } /// << If your note type need some feedback, you get notified of hovering changes here.
     virtual QString statusBarMessage(int /*zone*/)
     {
-        return QString();
+        return {};
     } /// << @return the statusBar message to show for zone @p zone, or QString() if nothing special have to be said.
     // Drag and Drop Content:
     virtual void serialize(QDataStream & /*stream*/)
@@ -225,14 +221,14 @@ public:
     };
     virtual QString messageWhenOpening(OpenMessage /*where*/)
     {
-        return QString();
+        return {};
     } /// << @return the message to display according to @p where or nothing if it can't be done. @see OpenMessage describing the nature of the message that
       /// should be returned... The default implementation return an empty string. NOTE: If urlToOpen() is invalid and messageWhenOpening() is not empty, then
       /// the user will be prompted to edit the note (with the message returned by messageWhenOpening()) for eg. being able to edit URL of a link if it's empty
       /// when opening it...
     virtual QString customServiceLauncher()
     {
-        return QString();
+        return {};
     } /// << Reimplement this if your urlToOpen() should be opened with another application instead of the default KDE one. This choice should be left to the
       /// users in the setting (choice to use a custom app or not, and which app).
     // Common File Management:                                            ///    (and do save changes) and optionally hide the toolbar.
@@ -932,7 +928,7 @@ public:
     // Open Content or File:
     QUrl urlToOpen(bool /*with*/) override
     {
-        return QUrl();
+        return {};
     }
 
     QGraphicsItem *graphicsItem() override

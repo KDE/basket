@@ -30,9 +30,7 @@ FocusedTextEdit::FocusedTextEdit(bool disableUpdatesOnKeyPress, QWidget *parent)
     connect(this, &FocusedTextEdit::selectionChanged, this, &FocusedTextEdit::onSelectionChanged);
 }
 
-FocusedTextEdit::~FocusedTextEdit()
-{
-}
+FocusedTextEdit::~FocusedTextEdit() = default;
 
 void FocusedTextEdit::paste(QClipboard::Mode mode)
 {

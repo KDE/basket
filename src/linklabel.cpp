@@ -200,9 +200,7 @@ void LinkLabel::initLabel(int hAlign, int vAlign)
     // m_title->setPaletteBackgroundColor("lightyellow");
 }
 
-LinkLabel::~LinkLabel()
-{
-}
+LinkLabel::~LinkLabel() = default;
 
 void LinkLabel::setLink(const QString &title, const QString &icon, LinkLook *look)
 {
@@ -537,7 +535,7 @@ QRectF LinkDisplay::iconButtonRect() const
     //  int LINK_MARGIN      = BUTTON_MARGIN + 2;
     qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
 
-    return QRectF(0, 0, BUTTON_MARGIN - 1 + iconPreviewWidth + BUTTON_MARGIN, m_height);
+    return {0, 0, BUTTON_MARGIN - 1 + iconPreviewWidth + BUTTON_MARGIN, m_height};
 }
 
 QFont LinkDisplay::labelFont(QFont font, bool isIconButtonHovered) const
@@ -572,7 +570,7 @@ qreal LinkDisplay::heightForWidth(qreal width) const
 QString LinkDisplay::toHtml(const QString & /*imageName*/) const
 {
     // TODO
-    return QString();
+    return {};
 }
 
 QString LinkDisplay::toHtml(HTMLExporter *exporter, const QUrl &url, const QString &title)
@@ -601,7 +599,7 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     : QWidget(parent, fl)
 {
     QLabel *label;
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    auto *layout = new QVBoxLayout(this);
 
     m_italic = new QCheckBox(i18n("I&talic"), this);
     layout->addWidget(m_italic);
@@ -609,7 +607,7 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     m_bold = new QCheckBox(i18n("&Bold"), this);
     layout->addWidget(m_bold);
 
-    QGridLayout *gl = new QGridLayout;
+    auto *gl = new QGridLayout;
     layout->addLayout(gl);
     gl->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding), 1, /*2*/ 3);
 
@@ -638,7 +636,7 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     gl->addWidget(label, 2, 0);
     gl->addWidget(m_hoverColor, 2, 1);
 
-    QHBoxLayout *icoLay = new QHBoxLayout(nullptr);
+    auto *icoLay = new QHBoxLayout(nullptr);
     m_iconSize = new IconSizeCombo(this);
     icoLay->addWidget(m_iconSize);
     label = new QLabel(this);
@@ -674,8 +672,8 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
     gl->addWidget(m_preview, 4, 1);
     gl->addWidget(m_hLabel, 5, 1, 1, 2);
 
-    QGroupBox *gb = new QGroupBox(i18n("Example"), this);
-    QHBoxLayout *gbLayout = new QHBoxLayout;
+    auto *gb = new QGroupBox(i18n("Example"), this);
+    auto *gbLayout = new QHBoxLayout;
     gb->setLayout(gbLayout);
 
     m_exLook = new LinkLook;
@@ -734,9 +732,7 @@ void LinkLookEditWidget::slotChangeLook()
     m_example->setLink(m_exTitle, m_exIcon, m_exLook); // and can't reload it at another size
 }
 
-LinkLookEditWidget::~LinkLookEditWidget()
-{
-}
+LinkLookEditWidget::~LinkLookEditWidget() = default;
 
 void LinkLookEditWidget::saveChanges()
 {

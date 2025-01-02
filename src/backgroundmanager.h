@@ -80,8 +80,8 @@ class BackgroundManager : private QObject
     Q_OBJECT
 private:
     /// LIST OF IMAGES:
-    typedef QList<BackgroundEntry *> BackgroundsList;
-    typedef QList<OpaqueBackgroundEntry *> OpaqueBackgroundsList;
+    using BackgroundsList = QList<BackgroundEntry *>;
+    using OpaqueBackgroundsList = QList<OpaqueBackgroundEntry *>;
 
 public:
     /// CONTRUCTOR AND DESTRUCTOR:

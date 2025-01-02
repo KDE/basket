@@ -26,8 +26,8 @@
 #include <KPasswordDialog>
 #include <QApplication>
 
-#include <errno.h> //For errno
-#include <locale.h> //For LC_ALL, etc.
+#include <cerrno> //For errno
+#include <clocale> //For LC_ALL, etc.
 #include <unistd.h> //For write
 
 // KGpgSelKey class based on class in KGpg with the same name
@@ -46,14 +46,14 @@ public:
         setModal(true);
         setWindowTitle(i18n("Private Key List"));
 
-        QWidget *mainWidget = new QWidget(this);
-        QVBoxLayout *mainLayout = new QVBoxLayout;
+        auto *mainWidget = new QWidget(this);
+        auto *mainLayout = new QVBoxLayout;
         setLayout(mainLayout);
         mainLayout->addWidget(mainWidget);
 
         QString keyname;
         QVBoxLayout *vbox;
-        QWidget *page = new QWidget(this);
+        auto *page = new QWidget(this);
         QLabel *labeltxt;
         QPixmap keyPair = QIcon::fromTheme(QStringLiteral("kgpg_key2")).pixmap(20, 20);
 
@@ -75,7 +75,7 @@ public:
             QString name = gpg.checkForUtf8((*it).name);
             QStringList values;
             values << name << (*it).email << (*it).id;
-            QTreeWidgetItem *item = new QTreeWidgetItem(keysListpr, values, 3);
+            auto *item = new QTreeWidgetItem(keysListpr, values, 3);
             item->setIcon(0, keyPair);
             if (preselected == (*it).id) {
                 item->setSelected(true);
@@ -90,7 +90,7 @@ public:
         vbox->addWidget(keysListpr);
         mainLayout->addWidget(page);
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+        auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
         QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
         okButton->setDefault(true);
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -105,7 +105,7 @@ public:
 
         if (item)
             return item->text(2);
-        return QString();
+        return {};
     }
 };
 
@@ -181,7 +181,7 @@ QString KGpgMe::checkForUtf8(QString txt)
     // Make sure the encoding is UTF-8.
     // Test structure suggested by Werner Koch
     if (txt.isEmpty())
-        return QString();
+        return {};
 
     for (s = txt.toStdString().c_str(); *s && !(*s & 0x80); s++)
         ;
@@ -212,7 +212,7 @@ QString KGpgMe::selectKey(QString previous)
 
     if (dlg->exec())
         return dlg->key();
-    return QString();
+    return {};
 }
 
 // Rest of the code is mainly based in gpgme examples
@@ -414,7 +414,7 @@ void KGpgMe::setPassphraseCb()
 
 gpgme_error_t KGpgMe::passphraseCb(void *hook, const char *uid_hint, const char *passphrase_info, int last_was_bad, int fd)
 {
-    KGpgMe *gpg = static_cast<KGpgMe *>(hook);
+    auto *gpg = static_cast<KGpgMe *>(hook);
     return gpg->passphrase(uid_hint, passphrase_info, last_was_bad, fd);
 }
 

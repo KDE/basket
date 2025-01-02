@@ -484,16 +484,14 @@ public:
     explicit AbstractSettingsPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData())
         : KCModule(parent, data)
     {
-        SettingsDialog *settings = qobject_cast<SettingsDialog *>(parent->parent());
+        auto *settings = qobject_cast<SettingsDialog *>(parent->parent());
         connect(settings, &SettingsDialog::acceptRequested, this, &AbstractSettingsPage::slotAccept);
         connect(settings, &SettingsDialog::applyRequested, this, &AbstractSettingsPage::slotApply);
         connect(settings, &SettingsDialog::cancelRequested, this, &AbstractSettingsPage::slotCancel);
         connect(settings, &SettingsDialog::defaultsRequested, this, &AbstractSettingsPage::slotDefaults);
         AbstractSettingsPage::load();
     }
-    ~AbstractSettingsPage() override
-    {
-    }
+    ~AbstractSettingsPage() override = default;
 
     virtual void cancel() {};
 
@@ -530,9 +528,7 @@ class BASKET_EXPORT GeneralPage : public AbstractSettingsPage
 
 public:
     explicit GeneralPage(QObject *parent, const KPluginMetaData &data = KPluginMetaData());
-    ~GeneralPage() override
-    {
-    }
+    ~GeneralPage() override = default;
 
     void load() override;
     void save() override;

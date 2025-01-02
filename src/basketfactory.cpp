@@ -52,7 +52,7 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
     QDir dir;
     if (!dir.mkpath(fullPath)) {
         KMessageBox::error(/*parent=*/nullptr, i18n("Sorry, but the folder creation for this new basket has failed."), i18n("Basket Creation Failed"));
-        return QString();
+        return {};
     }
 
     // Unpack the template file to that folder:
@@ -85,7 +85,7 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
         return folderName;
     } else {
         KMessageBox::error(nullptr, i18n("Sorry, but the template copying for this new basket has failed."), i18n("Basket Creation Failed"));
-        return QString();
+        return {};
     }
 }
 

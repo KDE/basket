@@ -12,9 +12,7 @@ BasketView::BasketView(BasketScene *scene, QWidget *parent)
 {
 }
 
-BasketView::~BasketView()
-{
-}
+BasketView::~BasketView() = default;
 
 void BasketView::resizeEvent(QResizeEvent *)
 {

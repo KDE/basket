@@ -23,8 +23,8 @@
 
 #include <KIconLoader>
 
-#include <math.h> // sqrt() and pow() functions
-#include <stdlib.h> // rand() function
+#include <cmath> // sqrt() and pow() functions
+#include <cstdlib> // rand() function
 
 #include "animation.h"
 #include "basketscene.h"
@@ -199,7 +199,7 @@ QString Note::toText(const QString &cuttedFullPath)
 
         return result;
     } else
-        return QString();
+        return {};
 }
 
 bool Note::computeMatching(const FilterData &data)
@@ -322,7 +322,7 @@ QString Note::fullPath()
     if (content())
         return basket()->fullPath() + content()->fileName();
     else
-        return QString();
+        return {};
 }
 
 void Note::update()
@@ -522,7 +522,7 @@ NoteSelection *Note::selectedNotes()
             return nullptr;
     }
 
-    NoteSelection *selection = new NoteSelection(this);
+    auto *selection = new NoteSelection(this);
 
     FOR_EACH_CHILD(child)
     {
@@ -803,56 +803,56 @@ QRectF Note::zoneRect(Note::Zone zone, const QPointF &pos)
     qreal insertSplit = (Settings::groupOnInsertionLine() ? 2 : 1);
     switch (zone) {
     case Note::Handle:
-        return QRectF(0, 0, HANDLE_WIDTH, d->height);
+        return {0, 0, HANDLE_WIDTH, d->height};
     case Note::Group:
         yExp = yExpander();
         if (pos.y() < yExp) {
-            return QRectF(0, INSERTION_HEIGHT, d->width, yExp - INSERTION_HEIGHT);
+            return {0, INSERTION_HEIGHT, d->width, yExp - INSERTION_HEIGHT};
         }
         if (pos.y() > yExp + EXPANDER_HEIGHT) {
-            return QRectF(0, yExp + EXPANDER_HEIGHT, d->width, d->height - yExp - EXPANDER_HEIGHT - INSERTION_HEIGHT);
+            return {0, yExp + EXPANDER_HEIGHT, d->width, d->height - yExp - EXPANDER_HEIGHT - INSERTION_HEIGHT};
         }
         if (pos.x() < NOTE_MARGIN) {
-            return QRectF(0, 0, NOTE_MARGIN, d->height);
+            return {0, 0, NOTE_MARGIN, d->height};
         } else {
-            return QRectF(d->width - NOTE_MARGIN, 0, NOTE_MARGIN, d->height);
+            return {d->width - NOTE_MARGIN, 0, NOTE_MARGIN, d->height};
         }
     case Note::TagsArrow:
-        return QRectF(HANDLE_WIDTH + (NOTE_MARGIN + EMBLEM_SIZE) * m_emblemsCount,
-                      INSERTION_HEIGHT,
-                      NOTE_MARGIN + TAG_ARROW_WIDTH + NOTE_MARGIN,
-                      d->height - 2 * INSERTION_HEIGHT);
+        return {HANDLE_WIDTH + (NOTE_MARGIN + EMBLEM_SIZE) * m_emblemsCount,
+                INSERTION_HEIGHT,
+                NOTE_MARGIN + TAG_ARROW_WIDTH + NOTE_MARGIN,
+                d->height - 2 * INSERTION_HEIGHT};
     case Note::Custom0:
     case Note::Content:
         rect = content()->zoneRect(zone, pos - QPointF(contentX(), NOTE_MARGIN));
         rect.translate(contentX(), NOTE_MARGIN);
         return rect.intersected(QRectF(contentX(), INSERTION_HEIGHT, d->width - contentX(), d->height - 2 * INSERTION_HEIGHT)); // Only IN contentRect
     case Note::GroupExpander:
-        return QRectF(NOTE_MARGIN, yExpander(), EXPANDER_WIDTH, EXPANDER_HEIGHT);
+        return {NOTE_MARGIN, yExpander(), EXPANDER_WIDTH, EXPANDER_HEIGHT};
     case Note::Resizer:
         right = rightLimit();
-        return QRectF(right - x(), 0, RESIZER_WIDTH, resizerHeight());
+        return {right - x(), 0, RESIZER_WIDTH, resizerHeight()};
     case Note::Link:
     case Note::TopInsert:
         if (isGroup())
-            return QRectF(0, 0, d->width, INSERTION_HEIGHT);
+            return {0, 0, d->width, INSERTION_HEIGHT};
         else
-            return QRectF(HANDLE_WIDTH, 0, d->width / insertSplit - HANDLE_WIDTH, INSERTION_HEIGHT);
+            return {HANDLE_WIDTH, 0, d->width / insertSplit - HANDLE_WIDTH, INSERTION_HEIGHT};
     case Note::TopGroup:
-        return QRectF(xGroup, 0, d->width - xGroup, INSERTION_HEIGHT);
+        return {xGroup, 0, d->width - xGroup, INSERTION_HEIGHT};
     case Note::BottomInsert:
         if (isGroup())
-            return QRectF(0, d->height - INSERTION_HEIGHT, d->width, INSERTION_HEIGHT);
+            return {0, d->height - INSERTION_HEIGHT, d->width, INSERTION_HEIGHT};
         else
-            return QRectF(HANDLE_WIDTH, d->height - INSERTION_HEIGHT, d->width / insertSplit - HANDLE_WIDTH, INSERTION_HEIGHT);
+            return {HANDLE_WIDTH, d->height - INSERTION_HEIGHT, d->width / insertSplit - HANDLE_WIDTH, INSERTION_HEIGHT};
     case Note::BottomGroup:
-        return QRectF(xGroup, d->height - INSERTION_HEIGHT, d->width - xGroup, INSERTION_HEIGHT);
+        return {xGroup, d->height - INSERTION_HEIGHT, d->width - xGroup, INSERTION_HEIGHT};
     case Note::BottomColumn:
-        return QRectF(0, d->height, rightLimit() - x(), basket()->sceneRect().height() - d->height);
+        return {0, d->height, rightLimit() - x(), basket()->sceneRect().height() - d->height};
     case Note::None:
-        return QRectF(/*0, 0, -1, -1*/);
+        return {/*0, 0, -1, -1*/};
     default:
-        return QRectF(/*0, 0, -1, -1*/);
+        return {/*0, 0, -1, -1*/};
     }
 }
 
@@ -1080,14 +1080,14 @@ Note *Note::noteAt(QPointF pos)
 QRectF Note::boundingRect() const
 {
     if (hasResizer()) {
-        return QRectF(0, 0, rightLimit() - x() + RESIZER_WIDTH, resizerHeight());
+        return {0, 0, rightLimit() - x() + RESIZER_WIDTH, resizerHeight()};
     }
-    return QRectF(0, 0, width(), height());
+    return {0, 0, width(), height()};
 }
 
 QRectF Note::resizerRect()
 {
-    return QRectF(rightLimit(), y(), RESIZER_WIDTH, resizerHeight());
+    return {rightLimit(), y(), RESIZER_WIDTH, resizerHeight()};
 }
 
 bool Note::showSubNotes()
@@ -2207,7 +2207,7 @@ QRectF Note::visibleRect()
     if (areas.count() > 0)
         return areas.first();
     else
-        return QRectF();
+        return {};
 }
 
 void Note::recomputeBlankRects(QList<QRectF> &blankAreas)

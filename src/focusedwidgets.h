@@ -56,9 +56,7 @@ public:
      * @param watched The widget to install the event filter on; also becomes
      * the parent of this object. */
     explicit FocusWidgetFilter(QWidget *watched = nullptr);
-    ~FocusWidgetFilter() override
-    {
-    }
+    ~FocusWidgetFilter() override = default;
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

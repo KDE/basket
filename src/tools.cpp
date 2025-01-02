@@ -216,11 +216,11 @@ QString Tools::crossReferenceForBasket(const QStringList &linkParts)
 {
     QString basketLink = linkParts.first();
     if (!basketLink.startsWith(QStringLiteral("basket://")))
-        return QString();
+        return {};
 
     QString url = basketLink.mid(9, basketLink.length() - 9);
     if (url.isEmpty())
-        return QString();
+        return {};
 
     QString title = linkParts.last().trimmed();
     QString css = LinkLook::crossReferenceLook->toCSS(QStringLiteral("cross_reference"), QColor());
@@ -240,11 +240,11 @@ QString Tools::crossReferenceForHtml(const QStringList &linkParts, HTMLExporter 
     QString basketLink = linkParts.first();
     QString title = linkParts.last().trimmed();
     if (!basketLink.startsWith(QStringLiteral("basket://")))
-        return QString();
+        return {};
 
     QString url = basketLink.mid(9, basketLink.length() - 9);
     if (url.isEmpty())
-        return QString();
+        return {};
 
     BasketScene *basket = Global::bnpView->basketForFolderName(url);
 
@@ -290,7 +290,7 @@ QString Tools::crossReferenceForConversion(const QStringList &linkParts)
 
     QString url = Global::bnpView->folderFromBasketNameLink(pages);
     if (url.isEmpty())
-        return QString();
+        return {};
 
     return QStringLiteral("[[basket://%1|%2]]").arg(url, title);
 }
@@ -446,7 +446,7 @@ QString Tools::stripEndWhiteSpaces(const QString &string)
         if (!string[i - 1].isSpace())
             break;
     if (i == 0)
-        return QString();
+        return {};
     else
         return string.left(i);
 }

@@ -38,9 +38,7 @@ public:
         tag = nullptr;
         state = nullptr;
     }
-    ~FilterData()
-    {
-    }
+    ~FilterData() = default;
     // Filter data:
     QString string;
     int tagFilterType;

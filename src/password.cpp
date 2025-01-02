@@ -28,9 +28,9 @@ PasswordDlg::PasswordDlg(QWidget *parent)
 {
     // QDialog options
     setWindowTitle(i18n("Password Protection"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
@@ -42,7 +42,7 @@ PasswordDlg::PasswordDlg(QWidget *parent)
     okButton->setDefault(true);
     setModal(true);
 
-    QHBoxLayout *toplayout = new QHBoxLayout(mainWidget);
+    auto *toplayout = new QHBoxLayout(mainWidget);
     w = new Password;
     toplayout->addWidget(w, 1);
 }
@@ -65,10 +65,10 @@ QString PasswordDlg::key() const
 {
     QString s = w->keyCombo->currentText();
     if (s.length() < 16)
-        return QString();
+        return {};
     int n = s.lastIndexOf(QLatin1Char(' '));
     if (n < 0)
-        return QString();
+        return {};
     return s.mid(n + 1);
 }
 

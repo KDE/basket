@@ -171,7 +171,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     QDomDocument *document = XMLWork::openFile(QStringLiteral("basket"), Global::basketsFolder() + folderName + QStringLiteral("/.basket"));
     if (!document) {
         qDebug() << "Import Baskets: Failed to read the basket file!";
-        return QDomElement();
+        return {};
     }
     QDomElement docElem = document->documentElement();
 

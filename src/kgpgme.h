@@ -27,7 +27,7 @@ public:
     QString email;
 };
 
-typedef QList<KGpgKey> KGpgKeyList;
+using KGpgKeyList = QList<KGpgKey>;
 
 class KGpgMe
 {

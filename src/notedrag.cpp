@@ -42,10 +42,10 @@ QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *sour
     if (noteList->count() <= 0)
         return nullptr;
 
-    QDrag *multipleDrag = new QDrag(source);
+    auto *multipleDrag = new QDrag(source);
 
     // The MimeSource:
-    QMimeData *mimeData = new QMimeData;
+    auto *mimeData = new QMimeData;
 
     // Make sure the temporary folder exists and is empty (we delete previously moved file(s) (if exists)
     // since we override the content of the clipboard and previous file willn't be accessable anymore):
@@ -247,7 +247,7 @@ void NoteDrag::setFeedbackPixmap(NoteSelection *noteList, QDrag *multipleDrag)
 QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
 {
     if (noteList == nullptr)
-        return QPixmap();
+        return {};
 
     static const int MARGIN = 2;
     static const int SPACING = 1;
@@ -341,7 +341,7 @@ QPixmap NoteDrag::feedbackPixmap(NoteSelection *noteList)
         // multipleDrag->setPixmap(result, QPoint(-8, -8));
         return result;
     }
-    return QPixmap();
+    return {};
 }
 
 bool NoteDrag::canDecode(const QMimeData *source)
@@ -387,7 +387,7 @@ QList<Note *> NoteDrag::notesOf(QGraphicsSceneDragDropEvent *source)
         // Done:
         return notes;
     } else
-        return QList<Note *>();
+        return {};
 }
 
 void NoteDrag::saveNoteSelectionToList(NoteSelection *selection)
@@ -409,7 +409,7 @@ Note *NoteDrag::decode(const QMimeData *source, BasketScene *parent, bool moveFi
         // Get the parent basket:
         quint64 basketPointer;
         stream >> (quint64 &)basketPointer;
-        BasketScene *basket = (BasketScene *)basketPointer;
+        auto *basket = (BasketScene *)basketPointer;
         // Decode the note hierarchy:
         Note *hierarchy = decodeHierarchy(stream, parent, moveFiles, moveNotes, basket);
         // In case we moved notes from one basket to another, save the source basket where notes were removed:

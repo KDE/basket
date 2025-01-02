@@ -26,7 +26,7 @@ class State
 {
 public:
     /// LIST OF STATES:
-    typedef QList<State *> List;
+    using List = QList<State *>;
 
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
@@ -190,7 +190,7 @@ class Tag
 {
 public:
     /// LIST OF ALL TAGS IN THE APPLICATION:
-    typedef QList<Tag *> List;
+    using List = QList<Tag *>;
     static Tag::List all;
     static State *stateById(const QString &id);
     static State *stateByTextEquiv(const QString &text);

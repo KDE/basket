@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     Backup::figureOutBinaryPath(argv0, app);
 
     /* Main Window */
-    MainWindow *win = new MainWindow();
+    auto *win = new MainWindow();
     Global::mainWnd = win;
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);

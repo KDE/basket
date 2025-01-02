@@ -42,14 +42,14 @@
 TreeImportDialog::TreeImportDialog(QWidget *parent)
     : QDialog(parent)
 {
-    QWidget *page = new QWidget(this);
-    QVBoxLayout *topLayout = new QVBoxLayout(page);
+    auto *page = new QWidget(this);
+    auto *topLayout = new QVBoxLayout(page);
 
     // QDialog options
     setWindowTitle(i18n("Import Hierarchy"));
 
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
 
@@ -74,7 +74,7 @@ TreeImportDialog::TreeImportDialog(QWidget *parent)
 
     mainLayout->addWidget(page);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -83,9 +83,7 @@ TreeImportDialog::TreeImportDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
 }
 
-TreeImportDialog::~TreeImportDialog()
-{
-}
+TreeImportDialog::~TreeImportDialog() = default;
 
 int TreeImportDialog::choice()
 {
@@ -102,9 +100,9 @@ int TreeImportDialog::choice()
 TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     : QDialog(parent)
 {
-    QWidget *page = new QWidget(this);
-    QVBoxLayout *topLayout = new QVBoxLayout(page);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *page = new QWidget(this);
+    auto *topLayout = new QVBoxLayout(page);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     // QDialog options
@@ -129,10 +127,10 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     m_choiceLayout->addWidget(m_star_choice);
     m_choiceLayout->addWidget(m_anotherSeparator);
 
-    QWidget *indentedTextEdit = new QWidget(m_choices);
+    auto *indentedTextEdit = new QWidget(m_choices);
     m_choiceLayout->addWidget(indentedTextEdit);
 
-    QHBoxLayout *hLayout = new QHBoxLayout(indentedTextEdit);
+    auto *hLayout = new QHBoxLayout(indentedTextEdit);
     hLayout->addSpacing(20);
     m_customSeparator = new KTextEdit(indentedTextEdit);
     hLayout->addWidget(m_customSeparator);
@@ -147,7 +145,7 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
 
     mainLayout->addWidget(page);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -156,9 +154,7 @@ TextFileImportDialog::TextFileImportDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
 }
 
-TextFileImportDialog::~TextFileImportDialog()
-{
-}
+TextFileImportDialog::~TextFileImportDialog() = default;
 
 QString TextFileImportDialog::separator()
 {
@@ -173,7 +169,7 @@ QString TextFileImportDialog::separator()
     else if (m_anotherSeparator->isChecked())
         return m_customSeparator->toPlainText();
     else if (m_all_in_one_choice->isChecked())
-        return QString();
+        return {};
     else
         return QStringLiteral("\n\n");
 }

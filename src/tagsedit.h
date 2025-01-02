@@ -36,7 +36,7 @@ class KColorCombo2;
 class StateCopy
 {
 public:
-    typedef QList<StateCopy *> List;
+    using List = QList<StateCopy *>;
     explicit StateCopy(State *old = nullptr);
     ~StateCopy();
     State *oldState;
@@ -47,7 +47,7 @@ public:
 class TagCopy
 {
 public:
-    typedef QList<TagCopy *> List;
+    using List = QList<TagCopy *>;
     explicit TagCopy(Tag *old = nullptr);
     ~TagCopy();
     Tag *oldTag;

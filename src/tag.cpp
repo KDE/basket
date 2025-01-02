@@ -47,9 +47,7 @@ State::State(const QString &id, Tag *tag)
 {
 }
 
-State::~State()
-{
-}
+State::~State() = default;
 
 State *State::nextState(bool cycle /*= true*/)
 {
@@ -125,7 +123,7 @@ QString State::toCSS(const QString &gradientFolderPath, const QString &gradientF
     }
 
     if (css.isEmpty())
-        return QString();
+        return {};
     else
         return QStringLiteral("   .tag_") + id() + QStringLiteral(" {") + css + QStringLiteral(" }\n");
 }
@@ -313,7 +311,7 @@ QMap<QString, QString> Tag::loadTags(const QString &path /* = QString()*/ /*, bo
             while (!subNode.isNull()) {
                 QDomElement subElement = subNode.toElement();
                 if ((!subElement.isNull()) && subElement.tagName() == QStringLiteral("state")) {
-                    State *state = new State(subElement.attribute(QStringLiteral("id")), tag);
+                    auto *state = new State(subElement.attribute(QStringLiteral("id")), tag);
                     state->setName(XMLWork::getElementText(subElement, QStringLiteral("name")));
                     state->setEmblem(XMLWork::getElementText(subElement, QStringLiteral("emblem")));
                     QDomElement textElement = XMLWork::getElement(subElement, QStringLiteral("text"));

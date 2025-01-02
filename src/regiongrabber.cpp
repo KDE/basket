@@ -45,9 +45,7 @@ RegionGrabber::RegionGrabber()
     idleTimer.start(3000);
 }
 
-RegionGrabber::~RegionGrabber()
-{
-}
+RegionGrabber::~RegionGrabber() = default;
 
 void RegionGrabber::init()
 {

@@ -365,9 +365,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     connect(buttons->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &SettingsDialog::slotDefaultsClicked);
 }
 
-SettingsDialog::~SettingsDialog()
-{
-}
+SettingsDialog::~SettingsDialog() = default;
 
 void SettingsDialog::showEvent(QShowEvent *event)
 {
@@ -387,7 +385,7 @@ int SettingsDialog::exec()
 void SettingsDialog::adjustSize()
 {
     QSize maxPageSize;
-    const KPageWidgetModel *model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
+    const auto *model = qobject_cast<const KPageWidgetModel *>(pageWidget()->model());
     if (!model)
         return;
 
@@ -430,7 +428,7 @@ void SettingsDialog::slotDefaultsClicked()
 GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
     : AbstractSettingsPage(parent, data)
 {
-    QFormLayout *layout = new QFormLayout(this->widget());
+    auto *layout = new QFormLayout(this->widget());
 
     // Basket Tree Position:
     m_treeOnLeft = new KComboBox(this->widget());
@@ -480,14 +478,14 @@ void GeneralPage::cancel()
 BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     : AbstractSettingsPage(parent, data)
 {
-    QVBoxLayout *layout = new QVBoxLayout(this->widget());
+    auto *layout = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay;
     HelpLabel *hLabel;
 
     // Appearance:
 
-    QGroupBox *appearanceBox = new QGroupBox(i18n("Appearance"), this->widget());
-    QVBoxLayout *appearanceLayout = new QVBoxLayout;
+    auto *appearanceBox = new QGroupBox(i18n("Appearance"), this->widget());
+    auto *appearanceLayout = new QVBoxLayout;
     appearanceBox->setLayout(appearanceLayout);
     layout->addWidget(appearanceBox);
 
@@ -501,8 +499,8 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     // Behavior:
 
-    QGroupBox *behaviorBox = new QGroupBox(i18n("Behavior"), this->widget());
-    QVBoxLayout *behaviorLayout = new QVBoxLayout;
+    auto *behaviorBox = new QGroupBox(i18n("Behavior"), this->widget());
+    auto *behaviorLayout = new QVBoxLayout;
     behaviorBox->setLayout(behaviorLayout);
     layout->addWidget(behaviorBox);
 
@@ -522,7 +520,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     behaviorLayout->addWidget(m_detectTextTags);
     connect(m_detectTextTags, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
-    QWidget *widget = new QWidget(behaviorBox);
+    auto *widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
     hLay = new QHBoxLayout(widget);
     m_exportTextTags = new QCheckBox(i18n("&Export tags in texts"), widget);
@@ -543,9 +541,9 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     m_groupOnInsertionLineWidget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(m_groupOnInsertionLineWidget);
-    QHBoxLayout *hLayV = new QHBoxLayout(m_groupOnInsertionLineWidget);
+    auto *hLayV = new QHBoxLayout(m_groupOnInsertionLineWidget);
     m_groupOnInsertionLine = new QCheckBox(i18n("&Group a new note when clicking on the right of the insertion line"), m_groupOnInsertionLineWidget);
-    HelpLabel *helpV =
+    auto *helpV =
         new HelpLabel(i18n("How to group a new note?"),
                       i18n("<p>When this option is enabled, the insertion-line not only allows you to insert notes at the cursor position, but also allows you "
                            "to group a new note with the one under the cursor:</p>")
@@ -562,7 +560,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
-    QGridLayout *ga = new QGridLayout(widget);
+    auto *ga = new QGridLayout(widget);
     ga->addItem(new QSpacerItem(0, 0, QSizePolicy::Expanding), 0, 3);
 
     m_middleAction = new KComboBox(widget);
@@ -579,7 +577,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     m_middleAction->addItem(i18n("Import Launcher for desktop application"));
     m_middleAction->addItem(i18n("Import icon"));
 
-    QLabel *labelM = new QLabel(widget);
+    auto *labelM = new QLabel(widget);
     labelM->setText(i18n("&Shift+middle-click anywhere:"));
     labelM->setBuddy(m_middleAction);
 
@@ -591,8 +589,8 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     // Protection:
 
-    QGroupBox *protectionBox = new QGroupBox(i18n("Password Protection"), this->widget());
-    QVBoxLayout *protectionLayout = new QVBoxLayout;
+    auto *protectionBox = new QGroupBox(i18n("Password Protection"), this->widget());
+    auto *protectionLayout = new QVBoxLayout;
     layout->addWidget(protectionBox);
     protectionBox->setLayout(protectionLayout);
     widget = new QWidget(protectionBox);
@@ -687,7 +685,7 @@ void BasketsPage::defaults()
 NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     : AbstractSettingsPage(parent, data)
 {
-    QVBoxLayout *layout = new QVBoxLayout(this->widget());
+    auto *layout = new QVBoxLayout(this->widget());
     QHBoxLayout *hLay;
     QLabel *label;
 
@@ -749,8 +747,8 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
 
     // View File Content:
 
-    QGroupBox *buttonGroup = new QGroupBox(i18n("View Content of Added Files for the Following Types"), this->widget());
-    QVBoxLayout *buttonLayout = new QVBoxLayout;
+    auto *buttonGroup = new QGroupBox(i18n("View Content of Added Files for the Following Types"), this->widget());
+    auto *buttonLayout = new QVBoxLayout;
     m_viewTextFileContent = new QCheckBox(i18n("&Plain text"), buttonGroup);
     m_viewHtmlFileContent = new QCheckBox(i18n("&HTML page"), buttonGroup);
     m_viewImageFileContent = new QCheckBox(i18n("&Image or animation"), buttonGroup);
@@ -818,8 +816,8 @@ void NewNotesPage::visualize()
 NotesAppearancePage::NotesAppearancePage(QObject *parent, const KPluginMetaData &data)
     : AbstractSettingsPage(parent, data)
 {
-    QVBoxLayout *layout = new QVBoxLayout(this->widget());
-    QTabWidget *tabs = new QTabWidget(this->widget());
+    auto *layout = new QVBoxLayout(this->widget());
+    auto *tabs = new QTabWidget(this->widget());
     layout->addWidget(tabs);
 
     m_soundLook = new LinkLookEditWidget(this, i18n("Conference audio record"), QStringLiteral("folder-sound"), tabs);
@@ -873,9 +871,9 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     : AbstractSettingsPage(parent, data)
 {
     /* Applications page */
-    QVBoxLayout *layout = new QVBoxLayout(this->widget());
+    auto *layout = new QVBoxLayout(this->widget());
 
-    QGroupBox *launchGroup = new QGroupBox(i18n("General Launch Associations"), this->widget());
+    auto *launchGroup = new QGroupBox(i18n("General Launch Associations"), this->widget());
 
     QString menuEditTooltip(i18n(
         "<p>On modern desktop environments, launcher configurations provide information to the system about how to handle an application."
@@ -919,8 +917,8 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
              "<li>Do the same for the type \"application -> xhtml+xml\".</li>"
              "</ul>"));
 
-    QVBoxLayout *vLay = new QVBoxLayout(this->widget());
-    QHBoxLayout *hLay = new QHBoxLayout(launchGroup);
+    auto *vLay = new QVBoxLayout(this->widget());
+    auto *hLay = new QHBoxLayout(launchGroup);
     m_menuEdit = new QPushButton();
     QIcon buttonIcon = QIcon::fromTheme(QStringLiteral("kmenuedit"));
     m_menuEdit->setIcon(buttonIcon);
@@ -954,11 +952,11 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     layout->addWidget(launchGroup);
 
     vLay = new QVBoxLayout(this->widget());
-    QGroupBox *basketLaunchGroup = new QGroupBox(i18n("Specific Basket Associations"), this->widget());
+    auto *basketLaunchGroup = new QGroupBox(i18n("Specific Basket Associations"), this->widget());
 
     m_htmlUseProg = new QCheckBox(i18n("Open &text notes with a custom application:"), this->widget());
     m_htmlProg = new ServiceLaunchRequester(QString(), i18n("Open text notes with:"), this->widget());
-    QHBoxLayout *hLayH = new QHBoxLayout();
+    auto *hLayH = new QHBoxLayout();
     hLayH->insertSpacing(-1, 20);
     hLayH->addWidget(m_htmlProg);
     connect(m_htmlUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -966,7 +964,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
 
     m_imageUseProg = new QCheckBox(i18n("Open &image notes with a custom application:"), this->widget());
     m_imageProg = new ServiceLaunchRequester(QString(), i18n("Open image notes with:"), this->widget());
-    QHBoxLayout *hLayI = new QHBoxLayout();
+    auto *hLayI = new QHBoxLayout();
     hLayI->insertSpacing(-1, 20);
     hLayI->addWidget(m_imageProg);
     connect(m_imageUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -974,7 +972,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
 
     m_animationUseProg = new QCheckBox(i18n("Open a&nimation notes with a custom application:"), this->widget());
     m_animationProg = new ServiceLaunchRequester(QString(), i18n("Open animation notes with:"), this->widget());
-    QHBoxLayout *hLayA = new QHBoxLayout();
+    auto *hLayA = new QHBoxLayout();
     hLayA->insertSpacing(-1, 20);
     hLayA->addWidget(m_animationProg);
     connect(m_animationUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -982,7 +980,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
 
     m_soundUseProg = new QCheckBox(i18n("Open so&und notes with a custom application:"), this->widget());
     m_soundProg = new ServiceLaunchRequester(QString(), i18n("Open sound notes with:"), this->widget());
-    QHBoxLayout *hLayS = new QHBoxLayout();
+    auto *hLayS = new QHBoxLayout();
     hLayS->insertSpacing(-1, 20);
     hLayS->addWidget(m_soundProg);
     connect(m_soundUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -990,7 +988,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
 
     m_linkUseProg = new QCheckBox(i18n("Open http link notes with a custom application:"), this->widget());
     m_linkProg = new ServiceLaunchRequester(QString(), i18n("Open http link notes with:"), this->widget());
-    QHBoxLayout *hLayL = new QHBoxLayout();
+    auto *hLayL = new QHBoxLayout();
     hLayL->insertSpacing(-1, 20);
     hLayL->addWidget(m_linkProg);
     connect(m_linkUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));

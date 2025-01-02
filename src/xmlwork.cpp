@@ -13,7 +13,7 @@
 
 QDomDocument *XMLWork::openFile(const QString &name, const QString &filePath)
 {
-    QDomDocument *doc = new QDomDocument(name);
+    auto *doc = new QDomDocument(name);
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
         // QMessageBox::information(this, "Load an XML file", "Error : un-openable file");
@@ -48,7 +48,7 @@ QDomElement XMLWork::getElement(const QDomElement &startElement, const QString &
             n = n.nextSibling();
         }
     }
-    return QDomElement(); // Not found !
+    return {}; // Not found !
 }
 
 QString XMLWork::getElementText(const QDomElement &startElement, const QString &elementPath, const QString &defaultTxt)

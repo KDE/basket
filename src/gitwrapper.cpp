@@ -361,7 +361,7 @@ void GitWrapper::removeDeletedFromIndex(git_repository *repo, git_index *index)
         repo,
         [](const char *path, unsigned int status_flags, void *payload) -> int {
             if (status_flags & GIT_STATUS_WT_DELETED) {
-                git_index *index = static_cast<git_index *>(payload);
+                auto *index = static_cast<git_index *>(payload);
                 git_index_remove_bypath(index, path);
             }
             return 0;
@@ -387,17 +387,17 @@ git_repository *GitWrapper::openRepository()
 QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
 {
     if (repo == nullptr)
-        return QDateTime();
+        return {};
     git_oid oid_parent_commit; /* the SHA1 for last commit */
     int error = git_reference_name_to_id(&oid_parent_commit, repo, "HEAD");
     if (error < 0)
-        return QDateTime();
+        return {};
 
     git_commit *head = nullptr;
     error = git_commit_lookup(&head, repo, &oid_parent_commit);
     if (error < 0)
-        return QDateTime();
-    int64_t time = static_cast<int64_t>(git_commit_time(head));
+        return {};
+    auto time = static_cast<int64_t>(git_commit_time(head));
 
     QDateTime date;
     QTime t(0, 0, 0);

@@ -91,9 +91,7 @@ HTMLExporter::HTMLExporter(BasketScene *basket)
     dialog->setValue(dialog->value() + 1); // Finishing finished
 }
 
-HTMLExporter::~HTMLExporter()
-{
-}
+HTMLExporter::~HTMLExporter() = default;
 
 void HTMLExporter::prepareExport(BasketScene *basket, const QString &fullPath)
 {
@@ -361,7 +359,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     stream << " </head>\n"
               " <body>\n"
               "  <h1><img src=\""
-           << QUrl(basketIcon32).toString() << "\" width=\"32\" height=\"32\" alt=\"\"> " << Tools::textToHTMLWithoutP(basket->basketName()) << "</h1>\n";
+           << QUrl(basketIcon32).toString() << R"(" width="32" height="32" alt=""> )" << Tools::textToHTMLWithoutP(basket->basketName()) << "</h1>\n";
 
     if (withBasketTree)
         writeBasketTree(basket);
@@ -375,7 +373,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
 
     stream << "  <div class=\"basketSurrounder\">\n";
 
-    stream << "   <div class=\"basket\" style=\"position: relative; min-width: 100%; min-height: calc(100vh - 100px); ";
+    stream << R"(   <div class="basket" style="position: relative; min-width: 100%; min-height: calc(100vh - 100px); )";
     if (!basket->isColumnsLayout()) {
         stream << "height: " << basket->sceneRect().height() << "px; width: " << basket->sceneRect().width() << "px; ";
     }
@@ -475,11 +473,11 @@ void HTMLExporter::exportNote(Note *note, int indent)
         for (Note *child = note->firstChild(); child; child = child->next()) {
             stream << spaces.fill(QLatin1Char(' '), indent);
             if (i == 0)
-                stream << " <tr><td class=\"groupHandle\"><img src=\"" << QUrl(imagesFolderName).toString()
+                stream << R"( <tr><td class="groupHandle"><img src=")" << QUrl(imagesFolderName).toString()
                        << (note->isFolded() ? "expand_group_" : "fold_group_") << backgroundColorName << ".png"
                        << "\" width=\"" << Note::EXPANDER_WIDTH << "\" height=\"" << Note::EXPANDER_HEIGHT << "\"></td>\n";
             else if (i == 1)
-                stream << " <tr><td class=\"freeSpace\" rowspan=\"" << note->countDirectChilds() << "\"></td>\n";
+                stream << R"( <tr><td class="freeSpace" rowspan=")" << note->countDirectChilds() << "\"></td>\n";
             else
                 stream << " <tr>\n";
             stream << spaces.fill(QLatin1Char(' '), indent) << "  <td>";
@@ -553,7 +551,7 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
            << spanStyle << " title=\"" << Tools::textToHTMLWithoutP(basket->basketName())
            << "\">"
               "<img src=\""
-           << iconsFolderName << copyIcon(basket->icon(), 16) << "\" width=\"16\" height=\"16\" alt=\"\">" << Tools::textToHTMLWithoutP(basket->basketName())
+           << iconsFolderName << copyIcon(basket->icon(), 16) << R"(" width="16" height="16" alt="">)" << Tools::textToHTMLWithoutP(basket->basketName())
            << "</span></a>";
 
     // Write the sub-baskets lines & end the current one:
@@ -577,7 +575,7 @@ void HTMLExporter::writeBasketTree(BasketScene *currentBasket, BasketScene *bask
 QString HTMLExporter::copyIcon(const QString &iconName, int size)
 {
     if (iconName.isEmpty()) {
-        return QString();
+        return {};
     }
 
     // Sometimes icon can be "favicons/www.kde.org", we replace the '/' with a '_'

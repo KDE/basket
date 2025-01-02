@@ -38,7 +38,7 @@ ServiceLaunchRequester::ServiceLaunchRequester(const QString serviceLauncher, co
     , m_serviceLauncher(serviceLauncher)
     , m_message(message)
 {
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
     m_serviceChooser = new QPushButton(this);
     setServiceLauncher(serviceLauncher);
     layout->addWidget(m_serviceChooser);
@@ -46,9 +46,7 @@ ServiceLaunchRequester::ServiceLaunchRequester(const QString serviceLauncher, co
     connect(m_serviceChooser, &QPushButton::clicked, this, &ServiceLaunchRequester::slotSelCommand);
 }
 
-ServiceLaunchRequester::~ServiceLaunchRequester()
-{
-}
+ServiceLaunchRequester::~ServiceLaunchRequester() = default;
 
 void ServiceLaunchRequester::slotSelCommand()
 {
@@ -91,7 +89,7 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
     if (service && service->isApplication()) {
         KIconLoader *iconLoader = KIconLoader::global();
 
-        iconPath = iconLoader->iconPath(service->icon(), KIconLoader::Desktop, 24);
+        iconPath = iconLoader->iconPath(service->icon(), KIconLoader::Desktop, true);
 
         if (!iconPath.isEmpty()) {
             buttonIcon = QIcon(iconPath);
@@ -143,9 +141,7 @@ IconSizeCombo::IconSizeCombo(QWidget *parent)
     setCurrentIndex(2);
 }
 
-IconSizeCombo::~IconSizeCombo()
-{
-}
+IconSizeCombo::~IconSizeCombo() = default;
 
 int IconSizeCombo::iconSize()
 {
@@ -196,9 +192,9 @@ void IconSizeCombo::setSize(int size)
 ViewSizeDialog::ViewSizeDialog(QWidget *parent, int w, int h)
     : QDialog(parent)
 {
-    QLabel *label = new QLabel(i18n("Resize the window to select the image size\n"
-                                    "and close it or press Escape to accept changes."),
-                               this);
+    auto *label = new QLabel(i18n("Resize the window to select the image size\n"
+                                  "and close it or press Escape to accept changes."),
+                             this);
     label->move(8, 8);
     label->setFixedSize(label->sizeHint());
 
@@ -209,9 +205,7 @@ ViewSizeDialog::ViewSizeDialog(QWidget *parent, int w, int h)
     setGeometry(x(), y(), w, h);
 }
 
-ViewSizeDialog::~ViewSizeDialog()
-{
-}
+ViewSizeDialog::~ViewSizeDialog() = default;
 
 void ViewSizeDialog::resizeEvent(QResizeEvent *)
 {
@@ -230,9 +224,7 @@ HelpLabel::HelpLabel(const QString &text, const QString &message, QWidget *paren
     connect(this, SIGNAL(leftClickedUrl()), this, SLOT(display()));
 }
 
-HelpLabel::~HelpLabel()
-{
-}
+HelpLabel::~HelpLabel() = default;
 
 void HelpLabel::display()
 {
@@ -264,17 +256,17 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     // QDialog options
     setWindowTitle(caption);
 
-    QWidget *mainWidget = new QWidget(this);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainWidget = new QWidget(this);
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(mainWidget);
 
     setModal(true);
 
-    QWidget *page = new QWidget(this);
-    QVBoxLayout *topLayout = new QVBoxLayout(page);
+    auto *page = new QWidget(this);
+    auto *topLayout = new QVBoxLayout(page);
 
-    QLabel *label = new QLabel(message, page);
+    auto *label = new QLabel(message, page);
     topLayout->addWidget(label);
 
     QListWidget *iconView = new UndraggableKIconView(page);
@@ -323,7 +315,7 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
 
     mainLayout->addWidget(page);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
@@ -333,9 +325,7 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     connect(buttonBox->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &IconSizeDialog::slotCancel);
 }
 
-IconSizeDialog::~IconSizeDialog()
-{
-}
+IconSizeDialog::~IconSizeDialog() = default;
 
 void IconSizeDialog::slotSelectionChanged()
 {
@@ -425,9 +415,7 @@ FontSizeCombo::FontSizeCombo(bool rw, bool withDefault, QWidget *parent)
     // TODO: 01617 void KFontSizeAction::setFontSize( int size )
 }
 
-FontSizeCombo::~FontSizeCombo()
-{
-}
+FontSizeCombo::~FontSizeCombo() = default;
 
 void FontSizeCombo::textChangedInCombo(const QString &text)
 {

@@ -258,7 +258,7 @@ QPixmap *BackgroundManager::preview(const QString &image)
 
     // Then, try to load the preview from file:
     QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/backgrounds/previews/") + entry->name);
-    QPixmap *previewPixmap = new QPixmap(previewPath);
+    auto *previewPixmap = new QPixmap(previewPath);
     // Success:
     if (!previewPixmap->isNull()) {
         ///     qDebug() << "BackgroundManager: Loaded image preview for " << entry->location << " from file " << previewPath;
@@ -301,7 +301,7 @@ QPixmap *BackgroundManager::preview(const QString &image)
         height = MAX_HEIGHT;
     }
     // And create the resulting pixmap:
-    QPixmap *result = new QPixmap(width, height);
+    auto *result = new QPixmap(width, height);
     result->fill(PREVIEW_BG);
     QImage imageToScale = entry->pixmap->toImage();
     QPixmap pmScaled = QPixmap::fromImage(imageToScale.scaled(width, height, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
@@ -323,7 +323,7 @@ QString BackgroundManager::pathForImageName(const QString &image)
 {
     BackgroundEntry *entry = backgroundEntryFor(image);
     if (entry == nullptr) {
-        return QString();
+        return {};
     } else
         return entry->location;
 }
@@ -332,12 +332,12 @@ QString BackgroundManager::previewPathForImageName(const QString &image)
 {
     BackgroundEntry *entry = backgroundEntryFor(image);
     if (entry == nullptr) {
-        return QString();
+        return {};
     } else {
         QString previewPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/backgrounds/previews/") + entry->name);
         QDir dir;
         if (!dir.exists(previewPath))
-            return QString();
+            return {};
         else
             return previewPath;
     }

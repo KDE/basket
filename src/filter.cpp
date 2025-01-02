@@ -28,7 +28,7 @@
 FilterBar::FilterBar(QWidget *parent)
     : QWidget(parent) /*, m_blinkTimer(this), m_blinkedTimes(0)*/
 {
-    QHBoxLayout *hBox = new QHBoxLayout(this);
+    auto *hBox = new QHBoxLayout(this);
 
     // Create every widgets:
     // (Aaron Seigo says we don't need to worry about the
@@ -43,11 +43,11 @@ FilterBar::FilterBar(QWidget *parent)
     m_resetButton->setAutoRaise(true);
     // new KToolBarButton("locationbar_erase", /*id=*/1230, this, /*name=*/0, i18n("Reset Filter"));
     m_lineEdit = new QLineEdit(this);
-    QLabel *label = new QLabel(this);
+    auto *label = new QLabel(this);
     label->setText(i18n("&Filter: "));
     label->setBuddy(m_lineEdit);
     m_tagsBox = new KComboBox(this);
-    QLabel *label2 = new QLabel(this);
+    auto *label2 = new QLabel(this);
     label2->setText(i18n("T&ag: "));
     label2->setBuddy(m_tagsBox);
     m_inAllBasketsButton = new QToolButton(this);
@@ -82,15 +82,13 @@ FilterBar::FilterBar(QWidget *parent)
     // connect(m_inAllBasketsButton, SIGNAL(clicked()), this, SLOT(inAllBaskets()));
     m_inAllBasketsButton->setDefaultAction(Global::bnpView->m_actFilterAllBaskets);
 
-    FocusWidgetFilter *lineEditF = new FocusWidgetFilter(m_lineEdit);
+    auto *lineEditF = new FocusWidgetFilter(m_lineEdit);
     m_tagsBox->installEventFilter(lineEditF);
     connect(lineEditF, &FocusWidgetFilter::escapePressed, this, &FilterBar::reset);
     connect(lineEditF, &FocusWidgetFilter::returnPressed, this, &FilterBar::changeFilter);
 }
 
-FilterBar::~FilterBar()
-{
-}
+FilterBar::~FilterBar() = default;
 
 void FilterBar::setFilterData(const FilterData &data)
 {
