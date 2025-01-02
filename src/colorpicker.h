@@ -25,7 +25,7 @@ class ColorPicker : public QObject
     Q_OBJECT
 public:
     explicit ColorPicker(QObject *parent = nullptr);
-    virtual ~ColorPicker() override = default;
+    ~ColorPicker() override = default;
 
 public Q_SLOTS:
     /**
