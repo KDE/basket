@@ -142,8 +142,6 @@ else()
 endif()
 
 
-#TODO: find meinproc
-
 #Make libbasketcommon search for translations in basket.mo
 add_definitions(-DTRANSLATION_DOMAIN=\"basket\")
 add_definitions(-DQT_NO_KEYWORDS)
