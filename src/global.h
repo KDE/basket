@@ -31,8 +31,6 @@ class BASKET_EXPORT Global
 private:
     static QString s_customSavesFolder;
 
-    static void initializeGitRepository(QString folder);
-
 public:
     // Global Variables:
     static DebugWindow *debugWindow;
