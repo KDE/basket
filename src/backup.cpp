@@ -47,10 +47,9 @@ const QString backupMagicFolder = QStringLiteral("BasKet-Note-Pads_Backup");
 
 /** class BackupDialog: */
 
-BackupDialog::BackupDialog(QWidget *parent, const char *name)
+BackupDialog::BackupDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setObjectName(name);
     setModal(true);
     setWindowTitle(i18n("Backup & Restore"));
 

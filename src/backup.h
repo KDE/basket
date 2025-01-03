@@ -22,7 +22,7 @@ class BackupDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit BackupDialog(QWidget *parent = nullptr, const char *name = nullptr);
+    explicit BackupDialog(QWidget *parent = nullptr);
     ~BackupDialog() override;
 private Q_SLOTS:
     void moveToAnotherFolder();
@@ -32,7 +32,7 @@ private Q_SLOTS:
     void populateLastBackup();
 
 private:
-    QLabel *m_lastBackup;
+    QLabel *m_lastBackup = nullptr;
 };
 
 /**

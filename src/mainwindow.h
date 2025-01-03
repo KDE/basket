@@ -28,13 +28,9 @@ public:
     /** Constructor, initializer and destructor */
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+    void ensurePolished();
 
-private:
-    void setupActions();
 public Q_SLOTS:
-    bool askForQuit();
-    /** Settings **/
-    SettingsDialog *settings();
     //  void toggleToolBar();
     void toggleStatusBar();
     void showShortcutsSettingsDialog();
@@ -51,22 +47,21 @@ protected:
     void resizeEvent(QResizeEvent *) override;
     void moveEvent(QMoveEvent *) override;
 
-public:
-    void ensurePolished();
-
 private:
-    // Settings actions :
-    //  KToggleAction *m_actShowToolbar;
-    KToggleAction *m_actShowStatusbar;
-    QAction *actQuit;
-    QAction *actAppConfig;
+    bool askForQuit();
+    /** Settings **/
+    SettingsDialog *settings();
+
+    void setupActions();
+
+    KToggleAction *m_actShowStatusbar = nullptr;
+    QAction *actQuit = nullptr;
+    QAction *actAppConfig = nullptr;
     QList<QAction *> actBasketsList;
-
-private:
-    QVBoxLayout *m_layout;
-    BNPView *m_baskets;
+    QVBoxLayout *m_layout = nullptr;
+    BNPView *m_baskets = nullptr;
     bool m_startDocked;
-    SettingsDialog *m_settings;
+    SettingsDialog *m_settings = nullptr;
     bool m_quit;
 };
 
