@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-01 00:43+0000\n"
+"POT-Creation-Date: 2025-01-03 00:43+0000\n"
 "PO-Revision-Date: 2024-08-06 22:37+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -354,37 +354,37 @@ msgstr "&Ta reservekopi …"
 msgid "&Restore a Backup..."
 msgstr "&Gjenopprett frå reservekopi …"
 
-#: src/backup.cpp:142
+#: src/backup.cpp:140
 #, kde-format
 msgid "Last backup: never"
 msgstr "Siste reservekopi: aldri"
 
-#: src/backup.cpp:144
+#: src/backup.cpp:142
 #, kde-format
 msgid "Last backup: %1"
 msgstr "Siste reservekopi: %1"
 
-#: src/backup.cpp:152 src/backup.cpp:183
+#: src/backup.cpp:150 src/backup.cpp:181
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Vel mappa du vil flytta korgene til"
 
-#: src/backup.cpp:164
+#: src/backup.cpp:162
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr ""
 
-#: src/backup.cpp:165
+#: src/backup.cpp:163
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr ""
 
-#: src/backup.cpp:166 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:164 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr ""
 
-#: src/backup.cpp:176
+#: src/backup.cpp:174
 #, fuzzy, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -393,7 +393,7 @@ msgstr ""
 "Korgene er no flytte til <b>%1</b>. %2 vert starta på nytt for at desse "
 "endringane skal trå i kraft."
 
-#: src/backup.cpp:188
+#: src/backup.cpp:186
 #, fuzzy, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -402,44 +402,44 @@ msgstr ""
 "Lagringsmappa er no flytt til <b>%1</b>. %2 vert starta på nytt for at desse "
 "endringane skal trå i kraft."
 
-#: src/backup.cpp:200
+#: src/backup.cpp:198
 #, fuzzy, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Korger"
 
-#: src/backup.cpp:205 src/backup.cpp:254
+#: src/backup.cpp:203 src/backup.cpp:252
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar-arkiv komprimert med Gzip"
 
-#: src/backup.cpp:207 src/backup.cpp:256 src/bnpview.cpp:2045
+#: src/backup.cpp:205 src/backup.cpp:254 src/bnpview.cpp:2045
 #: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "Alle filer"
 
-#: src/backup.cpp:209 src/backup.cpp:217
+#: src/backup.cpp:207 src/backup.cpp:215
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Reservekopiering"
 
-#: src/backup.cpp:218
+#: src/backup.cpp:216
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Lagrar reservekopi av korger. Vent litt …"
 
-#: src/backup.cpp:259 src/bnpview.cpp:2093
+#: src/backup.cpp:257 src/bnpview.cpp:2093
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Opna korgarkiv"
 
-#: src/backup.cpp:270
+#: src/backup.cpp:268
 #, kde-format
 msgid "README.txt"
 msgstr "LESMEG.txt"
 
-#: src/backup.cpp:274
+#: src/backup.cpp:272
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -448,14 +448,14 @@ msgstr ""
 "Dette er ein reservekopi av korgene dine slik dei var før du begynte å "
 "gjenoppretta frå reservekopien %1."
 
-#: src/backup.cpp:277
+#: src/backup.cpp:275
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
 "restore, you can remove this folder."
 msgstr "Viss gjenopprettinga gjekk bra, kan du fjerna denne mappa."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:276
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -464,7 +464,7 @@ msgstr ""
 "Viss noko gjekk galt under gjenopprettinga, kan du bruka denne mappa til å "
 "lagra korgene dine i, slik at ingenting går tapt."
 
-#: src/backup.cpp:280
+#: src/backup.cpp:278
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -473,12 +473,12 @@ msgstr ""
 "Vel «Korg | Reservekopiar og gjenoppretting | Bruk ei gammal mappe» og vel "
 "den mappa."
 
-#: src/backup.cpp:284
+#: src/backup.cpp:282
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Gjenopprettar <b>%1</b>. Vent litt …"
 
-#: src/backup.cpp:285
+#: src/backup.cpp:283
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -487,12 +487,12 @@ msgstr ""
 "Viss noko går galt under gjenopprettingsprosessen, bør du lesa fila <b>%1</"
 "b>."
 
-#: src/backup.cpp:288
+#: src/backup.cpp:286
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Gjenopprett korger"
 
-#: src/backup.cpp:321
+#: src/backup.cpp:319
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -502,12 +502,12 @@ msgstr ""
 "øydelagt. Du kan derfor ikkje opna arkivet, og dei gamle korgene dine er "
 "framleis gjeldande."
 
-#: src/backup.cpp:322
+#: src/backup.cpp:320
 #, kde-format
 msgid "Restore Error"
 msgstr "Gjenopprettingsfeil"
 
-#: src/backup.cpp:331
+#: src/backup.cpp:329
 #, fuzzy, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -516,18 +516,18 @@ msgstr ""
 "Reservekopien din har blitt gjenoppretta til <b>%1</b>. %2 vert no starta på "
 "nytt for at desse endringane skal trå i kraft."
 
-#: src/backup.cpp:369
+#: src/backup.cpp:367
 #, kde-format
 msgid "Restart"
 msgstr "Start på nytt"
 
-#: src/backup.cpp:386
+#: src/backup.cpp:384
 #, fuzzy, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Plassering av &korgtre:"
 
-#: src/backup.cpp:393
+#: src/backup.cpp:391
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -584,17 +584,17 @@ msgstr "Klarte ikkje kopiera mal for den nye korga."
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr "Klarte ikkje tilpassa mal for den nye korga."
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:631
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:635
+#: src/basketlistview.cpp:633
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:638
+#: src/basketlistview.cpp:636
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -653,7 +653,7 @@ msgstr ""
 "</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:489 src/tagsedit.cpp:1114
+#: src/basketproperties.ui:27 src/settings.cpp:487 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
 msgstr "Utsjånad"
@@ -1178,7 +1178,7 @@ msgid ""
 msgstr ""
 "Legg eit tekst­notat til den gjeldande korga utan å måtta opna hovud­vindauget."
 
-#: src/bnpview.cpp:272 src/settings.cpp:571
+#: src/bnpview.cpp:272 src/settings.cpp:569
 #, kde-format
 msgid "Insert image note"
 msgstr "Set inn biletnotat"
@@ -1191,7 +1191,7 @@ msgid ""
 msgstr ""
 "Legg eit bilet­notat til den gjeldande korga utan å måtta opna hovud­vindauget."
 
-#: src/bnpview.cpp:278 src/settings.cpp:572
+#: src/bnpview.cpp:278 src/settings.cpp:570
 #, kde-format
 msgid "Insert link note"
 msgstr "Set inn lenkjenotat"
@@ -1204,7 +1204,7 @@ msgstr ""
 "Legg eit lenkje­notat til den gjeldande korga utan å måtta opna hovud­­"
 "vindauget."
 
-#: src/bnpview.cpp:284 src/settings.cpp:575
+#: src/bnpview.cpp:284 src/settings.cpp:573
 #, kde-format
 msgid "Insert color note"
 msgstr "Set inn fargenotat"
@@ -1231,7 +1231,7 @@ msgstr ""
 "Legg ein farge henta frå eit punkt på skjermen til den gjeldande korga utan "
 "å måtta opna hovud­vindauget."
 
-#: src/bnpview.cpp:297 src/settings.cpp:576
+#: src/bnpview.cpp:297 src/settings.cpp:574
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Hent skjermbilete"
@@ -1779,7 +1779,7 @@ msgstr ""
 msgid "Album"
 msgstr ""
 
-#: src/file_metadata.cpp:27 src/tag.cpp:721
+#: src/file_metadata.cpp:27 src/tag.cpp:719
 #, kde-format
 msgid "Title"
 msgstr "Tittel"
@@ -1829,12 +1829,12 @@ msgstr "&Merkelapp: "
 msgid "Filter All Baskets"
 msgstr "Filtrer alle korger."
 
-#: src/filter.cpp:134
+#: src/filter.cpp:132
 #, kde-format
 msgid "(Not tagged)"
 msgstr "(Utan merkelapp)"
 
-#: src/filter.cpp:135
+#: src/filter.cpp:133
 #, kde-format
 msgid "(Tagged)"
 msgstr "(Merkelapp)"
@@ -1875,37 +1875,37 @@ msgstr "Eksporter til HTML"
 msgid "Exporting to HTML. Please wait..."
 msgstr "Eksporter til HTML. Vent litt …"
 
-#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr ""
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:120 src/htmlexporter.cpp:165
 #, fuzzy, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "Ikon."
 
-#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
+#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:167
 #, fuzzy, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "Bilete"
 
-#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:163
 #, fuzzy, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "Korger"
 
-#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
+#: src/htmlexporter.cpp:155 src/htmlexporter.cpp:161 src/htmlexporter.cpp:162
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr ""
 
-#: src/htmlexporter.cpp:404
+#: src/htmlexporter.cpp:402
 #, fuzzy, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
@@ -1913,8 +1913,8 @@ msgid ""
 msgstr ""
 "Laga med %1 – eit KDE-verktøy for lett tilgang til all slags informasjon."
 
-#: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:507
-#: src/variouswidgets.cpp:415
+#: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
+#: src/variouswidgets.cpp:405
 #, kde-format
 msgid "(Default)"
 msgstr "(Standard)"
@@ -1984,87 +1984,87 @@ msgstr "Ugyldig passord."
 msgid "Please enter a new password:"
 msgstr "&Vern korga med passord"
 
-#: src/linklabel.cpp:606
+#: src/linklabel.cpp:604
 #, kde-format
 msgid "I&talic"
 msgstr "&Kursiv"
 
-#: src/linklabel.cpp:609
+#: src/linklabel.cpp:607
 #, kde-format
 msgid "&Bold"
 msgstr "&Halvfeit"
 
-#: src/linklabel.cpp:617
+#: src/linklabel.cpp:615
 #, kde-format
 msgid "Always"
 msgstr "Alltid"
 
-#: src/linklabel.cpp:618
+#: src/linklabel.cpp:616
 #, kde-format
 msgid "Never"
 msgstr "Aldri"
 
-#: src/linklabel.cpp:619
+#: src/linklabel.cpp:617
 #, kde-format
 msgid "On mouse hovering"
 msgstr "Når peikaren er over"
 
-#: src/linklabel.cpp:620
+#: src/linklabel.cpp:618
 #, kde-format
 msgid "When mouse is outside"
 msgstr "Når peikaren er utanfor"
 
-#: src/linklabel.cpp:622
+#: src/linklabel.cpp:620
 #, kde-format
 msgid "&Underline:"
 msgstr "&Understrek:"
 
-#: src/linklabel.cpp:629
+#: src/linklabel.cpp:627
 #, kde-format
 msgid "Colo&r:"
 msgstr "Fa&rge:"
 
-#: src/linklabel.cpp:636
+#: src/linklabel.cpp:634
 #, kde-format
 msgid "&Mouse hover color:"
 msgstr "Farge &med peikar over:"
 
-#: src/linklabel.cpp:645
+#: src/linklabel.cpp:643
 #, kde-format
 msgid "&Icon size:"
 msgstr "&Ikonstorleik:"
 
-#: src/linklabel.cpp:651
+#: src/linklabel.cpp:649
 #, kde-format
 msgid "None"
 msgstr "Ingen"
 
-#: src/linklabel.cpp:652
+#: src/linklabel.cpp:650
 #, kde-format
 msgid "Icon size"
 msgstr "Ikonstorleik"
 
-#: src/linklabel.cpp:653
+#: src/linklabel.cpp:651
 #, kde-format
 msgid "Twice the icon size"
 msgstr "Dobbel ikonstorleik"
 
-#: src/linklabel.cpp:654
+#: src/linklabel.cpp:652
 #, kde-format
 msgid "Three times the icon size"
 msgstr "Trippel ikonstorleik"
 
-#: src/linklabel.cpp:656
+#: src/linklabel.cpp:654
 #, kde-format
 msgid "&Preview:"
 msgstr "F&ørehandsvising:"
 
-#: src/linklabel.cpp:659
+#: src/linklabel.cpp:657
 #, kde-format
 msgid "You disabled preview but still see images?"
 msgstr "Har du slått av førehandsvising men ser framleis bilete?"
 
-#: src/linklabel.cpp:660
+#: src/linklabel.cpp:658
 #, kde-format
 msgid ""
 "<p>This is normal because there are several type of notes.<br>This setting "
@@ -2091,7 +2091,7 @@ msgstr ""
 "gå til «Generelt»-kategorien og fjerna krysset for «Bilete og animasjonar» "
 "under overskrifta «Vis innhald av filer av følgjande typa».</p>"
 
-#: src/linklabel.cpp:677
+#: src/linklabel.cpp:675
 #, kde-format
 msgid "Example"
 msgstr "Eksempel"
@@ -2126,17 +2126,17 @@ msgstr "Bakgrunnsfarge"
 msgid "&Manage Templates..."
 msgstr "&Handter malar …"
 
-#: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:316
+#: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:314
 #, kde-format
 msgid "One column"
 msgstr "Éin kolonne"
 
-#: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:318
+#: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:316
 #, kde-format
 msgid "Two columns"
 msgstr "To kolonnar"
 
-#: src/newbasketdialog.cpp:175 src/newbasketdialog.cpp:320
+#: src/newbasketdialog.cpp:175 src/newbasketdialog.cpp:318
 #, kde-format
 msgid "Three columns"
 msgstr "Tre kolonnar"
@@ -2182,12 +2182,12 @@ msgstr ""
 "sider.</li><li>Lag grupper med korger som skal eksporterast saman (for "
 "eksempel for å senda dei som e-postvedlegg til andre).</li></ul>"
 
-#: src/newbasketdialog.cpp:322
+#: src/newbasketdialog.cpp:320
 #, kde-format
 msgid "Free-form"
 msgstr "Flytande"
 
-#: src/newbasketdialog.cpp:324
+#: src/newbasketdialog.cpp:322
 #, kde-format
 msgid "Mind map"
 msgstr "Tankekart"
@@ -2237,7 +2237,7 @@ msgstr "Karakter"
 msgid "Launcher"
 msgstr "Program"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1211
+#: src/notecontent.cpp:111 src/noteedit.cpp:1201
 #, kde-format
 msgid "Color"
 msgstr "Farge"
@@ -2367,7 +2367,7 @@ msgstr "Opna tekstar med:"
 msgid "Size"
 msgstr "Storleik"
 
-#: src/notecontent.cpp:1247 src/variouswidgets.cpp:218
+#: src/notecontent.cpp:1247 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 × %2 pikslar"
@@ -2705,12 +2705,12 @@ msgstr "Rediger lenkjenotat"
 msgid "Auto"
 msgstr "Auto"
 
-#: src/noteedit.cpp:731 src/noteedit.cpp:1061
+#: src/noteedit.cpp:731 src/noteedit.cpp:1057
 #, kde-format
 msgid "&Icon:"
 msgstr "&Ikon:"
 
-#: src/noteedit.cpp:774 src/noteedit.cpp:947
+#: src/noteedit.cpp:774 src/noteedit.cpp:945
 #, kde-format
 msgid "Ta&rget:"
 msgstr "&Mål:"
@@ -2720,97 +2720,97 @@ msgstr "&Mål:"
 msgid "&Title:"
 msgstr "&Tittel:"
 
-#: src/noteedit.cpp:914
+#: src/noteedit.cpp:912
 #, fuzzy, kde-format
 msgid "Edit Cross Reference"
 msgstr "Karakter"
 
-#: src/noteedit.cpp:1035
+#: src/noteedit.cpp:1031
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Rediger programstartarnotat"
 
-#: src/noteedit.cpp:1049
+#: src/noteedit.cpp:1045
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Vel kommandoen som skal køyrast:"
 
-#: src/noteedit.cpp:1066
+#: src/noteedit.cpp:1062
 #, kde-format
 msgid "&Guess"
 msgstr "&Gjett"
 
-#: src/noteedit.cpp:1084
+#: src/noteedit.cpp:1080
 #, kde-format
 msgid "Comman&d:"
 msgstr "&Kommando:"
 
-#: src/noteedit.cpp:1089 src/tagsedit.cpp:390
+#: src/noteedit.cpp:1085 src/tagsedit.cpp:386
 #, kde-format
 msgid "&Name:"
 msgstr "&Namn:"
 
-#: src/noteedit.cpp:1193
+#: src/noteedit.cpp:1183
 #, fuzzy, kde-format
 msgid "Font"
 msgstr "S&krift:"
 
-#: src/noteedit.cpp:1201
+#: src/noteedit.cpp:1191
 #, fuzzy, kde-format
 msgid "Font Size"
 msgstr "Ikonstorleik"
 
-#: src/noteedit.cpp:1216 src/tagsedit.cpp:472
+#: src/noteedit.cpp:1206 src/tagsedit.cpp:468
 #, kde-format
 msgid "Bold"
 msgstr "Halvfeit"
 
-#: src/noteedit.cpp:1223 src/tagsedit.cpp:484
+#: src/noteedit.cpp:1213 src/tagsedit.cpp:480
 #, fuzzy, kde-format
 msgid "Italic"
 msgstr "&Kursiv"
 
-#: src/noteedit.cpp:1230 src/tagsedit.cpp:478
+#: src/noteedit.cpp:1220 src/tagsedit.cpp:474
 #, kde-format
 msgid "Underline"
 msgstr "Understrek"
 
-#: src/noteedit.cpp:1238
+#: src/noteedit.cpp:1228
 #, kde-format
 msgid "Superscript"
 msgstr ""
 
-#: src/noteedit.cpp:1244
+#: src/noteedit.cpp:1234
 #, kde-format
 msgid "Subscript"
 msgstr ""
 
-#: src/noteedit.cpp:1251
+#: src/noteedit.cpp:1241
 #, kde-format
 msgid "Align Left"
 msgstr "Venstrejuster"
 
-#: src/noteedit.cpp:1257
+#: src/noteedit.cpp:1247
 #, kde-format
 msgid "Centered"
 msgstr "Midtstill"
 
-#: src/noteedit.cpp:1263
+#: src/noteedit.cpp:1253
 #, kde-format
 msgid "Align Right"
 msgstr "Høgrejuster"
 
-#: src/noteedit.cpp:1269
+#: src/noteedit.cpp:1259
 #, kde-format
 msgid "Justified"
 msgstr "Blokkjuster"
 
-#: src/noteedit.cpp:1281
+#: src/noteedit.cpp:1271
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: src/noteedit.cpp:1287
+#: src/noteedit.cpp:1277
 #, kde-format
 msgid "Redo"
 msgstr ""
@@ -2870,7 +2870,7 @@ msgid "Load File Content into a Note"
 msgstr "Lagra filinnhald som notat"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:594
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:592
 #, kde-format
 msgid "Password Protection"
 msgstr "Passordvern"
@@ -2898,92 +2898,92 @@ msgstr "&Vern korga med passord"
 msgid "Protect basket with private &key:"
 msgstr "V&ern korga med privatnøkkel:"
 
-#: src/regiongrabber.cpp:103
+#: src/regiongrabber.cpp:101
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
 
-#: src/settings.cpp:437
+#: src/settings.cpp:435
 #, kde-format
 msgid "On left"
 msgstr "Til venstre"
 
-#: src/settings.cpp:438
+#: src/settings.cpp:436
 #, kde-format
 msgid "On right"
 msgstr "Til høgre"
 
-#: src/settings.cpp:440
+#: src/settings.cpp:438
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "Plassering av &korgtre:"
 
-#: src/settings.cpp:445 src/settings.cpp:703
+#: src/settings.cpp:443 src/settings.cpp:701
 #, kde-format
 msgid "On top"
 msgstr "Øvst"
 
-#: src/settings.cpp:446 src/settings.cpp:704
+#: src/settings.cpp:444 src/settings.cpp:702
 #, kde-format
 msgid "On bottom"
 msgstr "Nedst"
 
-#: src/settings.cpp:448
+#: src/settings.cpp:446
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "Plassering av &filterlinje:"
 
-#: src/settings.cpp:494
+#: src/settings.cpp:492
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "V&is verktøytips i korger"
 
-#: src/settings.cpp:498
+#: src/settings.cpp:496
 #, kde-format
 msgid "&Big notes"
 msgstr "S&tore notat"
 
-#: src/settings.cpp:504
+#: src/settings.cpp:502
 #, kde-format
 msgid "Behavior"
 msgstr "Åtferd"
 
-#: src/settings.cpp:509
+#: src/settings.cpp:507
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "&Gjer om linjer som startar med «*» eller «-» til lister i "
 "teksthandsamingsverktøy."
 
-#: src/settings.cpp:513
+#: src/settings.cpp:511
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "&Spør før sletting av notat"
 
-#: src/settings.cpp:517
+#: src/settings.cpp:515
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr ""
 
-#: src/settings.cpp:521
+#: src/settings.cpp:519
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr ""
 
-#: src/settings.cpp:528
+#: src/settings.cpp:526
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Eksporter merkelappar i tekstar"
 
 # skip-rule: komma-leddsetning-naar
-#: src/settings.cpp:532
+#: src/settings.cpp:530
 #, kde-format
 msgid "When does this apply?"
 msgstr "Når vert dette brukt?"
 
-#: src/settings.cpp:533
+#: src/settings.cpp:531
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -2992,14 +2992,14 @@ msgstr ""
 "Tekst­­ekvivalenten vert brukt når du kopierer og lim inn eller dreg notat til "
 "eit skrive­­program."
 
-#: src/settings.cpp:534
+#: src/settings.cpp:532
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr "Lèt deg lima inn merke­lappar som rein­tekst­ekvivalentar."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:535 src/tagsedit.cpp:528
+#: src/settings.cpp:533 src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3010,17 +3010,17 @@ msgstr ""
 "visast med teksten <b>[ ]</b> eller <b>[x]</b>, som symboliserer ein tom og "
 "ein avkryssa avkryssingsboks."
 
-#: src/settings.cpp:547
+#: src/settings.cpp:545
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Grupper nye notat ved å klikka til høgre på innsetjingslinja"
 
-#: src/settings.cpp:549
+#: src/settings.cpp:547
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Korleis gruppera nye notat?"
 
-#: src/settings.cpp:550
+#: src/settings.cpp:548
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3030,7 +3030,7 @@ msgstr ""
 "<p>Dette valet lèt deg ikkje berre setja inn notat ved markør­plasseringa, "
 "men lèt deg òg gruppera eit nytt notat med notatet nedan­for:</p>"
 
-#: src/settings.cpp:553
+#: src/settings.cpp:551
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3043,187 +3043,187 @@ msgstr ""
 "b> eit notat.<br>Trykk til <b>høgre</b> for å <b>gruppera</b> eit notat med "
 "notatet <b>ovan­for eller nedan­for</b>, avhengig av kor peikaren er.</p>"
 
-#: src/settings.cpp:569
+#: src/settings.cpp:567
 #, kde-format
 msgid "Do nothing"
 msgstr "Ikkje gjer noko"
 
-#: src/settings.cpp:570
+#: src/settings.cpp:568
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Lim inn frå utklippstavle"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:571
 #, fuzzy, kde-format
 msgid "Insert cross reference"
 msgstr "Vel farge frå skjerm"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:572
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Set inn programnotat"
 
-#: src/settings.cpp:577
+#: src/settings.cpp:575
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Vel farge frå skjerm"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:576
 #, kde-format
 msgid "Load note from file"
 msgstr "Hent notat frå fil"
 
-#: src/settings.cpp:579
+#: src/settings.cpp:577
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr ""
 
-#: src/settings.cpp:580
+#: src/settings.cpp:578
 #, kde-format
 msgid "Import icon"
 msgstr "Importer ikon"
 
-#: src/settings.cpp:583
+#: src/settings.cpp:581
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift + midtklikk:"
 
-#: src/settings.cpp:588
+#: src/settings.cpp:586
 #, kde-format
 msgid "at cursor position"
 msgstr "ved markørplassering"
 
-#: src/settings.cpp:603
+#: src/settings.cpp:601
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "&Lås automatisk passordverna korger når dei har vore lukke i"
 
-#: src/settings.cpp:607
+#: src/settings.cpp:605
 #, kde-format
 msgid " minutes"
 msgstr " minutt"
 
-#: src/settings.cpp:618
+#: src/settings.cpp:616
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Br&uk GnuPG agent for korger verna med privat-/offentlegnøkkel"
 
-#: src/settings.cpp:700
+#: src/settings.cpp:698
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Plassering av nye notat:"
 
-#: src/settings.cpp:705
+#: src/settings.cpp:703
 #, kde-format
 msgid "At current note"
 msgstr "Ved gjeldande notat"
 
-#: src/settings.cpp:724
+#: src/settings.cpp:722
 #, kde-format
 msgid "&New images size:"
 msgstr "Storleik for &nye bilete:"
 
-#: src/settings.cpp:737
+#: src/settings.cpp:735
 #, kde-format
 msgid "&by"
 msgstr "&gongar"
 
-#: src/settings.cpp:742
+#: src/settings.cpp:740
 #, kde-format
 msgid "pixels"
 msgstr "pikslar"
 
-#: src/settings.cpp:744
+#: src/settings.cpp:742
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Visualiser …"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:750
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Vis innhald av filer av følgjande type"
 
-#: src/settings.cpp:754
+#: src/settings.cpp:752
 #, kde-format
 msgid "&Plain text"
 msgstr "&Reintekst"
 
-#: src/settings.cpp:755
+#: src/settings.cpp:753
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML-side"
 
-#: src/settings.cpp:756
+#: src/settings.cpp:754
 #, kde-format
 msgid "&Image or animation"
 msgstr "Bilete &og animasjonar"
 
-#: src/settings.cpp:757
+#: src/settings.cpp:755
 #, kde-format
 msgid "&Sound"
 msgstr "&Lyd"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:823
 #, kde-format
 msgid "Conference audio record"
 msgstr "Lydopptak frå konferanse"
 
-#: src/settings.cpp:826
+#: src/settings.cpp:824
 #, kde-format
 msgid "Annual report"
 msgstr "Årsrapport"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:825
 #, kde-format
 msgid "Home folder"
 msgstr "Heimemappe"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:827
 #, kde-format
 msgid "Launch %1"
 msgstr "Start %1"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:828
 #, fuzzy, kde-format
 msgid "Another basket"
 msgstr "&Vis denne korga"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:830
 #, kde-format
 msgid "&Sounds"
 msgstr "&Lydar"
 
-#: src/settings.cpp:833
+#: src/settings.cpp:831
 #, kde-format
 msgid "&Files"
 msgstr "&Filer"
 
-#: src/settings.cpp:834
+#: src/settings.cpp:832
 #, kde-format
 msgid "&Local Links"
 msgstr "&Lokale lenkjer"
 
-#: src/settings.cpp:835
+#: src/settings.cpp:833
 #, kde-format
 msgid "&Network Links"
 msgstr "&Nettverkslenkjer"
 
-#: src/settings.cpp:836
+#: src/settings.cpp:834
 #, kde-format
 msgid "Launc&hers"
 msgstr "&Programstartarar"
 
-#: src/settings.cpp:837
+#: src/settings.cpp:835
 #, fuzzy, kde-format
 msgid "&Cross References"
 msgstr "Karakter"
 
-#: src/settings.cpp:878
+#: src/settings.cpp:876
 #, kde-format
 msgid "General Launch Associations"
 msgstr ""
 
-#: src/settings.cpp:881
+#: src/settings.cpp:879
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3242,7 +3242,7 @@ msgid ""
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
 
-#: src/settings.cpp:895
+#: src/settings.cpp:893
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3261,7 +3261,7 @@ msgid ""
 "browser), read the third button tooltip.</p>"
 msgstr ""
 
-#: src/settings.cpp:909
+#: src/settings.cpp:907
 #, fuzzy, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3291,64 +3291,64 @@ msgstr ""
 "lesaren din som første opp­føring i program­lista.</li><li>Gjer så det same "
 "for typen «application / xhtml+xml».</li></ul>"
 
-#: src/settings.cpp:957
+#: src/settings.cpp:955
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr ""
 
-#: src/settings.cpp:959
+#: src/settings.cpp:957
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Opna &tekstnotat med sjølvvald program:"
 
-#: src/settings.cpp:960
+#: src/settings.cpp:958
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Opna tekstnotat med:"
 
-#: src/settings.cpp:967
+#: src/settings.cpp:965
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Opna &biletnotat med sjølvvald program:"
 
-#: src/settings.cpp:968
+#: src/settings.cpp:966
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Opna biletnotat med:"
 
-#: src/settings.cpp:975
+#: src/settings.cpp:973
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Opna ani&masjonsnotat med sjølvvald program:"
 
-#: src/settings.cpp:976
+#: src/settings.cpp:974
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Opna animasjonsnotat med:"
 
-#: src/settings.cpp:983
+#: src/settings.cpp:981
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Opna &lydnotat med sjølvvald program:"
 
-#: src/settings.cpp:984
+#: src/settings.cpp:982
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Opna lydnotat med:"
 
-#: src/settings.cpp:991
+#: src/settings.cpp:989
 #, fuzzy, kde-format
 #| msgid "Open &text notes with a custom application:"
 msgid "Open http link notes with a custom application:"
 msgstr "Opna &tekstnotat med sjølvvald program:"
 
-#: src/settings.cpp:992
+#: src/settings.cpp:990
 #, fuzzy, kde-format
 #| msgid "Open text notes with:"
 msgid "Open http link notes with:"
 msgstr "Opna tekstnotat med:"
 
-#: src/settings.cpp:1000
+#: src/settings.cpp:998
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3359,7 +3359,7 @@ msgstr ""
 "notat av denne typen.</p><p>Elles vert standardprogrammet (sett opp i "
 "Konqueror) brukt.</p>"
 
-#: src/settings.cpp:1010
+#: src/settings.cpp:1008
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
@@ -3444,370 +3444,370 @@ msgstr "&Førstenivåkorg i kvar si korg"
 msgid "&All notes in one basket"
 msgstr "&Alle notat i éi korg"
 
-#: src/softwareimporters.cpp:111
+#: src/softwareimporters.cpp:109
 #, kde-format
 msgid "Import Text File"
 msgstr "Importer tekstfil"
 
-#: src/softwareimporters.cpp:115
+#: src/softwareimporters.cpp:113
 #, kde-format
 msgid "Format of the Text File"
 msgstr "Format på tekstfila"
 
-#: src/softwareimporters.cpp:120
+#: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes separated by an &empty line"
 msgstr "Notat skilde med ei &tom linje"
 
-#: src/softwareimporters.cpp:121
+#: src/softwareimporters.cpp:119
 #, kde-format
 msgid "One &note per line"
 msgstr "Eitt notat for &kvar linje"
 
-#: src/softwareimporters.cpp:122
+#: src/softwareimporters.cpp:120
 #, kde-format
 msgid "Notes begin with a &dash (-)"
 msgstr "Notat startar med ein &strek («-»)"
 
-#: src/softwareimporters.cpp:123
+#: src/softwareimporters.cpp:121
 #, kde-format
 msgid "Notes begin with a &star (*)"
 msgstr "Notat startar med ei st&jerne («*»)"
 
-#: src/softwareimporters.cpp:124
+#: src/softwareimporters.cpp:122
 #, kde-format
 msgid "&Use another separator:"
 msgstr "&Bruk eit anna skiljeteikn:"
 
-#: src/softwareimporters.cpp:140
+#: src/softwareimporters.cpp:138
 #, kde-format
 msgid "&All in one note"
 msgstr "A&lt i eitt notat"
 
-#: src/softwareimporters.cpp:221
+#: src/softwareimporters.cpp:217
 #, kde-format
 msgctxt "From TextFile.txt"
 msgid "From %1"
 msgstr ""
 
-#: src/tag.cpp:82
+#: src/tag.cpp:80
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:592
 #, kde-format
 msgid "To Do"
 msgstr "Hugseliste"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:592
 #, kde-format
 msgid "Unchecked"
 msgstr "Ikkje fullført"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:592
 #, kde-format
 msgid "Done"
 msgstr "Fullført"
 
-#: src/tag.cpp:595
+#: src/tag.cpp:593
 #, kde-format
 msgid "Progress"
 msgstr "Framgang"
 
-#: src/tag.cpp:595
+#: src/tag.cpp:593
 #, kde-format
 msgid "0 %"
 msgstr "0 %"
 
-#: src/tag.cpp:595
+#: src/tag.cpp:593
 #, kde-format
 msgid "25 %"
 msgstr "25 %"
 
-#: src/tag.cpp:596
+#: src/tag.cpp:594
 #, kde-format
 msgid "50 %"
 msgstr "50 %"
 
-#: src/tag.cpp:596
+#: src/tag.cpp:594
 #, kde-format
 msgid "75 %"
 msgstr "75 %"
 
-#: src/tag.cpp:596
+#: src/tag.cpp:594
 #, kde-format
 msgid "100 %"
 msgstr "100 %"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:647
 #, kde-format
 msgid "Priority"
 msgstr "Prioritet"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:647
 #, kde-format
 msgid "Low"
 msgstr "Låg"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:647
 #, kde-format
 msgid "Medium"
 msgstr "Middels"
 
-#: src/tag.cpp:650
+#: src/tag.cpp:648
 #, kde-format
 msgid "High"
 msgstr "Høg"
 
-#: src/tag.cpp:650
+#: src/tag.cpp:648
 #, kde-format
 msgid "Preference"
 msgstr "Karakter"
 
-#: src/tag.cpp:650
+#: src/tag.cpp:648
 #, kde-format
 msgid "Bad"
 msgstr "Dårleg"
 
-#: src/tag.cpp:651
+#: src/tag.cpp:649
 #, kde-format
 msgid "Good"
 msgstr "God"
 
-#: src/tag.cpp:651
+#: src/tag.cpp:649
 #, kde-format
 msgid "Excellent"
 msgstr "Fantastisk"
 
-#: src/tag.cpp:651
+#: src/tag.cpp:649
 #, kde-format
 msgid "Highlight"
 msgstr "Uthev"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:718
 #, kde-format
 msgid "Important"
 msgstr "Viktig"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:718
 #, kde-format
 msgid "Very Important"
 msgstr "Veldig viktig"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:718
 #, fuzzy, kde-format
 msgid "Information"
 msgstr "Animasjon"
 
-#: src/tag.cpp:721
+#: src/tag.cpp:719
 #, kde-format
 msgid "Idea"
 msgstr "Idé"
 
-#: src/tag.cpp:721
+#: src/tag.cpp:719
 #, kde-format
 msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr ""
 
-#: src/tag.cpp:722
+#: src/tag.cpp:720
 #, kde-format
 msgid "Code"
 msgstr "Programkode"
 
-#: src/tag.cpp:722
+#: src/tag.cpp:720
 #, kde-format
 msgid "Work"
 msgstr "Arbeid"
 
-#: src/tag.cpp:722
+#: src/tag.cpp:720
 #, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
 msgstr ""
 
-#: src/tag.cpp:740
+#: src/tag.cpp:738
 #, kde-format
 msgid "Personal"
 msgstr "Personleg"
 
-#: src/tag.cpp:740
+#: src/tag.cpp:738
 #, kde-format
 msgctxt "The initial of 'Personal'"
 msgid "P."
 msgstr ""
 
-#: src/tag.cpp:740
+#: src/tag.cpp:738
 #, kde-format
 msgid "Funny"
 msgstr "Morosamt"
 
-#: src/tagsedit.cpp:316
+#: src/tagsedit.cpp:312
 #, kde-format
 msgid "Customize Tags"
 msgstr "Tilpass merkelappar"
 
-#: src/tagsedit.cpp:335
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "Ne&w Tag"
 msgstr "Ny &merkelapp"
 
-#: src/tagsedit.cpp:336
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "New St&ate"
 msgstr "Ny &tilstand"
 
-#: src/tagsedit.cpp:357
+#: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "Flytt opp («Ctrl + Shift + Pil opp»)"
 
-#: src/tagsedit.cpp:358
+#: src/tagsedit.cpp:354
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "Flytt ned («Ctrl + Shift + Pil ned»)"
 
-#: src/tagsedit.cpp:359
+#: src/tagsedit.cpp:355
 #, fuzzy, kde-format
 msgid "Delete"
 msgstr "&Slett"
 
-#: src/tagsedit.cpp:382
+#: src/tagsedit.cpp:378
 #, kde-format
 msgid "Tag"
 msgstr "Merkelapp"
 
-#: src/tagsedit.cpp:394
+#: src/tagsedit.cpp:390
 #, fuzzy, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "&Fjern alle"
 
-#: src/tagsedit.cpp:395
+#: src/tagsedit.cpp:391
 #, kde-format
 msgid "S&hortcut:"
 msgstr "&Snarveg:"
 
-#: src/tagsedit.cpp:400
+#: src/tagsedit.cpp:396
 #, kde-format
 msgid "&Inherited by new sibling notes"
 msgstr "A&rva av søskennotat"
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:398
 #, kde-format
 msgid "Allow Cross Reference Links"
 msgstr ""
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:401
 #, fuzzy, kde-format
 msgid "What does this do?"
 msgstr "Kva tyder dette?"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:403
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr ""
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:405
 #, fuzzy, kde-format
 msgid "Relative to the current basket:"
 msgstr "Lim inn utval i korg"
 
-#: src/tagsedit.cpp:410
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:410
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:411
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:412
+#: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr ""
 
-#: src/tagsedit.cpp:426 src/tagsedit.cpp:1107 src/tagsedit.cpp:1123
+#: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
 msgid "State"
 msgstr "Tilstand"
 
-#: src/tagsedit.cpp:434
+#: src/tagsedit.cpp:430
 #, kde-format
 msgid "Na&me:"
 msgstr "Na&mn:"
 
-#: src/tagsedit.cpp:442
+#: src/tagsedit.cpp:438
 #, fuzzy, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "&Fjern alle"
 
-#: src/tagsedit.cpp:443
+#: src/tagsedit.cpp:439
 #, kde-format
 msgid "&Emblem:"
 msgstr "&Emblem:"
 
-#: src/tagsedit.cpp:460
+#: src/tagsedit.cpp:456
 #, kde-format
 msgid "&Background:"
 msgstr "&Bakgrunn:"
 
-#: src/tagsedit.cpp:490
+#: src/tagsedit.cpp:486
 #, kde-format
 msgid "Strike Through"
 msgstr "Strek gjennom"
 
-#: src/tagsedit.cpp:492
+#: src/tagsedit.cpp:488
 #, kde-format
 msgid "&Text:"
 msgstr "&Tekst:"
 
-#: src/tagsedit.cpp:503
+#: src/tagsedit.cpp:499
 #, kde-format
 msgid "Co&lor:"
 msgstr "&Farge:"
 
-#: src/tagsedit.cpp:508
+#: src/tagsedit.cpp:504
 #, kde-format
 msgid "&Font:"
 msgstr "S&krift:"
 
-#: src/tagsedit.cpp:512
+#: src/tagsedit.cpp:508
 #, kde-format
 msgid "&Size:"
 msgstr "St&orleik:"
 
-#: src/tagsedit.cpp:516
+#: src/tagsedit.cpp:512
 #, kde-format
 msgid "Te&xt equivalent:"
 msgstr "Tekstek&vivalent:"
 
-#: src/tagsedit.cpp:523
+#: src/tagsedit.cpp:519
 #, fuzzy, kde-format
 msgid "What is this for?"
 msgstr "Kva er de&tte?"
 
-#: src/tagsedit.cpp:525
+#: src/tagsedit.cpp:521
 #, fuzzy, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3816,17 +3816,17 @@ msgstr ""
 "Tekst­­ekvivalenten vert brukt når du kopierer og lim inn eller dreg notat til "
 "eit skrive­­program."
 
-#: src/tagsedit.cpp:536
+#: src/tagsedit.cpp:532
 #, kde-format
 msgid "On ever&y line"
 msgstr "På &kvar linje"
 
-#: src/tagsedit.cpp:539
+#: src/tagsedit.cpp:535
 #, fuzzy, kde-format
 msgid "What does this mean?"
 msgstr "Kva tyder dette?"
 
-#: src/tagsedit.cpp:541
+#: src/tagsedit.cpp:537
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3835,7 +3835,7 @@ msgstr ""
 "Når eit notat har fleire linjer, kan du velja å eksportera merke­lappen eller "
 "tilstanden på anten første eller på alle linjene til notatet."
 
-#: src/tagsedit.cpp:543
+#: src/tagsedit.cpp:539
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3845,24 +3845,24 @@ msgstr ""
 "på første linje, mens merkelappen til det nedste notatet vert eksportert på "
 "alle linjene."
 
-#: src/tagsedit.cpp:983
+#: src/tagsedit.cpp:977
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
 msgstr ""
 "Viss du slettar merkelappen, vert han fjerna frå alle notata som har han."
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:978
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Stadfest fjerning av merkelapp"
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:979
 #, kde-format
 msgid "Delete Tag"
 msgstr "Fjern merkelapp"
 
-#: src/tagsedit.cpp:988
+#: src/tagsedit.cpp:982
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3870,12 +3870,12 @@ msgid ""
 msgstr ""
 "Viss du slettar tilstanden, vert han fjerna frå alle notata som har han."
 
-#: src/tagsedit.cpp:989
+#: src/tagsedit.cpp:983
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "Stadfest fjerning av tilstand"
 
-#: src/tagsedit.cpp:990
+#: src/tagsedit.cpp:984
 #, kde-format
 msgid "Delete State"
 msgstr "Slett tilstand"
@@ -3886,17 +3886,17 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr ""
 
+#: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
 #: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
-#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
-#: src/variouswidgets.cpp:283 src/variouswidgets.cpp:284
-#: src/variouswidgets.cpp:285 src/variouswidgets.cpp:286
-#: src/variouswidgets.cpp:287 src/variouswidgets.cpp:288
+#: src/variouswidgets.cpp:275 src/variouswidgets.cpp:276
+#: src/variouswidgets.cpp:277 src/variouswidgets.cpp:278
+#: src/variouswidgets.cpp:279 src/variouswidgets.cpp:280
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr ""
 
-#: src/variouswidgets.cpp:199
+#: src/variouswidgets.cpp:195
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
