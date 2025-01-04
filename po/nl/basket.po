@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-16 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -297,37 +297,37 @@ msgstr ""
 "zijn in nieuwe versies. Bij terug opslaan van het bestand, overweeg om het "
 "in een ander bestand op te slaan om het origineel te bewaren."
 
-#: src/backup.cpp:55
+#: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
 msgstr "Reservekopie & herstellen"
 
-#: src/backup.cpp:72
+#: src/backup.cpp:71
 #, kde-format
 msgid "Save Folder"
 msgstr "Map opslaan"
 
-#: src/backup.cpp:78
+#: src/backup.cpp:77
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr "Uw baskets zijn nu opgeslagen in die map:<br><b>%1</b>"
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "Naar een andere map &verplaatsen..."
 
-#: src/backup.cpp:86
+#: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "Een andere bestaande map gebr&uiken..."
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid "Why to do that?"
 msgstr "Waarom dat toen?"
 
-#: src/backup.cpp:89
+#: src/backup.cpp:88
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -353,52 +353,52 @@ msgstr ""
 "van die map niet handmatig moet veranderen (eg. toevoegen van een bestand in "
 "een basketmap zal dat bestand niet toevoegen aan het basket).</p>"
 
-#: src/backup.cpp:105
+#: src/backup.cpp:104
 #, kde-format
 msgid "Backups"
 msgstr "Back-ups"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Backup..."
 msgstr "&Reservekopie..."
 
-#: src/backup.cpp:117
+#: src/backup.cpp:116
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "Een &reservekopie terugzetten..."
 
-#: src/backup.cpp:140
+#: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
 msgstr "Laatste reservekopie: nooit"
 
-#: src/backup.cpp:142
+#: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
 msgstr "Laatste reservekopie: %1"
 
-#: src/backup.cpp:150 src/backup.cpp:181
+#: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Een map kiezen waarheen baskets te verplaatsen"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "De map <b>%1</b> is niet leeg. Wilt u het overschrijven?"
 
-#: src/backup.cpp:163
+#: src/backup.cpp:162
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Map overschrijven?"
 
-#: src/backup.cpp:164 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Overschrijven"
 
-#: src/backup.cpp:174
+#: src/backup.cpp:173
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -407,7 +407,7 @@ msgstr ""
 "Uw baskets zijn met succes verplaatst naar <b>%1</b>. %2 wordt opnieuw "
 "gestart om met deze wijziging rekening te houden."
 
-#: src/backup.cpp:186
+#: src/backup.cpp:185
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -416,44 +416,44 @@ msgstr ""
 "Uw opslagmap voor baskets is met succes gewijzigd naar <b>%1</b>. %2 wordt "
 "opnieuw gestart om met deze wijziging rekening te houden."
 
-#: src/backup.cpp:198
+#: src/backup.cpp:197
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Baskets_%1"
 
-#: src/backup.cpp:203 src/backup.cpp:252
+#: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar-archieven gecomprimeerd door gzip"
 
-#: src/backup.cpp:205 src/backup.cpp:254 src/bnpview.cpp:2045
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
 #: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "Alle bestanden"
 
-#: src/backup.cpp:207 src/backup.cpp:215
+#: src/backup.cpp:206 src/backup.cpp:214
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Reservekopie van Baskets maken"
 
-#: src/backup.cpp:216
+#: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Van baskets worden reservekopieën gemaakt. Even geduld..."
 
-#: src/backup.cpp:257 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2093
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Archief van basket openen"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:272
+#: src/backup.cpp:271
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -462,7 +462,7 @@ msgstr ""
 "Dit is een beveiligingskopie van uw baskets zoals ze waren voordat u begon "
 "om de reservekopie %1 te herstellen."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -471,7 +471,7 @@ msgstr ""
 "Als het herstel een succes was en u hebt hersteld wat u wilde herstellen, "
 "dan kunt u deze map verwijderen."
 
-#: src/backup.cpp:276
+#: src/backup.cpp:275
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -481,7 +481,7 @@ msgstr ""
 "gebruiken opnieuw gebruiken om uw baskets op te slaan en er zal niets zijn "
 "verloren."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:277
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -490,12 +490,12 @@ msgstr ""
 "Kies \"Basket\" -> \"Reservekopie & herstellen...\" -> \"Een andere "
 "bestaande map gebruiken...\" en selecteer die map."
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b> wordt hersteld. Even geduld..."
 
-#: src/backup.cpp:283
+#: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -504,12 +504,12 @@ msgstr ""
 "Als er iets verkeerd ging tijdens het herstelproces, lees dan het bestand <b>"
 "%1</b>."
 
-#: src/backup.cpp:286
+#: src/backup.cpp:285
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Baskets herstellen"
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -518,12 +518,12 @@ msgstr ""
 "Dit archief is ofwel geen reservekopie van baskets of het is beschadigd. Het "
 "kan niet geïmporteerd worden. Uw oude baskets zijn in plaats daarvan bewaard."
 
-#: src/backup.cpp:320
+#: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
 msgstr "Herstelfout"
 
-#: src/backup.cpp:329
+#: src/backup.cpp:328
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -532,18 +532,18 @@ msgstr ""
 "Uw baskets zijn met succes hersteld naar <b>%1</b>. %2 wordt opnieuw gestart "
 "om met deze wijziging rekening te houden."
 
-#: src/backup.cpp:367
+#: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
 msgstr "Herstarten"
 
-#: src/backup.cpp:384
+#: src/backup.cpp:383
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Baskets vóór restoratie"
 
-#: src/backup.cpp:391
+#: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"

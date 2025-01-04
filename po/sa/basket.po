@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -296,37 +296,37 @@ msgstr ""
 "प्रकारस्य सन्ति । सञ्चिकां पुनः रक्षे सति, मूलसञ्चिकां रक्षितुं, अन्यसञ्चिकायां रक्षितुं "
 "विचारयन्तु ।"
 
-#: src/backup.cpp:55
+#: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
 msgstr "बैकअप एवं पुनर्स्थापन"
 
-#: src/backup.cpp:72
+#: src/backup.cpp:71
 #, kde-format
 msgid "Save Folder"
 msgstr "पुटं रक्षतु"
 
-#: src/backup.cpp:78
+#: src/backup.cpp:77
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr "भवतः टोकरीः सम्प्रति तस्मिन् पुटे संगृहीताः सन्ति:<br><b>%1</b>"
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "&अन्यपुटं प्रति गच्छन्तु..."
 
-#: src/backup.cpp:86
+#: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "&अन्यस्य विद्यमानस्य पुटस्य उपयोगं कुर्वन्तु..."
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid "Why to do that?"
 msgstr "किमर्थं तत् कर्तव्यम् ?"
 
-#: src/backup.cpp:89
+#: src/backup.cpp:88
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -347,52 +347,52 @@ msgstr ""
 "ul><p >कृपया स्मर्यतां यत् भवता तस्य पुटस्य सामग्रीं हस्तचलितरूपेण न परिवर्तयितव्यम् (उदा. "
 "टोकरीपुटे सञ्चिकां योजयित्वा तां सञ्चिकां टोपले न योजयिष्यते) ।</p>"
 
-#: src/backup.cpp:105
+#: src/backup.cpp:104
 #, kde-format
 msgid "Backups"
 msgstr "बैकअप्स"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Backup..."
 msgstr "&बैकअप..."
 
-#: src/backup.cpp:117
+#: src/backup.cpp:116
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "&एकं बैकअपं पुनर्स्थापयन्तु..."
 
-#: src/backup.cpp:140
+#: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
 msgstr "अन्तिमः बैकअपः : कदापि न"
 
-#: src/backup.cpp:142
+#: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
 msgstr "अन्तिमः बैकअपः: %1"
 
-#: src/backup.cpp:150 src/backup.cpp:181
+#: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "एकं Folder Where to Move Baskets इति चिनोतु"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "<b>%1</b> इति पुटं रिक्तं नास्ति । किं भवन्तः तस्य अधिलेखनं कर्तुम् इच्छन्ति ?"
 
-#: src/backup.cpp:163
+#: src/backup.cpp:162
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "पुटं अधिलेखयतु?"
 
-#: src/backup.cpp:164 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "&अतिलेखनम्"
 
-#: src/backup.cpp:174
+#: src/backup.cpp:173
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -401,7 +401,7 @@ msgstr ""
 "भवतः टोकरीः सफलतया <b>%1</b> प्रति स्थानान्तरिताः । एतत् परिवर्तनं गृहीत्वा %2 पुनः "
 "आरभ्यते ।"
 
-#: src/backup.cpp:186
+#: src/backup.cpp:185
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -410,44 +410,44 @@ msgstr ""
 "भवतः basket save पुटं <b>%1</b> इति सफलतया परिवर्तितम् अस्ति । एतत् परिवर्तनं गृहीत्वा "
 "%2 पुनः आरभ्यते ।"
 
-#: src/backup.cpp:198
+#: src/backup.cpp:197
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "टोकरी_%1"
 
-#: src/backup.cpp:203 src/backup.cpp:252
+#: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar अभिलेखागार Gzip द्वारा संपीडित"
 
-#: src/backup.cpp:205 src/backup.cpp:254 src/bnpview.cpp:2045
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
 #: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "सर्वाणि सञ्चिकाः"
 
-#: src/backup.cpp:207 src/backup.cpp:215
+#: src/backup.cpp:206 src/backup.cpp:214
 #, kde-format
 msgid "Backup Baskets"
 msgstr "बैकअप टोकरी"
 
-#: src/backup.cpp:216
+#: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "टोकरीणां बैकअप करणम्। कृपया प्रतीक्षां कुर्वन्तु..."
 
-#: src/backup.cpp:257 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2093
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "ओपन बास्केट आर्काइव"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:272
+#: src/backup.cpp:271
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -455,7 +455,7 @@ msgid ""
 msgstr ""
 "इयं भवतः टोकरीणां सुरक्षाप्रतिलिपिः अस्ति यथा भवता %1 बैकअपं पुनःस्थापयितुं आरब्धा ।"
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -464,7 +464,7 @@ msgstr ""
 "यदि पुनर्स्थापनं सफलम् अभवत् तथा च भवान् यत् पुनर्स्थापनं कर्तुम् इच्छति तत् पुनः स्थापितवान् "
 "तर्हि भवान् एतत् पुटं हर्तुं शक्नोति ।"
 
-#: src/backup.cpp:276
+#: src/backup.cpp:275
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -473,7 +473,7 @@ msgstr ""
 "यदि पुनर्स्थापनप्रक्रियायां किमपि भ्रष्टं जातम् तर्हि भवान् स्वस्य टोकरीं संग्रहीतुं पुनः एतस्य "
 "पुटस्य उपयोगं कर्तुं शक्नोति तथा च किमपि नष्टं न भविष्यति ।"
 
-#: src/backup.cpp:278
+#: src/backup.cpp:277
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -482,24 +482,24 @@ msgstr ""
 "\"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing Folder...\" "
 "इति चित्वा तत् समुच्चय चिनोतु ।"
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b>पुनर्स्थापनम् । कृपया प्रतीक्षां कुर्वन्तु..."
 
-#: src/backup.cpp:283
+#: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr "यदि पुनर्स्थापनप्रक्रियायां किमपि भ्रष्टं भवति तर्हि <b>%1</b> इति सञ्चिकां पठन्तु ।"
 
-#: src/backup.cpp:286
+#: src/backup.cpp:285
 #, kde-format
 msgid "Restore Baskets"
 msgstr "टोकरीं पुनर्स्थापयन्तु"
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -508,12 +508,12 @@ msgstr ""
 "इदं संग्रहणं टोकरीनां बैकअपं नास्ति वा दूषितं वा अस्ति । आयातं कर्तुं न शक्यते। भवतः पुरातनाः "
 "टोकरीः तस्य स्थाने संरक्षिताः सन्ति।"
 
-#: src/backup.cpp:320
+#: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
 msgstr "Restore Error इति"
 
-#: src/backup.cpp:329
+#: src/backup.cpp:328
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -522,18 +522,18 @@ msgstr ""
 "भवतः बैकअप सफलतया <b>%1</b> इत्यत्र पुनःस्थापितम् अस्ति । एतत् परिवर्तनं गृहीत्वा %2 पुनः "
 "आरभ्यते ।"
 
-#: src/backup.cpp:367
+#: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
 msgstr "पुनः आरभत"
 
-#: src/backup.cpp:384
+#: src/backup.cpp:383
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "पुनर्स्थापनात् पूर्वं टोकरीः"
 
-#: src/backup.cpp:391
+#: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 16:03+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -292,37 +292,37 @@ msgstr ""
 "수 있는 형식으로 저장되었기 때문에 표시되지 않을 수도 있습니다. 파일을 저장"
 "할 때 원본 파일을 보존할 수 있도록 다른 이름으로 저장하기를 추천합니다."
 
-#: src/backup.cpp:55
+#: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
 msgstr "백업과 복원"
 
-#: src/backup.cpp:72
+#: src/backup.cpp:71
 #, kde-format
 msgid "Save Folder"
 msgstr "저장 폴더"
 
-#: src/backup.cpp:78
+#: src/backup.cpp:77
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr "메모 바구니를 다음 폴더에 저장했습니다:<br><b>%1</b>"
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "다른 폴더로 이동(&M)..."
 
-#: src/backup.cpp:86
+#: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "다른 기존 폴더 사용(&U)..."
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid "Why to do that?"
 msgstr "왜 이 옵션이 있나요?"
 
-#: src/backup.cpp:89
+#: src/backup.cpp:88
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -345,52 +345,52 @@ msgstr ""
 "수 있습니다.</li></ul><p>해당 폴더의 내용을 수동으로 변경하지 마십시오(예: 바"
 "구니 폴더에 파일을 추가하더라도 바구니에 파일을 추가하지 않음).</p>"
 
-#: src/backup.cpp:105
+#: src/backup.cpp:104
 #, kde-format
 msgid "Backups"
 msgstr "백업"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Backup..."
 msgstr "백업(&B)..."
 
-#: src/backup.cpp:117
+#: src/backup.cpp:116
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "백업에서 복원(&R)..."
 
-#: src/backup.cpp:140
+#: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
 msgstr "마지막 백업: 안 함"
 
-#: src/backup.cpp:142
+#: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
 msgstr "마지막 백업: %1"
 
-#: src/backup.cpp:150 src/backup.cpp:181
+#: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "바구니를 이동할 폴더 선택"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "<b>%1</b> 폴더가 비어 있지 않습니다. 덮어쓰시겠습니까?"
 
-#: src/backup.cpp:163
+#: src/backup.cpp:162
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "폴더를 덮어쓰시겠습니까?"
 
-#: src/backup.cpp:164 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "덮어쓰기(&O)"
 
-#: src/backup.cpp:174
+#: src/backup.cpp:173
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -399,7 +399,7 @@ msgstr ""
 "바구니를 <b>%1</b>(으)로 이동했습니다. 변경 사항을 적용하기 위해서 %2을(를) "
 "다시 시작합니다."
 
-#: src/backup.cpp:186
+#: src/backup.cpp:185
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -408,51 +408,51 @@ msgstr ""
 "바구니 저장 폴더를 <b>%1</b>(으)로 이동했습니다. 변경 사항을 적용하기 위해서 "
 "%2을(를) 다시 시작합니다."
 
-#: src/backup.cpp:198
+#: src/backup.cpp:197
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Baskets_%1"
 
-#: src/backup.cpp:203 src/backup.cpp:252
+#: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "GZip으로 압축한 TAR 파일"
 
-#: src/backup.cpp:205 src/backup.cpp:254 src/bnpview.cpp:2045
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
 #: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "모든 파일"
 
-#: src/backup.cpp:207 src/backup.cpp:215
+#: src/backup.cpp:206 src/backup.cpp:214
 #, kde-format
 msgid "Backup Baskets"
 msgstr "바구니 백업"
 
-#: src/backup.cpp:216
+#: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "바구니를 백업하고 있습니다. 기다려 주십시오..."
 
-#: src/backup.cpp:257 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2093
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Basket 압축 파일 열기"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:272
+#: src/backup.cpp:271
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
 "restore the backup %1."
 msgstr "%1 백업을 복원하기 전 상태의 바구니 복사본입니다."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -460,7 +460,7 @@ msgid ""
 msgstr ""
 "복원이 성공했고 필요한 내용이 모두 복원되었으면 이 폴더를 삭제해도 됩니다."
 
-#: src/backup.cpp:276
+#: src/backup.cpp:275
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -469,7 +469,7 @@ msgstr ""
 "복원 과정에서 문제가 발생했다면 기존 바구니 내용을 손실 없이 이 폴더에서 다"
 "시 사용할 수 있습니다."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:277
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -478,24 +478,24 @@ msgstr ""
 "\"Basket\" -> \"백업과 복원\" -> \"기존 폴더 사용...\"을 선택한 다음 해당 폴"
 "더를 선택하십시오."
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b>에서 복원 중입니다. 기다려 주십시오..."
 
-#: src/backup.cpp:283
+#: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr "복원 과정에서 문제가 발생했다면 <b>%1</b> 파일을 참조하십시오."
 
-#: src/backup.cpp:286
+#: src/backup.cpp:285
 #, kde-format
 msgid "Restore Baskets"
 msgstr "바구니 복원"
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -504,12 +504,12 @@ msgstr ""
 "이 파일은 Basket 압축 파일이 아니거나 손상되었습니다. 가져올 수 없습니다. 기"
 "존 바구니를 유지합니다."
 
-#: src/backup.cpp:320
+#: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
 msgstr "복원 오류"
 
-#: src/backup.cpp:329
+#: src/backup.cpp:328
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -518,18 +518,18 @@ msgstr ""
 "백업을 <b>%1</b>(으)로 복원했습니다. 변경 사항을 적용하기 위해서 %2을(를) 다"
 "시 시작합니다."
 
-#: src/backup.cpp:367
+#: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
 msgstr "다시 시작"
 
-#: src/backup.cpp:384
+#: src/backup.cpp:383
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "복원 전 바구니"
 
-#: src/backup.cpp:391
+#: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"

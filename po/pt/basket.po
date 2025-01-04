@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-04 00:43+0000\n"
 "PO-Revision-Date: 2021-02-08 00:42+0000\n"
 "Last-Translator: Nuno J. Silva <nunojsg@gmail.com>\n"
 "Language-Team: Português <pt@li.org>\n"
@@ -309,38 +309,38 @@ msgstr ""
 "mais recentes. Ao gravar o ficheiro, pense em gravá-lo noutro ficheiro, para "
 "preservar o original."
 
-#: src/backup.cpp:55
+#: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
 msgstr "Salvaguardar & Repor"
 
-#: src/backup.cpp:72
+#: src/backup.cpp:71
 #, kde-format
 msgid "Save Folder"
 msgstr "Gravar a Pasta"
 
-#: src/backup.cpp:78
+#: src/backup.cpp:77
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr ""
 "Os seus cestos estão actualmente guardados na seguinte pasta:<br><b>%1</b>"
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "&Mover para Outra Pasta..."
 
-#: src/backup.cpp:86
+#: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "&Usar Outra Pasta Existente..."
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid "Why to do that?"
 msgstr "Porquê fazer isto?"
 
-#: src/backup.cpp:89
+#: src/backup.cpp:88
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -366,52 +366,52 @@ msgstr ""
 "manualmente o conteúdo dessa pasta (p.ex., adicionar um ficheiro na pasta de "
 "um cesto não irá adicionar esse ficheiro ao cesto).</p>"
 
-#: src/backup.cpp:105
+#: src/backup.cpp:104
 #, kde-format
 msgid "Backups"
 msgstr "Cópias de segurança"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Backup..."
 msgstr "&Criar uma Cópia de Segurança..."
 
-#: src/backup.cpp:117
+#: src/backup.cpp:116
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "&Repor uma Cópia de Segurança..."
 
-#: src/backup.cpp:140
+#: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
 msgstr "Última cópia de segurança: nunca"
 
-#: src/backup.cpp:142
+#: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
 msgstr "Última cópia de segurança: %1"
 
-#: src/backup.cpp:150 src/backup.cpp:181
+#: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Escolha uma Pasta para a Qual Mover os Cestos"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "A pasta <b>%1</b> não está vazia. Deseja substituí-la?"
 
-#: src/backup.cpp:163
+#: src/backup.cpp:162
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Substituir a Pasta?"
 
-#: src/backup.cpp:164 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "S&obrepor"
 
-#: src/backup.cpp:174
+#: src/backup.cpp:173
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -420,7 +420,7 @@ msgstr ""
 "Os seus cestos foram movidos com sucesso para <b>%1</b>. O %2 vai ser "
 "reiniciado para finalizar a alteração."
 
-#: src/backup.cpp:186
+#: src/backup.cpp:185
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -429,44 +429,44 @@ msgstr ""
 "A pasta onde são guardados os cestos foi alterada com sucesso para <b>%1</"
 "b>. O %2 vai ser reiniciado para finalizar a alteração."
 
-#: src/backup.cpp:198
+#: src/backup.cpp:197
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Cestos_%1"
 
-#: src/backup.cpp:203 src/backup.cpp:252
+#: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Pacotes Tar Comprimidos pelo Gzip"
 
-#: src/backup.cpp:205 src/backup.cpp:254 src/bnpview.cpp:2045
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
 #: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "Todos os Ficheiros"
 
-#: src/backup.cpp:207 src/backup.cpp:215
+#: src/backup.cpp:206 src/backup.cpp:214
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Cópias de Segurança dos Cestos"
 
-#: src/backup.cpp:216
+#: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "A criar uma cópia de segurança dos cestos. Espere por favor..."
 
-#: src/backup.cpp:257 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2093
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Abrir o Pacote do BasKet"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:272
+#: src/backup.cpp:271
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -475,7 +475,7 @@ msgstr ""
 "Esta é uma cópia dos seus cestos tal e qual como eles estavam antes de "
 "restaurar a cópia de segurança %1."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -484,7 +484,7 @@ msgstr ""
 "Se a reposição foi efectuada com sucesso, e conseguiu recuperar o que "
 "queria, pode apagar esta pasta."
 
-#: src/backup.cpp:276
+#: src/backup.cpp:275
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -493,7 +493,7 @@ msgstr ""
 "Se ocorreu algo de mal durante o processo de reposição, pode reutilizar esta "
 "pasta para guardar os seus cestos e não perderá nada."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:277
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -502,12 +502,12 @@ msgstr ""
 "Escolha \"Cesto\" -> \"Salvaguardar e Repor...\" -> \"Usar Outra Pasta "
 "Existente...\" e escolha essa pasta."
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "A repor o <b>%1</b>. Espere por favor..."
 
-#: src/backup.cpp:283
+#: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -516,12 +516,12 @@ msgstr ""
 "Se algo correr mal durante o processo de reposição, leia o ficheiro <b>%1</"
 "b>."
 
-#: src/backup.cpp:286
+#: src/backup.cpp:285
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Repor os Cestos"
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -531,12 +531,12 @@ msgstr ""
 "Não é possível importá-lo. Em vez disso, os seus cestos antigos foram "
 "preservados."
 
-#: src/backup.cpp:320
+#: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
 msgstr "Erro de Reposição"
 
-#: src/backup.cpp:329
+#: src/backup.cpp:328
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -545,18 +545,18 @@ msgstr ""
 "A sua cópia de segurança foi resposta com sucesso em <b>%1</b>. O %2 vai ser "
 "reiniciado para que as modificações façam efeito."
 
-#: src/backup.cpp:367
+#: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: src/backup.cpp:384
+#: src/backup.cpp:383
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Cestos Antes da Reposição"
 
-#: src/backup.cpp:391
+#: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"

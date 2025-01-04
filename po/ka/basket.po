@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-04 00:43+0000\n"
 "PO-Revision-Date: 2024-12-18 03:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -295,37 +295,37 @@ msgstr ""
 "ხელმისაწვდომი. როცა ფაილის შენახვას დააპირებთ, იფიქრეთ მისი განსხვავებულ "
 "ფაილში შენახვაზე, რომ ორიგინალი შეინარჩუნოთ."
 
-#: src/backup.cpp:55
+#: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
 msgstr "მარქაფი და აღდგენა"
 
-#: src/backup.cpp:72
+#: src/backup.cpp:71
 #, kde-format
 msgid "Save Folder"
 msgstr "საქაღალდის შენახვა"
 
-#: src/backup.cpp:78
+#: src/backup.cpp:77
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr "თქვენი კალათები ამჟამად შენახულია საქაღალდეში:<br><b>%1</b>"
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "სხვა საქაღალდეში &გადატანა..."
 
-#: src/backup.cpp:86
+#: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "სხვა არსებული საქაღალდის &გამოყენება..."
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid "Why to do that?"
 msgstr "რატომ უნდა ვქნა ეგ?"
 
-#: src/backup.cpp:89
+#: src/backup.cpp:88
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -350,52 +350,52 @@ msgstr ""
 "</li></ul><p>დაიმახსოვრეთ, რომ ეს საქაღალდე ხელით (ფაილის დამატება კალათის "
 "საქაღალდეში ამ ფაილს კალათში არ ჩაამატებს).</p>"
 
-#: src/backup.cpp:105
+#: src/backup.cpp:104
 #, kde-format
 msgid "Backups"
 msgstr "მარქაფები"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Backup..."
 msgstr "&მარქაფი..."
 
-#: src/backup.cpp:117
+#: src/backup.cpp:116
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "მარქაფის &აღდგენა..."
 
-#: src/backup.cpp:140
+#: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
 msgstr "ბოლო მარქაფი: არასდროს"
 
-#: src/backup.cpp:142
+#: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
 msgstr "ბოლო მარქაფი: %1"
 
-#: src/backup.cpp:150 src/backup.cpp:181
+#: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "აირჩიეთ კალათების გადასატანი საქაღლდე"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "საქაღალდე <b>%1</b> ცარიელი არაა. გნებავთ, თავზე გადააწეროთ?"
 
-#: src/backup.cpp:163
+#: src/backup.cpp:162
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "გადავაწერო საქაღალდეს?"
 
-#: src/backup.cpp:164 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "&გადაწერა"
 
-#: src/backup.cpp:174
+#: src/backup.cpp:173
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -404,7 +404,7 @@ msgstr ""
 "თქვენი კალათები წარმატებით იქნა გადატანილი <b>%1</b>-ში. %2 გადაიტვირთება, "
 "რომ ცვლილებები ძალაში შევიდეს."
 
-#: src/backup.cpp:186
+#: src/backup.cpp:185
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -413,44 +413,44 @@ msgstr ""
 "თქვენი კალათის შენახვის საქაღალდე წარმატებით იქნა შენახული <b>%1</b>-ში. %2 "
 "გადაიტვირთება, რომ ცვლილებები ძალაში შევიდეს."
 
-#: src/backup.cpp:198
+#: src/backup.cpp:197
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "კალათა_%1"
 
-#: src/backup.cpp:203 src/backup.cpp:252
+#: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip-ით შეკუმშული Tar"
 
-#: src/backup.cpp:205 src/backup.cpp:254 src/bnpview.cpp:2045
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
 #: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "ყველა ფაილი"
 
-#: src/backup.cpp:207 src/backup.cpp:215
+#: src/backup.cpp:206 src/backup.cpp:214
 #, kde-format
 msgid "Backup Baskets"
 msgstr "კალათების მარქაფი"
 
-#: src/backup.cpp:216
+#: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "კალათების მარქაფი. მოითმინეთ..."
 
-#: src/backup.cpp:257 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2093
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "კალათის არქივის გახსნა"
 
-#: src/backup.cpp:268
+#: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:272
+#: src/backup.cpp:271
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -459,7 +459,7 @@ msgstr ""
 "არის თქვენი კალათების უსაფრთხო ასლი ისე, როგორც ის იყო, როცა გაუშვით, რომ "
 "აღგედგინათ მარქაფი %1."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -468,7 +468,7 @@ msgstr ""
 "თუ აღდგენა წარმატებით ასრულდა და აღადგინეთ, რისი აღდგენაც გსურდათ, "
 "შეგიძლიათ, წაშალოთ ეს საქაღალდე."
 
-#: src/backup.cpp:276
+#: src/backup.cpp:275
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -477,7 +477,7 @@ msgstr ""
 "თუ აღდგენის მიმდინარეობისას რამე არაწორად მოხდა, შეგიძლიათ ეს საქაღალდე ისევ "
 "გამოიყენოთ თქვენი კალათების შესანახად და არაფერი დაიკარგება."
 
-#: src/backup.cpp:278
+#: src/backup.cpp:277
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -486,12 +486,12 @@ msgstr ""
 "აირჩიეთ \"კალათი\" -> \"მარქაფი და აღდგენა...\" -> \"სხვა არსებული "
 "საქაღალდის გამოყენება...\" და აირჩიეთ ის საქაღალდე."
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b>-ის აღდგენა. მოითმინეთ..."
 
-#: src/backup.cpp:283
+#: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -499,12 +499,12 @@ msgid ""
 msgstr ""
 "თუ აღდგენის მიმდინარეობისას რამე არასწორად წავიდა, წაიკითხეთ ფაილი <b>%1</b>."
 
-#: src/backup.cpp:286
+#: src/backup.cpp:285
 #, kde-format
 msgid "Restore Baskets"
 msgstr "კალათების აღდგენა"
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -513,12 +513,12 @@ msgstr ""
 "ეს არქივი, ან კალათების მარქაფი არაა, ან დაზიანებულია. მისი შემოტანა "
 "შეუძლებელია. თქვენი ძველი კალათები კი - შენახულია."
 
-#: src/backup.cpp:320
+#: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
 msgstr "აღდგენის შეცდომა"
 
-#: src/backup.cpp:329
+#: src/backup.cpp:328
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -527,18 +527,18 @@ msgstr ""
 "თქვენი მარქაფი წარმატებით აღდგა <b>%1</b>-ში. %2 გადაიტვირთება, რომ "
 "ცვლილებები ძალაში შევიდეს."
 
-#: src/backup.cpp:367
+#: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
 msgstr "რესტარტი"
 
-#: src/backup.cpp:384
+#: src/backup.cpp:383
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "კალათები აღდგენამდე"
 
-#: src/backup.cpp:391
+#: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
