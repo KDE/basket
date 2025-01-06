@@ -3338,13 +3338,11 @@ msgstr "Opna lydnotat med:"
 
 #: src/settings.cpp:989
 #, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
 msgid "Open http link notes with a custom application:"
 msgstr "Opna &tekstnotat med sjølvvald program:"
 
 #: src/settings.cpp:990
 #, fuzzy, kde-format
-#| msgid "Open text notes with:"
 msgid "Open http link notes with:"
 msgstr "Opna tekstnotat med:"
 
@@ -3375,7 +3373,6 @@ msgstr ""
 
 #: src/settings_versionsync.cpp:77
 #, fuzzy, kde-format
-#| msgid "Remove Basket"
 msgid "Remove old Baskets"
 msgstr "Slett korg"
 

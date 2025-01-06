@@ -1,7 +1,7 @@
 # Translation for basket.po to Euskara/Basque (eu).
 # Copyright (C) 2022, This file is copyright:
 # This file is distributed under the same license as the basket package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2022-08-24 08:01+0200\n"
+"PO-Revision-Date: 2025-01-05 13:05+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -849,7 +849,7 @@ msgstr "Giltzapetik askat&u"
 #: src/basketscene.cpp:3023
 #, kde-format
 msgid "Password protected basket."
-msgstr ""
+msgstr "Pasahitz bidez babestutako saskia."
 
 #: src/basketscene.cpp:3025
 #, kde-format
@@ -879,19 +879,19 @@ msgid "&Remove"
 msgstr "&Kendu"
 
 #: src/basketscene.cpp:3235 src/basketscene.cpp:3278 src/bnpview.cpp:2488
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Customize..."
-msgstr "Pertsonalizatu"
+msgstr "&Neurrira ipini..."
 
 #: src/basketscene.cpp:3241 src/basketscene.cpp:3284
 #, kde-format
 msgid "&Filter by this Tag"
-msgstr ""
+msgstr "Ira&gazi etiketa honen arabera"
 
 #: src/basketscene.cpp:3287
 #, kde-format
 msgid "Filter by this &State"
-msgstr ""
+msgstr "Iragazi egoe&ra honen arabera"
 
 #: src/basketscene.cpp:3368
 #, kde-format
@@ -916,27 +916,27 @@ msgstr[1] "Ezabatu oharrak"
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Oharra arbelera kopiatu da."
+msgstr[1] "Oharrak arbelera kopiatu dira."
 
 #: src/basketscene.cpp:4046
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ebaki oharra arbelera."
+msgstr[1] "Ebaki oharrak arbelera."
 
 #: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Oharra hautapenera kopiatu da."
+msgstr[1] "Oharrak hautapenera kopiatu dira."
 
 #: src/basketscene.cpp:4113 src/basketscene.cpp:4188
 #, kde-format
 msgid "Unable to open this note."
-msgstr ""
+msgstr "Ezin izan du ohar hau ireki."
 
 #. i18n: ectx: Menu (edit)
 #: src/basketscene.cpp:4115 src/basketui.rc:40
@@ -947,7 +947,7 @@ msgstr "&Editatu"
 #: src/basketscene.cpp:4151
 #, kde-format
 msgid "You are not authorized to open this file."
-msgstr ""
+msgstr "Ez duzu fitxategi hau irekitzeko baimenik."
 
 #: src/basketscene.cpp:4209
 #, kde-format
@@ -957,12 +957,13 @@ msgstr "Gorde fitxategian"
 #: src/basketstatusbar.cpp:106
 #, kde-format
 msgid "Shows if there are changes that have not yet been saved."
-msgstr ""
+msgstr "Oraindik gorde gabe dauden aldaketak dauden erakusten du."
 
 #: src/basketstatusbar.cpp:137
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
 msgstr ""
+"Ktrl+jaregin: kopiatu, Maius+jaregin: mugitu, Maius+Ktrl+jaregin: esteka."
 
 #: src/basketstatusbar.cpp:160
 #, kde-format
@@ -978,7 +979,7 @@ msgstr ""
 #: src/basketui.rc:6
 #, kde-format
 msgid "&Basket"
-msgstr ""
+msgstr "Sas&kia"
 
 #. i18n: ectx: Menu
 #: src/basketui.rc:11 src/basketui.rc:170
@@ -990,7 +991,7 @@ msgstr "&Esportatu"
 #: src/basketui.rc:16 src/basketui.rc:175
 #, kde-format
 msgid "&Sort"
-msgstr "&Ordenatu"
+msgstr "&Sailkatu"
 
 #. i18n: ectx: Menu (fileimport)
 #. i18n: ectx: Menu
@@ -1045,7 +1046,7 @@ msgstr "Tresna-barra nagusia"
 #: src/basketui.rc:141
 #, kde-format
 msgid "Text Formatting Toolbar"
-msgstr ""
+msgstr "Testuari formatua emateko tresna-barra"
 
 #: src/bnpview.cpp:164 src/bnpview.cpp:1245
 #, kde-format
@@ -1055,7 +1056,7 @@ msgstr "Orokorra"
 #: src/bnpview.cpp:232
 #, kde-format
 msgid "Paste clipboard contents in current basket"
-msgstr ""
+msgstr "Itsatsi arbeleko edukia uneko saskian"
 
 #: src/bnpview.cpp:234
 #, kde-format
@@ -1067,7 +1068,7 @@ msgstr ""
 #: src/bnpview.cpp:239
 #, kde-format
 msgid "Paste selection in current basket"
-msgstr ""
+msgstr "Itsatsi hautapena uneko saskian"
 
 #: src/bnpview.cpp:241
 #, kde-format
@@ -1079,7 +1080,7 @@ msgstr ""
 #: src/bnpview.cpp:246
 #, kde-format
 msgid "Create a new basket"
-msgstr ""
+msgstr "Sortu saski berri bat"
 
 #: src/bnpview.cpp:248
 #, kde-format
@@ -1092,7 +1093,7 @@ msgstr ""
 #: src/bnpview.cpp:253
 #, kde-format
 msgid "Go to previous basket"
-msgstr ""
+msgstr "Joan aurreko saskira"
 
 #: src/bnpview.cpp:255
 #, kde-format
@@ -1104,7 +1105,7 @@ msgstr ""
 #: src/bnpview.cpp:259
 #, kde-format
 msgid "Go to next basket"
-msgstr ""
+msgstr "Joan hurrengo saskira"
 
 #: src/bnpview.cpp:261
 #, kde-format
@@ -1116,7 +1117,7 @@ msgstr ""
 #: src/bnpview.cpp:265
 #, kde-format
 msgid "Insert text note"
-msgstr ""
+msgstr "Txertatu testu-oharra"
 
 #: src/bnpview.cpp:267
 #, kde-format
@@ -1127,7 +1128,7 @@ msgstr ""
 #: src/bnpview.cpp:272 src/settings.cpp:569
 #, kde-format
 msgid "Insert image note"
-msgstr ""
+msgstr "Txertatu irudi-oharra"
 
 #: src/bnpview.cpp:274
 #, kde-format
@@ -1139,7 +1140,7 @@ msgstr ""
 #: src/bnpview.cpp:278 src/settings.cpp:570
 #, kde-format
 msgid "Insert link note"
-msgstr ""
+msgstr "Txertatu esteka-oharra"
 
 #: src/bnpview.cpp:280
 #, kde-format
@@ -1150,7 +1151,7 @@ msgstr ""
 #: src/bnpview.cpp:284 src/settings.cpp:573
 #, kde-format
 msgid "Insert color note"
-msgstr ""
+msgstr "Txertatu kolore-oharra"
 
 #: src/bnpview.cpp:286
 #, kde-format
@@ -1162,7 +1163,7 @@ msgstr ""
 #: src/bnpview.cpp:290
 #, kde-format
 msgid "Pick color from screen"
-msgstr ""
+msgstr "Hartu kolorea pantailatik"
 
 #: src/bnpview.cpp:292
 #, kde-format
@@ -1174,7 +1175,7 @@ msgstr ""
 #: src/bnpview.cpp:297 src/settings.cpp:574
 #, kde-format
 msgid "Grab screen zone"
-msgstr ""
+msgstr "Harrapatu pantaila-eskualdea"
 
 #: src/bnpview.cpp:299
 #, kde-format
@@ -1186,7 +1187,7 @@ msgstr ""
 #: src/bnpview.cpp:305
 #, kde-format
 msgid "Insert plain text note"
-msgstr ""
+msgstr "Txertatu testu-soileko oharra"
 
 #: src/bnpview.cpp:307
 #, kde-format
@@ -1198,7 +1199,7 @@ msgstr ""
 #: src/bnpview.cpp:316
 #, kde-format
 msgid "Baskets"
-msgstr ""
+msgstr "Saskiak"
 
 #: src/bnpview.cpp:361
 #, kde-format
@@ -1212,12 +1213,12 @@ msgstr ""
 #: src/bnpview.cpp:376 src/bnpview.cpp:382
 #, kde-format
 msgid "&Basket Archive..."
-msgstr ""
+msgstr "Sas&ki artxiboa..."
 
 #: src/bnpview.cpp:388
 #, kde-format
 msgid "&HTML Web Page..."
-msgstr ""
+msgstr "&HTML Web-orria..."
 
 #: src/bnpview.cpp:394
 #, kde-format
@@ -1262,12 +1263,12 @@ msgstr "Alderantz&ikatu hautapena"
 #: src/bnpview.cpp:435
 #, kde-format
 msgid "Inverts the current selection of notes"
-msgstr ""
+msgstr "Uneko oharren hautapena alderantzikatzen du"
 
 #: src/bnpview.cpp:438
 #, kde-format
 msgid "&Clear Formatting"
-msgstr ""
+msgstr "&Garbitu formatua"
 
 #: src/bnpview.cpp:442
 #, kde-format
@@ -1298,12 +1299,12 @@ msgstr "&Taldekatu"
 #: src/bnpview.cpp:468
 #, kde-format
 msgid "U&ngroup"
-msgstr "Taldea ba&nandu"
+msgstr "&Bereizi"
 
 #: src/bnpview.cpp:473
 #, kde-format
 msgid "Move on &Top"
-msgstr ""
+msgstr "Eraman gorai&no"
 
 #: src/bnpview.cpp:479
 #, kde-format
@@ -1318,12 +1319,12 @@ msgstr "Eraman &behera"
 #: src/bnpview.cpp:491
 #, kde-format
 msgid "Move on &Bottom"
-msgstr ""
+msgstr "Eraman beherai&no"
 
 #: src/bnpview.cpp:502
 #, kde-format
 msgid "Plai&n Text"
-msgstr "Testu arru&nta"
+msgstr "Testu soi&la"
 
 #: src/bnpview.cpp:509
 #, kde-format
@@ -1363,7 +1364,7 @@ msgstr ""
 #: src/bnpview.cpp:546
 #, kde-format
 msgid "Im&port Icon..."
-msgstr ""
+msgstr "In&portatu ikonoa..."
 
 #: src/bnpview.cpp:551 src/noteedit.cpp:542
 #, kde-format
@@ -1373,27 +1374,27 @@ msgstr "Zamatu &fitxategitik..."
 #: src/bnpview.cpp:587
 #, kde-format
 msgid "C&olor from Screen"
-msgstr ""
+msgstr "Pantailako k&olorea"
 
 #: src/bnpview.cpp:595
 #, kde-format
 msgid "Grab Screen &Zone"
-msgstr ""
+msgstr "Harrapatu pantaila-es&kualdea"
 
 #: src/bnpview.cpp:630
 #, kde-format
 msgid "&New Basket..."
-msgstr ""
+msgstr "Saski &berria..."
 
 #: src/bnpview.cpp:636
 #, kde-format
 msgid "New &Sub-Basket..."
-msgstr ""
+msgstr "A&zpi-saski berria..."
 
 #: src/bnpview.cpp:641
 #, kde-format
 msgid "New Si&bling Basket..."
-msgstr ""
+msgstr "Saski &haurride berria..."
 
 #: src/bnpview.cpp:644
 #, kde-format
@@ -1408,22 +1409,22 @@ msgstr "&Propietateak..."
 #: src/bnpview.cpp:660
 #, kde-format
 msgid "Sort Children Ascending"
-msgstr ""
+msgstr "Haurren sailkatze gorakorra"
 
 #: src/bnpview.cpp:665
 #, kde-format
 msgid "Sort Children Descending"
-msgstr ""
+msgstr "Haurren sailkatze beherakorra"
 
 #: src/bnpview.cpp:670
 #, kde-format
 msgid "Sort Siblings Ascending"
-msgstr ""
+msgstr "Haurrideen sailkatze gorakorra"
 
 #: src/bnpview.cpp:675
 #, kde-format
 msgid "Sort Siblings Descending"
-msgstr ""
+msgstr "Haurrideen sailkatze beherakorra"
 
 #: src/bnpview.cpp:680
 #, kde-format
@@ -1451,52 +1452,52 @@ msgstr "Ira&gazi"
 #: src/bnpview.cpp:714
 #, kde-format
 msgid "&Search All"
-msgstr ""
+msgstr "Dena &bilatu"
 
 #: src/bnpview.cpp:722
 #, kde-format
 msgid "&Reset Filter"
-msgstr ""
+msgstr "Iragazkia be&rrezarri"
 
 #: src/bnpview.cpp:730
 #, kde-format
 msgid "&Previous Basket"
-msgstr ""
+msgstr "&Aurreko saskia"
 
 #: src/bnpview.cpp:736
 #, kde-format
 msgid "&Next Basket"
-msgstr ""
+msgstr "&Hurrengo saskia"
 
 #: src/bnpview.cpp:742
 #, kde-format
 msgid "&Fold Basket"
-msgstr ""
+msgstr "&Tolestu saskia"
 
 #: src/bnpview.cpp:748
 #, kde-format
 msgid "&Expand Basket"
-msgstr ""
+msgstr "&Zabaldu saskia"
 
 #: src/bnpview.cpp:756
 #, kde-format
 msgid "Convert text notes to rich text notes"
-msgstr ""
+msgstr "Testu oharrak testu-aberastuko oharrak bihurtu"
 
 #: src/bnpview.cpp:765
 #, kde-format
 msgid "&Welcome Baskets"
-msgstr ""
+msgstr "&Ongi etorri saskiak"
 
 #: src/bnpview.cpp:1030
 #, kde-format
 msgid "Plain Text Notes Conversion"
-msgstr ""
+msgstr "Testu-soileko oharren bihurketa"
 
 #: src/bnpview.cpp:1031
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
-msgstr ""
+msgstr "Testu-soileko oharrak testu-aberastukoetara bihurtzen..."
 
 #: src/bnpview.cpp:1605
 #, kde-format
@@ -1525,40 +1526,40 @@ msgstr[1] "%1 hautatuta"
 #: src/bnpview.cpp:1613
 #, kde-format
 msgid "all matches"
-msgstr ""
+msgstr "bat etortze denak"
 
 #: src/bnpview.cpp:1613
 #, kde-format
 msgid "no filter"
-msgstr "Iragazkirik gabe"
+msgstr "iragazkirik ez"
 
 #: src/bnpview.cpp:1615
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
-msgstr[0] "Parekide %1"
-msgstr[1] "%1 parekide"
+msgstr[0] "Bat etortze %1"
+msgstr[1] "%1 bat etortze"
 
 #: src/bnpview.cpp:1616
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
-msgstr ""
+msgstr "%1, %2, %3"
 
 #: src/bnpview.cpp:1751
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
-msgstr ""
+msgstr "Testu-soileko oharrak testu-aberastuko ohar bihurtu dira."
 
 #: src/bnpview.cpp:1751 src/bnpview.cpp:1753
 #, kde-format
 msgid "Conversion Finished"
-msgstr ""
+msgstr "Bihurketa bukatu da"
 
 #: src/bnpview.cpp:1753
 #, kde-format
 msgid "There are no plain text notes to convert."
-msgstr ""
+msgstr "Ez dago bihurtu beharreko testu-soileko oharrik."
 
 #: src/bnpview.cpp:1770
 #, kde-format
@@ -1575,28 +1576,28 @@ msgstr ""
 #: src/bnpview.cpp:1784
 #, kde-format
 msgid "Resource not Found"
-msgstr ""
+msgstr "Baliabidea ez da aurkitu"
 
 #: src/bnpview.cpp:1813
 #, kde-format
 msgid "Cannot add note."
-msgstr ""
+msgstr "Ezin da oharrik gehitu."
 
 #: src/bnpview.cpp:1960
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
-msgstr ""
+msgstr "<qt><b>%1</b> saskia eta bere edukia benetan ezabatu nahi duzu?</qt>"
 
 #: src/bnpview.cpp:1961
 #, kde-format
 msgid "Remove Basket"
-msgstr ""
+msgstr "Kendu saskia"
 
 #: src/bnpview.cpp:1962
 #, kde-format
 msgid "&Remove Basket"
-msgstr ""
+msgstr "&Kendu saskia"
 
 #: src/bnpview.cpp:1972
 #, kde-format
@@ -1608,17 +1609,17 @@ msgstr ""
 #: src/bnpview.cpp:1974
 #, kde-format
 msgid "Remove Children Baskets"
-msgstr ""
+msgstr "Kendu saski-haurrak"
 
 #: src/bnpview.cpp:1975
 #, kde-format
 msgid "&Remove Children Baskets"
-msgstr ""
+msgstr "&Kendu saski-haurrak"
 
 #: src/bnpview.cpp:2045 src/bnpview.cpp:2092
 #, kde-format
 msgid "Basket Archives"
-msgstr ""
+msgstr "Saski artxiboak"
 
 #: src/bnpview.cpp:2055 src/htmlexporter.cpp:65
 #, kde-format
@@ -1634,7 +1635,7 @@ msgstr "Fitxategia gainidatzi?"
 #: src/bnpview.cpp:2477
 #, kde-format
 msgid "&Assign new Tag..."
-msgstr ""
+msgstr "&Esleitu etiketa berria..."
 
 #: src/bnpview.cpp:2482
 #, kde-format
@@ -1644,27 +1645,27 @@ msgstr "&Kendu denak"
 #: src/common.cpp:56
 #, kde-format
 msgid "Please enter the password for the following private key:"
-msgstr "Mesedez, sartu ondoko gako-pribatuaren pasahitza:"
+msgstr "Mesedez, sartu ondoko gako-pribaturako pasahitza:"
 
 #: src/common.cpp:58
 #, kde-format
 msgid "Please enter the password for the basket <b>%1</b>:"
-msgstr ""
+msgstr "Mesedez, sartu <b>%1</b> saskirako pasahitza:"
 
 #: src/common.cpp:94
 #, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
-msgstr ""
+msgstr "Mesedez, <b>%1</b> saskirako pasahitz bat esleitu:"
 
 #: src/common.cpp:144
 #, kde-format
 msgid "Error while saving: "
-msgstr "Errorea gordetzean:"
+msgstr "Errorea gordetzean: "
 
 #: src/debugwindow.cpp:23
 #, kde-format
 msgid "Debug Window"
-msgstr ""
+msgstr "Harazteko leihoa"
 
 #: src/file_metadata.cpp:18
 #, kde-format
@@ -1744,22 +1745,22 @@ msgstr "Fotograma-emaria"
 #: src/filter.cpp:42
 #, kde-format
 msgid "Reset Filter"
-msgstr ""
+msgstr "Berrezarri iragazkia"
 
 #: src/filter.cpp:47
 #, kde-format
 msgid "&Filter: "
-msgstr "Ira&gazkia:"
+msgstr "Ira&gazkia: "
 
 #: src/filter.cpp:51
 #, kde-format
 msgid "T&ag: "
-msgstr "Etiket&a:"
+msgstr "Etiket&a: "
 
 #: src/filter.cpp:55
 #, kde-format
 msgid "Filter All Baskets"
-msgstr ""
+msgstr "Saski denak iragazi"
 
 #: src/filter.cpp:132
 #, kde-format
@@ -1805,7 +1806,7 @@ msgstr "Esportatu HTML gisa"
 #: src/htmlexporter.cpp:79
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
-msgstr ""
+msgstr "HTML gisa esportatzen. Itxoin mesedez..."
 
 #: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
 #, kde-format
@@ -1829,7 +1830,7 @@ msgstr "irudiak"
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
-msgstr ""
+msgstr "saskiak"
 
 #: src/htmlexporter.cpp:155 src/htmlexporter.cpp:161 src/htmlexporter.cpp:162
 #, kde-format
@@ -1843,6 +1844,8 @@ msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
 "information at hand."
 msgstr ""
+"<a href=\"%1\">%2</a> %3(r)ekin egina, oharrak hartu eta informazio eskura "
+"mantentzeko tresna bat."
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
 #: src/variouswidgets.cpp:405
@@ -1862,7 +1865,7 @@ msgstr "Bestelakoa..."
 #: src/kcolorcombo2.cpp:638
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
-msgstr ""
+msgstr "R:%1, G:%2, B:%3"
 
 #: src/kcolorcombo2.cpp:638
 #, kde-format
@@ -1888,22 +1891,22 @@ msgstr "IDa"
 #: src/kgpgme.cpp:69
 #, kde-format
 msgid "Choose a secret key:"
-msgstr ""
+msgstr "Aukeratu gako sekretu bat:"
 
 #: src/kgpgme.cpp:258
 #, kde-format
 msgid "Key listing unexpectedly truncated."
-msgstr ""
+msgstr "Gakoak zerrendatzea ustekabean moztu da."
 
 #: src/kgpgme.cpp:292
 #, kde-format
 msgid "That public key is not meant for encryption"
-msgstr ""
+msgstr "Gako publiko hura ez dago zifratzeko pentsatua"
 
 #: src/kgpgme.cpp:336
 #, kde-format
 msgid "Unsupported algorithm"
-msgstr ""
+msgstr "Euskarririk gabeko algoritmoa"
 
 #: src/kgpgme.cpp:428
 #, kde-format
@@ -1913,7 +1916,7 @@ msgstr "Pasahitz okerra."
 #: src/kgpgme.cpp:443
 #, kde-format
 msgid "Please enter a new password:"
-msgstr ""
+msgstr "Mesedez, sartu pasahitz berri bat:"
 
 #: src/linklabel.cpp:604
 #, kde-format
@@ -1938,12 +1941,12 @@ msgstr "Inoiz ez"
 #: src/linklabel.cpp:617
 #, kde-format
 msgid "On mouse hovering"
-msgstr ""
+msgstr "Sagua gainetik igarotzean"
 
 #: src/linklabel.cpp:618
 #, kde-format
 msgid "When mouse is outside"
-msgstr ""
+msgstr "Sagua kanpoaldean dagoenean"
 
 #: src/linklabel.cpp:620
 #, kde-format
@@ -1958,7 +1961,7 @@ msgstr "Kolo&rea:"
 #: src/linklabel.cpp:634
 #, kde-format
 msgid "&Mouse hover color:"
-msgstr ""
+msgstr "&Sagua gainetik igarotzeko kolorea:"
 
 #: src/linklabel.cpp:643
 #, kde-format
@@ -1978,22 +1981,22 @@ msgstr "Ikonoen neurria"
 #: src/linklabel.cpp:651
 #, kde-format
 msgid "Twice the icon size"
-msgstr ""
+msgstr "Ikonoen neurri bikoitza"
 
 #: src/linklabel.cpp:652
 #, kde-format
 msgid "Three times the icon size"
-msgstr ""
+msgstr "Ikonoen neurri hirukoitza"
 
 #: src/linklabel.cpp:654
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Preview:"
-msgstr "Aurrebista"
+msgstr "Aurreikus&pegia:"
 
 #: src/linklabel.cpp:657
 #, kde-format
 msgid "You disabled preview but still see images?"
-msgstr ""
+msgstr "Aurreikuspegia ezgaitu zenuen baina oraindik irudiak ikusten dituzu?"
 
 #: src/linklabel.cpp:658
 #, kde-format
@@ -2034,22 +2037,22 @@ msgstr ""
 #: src/newbasketdialog.cpp:77
 #, kde-format
 msgid "New Basket"
-msgstr ""
+msgstr "Saski berria"
 
 #: src/newbasketdialog.cpp:111
 #, kde-format
 msgid "Background color"
-msgstr "Atzeko planoko kolorea"
+msgstr "Atzeko planoaren kolorea"
 
 #: src/newbasketdialog.cpp:119
 #, kde-format
 msgid "&Manage Templates..."
-msgstr ""
+msgstr "&Kudeatu txantiloiak..."
 
 #: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:314
 #, kde-format
 msgid "One column"
-msgstr ""
+msgstr "Zutabe bat"
 
 #: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:316
 #, kde-format
@@ -2074,7 +2077,7 @@ msgstr "&Txantiloia:"
 #: src/newbasketdialog.cpp:205
 #, kde-format
 msgid "(Baskets)"
-msgstr ""
+msgstr "(Saskiak)"
 
 #: src/newbasketdialog.cpp:207
 #, kde-format
@@ -2084,7 +2087,7 @@ msgstr "So&rtu hemen:"
 #: src/newbasketdialog.cpp:209
 #, kde-format
 msgid "How is it useful?"
-msgstr ""
+msgstr "Nola lagun dezake?"
 
 #: src/newbasketdialog.cpp:210
 #, kde-format
@@ -2104,12 +2107,12 @@ msgstr ""
 #: src/newbasketdialog.cpp:322
 #, kde-format
 msgid "Mind map"
-msgstr ""
+msgstr "Adimen-mapa"
 
 #: src/notecontent.cpp:93
 #, kde-format
 msgid "Plain Text"
-msgstr "Testu arrunta"
+msgstr "Testu-soila"
 
 #: src/notecontent.cpp:95
 #, kde-format
@@ -2164,117 +2167,117 @@ msgstr "Ezezaguna"
 #: src/notecontent.cpp:591
 #, kde-format
 msgid "Edit this plain text"
-msgstr ""
+msgstr "Editatu testu-soila"
 
 #: src/notecontent.cpp:595
 #, kde-format
 msgid "Edit this text"
-msgstr ""
+msgstr "Editatu testu hau"
 
 #: src/notecontent.cpp:599
 #, kde-format
 msgid "Edit this image"
-msgstr ""
+msgstr "Editatu irudi hau"
 
 #: src/notecontent.cpp:603
 #, kde-format
 msgid "Edit this animation"
-msgstr ""
+msgstr "Editatu animazio hau"
 
 #: src/notecontent.cpp:607
 #, kde-format
 msgid "Edit the file name of this sound"
-msgstr ""
+msgstr "Editatu soinu honen fitxategi-izena"
 
 #: src/notecontent.cpp:611
 #, kde-format
 msgid "Edit the name of this file"
-msgstr ""
+msgstr "Editatu fitxategi honen izena"
 
 #: src/notecontent.cpp:615
 #, kde-format
 msgid "Edit this link"
-msgstr ""
+msgstr "Editatu esteka hau"
 
 #: src/notecontent.cpp:619
 #, kde-format
 msgid "Edit this cross reference"
-msgstr ""
+msgstr "Editatu aipamen gurutzatu hau"
 
 #: src/notecontent.cpp:623
 #, kde-format
 msgid "Edit this launcher"
-msgstr ""
+msgstr "Editatu abiarazle hau"
 
 #: src/notecontent.cpp:627
 #, kde-format
 msgid "Edit this color"
-msgstr ""
+msgstr "Editatu kolore hau"
 
 #: src/notecontent.cpp:631
 #, kde-format
 msgid "Edit this unknown object"
-msgstr ""
+msgstr "Editatu objektu ezezagun hau"
 
 #: src/notecontent.cpp:993
 #, kde-format
 msgid "Opening plain text..."
-msgstr ""
+msgstr "Testu-soila irekitzen..."
 
 #: src/notecontent.cpp:995
 #, kde-format
 msgid "Opening plain texts..."
-msgstr ""
+msgstr "Testu-soilak irekitzen..."
 
 #: src/notecontent.cpp:997
 #, kde-format
 msgid "Opening plain text with..."
-msgstr ""
+msgstr "Testu-soila honekin irekitzen..."
 
 #: src/notecontent.cpp:999
 #, kde-format
 msgid "Opening plain texts with..."
-msgstr ""
+msgstr "Testu-soilak honekin irekitzen..."
 
 #: src/notecontent.cpp:1001
 #, kde-format
 msgid "Open plain text with:"
-msgstr ""
+msgstr "Testu-soila honekin ireki:"
 
 #: src/notecontent.cpp:1003
 #, kde-format
 msgid "Open plain texts with:"
-msgstr ""
+msgstr "Testu-soilak honekin ireki:"
 
 #: src/notecontent.cpp:1114
 #, kde-format
 msgid "Opening text..."
-msgstr ""
+msgstr "Testua irekitzen..."
 
 #: src/notecontent.cpp:1116
 #, kde-format
 msgid "Opening texts..."
-msgstr ""
+msgstr "Testuak irekitzen..."
 
 #: src/notecontent.cpp:1118
 #, kde-format
 msgid "Opening text with..."
-msgstr ""
+msgstr "Testua honekin irekitzen..."
 
 #: src/notecontent.cpp:1120
 #, kde-format
 msgid "Opening texts with..."
-msgstr ""
+msgstr "Testuak honekin irekitzen..."
 
 #: src/notecontent.cpp:1122
 #, kde-format
 msgid "Open text with:"
-msgstr ""
+msgstr "Ireki testua honekin:"
 
 #: src/notecontent.cpp:1124
 #, kde-format
 msgid "Open texts with:"
-msgstr ""
+msgstr "Ireki testuak honekin:"
 
 #: src/notecontent.cpp:1247 src/notecontent.cpp:1464
 #, kde-format
@@ -2284,72 +2287,72 @@ msgstr "Neurria"
 #: src/notecontent.cpp:1247 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
-msgstr ""
+msgstr "%1 x %2 pixel"
 
 #: src/notecontent.cpp:1254
 #, kde-format
 msgid "Opening image..."
-msgstr ""
+msgstr "Irudia irekitzen..."
 
 #: src/notecontent.cpp:1256
 #, kde-format
 msgid "Opening images..."
-msgstr ""
+msgstr "Irudiak irekitzen..."
 
 #: src/notecontent.cpp:1258
 #, kde-format
 msgid "Opening image with..."
-msgstr ""
+msgstr "Irudia honekin irekitzen..."
 
 #: src/notecontent.cpp:1260
 #, kde-format
 msgid "Opening images with..."
-msgstr ""
+msgstr "Irudiak honekin irekitzen..."
 
 #: src/notecontent.cpp:1262
 #, kde-format
 msgid "Open image with:"
-msgstr ""
+msgstr "Ireki irudia honekin:"
 
 #: src/notecontent.cpp:1264
 #, kde-format
 msgid "Open images with:"
-msgstr ""
+msgstr "Ireki irudiak honekin:"
 
 #: src/notecontent.cpp:1289
 #, kde-format
 msgid "Click for full size view"
-msgstr ""
+msgstr "Egin klik neurri osoko ikuspegirako"
 
 #: src/notecontent.cpp:1375
 #, kde-format
 msgid "Opening animation..."
-msgstr ""
+msgstr "Animazioa irekitzen..."
 
 #: src/notecontent.cpp:1377
 #, kde-format
 msgid "Opening animations..."
-msgstr ""
+msgstr "Animazioak irekitzen..."
 
 #: src/notecontent.cpp:1379
 #, kde-format
 msgid "Opening animation with..."
-msgstr ""
+msgstr "Animazioa honekin irekitzen..."
 
 #: src/notecontent.cpp:1381
 #, kde-format
 msgid "Opening animations with..."
-msgstr ""
+msgstr "Animazioak honekin irekitzen..."
 
 #: src/notecontent.cpp:1383
 #, kde-format
 msgid "Open animation with:"
-msgstr ""
+msgstr "Ireki animazioa honekin:"
 
 #: src/notecontent.cpp:1385
 #, kde-format
 msgid "Open animations with:"
-msgstr ""
+msgstr "Ireki animazioak honekin:"
 
 #: src/notecontent.cpp:1469
 #, kde-format
@@ -2359,7 +2362,7 @@ msgstr "Mota"
 #: src/notecontent.cpp:1510
 #, kde-format
 msgid "Open this file"
-msgstr ""
+msgstr "Ireki fitxategi hau"
 
 #: src/notecontent.cpp:1529
 #, kde-format
@@ -2374,57 +2377,57 @@ msgstr "Fitxategiak irekitzen..."
 #: src/notecontent.cpp:1533
 #, kde-format
 msgid "Opening file with..."
-msgstr ""
+msgstr "Fitxategia honekin irekitzen..."
 
 #: src/notecontent.cpp:1535
 #, kde-format
 msgid "Opening files with..."
-msgstr ""
+msgstr "Fitxategiak honekin irekitzen..."
 
 #: src/notecontent.cpp:1537
 #, kde-format
 msgid "Open file with:"
-msgstr ""
+msgstr "Ireki fitxategia honekin:"
 
 #: src/notecontent.cpp:1539
 #, kde-format
 msgid "Open files with:"
-msgstr ""
+msgstr "Ireki fitxategiak honekin:"
 
 #: src/notecontent.cpp:1631
 #, kde-format
 msgid "Open this sound"
-msgstr ""
+msgstr "Ireki soinu hau"
 
 #: src/notecontent.cpp:1657
 #, kde-format
 msgid "Opening sound..."
-msgstr ""
+msgstr "Soinua irekitzen..."
 
 #: src/notecontent.cpp:1659
 #, kde-format
 msgid "Opening sounds..."
-msgstr ""
+msgstr "Soinuak irekitzen..."
 
 #: src/notecontent.cpp:1661
 #, kde-format
 msgid "Opening sound with..."
-msgstr ""
+msgstr "Soinua honekin irekitzen..."
 
 #: src/notecontent.cpp:1663
 #, kde-format
 msgid "Opening sounds with..."
-msgstr ""
+msgstr "Soinuak honekin irekitzen..."
 
 #: src/notecontent.cpp:1665
 #, kde-format
 msgid "Open sound with:"
-msgstr ""
+msgstr "Ireki soinua honekin:"
 
 #: src/notecontent.cpp:1667
 #, kde-format
 msgid "Open sounds with:"
-msgstr ""
+msgstr "Ireki soinuak honekin:"
 
 #: src/notecontent.cpp:1730 src/notecontent.cpp:2001
 #, kde-format
@@ -2434,42 +2437,42 @@ msgstr "Jomuga"
 #: src/notecontent.cpp:1752 src/notecontent.cpp:2023
 #, kde-format
 msgid "Open this link"
-msgstr ""
+msgstr "Ireki esteka hau"
 
 #: src/notecontent.cpp:1778
 #, kde-format
 msgid "Link have no URL to open."
-msgstr ""
+msgstr "Estekak ez du ireki daitekeen URLrik."
 
 #: src/notecontent.cpp:1782
 #, kde-format
 msgid "Opening link target..."
-msgstr ""
+msgstr "Estekaren jomuga irekitzen..."
 
 #: src/notecontent.cpp:1784
 #, kde-format
 msgid "Opening link targets..."
-msgstr ""
+msgstr "Estekaren jomugak irekitzen..."
 
 #: src/notecontent.cpp:1786
 #, kde-format
 msgid "Opening link target with..."
-msgstr ""
+msgstr "Estekaren jomuga honekin irekitzen..."
 
 #: src/notecontent.cpp:1788
 #, kde-format
 msgid "Opening link targets with..."
-msgstr ""
+msgstr "Estekaren jomugak honekin irekitzen..."
 
 #: src/notecontent.cpp:1790
 #, kde-format
 msgid "Open link target with:"
-msgstr ""
+msgstr "Estekaren jomuga honekin ireki:"
 
 #: src/notecontent.cpp:1792
 #, kde-format
 msgid "Open link targets with:"
-msgstr ""
+msgstr "Ireki estekaren jomugak honekin:"
 
 #: src/notecontent.cpp:2036
 #, kde-format
@@ -2484,7 +2487,7 @@ msgstr ""
 #: src/notecontent.cpp:2053
 #, kde-format
 msgid "Opening basket..."
-msgstr ""
+msgstr "Saskia irekitzen..."
 
 #: src/notecontent.cpp:2158
 #, kde-format
@@ -2499,22 +2502,22 @@ msgstr "Komandoa"
 #: src/notecontent.cpp:2187
 #, kde-format
 msgid "Launch this application"
-msgstr ""
+msgstr "Abiarazi aplikazio hau"
 
 #: src/notecontent.cpp:2208
 #, kde-format
 msgid "The launcher have no command to run."
-msgstr ""
+msgstr "Abiarazleak ez du exekutatzeko komandorik."
 
 #: src/notecontent.cpp:2212
 #, kde-format
 msgid "Launching application..."
-msgstr ""
+msgstr "Aplikazioa abiarazten..."
 
 #: src/notecontent.cpp:2214
 #, kde-format
 msgid "Launching applications..."
-msgstr ""
+msgstr "Aplikazioak abiarazten..."
 
 #: src/notecontent.cpp:2334
 #, kde-format
@@ -2525,7 +2528,7 @@ msgstr "RGB"
 #: src/notecontent.cpp:2335
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
-msgstr ""
+msgstr "<i>Gorria</i>: %1, <i>Berdea</i>: %2, <i>Urdina</i>: %3,"
 
 #: src/notecontent.cpp:2339
 #, kde-format
@@ -2534,19 +2537,19 @@ msgid "HSV"
 msgstr "HSV"
 
 #: src/notecontent.cpp:2340
-#, fuzzy, kde-format
+#, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
-msgstr "Ñabardura, saturazioa, balioa"
+msgstr "<i>Tonua</i>: %1, <i>Asetasuna</i>: %2, <i>Balioa</i>: %3,"
 
 #: src/notecontent.cpp:2344
 #, kde-format
 msgid "CSS Color Name"
-msgstr ""
+msgstr "CSS kolore izena"
 
 #: src/notecontent.cpp:2347
 #, kde-format
 msgid "Is Web Color"
-msgstr ""
+msgstr "Web kolorea da"
 
 #: src/notecontent.cpp:2347
 #, kde-format
@@ -2569,7 +2572,7 @@ msgstr ""
 #: src/noteedit.cpp:540
 #, kde-format
 msgid "Edit Image Note"
-msgstr ""
+msgstr "Editatu irudiaren oharra"
 
 #: src/noteedit.cpp:565
 #, kde-format
@@ -2581,12 +2584,12 @@ msgstr ""
 #: src/noteedit.cpp:567
 #, kde-format
 msgid "Edit Animation Note"
-msgstr ""
+msgstr "Editatu animazioaren oharra"
 
 #: src/noteedit.cpp:660
 #, kde-format
 msgid "Edit Color Note"
-msgstr ""
+msgstr "Editatu kolorearen oharra"
 
 #: src/noteedit.cpp:685
 #, kde-format
@@ -2599,12 +2602,12 @@ msgstr ""
 #: src/noteedit.cpp:687
 #, kde-format
 msgid "Edit Unknown Note"
-msgstr ""
+msgstr "Editatu ohar ezezaguna"
 
 #: src/noteedit.cpp:699
 #, kde-format
 msgid "Edit Link Note"
-msgstr ""
+msgstr "Editatu esteka-oharra"
 
 #: src/noteedit.cpp:719 src/noteedit.cpp:752
 #, kde-format
@@ -2629,22 +2632,22 @@ msgstr "&Titulua:"
 #: src/noteedit.cpp:912
 #, kde-format
 msgid "Edit Cross Reference"
-msgstr ""
+msgstr "Editatu aipamen gurutzatua"
 
 #: src/noteedit.cpp:1031
 #, kde-format
 msgid "Edit Launcher Note"
-msgstr ""
+msgstr "Editatu abiarazle-oharra"
 
 #: src/noteedit.cpp:1045
 #, kde-format
 msgid "Choose a command to run:"
-msgstr ""
+msgstr "Hautatu exekutatu beharreko komando bat:"
 
 #: src/noteedit.cpp:1062
 #, fuzzy, kde-format
 msgid "&Guess"
-msgstr "Zenbatetsi"
+msgstr "Igarri 24"
 
 #: src/noteedit.cpp:1080
 #, kde-format
@@ -2664,7 +2667,7 @@ msgstr "Letra-tipoa"
 #: src/noteedit.cpp:1191
 #, fuzzy, kde-format
 msgid "Font Size"
-msgstr "Letra-tamaina"
+msgstr "Letra-tipoaren neurria"
 
 #: src/noteedit.cpp:1206 src/tagsedit.cpp:468
 #, kde-format
@@ -2733,7 +2736,7 @@ msgstr ""
 #: src/notefactory.cpp:497
 #, kde-format
 msgid "Unsupported MIME Type(s)"
-msgstr ""
+msgstr "Euskarririk gabeko MIME-mota(k)"
 
 #: src/notefactory.cpp:553
 #, kde-format
@@ -2758,17 +2761,17 @@ msgstr ""
 #: src/notefactory.cpp:1052
 #, kde-format
 msgid "Import Icon as Image"
-msgstr ""
+msgstr "Inportatu ikonoa irudi gisa"
 
 #: src/notefactory.cpp:1053
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
-msgstr ""
+msgstr "Hautatu irudi gisa inportatzeko ikonoaren neurria:"
 
 #: src/notefactory.cpp:1069
 #, kde-format
 msgid "Load File Content into a Note"
-msgstr ""
+msgstr "Zamatu fitxategiaren edukia ohar batean"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
 #: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:592
@@ -2779,25 +2782,25 @@ msgstr "Pasahitz babesa"
 #: src/password.cpp:59
 #, kde-format
 msgid "No private key selected."
-msgstr ""
+msgstr "Ez da gako pribaturik hautatu."
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passwordlayout.ui:29
 #, kde-format
 msgid "&No protection"
-msgstr ""
+msgstr "Babesik e&z"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
 #: src/passwordlayout.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
-msgstr ""
+msgstr "Saskia &pasahitz batekin babestu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
 #: src/passwordlayout.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
-msgstr ""
+msgstr "Saskia &gako pribatu batekin babestu:"
 
 #: src/regiongrabber.cpp:101
 #, kde-format
@@ -2824,7 +2827,7 @@ msgstr ""
 #: src/settings.cpp:443 src/settings.cpp:701
 #, kde-format
 msgid "On top"
-msgstr ""
+msgstr "Gailurrean"
 
 #: src/settings.cpp:444 src/settings.cpp:702
 #, kde-format
@@ -2834,7 +2837,7 @@ msgstr ""
 #: src/settings.cpp:446
 #, kde-format
 msgid "&Filter bar position:"
-msgstr ""
+msgstr "Iraga&zte-barraren kokapena:"
 
 #: src/settings.cpp:492
 #, kde-format
@@ -2844,12 +2847,12 @@ msgstr ""
 #: src/settings.cpp:496
 #, kde-format
 msgid "&Big notes"
-msgstr ""
+msgstr "Ohar &handiak"
 
 #: src/settings.cpp:502
 #, kde-format
 msgid "Behavior"
-msgstr "Portaera"
+msgstr "Jokabidea"
 
 #: src/settings.cpp:507
 #, kde-format
@@ -2943,7 +2946,7 @@ msgstr ""
 #: src/settings.cpp:571
 #, kde-format
 msgid "Insert cross reference"
-msgstr ""
+msgstr "Txertatu aipamen gurutzatua"
 
 #: src/settings.cpp:572
 #, kde-format
@@ -2966,9 +2969,9 @@ msgid "Import Launcher for desktop application"
 msgstr ""
 
 #: src/settings.cpp:578
-#, kde-format
+#, fuzzy, kde-format
 msgid "Import icon"
-msgstr ""
+msgstr "In&portatu ikonoa..."
 
 #: src/settings.cpp:581
 #, kde-format
@@ -3013,7 +3016,7 @@ msgstr ""
 #: src/settings.cpp:735
 #, fuzzy, kde-format
 msgid "&by"
-msgstr "<i>%1</i>-ek"
+msgstr "%1(e)k egina"
 
 #: src/settings.cpp:740
 #, kde-format
@@ -3103,7 +3106,7 @@ msgstr "A&biarazleak"
 #: src/settings.cpp:835
 #, kde-format
 msgid "&Cross References"
-msgstr ""
+msgstr "Aipamen &gurutzatua"
 
 #: src/settings.cpp:876
 #, kde-format
@@ -3386,27 +3389,27 @@ msgstr "Aurrerapena"
 #: src/tag.cpp:593
 #, kde-format
 msgid "0 %"
-msgstr ""
+msgstr "% 0"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "25 %"
-msgstr ""
+msgstr "% 25"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "50 %"
-msgstr ""
+msgstr "% 50"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "75 %"
-msgstr ""
+msgstr "% 75"
 
 #: src/tag.cpp:594
 #, kde-format
 msgid "100 %"
-msgstr ""
+msgstr "% 100"
 
 #: src/tag.cpp:647
 #, kde-format
@@ -3471,7 +3474,7 @@ msgstr "Informazioa"
 #: src/tag.cpp:719
 #, kde-format
 msgid "Idea"
-msgstr ""
+msgstr "Ideia"
 
 #: src/tag.cpp:719
 #, kde-format
@@ -3490,10 +3493,10 @@ msgid "Work"
 msgstr "Lanekoa"
 
 #: src/tag.cpp:720
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
-msgstr "W."
+msgstr "L."
 
 #: src/tag.cpp:738
 #, kde-format
@@ -3514,7 +3517,7 @@ msgstr "Dibertigarria"
 #: src/tagsedit.cpp:312
 #, kde-format
 msgid "Customize Tags"
-msgstr ""
+msgstr "Etiketak neurrira egokitu"
 
 #: src/tagsedit.cpp:331
 #, kde-format
@@ -3529,12 +3532,12 @@ msgstr "Egoera be&rria"
 #: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr ""
+msgstr "Eraman gora (Ktrl+Maius+Gora)"
 
 #: src/tagsedit.cpp:354
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr ""
+msgstr "Eraman behera (Ktrl+Maius+Behera)"
 
 #: src/tagsedit.cpp:355
 #, kde-format
@@ -3560,17 +3563,17 @@ msgstr "&Lasterbidea:"
 #: src/tagsedit.cpp:396
 #, kde-format
 msgid "&Inherited by new sibling notes"
-msgstr ""
+msgstr "Ohar haurride berri guztiek &heredatua"
 
 #: src/tagsedit.cpp:398
 #, kde-format
 msgid "Allow Cross Reference Links"
-msgstr ""
+msgstr "Baimendu aipamen gurutzatuko estekak"
 
 #: src/tagsedit.cpp:401
 #, kde-format
 msgid "What does this do?"
-msgstr ""
+msgstr "Zer egiten du?"
 
 #: src/tagsedit.cpp:403
 #, kde-format
@@ -3582,7 +3585,7 @@ msgstr ""
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
-msgstr ""
+msgstr "Zuhaitzaren gorenetik (bide-izen absolutua):"
 
 #: src/tagsedit.cpp:405
 #, kde-format
@@ -3592,7 +3595,7 @@ msgstr ""
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "Relative to the current basket:"
-msgstr ""
+msgstr "Uneko saskiarekiko erlatiboa:"
 
 #: src/tagsedit.cpp:406
 #, kde-format
@@ -3673,7 +3676,7 @@ msgstr ""
 #: src/tagsedit.cpp:519
 #, kde-format
 msgid "What is this for?"
-msgstr ""
+msgstr "Zertarako da hau?"
 
 #: src/tagsedit.cpp:521
 #, kde-format
@@ -3685,7 +3688,7 @@ msgstr ""
 #: src/tagsedit.cpp:532
 #, kde-format
 msgid "On ever&y line"
-msgstr ""
+msgstr "Lerro &guztietan"
 
 #: src/tagsedit.cpp:535
 #, kde-format
@@ -3715,7 +3718,7 @@ msgstr ""
 #: src/tagsedit.cpp:978
 #, kde-format
 msgid "Confirm Delete Tag"
-msgstr ""
+msgstr "Baieztatu etiketa ezabatzea"
 
 #: src/tagsedit.cpp:979
 #, kde-format
@@ -3732,18 +3735,18 @@ msgstr ""
 #: src/tagsedit.cpp:983
 #, kde-format
 msgid "Confirm Delete State"
-msgstr ""
+msgstr "Baieztatu egoera ezabatzea"
 
 #: src/tagsedit.cpp:984
 #, kde-format
 msgid "Delete State"
-msgstr ""
+msgstr "Ezabatu egoera"
 
 #: src/tools.cpp:809
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
@@ -3751,9 +3754,9 @@ msgstr ""
 #: src/variouswidgets.cpp:275 src/variouswidgets.cpp:276
 #: src/variouswidgets.cpp:277 src/variouswidgets.cpp:278
 #: src/variouswidgets.cpp:279 src/variouswidgets.cpp:280
-#, kde-format
+#, fuzzy, kde-format
 msgid "%1 by %1 pixels"
-msgstr ""
+msgstr "%1 x %2 pixel"
 
 #: src/variouswidgets.cpp:195
 #, kde-format
