@@ -1,16 +1,16 @@
 # Translation for basket.po to Euskara/Basque (eu).
-# Copyright (C) 2022, This file is copyright:
+# Copyright (C) 2022-2025 This file is copyright:
 # This file is distributed under the same license as the basket package.
 # SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2025-01-06 11:06+0100\n"
+"PO-Revision-Date: 2025-01-08 23:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -3670,7 +3670,7 @@ msgstr "Zuhaitzaren gorenetik (bide-izen absolutua):"
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
-msgstr ""
+msgstr "[[/goi mailako elementua/haurra|aukerako titulua]]"
 
 #: src/tagsedit.cpp:405
 #, kde-format
@@ -3680,22 +3680,22 @@ msgstr "Uneko saskiarekiko erlatiboa:"
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[../sibling|optional title]]"
-msgstr ""
+msgstr "[[../haurridea|aukerako titulua]]"
 
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[child|optional title]]"
-msgstr ""
+msgstr "[[haurra|aukerako titulua]]"
 
 #: src/tagsedit.cpp:407
 #, kde-format
 msgid "[[./child|optional title]]"
-msgstr ""
+msgstr "[[./haurra|aukerako titulua]]"
 
 #: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "Saskiak bat etortzeak ez ditu mAiusKuLak beReIzten."
 
 #: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
