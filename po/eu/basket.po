@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2025-01-08 23:16+0100\n"
+"PO-Revision-Date: 2025-01-09 23:09+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -343,6 +343,17 @@ msgid ""
 "folder manually (eg. adding a file in a basket folder will not add that file "
 "to the basket).</p>"
 msgstr ""
+"<p>%1(e)k zure saskiak gordetzen dituen karpeta lekuz alda dezakezu:</"
+"p><ul><li>Zure etxeko karpetan ikusgai dagoen leku batean gorde ditzakezu, ~/"
+"Oharrak edo ~/Saskiak esaterako, nahi duzunean eskuz haien babeskopia "
+"egiteko aukera izan dezazun.</li><li>Gorde zure saskiak zerbitzari batean "
+"haiek bi ordenagailuren artean partekatzeko.<br>Kasu horretan, partekatutako "
+"karpeta zure fitxategi-sistema lokalean muntatu eta %1(e)ri muntaia puntu "
+"hori erabiltzeko esan.<br>Abisua: Ez zenuke %1 aldi berean bi "
+"ordenagailuetan exekutatu behar, edo datuak galtzeko arriskua hartzen duzu "
+"bi aplikazioak sinkronizatu gabe daudelako.</li></ul><p>Mesedez, gogoratu "
+"karpeta horren edukia ez duzula eskuz aldatu behar (adib. saski batean "
+"karpeta bat sortzea eta du fitxategia saskian gehituko).</p>"
 
 #: src/backup.cpp:104
 #, kde-format
@@ -2984,11 +2995,14 @@ msgid ""
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
 "empty checkbox and a checked box."
 msgstr ""
+"Adibidez, <b>Zeregina</b> edo <b>Eginda</b> etiketak, aurretik <b>[ ]</b> "
+"edo <b>[x]</b> duten lerro gisa esportatzen dira, markatu gabeko eta "
+"markatutako egiaztapen laukia adierazten dutelarik."
 
 #: src/settings.cpp:545
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
-msgstr ""
+msgstr "&Taldekatu ohar berri bat txertatzeko lerroaren eskuinean klik egitean"
 
 #: src/settings.cpp:547
 #, kde-format
@@ -3002,6 +3016,9 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
+"<p>Aukera hau gaituta dagoenean, txertatzeko lerroak ez dizu bakarrik "
+"kurtsorearen kokalekuan oharrak txertatzeko aukera ematen, ohar berri bat "
+"kurtsorearen azpian dagoenarekin taldekatzeko aukera ere ematen dizu.</p>"
 
 #: src/settings.cpp:551
 #, kde-format
@@ -3011,6 +3028,10 @@ msgid ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
+"<p>Kokatu zure sagua oharren artean, ohar berri bat gehitu nahi duzun lekuan."
+"<br>Egin klik txertatzeko lerroaren erdiko markaren <b>ezkerrean</b> ohar "
+"bat <b>txertatzeko</b>.<br>Egin klik <b>eskuinean</b> ohar bat <b>azpiko edo "
+"gainekoarekin</b> taldekatzeko, zure saguan non dagoen arabera.<b>"
 
 #: src/settings.cpp:567
 #, kde-format
@@ -3312,6 +3333,9 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
+"<p>Markatuta badago, behean definitutako aplikazioa erabiliko da mota "
+"horretako oharra irekitzean.</p><p>Bestela, Konqueror-ren konfiguratu duzun "
+"aplikazioa erabiliko da.</p>"
 
 #: src/settings.cpp:1008
 #, kde-format
@@ -3319,6 +3343,8 @@ msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr ""
+"<p>Definitu, Konqueror-ren konfiguratutako aplikazioaren ordez, ohar mota "
+"hori irekitzeko erabili nahi duzun aplikazioa.</p>"
 
 #: src/settings_versionsync.cpp:76
 #, kde-format
@@ -3661,6 +3687,9 @@ msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
+"Aukera honek testu oharrean zuzenean aipamen gurutzatuko esteka bat "
+"tekleatzeko aukera emango dizu. Aipamen gurutzatuko estekek ondoko sintaxia "
+"izan dezakete:"
 
 #: src/tagsedit.cpp:404
 #, kde-format
@@ -3716,7 +3745,7 @@ msgstr "&Kendu"
 #: src/tagsedit.cpp:439
 #, kde-format
 msgid "&Emblem:"
-msgstr ""
+msgstr "&Enblema:"
 
 #: src/tagsedit.cpp:456
 #, kde-format
@@ -3764,6 +3793,8 @@ msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
 "will be inserted as a textual equivalent of the tag."
 msgstr ""
+"Ohar bat testu editore batera kopiatu eta itsatsi edo arrastatu eta "
+"jaregiten baduzu, testu hau etiketaren testu baliokide gisa txertatuko da."
 
 #: src/tagsedit.cpp:532
 #, kde-format
@@ -3781,6 +3812,8 @@ msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
 "on the first line or on every line of the note."
 msgstr ""
+"Ohar batek hainbat lerro dituenean, etiketa, edo aurreneko lerroko egoera "
+"edo oharraren lerro guztietakoa esportatzea aukera dezakezu."
 
 #: src/tagsedit.cpp:539
 #, kde-format
@@ -3788,12 +3821,15 @@ msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
 msgstr ""
+"Aurreko adibidean, goiko oharraren etiketa aurreneko lerroan bakarrik "
+"esportatzen da, beheko oharrarena, berriz, oharraren lerro guztietan "
+"esportatzen da."
 
 #: src/tagsedit.cpp:977
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
-msgstr ""
+msgstr "Etiketa ezabatuz, orain esleituta duten ohar guztietatik ezabatuko du."
 
 #: src/tagsedit.cpp:978
 #, kde-format
@@ -3811,6 +3847,8 @@ msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
 msgstr ""
+"Egoera ezabatuz, orain egoera esleituta duten ohar guztietatik etiketa "
+"ezabatuko du."
 
 #: src/tagsedit.cpp:983
 #, kde-format
