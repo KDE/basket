@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the basket package.
 #
-# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2021-02-07 09:29+0100\n"
+"PO-Revision-Date: 2025-01-11 15:20+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.04.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3240,7 +3240,7 @@ msgstr "&Korsreferenser"
 #: src/settings.cpp:876
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Allmänna startassociationer"
 
 #: src/settings.cpp:879
 #, kde-format
@@ -3260,25 +3260,23 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>I moderna skrivbordsmiljöer ger startprogramsinställningen information "
+"till systemet om hur man hanterar ett program. Filerna är viktiga för att "
+"integrera program i skrivbordsmiljön, för att lista, söka och starta program "
+"med specifika inställningar</p><p >Så här gör du om du vill starta "
+"webbläsaren Falkon med en specifik profil.</p><ul><li>Öppna KDE:s menyeditor "
+"och skriv \"Falkon\" i sökfiltret</li><li >Välj \"Falkon\" startprogram, "
+"högerklicka, kopiera och klistra in</li><li>Redigera egenskapsfälten under "
+"\"Allmänt\" som \"Namn\", \"Beskrivning\" eller \"Kommentar\"</"
+"li><li>Redigera fältet \"Kommandoradsväljare\" till något i stil med \"--"
+"profile 'din-omfattande-hobby' %%u\"</li></ul><p>När du nu väljer det nya "
+"startprogrammet som startprogram för länkanteckningar i en korg, öppnar "
+"Basket HTTP-länkar med profilen \"din-omfattande-hobby\" i Falkon</p><p>För "
+"mer finkornig inställning (som att helst öppna pdf-dokument med Falkon), läs "
+"den andra knappens verktygstips.</p>"
 
 #: src/settings.cpp:893
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3305,9 +3303,10 @@ msgstr ""
 "\"Standardprogram\",</li><li>Välj \"Webbläsare\", markera \"med följande "
 "kommando:\" och skriv in namnet på webbläsaren (som \"firefox\" eller "
 "\"epiphany\").</li></ul><p>När du nu klickar på vilken länk som helst som "
-"börjar med \"https:// ...\", öppnas den i webbläsaren (t.ex. Mozilla Firefox "
-"eller Ephiphany ...).<i></i>För mer finkornig inställning (såsom att bara "
-"öppna webbsidor i webbläsaren), läs den andra hjälplänken.</p>"
+"börjar med \"https:// ...\", öppnas den i webbläsaren (t.ex. Mozilla "
+"Firefox, Ephiphany eller ...).<i></i>För mer finkornig inställning (såsom "
+"att bara öppna webbsidor i webbläsaren), läs den tredje knappens "
+"verktygstips.</p>"
 
 #: src/settings.cpp:907
 #, kde-format
@@ -3343,7 +3342,7 @@ msgstr ""
 #: src/settings.cpp:955
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Specifika korgassociationer"
 
 #: src/settings.cpp:957
 #, kde-format
@@ -3386,16 +3385,14 @@ msgid "Open sound notes with:"
 msgstr "Öppna ljudanteckningar med:"
 
 #: src/settings.cpp:989
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Öppna &textanteckningar med ett eget program:"
+msgstr "Öppna http-länkanteckningar med ett eget program:"
 
 #: src/settings.cpp:990
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Öppna textanteckningar med:"
+msgstr "Öppna http-länkanteckningar med:"
 
 #: src/settings.cpp:998
 #, kde-format
@@ -3422,10 +3419,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Vill du verkligen ta bort gamla versioner för alla korgar?"
 
 #: src/settings_versionsync.cpp:77
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Ta bort korg"
+msgstr "Ta bort gamla korgar"
 
 #: src/settings_versionsync.cpp:78
 #, kde-format
