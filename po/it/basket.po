@@ -2,13 +2,13 @@
 #
 # SPDX-FileCopyrightText: 2006, 2007, 2014, 2016, 2018, 2020, 2021, 2024 Luigi Toscano <luigi.toscano@tiscali.it>
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
-# SPDX-FileCopyrightText: 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2024-12-29 23:50+0100\n"
+"PO-Revision-Date: 2025-01-06 02:19+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -666,7 +666,7 @@ msgid ""
 "is useful in addition to the configurable global shortcuts, eg. to paste the "
 "clipboard or the selection into the current basket from anywhere.</p>"
 msgstr ""
-"<p><strong>Ricorda facilmente le scorciatorie</strong>:<br>Con la prima "
+"<p><strong>Ricorda facilmente le scorciatoie</strong>:<br>Con la prima "
 "opzione, assegnando al cesto una scorciatoia della forma <strong>Alt"
 "+lettera</strong>, tale lettera sarà sottolineata nell'albero dei cesti."
 "<br>Ad esempio, se assegni la scorciatoia <i>Alt+S</i> ad un cesto chiamato "
@@ -674,10 +674,10 @@ msgstr ""
 "nell'albero. Ti aiuta a visualizzare le scorciatoie per memorizzarle più "
 "velocemente.</p><p><strong>Locale Vs globale</strong>:<br>La prima opzione "
 "consente di mostrare il cesto mentre la finestra principale è attiva. Le "
-"scorciatorie globali sono valide ovunque, anche se la finestra è nascosta.</"
+"scorciatoie globali sono valide ovunque, anche se la finestra è nascosta.</"
 "p><p><strong>Mostra Vs Passa a</strong>:<br>L'ultima opzione rende attivo "
 "questo cesto senza aprire la finestra principale. È utile in aggiunta alla "
-"scorciatoria globale configurabile, ad esempio, per incollare il contenuto "
+"scorciatoia globale configurabile, ad esempio, per incollare il contenuto "
 "degli appunti o della selezione in qualsiasi punto del cesto corrente.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
@@ -3291,20 +3291,20 @@ msgid ""
 msgstr ""
 "<p>Negli ambienti desktop moderni, la configurazione dell'avviatore fornisce "
 "al sistema informazioni su come gestire un'applicazione. Questi file sono "
-"essenziali per integrare le applicazioni nell'ambiene destkio, per elencare, "
-"cercare ed eseguire applicazioni con configurazioni specifiche</p><p>Di "
-"seguito è spiegato come fare per eseguire il browser Falkon con un profilo "
-"specifico.</p><ul><li>Apri l'editor di menu di KDE, e digita «Falkon» nel "
-"filtro di ricerca;</li><li>Seleziona l'esecutore desktop «Falkon», clic sol "
-"pulsante destro, copia e incolla;</li><li>Modifica i campi delle proprietà "
-"della sezione «Generali» come «Nome», «Descrizione» o «Commento».</li><li> "
-"Modifica il campo «Argomenti della riga di comando» in qualcosa come «--"
-"profile 'il-tuo-vasto-passatempo' %u».</li></ul>Adesso, quando scegli il "
-"nuovo avviatore come avviatore delle note collegamento di basket, Basket "
-"aprirà i collegamenti HTTP con il profilo «il-tuo-vasto-passatempo»<p></"
-"p>Per una configurazione più raffinata (come aprire dei documenti PDF "
-"preferibilmente con Falkon), consulta il suggerimento del secondo pulsante.</"
-"p>"
+"essenziali per integrare le applicazioni nell'ambiente desktop, per "
+"elencare, cercare ed eseguire applicazioni con configurazioni specifiche</"
+"p><p>Di seguito è spiegato come fare per eseguire il browser Falkon con un "
+"profilo specifico.</p><ul><li>Apri l'editor di menu di KDE, e digita "
+"«Falkon» nel filtro di ricerca;</li><li>Seleziona l'esecutore desktop "
+"«Falkon», clic sul pulsante destro, copia e incolla;</li><li>Modifica i "
+"campi delle proprietà della sezione «Generali» come «Nome», «Descrizione» o "
+"«Commento».</li><li> Modifica il campo «Argomenti della riga di comando» in "
+"qualcosa come «--profile 'il-tuo-vasto-passatempo' %u».</li></ul>Adesso, "
+"quando scegli il nuovo avviatore come avviatore delle note collegamento di "
+"basket, Basket aprirà i collegamenti HTTP con il profilo «il-tuo-vasto-"
+"passatempo»<p></p>Per una configurazione più raffinata (come aprire dei "
+"documenti PDF preferibilmente con Falkon), consulta il suggerimento del "
+"secondo pulsante.</p>"
 
 #: src/settings.cpp:893
 #, kde-format
@@ -3421,7 +3421,7 @@ msgstr "Apri note di tipo suono con:"
 #: src/settings.cpp:989
 #, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Apri note con collegameni http con un'applicazione personalizzata:"
+msgstr "Apri note con collegamenti http con un'applicazione personalizzata:"
 
 #: src/settings.cpp:990
 #, kde-format
