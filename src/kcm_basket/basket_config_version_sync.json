@@ -19,6 +19,7 @@
         "Description[tr]": "Sürüm Eşzamanlama",
         "Description[uk]": "Синхронізація версій",
         "Description[x-test]": "xxVersion Syncxx",
+        "Description[zh_CN]": "版本同步",
         "Icon": "folder-sync",
         "Name": "Version Sync",
         "Name[ca@valencia]": "Sincronitza la versió",
@@ -39,6 +40,7 @@
         "Name[tr]": "Sürüm Eşzamanlama",
         "Name[uk]": "Синхронізація версій",
         "Name[x-test]": "xxVersion Syncxx",
+        "Name[zh_CN]": "版本同步",
         "ServiceTypes": [
             "KCModule"
         ]

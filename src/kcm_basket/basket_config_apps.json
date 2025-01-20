@@ -19,6 +19,7 @@
         "Description[tr]": "Uygulamalar",
         "Description[uk]": "Програми",
         "Description[x-test]": "xxApplicationsxx",
+        "Description[zh_CN]": "应用",
         "Icon": "preferences-desktop-filetype-association",
         "Name": "Applications",
         "Name[ca@valencia]": "Aplicacions",
@@ -39,6 +40,7 @@
         "Name[tr]": "Uygulamalar",
         "Name[uk]": "Програми",
         "Name[x-test]": "xxApplicationsxx",
+        "Name[zh_CN]": "应用",
         "ServiceTypes": [
             "KCModule"
         ]

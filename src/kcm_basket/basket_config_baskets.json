@@ -19,6 +19,7 @@
         "Description[tr]": "Sepetler",
         "Description[uk]": "Кошики",
         "Description[x-test]": "xxBasketsxx",
+        "Description[zh_CN]": "笔记篮",
         "Icon": "basket",
         "Name": "Baskets",
         "Name[ca@valencia]": "Cistelles",
@@ -39,6 +40,7 @@
         "Name[tr]": "Sepetler",
         "Name[uk]": "Кошики",
         "Name[x-test]": "xxBasketsxx",
+        "Name[zh_CN]": "笔记篮",
         "ServiceTypes": [
             "KCModule"
         ]
