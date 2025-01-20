@@ -3093,7 +3093,7 @@ msgstr ""
 #: src/settings.cpp:876
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "通用启动关联"
 
 #: src/settings.cpp:879
 #, kde-format
@@ -3113,6 +3113,16 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>在现代桌面环境中，启动器配置向系统提供有关如何处理应用程序的信息。这些文件"
+"对于将应用程序集成到桌面环境中、列出 (查找并使用特定配置启动应用程序) 至关重"
+"要。</p><p>如果你想使用特定配置文件启动 Falkon 浏览器，可按以下步骤操作：</"
+"p><ul><li>打开 KDE 菜单编辑器，在搜索过滤器中输入“Falkon”；</li><li>选"
+"择“Falkon”桌面启动器，右键单击，复制并粘贴；</li><li>编辑“常规”属性字段 "
+"(如“名称”“描述”或“注释”) ；</li><li>将“命令行参数”字段编辑为类似“--profile "
+"'Your-Extensive-Hobby' %%u”的内容。</li></ul><p>现在，当你选择新的启动器作为"
+"篮子链接笔记启动器时，笔记篮将使用 Falkon 的“Your-Extensive-Hobby”配置文件打"
+"开 HTTP 链接。</p><p>如需更精细的配置 (如优先使用 Falkon 打开 PDF 文档) ，请"
+"阅读第二个按钮的工具提示。</p>"
 
 #: src/settings.cpp:893
 #, kde-format
@@ -3132,6 +3142,16 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 msgstr ""
+"<p>打开网页链接时，根据链接内容 (网页、图片、 PDF 文档等) ，它们会在不同应用"
+"程序中打开，就如同它们是你计算机上的文件一样。</p><p>如果你希望所有网页地址都"
+"在你的网页浏览器中打开，可按以下步骤操作。如果你不使用 Plasma (例如使用 "
+"GNOME 、 XFCE 等) ，此方法会很有用：</p><ul><li>打开 KDE 系统设置 (如果不可"
+"用，尝试在命令行终端中输入“systemsettings”) ；</li><li>进入“应用程序”，然后进"
+"入“默认应用程序”部分；</li><li>选择“网页浏览器”，勾选“使用以下命令：”并输入你"
+"的网页浏览器名称 (如“firefox”或“epiphany”) 。</li></ul><p>现在，当你点击<i>任"
+"何</i>以“https://...”开头的链接时，它将在你的网页浏览器 (如 Mozilla Firefox "
+"或 Epiphany 等) 中打开。</p><p>如需更精细的配置 (如仅在网页浏览器中打开网"
+"页) ，请阅读第三个按钮的工具提示。</p>"
 
 #: src/settings.cpp:907
 #, kde-format
@@ -3154,7 +3174,7 @@ msgstr ""
 #: src/settings.cpp:955
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "特定的笔记栏关联"
 
 #: src/settings.cpp:957
 #, kde-format
@@ -3199,12 +3219,12 @@ msgstr "打开声音记事贴方式："
 #: src/settings.cpp:989
 #, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr ""
+msgstr "用自定义程序打开 HTTP 链接便签"
 
 #: src/settings.cpp:990
 #, kde-format
 msgid "Open http link notes with:"
-msgstr ""
+msgstr "HTTP 链接便签打开方式："
 
 #: src/settings.cpp:998
 #, kde-format
@@ -3229,7 +3249,7 @@ msgstr ""
 #: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Remove old Baskets"
-msgstr ""
+msgstr "移除旧的笔记篮"
 
 #: src/settings_versionsync.cpp:78
 #, kde-format
