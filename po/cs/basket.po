@@ -3210,23 +3210,7 @@ msgid ""
 msgstr ""
 
 #: src/settings.cpp:893
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3243,20 +3227,6 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 msgstr ""
-"<p>Webové odkazy jsou otvírány v různých aplikacích podle obsahu odkazu "
-"(webová stránka, obrázek, PDF dokument...) jako by to byly soubory na Vašem "
-"počítači.</p><p>Tady lze nastavit, pokud chcete aby se webové adresy "
-"otevíraly ve Vašem prohlížeči. To se hodí pokud nepoužíváte KDE (např. "
-"GNOME, XFCE...).</p><ul><li>Otevřete ovládací centrum KDE (pokud není "
-"dostupné, zkuste zadat \"systemsettings\" v příkazové řádce);</"
-"li><li>přejděte do\"Aplikace\" a pak \"Výchozí Aplikace\";</li><li>Vyberte "
-"\"webový prohlížeč\", zaškrtněte \"následujícím příkazem:\" a vložte název "
-"Vámi preferovaného prohlížeče (např. \"firefox\" nebo \"epiphany\").</li></"
-"ul><p>Nyní, když kliknete na <i>jakýkoliv</i> odkaz začínající \"https://..."
-"\", bude otevřen v prohlížeči, který jste si zvolili (např. Mozilla Firefox "
-"nebo Epiphany nebo...).</p><p>Návod na podrobnější nastavení (např. "
-"otevírání webových stránek ve Vašem prohlížeči), se podívejte na druhý odkaz "
-"nápovědy.</p>"
 
 #: src/settings.cpp:907
 #, kde-format
@@ -3335,16 +3305,14 @@ msgid "Open sound notes with:"
 msgstr "Otevřít zvukové poznámky s:"
 
 #: src/settings.cpp:989
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Otevřít &textové poznámky s aplikací:"
+msgstr ""
 
 #: src/settings.cpp:990
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Otevřít textové poznámky s:"
+msgstr ""
 
 #: src/settings.cpp:998
 #, kde-format
@@ -3369,10 +3337,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr ""
 
 #: src/settings_versionsync.cpp:77
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Odstranit košík"
+msgstr ""
 
 #: src/settings_versionsync.cpp:78
 #, kde-format
@@ -3899,15 +3866,3 @@ msgstr ""
 "Změňte velikost okna pro vybrání\n"
 "velikosti obrázku a zavřete ho\n"
 "nebo stiskněte Esc pro uložení změny."
-
-#~ msgid "Keep"
-#~ msgstr "Ponechat"
-
-#~ msgid "How to change the application used to open Web links?"
-#~ msgstr "Jak změnit aplikaci použitou k otevření webových odkazů ?"
-
-#~ msgid "How to change the applications used to open files and links?"
-#~ msgstr "Jak změnit aplikaci použitou k otevření souborů a odkazů ?"
-
-#~ msgid "..."
-#~ msgstr "..."
