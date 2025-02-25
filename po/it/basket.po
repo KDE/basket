@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2025-01-21 09:02+0100\n"
+"PO-Revision-Date: 2025-02-24 13:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -967,33 +967,29 @@ msgstr[1] "<qt>Vuoi veramente eliminare queste <b>%1</b> note?</qt>"
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
-msgstr[0] "Cancella nota"
-msgstr[1] "Cancella stato"
+msgstr[0] "Elimina nota"
+msgstr[1] "Elimina note"
 
 #: src/basketscene.cpp:4043
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Nota copiata negli appunti."
-msgstr[1] ""
-"Nota copiata negli appunti.\n"
-"Note copiate negli appunti."
+msgstr[1] "Note copiate negli appunti."
 
 #: src/basketscene.cpp:4046
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Taglia nota negli appunti."
-msgstr[1] "Incolla dagli appunti"
+msgstr[1] "Taglia note negli appunti."
 
 #: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Nota copiata nella selezione."
-msgstr[1] ""
-"Nota copiata nella selezione.\n"
-"Note copiata nella selezione."
+msgstr[1] "Note copiate nella selezione."
 
 #: src/basketscene.cpp:4113 src/basketscene.cpp:4188
 #, kde-format
@@ -1617,7 +1613,7 @@ msgstr[1] "%1 selezionati"
 #: src/bnpview.cpp:1613
 #, kde-format
 msgid "all matches"
-msgstr "corrispondono tutte"
+msgstr "tutte le corrispondenze"
 
 #: src/bnpview.cpp:1613
 #, kde-format
@@ -1887,7 +1883,7 @@ msgstr ""
 "<p>L'operazione di mirror su cartelle non è più possibile (si veda <a "
 "href='https://basket-notepads.github.io'>basket-notepads.github.io</a> per "
 "maggiori informazioni).</p><p>La cartella <b>%1</b> è stata copiata per "
-"essere utilizzata dal cesto. Puoi cancellarla, oppure cancellare il cesto, o "
+"essere utilizzata dal cesto. Puoi eliminarla, oppure eliminare il cesto, o "
 "utilizzarle entrambe. In ogni caso ricorda che la modifica di una non "
 "influenzerà più l'altra perché si tratta di entità separate.</p>"
 
@@ -3299,7 +3295,7 @@ msgstr ""
 "«Falkon», clic sul pulsante destro, copia e incolla;</li><li>Modifica i "
 "campi delle proprietà della sezione «Generali» come «Nome», «Descrizione» o "
 "«Commento».</li><li> Modifica il campo «Argomenti della riga di comando» in "
-"qualcosa come «--profile 'il-tuo-vasto-passatempo' %u».</li></ul>Adesso, "
+"qualcosa come «--profile 'il-tuo-vasto-passatempo' %u».</li></ul><p>Adesso, "
 "quando scegli il nuovo avviatore come avviatore delle note collegamento di "
 "basket, Basket aprirà i collegamenti HTTP con il profilo «il-tuo-vasto-"
 "passatempo»</p><p>Per una configurazione più raffinata (come aprire dei "
@@ -3828,7 +3824,7 @@ msgstr "[[../elemento figlio|titolo opzionale]]"
 #: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr "Le corrispondenze in Basket non diSTnguONO le MAiuscOLe."
+msgstr "Le corrispondenze in Basket non diSTnguONO le Maiuscole."
 
 #: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
@@ -3940,12 +3936,12 @@ msgstr ""
 #: src/tagsedit.cpp:978
 #, kde-format
 msgid "Confirm Delete Tag"
-msgstr "Conferma cancellazione dell'etichetta"
+msgstr "Conferma eliminazione dell'etichetta"
 
 #: src/tagsedit.cpp:979
 #, kde-format
 msgid "Delete Tag"
-msgstr "Cancella etichetta"
+msgstr "Elimina etichetta"
 
 #: src/tagsedit.cpp:982
 #, kde-format
@@ -3953,18 +3949,18 @@ msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
 msgstr ""
-"Cancellando lo stato verranno rimosse tutte le relative etichette da ogni "
+"L'eliminazione dello stato rimuoverà tutte le relative etichette da ogni "
 "nota a cui tale stato è associato."
 
 #: src/tagsedit.cpp:983
 #, kde-format
 msgid "Confirm Delete State"
-msgstr "Conferma cancellazione dello stato"
+msgstr "Conferma eliminazione dello stato"
 
 #: src/tagsedit.cpp:984
 #, kde-format
 msgid "Delete State"
-msgstr "Cancella stato"
+msgstr "Elimina stato"
 
 #: src/tools.cpp:809
 #, kde-format
