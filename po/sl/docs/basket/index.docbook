@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>&basket; priročnik</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>07.11.2016</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>Skrb za vaše ideje.</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>KDE</keyword>
+			<keyword
+>BasKet</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>OBVESTILO: priročnik še ni napisan</title>
+		<para
+>&basket; še vedno nima priročnika, zato so sodelujoči dobrodošli! Preverite <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+> dokumentacijo KDE</ulink
+> za namige o formatu DocBook.</para>
+			<para
+>Medtem lahko pomoč poiščete na internetu. Še posebej si oglejte <ulink url="https://basket-notepads.github.io"
+>staro spletno stran</ulink
+> ali preverite revije za Linux, če imate dostop do njih, na primer: <itemizedlist>
+					<listitem
+><para
+><quote
+>Vadnica: Basket: Zajemite svoje misli.</quote
+> Linux Format 120 (Andy Channelle) </para
+></listitem>
+					<listitem
+><para
+><quote
+>Virtualna košarica. Shranjevanje, razvrščanje in arhiviranje s KDE's Basket</quote
+> Revija Linux 54 (Stefanie Teufel) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>Uvod</title>
+				<para
+>&basket; je večinoma večnamenski zapisovalnik, vendar še posebej:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>Uporaba Basket-a</title>
+				<para
+></para>
+				<sect1>
+					<title
+>Sinhronizacija različice</title>
+					<para
+>Ko je omogočeno, Version Sync postavi vaše košarice in opombe pod nadzor različic. Trenutno je to poskusna funkcija in izvajajo se samo zelo osnovne funkcije, zato bo morda zahtevala dodatno programsko opremo in nekaj ročnih nastavitev. To je nekaj stvari, ki jih je mogoče narediti z zunanjimi orodji (vendar še ne z vmesnikom Basket):</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>preverite stare revizije in razveljavite spremembe</para>
+						</listitem>
+						<listitem>
+							<para
+>sinhronizacija košaric na več računalnikih (spojitev sprememb)</para>
+						</listitem>
+						<listitem>
+							<para
+>potisni varnostno kopijo košaric v oddaljeno skladišče</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>Če ga želite omogočiti, izberite <menuchoice
+> <guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Konfiguriraj beležnice BasKet</guimenuitem
+> </menuchoice
+> → <guibutton
+>Sinhronizacija različic</guibutton
+> in <guibutton
+>Omogoči porazdeljeni nadzor različic</guibutton
+>. Inicializiral bo repozitorij git v <filename
+>~/.kde/share/apps/basket/baskets</filename
+>, pri čemer je mogoče uporabiti standardna orodja git.</para>
+						<sect2>
+							<title
+>Čiščenje zgodovine različic</title>
+							<para
+>Brisanje zgodovine je lahko koristno v teh primerih:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>ste zaklenili košarico in želite odstraniti vse prejšnje nešifrirane različice (ki so še vedno shranjene v sistemu)</para>
+								</listitem>
+								<listitem>
+									<para
+>želite sprostiti nekaj prostora na disku (lahko je aktualno, če v košarico vstavljate veliko slik ali drugih datotek)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>Upoštevajte, da boste morali ponoviti vse ročne nastavitve, ki ste jih izvedli v repozitoriju git.</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>Struktura datoteke Basket</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>Uvod</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>Format datoteke Basket Archive</title>
+						<para
+>Datotečni format BasKet (.baskets) je struktura, ki ovije stisnjen tar in sliko predogleda. Najnovejša različica zapisa arhiva je 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>Struktura datoteke</title>
+							<para
+>Arhivska datoteka je razdeljena na strukture: glava datoteke, glava slike za predogled, slika za predogled (.png), glava arhiva in arhiviran arhiv tar (.tar.gz), ki vsebuje drevo datotek košaric, kot je prikazano na naslednji skici</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>Glava arhivske datoteke</title>
+							<para
+>Glava datoteke je kratka struktura, sestavljena iz vrstic nizov, deklaratorja datoteke in različice formata</para>
+
+							<para
+>Prvih 17 bajtov vsebuje dobesedni niz <code
+>BasKetNP:archive</code
+>, ki mu sledi nov simbol za pomik vrstice (0x0A) v kodiranju ISO-8859-1.</para>
+							<para
+>Drugi niz je dobesedni niz <code
+>version:0.6.1</code
+>, ki mu sledi simbol za pomik vrstice (0x0A) v kodiranju ISO-8859-1.</para>
+							<para
+>Primer:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>Predogled glave slike</title>
+							<para
+>Trenutno arhivska datoteka košarice vsebuje datoteko predogleda, ki izhaja iz vsebine prve košarice.</para>
+							<para
+>Neposredno za glavo datoteke dobesedni niz <code
+>preview*:&lt;size&gt;</code
+> v kodiranju ISO-8859-1, ki mu spet sledi simbol za pomik vrstice. Parameter <code
+>&lt;size&gt;</code
+> je niz decimalnih števil. Deklarira velikost predogledne slike v bajtih. <code
+>&lt;size&gt;</code
+> je vrste unsigned long.</para>
+							<para
+>Primer:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>Predogled slikovne datoteke</title>
+							<para
+>Slika za predogled je vrste .png. Njena velikost je določena z glavo predogleda slike. Datoteka s sliko za predogled je vstavljena kot tok datoteke in neposredno sledi glavi slike za predogled.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>Glava arhiva vsebine Basket</title>
+							<para
+>Tako kot pri slikovni datoteki za predogled je pred arhivom vsebine niz, ki določa njegovo velikost. Ta niz neposredno sledi datotečnemu toku arhiva.</para>
+							<para
+>Ta niz mora biti <code
+>archive*:&lt;size&gt;</code
+>, ki mu sledi simbol za pomik vrstice, v kodiranju ISO-8869-1. Parameter <code
+>&lt;size&gt;</code
+> je nepredznačeno dolgo celo število v obliki niza.</para>
+							<para
+>Primer:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>Arhiv vsebin Basket</title>
+							<para
+>Arhiv vsebine vsebuje datotečno drevo BasKet, stisnjeno v gzipiran arhiv tar (.tar.gz). Njegova velikost je določena z glavo vsebine.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>Primer toka bajtov</title>
+							<para
+>Naslednja tabela prikazuje ključne dele vsebine arhivske datoteke košarice. Levi stolpec določa odmik v toku datoteke. Sredinski stolpec podaja tok bajtov pri trenutnem odmiku v šestnajstiški obliki. Desni stolpec prikazuje natisljive znake znotraj toka datoteke pri trenutnem odmiku.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>Vprašanja, odgovori in nasveti</title>
+
+					<qandaset id="faq">
+						<title
+>Pogosto zastavljena vprašanja</title>
+						<qandaentry>
+							<question>
+								<para
+>Vprašanje 1</para>
+							</question>
+							<answer>
+								<para
+>Odgovor</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->
