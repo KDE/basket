@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the basket package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2020, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-04 00:43+0000\n"
-"PO-Revision-Date: 2024-02-19 11:27+0200\n"
+"PO-Revision-Date: 2025-03-04 10:18+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3227,7 +3228,7 @@ msgstr "&Ristiviitteet"
 #: src/settings.cpp:876
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Yleiset käynnistyskytkökset"
 
 #: src/settings.cpp:879
 #, kde-format
@@ -3247,25 +3248,23 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>Nykyaikaisissa työpöytäympäristöissä käynnistinasetukset tarjoavat "
+"järjestelmälle tietoa sovelluksen käsittelystä. Nämä tiedostot ovat "
+"oleellisia sovellusten eheyttämisessä työpöytäympäristöön eli tiettyjen "
+"asetusten mukaisten sovellusten luettelemiseksi, etsimiseksi ja "
+"käynnistämiseksi.</p><p>Jos haluat esimerkiksi käynnistää Falkon-selaimeen "
+"tiettyyn profiiliin:</p><ul><li>avaa KDE:n valikkomuokkain ja kirjoita "
+"hakusuodattimeen ”Falkon”</li><li>muokkaa Perusasetukset-kenttiä kuten "
+"nimeä, kuvausta ja kommenttia</li><li>lisää komentoriviparametrit-kentän "
+"loppuun esimerkiksi ”--profile ”Erityinen-harrastuksesi” %%u”.</li></"
+"ul><p>Kun tämän jälkeen valitset Basketissa uuden käynnistimen linkin "
+"sisältäville muistiinpanoille, se avaa http(s)-linkit Falkonin ”Erityinen-"
+"harrastuksesi”-profiililla.</p><p>Jos haluat hienojakoisemman mukautuksen "
+"(esim. haluat avata PDF-tiedostot mieluiten Falkoniin), lue toisen "
+"painikkeen työkaluvihje.</p>"
 
 #: src/settings.cpp:893
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>When opening Web links, they are opened in different applications, "
-#| "depending on the content of the link (a Web page, an image, a PDF "
-#| "document...), such as if they were files on your computer.</p><p>Here is "
-#| "how to do if you want every Web addresses to be opened in your Web "
-#| "browser. It is useful if you are not using Plasma (if you are using eg. "
-#| "GNOME, XFCE...).</p><ul><li>Open the KDE System Settings (if it is not "
-#| "available, try to type \"systemsettings\" in a command line terminal);</"
-#| "li><li>Go to the \"Applications\" and then \"Default Applications\" "
-#| "section;</li><li>Choose \"Web Browser\", check \"with the following "
-#| "command:\" and enter the name of your Web browser (like \"firefox\" or "
-#| "\"epiphany\").</li></ul><p>Now, when you click <i>any</i> link that start "
-#| "with \"https://...\", it will be opened in your Web browser (eg. Mozilla "
-#| "Firefox or Epiphany or...).</p><p>For more fine-grained configuration "
-#| "(like opening only Web pages in your Web browser), read the second help "
-#| "link.</p>"
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3283,17 +3282,18 @@ msgid ""
 "browser), read the third button tooltip.</p>"
 msgstr ""
 "<p>Verkkolinkit avataan eri sovelluksiin linkin sisällön (verkkosivu, kuva, "
-"PDF-tiedosto jne.) mukaan kuin ne olisivat tiedostoja koneella.</p><p>Näin "
-"voi asettaa kaikki verkko-osoitteet avattavaksi verkkoselaimeen. Tästä on "
-"hyötyä, jos käytössä ei ole Plasma (vaan esimerkiksi Gnome, XFCE tms.).</"
-"p><ul><li>avaa järjestelmäasetukset (jollei sitä näy käyttöliittymässä, "
-"kokeile kirjoittaa ”systemsettings” päätteen komentoriville)</li><li>siirry "
-"Sovellukset-osion kohtaan Oletusohjelmat</li><li>valitse ”Verkkoselaimen”, "
-"alta ”seuraavalla komennolla:” ja kirjoita selaimen nimi (esim. ”firefox” "
-"tai ”epiphany”)</li></ul><p>Nyt <i>mikä tahansa</i> linkki, joka alkaa "
-"”https://…” avataan verkkoselaimeen (esim. Mozilla Firefoxiin, Epiphanyyn "
-"tms.).</p><p>Tarkempaa mukautusta tarvittaessa (esim. vain verkkosivut "
-"halutaan avattavan verkkoselaimeen) lue toinen ohjelinkki.</p>"
+"PDF-tiedosto jne.) mukaan kuin ne olisivat koneella olevia tiedostoja .</"
+"p><p>Haluttaessa voi asettaa kaikki verkko-osoitteet avattavaksi "
+"verkkoselaimeen. Tästä on apua, ellei käytössä ole Plasma vaan esimerkiksi "
+"Gnome, XFCE tms.</p><ul><li>avaa järjestelmäasetukset (jollei sitä näy "
+"käyttöliittymässä, kokeile kirjoittaa päätteeseen ”systemsettings”)</"
+"li><li>siirry Sovellukset-osion kohtaan Oletusohjelmat</li><li>valitse "
+"”Verkkoselain”-pudotusvalikosta ”Muu…” ja kirjoita selaimen nimi (esim. "
+"”firefox” tai ”epiphany”)</li></ul><p>Tämän jälkeen <i>mikä tahansa</i> "
+"linkki, joka alkaa ”https://…”, avataan verkkoselaimeen (esim. Mozilla "
+"Firefoxiin, Epiphanyyn tms.).</p><p>Jos haluat hienojakoisemman mukautuksen "
+"(esim. haluat avata vain verkkosivut verkkoselaimeen) lue kolmannen "
+"painikkeen työkaluvihje.</p>"
 
 #: src/settings.cpp:907
 #, kde-format
@@ -3329,7 +3329,7 @@ msgstr ""
 #: src/settings.cpp:955
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Erityiset Basket-kytkökset"
 
 #: src/settings.cpp:957
 #, kde-format
@@ -3372,16 +3372,14 @@ msgid "Open sound notes with:"
 msgstr "Avaa äänimuistiinpanot ohjelmalla:"
 
 #: src/settings.cpp:989
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Avaa &tekstimuistiinpanot omaan ohjelmaan:"
+msgstr "Avaa http-linkkiset muistiinpanot mukautetulla ohjelmalla:"
 
 #: src/settings.cpp:990
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Avaa tekstimuistiinpanot ohjelmalla:"
+msgstr "Avaa http-linkkiset muistiinpanot ohjelmalla:"
 
 #: src/settings.cpp:998
 #, kde-format
@@ -3408,10 +3406,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Haluatko varmasti poistaa kaikkien korien vanhat versiot?"
 
 #: src/settings_versionsync.cpp:77
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Poista kori"
+msgstr "Poista vanhat korit"
 
 #: src/settings_versionsync.cpp:78
 #, kde-format
