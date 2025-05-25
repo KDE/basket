@@ -804,7 +804,7 @@ msgid ""
 "Right click for more options"
 msgstr ""
 "Inseriu la nota ací\n"
-"Feu clic dret per a més opcions"
+"Per a més opcions, feu clic dret"
 
 #: src/basketscene.cpp:2771
 #, kde-format
@@ -863,7 +863,7 @@ msgid ""
 "Right click for more options"
 msgstr ""
 "Nota de grup amb la de davall\n"
-"Feu clic dret per a més opcions"
+"Per a més opcions, feu clic dret"
 
 #: src/basketscene.cpp:2811
 #, kde-format
@@ -872,7 +872,7 @@ msgid ""
 "Right click for more options"
 msgstr ""
 "Nota de grup amb la de dalt\n"
-"Feu clic dret per a més opcions"
+"Per a més opcions, feu clic dret"
 
 #: src/basketscene.cpp:2829
 #, kde-format
@@ -893,12 +893,12 @@ msgstr "<b>%1</b>: %2"
 #: src/basketscene.cpp:2838
 #, kde-format
 msgid "Click on the right to group instead of insert"
-msgstr "Feu clic damunt de la dreta per a agrupar en lloc d'inserir"
+msgstr "Cliqueu a la dreta per a agrupar en lloc d'inserir"
 
 #: src/basketscene.cpp:2840
 #, kde-format
 msgid "Click on the left to insert instead of group"
-msgstr "Feu clic sobre l'esquerra per a inserir en lloc d'agrupar"
+msgstr "Cliqueu a l'esquerra per a inserir en lloc d'agrupar"
 
 #: src/basketscene.cpp:3018
 #, kde-format
@@ -913,7 +913,7 @@ msgstr "Cistella protegida amb contrasenya."
 #: src/basketscene.cpp:3025
 #, kde-format
 msgid "Press Unlock to access it."
-msgstr "Premeu Desbloqueja per a accedir-hi."
+msgstr "Premeu «Desbloqueja» per a accedir-hi."
 
 #: src/basketscene.cpp:3027
 #, kde-format
@@ -1025,19 +1025,20 @@ msgstr "Mostra si hi ha canvis que encara no s'han guardat."
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
 msgstr ""
-"Ctrl+deixa anar: copia, Maj+deixa anar: mou, Maj+Ctrl+deixa anar: enllaça."
+"«Ctrl+deixa anar»: copia, «Majús+deixa anar»: mou, «Majús+Ctrl+deixa anar»: "
+"enllaça."
 
 #: src/basketstatusbar.cpp:160
 #, kde-format
 msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
 msgstr ""
-"<p>Esta cistella està <b>blocada</b>.<br>Feu-hi clic per a desblocar-la.</p>"
+"<p>Esta cistella està <b>blocada</b>.<br>Cliqueu-hi per a desblocar-la.</p>"
 
 #: src/basketstatusbar.cpp:163
 #, kde-format
 msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
 msgstr ""
-"<p>Esta cistella està <b>desblocada</b>.<br>Feu-hi clic per a blocar-la.</p>"
+"<p>Esta cistella està <b>desblocada</b>.<br>Cliqueu-hi per a blocar-la.</p>"
 
 #. i18n: ectx: Menu (basket)
 #: src/basketui.rc:6
@@ -1301,8 +1302,8 @@ msgstr ""
 "<h2>Arbre de cistelles</h2>Esta és la llista de les vostres cistelles. "
 "Podreu organitzar les vostres dades col·locant-les en cistelles diferents. "
 "Podreu agrupar les cistelles per tema creant cistelles noves dins de les "
-"altres. Podreu navegar entre elles fent clic damunt d'una cistella per a "
-"obrir-la, o reorganitzar-les arrossegant i deixant anar."
+"altres. Podreu navegar entre elles clicant damunt d'una cistella per a obrir-"
+"la, o reorganitzar-les arrossegant i deixant anar."
 
 #: src/bnpview.cpp:376 src/bnpview.cpp:382
 #, kde-format
@@ -2000,7 +2001,7 @@ msgstr "ID"
 #: src/kgpgme.cpp:69
 #, kde-format
 msgid "Choose a secret key:"
-msgstr "Escolliu una clau secreta:"
+msgstr "Trieu una clau secreta:"
 
 #: src/kgpgme.cpp:258
 #, kde-format
@@ -2450,7 +2451,7 @@ msgstr "Obri les imatges amb:"
 #: src/notecontent.cpp:1289
 #, kde-format
 msgid "Click for full size view"
-msgstr "Feu clic per a veure la mida completa"
+msgstr "Cliqueu per a veure la mida completa"
 
 #: src/notecontent.cpp:1375
 #, kde-format
@@ -2778,7 +2779,7 @@ msgstr "Edita la nota de l'iniciador"
 #: src/noteedit.cpp:1045
 #, kde-format
 msgid "Choose a command to run:"
-msgstr "Escolliu una ordre que s'ha d'executar:"
+msgstr "Trieu una ordre que s'ha d'executar:"
 
 #: src/noteedit.cpp:1062
 #, kde-format
@@ -2881,7 +2882,7 @@ msgstr "Tipus MIME no acceptats"
 #: src/notefactory.cpp:553
 #, kde-format
 msgid "&Move Here\tShift"
-msgstr "&Mou ací\tMaj"
+msgstr "&Mou ací\t«Majús»"
 
 #: src/notefactory.cpp:554
 #, kde-format
@@ -2891,7 +2892,7 @@ msgstr "&Copia ací\tCtrl"
 #: src/notefactory.cpp:555
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
-msgstr "En&llaça ací\t«Ctrl+Maj»"
+msgstr "En&llaça ací\t«Ctrl+Majús»"
 
 #: src/notefactory.cpp:561
 #, kde-format
@@ -3060,8 +3061,7 @@ msgstr ""
 #: src/settings.cpp:545
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
-msgstr ""
-"A&grupa una nota nova quan es faça clic a la dreta de la línia d'inserció"
+msgstr "A&grupa una nota nova quan es clique a la dreta de la línia d'inserció"
 
 #: src/settings.cpp:547
 #, kde-format
@@ -3088,8 +3088,8 @@ msgid ""
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
 "<p>Col·loqueu el ratolí entre les notes, on voleu afegir-ne una de nova."
-"<br>Feu clic a l'<b>esquerra</b> de la marca d'enmig a la línia d'inserció "
-"per a <b>inserir</b> una nota.<br>Feu clic a la <b>dreta</b> per a "
+"<br>Cliqueu a l'<b>esquerra</b> de la marca d'enmig a la línia d'inserció "
+"per a <b>inserir</b> una nota.<br>Cliqueu a la <b>dreta</b> per a "
 "<b>agrupar</b> una nota, amb la que està a <b>davall o dalt</b>, depenent "
 "d'on es trobe el vostre ratolí.</p>"
 
@@ -3136,7 +3136,7 @@ msgstr "Importa una icona"
 #: src/settings.cpp:581
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
-msgstr "&Maj+Clic_del_mig on siga:"
+msgstr "«&Majús+clic_del_mig» on siga:"
 
 #: src/settings.cpp:586
 #, kde-format
@@ -3336,10 +3336,10 @@ msgstr ""
 "Configuració del sistema KDE (si no està disponible, intenteu escriure "
 "«systemsettings» en un terminal de la línia d'ordres).</li><li>Aneu fins a "
 "la secció «Aplicacions» i després cap a la secció «Aplicacions "
-"predeterminades».</li><li>Escolliu «Navegador web», marqueu «amb l'ordre "
+"predeterminades».</li><li>Trieu «Navegador web», marqueu «amb l'ordre "
 "següent:» i introduïu el nom del vostre navegador web (com «firefox» o "
-"«epiphany»).</li></ul><p>Ara, quan feu clic en <i>qualsevol</i> enllaç que "
-"comence amb «https://…», s'obrirà en el vostre navegador web (p. ex., "
+"«epiphany»).</li></ul><p>Ara, quan cliqueu damunt de <i>qualsevol</i> enllaç "
+"que comence amb «https://…», s'obrirà en el vostre navegador web (p. ex., "
 "Mozilla Firefox o Epiphany…).</p><p>Per a una configuració més precisa (com "
 "obrir només les pàgines web en el vostre navegador web), llegiu el consell "
 "d'eina del tercer botó.</p>"
@@ -3372,10 +3372,10 @@ msgstr ""
 "específica.</p><ul><li>Obriu Configuració del sistema KDE (si no està "
 "disponible, intenteu escriure «kk» en un terminal de la línia d'ordres).</"
 "li><li>Aneu fins a la secció «Aplicacions» i després cap a la secció "
-"«Associacions de fitxer».</li><li>En l'arbre, expandiu «text» i feu clic en "
-"«html».</li><li>En la llista d'aplicacions, afegiu el vostre navegador web "
-"com la primera entrada.</li><li>Feu el mateix per al tipus «application -> "
-"xhtml+xml».</li></ul>"
+"«Associacions de fitxer».</li><li>En l'arbre, expandiu «text» i cliqueu "
+"damunt «html».</li><li>En la llista d'aplicacions, afegiu el vostre "
+"navegador web com la primera entrada.</li><li>Feu el mateix per al tipus "
+"«application -> xhtml+xml».</li></ul>"
 
 #: src/settings.cpp:955
 #, kde-format
@@ -3440,7 +3440,7 @@ msgid ""
 "Konqueror will be used.</p>"
 msgstr ""
 "<p>Si està marcada, s'utilitzarà l'aplicació definida davall en obrir este "
-"tipus de nota.</p><p>En cas contrari, s'utilitzarà l'aplicació que vàreu "
+"tipus de nota.</p><p>En cas contrari, s'utilitzarà l'aplicació que vau "
 "configurar en Konqueror.</p>"
 
 #: src/settings.cpp:1008
@@ -3449,7 +3449,7 @@ msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr ""
-"<p>Definiu l'aplicació que es farà servir per a obrir este tipus de nota en "
+"<p>Definiu l'aplicació que s'utilitzarà per a obrir este tipus de nota en "
 "lloc de l'aplicació configurada en Konqueror.</p>"
 
 #: src/settings_versionsync.cpp:76
@@ -3744,12 +3744,12 @@ msgstr "Est&at nou"
 #: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "Mou cap amunt (Ctrl+Maj+Fletxa amunt)"
+msgstr "Mou cap amunt («Ctrl+Majús+Fletxa amunt»)"
 
 #: src/tagsedit.cpp:354
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "Mou cap avall (Ctrl+Maj+Fletxa avall)"
+msgstr "Mou cap avall («Ctrl+Majús+Fletxa avall»)"
 
 #: src/tagsedit.cpp:355
 #, kde-format
