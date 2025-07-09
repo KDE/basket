@@ -6,7 +6,9 @@
 
 #include "notecontent.h"
 
+#include <QAudioOutput>
 #include <QLocale>
+#include <QMediaPlayer>
 #include <QMimeData>
 #include <QMimeDatabase>
 #include <QTextBlock>
@@ -34,9 +36,6 @@
 #include <KIO/PreviewJob> //For KIO::file_preview(...)
 #include <KLocalizedString>
 #include <KService>
-
-#include <phonon/AudioOutput>
-#include <phonon/MediaObject>
 
 #include "basketscene.h"
 #include "common.h"
@@ -1615,16 +1614,25 @@ SoundContent::SoundContent(Note *parent, const QString &fileName)
     : FileContent(parent, fileName)
 {
     SoundContent::setFileName(fileName);
-    music = new Phonon::MediaObject(this);
-    music->setCurrentSource(Phonon::MediaSource(fullPathUrl()));
-    auto *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-    Phonon::createPath(music, audioOutput);
-    connect(music, &Phonon::MediaObject::stateChanged, this, &SoundContent::stateChanged);
+    music = new QMediaPlayer(this);
+    music->setAudioOutput(new QAudioOutput(music));
+    connect(music, &QMediaPlayer::playbackStateChanged, this, &SoundContent::stateChanged);
 }
 
-void SoundContent::stateChanged(int newState, int oldState)
+void SoundContent::stateChanged(int newState)
 {
-    qDebug() << "stateChanged " << oldState << " to " << newState;
+    qDebug() << "stateChanged to " << newState;
+}
+
+bool SoundContent::loadFromFile(bool lazyLoad)
+{
+    if (lazyLoad) {
+        return false;
+    }
+
+    setFileName(fileName()); // File changed: get new file preview!
+    music->setSource(fullPathUrl());
+    return true;
 }
 
 QString SoundContent::zoneTip(int zone)
@@ -1637,13 +1645,13 @@ void SoundContent::setHoveredZone(int oldZone, int newZone)
     if (newZone == Note::Custom0 || newZone == Note::Content) {
         // Start the sound preview:
         if (oldZone != Note::Custom0 && oldZone != Note::Content) { // Don't restart if it was already in one of those zones
-            if (music->state() == 1) {
+            if (music->playbackState() != QMediaPlayer::PlayingState) {
                 music->play();
             }
         }
     } else {
         //       Stop the sound preview, if it was started:
-        if (music->state() != 1) {
+        if (music->playbackState() != QMediaPlayer::StoppedState) {
             music->stop();
             //          delete music;//TODO implement this in slot connected with music alted signal
             //          music = 0;
