@@ -16,6 +16,8 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
+using namespace std::chrono_literals;
+
 RegionGrabber::RegionGrabber()
     : QWidget(nullptr)
     , selection()
@@ -39,8 +41,7 @@ RegionGrabber::RegionGrabber()
     setMouseTracking(true);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
 
-    int timeout = 50;
-    QTimer::singleShot(timeout, this, SLOT(init()));
+    QTimer::singleShot(50ms, this, SLOT(init()));
     connect(&idleTimer, &QTimer::timeout, this, &RegionGrabber::displayHelp);
     idleTimer.start(3000);
 }

@@ -78,6 +78,8 @@
 
 // #include "bnpviewadaptor.h"
 
+using namespace std::chrono_literals;
+
 /** class BNPView: */
 
 const int BNPView::c_delayTooltipTime = 275;
@@ -1344,7 +1346,7 @@ void BNPView::needSave(QTreeWidgetItem *)
 {
     if (!m_loading)
         // A basket has been collapsed/expanded or a new one is select: this is not urgent:
-        QTimer::singleShot(500 /*ms*/, this, SLOT(save()));
+        QTimer::singleShot(500ms, this, SLOT(save()));
 }
 
 void BNPView::slotPressed(QTreeWidgetItem *item, int column)

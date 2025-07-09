@@ -94,6 +94,8 @@
 #include "kgpgme.h"
 #endif
 
+using namespace std::chrono_literals;
+
 void debugZone(int zone)
 {
     QString s;
@@ -2050,7 +2052,7 @@ void BasketScene::resetInsertionData()
 
 void BasketScene::hideInsertPopupMenu()
 {
-    QTimer::singleShot(50 /*ms*/, this, SLOT(timeoutHideInsertPopupMenu()));
+    QTimer::singleShot(50ms, this, SLOT(timeoutHideInsertPopupMenu()));
 }
 
 void BasketScene::timeoutHideInsertPopupMenu()
