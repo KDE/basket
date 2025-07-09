@@ -569,10 +569,10 @@ public:
     bool selectedAllTextInEditor();
     Note *editedNote();
 protected Q_SLOTS:
-    void selectionChangedInEditor();
-    void contentChangedInEditor();
     void inactivityAutoSaveTimeout();
 public Q_SLOTS:
+    void selectionChangedInEditor();
+    void contentChangedInEditor();
     void editorCursorPositionChanged();
 
 private:

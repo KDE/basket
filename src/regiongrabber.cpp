@@ -41,7 +41,7 @@ RegionGrabber::RegionGrabber()
     setMouseTracking(true);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
 
-    QTimer::singleShot(50ms, this, SLOT(init()));
+    QTimer::singleShot(50ms, this, &RegionGrabber::init);
     connect(&idleTimer, &QTimer::timeout, this, &RegionGrabber::displayHelp);
     idleTimer.start(3000);
 }

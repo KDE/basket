@@ -348,7 +348,7 @@ void BasketScene::unplugNote(Note *note)
                 // we have to do the deletion later otherwise we may corrupt the current process
                 m_notesToBeDeleted << note;
                 if (m_notesToBeDeleted.count() == 1) {
-                    QTimer::singleShot(0, this, SLOT(doCleanUp()));
+                    QTimer::singleShot(0, this, &BasketScene::doCleanUp);
                 }
             }
             // Ungroup if still 1 note inside parent group:
@@ -402,7 +402,7 @@ void BasketScene::ungroupNote(Note *group)
     // we have to do the deletion later otherwise we may corrupt the current process
     m_notesToBeDeleted << group;
     if (m_notesToBeDeleted.count() == 1) {
-        QTimer::singleShot(0, this, SLOT(doCleanUp()));
+        QTimer::singleShot(0, this, &BasketScene::doCleanUp);
     }
 }
 
@@ -1055,7 +1055,9 @@ void BasketScene::filterAgain(bool andEnsureVisible /* = true*/)
 
 void BasketScene::filterAgainDelayed()
 {
-    QTimer::singleShot(0, this, SLOT(filterAgain()));
+    QTimer::singleShot(0, this, [this]() {
+        filterAgain();
+    });
 }
 
 void BasketScene::newFilter(const FilterData &data, bool andEnsureVisible /* = true*/)
@@ -1222,7 +1224,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
         m_folderName += QLatin1Char('/');
 
     KActionCollection *ac = Global::bnpView->actionCollection();
-    m_action = ac->addAction(m_folderName, this, SLOT(activatedShortcut()));
+    m_action = ac->addAction(m_folderName, this, &BasketScene::activatedShortcut);
     ac->setShortcutsConfigurable(m_action, false);
     KGlobalAccel::setGlobalShortcut(m_action, (QKeySequence()));
 
@@ -1301,7 +1303,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
     // the interface flicker by showing the focused rectangle (as the basket gets focus)
     // and immediately removing it (because the popup menu now have focus).
     if (!isDuringEdit())
-        QTimer::singleShot(0, this, SLOT(setFocusIfNotInPopupMenu()));
+        QTimer::singleShot(0, this, &BasketScene::setFocusIfNotInPopupMenu);
 
     // Convenient variables:
     bool controlPressed = event->modifiers() & Qt::ControlModifier;
@@ -1561,7 +1563,7 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void BasketScene::delayedCancelInsertPopupMenu()
 {
-    QTimer::singleShot(0, this, SLOT(cancelInsertPopupMenu()));
+    QTimer::singleShot(0, this, &BasketScene::cancelInsertPopupMenu);
 }
 
 void BasketScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
@@ -2052,7 +2054,7 @@ void BasketScene::resetInsertionData()
 
 void BasketScene::hideInsertPopupMenu()
 {
-    QTimer::singleShot(50ms, this, SLOT(timeoutHideInsertPopupMenu()));
+    QTimer::singleShot(50ms, this, &BasketScene::timeoutHideInsertPopupMenu);
 }
 
 void BasketScene::timeoutHideInsertPopupMenu()
@@ -2972,7 +2974,7 @@ QColor alphaBlendColors(const QColor &bgColor, const QColor &fgColor, const int 
 
 void BasketScene::unlock()
 {
-    QTimer::singleShot(0, this, SLOT(load()));
+    QTimer::singleShot(0, this, &BasketScene::load);
 }
 
 void BasketScene::inactivityAutoLockTimeout()
@@ -2984,7 +2986,7 @@ void BasketScene::drawBackground(QPainter *painter, const QRectF &rect)
 {
     if (!m_loadingLaunched) {
         if (!m_locked) {
-            QTimer::singleShot(0, this, SLOT(load()));
+            QTimer::singleShot(0, this, &BasketScene::load);
             return;
         } else {
             Global::bnpView->notesStateChanged(); // Show "Locked" instead of "Loading..." in the statusbar
@@ -3677,7 +3679,9 @@ void BasketScene::editorCursorPositionChanged()
 void BasketScene::closeEditorDelayed()
 {
     setFocus();
-    QTimer::singleShot(0, this, SLOT(closeEditor()));
+    QTimer::singleShot(0, this, [this]() {
+        closeEditor();
+    });
 }
 
 bool BasketScene::closeEditor(bool deleteEmptyNote /* =true*/)
@@ -3868,7 +3872,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
     }
 
     if (justAdded && isFiltering()) {
-        QTimer::singleShot(0, this, SLOT(showEditedNoteWhileFiltering()));
+        QTimer::singleShot(0, this, &BasketScene::showEditedNoteWhileFiltering);
     }
 
     doHoverEffects(note, Note::Content); // Be sure (in the case Edit was triggered by menu or Enter key...): better feedback!
@@ -4962,7 +4966,9 @@ void BasketScene::focusInEvent(QFocusEvent *event)
     if (isLocked()) {
         if (m_button) {
             QGraphicsScene::focusInEvent(event);
-            QTimer::singleShot(0, m_button, SLOT(setFocus()));
+            QTimer::singleShot(0, m_button, [this]() {
+                m_button->setFocus();
+            });
         }
     } else {
         QGraphicsScene::focusInEvent(event);

@@ -237,8 +237,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     connect(okButton, &QPushButton::clicked, this, &NewBasketDialog::slotOk);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &NewBasketDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &NewBasketDialog::reject);
     mainLayout->addWidget(buttonBox);
     okButton->setEnabled(false);
 

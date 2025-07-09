@@ -125,15 +125,15 @@ void NoteEditor::paste(const QPointF &pos, QClipboard::Mode mode)
 void NoteEditor::connectActions(BasketScene *scene)
 {
     if (m_textEdit) {
-        connect(m_textEdit, SIGNAL(textChanged()), scene, SLOT(selectionChangedInEditor()));
-        connect(m_textEdit, SIGNAL(textChanged()), scene, SLOT(contentChangedInEditor()));
+        connect(m_textEdit, &QTextEdit::textChanged, scene, &BasketScene::selectionChangedInEditor);
+        connect(m_textEdit, &QTextEdit::textChanged, scene, &BasketScene::contentChangedInEditor);
         connect(m_textEdit, &KTextEdit::textChanged, scene, &BasketScene::placeEditorAndEnsureVisible);
-        connect(m_textEdit, SIGNAL(selectionChanged()), scene, SLOT(selectionChangedInEditor()));
+        connect(m_textEdit, &QTextEdit::selectionChanged, scene, &BasketScene::selectionChangedInEditor);
 
     } else if (m_lineEdit) {
-        connect(m_lineEdit, SIGNAL(textChanged(const QString &)), scene, SLOT(selectionChangedInEditor()));
-        connect(m_lineEdit, SIGNAL(textChanged(const QString &)), scene, SLOT(contentChangedInEditor()));
-        connect(m_lineEdit, SIGNAL(selectionChanged()), scene, SLOT(selectionChangedInEditor()));
+        connect(m_lineEdit, &QLineEdit::textChanged, scene, &BasketScene::selectionChangedInEditor);
+        connect(m_lineEdit, &QLineEdit::textChanged, scene, &BasketScene::contentChangedInEditor);
+        connect(m_lineEdit, &QLineEdit::selectionChanged, scene, &BasketScene::selectionChangedInEditor);
     }
 }
 
@@ -237,7 +237,7 @@ TextEditor::TextEditor(TextContent *textContent, QWidget *parent)
 
     connect(textEdit, &FocusedTextEdit::cursorPositionChanged, textContent->note()->basket(), &BasketScene::editorCursorPositionChanged);
     // In case it is a very big note, the top is displayed and Enter is pressed: the cursor is on bottom, we should enure it visible:
-    QTimer::singleShot(0, textContent->note()->basket(), SLOT(editorCursorPositionChanged()));
+    QTimer::singleShot(0, textContent->note()->basket(), &BasketScene::editorCursorPositionChanged);
 }
 
 TextEditor::~TextEditor()
@@ -320,39 +320,42 @@ HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget *parent)
     connect(InlineEditors::instance()->focusWidgetFilter, &FocusWidgetFilter::returnPressed, textEdit, [&textEdit]() {
         textEdit->setFocus();
     });
-    connect(InlineEditors::instance()->richTextFont, SIGNAL(activated(int)), textEdit, SLOT(setFocus()));
+    connect(InlineEditors::instance()->richTextFont, &QFontComboBox::activated, textEdit, [textEdit]() {
+        textEdit->setFocus();
+    });
 
-    connect(InlineEditors::instance()->richTextFontSize, SIGNAL(activated(int)), textEdit, SLOT(setFocus()));
+    connect(InlineEditors::instance()->richTextFontSize, &QComboBox::activated, textEdit, [textEdit]() {
+        textEdit->setFocus();
+    });
 
-    connect(textEdit, SIGNAL(cursorPositionChanged()), this, SLOT(cursorPositionChanged()));
-    connect(textEdit, SIGNAL(currentCharFormatChanged(const QTextCharFormat &)), this, SLOT(charFormatChanged(const QTextCharFormat &)));
-    //  connect( textEdit,  SIGNAL(currentVerticalAlignmentChanged(VerticalAlignment)), this, SLOT(slotVerticalAlignmentChanged()) );
+    connect(textEdit, &QTextEdit::cursorPositionChanged, this, &HtmlEditor::cursorPositionChanged);
+    connect(textEdit, &QTextEdit::currentCharFormatChanged, this, &HtmlEditor::charFormatChanged);
 
-    connect(InlineEditors::instance()->richTextBold, SIGNAL(triggered(bool)), this, SLOT(setBold(bool)));
-    connect(InlineEditors::instance()->richTextItalic, SIGNAL(triggered(bool)), textEdit, SLOT(setFontItalic(bool)));
-    connect(InlineEditors::instance()->richTextUnderline, SIGNAL(triggered(bool)), textEdit, SLOT(setFontUnderline(bool)));
-    connect(InlineEditors::instance()->richTextLeft, SIGNAL(triggered()), this, SLOT(setLeft()));
-    connect(InlineEditors::instance()->richTextCenter, SIGNAL(triggered()), this, SLOT(setCentered()));
-    connect(InlineEditors::instance()->richTextRight, SIGNAL(triggered()), this, SLOT(setRight()));
-    connect(InlineEditors::instance()->richTextJustified, SIGNAL(triggered()), this, SLOT(setBlock()));
+    connect(InlineEditors::instance()->richTextBold, &QAction::triggered, this, &HtmlEditor::setBold);
+    connect(InlineEditors::instance()->richTextItalic, &QAction::triggered, textEdit, &QTextEdit::setFontItalic);
+    connect(InlineEditors::instance()->richTextUnderline, &QAction::triggered, textEdit, &QTextEdit::setFontUnderline);
+    connect(InlineEditors::instance()->richTextLeft, &QAction::triggered, this, &HtmlEditor::setLeft);
+    connect(InlineEditors::instance()->richTextCenter, &QAction::triggered, this, &HtmlEditor::setCentered);
+    connect(InlineEditors::instance()->richTextRight, &QAction::triggered, this, &HtmlEditor::setRight);
+    connect(InlineEditors::instance()->richTextJustified, &QAction::triggered, this, &HtmlEditor::setBlock);
 
     //  InlineEditors::instance()->richTextToolBar()->show();
     cursorPositionChanged();
     charFormatChanged(textEdit->currentCharFormat());
-    // QTimer::singleShot( 0, this, SLOT(cursorPositionChanged()) );
+    // QTimer::singleShot(0, this, &HtmlEditor::cursorPositionChanged);
     InlineEditors::instance()->enableRichTextToolBar();
 
-    connect(InlineEditors::instance()->richTextUndo, SIGNAL(triggered()), textEdit, SLOT(undo()));
-    connect(InlineEditors::instance()->richTextRedo, SIGNAL(triggered()), textEdit, SLOT(redo()));
-    connect(textEdit, SIGNAL(undoAvailable(bool)), InlineEditors::instance()->richTextUndo, SLOT(setEnabled(bool)));
-    connect(textEdit, SIGNAL(redoAvailable(bool)), InlineEditors::instance()->richTextRedo, SLOT(setEnabled(bool)));
-    connect(textEdit, SIGNAL(textChanged()), this, SLOT(editTextChanged()));
+    connect(InlineEditors::instance()->richTextUndo, &QAction::triggered, textEdit, &QTextEdit::undo);
+    connect(InlineEditors::instance()->richTextRedo, &QAction::triggered, textEdit, &QTextEdit::redo);
+    connect(textEdit, &QTextEdit::undoAvailable, InlineEditors::instance()->richTextUndo, &QAction::setEnabled);
+    connect(textEdit, &QTextEdit::redoAvailable, InlineEditors::instance()->richTextRedo, &QAction::setEnabled);
+    connect(textEdit, &QTextEdit::textChanged, this, &HtmlEditor::editTextChanged);
     InlineEditors::instance()->richTextUndo->setEnabled(false);
     InlineEditors::instance()->richTextRedo->setEnabled(false);
 
-    connect(textEdit, SIGNAL(cursorPositionChanged()), htmlContent->note()->basket(), SLOT(editorCursorPositionChanged()));
+    connect(textEdit, &QTextEdit::cursorPositionChanged, htmlContent->note()->basket(), &BasketScene::editorCursorPositionChanged);
     // In case it is a very big note, the top is displayed and Enter is pressed: the cursor is on bottom, we should enure it visible:
-    QTimer::singleShot(0, htmlContent->note()->basket(), SLOT(editorCursorPositionChanged()));
+    QTimer::singleShot(0, htmlContent->note()->basket(), &BasketScene::editorCursorPositionChanged);
 }
 
 void HtmlEditor::cursorPositionChanged()
@@ -590,9 +593,9 @@ FileEditor::FileEditor(FileContent *fileContent, QWidget *parent)
     lineEdit->setText(m_fileContent->fileName());
     lineEdit->selectAll();
     setInlineEditor(lineEdit);
-    connect(filter, SIGNAL(returnPressed()), this, SIGNAL(askValidation()));
-    connect(filter, SIGNAL(escapePressed()), this, SIGNAL(askValidation()));
-    connect(filter, SIGNAL(mouseEntered()), this, SIGNAL(mouseEnteredEditorWidget()));
+    connect(filter, &FocusWidgetFilter::returnPressed, this, &FileEditor::askValidation);
+    connect(filter, &FocusWidgetFilter::escapePressed, this, &FileEditor::askValidation);
+    connect(filter, &FocusWidgetFilter::mouseEntered, this, &FileEditor::mouseEnteredEditorWidget);
 }
 
 FileEditor::~FileEditor()
@@ -809,9 +812,9 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(okButton, &QAbstractButton::clicked, this, &LinkEditDialog::slotOk);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     mainLayout->addWidget(buttonBox);
 
     // urlChanged(QString());
@@ -948,7 +951,7 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     layout->addWidget(label1, 0, 0, Qt::AlignVCenter);
     layout->addWidget(m_targetBasket, 0, 1, Qt::AlignVCenter);
 
-    connect(m_targetBasket, SIGNAL(activated(int)), this, SLOT(urlChanged(int)));
+    connect(m_targetBasket, &QComboBox::activated, this, &CrossReferenceEditDialog::urlChanged);
 
     auto *stretchWidget = new QWidget(page);
     mainLayout->addWidget(stretchWidget);
@@ -962,12 +965,12 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     mainLayout->addWidget(buttonBox);
     setObjectName("EditCrossReference");
     setModal(true);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
+    connect(okButton, &QAbstractButton::clicked, this, &CrossReferenceEditDialog::slotOk);
 }
 
 CrossReferenceEditDialog::~CrossReferenceEditDialog() = default;
@@ -1099,9 +1102,9 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(okButton, SIGNAL(clicked()), SLOT(slotOk()));
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    connect(okButton, &QAbstractButton::clicked, this, &LauncherEditDialog::slotOk);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     mainLayout->addWidget(buttonBox);
 
     QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
@@ -1111,7 +1114,7 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
 
     layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
 
-    connect(guessButton, SIGNAL(clicked()), this, SLOT(guessIcon()));
+    connect(guessButton, &QAbstractButton::clicked, this, &LauncherEditDialog::guessIcon);
 }
 
 LauncherEditDialog::~LauncherEditDialog() = default;

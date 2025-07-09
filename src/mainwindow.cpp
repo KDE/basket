@@ -68,27 +68,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupActions()
 {
-    actQuit = KStandardAction::quit(this, SLOT(quit()), actionCollection());
+    actQuit = KStandardAction::quit(this, &MainWindow::quit, actionCollection());
     QAction *a = nullptr;
-    a = actionCollection()->addAction(QStringLiteral("minimizeRestore"), this, SLOT(minimizeRestore()));
+    a = actionCollection()->addAction(QStringLiteral("minimizeRestore"), this, &MainWindow::minimizeRestore);
     a->setText(i18n("Minimize"));
     a->setIcon(QIcon::fromTheme(QString()));
     a->setShortcut(0);
 
     /** Settings : ************************************************************/
-    //  m_actShowToolbar   = KStandardAction::showToolbar(   this, SLOT(toggleToolBar()),   actionCollection());
-    m_actShowStatusbar = KStandardAction::showStatusbar(this, SLOT(toggleStatusBar()), actionCollection());
+    //  m_actShowToolbar = KStandardAction::showToolbar(this, &MainWindow::toggleToolBar, actionCollection());
+    m_actShowStatusbar = KStandardAction::showStatusbar(this, &MainWindow::toggleStatusBar, actionCollection());
 
     //  m_actShowToolbar->setCheckedState( KGuiItem(i18n("Hide &Toolbar")) );
 
-    (void)KStandardAction::keyBindings(this, SLOT(showShortcutsSettingsDialog()), actionCollection());
+    (void)KStandardAction::keyBindings(this, &MainWindow::showShortcutsSettingsDialog, actionCollection());
 
-    (void)KStandardAction::configureToolbars(this, SLOT(configureToolbars()), actionCollection());
+    (void)KStandardAction::configureToolbars(this, &MainWindow::configureToolbars, actionCollection());
 
-    // QAction *actCfgNotifs = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection() );
+    // QAction *actCfgNotifs = KStandardAction::configureNotifications(this, &MainWindow::configureNotifications, actionCollection() );
     // actCfgNotifs->setEnabled(false); // Not yet implemented !
 
-    actAppConfig = KStandardAction::preferences(this, SLOT(showSettingsDialog()), actionCollection());
+    actAppConfig = KStandardAction::preferences(this, &MainWindow::showSettingsDialog, actionCollection());
 }
 
 SettingsDialog *MainWindow::settings()

@@ -38,7 +38,7 @@ VersionSyncPage::VersionSyncPage(QObject *parent, const KPluginMetaData &data)
     ui->groupBoxControl->setVisible(false);
 #endif
 
-    connect(ui->checkBoxEnable, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(ui->checkBoxEnable, &QCheckBox::toggled, this, &KCModule::markAsChanged);
     VersionSyncPage::load();
 }
 

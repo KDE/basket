@@ -111,7 +111,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 
     columnCount->setRange(1, 20);
     columnCount->setValue(m_basket->columnsCount());
-    connect(columnCount, SIGNAL(valueChanged(int)), this, SLOT(selectColumnsLayout()));
+    connect(columnCount, &QSpinBox::valueChanged, this, &BasketPropertiesDialog::selectColumnsLayout);
 
     int height = qMax(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equally-spaced!
     mindMap->setMinimumSize(mindMap->sizeHint().width(),

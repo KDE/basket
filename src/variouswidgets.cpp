@@ -221,7 +221,7 @@ HelpLabel::HelpLabel(const QString &text, const QString &message, QWidget *paren
 {
     setText(text);
     setWhatsThis(m_message);
-    connect(this, SIGNAL(leftClickedUrl()), this, SLOT(display()));
+    connect(this, &HelpLabel::leftClickedUrl, this, &HelpLabel::display);
 }
 
 HelpLabel::~HelpLabel() = default;
@@ -309,7 +309,6 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
         break;
     }
 
-    connect(iconView, SIGNAL(executed(QListWidgetItem *)), this, SLOT(choose(QListWidgetItem *)));
     connect(iconView, &QListWidget::itemActivated, this, &IconSizeDialog::choose);
     connect(iconView, &QListWidget::itemSelectionChanged, this, &IconSizeDialog::slotSelectionChanged);
 

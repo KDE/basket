@@ -1309,13 +1309,14 @@ AnimationContent::AnimationContent(Note *parent, const QString &fileName, bool l
     if (parent) {
         parent->addToGroup(&m_graphicsPixmap);
         m_graphicsPixmap.setPos(parent->contentX(), Note::NOTE_MARGIN);
-        connect(parent->basket(), SIGNAL(activated()), m_movie, SLOT(start()));
-        connect(parent->basket(), SIGNAL(closed()), m_movie, SLOT(stop()));
+        // FIXME(JH) signals don't exist - should they?
+        // connect(parent->basket(), &BasketScene::activated, m_movie, &QMovie::start);
+        // connect(parent->basket(), &BasketScene::closed, m_movie, &QMovie::stop);
     }
 
     basket()->addWatchedFile(fullPath());
-    connect(m_movie, SIGNAL(resized(QSize)), this, SLOT(movieResized()));
-    connect(m_movie, SIGNAL(frameChanged(int)), this, SLOT(movieFrameChanged()));
+    connect(m_movie, &QMovie::resized, this, &AnimationContent::movieResized);
+    connect(m_movie, &QMovie::frameChanged, this, &AnimationContent::movieFrameChanged);
 
     AnimationContent::loadFromFile(lazyLoad);
 }
@@ -1592,8 +1593,8 @@ void FileContent::startFetchingUrlPreview()
         KUrl::List urlList;
         urlList.append(filteredUrl);
         m_previewJob = KIO::filePreview(urlList, linkLook->previewSize(), linkLook->previewSize(), linkLook->iconSize());
-        connect(m_previewJob, SIGNAL(gotPreview(const KFileItem&, const QPixmap&)), this, SLOT(newPreview(const KFileItem&, const QPixmap&)));
-        connect(m_previewJob, SIGNAL(failed(const KFileItem&)),                     this, SLOT(removePreview(const KFileItem&)));
+        connect(m_previewJob, &KIO::PreviewJob::gotPreview, this, &KIO::PreviewJob::newPreview);
+        connect(m_previewJob, &KIO::PreviewJob::failed, this, &KIO::PreviewJob::removePreview);
     }
     */
 }
@@ -1908,8 +1909,8 @@ void LinkContent::startFetchingUrlPreview()
         m_previewJob = KIO::filePreview({itemUrl}, QSize(linkLook->previewSize(), linkLook->previewSize()), nullptr);
         // setOverlayIconSize deprecated
         // m_previewJob->setOverlayIconSize(linkLook->iconSize());
-        connect(m_previewJob, SIGNAL(gotPreview(const KFileItem &, const QPixmap &)), this, SLOT(newPreview(const KFileItem &, const QPixmap &)));
-        connect(m_previewJob, SIGNAL(failed(const KFileItem &)), this, SLOT(removePreview(const KFileItem &)));
+        connect(m_previewJob, &KIO::PreviewJob::gotPreview, this, &LinkContent::newPreview);
+        connect(m_previewJob, &KIO::PreviewJob::failed, this, &LinkContent::removePreview);
     }
 }
 

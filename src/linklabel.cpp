@@ -687,19 +687,19 @@ LinkLookEditWidget::LinkLookEditWidget(KCModule *module, const QString exTitle, 
 
     connect(m_italic, &QCheckBox::stateChanged, this, &LinkLookEditWidget::slotChangeLook);
     connect(m_bold, &QCheckBox::stateChanged, this, &LinkLookEditWidget::slotChangeLook);
-    connect(m_underlining, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
-    connect(m_color, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
-    connect(m_hoverColor, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
-    connect(m_iconSize, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
-    connect(m_preview, SIGNAL(activated(int)), this, SLOT(slotChangeLook()));
+    connect(m_underlining, &QComboBox::activated, this, &LinkLookEditWidget::slotChangeLook);
+    connect(m_color, &QComboBox::activated, this, &LinkLookEditWidget::slotChangeLook);
+    connect(m_hoverColor, &QComboBox::activated, this, &LinkLookEditWidget::slotChangeLook);
+    connect(m_iconSize, &QComboBox::activated, this, &LinkLookEditWidget::slotChangeLook);
+    connect(m_preview, &QComboBox::activated, this, &LinkLookEditWidget::slotChangeLook);
 
-    connect(m_italic, SIGNAL(stateChanged(int)), module, SLOT(changed()));
-    connect(m_bold, SIGNAL(stateChanged(int)), module, SLOT(changed()));
-    connect(m_underlining, SIGNAL(activated(int)), module, SLOT(changed()));
-    connect(m_color, SIGNAL(colorChanged(const QColor &)), module, SLOT(changed()));
-    connect(m_hoverColor, SIGNAL(colorChanged(const QColor &)), module, SLOT(changed()));
-    connect(m_iconSize, SIGNAL(activated(int)), module, SLOT(changed()));
-    connect(m_preview, SIGNAL(activated(int)), module, SLOT(changed()));
+    connect(m_italic, &QCheckBox::stateChanged, module, &KCModule::markAsChanged);
+    connect(m_bold, &QCheckBox::stateChanged, module, &KCModule::markAsChanged);
+    connect(m_underlining, &QComboBox::activated, module, &KCModule::markAsChanged);
+    connect(m_color, &KColorCombo2::colorChanged, module, &KCModule::markAsChanged);
+    connect(m_hoverColor, &KColorCombo2::colorChanged, module, &KCModule::markAsChanged);
+    connect(m_iconSize, &QComboBox::activated, module, &KCModule::markAsChanged);
+    connect(m_preview, &QComboBox::activated, module, &KCModule::markAsChanged);
 }
 
 void LinkLookEditWidget::set(LinkLook *look)

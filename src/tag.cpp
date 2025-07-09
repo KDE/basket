@@ -223,7 +223,7 @@ Tag::Tag()
     QString sAction = QStringLiteral("tag_shortcut_number_") + QString::number(tagNumber);
 
     KActionCollection *ac = Global::bnpView->actionCollection();
-    m_action = ac->addAction(sAction, Global::bnpView, SLOT(activatedTagShortcut()));
+    m_action = ac->addAction(sAction, Global::bnpView, &BNPView::activatedTagShortcut);
     m_action->setText(QStringLiteral("FAKE TEXT"));
     m_action->setIcon(QIcon::fromTheme(QStringLiteral("FAKE ICON")));
 

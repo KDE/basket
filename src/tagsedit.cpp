@@ -641,9 +641,9 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     connect(m_textEquivalent, &QLineEdit::textChanged, this, &TagsEditDialog::modified);
     connect(m_onEveryLines, &QCheckBox::stateChanged, this, &TagsEditDialog::modified);
 
-    connect(m_tags, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)));
-    connect(m_tags, SIGNAL(deletePressed()), this, SLOT(deleteTag()));
-    connect(m_tags, SIGNAL(doubleClickedItem()), this, SLOT(renameIt()));
+    connect(m_tags, &TagListView::currentItemChanged, this, &TagsEditDialog::currentItemChanged);
+    connect(m_tags, &TagListView::deletePressed, this, &TagsEditDialog::deleteTag);
+    connect(m_tags, &TagListView::doubleClickedItem, this, &TagsEditDialog::renameIt);
 
     QTreeWidgetItem *firstItem = m_tags->firstChild();
     if (stateToEdit != nullptr) {
@@ -703,10 +703,10 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     m_tags->setMinimumSize(m_tags->sizeHint().width() * 2, m_tagBox->sizeHint().height() + m_stateBox->sizeHint().height());
 
     if (addNewTag)
-        QTimer::singleShot(0, this, SLOT(newTag()));
+        QTimer::singleShot(0, this, &TagsEditDialog::newTag);
     else
         // Once the window initial size is computed and the window show, allow the user to resize it down:
-        QTimer::singleShot(0, this, SLOT(resetTreeSizeHint()));
+        QTimer::singleShot(0, this, &TagsEditDialog::resetTreeSizeHint);
 }
 
 TagsEditDialog::~TagsEditDialog() = default;

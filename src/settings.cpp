@@ -348,7 +348,9 @@ SettingsDialog::SettingsDialog(QWidget *parent)
 {
     QCoreApplication::addLibraryPath(QStringLiteral("/lib/plugins"));
     const QList<KPluginMetaData> availablePlugins = KPluginMetaData::findPlugins(QStringLiteral("pim/kcms/basket"));
+    qInfo() << "SettingsDialog" << availablePlugins.size();
     for (const KPluginMetaData &metaData : availablePlugins) {
+        qInfo() << "SettingsDialog" << metaData.pluginId() << metaData.fileName() << metaData.name();
 #if KCMUTILS_VERSION >= QT_VERSION_CHECK(6, 5, 0)
         addModule(metaData);
 #else
@@ -377,8 +379,9 @@ void SettingsDialog::showEvent(QShowEvent *event)
 int SettingsDialog::exec()
 {
     int ret = KCMultiDialog::exec();
-    QTimer::singleShot(0, this, SLOT(adjustSize()));
-    QTimer::singleShot(0, this, SLOT(loadAllPages()));
+    QTimer::singleShot(0, this, &SettingsDialog::adjustSize);
+    // FIXME(JH) slot doesn't exist - should it?
+    // QTimer::singleShot(0, this, &SettingsDialog::loadAllPages);
     return ret;
 }
 
@@ -436,7 +439,7 @@ GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
     m_treeOnLeft->addItem(i18n("On right"));
 
     layout->addRow(i18n("&Basket tree position:"), m_treeOnLeft);
-    connect(m_treeOnLeft, SIGNAL(activated(int)), this, SLOT(changed()));
+    connect(m_treeOnLeft, &QComboBox::activated, this, &KCModule::markAsChanged);
 
     // Filter Bar Position:
     m_filterOnTop = new KComboBox(this->widget());
@@ -444,7 +447,7 @@ GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
     m_filterOnTop->addItem(i18n("On bottom"));
 
     layout->addRow(i18n("&Filter bar position:"), m_filterOnTop);
-    connect(m_filterOnTop, SIGNAL(activated(int)), this, SLOT(changed()));
+    connect(m_filterOnTop, &QComboBox::activated, this, &KCModule::markAsChanged);
 
     GeneralPage::load();
 }
@@ -491,11 +494,11 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     m_showNotesToolTip = new QCheckBox(i18n("&Show tooltips in baskets"), appearanceBox);
     appearanceLayout->addWidget(m_showNotesToolTip);
-    connect(m_showNotesToolTip, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_showNotesToolTip, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     m_bigNotes = new QCheckBox(i18n("&Big notes"), appearanceBox);
     appearanceLayout->addWidget(m_bigNotes);
-    connect(m_bigNotes, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_bigNotes, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     // Behavior:
 
@@ -506,25 +509,25 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
 
     m_autoBullet = new QCheckBox(i18n("&Transform lines starting with * or - to lists in text editors"), behaviorBox);
     behaviorLayout->addWidget(m_autoBullet);
-    connect(m_autoBullet, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_autoBullet, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     m_confirmNoteDeletion = new QCheckBox(i18n("Ask confirmation before &deleting notes"), behaviorBox);
     behaviorLayout->addWidget(m_confirmNoteDeletion);
-    connect(m_confirmNoteDeletion, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_confirmNoteDeletion, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     m_pasteAsPlainText = new QCheckBox(i18n("Keep text formatting when pasting"), behaviorBox);
     behaviorLayout->addWidget(m_pasteAsPlainText);
-    connect(m_pasteAsPlainText, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_pasteAsPlainText, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     m_detectTextTags = new QCheckBox(i18n("Automatically detect tags from note's content"), behaviorBox);
     behaviorLayout->addWidget(m_detectTextTags);
-    connect(m_detectTextTags, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_detectTextTags, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     auto *widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
     hLay = new QHBoxLayout(widget);
     m_exportTextTags = new QCheckBox(i18n("&Export tags in texts"), widget);
-    connect(m_exportTextTags, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_exportTextTags, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     hLabel = new HelpLabel(
         i18n("When does this apply?"),
@@ -556,7 +559,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     hLayV->addWidget(helpV);
     hLayV->insertStretch(-1);
     layout->addWidget(m_groupOnInsertionLineWidget);
-    connect(m_groupOnInsertionLine, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_groupOnInsertionLine, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     widget = new QWidget(behaviorBox);
     behaviorLayout->addWidget(widget);
@@ -585,7 +588,7 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     ga->addWidget(m_middleAction, 0, 1);
     ga->addWidget(new QLabel(i18n("at cursor position"), widget), 0, 2);
     ga->setContentsMargins(1, 0, 0, 0);
-    connect(m_middleAction, SIGNAL(activated(int)), this, SLOT(changed()));
+    connect(m_middleAction, &QComboBox::activated, this, &KCModule::markAsChanged);
 
     // Protection:
 
@@ -608,15 +611,15 @@ BasketsPage::BasketsPage(QObject *parent, const KPluginMetaData &data)
     // hLay->addWidget(label);
     hLay->addStretch();
     //  layout->addLayout(hLay);
-    connect(m_enableReLockTimeoutMinutes, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
-    connect(m_reLockTimeoutMinutes, SIGNAL(valueChanged(int)), this->widget(), SLOT(changed()));
-    connect(m_enableReLockTimeoutMinutes, SIGNAL(toggled(bool)), m_reLockTimeoutMinutes, SLOT(setEnabled(bool)));
+    connect(m_enableReLockTimeoutMinutes, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_reLockTimeoutMinutes, &QSpinBox::valueChanged, this, &KCModule::markAsChanged);
+    connect(m_enableReLockTimeoutMinutes, &QCheckBox::toggled, m_reLockTimeoutMinutes, &QWidget::setEnabled);
 
 #ifdef HAVE_LIBGPGME
     m_useGnuPGAgent = new QCheckBox(i18n("Use GnuPG agent for &private/public key protected baskets"), protectionBox);
     protectionLayout->addWidget(m_useGnuPGAgent);
     //  hLay->addWidget(m_useGnuPGAgent);
-    connect(m_useGnuPGAgent, SIGNAL(toggled(bool)), this->widget(), SLOT(changed()));
+    connect(m_useGnuPGAgent, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 #endif
 
     layout->insertStretch(-1);
@@ -707,7 +710,7 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     // layout->addLayout(hLay);
     label->hide();
     m_newNotesPlace->hide();
-    connect(m_newNotesPlace, SIGNAL(editTextChanged(const QString &)), this, SLOT(changed()));
+    connect(m_newNotesPlace, &QComboBox::editTextChanged, this, &KCModule::markAsChanged);
 
     // New Images Size:
 
@@ -716,7 +719,7 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     m_imgSizeX->setMinimum(1);
     m_imgSizeX->setMaximum(4096);
     // m_imgSizeX->setReferencePoint(100); //from KIntNumInput
-    connect(m_imgSizeX, SIGNAL(valueChanged(int)), this, SLOT(changed()));
+    connect(m_imgSizeX, &QSpinBox::valueChanged, this, &KCModule::markAsChanged);
 
     label = new QLabel(this->widget());
     label->setText(i18n("&New images size:"));
@@ -729,7 +732,7 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     m_imgSizeY->setMinimum(1);
     m_imgSizeY->setMaximum(4096);
     // m_imgSizeY->setReferencePoint(100);
-    connect(m_imgSizeY, SIGNAL(valueChanged(int)), this, SLOT(changed()));
+    connect(m_imgSizeY, &QSpinBox::valueChanged, this, &KCModule::markAsChanged);
 
     label = new QLabel(this->widget());
     label->setText(i18n("&by"));
@@ -743,7 +746,7 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     hLay->addWidget(m_pushVisualize);
     hLay->addStretch();
     layout->addLayout(hLay);
-    connect(m_pushVisualize, SIGNAL(clicked()), this, SLOT(visualize()));
+    connect(m_pushVisualize, &QAbstractButton::clicked, this, &NewNotesPage::visualize);
 
     // View File Content:
 
@@ -761,10 +764,10 @@ NewNotesPage::NewNotesPage(QObject *parent, const KPluginMetaData &data)
     buttonGroup->setLayout(buttonLayout);
 
     layout->addWidget(buttonGroup);
-    connect(m_viewTextFileContent, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_viewHtmlFileContent, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_viewImageFileContent, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_viewSoundFileContent, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_viewTextFileContent, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_viewHtmlFileContent, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_viewImageFileContent, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_viewSoundFileContent, &QCheckBox::toggled, this, &KCModule::markAsChanged);
 
     layout->insertStretch(-1);
     NewNotesPage::load();
@@ -925,7 +928,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_menuEdit->setIconSize(QSize(24, 24));
     m_menuEdit->setText(QStringLiteral("Launch KDE Menu Editor"));
     m_menuEdit->setToolTip(menuEditTooltip);
-    connect(m_menuEdit, SIGNAL(clicked()), this, SLOT(openMenuEditor()));
+    connect(m_menuEdit, &QAbstractButton::clicked, this, &ApplicationsPage::openMenuEditor);
     hLay->addWidget(m_menuEdit);
 
     m_componentChooser = new QPushButton();
@@ -934,7 +937,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_componentChooser->setIconSize(QSize(24, 24));
     m_componentChooser->setText(QStringLiteral("Default Applications"));
     m_componentChooser->setToolTip(componentChooserTooltip);
-    connect(m_componentChooser, SIGNAL(clicked()), this, SLOT(openDefaultApplications()));
+    connect(m_componentChooser, &QAbstractButton::clicked, this, &ApplicationsPage::openDefaultApplications);
     hLay->addWidget(m_componentChooser);
 
     m_fileTypes = new QPushButton();
@@ -943,7 +946,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     m_fileTypes->setIconSize(QSize(24, 24));
     m_fileTypes->setText(QStringLiteral("File Associations"));
     m_fileTypes->setToolTip(fileAssociationsTooltip);
-    connect(m_fileTypes, SIGNAL(clicked()), this, SLOT(openFileAssociations()));
+    connect(m_fileTypes, &QAbstractButton::clicked, this, &ApplicationsPage::openFileAssociations);
     hLay->addWidget(m_fileTypes);
 
     vLay->addLayout(hLay);
@@ -959,40 +962,40 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     auto *hLayH = new QHBoxLayout();
     hLayH->insertSpacing(-1, 20);
     hLayH->addWidget(m_htmlProg);
-    connect(m_htmlUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_htmlProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
+    connect(m_htmlUseProg, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_htmlProg, &ServiceLaunchRequester::launcherChanged, this, &KCModule::markAsChanged);
 
     m_imageUseProg = new QCheckBox(i18n("Open &image notes with a custom application:"), this->widget());
     m_imageProg = new ServiceLaunchRequester(QString(), i18n("Open image notes with:"), this->widget());
     auto *hLayI = new QHBoxLayout();
     hLayI->insertSpacing(-1, 20);
     hLayI->addWidget(m_imageProg);
-    connect(m_imageUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_imageProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
+    connect(m_imageUseProg, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_imageProg, &ServiceLaunchRequester::launcherChanged, this, &KCModule::markAsChanged);
 
     m_animationUseProg = new QCheckBox(i18n("Open a&nimation notes with a custom application:"), this->widget());
     m_animationProg = new ServiceLaunchRequester(QString(), i18n("Open animation notes with:"), this->widget());
     auto *hLayA = new QHBoxLayout();
     hLayA->insertSpacing(-1, 20);
     hLayA->addWidget(m_animationProg);
-    connect(m_animationUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_animationProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
+    connect(m_animationUseProg, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_animationProg, &ServiceLaunchRequester::launcherChanged, this, &KCModule::markAsChanged);
 
     m_soundUseProg = new QCheckBox(i18n("Open so&und notes with a custom application:"), this->widget());
     m_soundProg = new ServiceLaunchRequester(QString(), i18n("Open sound notes with:"), this->widget());
     auto *hLayS = new QHBoxLayout();
     hLayS->insertSpacing(-1, 20);
     hLayS->addWidget(m_soundProg);
-    connect(m_soundUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_soundProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
+    connect(m_soundUseProg, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_soundProg, &ServiceLaunchRequester::launcherChanged, this, &KCModule::markAsChanged);
 
     m_linkUseProg = new QCheckBox(i18n("Open http link notes with a custom application:"), this->widget());
     m_linkProg = new ServiceLaunchRequester(QString(), i18n("Open http link notes with:"), this->widget());
     auto *hLayL = new QHBoxLayout();
     hLayL->insertSpacing(-1, 20);
     hLayL->addWidget(m_linkProg);
-    connect(m_linkUseProg, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_linkProg, SIGNAL(launcherChanged()), this, SLOT(changed()));
+    connect(m_linkUseProg, &QCheckBox::toggled, this, &KCModule::markAsChanged);
+    connect(m_linkProg, &ServiceLaunchRequester::launcherChanged, this, &KCModule::markAsChanged);
 
     QString whatsthis = i18n(
         "<p>If checked, the application defined below will be used when opening that type of note.</p>"
@@ -1027,11 +1030,11 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
 
     basketLaunchGroup->setLayout(vLay);
 
-    connect(m_htmlUseProg, SIGNAL(toggled(bool)), m_htmlProg, SLOT(setEnabled(bool)));
-    connect(m_imageUseProg, SIGNAL(toggled(bool)), m_imageProg, SLOT(setEnabled(bool)));
-    connect(m_animationUseProg, SIGNAL(toggled(bool)), m_animationProg, SLOT(setEnabled(bool)));
-    connect(m_soundUseProg, SIGNAL(toggled(bool)), m_soundProg, SLOT(setEnabled(bool)));
-    connect(m_linkUseProg, SIGNAL(toggled(bool)), m_linkProg, SLOT(setEnabled(bool)));
+    connect(m_htmlUseProg, &QCheckBox::toggled, m_htmlProg, &QWidget::setEnabled);
+    connect(m_imageUseProg, &QCheckBox::toggled, m_imageProg, &QWidget::setEnabled);
+    connect(m_animationUseProg, &QCheckBox::toggled, m_animationProg, &QWidget::setEnabled);
+    connect(m_soundUseProg, &QCheckBox::toggled, m_soundProg, &QWidget::setEnabled);
+    connect(m_linkUseProg, &QCheckBox::toggled, m_linkProg, &QWidget::setEnabled);
 
     layout->addWidget(basketLaunchGroup);
     layout->insertStretch(-1);

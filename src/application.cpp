@@ -72,12 +72,12 @@ void Application::tryLoadFile(const QStringList &args, const QString &workingDir
                 QString folder = fileInfo.absolutePath().split(QLatin1Char('/')).last();
                 folder.append(QStringLiteral("/"));
                 BNPView::s_basketToOpen = folder;
-                QTimer::singleShot(100ms, Global::bnpView, SLOT(delayedOpenBasket()));
+                QTimer::singleShot(100ms, Global::bnpView, &BNPView::delayedOpenBasket);
             } else if (!fileInfo.isDir()) { // Do not mis-interpret data-folder param!
                 // Tags are not loaded until Global::bnpView::lateInit() is called.
                 // It is called 0ms after the application start.
                 BNPView::s_fileToOpen = fileName;
-                QTimer::singleShot(100ms, Global::bnpView, SLOT(delayedOpenArchive()));
+                QTimer::singleShot(100ms, Global::bnpView, &BNPView::delayedOpenArchive);
                 //              Global::bnpView->openArchive(fileName);
             }
         }

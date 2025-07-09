@@ -36,7 +36,9 @@ DecoratedBasket::DecoratedBasket(QWidget *parent, const QString &folderName)
 
     setFilterBarPosition(Settings::filterOnTop());
 
-    connect(m_filter, SIGNAL(newFilter(const FilterData &)), m_basket, SLOT(newFilter(const FilterData &)));
+    connect(m_filter, &FilterBar::newFilter, m_basket, [this](const FilterData &data) {
+        m_basket->newFilter(data);
+    });
     connect(m_basket, &BasketScene::postMessage, Global::bnpView, &BNPView::postStatusbarMessage);
     connect(m_basket, &BasketScene::setStatusBarText, Global::bnpView, &BNPView::setStatusBarHint);
     connect(m_basket, &BasketScene::resetStatusBarText, Global::bnpView, &BNPView::updateStatusBarHint);

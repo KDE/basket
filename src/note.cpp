@@ -100,8 +100,8 @@ Note::Note(BasketScene *parent)
     // m_animX->setEasingCurve(QEasingCurve::InOutQuad);
     // m_animY->setEasingCurve(QEasingCurve::InOutQuad);
 
-    connect(m_animX, SIGNAL(valueChanged), this, SLOT(xAnimated));
-    connect(m_animY, SIGNAL(valueChanged), this, SLOT(yAnimated));
+    connect(m_animX, &NoteAnimation::valueChanged, this, &Note::xAnimated);
+    connect(m_animY, &NoteAnimation::valueChanged, this, &Note::yAnimated);
 
     setHeight(MIN_HEIGHT);
     if (m_basket) {

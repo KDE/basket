@@ -39,7 +39,7 @@ FilterBar::FilterBar(QWidget *parent)
 
     m_resetButton = new QToolButton(this);
     m_resetButton->setIcon(resetIcon);
-    m_resetButton->setText(i18n("Reset Filter")); //, /*groupText=*/QString(), this, SLOT(reset()), 0);
+    m_resetButton->setText(i18n("Reset Filter")); //, /*groupText=*/QString(), this, &FilterBar::reset, 0);
     m_resetButton->setAutoRaise(true);
     // new KToolBarButton("locationbar_erase", /*id=*/1230, this, /*name=*/0, i18n("Reset Filter"));
     m_lineEdit = new QLineEdit(this);
@@ -52,7 +52,7 @@ FilterBar::FilterBar(QWidget *parent)
     label2->setBuddy(m_tagsBox);
     m_inAllBasketsButton = new QToolButton(this);
     m_inAllBasketsButton->setIcon(inAllIcon);
-    m_inAllBasketsButton->setText(i18n("Filter All Baskets")); //, /*groupText=*/QString(), this, SLOT(inAllBaskets()), 0);
+    m_inAllBasketsButton->setText(i18n("Filter All Baskets")); //, /*groupText=*/QString(), this, &FilterBar::inAllBaskets, 0);
     m_inAllBasketsButton->setAutoRaise(true);
 
     // Configure the Tags combobox:
@@ -74,12 +74,12 @@ FilterBar::FilterBar(QWidget *parent)
     hBox->addWidget(m_tagsBox);
     hBox->addWidget(m_inAllBasketsButton);
 
-    // connect(&m_blinkTimer, SIGNAL(timeout()), this, SLOT(blinkBar()));
+    // connect(&m_blinkTimer, &QTimer::timeout, this, &FilterBar::blinkBar);
     connect(m_resetButton, &QToolButton::clicked, this, &FilterBar::reset);
     connect(m_lineEdit, &QLineEdit::textChanged, this, &FilterBar::changeFilter);
-    connect(m_tagsBox, SIGNAL(activated(int)), this, SLOT(tagChanged(int)));
+    connect(m_tagsBox, &QComboBox::activated, this, &FilterBar::tagChanged);
 
-    // connect(m_inAllBasketsButton, SIGNAL(clicked()), this, SLOT(inAllBaskets()));
+    // connect(m_inAllBasketsButton, &QAbstractButton::clicked, this, &FilterBar::inAllBaskets);
     m_inAllBasketsButton->setDefaultAction(Global::bnpView->m_actFilterAllBaskets);
 
     auto *lineEditF = new FocusWidgetFilter(m_lineEdit);

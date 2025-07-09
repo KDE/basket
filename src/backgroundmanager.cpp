@@ -72,7 +72,9 @@ BackgroundManager::BackgroundManager()
     /// for (BackgroundsList::Iterator it = m_backgroundsList.begin(); it != m_backgroundsList.end(); ++it)
     ///     qDebug() << "* " << (*it)->location << "  [ref: " << (*it)->name << "]";
 
-    connect(&m_garbageTimer, SIGNAL(timeout()), this, SLOT(doGarbage()));
+    connect(&m_garbageTimer, &QTimer::timeout, this, [this]() {
+        doGarbage();
+    });
 }
 
 BackgroundManager::~BackgroundManager()
