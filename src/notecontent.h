@@ -19,6 +19,7 @@
 
 class QBuffer;
 class QColor;
+class QMediaPlayer;
 class QMimeData;
 class QMovie;
 class QPainter;
@@ -35,11 +36,6 @@ class QUrl;
 namespace KIO
 {
 class PreviewJob;
-}
-
-namespace Phonon
-{
-class MediaObject;
 }
 
 class BasketScene;
@@ -549,6 +545,7 @@ public:
     QString editToolTipText() const override;
     // Complex Generic Methods:
     QString cssClass() const override;
+    bool loadFromFile(bool lazyLoad) override;
     // Custom Zones:
     QString zoneTip(int zone) override;
     void setHoveredZone(int oldZone, int newZone) override;
@@ -561,9 +558,9 @@ public:
     {
         return LinkLook::soundLook;
     }
-    Phonon::MediaObject *music;
+    QMediaPlayer *music;
 private Q_SLOTS:
-    void stateChanged(int, int);
+    void stateChanged(int);
 };
 
 /** Real implementation of link notes:

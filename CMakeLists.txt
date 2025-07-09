@@ -90,6 +90,7 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Core
     DBus
     Gui
+    Multimedia
     Widgets
     Xml
     Core5Compat
@@ -124,9 +125,6 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
-
-
-find_package(Phonon4Qt6 REQUIRED)
 
 if (GPGME_FOUND)
     MESSAGE(STATUS "FOUND GPG")

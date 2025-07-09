@@ -58,7 +58,6 @@ qt_add_resources(basket_RESOURCES ../basket.qrc)
 add_library(LibBasket SHARED ${libbasket_SRCS} ${basket_FORM_HDRS} ${basket_RESOURCES})
 
 target_link_libraries(LibBasket
-    ${PHONON_LIBRARY}
     ${GPGME_VANILLA_LIBRARIES}
     KF6::Archive
     KF6::ConfigWidgets
@@ -80,6 +79,7 @@ target_link_libraries(LibBasket
     KF6::WindowSystem
     KF6::XmlGui
     Qt::Core
+    Qt::Multimedia
 )
 
 set_target_properties(LibBasket PROPERTIES
