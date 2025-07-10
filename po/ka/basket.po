@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:43+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2024-12-18 03:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -250,7 +250,7 @@ msgstr "ძველი ხატულა"
 msgid "BasKet Note Pads"
 msgstr "BasKet -ის შენიშვნები"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2048
+#: src/archive.cpp:50 src/bnpview.cpp:2050
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "კალათის არქივად შენახვა"
@@ -390,7 +390,7 @@ msgstr "საქაღალდე <b>%1</b> ცარიელი არაა
 msgid "Overwrite Folder?"
 msgstr "გადავაწერო საქაღალდეს?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2059 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "&გადაწერა"
@@ -424,8 +424,8 @@ msgstr "კალათა_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip-ით შეკუმშული Tar"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
-#: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2047
+#: src/bnpview.cpp:2094 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "ყველა ფაილი"
@@ -440,7 +440,7 @@ msgstr "კალათების მარქაფი"
 msgid "Backing up baskets. Please wait..."
 msgstr "კალათების მარქაფი. მოითმინეთ..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2095
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "კალათის არქივის გახსნა"
@@ -740,37 +740,37 @@ msgstr "ამ კალათის ჩვენება (&გლობალ�
 msgid "S&witch to this basket (global shortcut)"
 msgstr "ამ &კალათზე გადმორთვა (გლობალური მალსახმობი)"
 
-#: src/basketscene.cpp:301
+#: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "ახალ შენიშვნა არ ემთხვევა ფილტრს და დამალულია."
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "ახალ შენიშვნა არ ემთხვევა ფილტრს და დამალულია."
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "ზოგიერთი ახალი შენიშვნა არ ემთხვევა ფილტრს და დამალულია."
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "ახალი შენიშვნები არ ემთხვევა ფილტრს და დამალულია."
 
-#: src/basketscene.cpp:1464 src/notecontent.cpp:91
+#: src/basketscene.cpp:1466 src/notecontent.cpp:91
 #, kde-format
 msgid "Group"
 msgstr "GROUP"
 
-#: src/basketscene.cpp:1466
+#: src/basketscene.cpp:1468
 #, kde-format
 msgid "Insert"
 msgstr "ჩამატება"
 
-#: src/basketscene.cpp:2313
+#: src/basketscene.cpp:2315
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -779,7 +779,7 @@ msgstr ""
 "ეს შეტყობინება არასოდეს უნდა გამოჩნდეს. თუ ასეა, ეს პროგრამა შეცდომებს "
 "შეიცავს! გთხოვთ შეატყობინოთ შეცდომის შესახებ პროგრამისტს."
 
-#: src/basketscene.cpp:2752 src/basketscene.cpp:2805 src/basketscene.cpp:2814
+#: src/basketscene.cpp:2754 src/basketscene.cpp:2807 src/basketscene.cpp:2816
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -788,57 +788,57 @@ msgstr ""
 "შენიშვნის აქ ჩასმა.\n"
 "მარჯვენა წკაპი მეტი პარამეტრისთვის"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize those columns"
 msgstr "ამ სვეტების ზომის შეცვლა"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize this group"
 msgstr "ჯგუფისთვის ზომის შეცვლა"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize this note"
 msgstr "შენიშვნის ზომების შეცვლა"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2776
 #, kde-format
 msgid "Select or move this note"
 msgstr "ამ შენიშვნის მონიშვნა ან გადატანა"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2779
 #, kde-format
 msgid "Select or move this group"
 msgstr "ამ ჯგუფის მონიშვნა ან გადატანა"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2782
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "ჭდეების მინიჭება ან მოცილება ამ შენიშვნიდან"
 
-#: src/basketscene.cpp:2788
+#: src/basketscene.cpp:2790
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2790
+#: src/basketscene.cpp:2792
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>მინიჭებული ჭდეები</b>: %1"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2799
 #, kde-format
 msgid "Expand this group"
 msgstr "ჯგუფის ამოკეცვა"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2799
 #, kde-format
 msgid "Collapse this group"
 msgstr "ჯგუფის ჩაკეცვა"
 
-#: src/basketscene.cpp:2808
+#: src/basketscene.cpp:2810
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -847,7 +847,7 @@ msgstr ""
 "შენიშვნის დაჯგუფება ქვედასთან ერთად.\n"
 "მარჯვენა წკაპი მეტი პარამეტრისთვის"
 
-#: src/basketscene.cpp:2811
+#: src/basketscene.cpp:2813
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -856,53 +856,53 @@ msgstr ""
 "შენიშვნის დაჯგუფება ზედასთან ერთად.\n"
 "მარჯვენა წკაპი მეტი პარამეტრისთვის"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2831
 #, kde-format
 msgid "Added"
 msgstr "დამატებულია"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2831
 #, kde-format
 msgid "Last Modification"
 msgstr "ბოლო ცვლილება"
 
-#: src/basketscene.cpp:2834
+#: src/basketscene.cpp:2836
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2840
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "დააწკაპუნეთ მარჯვნივ დასაჯგუფებლად ჩასმის მაგიერ"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2842
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "დააწკაპუნეთ მარცხნივ ჩასასმელად დაჯგუფების მაგიერ"
 
-#: src/basketscene.cpp:3018
+#: src/basketscene.cpp:3020
 #, kde-format
 msgid "&Unlock"
 msgstr "&განბლოკვა"
 
-#: src/basketscene.cpp:3023
+#: src/basketscene.cpp:3025
 #, kde-format
 msgid "Password protected basket."
 msgstr "პაროლი დაცული კალათა."
 
-#: src/basketscene.cpp:3025
+#: src/basketscene.cpp:3027
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "ბლოკის მოსახსნელად ღილაკს დააწექით."
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3029
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "დაშიფვრა მხარდაჭერილი არაა<br/>%1-ის ამ ვერსიაში."
 
-#: src/basketscene.cpp:3039
+#: src/basketscene.cpp:3041
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -911,88 +911,88 @@ msgstr ""
 "იმისათვის, რომ კალათები განბლოკილი დარჩეს, შეცვალეთ ავტომატური<br>დაბლოკვის "
 "ხანგრძლივობა პროგრამის მორგების ფანჯარაში."
 
-#: src/basketscene.cpp:3066 src/basketstatusbar.cpp:89 src/bnpview.cpp:1607
+#: src/basketscene.cpp:3068 src/basketstatusbar.cpp:89 src/bnpview.cpp:1609
 #, kde-format
 msgid "Loading..."
 msgstr "ჩატვირთვა..."
 
-#: src/basketscene.cpp:3232 src/basketscene.cpp:3274
+#: src/basketscene.cpp:3234 src/basketscene.cpp:3276
 #, kde-format
 msgid "&Remove"
 msgstr "&წაშლა"
 
-#: src/basketscene.cpp:3235 src/basketscene.cpp:3278 src/bnpview.cpp:2488
+#: src/basketscene.cpp:3237 src/basketscene.cpp:3280 src/bnpview.cpp:2490
 #, kde-format
 msgid "&Customize..."
 msgstr "&მორგება..."
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284
+#: src/basketscene.cpp:3243 src/basketscene.cpp:3286
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "ამ ჭდით &გაფილტვრა"
 
-#: src/basketscene.cpp:3287
+#: src/basketscene.cpp:3289
 #, kde-format
 msgid "Filter by this &State"
 msgstr "ამ &მდგომარეობით გაფილტვრ"
 
-#: src/basketscene.cpp:3368
+#: src/basketscene.cpp:3370
 #, kde-format
 msgid "Tags"
 msgstr "ჭდეები"
 
-#: src/basketscene.cpp:3943
+#: src/basketscene.cpp:3945
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>მართლა გსურთ ამ შენიშვნის წაშლა??</qt>"
 msgstr[1] "<qt>მართლა გსურთ, წაშალოთ ეს <b>%1</b> შენიშვნა?</qt>"
 
-#: src/basketscene.cpp:3944
+#: src/basketscene.cpp:3946
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "შენიშვნის წაშლა"
 msgstr[1] "შენიშვნის წაშლა"
 
-#: src/basketscene.cpp:4043
+#: src/basketscene.cpp:4045
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "შენიშვნის ბუფერში კოპირება."
 msgstr[1] "შენიშვნების ბუფერში კოპირება."
 
-#: src/basketscene.cpp:4046
+#: src/basketscene.cpp:4048
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "შენიშვნის ბუფერში ამოჭრა."
 msgstr[1] "შენიშვნების ბუფერში ამოჭრა."
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "შენიშვნა მონიშნულში დაკოპირდა."
 msgstr[1] "შენიშვნები მონიშნულში დაკოპირდა."
 
-#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
+#: src/basketscene.cpp:4115 src/basketscene.cpp:4190
 #, kde-format
 msgid "Unable to open this note."
 msgstr "ამ შენიშვნის გახსნის შეცდომა."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4115 src/basketui.rc:40
+#: src/basketscene.cpp:4117 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&ჩასწორება"
 
-#: src/basketscene.cpp:4151
+#: src/basketscene.cpp:4153
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "ამ შენიშვნის გასახსნელად წვდომები არ გაგაჩნიათ."
 
-#: src/basketscene.cpp:4209
+#: src/basketscene.cpp:4211
 #, kde-format
 msgid "Save to File"
 msgstr "ფაილში შენახვა"
@@ -1091,17 +1091,17 @@ msgstr "ხელსაწყოთა მთავარი ზოლი"
 msgid "Text Formatting Toolbar"
 msgstr "ტექსტის ფორმატირების ზოლი"
 
-#: src/bnpview.cpp:164 src/bnpview.cpp:1245
+#: src/bnpview.cpp:166 src/bnpview.cpp:1247
 #, kde-format
 msgid "General"
 msgstr "ზოგადი"
 
-#: src/bnpview.cpp:232
+#: src/bnpview.cpp:234
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "ბუფერის შემცველობის მიმდინარე კალათაში ჩასმა"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:236
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1110,12 +1110,12 @@ msgstr ""
 "საშუალებას გაძლევთ, ჩასვათ ბუფერის შემცველობა მიმდინარე კალათში მთავარი "
 "ფანჯრის გახსნის აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:239
+#: src/bnpview.cpp:241
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "მონიშნულის მიმდინარე კალათაში ჩასმა"
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:243
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1124,12 +1124,12 @@ msgstr ""
 "საშუალებას გაძლევთ, ჩასვათ ბუფერის შემცველობა მიმდინარე კალათში მთავარი "
 "ფანჯრის გახსნის აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:246
+#: src/bnpview.cpp:248
 #, kde-format
 msgid "Create a new basket"
 msgstr "ახალი კალათის შექმნა"
 
-#: src/bnpview.cpp:248
+#: src/bnpview.cpp:250
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1140,12 +1140,12 @@ msgstr ""
 "აუცილებლობის გარეშე (შეგიძლიათ, გამოიყენოთ გლობალური მალსახმობები, რომ "
 "დაამატოთ შენიშვნა, ჩასვათ ბუფერი ან ჩასვათ მონიშნული ამ ახალ კალათაში)."
 
-#: src/bnpview.cpp:253
+#: src/bnpview.cpp:255
 #, kde-format
 msgid "Go to previous basket"
 msgstr "წიმა კალათაზე გადასვლა"
 
-#: src/bnpview.cpp:255
+#: src/bnpview.cpp:257
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1154,12 +1154,12 @@ msgstr ""
 "საშუალებას გაძლევთ, შეცვალოთ მიმდინარე კალათა წინათი მთავარი ფანჯრის გახსნის "
 "აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:259
+#: src/bnpview.cpp:261
 #, kde-format
 msgid "Go to next basket"
 msgstr "შემდეგ კალათაზე გადასვლა"
 
-#: src/bnpview.cpp:261
+#: src/bnpview.cpp:263
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1168,12 +1168,12 @@ msgstr ""
 "საშუალებას გაძლევთ, შეცვალოთ მიმდინარე კალათა შემდეგით მთავარი ფანჯრის "
 "გახსნის აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:265
+#: src/bnpview.cpp:267
 #, kde-format
 msgid "Insert text note"
 msgstr "ტექსტური შენიშვნის ჩასმა"
 
-#: src/bnpview.cpp:267
+#: src/bnpview.cpp:269
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
@@ -1181,12 +1181,12 @@ msgstr ""
 "ტექსტური შენიშვნის დამატება მიმდინარე კალათაში მთავარი ფანჯრის გახსნის "
 "აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:272 src/settings.cpp:569
+#: src/bnpview.cpp:274 src/settings.cpp:569
 #, kde-format
 msgid "Insert image note"
 msgstr "შენიშვნის სურათის სახით ჩასმა"
 
-#: src/bnpview.cpp:274
+#: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1195,12 +1195,12 @@ msgstr ""
 "გამოსახულება შენიშვნის დამატება მიმდინარე კალათაში მთავარი ფანჯრის გახსნის "
 "აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:278 src/settings.cpp:570
+#: src/bnpview.cpp:280 src/settings.cpp:570
 #, kde-format
 msgid "Insert link note"
 msgstr "შენიშვნის ბმულის სახით ჩასმა"
 
-#: src/bnpview.cpp:280
+#: src/bnpview.cpp:282
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
@@ -1208,12 +1208,12 @@ msgstr ""
 "ბმული შენიშვნის დამატება მიმდინარე კალათაში მთავარი ფანჯრის გახსნის "
 "აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:284 src/settings.cpp:573
+#: src/bnpview.cpp:286 src/settings.cpp:573
 #, kde-format
 msgid "Insert color note"
 msgstr "ფერადი შენიშვნის ჩასმა"
 
-#: src/bnpview.cpp:286
+#: src/bnpview.cpp:288
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
@@ -1222,12 +1222,12 @@ msgstr ""
 "ფერი შენიშვნის დამატება მიმდინარე კალათაში მთავარი ფანჯრის გახსნის "
 "აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:290
+#: src/bnpview.cpp:292
 #, kde-format
 msgid "Pick color from screen"
 msgstr "ფერის ეკრანიდან არჩევა"
 
-#: src/bnpview.cpp:292
+#: src/bnpview.cpp:294
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1236,12 +1236,12 @@ msgstr ""
 "ფერი შენიშვნის დამატება ეკრანის პიქსელიდან მიმდინარე კალათაში მთავარი "
 "ფანჯრის გახსნის აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:297 src/settings.cpp:574
+#: src/bnpview.cpp:299 src/settings.cpp:574
 #, kde-format
 msgid "Grab screen zone"
 msgstr "ეკრანის ზონის ჩაჭერა"
 
-#: src/bnpview.cpp:299
+#: src/bnpview.cpp:301
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1250,12 +1250,12 @@ msgstr ""
 "ეკრანის ზონის აღება გამოსახულება შენიშვნის დასამატებლად მიმდინარე კალათაში "
 "მთავარი ფანჯრის გახსნის აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:305
+#: src/bnpview.cpp:307
 #, kde-format
 msgid "Insert plain text note"
 msgstr "ტექსტური შენიშვნის ჩასმა"
 
-#: src/bnpview.cpp:307
+#: src/bnpview.cpp:309
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1264,12 +1264,12 @@ msgstr ""
 "უბრალო ტექსტური შენიშვნის დამატება მიმდინარე კალათაში მთავარი ფანჯრის "
 "გახსნის აუცილებლობის გარეშე."
 
-#: src/bnpview.cpp:316
+#: src/bnpview.cpp:318
 #, kde-format
 msgid "Baskets"
 msgstr "კალათები"
 
-#: src/bnpview.cpp:361
+#: src/bnpview.cpp:363
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1282,358 +1282,358 @@ msgstr ""
 "მათი შინაარსის მიხედვით, მათი ერთმანეთში ჩალაგებით. მათ დათვალიერება "
 "შეგიძლიათ მათზე დაწკაპუნებით, რეორგანიზაცია კი გადათრევა/დაგდებით."
 
-#: src/bnpview.cpp:376 src/bnpview.cpp:382
+#: src/bnpview.cpp:378 src/bnpview.cpp:384
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "არქივი &Basket..."
 
-#: src/bnpview.cpp:388
+#: src/bnpview.cpp:390
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "&HTML ვებგვერდი..."
 
-#: src/bnpview.cpp:394
+#: src/bnpview.cpp:396
 #, kde-format
 msgid "Text &File..."
 msgstr "ტექსტური &ფაილი..."
 
-#: src/bnpview.cpp:399
+#: src/bnpview.cpp:401
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&მარქაფი და აღდგენა..."
 
-#: src/bnpview.cpp:403
+#: src/bnpview.cpp:405
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&შემოწმება და გასუფთავება..."
 
-#: src/bnpview.cpp:414
+#: src/bnpview.cpp:416
 #, kde-format
 msgid "D&elete"
 msgstr "&წაშლა"
 
-#: src/bnpview.cpp:423
+#: src/bnpview.cpp:425
 #, kde-format
 msgid "Selects all notes"
 msgstr "ყველა შენიშვნის მონიშვნა"
 
-#: src/bnpview.cpp:426
+#: src/bnpview.cpp:428
 #, kde-format
 msgid "U&nselect All"
 msgstr "შენიშვნის &ყველაფერზე მოხსნა"
 
-#: src/bnpview.cpp:428
+#: src/bnpview.cpp:430
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "ყველა მონიშნული შენიშვნისთვის მონიშვნის მოხსნა"
 
-#: src/bnpview.cpp:431
+#: src/bnpview.cpp:433
 #, kde-format
 msgid "&Invert Selection"
 msgstr "მონიშვნის &ინვერსია"
 
-#: src/bnpview.cpp:435
+#: src/bnpview.cpp:437
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "ამჟამად არჩეული შენიშვნების მონიშვნის ინვერსია"
 
-#: src/bnpview.cpp:438
+#: src/bnpview.cpp:440
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "ფორმატირების &გასუფთავება"
 
-#: src/bnpview.cpp:442
+#: src/bnpview.cpp:444
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "&ჩასწორება..."
 
-#: src/bnpview.cpp:449
+#: src/bnpview.cpp:451
 #, kde-format
 msgid "&Open"
 msgstr "&გახსნა"
 
-#: src/bnpview.cpp:453
+#: src/bnpview.cpp:455
 #, kde-format
 msgid "Open &With..."
 msgstr "&გამხსნელი პროგრამა…"
 
-#: src/bnpview.cpp:458
+#: src/bnpview.cpp:460
 #, kde-format
 msgid "&Save to File..."
 msgstr "ფაილში &შენახვა..."
 
-#: src/bnpview.cpp:462
+#: src/bnpview.cpp:464
 #, kde-format
 msgid "&Group"
 msgstr "&დაჯგუფება"
 
-#: src/bnpview.cpp:468
+#: src/bnpview.cpp:470
 #, kde-format
 msgid "U&ngroup"
 msgstr "&განჯგუფება"
 
-#: src/bnpview.cpp:473
+#: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Top"
 msgstr "&თავში ატანა"
 
-#: src/bnpview.cpp:479
+#: src/bnpview.cpp:481
 #, kde-format
 msgid "Move &Up"
 msgstr "აწევა"
 
-#: src/bnpview.cpp:485
+#: src/bnpview.cpp:487
 #, kde-format
 msgid "Move &Down"
 msgstr "ჩამოწევა"
 
-#: src/bnpview.cpp:491
+#: src/bnpview.cpp:493
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "&ბოლოში ჩამოტანა"
 
-#: src/bnpview.cpp:502
+#: src/bnpview.cpp:504
 #, kde-format
 msgid "Plai&n Text"
 msgstr "&უბრალო ტექსტი"
 
-#: src/bnpview.cpp:509
+#: src/bnpview.cpp:511
 #, kde-format
 msgid "&Text"
 msgstr "&ტექტი"
 
-#: src/bnpview.cpp:515
+#: src/bnpview.cpp:517
 #, kde-format
 msgid "&Link"
 msgstr "&ბმული"
 
-#: src/bnpview.cpp:521
+#: src/bnpview.cpp:523
 #, kde-format
 msgid "Cross &Reference"
 msgstr "ჯვარედინი &მიმართვა"
 
-#: src/bnpview.cpp:526
+#: src/bnpview.cpp:528
 #, kde-format
 msgid "&Image"
 msgstr "&გამოსახულება"
 
-#: src/bnpview.cpp:531
+#: src/bnpview.cpp:533
 #, kde-format
 msgid "&Color"
 msgstr "&ფერი"
 
-#: src/bnpview.cpp:536
+#: src/bnpview.cpp:538
 #, kde-format
 msgid "L&auncher"
 msgstr "&გამშვები"
 
-#: src/bnpview.cpp:541
+#: src/bnpview.cpp:543
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "&სამუშაო მაგიდის აპლიკაციის გამშვების შემოტანა..."
 
-#: src/bnpview.cpp:546
+#: src/bnpview.cpp:548
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "ხატულას &შემოტანა..."
 
-#: src/bnpview.cpp:551 src/noteedit.cpp:542
+#: src/bnpview.cpp:553 src/noteedit.cpp:542
 #, kde-format
 msgid "Load From &File..."
 msgstr "&ფაილიდან ჩატვირთვა..."
 
-#: src/bnpview.cpp:587
+#: src/bnpview.cpp:589
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "&ფერი ეკრანიდან"
 
-#: src/bnpview.cpp:595
+#: src/bnpview.cpp:597
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "ეკრანის ზონის &ჩაჭერა"
 
-#: src/bnpview.cpp:630
+#: src/bnpview.cpp:632
 #, kde-format
 msgid "&New Basket..."
 msgstr "&ახალი კალათა..."
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:638
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "ახალი ქვეკალათა..."
 
-#: src/bnpview.cpp:641
+#: src/bnpview.cpp:643
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "ახალი &ნათესავი კალათა..."
 
-#: src/bnpview.cpp:644
+#: src/bnpview.cpp:646
 #, kde-format
 msgid "&New"
 msgstr "&ახალი"
 
-#: src/bnpview.cpp:654
+#: src/bnpview.cpp:656
 #, kde-format
 msgid "&Properties..."
 msgstr "&თვისებები..."
 
-#: src/bnpview.cpp:660
+#: src/bnpview.cpp:662
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "ბავშვების აღმავლად დალაგება"
 
-#: src/bnpview.cpp:665
+#: src/bnpview.cpp:667
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "ბავშვების დაღმავლად დალაგება"
 
-#: src/bnpview.cpp:670
+#: src/bnpview.cpp:672
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "ნათესავების დალაგება აღმავლად"
 
-#: src/bnpview.cpp:675
+#: src/bnpview.cpp:677
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "ნათესავების დალაგება დაღმავლად"
 
-#: src/bnpview.cpp:680
+#: src/bnpview.cpp:682
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&წაშლა"
 
-#: src/bnpview.cpp:686
+#: src/bnpview.cpp:688
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "&პაროლი..."
 
-#: src/bnpview.cpp:691
+#: src/bnpview.cpp:693
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&დაბლოკვა"
 
-#: src/bnpview.cpp:704
+#: src/bnpview.cpp:706
 #, kde-format
 msgid "&Filter"
 msgstr "&ფილტრი"
 
-#: src/bnpview.cpp:714
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Search All"
 msgstr "ყველას &მოძებნა"
 
-#: src/bnpview.cpp:722
+#: src/bnpview.cpp:724
 #, kde-format
 msgid "&Reset Filter"
 msgstr "&ფილტრის გასუფთავება"
 
-#: src/bnpview.cpp:730
+#: src/bnpview.cpp:732
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&წინა კალათა"
 
-#: src/bnpview.cpp:736
+#: src/bnpview.cpp:738
 #, kde-format
 msgid "&Next Basket"
 msgstr "&შემდეგი კალათა"
 
-#: src/bnpview.cpp:742
+#: src/bnpview.cpp:744
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&კალათის დაკეცვა"
 
-#: src/bnpview.cpp:748
+#: src/bnpview.cpp:750
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&კალათის გაშლა"
 
-#: src/bnpview.cpp:756
+#: src/bnpview.cpp:758
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "ტექსტური შენიშვნების მდიდარ ტექსტურ შენიშვნებში გადაყვანა"
 
-#: src/bnpview.cpp:765
+#: src/bnpview.cpp:767
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&მოგესალმებათ Baskets"
 
-#: src/bnpview.cpp:1030
+#: src/bnpview.cpp:1032
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "უბრალო ტექსტური შენიშვნების გადაყვანა"
 
-#: src/bnpview.cpp:1031
+#: src/bnpview.cpp:1033
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "მიმდინარეობს უბრალო ტექსტური შენიშვნების გადაყვანა მდიდარ ტექსტში..."
 
-#: src/bnpview.cpp:1605
+#: src/bnpview.cpp:1607
 #, kde-format
 msgid "Locked"
 msgstr "დაბლოკილი"
 
-#: src/bnpview.cpp:1609
+#: src/bnpview.cpp:1611
 #, kde-format
 msgid "No notes"
 msgstr "შენიშვნების გარეშე"
 
-#: src/bnpview.cpp:1611
+#: src/bnpview.cpp:1613
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 შენიშვნა"
 msgstr[1] "%1 შენიშვნა"
 
-#: src/bnpview.cpp:1612
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 მონიშნულია"
 msgstr[1] "%1 მონიშნულია"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1615
 #, kde-format
 msgid "all matches"
 msgstr "ყველა დამთხვევა"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1615
 #, kde-format
 msgid "no filter"
 msgstr "ფილტრის გარეშე"
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1617
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 ემთხვევა"
 msgstr[1] "%1 ემთხვევა"
 
-#: src/bnpview.cpp:1616
+#: src/bnpview.cpp:1618
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1751
+#: src/bnpview.cpp:1753
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "უბრალო ტექსტური შენიშვნები მდიდარ ტექსტშია გადაყვანილი."
 
-#: src/bnpview.cpp:1751 src/bnpview.cpp:1753
+#: src/bnpview.cpp:1753 src/bnpview.cpp:1755
 #, kde-format
 msgid "Conversion Finished"
 msgstr "გადაყვანა დასრულდა"
 
-#: src/bnpview.cpp:1753
+#: src/bnpview.cpp:1755
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "გადასაყვანი უბრალო ტექსტური შენიშვნების გარეშე."
 
-#: src/bnpview.cpp:1770
+#: src/bnpview.cpp:1772
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1652,33 +1652,33 @@ msgstr ""
 "რომ აპლიკაცია სწორად აყენია, მაგრამ ადრე სატესტო ვერსია გეყენათ, სცადეთ, "
 "წაშალოთ ფაილი %5basketui.rc</p>"
 
-#: src/bnpview.cpp:1784
+#: src/bnpview.cpp:1786
 #, kde-format
 msgid "Resource not Found"
 msgstr "რესურსი ნაპოვნი არაა"
 
-#: src/bnpview.cpp:1813
+#: src/bnpview.cpp:1815
 #, kde-format
 msgid "Cannot add note."
 msgstr "შენიშვნის დამატების შეცდომა."
 
-#: src/bnpview.cpp:1960
+#: src/bnpview.cpp:1962
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt>მართლა გსურთ, წაშალოთ კალათა <b>%1</b> და მისი შემცველობა?</qt>"
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1963
 #, kde-format
 msgid "Remove Basket"
 msgstr "კალათის წაშლა"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1964
 #, kde-format
 msgid "&Remove Basket"
 msgstr "კალათის &წაშლა"
 
-#: src/bnpview.cpp:1972
+#: src/bnpview.cpp:1974
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1686,37 +1686,37 @@ msgid ""
 msgstr ""
 "<qt><b>%1</b>-ს აქვს შემდეგი შვილი კალათები.<br>მათი წაშლაც გნებავთ?</qt>"
 
-#: src/bnpview.cpp:1974
+#: src/bnpview.cpp:1976
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "შვილი კალათების წაშლა"
 
-#: src/bnpview.cpp:1975
+#: src/bnpview.cpp:1977
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&შვილი კალათების წაშლა"
 
-#: src/bnpview.cpp:2045 src/bnpview.cpp:2092
+#: src/bnpview.cpp:2047 src/bnpview.cpp:2094
 #, kde-format
 msgid "Basket Archives"
 msgstr "კალათის არქივები"
 
-#: src/bnpview.cpp:2055 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "ფაილი <b>%1</b> უკვე არსებობს. გნებავთ, გადააწეროთ?"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2058 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ჩავანაცვლო ფაილი?"
 
-#: src/bnpview.cpp:2477
+#: src/bnpview.cpp:2479
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&ახალი ჭდის მინიჭება..."
 
-#: src/bnpview.cpp:2482
+#: src/bnpview.cpp:2484
 #, kde-format
 msgid "&Remove All"
 msgstr "ყველას &წაშლა"
@@ -2917,7 +2917,7 @@ msgstr "დაიცავით კალათა &პაროლით"
 msgid "Protect basket with private &key:"
 msgstr "დაიცავით კალათა &პირადი გასაღებით:"
 
-#: src/regiongrabber.cpp:101
+#: src/regiongrabber.cpp:102
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "

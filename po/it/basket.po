@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:43+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2025-02-24 13:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -251,7 +251,7 @@ msgstr "Icona originale"
 msgid "BasKet Note Pads"
 msgstr "Blocco appunti BasKet"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2048
+#: src/archive.cpp:50 src/bnpview.cpp:2050
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Salva come archivio basket"
@@ -392,7 +392,7 @@ msgstr "La cartella <b>%1</b> non è vuota. Vuoi veramente sovrascriverla?"
 msgid "Overwrite Folder?"
 msgstr "Sovrascrivere la cartella?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2059 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "S&ovrascrivi"
@@ -427,8 +427,8 @@ msgstr "Cesti_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archivi tar compressi con gzip"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
-#: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2047
+#: src/bnpview.cpp:2094 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "Tutti i file"
@@ -443,7 +443,7 @@ msgstr "Salvataggio cesti"
 msgid "Backing up baskets. Please wait..."
 msgstr "Salvataggio cesti in corso. Attendere..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2095
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Apri archivio basket"
@@ -752,39 +752,39 @@ msgstr "Mostra questo cesto (scorciatoia &globale)"
 msgid "S&witch to this basket (global shortcut)"
 msgstr "&Passa a questo cesto (scorciatoia globale)"
 
-#: src/basketscene.cpp:301
+#: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "La nuova nota non corrisponde al criterio di ricerca ed è nascosta."
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "Una nota nuova non corrisponde al criterio di ricerca ed è nascosta."
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr ""
 "Alcune note nuove non corrispondono al criterio di ricerca e sono nascoste."
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr ""
 "Le nuove note non corrispondono al criterio di ricerca e sono nascoste."
 
-#: src/basketscene.cpp:1464 src/notecontent.cpp:91
+#: src/basketscene.cpp:1466 src/notecontent.cpp:91
 #, kde-format
 msgid "Group"
 msgstr "Raggruppa"
 
-#: src/basketscene.cpp:1466
+#: src/basketscene.cpp:1468
 #, kde-format
 msgid "Insert"
 msgstr "Inserisci"
 
-#: src/basketscene.cpp:2313
+#: src/basketscene.cpp:2315
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -794,7 +794,7 @@ msgstr ""
 "che il programma contiene degli errori! Segnala il problema allo "
 "sviluppatore."
 
-#: src/basketscene.cpp:2752 src/basketscene.cpp:2805 src/basketscene.cpp:2814
+#: src/basketscene.cpp:2754 src/basketscene.cpp:2807 src/basketscene.cpp:2816
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -803,57 +803,57 @@ msgstr ""
 "Inserisci qui una nota\n"
 "Fai clic con il pulsante destro per ulteriori opzioni"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize those columns"
 msgstr "Ridimensiona quelle colonne"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize this group"
 msgstr "Ridimensiona questo gruppo"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize this note"
 msgstr "Ridimensiona questa nota"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2776
 #, kde-format
 msgid "Select or move this note"
 msgstr "Seleziona o sposta questa nota"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2779
 #, kde-format
 msgid "Select or move this group"
 msgstr "Seleziona o sposta questo gruppo"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2782
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Assegna o rimuovi etichette a questa nota"
 
-#: src/basketscene.cpp:2788
+#: src/basketscene.cpp:2790
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2790
+#: src/basketscene.cpp:2792
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Etichette assegnate</b>: %1"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2799
 #, kde-format
 msgid "Expand this group"
 msgstr "Espandi questo gruppo"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2799
 #, kde-format
 msgid "Collapse this group"
 msgstr "Contrai questo gruppo"
 
-#: src/basketscene.cpp:2808
+#: src/basketscene.cpp:2810
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -862,7 +862,7 @@ msgstr ""
 "Raggruppa la nota con quella sottostante\n"
 "Fai clic con il pulsante destro per ulteriori opzioni"
 
-#: src/basketscene.cpp:2811
+#: src/basketscene.cpp:2813
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -871,53 +871,53 @@ msgstr ""
 "Raggruppa la nota con quella sovrastante\n"
 "Fai clic con il pulsante destro per ulteriori opzioni"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2831
 #, kde-format
 msgid "Added"
 msgstr "Aggiunto"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2831
 #, kde-format
 msgid "Last Modification"
 msgstr "Ultima modifica"
 
-#: src/basketscene.cpp:2834
+#: src/basketscene.cpp:2836
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2840
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Fai clic a destra per raggruppare invece di inserire"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2842
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Fai clic a sinistra per inserire invece di raggruppare"
 
-#: src/basketscene.cpp:3018
+#: src/basketscene.cpp:3020
 #, kde-format
 msgid "&Unlock"
 msgstr "S&blocca"
 
-#: src/basketscene.cpp:3023
+#: src/basketscene.cpp:3025
 #, kde-format
 msgid "Password protected basket."
 msgstr "Cesto protetto da password."
 
-#: src/basketscene.cpp:3025
+#: src/basketscene.cpp:3027
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Premi sblocca per accedere."
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3029
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "Cifratura non supportata da<br/>questa versione di %1."
 
-#: src/basketscene.cpp:3039
+#: src/basketscene.cpp:3041
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -926,88 +926,88 @@ msgstr ""
 "Per far in modo che il cesto resti sbloccato, cambia la durata<br>del blocco "
 "automatico nelle impostazioni dell'applicazione."
 
-#: src/basketscene.cpp:3066 src/basketstatusbar.cpp:89 src/bnpview.cpp:1607
+#: src/basketscene.cpp:3068 src/basketstatusbar.cpp:89 src/bnpview.cpp:1609
 #, kde-format
 msgid "Loading..."
 msgstr "Caricamento..."
 
-#: src/basketscene.cpp:3232 src/basketscene.cpp:3274
+#: src/basketscene.cpp:3234 src/basketscene.cpp:3276
 #, kde-format
 msgid "&Remove"
 msgstr "&Rimuovi"
 
-#: src/basketscene.cpp:3235 src/basketscene.cpp:3278 src/bnpview.cpp:2488
+#: src/basketscene.cpp:3237 src/basketscene.cpp:3280 src/bnpview.cpp:2490
 #, kde-format
 msgid "&Customize..."
 msgstr "Pe&rsonalizza..."
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284
+#: src/basketscene.cpp:3243 src/basketscene.cpp:3286
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Filtra secondo questa etichetta"
 
-#: src/basketscene.cpp:3287
+#: src/basketscene.cpp:3289
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Filtra secondo questo &stato"
 
-#: src/basketscene.cpp:3368
+#: src/basketscene.cpp:3370
 #, kde-format
 msgid "Tags"
 msgstr "Etichette"
 
-#: src/basketscene.cpp:3943
+#: src/basketscene.cpp:3945
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Vuoi veramente eliminare questa nota?</qt>"
 msgstr[1] "<qt>Vuoi veramente eliminare queste <b>%1</b> note?</qt>"
 
-#: src/basketscene.cpp:3944
+#: src/basketscene.cpp:3946
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Elimina nota"
 msgstr[1] "Elimina note"
 
-#: src/basketscene.cpp:4043
+#: src/basketscene.cpp:4045
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Nota copiata negli appunti."
 msgstr[1] "Note copiate negli appunti."
 
-#: src/basketscene.cpp:4046
+#: src/basketscene.cpp:4048
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Taglia nota negli appunti."
 msgstr[1] "Taglia note negli appunti."
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Nota copiata nella selezione."
 msgstr[1] "Note copiate nella selezione."
 
-#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
+#: src/basketscene.cpp:4115 src/basketscene.cpp:4190
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Impossibile aprire la nota."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4115 src/basketui.rc:40
+#: src/basketscene.cpp:4117 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&Modifica"
 
-#: src/basketscene.cpp:4151
+#: src/basketscene.cpp:4153
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Non sei autorizzato ad aprire questo file."
 
-#: src/basketscene.cpp:4209
+#: src/basketscene.cpp:4211
 #, kde-format
 msgid "Save to File"
 msgstr "Salva su file"
@@ -1106,17 +1106,17 @@ msgstr "Barra degli strumenti principale"
 msgid "Text Formatting Toolbar"
 msgstr "Barra degli strumenti di formattazione del testo"
 
-#: src/bnpview.cpp:164 src/bnpview.cpp:1245
+#: src/bnpview.cpp:166 src/bnpview.cpp:1247
 #, kde-format
 msgid "General"
 msgstr "Generale"
 
-#: src/bnpview.cpp:232
+#: src/bnpview.cpp:234
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Incolla il contenuto degli appunti nel cesto corrente"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:236
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1125,12 +1125,12 @@ msgstr ""
 "Permette di incollare il contenuto degli appunti nel cesto corrente senza "
 "dover aprire la finestra principale."
 
-#: src/bnpview.cpp:239
+#: src/bnpview.cpp:241
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "Incolla la selezione nel cesto corrente"
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:243
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1139,12 +1139,12 @@ msgstr ""
 "Permette di incollare la selezione degli appunti nel cesto corrente senza "
 "dover aprire la finestra principale."
 
-#: src/bnpview.cpp:246
+#: src/bnpview.cpp:248
 #, kde-format
 msgid "Create a new basket"
 msgstr "Crea un nuovo cesto"
 
-#: src/bnpview.cpp:248
+#: src/bnpview.cpp:250
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1155,12 +1155,12 @@ msgstr ""
 "(dopo puoi usare le altre scorciatoie globali per aggiungere una nota, "
 "incollare il contenuto degli appunti o della selezione nel nuovo cesto)."
 
-#: src/bnpview.cpp:253
+#: src/bnpview.cpp:255
 #, kde-format
 msgid "Go to previous basket"
 msgstr "Vai al cesto precedente"
 
-#: src/bnpview.cpp:255
+#: src/bnpview.cpp:257
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1169,12 +1169,12 @@ msgstr ""
 "Permette di passare al cesto precedente senza dover aprire la finestra "
 "principale."
 
-#: src/bnpview.cpp:259
+#: src/bnpview.cpp:261
 #, kde-format
 msgid "Go to next basket"
 msgstr "Vai al cesto successivo"
 
-#: src/bnpview.cpp:261
+#: src/bnpview.cpp:263
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1183,12 +1183,12 @@ msgstr ""
 "Permette di passare al cesto successivo senza dover aprire la finestra "
 "principale."
 
-#: src/bnpview.cpp:265
+#: src/bnpview.cpp:267
 #, kde-format
 msgid "Insert text note"
 msgstr "Inserisci nota di testo"
 
-#: src/bnpview.cpp:267
+#: src/bnpview.cpp:269
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
@@ -1196,12 +1196,12 @@ msgstr ""
 "Inserisci una nota di testo nel cesto corrente senza dover aprire la "
 "finestra principale."
 
-#: src/bnpview.cpp:272 src/settings.cpp:569
+#: src/bnpview.cpp:274 src/settings.cpp:569
 #, kde-format
 msgid "Insert image note"
 msgstr "Inserisci nota di tipo immagine"
 
-#: src/bnpview.cpp:274
+#: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1210,12 +1210,12 @@ msgstr ""
 "Inserisci una nota di tipo immagine nel cesto corrente senza dover aprire la "
 "finestra principale."
 
-#: src/bnpview.cpp:278 src/settings.cpp:570
+#: src/bnpview.cpp:280 src/settings.cpp:570
 #, kde-format
 msgid "Insert link note"
 msgstr "Inserisci nota di tipo collegamento"
 
-#: src/bnpview.cpp:280
+#: src/bnpview.cpp:282
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
@@ -1223,12 +1223,12 @@ msgstr ""
 "Inserisci una nota di tipo collegamento nel cesto corrente senza dover "
 "aprire la finestra principale."
 
-#: src/bnpview.cpp:284 src/settings.cpp:573
+#: src/bnpview.cpp:286 src/settings.cpp:573
 #, kde-format
 msgid "Insert color note"
 msgstr "Inserisci nota di tipo colore"
 
-#: src/bnpview.cpp:286
+#: src/bnpview.cpp:288
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
@@ -1237,12 +1237,12 @@ msgstr ""
 "Inserisci una nota di tipo colore nel cesto corrente senza dover aprire la "
 "finestra principale."
 
-#: src/bnpview.cpp:290
+#: src/bnpview.cpp:292
 #, kde-format
 msgid "Pick color from screen"
 msgstr "Seleziona colore dallo schermo"
 
-#: src/bnpview.cpp:292
+#: src/bnpview.cpp:294
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1251,12 +1251,12 @@ msgstr ""
 "Inserisci una nota di tipo colore, prelevato da un pixel dello schermo, nel "
 "cesto corrente senza dover aprire la finestra principale."
 
-#: src/bnpview.cpp:297 src/settings.cpp:574
+#: src/bnpview.cpp:299 src/settings.cpp:574
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Cattura zona dello schermo"
 
-#: src/bnpview.cpp:299
+#: src/bnpview.cpp:301
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1265,12 +1265,12 @@ msgstr ""
 "Cattura una zona dello schermo come immagine nel cesto corrente senza dover "
 "aprire la finestra principale."
 
-#: src/bnpview.cpp:305
+#: src/bnpview.cpp:307
 #, kde-format
 msgid "Insert plain text note"
 msgstr "Inserisci nota di testo semplice"
 
-#: src/bnpview.cpp:307
+#: src/bnpview.cpp:309
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1279,12 +1279,12 @@ msgstr ""
 "Inserisce una nota di testo semplice nel cesto corrente senza dover aprire "
 "la finestra principale."
 
-#: src/bnpview.cpp:316
+#: src/bnpview.cpp:318
 #, kde-format
 msgid "Baskets"
 msgstr "Cesti"
 
-#: src/bnpview.cpp:361
+#: src/bnpview.cpp:363
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1297,359 +1297,359 @@ msgstr ""
 "nuovi cesti al loro interno. Puoi sfogliarli, selezionando un cesto per "
 "aprirlo, o riorganizzarli trascinandoli in una diversa posizione."
 
-#: src/bnpview.cpp:376 src/bnpview.cpp:382
+#: src/bnpview.cpp:378 src/bnpview.cpp:384
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "Archivio &basket..."
 
-#: src/bnpview.cpp:388
+#: src/bnpview.cpp:390
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "Pagina &HTML..."
 
-#: src/bnpview.cpp:394
+#: src/bnpview.cpp:396
 #, kde-format
 msgid "Text &File..."
 msgstr "&File di testo..."
 
-#: src/bnpview.cpp:399
+#: src/bnpview.cpp:401
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&Salva e ripristina..."
 
-#: src/bnpview.cpp:403
+#: src/bnpview.cpp:405
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&Verifica e pulisci..."
 
-#: src/bnpview.cpp:414
+#: src/bnpview.cpp:416
 #, kde-format
 msgid "D&elete"
 msgstr "&Elimina"
 
-#: src/bnpview.cpp:423
+#: src/bnpview.cpp:425
 #, kde-format
 msgid "Selects all notes"
 msgstr "Seleziona tutte le note"
 
-#: src/bnpview.cpp:426
+#: src/bnpview.cpp:428
 #, kde-format
 msgid "U&nselect All"
 msgstr "Deselezio&na tutto"
 
-#: src/bnpview.cpp:428
+#: src/bnpview.cpp:430
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "Deseleziona tutte le note selezionate"
 
-#: src/bnpview.cpp:431
+#: src/bnpview.cpp:433
 #, kde-format
 msgid "&Invert Selection"
 msgstr "&Inverti la selezione"
 
-#: src/bnpview.cpp:435
+#: src/bnpview.cpp:437
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Inverti la selezione delle note correnti"
 
-#: src/bnpview.cpp:438
+#: src/bnpview.cpp:440
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "Pulis&ci formattazione"
 
-#: src/bnpview.cpp:442
+#: src/bnpview.cpp:444
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "M&odifica"
 
-#: src/bnpview.cpp:449
+#: src/bnpview.cpp:451
 #, kde-format
 msgid "&Open"
 msgstr "&Apri"
 
-#: src/bnpview.cpp:453
+#: src/bnpview.cpp:455
 #, kde-format
 msgid "Open &With..."
 msgstr "A&pri con..."
 
-#: src/bnpview.cpp:458
+#: src/bnpview.cpp:460
 #, kde-format
 msgid "&Save to File..."
 msgstr "&Salva su file..."
 
-#: src/bnpview.cpp:462
+#: src/bnpview.cpp:464
 #, kde-format
 msgid "&Group"
 msgstr "Ra&ggruppa"
 
-#: src/bnpview.cpp:468
+#: src/bnpview.cpp:470
 #, kde-format
 msgid "U&ngroup"
 msgstr "Sepa&ra"
 
-#: src/bnpview.cpp:473
+#: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Top"
 msgstr "Sposta in ci&ma"
 
-#: src/bnpview.cpp:479
+#: src/bnpview.cpp:481
 #, kde-format
 msgid "Move &Up"
 msgstr "Sposta in &alto"
 
-#: src/bnpview.cpp:485
+#: src/bnpview.cpp:487
 #, kde-format
 msgid "Move &Down"
 msgstr "Sposta in &basso"
 
-#: src/bnpview.cpp:491
+#: src/bnpview.cpp:493
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "Sposta in &fondo"
 
-#: src/bnpview.cpp:502
+#: src/bnpview.cpp:504
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Testo s&emplice"
 
-#: src/bnpview.cpp:509
+#: src/bnpview.cpp:511
 #, kde-format
 msgid "&Text"
 msgstr "&Testo"
 
-#: src/bnpview.cpp:515
+#: src/bnpview.cpp:517
 #, kde-format
 msgid "&Link"
 msgstr "Co&llegamento"
 
-#: src/bnpview.cpp:521
+#: src/bnpview.cpp:523
 #, kde-format
 msgid "Cross &Reference"
 msgstr "&Riferimento incrociato"
 
-#: src/bnpview.cpp:526
+#: src/bnpview.cpp:528
 #, kde-format
 msgid "&Image"
 msgstr "&Immagine"
 
-#: src/bnpview.cpp:531
+#: src/bnpview.cpp:533
 #, kde-format
 msgid "&Color"
 msgstr "&Colore"
 
-#: src/bnpview.cpp:536
+#: src/bnpview.cpp:538
 #, kde-format
 msgid "L&auncher"
 msgstr "Avvi&atore"
 
-#: src/bnpview.cpp:541
+#: src/bnpview.cpp:543
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Importa avviatore per applicazione &desktop..."
 
-#: src/bnpview.cpp:546
+#: src/bnpview.cpp:548
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Im&porta icona..."
 
-#: src/bnpview.cpp:551 src/noteedit.cpp:542
+#: src/bnpview.cpp:553 src/noteedit.cpp:542
 #, kde-format
 msgid "Load From &File..."
 msgstr "Carica da &file..."
 
-#: src/bnpview.cpp:587
+#: src/bnpview.cpp:589
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "C&olore dallo schermo"
 
-#: src/bnpview.cpp:595
+#: src/bnpview.cpp:597
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Cattura &zona dello schermo"
 
-#: src/bnpview.cpp:630
+#: src/bnpview.cpp:632
 #, kde-format
 msgid "&New Basket..."
 msgstr "&Nuovo cesto..."
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:638
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "Nuovo &sottocesto..."
 
-#: src/bnpview.cpp:641
+#: src/bnpview.cpp:643
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Nuovo cesto allo stesso li&vello..."
 
-#: src/bnpview.cpp:644
+#: src/bnpview.cpp:646
 #, kde-format
 msgid "&New"
 msgstr "&Nuovo"
 
-#: src/bnpview.cpp:654
+#: src/bnpview.cpp:656
 #, kde-format
 msgid "&Properties..."
 msgstr "&Proprietà..."
 
-#: src/bnpview.cpp:660
+#: src/bnpview.cpp:662
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Ordina i figli in ordine ascendente"
 
-#: src/bnpview.cpp:665
+#: src/bnpview.cpp:667
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Ordina i figli in ordine discendente"
 
-#: src/bnpview.cpp:670
+#: src/bnpview.cpp:672
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Ordina i fratelli in ordine ascendente"
 
-#: src/bnpview.cpp:675
+#: src/bnpview.cpp:677
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Ordina i fratelli in ordine discendente"
 
-#: src/bnpview.cpp:680
+#: src/bnpview.cpp:682
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&Rimuovi..."
 
-#: src/bnpview.cpp:686
+#: src/bnpview.cpp:688
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Pass&word..."
 
-#: src/bnpview.cpp:691
+#: src/bnpview.cpp:693
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "B&locca"
 
-#: src/bnpview.cpp:704
+#: src/bnpview.cpp:706
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtro"
 
-#: src/bnpview.cpp:714
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Search All"
 msgstr "Cerca in tutti"
 
-#: src/bnpview.cpp:722
+#: src/bnpview.cpp:724
 #, kde-format
 msgid "&Reset Filter"
 msgstr "Annulla filt&ro"
 
-#: src/bnpview.cpp:730
+#: src/bnpview.cpp:732
 #, kde-format
 msgid "&Previous Basket"
 msgstr "Cesto &precedente"
 
-#: src/bnpview.cpp:736
+#: src/bnpview.cpp:738
 #, kde-format
 msgid "&Next Basket"
 msgstr "Cesto &successivo"
 
-#: src/bnpview.cpp:742
+#: src/bnpview.cpp:744
 #, kde-format
 msgid "&Fold Basket"
 msgstr "C&ontrai cesto"
 
-#: src/bnpview.cpp:748
+#: src/bnpview.cpp:750
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Espandi cesto"
 
-#: src/bnpview.cpp:756
+#: src/bnpview.cpp:758
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "Conversione delle note di testo semplice in testo formattato..."
 
-#: src/bnpview.cpp:765
+#: src/bnpview.cpp:767
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "Cesti di &benvenuto"
 
-#: src/bnpview.cpp:1030
+#: src/bnpview.cpp:1032
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Conversione delle note in testo semplice"
 
-#: src/bnpview.cpp:1031
+#: src/bnpview.cpp:1033
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "Conversione delle note di testo semplice in testo formattato..."
 
-#: src/bnpview.cpp:1605
+#: src/bnpview.cpp:1607
 #, kde-format
 msgid "Locked"
 msgstr "Bloccato"
 
-#: src/bnpview.cpp:1609
+#: src/bnpview.cpp:1611
 #, kde-format
 msgid "No notes"
 msgstr "Nessuna nota"
 
-#: src/bnpview.cpp:1611
+#: src/bnpview.cpp:1613
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 note"
 
-#: src/bnpview.cpp:1612
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 selezionato"
 msgstr[1] "%1 selezionati"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1615
 #, kde-format
 msgid "all matches"
 msgstr "tutte le corrispondenze"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1615
 #, kde-format
 msgid "no filter"
 msgstr "nessun filtro"
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1617
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 corrispondenza"
 msgstr[1] "%1 corrispondenze"
 
-#: src/bnpview.cpp:1616
+#: src/bnpview.cpp:1618
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1751
+#: src/bnpview.cpp:1753
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr ""
 "Le note di testo semplice sono state convertite in note con testo formattato."
 
-#: src/bnpview.cpp:1751 src/bnpview.cpp:1753
+#: src/bnpview.cpp:1753 src/bnpview.cpp:1755
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Conversione terminata"
 
-#: src/bnpview.cpp:1753
+#: src/bnpview.cpp:1755
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Non ci sono note di testo semplice da convertire."
 
-#: src/bnpview.cpp:1770
+#: src/bnpview.cpp:1772
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1669,34 +1669,34 @@ msgstr ""
 "correttamente ma se in precedenza hai installato ed usato una versione non "
 "definitiva, prova a rimuovere il file %5basketui.rc</p>"
 
-#: src/bnpview.cpp:1784
+#: src/bnpview.cpp:1786
 #, kde-format
 msgid "Resource not Found"
 msgstr "Risorsa non trovata"
 
-#: src/bnpview.cpp:1813
+#: src/bnpview.cpp:1815
 #, kde-format
 msgid "Cannot add note."
 msgstr "Impossibile aggiungere la nota."
 
-#: src/bnpview.cpp:1960
+#: src/bnpview.cpp:1962
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr ""
 "<qt>Vuoi veramente rimuovere il cesto <b>%1</b> ed il suo contenuto?</qt>"
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1963
 #, kde-format
 msgid "Remove Basket"
 msgstr "Rimuovi cesto"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1964
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Rimuovi cesto"
 
-#: src/bnpview.cpp:1972
+#: src/bnpview.cpp:1974
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1705,37 +1705,37 @@ msgstr ""
 "<qt><b>%1</b> contiene i seguenti sottocesti.<br>Vuoi rimuovere anche questi?"
 "</qt>"
 
-#: src/bnpview.cpp:1974
+#: src/bnpview.cpp:1976
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Rimuovi sottocesti"
 
-#: src/bnpview.cpp:1975
+#: src/bnpview.cpp:1977
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&Rimuovi sottocesti"
 
-#: src/bnpview.cpp:2045 src/bnpview.cpp:2092
+#: src/bnpview.cpp:2047 src/bnpview.cpp:2094
 #, kde-format
 msgid "Basket Archives"
 msgstr "Archivi basket"
 
-#: src/bnpview.cpp:2055 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "Il file <b>%1</b> esiste già. Vuoi veramente sovrascriverlo?"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2058 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Sovrascrivere il file?"
 
-#: src/bnpview.cpp:2477
+#: src/bnpview.cpp:2479
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Assegna nuova etichetta..."
 
-#: src/bnpview.cpp:2482
+#: src/bnpview.cpp:2484
 #, kde-format
 msgid "&Remove All"
 msgstr "&Rimuovi tutte"
@@ -2937,7 +2937,7 @@ msgstr "Proteggi il cesto con &password"
 msgid "Protect basket with private &key:"
 msgstr "Proteggi il cesto con c&hiave privata:"
 
-#: src/regiongrabber.cpp:101
+#: src/regiongrabber.cpp:102
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "

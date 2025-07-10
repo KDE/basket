@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-04 00:43+0000\n"
+"POT-Creation-Date: 2025-07-10 00:45+0000\n"
 "PO-Revision-Date: 2025-01-12 09:40+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -254,7 +254,7 @@ msgstr "Jatorrizko ikonoa"
 msgid "BasKet Note Pads"
 msgstr "BasKet-en ohar-blokak"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2048
+#: src/archive.cpp:50 src/bnpview.cpp:2050
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Gorde Basket artxibo gisa"
@@ -395,7 +395,7 @@ msgstr "<b>%1</b> karpeta ez dago hutsik. Gainidatzi nahi duzu?"
 msgid "Overwrite Folder?"
 msgstr "Karpeta gainidatzi?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2057 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2059 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Gainidatzi"
@@ -429,8 +429,8 @@ msgstr "Saskiak_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip erabiliz konprimatutako Tar artxiboak"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2045
-#: src/bnpview.cpp:2092 src/htmlexporter.cpp:52
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2047
+#: src/bnpview.cpp:2094 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "Fitxategi guztiak"
@@ -445,7 +445,7 @@ msgstr "Saskien babes-kopia"
 msgid "Backing up baskets. Please wait..."
 msgstr "Saskien babeskopia egiten. Itxoin mesedez..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2093
+#: src/backup.cpp:256 src/bnpview.cpp:2095
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Ireki saski artxiboa"
@@ -747,37 +747,37 @@ msgstr "Erakutsi saski hau (lasterbide &orokorra)"
 msgid "S&witch to this basket (global shortcut)"
 msgstr "Al&datu saski honetara (lasterbide orokorra)"
 
-#: src/basketscene.cpp:301
+#: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "Ohar berria ez dator bat iragazkiarekin eta ezkutuan dago."
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "Ohar berri bat ez dator bat iragazkiarekin eta ezkutuan dago."
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "Ohar berri batzuk ez datoz bat iragazkiarekin eta ezkutuan daude."
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Ohar berriak ez datoz bat iragazkiarekin eta ezkutuan daude."
 
-#: src/basketscene.cpp:1464 src/notecontent.cpp:91
+#: src/basketscene.cpp:1466 src/notecontent.cpp:91
 #, kde-format
 msgid "Group"
 msgstr "Taldea"
 
-#: src/basketscene.cpp:1466
+#: src/basketscene.cpp:1468
 #, kde-format
 msgid "Insert"
 msgstr "Txertatu"
 
-#: src/basketscene.cpp:2313
+#: src/basketscene.cpp:2315
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -786,7 +786,7 @@ msgstr ""
 "Mezu hau ez litzateke inoiz agertu behar. Egiten badu, programak akatsak "
 "ditu! Mesedez jakinarazi akatsa garatzaileari."
 
-#: src/basketscene.cpp:2752 src/basketscene.cpp:2805 src/basketscene.cpp:2814
+#: src/basketscene.cpp:2754 src/basketscene.cpp:2807 src/basketscene.cpp:2816
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -795,57 +795,57 @@ msgstr ""
 "Sartu oharra hemen\n"
 "Eskuineko klik aukera gehiagorako"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize those columns"
 msgstr "Aldatu zutabe horien neurria"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize this group"
 msgstr "Aldatu talde horren neurria"
 
-#: src/basketscene.cpp:2771
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Resize this note"
 msgstr "Aldatu ohar horren neurria"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2776
 #, kde-format
 msgid "Select or move this note"
 msgstr "Hautatu edo mugitu ohar hori"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2779
 #, kde-format
 msgid "Select or move this group"
 msgstr "Hautatu edo mugitu talde hori"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2782
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Esleitu edo kendu ohar horretako etiketak"
 
-#: src/basketscene.cpp:2788
+#: src/basketscene.cpp:2790
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2790
+#: src/basketscene.cpp:2792
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Esleitutako etiketak</b>: %1"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2799
 #, kde-format
 msgid "Expand this group"
 msgstr "Zabaldu talde hori"
 
-#: src/basketscene.cpp:2797
+#: src/basketscene.cpp:2799
 #, kde-format
 msgid "Collapse this group"
 msgstr "Tolestu talde hori"
 
-#: src/basketscene.cpp:2808
+#: src/basketscene.cpp:2810
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -854,7 +854,7 @@ msgstr ""
 "Taldekatu oharra behekoarekin\n"
 "Eskuineko klik aukera gehiagorako"
 
-#: src/basketscene.cpp:2811
+#: src/basketscene.cpp:2813
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -863,53 +863,53 @@ msgstr ""
 "Taldekatu oharra gainekoarekin\n"
 "Eskuineko klik aukera gehiagorako"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2831
 #, kde-format
 msgid "Added"
 msgstr "Gehituta"
 
-#: src/basketscene.cpp:2829
+#: src/basketscene.cpp:2831
 #, kde-format
 msgid "Last Modification"
 msgstr "Azken aldaketa"
 
-#: src/basketscene.cpp:2834
+#: src/basketscene.cpp:2836
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2840
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Egin klik eskuinean txertatu ordez taldekatzeko"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2842
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Egin klik ezkerrean taldekatu ordez txertatzeko"
 
-#: src/basketscene.cpp:3018
+#: src/basketscene.cpp:3020
 #, kde-format
 msgid "&Unlock"
 msgstr "Giltzapetik askat&u"
 
-#: src/basketscene.cpp:3023
+#: src/basketscene.cpp:3025
 #, kde-format
 msgid "Password protected basket."
 msgstr "Pasahitz bidez babestutako saskia."
 
-#: src/basketscene.cpp:3025
+#: src/basketscene.cpp:3027
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Sakatu Giltzapetik askatu bertara sartzeko."
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3029
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "%1(e)ren bertsio honek<br/>ez du zifratzea onartzen."
 
-#: src/basketscene.cpp:3039
+#: src/basketscene.cpp:3041
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -918,88 +918,88 @@ msgstr ""
 "Saskiak giltzatu gabe egon daitezen, aldatu giltzatze<br>automatikoaren "
 "iraupena, aplikazioaren."
 
-#: src/basketscene.cpp:3066 src/basketstatusbar.cpp:89 src/bnpview.cpp:1607
+#: src/basketscene.cpp:3068 src/basketstatusbar.cpp:89 src/bnpview.cpp:1609
 #, kde-format
 msgid "Loading..."
 msgstr "Zamatzen..."
 
-#: src/basketscene.cpp:3232 src/basketscene.cpp:3274
+#: src/basketscene.cpp:3234 src/basketscene.cpp:3276
 #, kde-format
 msgid "&Remove"
 msgstr "&Kendu"
 
-#: src/basketscene.cpp:3235 src/basketscene.cpp:3278 src/bnpview.cpp:2488
+#: src/basketscene.cpp:3237 src/basketscene.cpp:3280 src/bnpview.cpp:2490
 #, kde-format
 msgid "&Customize..."
 msgstr "&Neurrira ipini..."
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284
+#: src/basketscene.cpp:3243 src/basketscene.cpp:3286
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "Ira&gazi etiketa honen arabera"
 
-#: src/basketscene.cpp:3287
+#: src/basketscene.cpp:3289
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Iragazi egoe&ra honen arabera"
 
-#: src/basketscene.cpp:3368
+#: src/basketscene.cpp:3370
 #, kde-format
 msgid "Tags"
 msgstr "Etiketak"
 
-#: src/basketscene.cpp:3943
+#: src/basketscene.cpp:3945
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Benetan ezabatu nahi duzu ohar hau?</qt>"
 msgstr[1] "<qt>Benetan ezabatu nahi dituzu <b>%1</b> ohar hauek?</qt>"
 
-#: src/basketscene.cpp:3944
+#: src/basketscene.cpp:3946
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Ezabatu oharra"
 msgstr[1] "Ezabatu oharrak"
 
-#: src/basketscene.cpp:4043
+#: src/basketscene.cpp:4045
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Oharra arbelera kopiatu da."
 msgstr[1] "Oharrak arbelera kopiatu dira."
 
-#: src/basketscene.cpp:4046
+#: src/basketscene.cpp:4048
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Ebaki oharra arbelera."
 msgstr[1] "Ebaki oharrak arbelera."
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Oharra hautapenera kopiatu da."
 msgstr[1] "Oharrak hautapenera kopiatu dira."
 
-#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
+#: src/basketscene.cpp:4115 src/basketscene.cpp:4190
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Ezin izan du ohar hau ireki."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4115 src/basketui.rc:40
+#: src/basketscene.cpp:4117 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&Editatu"
 
-#: src/basketscene.cpp:4151
+#: src/basketscene.cpp:4153
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Ez duzu fitxategi hau irekitzeko baimenik."
 
-#: src/basketscene.cpp:4209
+#: src/basketscene.cpp:4211
 #, kde-format
 msgid "Save to File"
 msgstr "Gorde fitxategian"
@@ -1101,17 +1101,17 @@ msgstr "Tresna-barra nagusia"
 msgid "Text Formatting Toolbar"
 msgstr "Testuari formatua emateko tresna-barra"
 
-#: src/bnpview.cpp:164 src/bnpview.cpp:1245
+#: src/bnpview.cpp:166 src/bnpview.cpp:1247
 #, kde-format
 msgid "General"
 msgstr "Orokorra"
 
-#: src/bnpview.cpp:232
+#: src/bnpview.cpp:234
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Itsatsi arbeleko edukia uneko saskian"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:236
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1120,12 +1120,12 @@ msgstr ""
 "Leiho nagusia irekitzeko beharrik gabe, uneko saskian arbeleko edukia "
 "itsasteko aukera ematen dizu."
 
-#: src/bnpview.cpp:239
+#: src/bnpview.cpp:241
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "Itsatsi hautapena uneko saskian"
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:243
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1134,12 +1134,12 @@ msgstr ""
 "Leiho nagusia irekitzeko beharrik gabe, uneko saskian arbeleko hautapena "
 "itsasteko aukera ematen dizu."
 
-#: src/bnpview.cpp:246
+#: src/bnpview.cpp:248
 #, kde-format
 msgid "Create a new basket"
 msgstr "Sortu saski berri bat"
 
-#: src/bnpview.cpp:248
+#: src/bnpview.cpp:250
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1150,12 +1150,12 @@ msgstr ""
 "ematen dizu (ondoren beste lasterbide globalak erabil ditzakezu ohar bat "
 "gehitzeko, arbeleko edukia edo hautapena saski berri honetan itsasteko)."
 
-#: src/bnpview.cpp:253
+#: src/bnpview.cpp:255
 #, kde-format
 msgid "Go to previous basket"
 msgstr "Joan aurreko saskira"
 
-#: src/bnpview.cpp:255
+#: src/bnpview.cpp:257
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1164,12 +1164,12 @@ msgstr ""
 "Leiho nagusia irekitzeko beharrik gabe, uneko saskitik aurrekora aldatzeko "
 "aukera ematen dizu."
 
-#: src/bnpview.cpp:259
+#: src/bnpview.cpp:261
 #, kde-format
 msgid "Go to next basket"
 msgstr "Joan hurrengo saskira"
 
-#: src/bnpview.cpp:261
+#: src/bnpview.cpp:263
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1178,24 +1178,24 @@ msgstr ""
 "Leiho nagusia irekitzeko beharrik gabe, uneko saskitik hurrengora aldatzeko "
 "aukera ematen dizu."
 
-#: src/bnpview.cpp:265
+#: src/bnpview.cpp:267
 #, kde-format
 msgid "Insert text note"
 msgstr "Txertatu testu-oharra"
 
-#: src/bnpview.cpp:267
+#: src/bnpview.cpp:269
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr ""
 "Unekoa saskian testu-ohar bat gehitu, leiho nagusia irekitzeko beharrik gabe."
 
-#: src/bnpview.cpp:272 src/settings.cpp:569
+#: src/bnpview.cpp:274 src/settings.cpp:569
 #, kde-format
 msgid "Insert image note"
 msgstr "Txertatu irudi-oharra"
 
-#: src/bnpview.cpp:274
+#: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1203,12 +1203,12 @@ msgid ""
 msgstr ""
 "Unekoa saskian irudi-ohar bat gehitu, leiho nagusia irekitzeko beharrik gabe."
 
-#: src/bnpview.cpp:278 src/settings.cpp:570
+#: src/bnpview.cpp:280 src/settings.cpp:570
 #, kde-format
 msgid "Insert link note"
 msgstr "Txertatu esteka-oharra"
 
-#: src/bnpview.cpp:280
+#: src/bnpview.cpp:282
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
@@ -1216,12 +1216,12 @@ msgstr ""
 "Unekoa saskian esteka-ohar bat gehitu, leiho nagusia irekitzeko beharrik "
 "gabe."
 
-#: src/bnpview.cpp:284 src/settings.cpp:573
+#: src/bnpview.cpp:286 src/settings.cpp:573
 #, kde-format
 msgid "Insert color note"
 msgstr "Txertatu kolore-oharra"
 
-#: src/bnpview.cpp:286
+#: src/bnpview.cpp:288
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
@@ -1230,12 +1230,12 @@ msgstr ""
 "Unekoa saskian kolore-ohar bat gehitu, leiho nagusia irekitzeko beharrik "
 "gabe."
 
-#: src/bnpview.cpp:290
+#: src/bnpview.cpp:292
 #, kde-format
 msgid "Pick color from screen"
 msgstr "Hartu kolorea pantailatik"
 
-#: src/bnpview.cpp:292
+#: src/bnpview.cpp:294
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1244,12 +1244,12 @@ msgstr ""
 "Unekoa saskian, pantailako pixel batetik hartutako kolore-ohar bat gehitu, "
 "leiho nagusia irekitzeko beharrik gabe."
 
-#: src/bnpview.cpp:297 src/settings.cpp:574
+#: src/bnpview.cpp:299 src/settings.cpp:574
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Harrapatu pantaila-eskualdea"
 
-#: src/bnpview.cpp:299
+#: src/bnpview.cpp:301
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1258,12 +1258,12 @@ msgstr ""
 "Unekoa saskian pantaila-eskualde bat irudi gisa harrapatu, leiho nagusia "
 "irekitzeko beharrik gabe."
 
-#: src/bnpview.cpp:305
+#: src/bnpview.cpp:307
 #, kde-format
 msgid "Insert plain text note"
 msgstr "Txertatu testu-soileko oharra"
 
-#: src/bnpview.cpp:307
+#: src/bnpview.cpp:309
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1272,12 +1272,12 @@ msgstr ""
 "Unekoa saskian testu-soileko ohar bat gehitu, leiho nagusia irekitzeko "
 "beharrik gabe."
 
-#: src/bnpview.cpp:316
+#: src/bnpview.cpp:318
 #, kde-format
 msgid "Baskets"
 msgstr "Saskiak"
 
-#: src/bnpview.cpp:361
+#: src/bnpview.cpp:363
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1291,358 +1291,358 @@ msgstr ""
 "dezakezu, saski bat irekitzeko hartan klik eginez, edo haiek berrantolatu "
 "ditzakezu arrastatu eta jareginez."
 
-#: src/bnpview.cpp:376 src/bnpview.cpp:382
+#: src/bnpview.cpp:378 src/bnpview.cpp:384
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "Sas&ki artxiboa..."
 
-#: src/bnpview.cpp:388
+#: src/bnpview.cpp:390
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "&HTML Web-orria..."
 
-#: src/bnpview.cpp:394
+#: src/bnpview.cpp:396
 #, kde-format
 msgid "Text &File..."
 msgstr "Testu-&fitxategia..."
 
-#: src/bnpview.cpp:399
+#: src/bnpview.cpp:401
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&Babeskopia egin eta lehengoratzea..."
 
-#: src/bnpview.cpp:403
+#: src/bnpview.cpp:405
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "E&giaztatu eta garbitu..."
 
-#: src/bnpview.cpp:414
+#: src/bnpview.cpp:416
 #, kde-format
 msgid "D&elete"
 msgstr "&Ezabatu"
 
-#: src/bnpview.cpp:423
+#: src/bnpview.cpp:425
 #, kde-format
 msgid "Selects all notes"
 msgstr "Ohar guztiak hautatzen ditu"
 
-#: src/bnpview.cpp:426
+#: src/bnpview.cpp:428
 #, kde-format
 msgid "U&nselect All"
 msgstr "De&sautatu guztia"
 
-#: src/bnpview.cpp:428
+#: src/bnpview.cpp:430
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "Desautatu hautatutako ohar guztiak"
 
-#: src/bnpview.cpp:431
+#: src/bnpview.cpp:433
 #, kde-format
 msgid "&Invert Selection"
 msgstr "Alderantz&ikatu hautapena"
 
-#: src/bnpview.cpp:435
+#: src/bnpview.cpp:437
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Uneko oharren hautapena alderantzikatzen du"
 
-#: src/bnpview.cpp:438
+#: src/bnpview.cpp:440
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "&Garbitu formatua"
 
-#: src/bnpview.cpp:442
+#: src/bnpview.cpp:444
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "&Editatu..."
 
-#: src/bnpview.cpp:449
+#: src/bnpview.cpp:451
 #, kde-format
 msgid "&Open"
 msgstr "&Ireki"
 
-#: src/bnpview.cpp:453
+#: src/bnpview.cpp:455
 #, kde-format
 msgid "Open &With..."
 msgstr "Ireki &honekin..."
 
-#: src/bnpview.cpp:458
+#: src/bnpview.cpp:460
 #, kde-format
 msgid "&Save to File..."
 msgstr "&Gorde fitxategian..."
 
-#: src/bnpview.cpp:462
+#: src/bnpview.cpp:464
 #, kde-format
 msgid "&Group"
 msgstr "&Taldekatu"
 
-#: src/bnpview.cpp:468
+#: src/bnpview.cpp:470
 #, kde-format
 msgid "U&ngroup"
 msgstr "&Bereizi"
 
-#: src/bnpview.cpp:473
+#: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Top"
 msgstr "Eraman gorai&no"
 
-#: src/bnpview.cpp:479
+#: src/bnpview.cpp:481
 #, kde-format
 msgid "Move &Up"
 msgstr "Eraman &gora"
 
-#: src/bnpview.cpp:485
+#: src/bnpview.cpp:487
 #, kde-format
 msgid "Move &Down"
 msgstr "Eraman &behera"
 
-#: src/bnpview.cpp:491
+#: src/bnpview.cpp:493
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "Eraman beherai&no"
 
-#: src/bnpview.cpp:502
+#: src/bnpview.cpp:504
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Testu soi&la"
 
-#: src/bnpview.cpp:509
+#: src/bnpview.cpp:511
 #, kde-format
 msgid "&Text"
 msgstr "&Testua"
 
-#: src/bnpview.cpp:515
+#: src/bnpview.cpp:517
 #, kde-format
 msgid "&Link"
 msgstr "Este&ka"
 
-#: src/bnpview.cpp:521
+#: src/bnpview.cpp:523
 #, kde-format
 msgid "Cross &Reference"
 msgstr "Ai&pamen gurutzatua"
 
-#: src/bnpview.cpp:526
+#: src/bnpview.cpp:528
 #, kde-format
 msgid "&Image"
 msgstr "&Irudia"
 
-#: src/bnpview.cpp:531
+#: src/bnpview.cpp:533
 #, kde-format
 msgid "&Color"
 msgstr "&Kolorea"
 
-#: src/bnpview.cpp:536
+#: src/bnpview.cpp:538
 #, kde-format
 msgid "L&auncher"
 msgstr "&Abiarazlea"
 
-#: src/bnpview.cpp:541
+#: src/bnpview.cpp:543
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Inportatu &mahaigaineko aplikazioaren abiarazlea..."
 
-#: src/bnpview.cpp:546
+#: src/bnpview.cpp:548
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "In&portatu ikonoa..."
 
-#: src/bnpview.cpp:551 src/noteedit.cpp:542
+#: src/bnpview.cpp:553 src/noteedit.cpp:542
 #, kde-format
 msgid "Load From &File..."
 msgstr "Zamatu &fitxategitik..."
 
-#: src/bnpview.cpp:587
+#: src/bnpview.cpp:589
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "Pantailako k&olorea"
 
-#: src/bnpview.cpp:595
+#: src/bnpview.cpp:597
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Harrapatu pantaila-es&kualdea"
 
-#: src/bnpview.cpp:630
+#: src/bnpview.cpp:632
 #, kde-format
 msgid "&New Basket..."
 msgstr "Saski &berria..."
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:638
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "A&zpi-saski berria..."
 
-#: src/bnpview.cpp:641
+#: src/bnpview.cpp:643
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Saski &haurride berria..."
 
-#: src/bnpview.cpp:644
+#: src/bnpview.cpp:646
 #, kde-format
 msgid "&New"
 msgstr "&Berria"
 
-#: src/bnpview.cpp:654
+#: src/bnpview.cpp:656
 #, kde-format
 msgid "&Properties..."
 msgstr "&Propietateak..."
 
-#: src/bnpview.cpp:660
+#: src/bnpview.cpp:662
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Haurren sailkatze gorakorra"
 
-#: src/bnpview.cpp:665
+#: src/bnpview.cpp:667
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Haurren sailkatze beherakorra"
 
-#: src/bnpview.cpp:670
+#: src/bnpview.cpp:672
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Haurrideen sailkatze gorakorra"
 
-#: src/bnpview.cpp:675
+#: src/bnpview.cpp:677
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Haurrideen sailkatze beherakorra"
 
-#: src/bnpview.cpp:680
+#: src/bnpview.cpp:682
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&Kendu"
 
-#: src/bnpview.cpp:686
+#: src/bnpview.cpp:688
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Pasa&hitza..."
 
-#: src/bnpview.cpp:691
+#: src/bnpview.cpp:693
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "Gi&ltzatu"
 
-#: src/bnpview.cpp:704
+#: src/bnpview.cpp:706
 #, kde-format
 msgid "&Filter"
 msgstr "Ira&gazi"
 
-#: src/bnpview.cpp:714
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Search All"
 msgstr "Dena &bilatu"
 
-#: src/bnpview.cpp:722
+#: src/bnpview.cpp:724
 #, kde-format
 msgid "&Reset Filter"
 msgstr "Iragazkia be&rrezarri"
 
-#: src/bnpview.cpp:730
+#: src/bnpview.cpp:732
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&Aurreko saskia"
 
-#: src/bnpview.cpp:736
+#: src/bnpview.cpp:738
 #, kde-format
 msgid "&Next Basket"
 msgstr "&Hurrengo saskia"
 
-#: src/bnpview.cpp:742
+#: src/bnpview.cpp:744
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&Tolestu saskia"
 
-#: src/bnpview.cpp:748
+#: src/bnpview.cpp:750
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Zabaldu saskia"
 
-#: src/bnpview.cpp:756
+#: src/bnpview.cpp:758
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "Testu oharrak testu-aberastuko oharrak bihurtu"
 
-#: src/bnpview.cpp:765
+#: src/bnpview.cpp:767
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&Ongi etorri saskiak"
 
-#: src/bnpview.cpp:1030
+#: src/bnpview.cpp:1032
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Testu-soileko oharren bihurketa"
 
-#: src/bnpview.cpp:1031
+#: src/bnpview.cpp:1033
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "Testu-soileko oharrak testu-aberastukoetara bihurtzen..."
 
-#: src/bnpview.cpp:1605
+#: src/bnpview.cpp:1607
 #, kde-format
 msgid "Locked"
 msgstr "Giltzatuta"
 
-#: src/bnpview.cpp:1609
+#: src/bnpview.cpp:1611
 #, kde-format
 msgid "No notes"
 msgstr "Oharrik ez"
 
-#: src/bnpview.cpp:1611
+#: src/bnpview.cpp:1613
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "Ohar %1"
 msgstr[1] "%1 ohar"
 
-#: src/bnpview.cpp:1612
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 hautatuta"
 msgstr[1] "%1 hautatuta"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1615
 #, kde-format
 msgid "all matches"
 msgstr "bat etortze denak"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1615
 #, kde-format
 msgid "no filter"
 msgstr "iragazkirik ez"
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1617
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "Bat etortze %1"
 msgstr[1] "%1 bat etortze"
 
-#: src/bnpview.cpp:1616
+#: src/bnpview.cpp:1618
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1751
+#: src/bnpview.cpp:1753
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "Testu-soileko oharrak testu-aberastuko ohar bihurtu dira."
 
-#: src/bnpview.cpp:1751 src/bnpview.cpp:1753
+#: src/bnpview.cpp:1753 src/bnpview.cpp:1755
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Bihurketa bukatu da"
 
-#: src/bnpview.cpp:1753
+#: src/bnpview.cpp:1755
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Ez dago bihurtu beharreko testu-soileko oharrik."
 
-#: src/bnpview.cpp:1770
+#: src/bnpview.cpp:1772
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1662,33 +1662,33 @@ msgstr ""
 "bazaude, baina haren aurreikusteko bertsio bat bazenuen, saiatu %5basketui."
 "rc fitxategia kentzen.</p>"
 
-#: src/bnpview.cpp:1784
+#: src/bnpview.cpp:1786
 #, kde-format
 msgid "Resource not Found"
 msgstr "Baliabidea ez da aurkitu"
 
-#: src/bnpview.cpp:1813
+#: src/bnpview.cpp:1815
 #, kde-format
 msgid "Cannot add note."
 msgstr "Ezin da oharrik gehitu."
 
-#: src/bnpview.cpp:1960
+#: src/bnpview.cpp:1962
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt><b>%1</b> saskia eta bere edukia benetan ezabatu nahi duzu?</qt>"
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1963
 #, kde-format
 msgid "Remove Basket"
 msgstr "Kendu saskia"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1964
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Kendu saskia"
 
-#: src/bnpview.cpp:1972
+#: src/bnpview.cpp:1974
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1697,38 +1697,38 @@ msgstr ""
 "<qt><b>%1</b>(e)k ondoka saski-haurrak ditu.<br>Haiek ere kendu nahi dituzu?"
 "</qt>"
 
-#: src/bnpview.cpp:1974
+#: src/bnpview.cpp:1976
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Kendu saski-haurrak"
 
-#: src/bnpview.cpp:1975
+#: src/bnpview.cpp:1977
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&Kendu saski-haurrak"
 
-#: src/bnpview.cpp:2045 src/bnpview.cpp:2092
+#: src/bnpview.cpp:2047 src/bnpview.cpp:2094
 #, kde-format
 msgid "Basket Archives"
 msgstr "Saski artxiboak"
 
-#: src/bnpview.cpp:2055 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr ""
 "<b>%1</b> fitxategia lehendik ere badago. Benetan gainidatzi nahi duzu?"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2058 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Fitxategia gainidatzi?"
 
-#: src/bnpview.cpp:2477
+#: src/bnpview.cpp:2479
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Esleitu etiketa berria..."
 
-#: src/bnpview.cpp:2482
+#: src/bnpview.cpp:2484
 #, kde-format
 msgid "&Remove All"
 msgstr "&Kendu denak"
@@ -2930,7 +2930,7 @@ msgstr "Saskia &pasahitz batekin babestu"
 msgid "Protect basket with private &key:"
 msgstr "Saskia &gako pribatu batekin babestu:"
 
-#: src/regiongrabber.cpp:101
+#: src/regiongrabber.cpp:102
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
