@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 00:45+0000\n"
+"POT-Creation-Date: 2025-07-12 00:46+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -243,7 +243,7 @@ msgstr "原始图标"
 msgid "BasKet Note Pads"
 msgstr "Basket 记事贴"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2050
+#: src/archive.cpp:50 src/bnpview.cpp:2049
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "保存为笔记篮存档"
@@ -366,7 +366,7 @@ msgstr "目录<b>%1</b>非空. 确定覆盖么?"
 msgid "Overwrite Folder?"
 msgstr "要覆盖文件夹吗？"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2059 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "覆盖文件(&O)"
@@ -397,8 +397,8 @@ msgstr "Baskets_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "TAR 存档 (用 Gzip 压缩)"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2047
-#: src/bnpview.cpp:2094 src/htmlexporter.cpp:52
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
+#: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
@@ -413,7 +413,7 @@ msgstr "备份笔记篮"
 msgid "Backing up baskets. Please wait..."
 msgstr "正在备份笔记篮。请稍候..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2095
+#: src/backup.cpp:256 src/bnpview.cpp:2094
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "打开笔记篮存档"
@@ -618,7 +618,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:487 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:490 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
 msgstr "外观"
@@ -709,24 +709,24 @@ msgstr "不匹配过滤条件的部分新记事贴会被隐藏。"
 msgid "The new notes do not match the filter and are hidden."
 msgstr "不匹配过滤条件的新记事贴会被隐藏。"
 
-#: src/basketscene.cpp:1466 src/notecontent.cpp:91
+#: src/basketscene.cpp:1468 src/notecontent.cpp:91
 #, kde-format
 msgid "Group"
 msgstr "编组"
 
-#: src/basketscene.cpp:1468
+#: src/basketscene.cpp:1470
 #, kde-format
 msgid "Insert"
 msgstr "插入"
 
-#: src/basketscene.cpp:2315
+#: src/basketscene.cpp:2317
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
 msgstr "程序有bug!请向开发者提交bug."
 
-#: src/basketscene.cpp:2754 src/basketscene.cpp:2807 src/basketscene.cpp:2816
+#: src/basketscene.cpp:2756 src/basketscene.cpp:2809 src/basketscene.cpp:2818
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -735,57 +735,57 @@ msgstr ""
 "插入记事贴到这里\n"
 "右键显示更多选项"
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize those columns"
 msgstr "调整列"
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize this group"
 msgstr "调整组"
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize this note"
 msgstr "调整记事贴大小"
 
-#: src/basketscene.cpp:2776
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Select or move this note"
 msgstr "选择/移动记事贴"
 
-#: src/basketscene.cpp:2779
+#: src/basketscene.cpp:2781
 #, kde-format
 msgid "Select or move this group"
 msgstr "选择/移动组"
 
-#: src/basketscene.cpp:2782
+#: src/basketscene.cpp:2784
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "分配/移除记事贴的标签"
 
-#: src/basketscene.cpp:2790
+#: src/basketscene.cpp:2792
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2792
+#: src/basketscene.cpp:2794
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>分配的标记</b>: %1"
 
-#: src/basketscene.cpp:2799
+#: src/basketscene.cpp:2801
 #, kde-format
 msgid "Expand this group"
 msgstr "展开组"
 
-#: src/basketscene.cpp:2799
+#: src/basketscene.cpp:2801
 #, kde-format
 msgid "Collapse this group"
 msgstr "折叠组"
 
-#: src/basketscene.cpp:2810
+#: src/basketscene.cpp:2812
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -794,7 +794,7 @@ msgstr ""
 "编组 (与下一个记事贴)\n"
 "右键显示更多选项"
 
-#: src/basketscene.cpp:2813
+#: src/basketscene.cpp:2815
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -803,136 +803,136 @@ msgstr ""
 "编组 (与上一个记事贴)\n"
 "右键显示更多选项"
 
-#: src/basketscene.cpp:2831
+#: src/basketscene.cpp:2833
 #, kde-format
 msgid "Added"
 msgstr "已添加"
 
-#: src/basketscene.cpp:2831
+#: src/basketscene.cpp:2833
 #, kde-format
 msgid "Last Modification"
 msgstr "最近的变更"
 
-#: src/basketscene.cpp:2836
+#: src/basketscene.cpp:2838
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>：%2"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2842
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "右侧插入组"
 
-#: src/basketscene.cpp:2842
+#: src/basketscene.cpp:2844
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "左侧插入组"
 
-#: src/basketscene.cpp:3020
+#: src/basketscene.cpp:3022
 #, kde-format
 msgid "&Unlock"
 msgstr "解锁(&U)"
 
-#: src/basketscene.cpp:3025
+#: src/basketscene.cpp:3027
 #, kde-format
 msgid "Password protected basket."
 msgstr "密码保护的笔记篮。"
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3029
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "点击解锁访问文件."
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3031
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "当前版本(%1)不支持加密."
 
-#: src/basketscene.cpp:3041
+#: src/basketscene.cpp:3043
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
 msgstr "要使笔记篮保持解锁状态，<br>请在应用程序设置中更改自动锁定时长。"
 
-#: src/basketscene.cpp:3068 src/basketstatusbar.cpp:89 src/bnpview.cpp:1609
+#: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
 msgstr "正在加载..."
 
-#: src/basketscene.cpp:3234 src/basketscene.cpp:3276
+#: src/basketscene.cpp:3236 src/basketscene.cpp:3278
 #, kde-format
 msgid "&Remove"
 msgstr "删除(&R)"
 
-#: src/basketscene.cpp:3237 src/basketscene.cpp:3280 src/bnpview.cpp:2490
+#: src/basketscene.cpp:3239 src/basketscene.cpp:3282 src/bnpview.cpp:2489
 #, kde-format
 msgid "&Customize..."
 msgstr "设置(&C)..."
 
-#: src/basketscene.cpp:3243 src/basketscene.cpp:3286
+#: src/basketscene.cpp:3245 src/basketscene.cpp:3288
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "按标记检索(&F)"
 
-#: src/basketscene.cpp:3289
+#: src/basketscene.cpp:3291
 #, kde-format
 msgid "Filter by this &State"
 msgstr "按条件检索(&S)"
 
-#: src/basketscene.cpp:3370
+#: src/basketscene.cpp:3372
 #, kde-format
 msgid "Tags"
 msgstr "标记"
 
-#: src/basketscene.cpp:3945
+#: src/basketscene.cpp:3949
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] ""
 
-#: src/basketscene.cpp:3946
+#: src/basketscene.cpp:3950
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "删除记事贴"
 
-#: src/basketscene.cpp:4045
+#: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] ""
 
-#: src/basketscene.cpp:4048
+#: src/basketscene.cpp:4052
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] ""
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4055
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] ""
 
-#: src/basketscene.cpp:4115 src/basketscene.cpp:4190
+#: src/basketscene.cpp:4119 src/basketscene.cpp:4194
 #, kde-format
 msgid "Unable to open this note."
 msgstr "无法打开此记事贴"
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4117 src/basketui.rc:40
+#: src/basketscene.cpp:4121 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "编辑 (&E)"
 
-#: src/basketscene.cpp:4153
+#: src/basketscene.cpp:4157
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "你无权打开这个文档."
 
-#: src/basketscene.cpp:4211
+#: src/basketscene.cpp:4215
 #, kde-format
 msgid "Save to File"
 msgstr "保存到文档"
@@ -1030,7 +1030,7 @@ msgstr "主工具栏"
 msgid "Text Formatting Toolbar"
 msgstr "文本排版工具栏"
 
-#: src/bnpview.cpp:166 src/bnpview.cpp:1247
+#: src/bnpview.cpp:166 src/bnpview.cpp:1246
 #, kde-format
 msgid "General"
 msgstr "主要"
@@ -1109,7 +1109,7 @@ msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr "添加一个文本记事贴到当前笔记篮而无需打开主窗口。"
 
-#: src/bnpview.cpp:274 src/settings.cpp:569
+#: src/bnpview.cpp:274 src/settings.cpp:572
 #, kde-format
 msgid "Insert image note"
 msgstr "插入图像记事贴"
@@ -1121,7 +1121,7 @@ msgid ""
 "window."
 msgstr "添加一个图像记事贴到当前笔记篮而无需打开主窗口。"
 
-#: src/bnpview.cpp:280 src/settings.cpp:570
+#: src/bnpview.cpp:280 src/settings.cpp:573
 #, kde-format
 msgid "Insert link note"
 msgstr "插入链接记事贴"
@@ -1132,7 +1132,7 @@ msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr "添加一个链接记事贴到当前笔记篮而无需打开主窗口。"
 
-#: src/bnpview.cpp:286 src/settings.cpp:573
+#: src/bnpview.cpp:286 src/settings.cpp:576
 #, kde-format
 msgid "Insert color note"
 msgstr "插入颜色记事贴"
@@ -1158,7 +1158,7 @@ msgstr ""
 "添加一个颜色记事贴 (颜色采样自屏幕上的一个像素) 到当前笔记篮而无需打开主窗"
 "口。"
 
-#: src/bnpview.cpp:299 src/settings.cpp:574
+#: src/bnpview.cpp:299 src/settings.cpp:577
 #, kde-format
 msgid "Grab screen zone"
 msgstr "抓取屏幕范围"
@@ -1352,7 +1352,7 @@ msgstr ""
 msgid "Im&port Icon..."
 msgstr "导入图标(&P)..."
 
-#: src/bnpview.cpp:553 src/noteedit.cpp:542
+#: src/bnpview.cpp:553 src/noteedit.cpp:545
 #, kde-format
 msgid "Load From &File..."
 msgstr "加载文件 (&F)..."
@@ -1367,184 +1367,184 @@ msgstr "抓取屏幕颜色(&o)"
 msgid "Grab Screen &Zone"
 msgstr "抓取屏幕范围(&Z)"
 
-#: src/bnpview.cpp:632
+#: src/bnpview.cpp:629
 #, kde-format
 msgid "&New Basket..."
 msgstr "新建笔记篮 (&N)..."
 
-#: src/bnpview.cpp:638
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "新建子笔记篮 (&S)..."
 
-#: src/bnpview.cpp:643
+#: src/bnpview.cpp:640
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "新建同级笔记篮 (&B)..."
 
-#: src/bnpview.cpp:646
+#: src/bnpview.cpp:643
 #, kde-format
 msgid "&New"
 msgstr "新建(&N)"
 
-#: src/bnpview.cpp:656
+#: src/bnpview.cpp:653
 #, kde-format
 msgid "&Properties..."
 msgstr ""
 
-#: src/bnpview.cpp:662
+#: src/bnpview.cpp:659
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr ""
 
-#: src/bnpview.cpp:667
+#: src/bnpview.cpp:664
 #, kde-format
 msgid "Sort Children Descending"
 msgstr ""
 
-#: src/bnpview.cpp:672
+#: src/bnpview.cpp:669
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "排序同级记事贴 (升序)"
 
-#: src/bnpview.cpp:677
+#: src/bnpview.cpp:674
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "排序同级记事贴 (降序)"
 
-#: src/bnpview.cpp:682
+#: src/bnpview.cpp:679
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr ""
 
-#: src/bnpview.cpp:688
+#: src/bnpview.cpp:685
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr ""
 
-#: src/bnpview.cpp:693
+#: src/bnpview.cpp:690
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr ""
 
-#: src/bnpview.cpp:706
+#: src/bnpview.cpp:703
 #, kde-format
 msgid "&Filter"
 msgstr "检索(&F)"
 
-#: src/bnpview.cpp:716
+#: src/bnpview.cpp:715
 #, kde-format
 msgid "&Search All"
 msgstr ""
 
-#: src/bnpview.cpp:724
+#: src/bnpview.cpp:723
 #, kde-format
 msgid "&Reset Filter"
 msgstr "重置检索(&R)"
 
-#: src/bnpview.cpp:732
+#: src/bnpview.cpp:731
 #, kde-format
 msgid "&Previous Basket"
 msgstr "上一个笔记篮 (&P)"
 
-#: src/bnpview.cpp:738
+#: src/bnpview.cpp:737
 #, kde-format
 msgid "&Next Basket"
 msgstr "下一个笔记篮 (&N)"
 
-#: src/bnpview.cpp:744
+#: src/bnpview.cpp:743
 #, kde-format
 msgid "&Fold Basket"
 msgstr "折叠笔记篮 (&F)"
 
-#: src/bnpview.cpp:750
+#: src/bnpview.cpp:749
 #, kde-format
 msgid "&Expand Basket"
 msgstr "展开笔记篮 (&E)"
 
-#: src/bnpview.cpp:758
+#: src/bnpview.cpp:757
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr ""
 
-#: src/bnpview.cpp:767
+#: src/bnpview.cpp:766
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "欢迎使用 Basket 笔记篮 (&W)"
 
-#: src/bnpview.cpp:1032
+#: src/bnpview.cpp:1031
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "纯文本记事贴转换"
 
-#: src/bnpview.cpp:1033
+#: src/bnpview.cpp:1032
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "转换纯文本记事贴为富文本记事贴..."
 
-#: src/bnpview.cpp:1607
+#: src/bnpview.cpp:1606
 #, kde-format
 msgid "Locked"
 msgstr "已锁定"
 
-#: src/bnpview.cpp:1611
+#: src/bnpview.cpp:1610
 #, kde-format
 msgid "No notes"
 msgstr "没有记事贴"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1612
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] ""
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1613
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] ""
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "all matches"
 msgstr "所有符合"
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "no filter"
 msgstr "无符合"
 
-#: src/bnpview.cpp:1617
+#: src/bnpview.cpp:1616
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] ""
 
-#: src/bnpview.cpp:1618
+#: src/bnpview.cpp:1617
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1，%2，%3"
 
-#: src/bnpview.cpp:1753
+#: src/bnpview.cpp:1752
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "此纯文本记事贴已经转换为富文本记事贴。"
 
-#: src/bnpview.cpp:1753 src/bnpview.cpp:1755
+#: src/bnpview.cpp:1752 src/bnpview.cpp:1754
 #, kde-format
 msgid "Conversion Finished"
 msgstr "转换完成"
 
-#: src/bnpview.cpp:1755
+#: src/bnpview.cpp:1754
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "没有可以转换的纯文本记事贴。"
 
-#: src/bnpview.cpp:1772
+#: src/bnpview.cpp:1771
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1556,70 +1556,70 @@ msgid ""
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
 
-#: src/bnpview.cpp:1786
+#: src/bnpview.cpp:1785
 #, kde-format
 msgid "Resource not Found"
 msgstr "文件源不存在"
 
-#: src/bnpview.cpp:1815
+#: src/bnpview.cpp:1814
 #, kde-format
 msgid "Cannot add note."
 msgstr "无法添加记事贴"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1961
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt>你确定要删除<b>%1</b>和它的所有内容吗？</qt>"
 
-#: src/bnpview.cpp:1963
+#: src/bnpview.cpp:1962
 #, kde-format
 msgid "Remove Basket"
 msgstr "移除笔记篮"
 
-#: src/bnpview.cpp:1964
+#: src/bnpview.cpp:1963
 #, kde-format
 msgid "&Remove Basket"
 msgstr "移除笔记篮 (&R)"
 
-#: src/bnpview.cpp:1974
+#: src/bnpview.cpp:1973
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
 msgstr ""
 
-#: src/bnpview.cpp:1976
+#: src/bnpview.cpp:1975
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "移除子笔记篮"
 
-#: src/bnpview.cpp:1977
+#: src/bnpview.cpp:1976
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "移除子笔记篮 (&R)"
 
-#: src/bnpview.cpp:2047 src/bnpview.cpp:2094
+#: src/bnpview.cpp:2046 src/bnpview.cpp:2093
 #, kde-format
 msgid "Basket Archives"
 msgstr "笔记篮存档"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "文件<b>%1</b>已存在,要覆盖它吗？"
 
-#: src/bnpview.cpp:2058 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
 msgstr "覆盖文件吗？"
 
-#: src/bnpview.cpp:2479
+#: src/bnpview.cpp:2478
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "分配新标记(&A)..."
 
-#: src/bnpview.cpp:2484
+#: src/bnpview.cpp:2483
 #, kde-format
 msgid "&Remove All"
 msgstr "移除所有(&R)"
@@ -1679,7 +1679,7 @@ msgstr "采样率"
 msgid "Track number"
 msgstr "音轨编号"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2161
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2162
 #, kde-format
 msgid "Comment"
 msgstr "备注"
@@ -1828,7 +1828,7 @@ msgid ""
 msgstr ""
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
-#: src/variouswidgets.cpp:405
+#: src/variouswidgets.cpp:404
 #, kde-format
 msgid "(Default)"
 msgstr "(默认)"
@@ -2134,7 +2134,7 @@ msgstr "交叉引用"
 msgid "Launcher"
 msgstr "程序启动器"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1201
+#: src/notecontent.cpp:111 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
 msgstr "颜色"
@@ -2259,7 +2259,7 @@ msgstr "打开文本方式："
 msgid "Open texts with:"
 msgstr "打开文本 (多个) 方式："
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1464
+#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
 #, kde-format
 msgid "Size"
 msgstr "大小"
@@ -2304,244 +2304,244 @@ msgstr "打开图像 (多个) 方式："
 msgid "Click for full size view"
 msgstr "点击显示完整视图"
 
-#: src/notecontent.cpp:1375
+#: src/notecontent.cpp:1376
 #, kde-format
 msgid "Opening animation..."
 msgstr "打开动画..."
 
-#: src/notecontent.cpp:1377
+#: src/notecontent.cpp:1378
 #, kde-format
 msgid "Opening animations..."
 msgstr "打开动画 (多个)..."
 
-#: src/notecontent.cpp:1379
+#: src/notecontent.cpp:1380
 #, kde-format
 msgid "Opening animation with..."
 msgstr "打开动画方式..."
 
-#: src/notecontent.cpp:1381
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Opening animations with..."
 msgstr "打开动画 (多个) 方式..."
 
-#: src/notecontent.cpp:1383
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Open animation with:"
 msgstr "打开动画方式："
 
-#: src/notecontent.cpp:1385
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Open animations with:"
 msgstr "打开动画 (多个) 方式："
 
-#: src/notecontent.cpp:1469
+#: src/notecontent.cpp:1470
 #, kde-format
 msgid "Type"
 msgstr "类型"
 
-#: src/notecontent.cpp:1510
+#: src/notecontent.cpp:1511
 #, kde-format
 msgid "Open this file"
 msgstr "打开此文件"
 
-#: src/notecontent.cpp:1529
+#: src/notecontent.cpp:1530
 #, kde-format
 msgid "Opening file..."
 msgstr "打开文件..."
 
-#: src/notecontent.cpp:1531
+#: src/notecontent.cpp:1532
 #, kde-format
 msgid "Opening files..."
 msgstr "打开文件 (多个)..."
 
-#: src/notecontent.cpp:1533
+#: src/notecontent.cpp:1534
 #, kde-format
 msgid "Opening file with..."
 msgstr "打开文件方式..."
 
-#: src/notecontent.cpp:1535
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Opening files with..."
 msgstr "打开文件 (多个) 方式..."
 
-#: src/notecontent.cpp:1537
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Open file with:"
 msgstr "打开文件方式："
 
-#: src/notecontent.cpp:1539
+#: src/notecontent.cpp:1540
 #, kde-format
 msgid "Open files with:"
 msgstr "打开文件 (多个) 方式："
 
-#: src/notecontent.cpp:1631
+#: src/notecontent.cpp:1632
 #, kde-format
 msgid "Open this sound"
 msgstr "打开此声音"
 
-#: src/notecontent.cpp:1657
+#: src/notecontent.cpp:1658
 #, kde-format
 msgid "Opening sound..."
 msgstr "打开声音..."
 
-#: src/notecontent.cpp:1659
+#: src/notecontent.cpp:1660
 #, kde-format
 msgid "Opening sounds..."
 msgstr "打开声音 (多个)..."
 
-#: src/notecontent.cpp:1661
+#: src/notecontent.cpp:1662
 #, kde-format
 msgid "Opening sound with..."
 msgstr "打开声音方式..."
 
-#: src/notecontent.cpp:1663
+#: src/notecontent.cpp:1664
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "打开声音 (多个) 方式..."
 
-#: src/notecontent.cpp:1665
+#: src/notecontent.cpp:1666
 #, kde-format
 msgid "Open sound with:"
 msgstr "打开声音方式："
 
-#: src/notecontent.cpp:1667
+#: src/notecontent.cpp:1668
 #, kde-format
 msgid "Open sounds with:"
 msgstr "打开声音 (多个) 方式："
 
-#: src/notecontent.cpp:1730 src/notecontent.cpp:2001
+#: src/notecontent.cpp:1731 src/notecontent.cpp:2002
 #, kde-format
 msgid "Target"
 msgstr "目标"
 
-#: src/notecontent.cpp:1752 src/notecontent.cpp:2023
+#: src/notecontent.cpp:1753 src/notecontent.cpp:2024
 #, kde-format
 msgid "Open this link"
 msgstr "打开此链接"
 
-#: src/notecontent.cpp:1778
+#: src/notecontent.cpp:1779
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "链接中没有可以打开的 URL。"
 
-#: src/notecontent.cpp:1782
+#: src/notecontent.cpp:1783
 #, kde-format
 msgid "Opening link target..."
 msgstr "打开链接目标..."
 
-#: src/notecontent.cpp:1784
+#: src/notecontent.cpp:1785
 #, kde-format
 msgid "Opening link targets..."
 msgstr "打开链接目标 (多个)..."
 
-#: src/notecontent.cpp:1786
+#: src/notecontent.cpp:1787
 #, kde-format
 msgid "Opening link target with..."
 msgstr "打开链接目标方式..."
 
-#: src/notecontent.cpp:1788
+#: src/notecontent.cpp:1789
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "打开链接目标 (多个) 方式..."
 
-#: src/notecontent.cpp:1790
+#: src/notecontent.cpp:1791
 #, kde-format
 msgid "Open link target with:"
 msgstr "打开目标链接方式："
 
-#: src/notecontent.cpp:1792
+#: src/notecontent.cpp:1793
 #, kde-format
 msgid "Open link targets with:"
 msgstr "打开目标链接 (多个) 方式："
 
-#: src/notecontent.cpp:2036
+#: src/notecontent.cpp:2037
 #, kde-format
 msgid "Link to %1"
 msgstr ""
 
-#: src/notecontent.cpp:2049
+#: src/notecontent.cpp:2050
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "链接中没有可以打开的记事贴。"
 
-#: src/notecontent.cpp:2053
+#: src/notecontent.cpp:2054
 #, kde-format
 msgid "Opening basket..."
 msgstr "打开笔记篮..."
 
-#: src/notecontent.cpp:2158
+#: src/notecontent.cpp:2159
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(在终端中运行)</i>"
 
-#: src/notecontent.cpp:2163
+#: src/notecontent.cpp:2164
 #, kde-format
 msgid "Command"
 msgstr "命令"
 
-#: src/notecontent.cpp:2187
+#: src/notecontent.cpp:2188
 #, kde-format
 msgid "Launch this application"
 msgstr "启动此应用程序"
 
-#: src/notecontent.cpp:2208
+#: src/notecontent.cpp:2209
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "此程序启动器没有可以运行的命令。"
 
-#: src/notecontent.cpp:2212
+#: src/notecontent.cpp:2213
 #, kde-format
 msgid "Launching application..."
 msgstr "运行应用程序..."
 
-#: src/notecontent.cpp:2214
+#: src/notecontent.cpp:2215
 #, kde-format
 msgid "Launching applications..."
 msgstr "运行应用程序 (多个)..."
 
-#: src/notecontent.cpp:2334
+#: src/notecontent.cpp:2335
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2335
+#: src/notecontent.cpp:2336
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>红</i>：%1，<i>绿</i>：%2，<i>蓝</i>：%3，"
 
-#: src/notecontent.cpp:2339
+#: src/notecontent.cpp:2340
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2340
+#: src/notecontent.cpp:2341
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>色相</i>：%1，<i>饱和度</i>：%2，<i>值</i>：%3，"
 
-#: src/notecontent.cpp:2344
+#: src/notecontent.cpp:2345
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS 颜色名称"
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "Is Web Color"
 msgstr "属于网络标准颜色"
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "Yes"
 msgstr "是"
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "No"
 msgstr "否"
 
-#: src/noteedit.cpp:538
+#: src/noteedit.cpp:541
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2549,29 +2549,29 @@ msgid ""
 "Do you want to open it with an application that understand it?"
 msgstr ""
 
-#: src/noteedit.cpp:540
+#: src/noteedit.cpp:543
 #, kde-format
 msgid "Edit Image Note"
 msgstr "编辑图像记事贴"
 
-#: src/noteedit.cpp:565
+#: src/noteedit.cpp:568
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
 msgstr ""
 
-#: src/noteedit.cpp:567
+#: src/noteedit.cpp:570
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "编辑动画记事贴"
 
-#: src/noteedit.cpp:660
+#: src/noteedit.cpp:663
 #, kde-format
 msgid "Edit Color Note"
 msgstr "编辑颜色记事贴"
 
-#: src/noteedit.cpp:685
+#: src/noteedit.cpp:688
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2579,127 +2579,127 @@ msgid ""
 "it."
 msgstr ""
 
-#: src/noteedit.cpp:687
+#: src/noteedit.cpp:690
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "编辑未知记事贴"
 
-#: src/noteedit.cpp:699
+#: src/noteedit.cpp:702
 #, kde-format
 msgid "Edit Link Note"
 msgstr "编辑链接记事贴"
 
-#: src/noteedit.cpp:719 src/noteedit.cpp:752
+#: src/noteedit.cpp:722 src/noteedit.cpp:755
 #, kde-format
 msgid "Auto"
 msgstr "自动"
 
-#: src/noteedit.cpp:731 src/noteedit.cpp:1057
+#: src/noteedit.cpp:734 src/noteedit.cpp:1060
 #, kde-format
 msgid "&Icon:"
 msgstr "图标 (&I)："
 
-#: src/noteedit.cpp:774 src/noteedit.cpp:945
+#: src/noteedit.cpp:777 src/noteedit.cpp:948
 #, kde-format
 msgid "Ta&rget:"
 msgstr "目标 (&R)："
 
-#: src/noteedit.cpp:779
+#: src/noteedit.cpp:782
 #, kde-format
 msgid "&Title:"
 msgstr "标题 (&T)："
 
-#: src/noteedit.cpp:912
+#: src/noteedit.cpp:915
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr ""
 
-#: src/noteedit.cpp:1031
+#: src/noteedit.cpp:1034
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "编辑程序启动器记事贴"
 
-#: src/noteedit.cpp:1045
+#: src/noteedit.cpp:1048
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "选择要运行的命令："
 
-#: src/noteedit.cpp:1062
+#: src/noteedit.cpp:1065
 #, kde-format
 msgid "&Guess"
 msgstr "猜测 (&G)"
 
-#: src/noteedit.cpp:1080
+#: src/noteedit.cpp:1083
 #, kde-format
 msgid "Comman&d:"
 msgstr "命令 (&D)："
 
-#: src/noteedit.cpp:1085 src/tagsedit.cpp:386
+#: src/noteedit.cpp:1088 src/tagsedit.cpp:386
 #, kde-format
 msgid "&Name:"
 msgstr "名称 (&N)："
 
-#: src/noteedit.cpp:1183
+#: src/noteedit.cpp:1186
 #, kde-format
 msgid "Font"
 msgstr "字体"
 
-#: src/noteedit.cpp:1191
+#: src/noteedit.cpp:1194
 #, kde-format
 msgid "Font Size"
 msgstr "字体大小"
 
-#: src/noteedit.cpp:1206 src/tagsedit.cpp:468
+#: src/noteedit.cpp:1209 src/tagsedit.cpp:468
 #, kde-format
 msgid "Bold"
 msgstr "粗体"
 
-#: src/noteedit.cpp:1213 src/tagsedit.cpp:480
+#: src/noteedit.cpp:1216 src/tagsedit.cpp:480
 #, kde-format
 msgid "Italic"
 msgstr "斜体"
 
-#: src/noteedit.cpp:1220 src/tagsedit.cpp:474
+#: src/noteedit.cpp:1223 src/tagsedit.cpp:474
 #, kde-format
 msgid "Underline"
 msgstr "下划线"
 
-#: src/noteedit.cpp:1228
+#: src/noteedit.cpp:1231
 #, kde-format
 msgid "Superscript"
 msgstr "上标"
 
-#: src/noteedit.cpp:1234
+#: src/noteedit.cpp:1237
 #, kde-format
 msgid "Subscript"
 msgstr "下标"
 
-#: src/noteedit.cpp:1241
+#: src/noteedit.cpp:1244
 #, kde-format
 msgid "Align Left"
 msgstr "左对齐"
 
-#: src/noteedit.cpp:1247
+#: src/noteedit.cpp:1250
 #, kde-format
 msgid "Centered"
 msgstr "居中"
 
-#: src/noteedit.cpp:1253
+#: src/noteedit.cpp:1256
 #, kde-format
 msgid "Align Right"
 msgstr "右对齐"
 
-#: src/noteedit.cpp:1259
+#: src/noteedit.cpp:1262
 #, kde-format
 msgid "Justified"
 msgstr "两边对齐"
 
-#: src/noteedit.cpp:1271
+#: src/noteedit.cpp:1274
 #, kde-format
 msgid "Undo"
 msgstr "撤销"
 
-#: src/noteedit.cpp:1277
+#: src/noteedit.cpp:1280
 #, kde-format
 msgid "Redo"
 msgstr "重做"
@@ -2754,7 +2754,7 @@ msgid "Load File Content into a Note"
 msgstr "加载文件内容到记事贴"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:592
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:595
 #, kde-format
 msgid "Password Protection"
 msgstr "密码保护"
@@ -2789,96 +2789,96 @@ msgid ""
 "Press Esc to quit."
 msgstr ""
 
-#: src/settings.cpp:435
+#: src/settings.cpp:438
 #, kde-format
 msgid "On left"
 msgstr "靠左"
 
-#: src/settings.cpp:436
+#: src/settings.cpp:439
 #, kde-format
 msgid "On right"
 msgstr "靠右"
 
-#: src/settings.cpp:438
+#: src/settings.cpp:441
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "笔记篮树位置 (&B)："
 
-#: src/settings.cpp:443 src/settings.cpp:701
+#: src/settings.cpp:446 src/settings.cpp:704
 #, kde-format
 msgid "On top"
 msgstr "置顶"
 
-#: src/settings.cpp:444 src/settings.cpp:702
+#: src/settings.cpp:447 src/settings.cpp:705
 #, kde-format
 msgid "On bottom"
 msgstr "置底"
 
-#: src/settings.cpp:446
+#: src/settings.cpp:449
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "检索吧位置(&F):"
 
-#: src/settings.cpp:492
+#: src/settings.cpp:495
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "显示笔记篮的悬停信息 (&S)"
 
-#: src/settings.cpp:496
+#: src/settings.cpp:499
 #, kde-format
 msgid "&Big notes"
 msgstr "大型记事贴 (&B)"
 
-#: src/settings.cpp:502
+#: src/settings.cpp:505
 #, kde-format
 msgid "Behavior"
 msgstr "行为"
 
-#: src/settings.cpp:507
+#: src/settings.cpp:510
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 
-#: src/settings.cpp:511
+#: src/settings.cpp:514
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "删除记事贴前请求确认 (&D)"
 
-#: src/settings.cpp:515
+#: src/settings.cpp:518
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr ""
 
-#: src/settings.cpp:519
+#: src/settings.cpp:522
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr ""
 
-#: src/settings.cpp:526
+#: src/settings.cpp:529
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "导出标记到文本(&E)"
 
-#: src/settings.cpp:530
+#: src/settings.cpp:533
 #, kde-format
 msgid "When does this apply?"
 msgstr "适用的情况?"
 
-#: src/settings.cpp:531
+#: src/settings.cpp:534
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
 msgstr "当你复制、粘贴、拖放记事贴到文本编辑器时有效。"
 
-#: src/settings.cpp:532
+#: src/settings.cpp:535
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr "如果开启，将会把你的同义标记转换成其相对应的内容."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:533 src/tagsedit.cpp:524
+#: src/settings.cpp:536 src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -2886,17 +2886,17 @@ msgid ""
 "empty checkbox and a checked box."
 msgstr ""
 
-#: src/settings.cpp:545
+#: src/settings.cpp:548
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "点击一行的右侧时对新建记事贴进行编组"
 
-#: src/settings.cpp:547
+#: src/settings.cpp:550
 #, kde-format
 msgid "How to group a new note?"
 msgstr "如何对新的记事贴进行编组？"
 
-#: src/settings.cpp:548
+#: src/settings.cpp:551
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -2906,7 +2906,7 @@ msgstr ""
 "<p>启用此选项时，插入行不但可以插入记事贴到光标位置，还可以在光标位置为新记事"
 "贴建立分组：</p>"
 
-#: src/settings.cpp:551
+#: src/settings.cpp:554
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -2915,187 +2915,187 @@ msgid ""
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
 
-#: src/settings.cpp:567
+#: src/settings.cpp:570
 #, kde-format
 msgid "Do nothing"
 msgstr "不操作"
 
-#: src/settings.cpp:568
+#: src/settings.cpp:571
 #, kde-format
 msgid "Paste clipboard"
 msgstr "粘贴"
 
-#: src/settings.cpp:571
+#: src/settings.cpp:574
 #, kde-format
 msgid "Insert cross reference"
 msgstr ""
 
-#: src/settings.cpp:572
+#: src/settings.cpp:575
 #, kde-format
 msgid "Insert launcher note"
 msgstr "插入程序启动器记事贴"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:578
 #, kde-format
 msgid "Insert color from screen"
 msgstr "从屏幕插入颜色"
 
-#: src/settings.cpp:576
+#: src/settings.cpp:579
 #, kde-format
 msgid "Load note from file"
 msgstr "加载文件中的记事贴"
 
-#: src/settings.cpp:577
+#: src/settings.cpp:580
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr ""
 
-#: src/settings.cpp:578
+#: src/settings.cpp:581
 #, kde-format
 msgid "Import icon"
 msgstr "载人图标"
 
-#: src/settings.cpp:581
+#: src/settings.cpp:584
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+点击鼠标中键:"
 
-#: src/settings.cpp:586
+#: src/settings.cpp:589
 #, kde-format
 msgid "at cursor position"
 msgstr "光标位置"
 
-#: src/settings.cpp:601
+#: src/settings.cpp:604
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "自动锁定已关闭笔记篮的等待时间 (&U)"
 
-#: src/settings.cpp:605
+#: src/settings.cpp:608
 #, kde-format
 msgid " minutes"
 msgstr "分钟"
 
-#: src/settings.cpp:616
+#: src/settings.cpp:619
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "使用 GnuPG 代理程序来处理通过私钥/公钥保护的笔记篮 (&P)"
 
-#: src/settings.cpp:698
+#: src/settings.cpp:701
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "新建记事贴位置 (&P)："
 
-#: src/settings.cpp:703
+#: src/settings.cpp:706
 #, kde-format
 msgid "At current note"
 msgstr "当前记事贴位置"
 
-#: src/settings.cpp:722
+#: src/settings.cpp:725
 #, kde-format
 msgid "&New images size:"
 msgstr "新图片尺寸(&N):"
 
-#: src/settings.cpp:735
+#: src/settings.cpp:738
 #, kde-format
 msgid "&by"
 msgstr ""
 
-#: src/settings.cpp:740
+#: src/settings.cpp:743
 #, kde-format
 msgid "pixels"
 msgstr "像素"
 
-#: src/settings.cpp:742
+#: src/settings.cpp:745
 #, kde-format
 msgid "&Visualize..."
 msgstr "预览(&V)..."
 
-#: src/settings.cpp:750
+#: src/settings.cpp:753
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "显示已添加文件的类型"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:755
 #, kde-format
 msgid "&Plain text"
 msgstr "纯文本(&P)"
 
-#: src/settings.cpp:753
+#: src/settings.cpp:756
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML页面"
 
-#: src/settings.cpp:754
+#: src/settings.cpp:757
 #, kde-format
 msgid "&Image or animation"
 msgstr "图片或媒体(&I)"
 
-#: src/settings.cpp:755
+#: src/settings.cpp:758
 #, kde-format
 msgid "&Sound"
 msgstr "声音(&S)"
 
-#: src/settings.cpp:823
+#: src/settings.cpp:826
 #, kde-format
 msgid "Conference audio record"
 msgstr "录音"
 
-#: src/settings.cpp:824
+#: src/settings.cpp:827
 #, kde-format
 msgid "Annual report"
 msgstr "统计报告"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:828
 #, kde-format
 msgid "Home folder"
 msgstr "Home目录"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:830
 #, kde-format
 msgid "Launch %1"
 msgstr "运行%1"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:831
 #, kde-format
 msgid "Another basket"
 msgstr ""
 
-#: src/settings.cpp:830
+#: src/settings.cpp:833
 #, kde-format
 msgid "&Sounds"
 msgstr "多个声音(&S)"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:834
 #, kde-format
 msgid "&Files"
 msgstr "文件(&F)"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:835
 #, kde-format
 msgid "&Local Links"
 msgstr "本地链接(&L)"
 
-#: src/settings.cpp:833
+#: src/settings.cpp:836
 #, kde-format
 msgid "&Network Links"
 msgstr "网络链接(&N)"
 
-#: src/settings.cpp:834
+#: src/settings.cpp:837
 #, kde-format
 msgid "Launc&hers"
 msgstr "执行程序"
 
-#: src/settings.cpp:835
+#: src/settings.cpp:838
 #, kde-format
 msgid "&Cross References"
 msgstr ""
 
-#: src/settings.cpp:876
+#: src/settings.cpp:879
 #, kde-format
 msgid "General Launch Associations"
 msgstr "通用启动关联"
 
-#: src/settings.cpp:879
+#: src/settings.cpp:882
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3124,7 +3124,7 @@ msgstr ""
 "开 HTTP 链接。</p><p>如需更精细的配置 (如优先使用 Falkon 打开 PDF 文档) ，请"
 "阅读第二个按钮的工具提示。</p>"
 
-#: src/settings.cpp:893
+#: src/settings.cpp:896
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3153,7 +3153,7 @@ msgstr ""
 "或 Epiphany 等) 中打开。</p><p>如需更精细的配置 (如仅在网页浏览器中打开网"
 "页) ，请阅读第三个按钮的工具提示。</p>"
 
-#: src/settings.cpp:907
+#: src/settings.cpp:910
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3171,62 +3171,62 @@ msgid ""
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 msgstr ""
 
-#: src/settings.cpp:955
+#: src/settings.cpp:958
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "特定的笔记栏关联"
 
-#: src/settings.cpp:957
+#: src/settings.cpp:960
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "用自定义程序打开文本记事贴 (&T)："
 
-#: src/settings.cpp:958
+#: src/settings.cpp:961
 #, kde-format
 msgid "Open text notes with:"
 msgstr "打开文本记事贴方式："
 
-#: src/settings.cpp:965
+#: src/settings.cpp:968
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "用自定义程序打开图像记事贴 (&I)："
 
-#: src/settings.cpp:966
+#: src/settings.cpp:969
 #, kde-format
 msgid "Open image notes with:"
 msgstr "打开图像记事贴方式："
 
-#: src/settings.cpp:973
+#: src/settings.cpp:976
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "用自定义程序打开动画记事贴 (&N)："
 
-#: src/settings.cpp:974
+#: src/settings.cpp:977
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "打开动画记事贴方式："
 
-#: src/settings.cpp:981
+#: src/settings.cpp:984
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "用自定义程序打开声音记事贴 (&U)："
 
-#: src/settings.cpp:982
+#: src/settings.cpp:985
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "打开声音记事贴方式："
 
-#: src/settings.cpp:989
+#: src/settings.cpp:992
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "用自定义程序打开 HTTP 链接便签"
 
-#: src/settings.cpp:990
+#: src/settings.cpp:993
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "HTTP 链接便签打开方式："
 
-#: src/settings.cpp:998
+#: src/settings.cpp:1001
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3234,7 +3234,7 @@ msgid ""
 "Konqueror will be used.</p>"
 msgstr ""
 
-#: src/settings.cpp:1008
+#: src/settings.cpp:1011
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "

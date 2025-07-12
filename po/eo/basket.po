@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-10 00:45+0000\n"
+"POT-Creation-Date: 2025-07-12 00:46+0000\n"
 "PO-Revision-Date: 2024-12-26 21:43+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -236,7 +236,7 @@ msgstr "Origina piktogramo"
 msgid "BasKet Note Pads"
 msgstr "BasKet-Notblokoj"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2050
+#: src/archive.cpp:50 src/bnpview.cpp:2049
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Konservi kiel Korbo-Arkivo"
@@ -359,7 +359,7 @@ msgstr "La dosierujo <b>%1</b> ne estas malplena. Ĉu vi volas anstataŭigi ĝin
 msgid "Overwrite Folder?"
 msgstr "Ĉu anstataŭigi dosierujon?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2059 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Superskribi"
@@ -389,8 +389,8 @@ msgstr "Korboj_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar-Arkivoj Kunpremitaj de Gzip"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2047
-#: src/bnpview.cpp:2094 src/htmlexporter.cpp:52
+#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
+#: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
 msgstr "Ĉiuj dosieroj"
@@ -405,7 +405,7 @@ msgstr "Sekurkopii Korbojn"
 msgid "Backing up baskets. Please wait..."
 msgstr "Sekurkopiante korbojn. Bonvolu atendi..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2095
+#: src/backup.cpp:256 src/bnpview.cpp:2094
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Malfermi Korb-Arkivon"
@@ -609,7 +609,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:487 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:490 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
 msgstr "Aspekto"
@@ -700,229 +700,229 @@ msgstr "Kelkaj novaj notoj ne kongruas kun la filtrilo kaj estas kaŝitaj."
 msgid "The new notes do not match the filter and are hidden."
 msgstr "La novaj notoj ne kongruas kun la filtrilo kaj estas kaŝitaj."
 
-#: src/basketscene.cpp:1466 src/notecontent.cpp:91
+#: src/basketscene.cpp:1468 src/notecontent.cpp:91
 #, kde-format
 msgid "Group"
 msgstr "Grupo"
 
-#: src/basketscene.cpp:1468
+#: src/basketscene.cpp:1470
 #, kde-format
 msgid "Insert"
 msgstr "Enmeti"
 
-#: src/basketscene.cpp:2315
+#: src/basketscene.cpp:2317
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
 msgstr ""
 
-#: src/basketscene.cpp:2754 src/basketscene.cpp:2807 src/basketscene.cpp:2816
+#: src/basketscene.cpp:2756 src/basketscene.cpp:2809 src/basketscene.cpp:2818
 #, kde-format
 msgid ""
 "Insert note here\n"
 "Right click for more options"
 msgstr ""
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize those columns"
 msgstr "Regrandigi tiujn kolumnojn"
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize this group"
 msgstr "Regrandigi ĉi tiun grupon"
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize this note"
 msgstr "Regrandigi ĉi tiun noton"
 
-#: src/basketscene.cpp:2776
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Select or move this note"
 msgstr "Elekti aŭ movi ĉi tiun noton"
 
-#: src/basketscene.cpp:2779
+#: src/basketscene.cpp:2781
 #, kde-format
 msgid "Select or move this group"
 msgstr "Elekti aŭ movi ĉi tiun grupon"
 
-#: src/basketscene.cpp:2782
+#: src/basketscene.cpp:2784
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Asigni aŭ forigi etikedojn de ĉi tiu noto"
 
-#: src/basketscene.cpp:2790
+#: src/basketscene.cpp:2792
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2792
+#: src/basketscene.cpp:2794
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Asignitaj Etikedoj</b>: %1"
 
-#: src/basketscene.cpp:2799
+#: src/basketscene.cpp:2801
 #, kde-format
 msgid "Expand this group"
 msgstr "Vastigi ĉi tiun grupon"
 
-#: src/basketscene.cpp:2799
+#: src/basketscene.cpp:2801
 #, kde-format
 msgid "Collapse this group"
 msgstr "Malvastigi ĉi tiun grupon"
 
-#: src/basketscene.cpp:2810
+#: src/basketscene.cpp:2812
 #, kde-format
 msgid ""
 "Group note with the one below\n"
 "Right click for more options"
 msgstr ""
 
-#: src/basketscene.cpp:2813
+#: src/basketscene.cpp:2815
 #, kde-format
 msgid ""
 "Group note with the one above\n"
 "Right click for more options"
 msgstr ""
 
-#: src/basketscene.cpp:2831
+#: src/basketscene.cpp:2833
 #, kde-format
 msgid "Added"
 msgstr "Aldonita"
 
-#: src/basketscene.cpp:2831
+#: src/basketscene.cpp:2833
 #, kde-format
 msgid "Last Modification"
 msgstr "Lasta Modifo"
 
-#: src/basketscene.cpp:2836
+#: src/basketscene.cpp:2838
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2842
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Klaku dekstre por grupigi anstataŭ enmeti"
 
-#: src/basketscene.cpp:2842
+#: src/basketscene.cpp:2844
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Klaku maldekstre por enmeti anstataŭ grupon"
 
-#: src/basketscene.cpp:3020
+#: src/basketscene.cpp:3022
 #, kde-format
 msgid "&Unlock"
 msgstr "&Malŝlosi"
 
-#: src/basketscene.cpp:3025
+#: src/basketscene.cpp:3027
 #, kde-format
 msgid "Password protected basket."
 msgstr "Pasvorte protektita korbo."
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3029
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Premu Malŝlosi por aliri ĝin."
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3031
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "Ĉifrado ne estas subtenata de<br/>ĉi tiu versio de %1."
 
-#: src/basketscene.cpp:3041
+#: src/basketscene.cpp:3043
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
 msgstr ""
 
-#: src/basketscene.cpp:3068 src/basketstatusbar.cpp:89 src/bnpview.cpp:1609
+#: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
 msgstr "Ŝargante..."
 
-#: src/basketscene.cpp:3234 src/basketscene.cpp:3276
+#: src/basketscene.cpp:3236 src/basketscene.cpp:3278
 #, kde-format
 msgid "&Remove"
 msgstr "Fo&rigi"
 
-#: src/basketscene.cpp:3237 src/basketscene.cpp:3280 src/bnpview.cpp:2490
+#: src/basketscene.cpp:3239 src/basketscene.cpp:3282 src/bnpview.cpp:2489
 #, kde-format
 msgid "&Customize..."
 msgstr "A&gordi..."
 
-#: src/basketscene.cpp:3243 src/basketscene.cpp:3286
+#: src/basketscene.cpp:3245 src/basketscene.cpp:3288
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Filtri per ĉi tiu Etikedo"
 
-#: src/basketscene.cpp:3289
+#: src/basketscene.cpp:3291
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Filtri per ĉi tiu &Stato"
 
-#: src/basketscene.cpp:3370
+#: src/basketscene.cpp:3372
 #, kde-format
 msgid "Tags"
 msgstr "Etikedoj"
 
-#: src/basketscene.cpp:3945
+#: src/basketscene.cpp:3949
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Ĉu vi vere volas forogi ĉi tiun noton?</qt>"
 msgstr[1] "<qt>Ĉu vi vere volas forogi ĉi <b>%1</b> notojn?</qt>"
 
-#: src/basketscene.cpp:3946
+#: src/basketscene.cpp:3950
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Forigi Noton"
 msgstr[1] "Forigi Notojn"
 
-#: src/basketscene.cpp:4045
+#: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Kopiis noton al tondujo."
 msgstr[1] "Kopiis notojn al tondujo."
 
-#: src/basketscene.cpp:4048
+#: src/basketscene.cpp:4052
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Tondis noton al tondujo."
 msgstr[1] "Tondis notojn al tondujo."
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4055
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Kopiis noton al elekto."
 msgstr[1] "Kopiis notojn al elekto."
 
-#: src/basketscene.cpp:4115 src/basketscene.cpp:4190
+#: src/basketscene.cpp:4119 src/basketscene.cpp:4194
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Ne eblas malfermi ĉi tiun noton."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4117 src/basketui.rc:40
+#: src/basketscene.cpp:4121 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "R&edakti"
 
-#: src/basketscene.cpp:4153
+#: src/basketscene.cpp:4157
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Vi ne estas rajtigita malfermi ĉi tiun dosieron."
 
-#: src/basketscene.cpp:4211
+#: src/basketscene.cpp:4215
 #, kde-format
 msgid "Save to File"
 msgstr "Konservi al dosiero"
@@ -1020,7 +1020,7 @@ msgstr "Ĉefa ilobreto"
 msgid "Text Formatting Toolbar"
 msgstr "Ilobreto por Teksta Formatado"
 
-#: src/bnpview.cpp:166 src/bnpview.cpp:1247
+#: src/bnpview.cpp:166 src/bnpview.cpp:1246
 #, kde-format
 msgid "General"
 msgstr "Ĝenerala"
@@ -1097,7 +1097,7 @@ msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:274 src/settings.cpp:569
+#: src/bnpview.cpp:274 src/settings.cpp:572
 #, kde-format
 msgid "Insert image note"
 msgstr "Enigi bildan noton"
@@ -1109,7 +1109,7 @@ msgid ""
 "window."
 msgstr ""
 
-#: src/bnpview.cpp:280 src/settings.cpp:570
+#: src/bnpview.cpp:280 src/settings.cpp:573
 #, kde-format
 msgid "Insert link note"
 msgstr "Enigi ligan noton"
@@ -1120,7 +1120,7 @@ msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:286 src/settings.cpp:573
+#: src/bnpview.cpp:286 src/settings.cpp:576
 #, kde-format
 msgid "Insert color note"
 msgstr "Enigi kolornoton"
@@ -1144,7 +1144,7 @@ msgid ""
 "without having to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:299 src/settings.cpp:574
+#: src/bnpview.cpp:299 src/settings.cpp:577
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Preni ekranzonon"
@@ -1338,7 +1338,7 @@ msgstr "Importi Lanĉilon por &tabla aplikaĵo..."
 msgid "Im&port Icon..."
 msgstr "En&porti piktogramon..."
 
-#: src/bnpview.cpp:553 src/noteedit.cpp:542
+#: src/bnpview.cpp:553 src/noteedit.cpp:545
 #, kde-format
 msgid "Load From &File..."
 msgstr "Ŝargi el dosiero..."
@@ -1353,187 +1353,187 @@ msgstr "C&koloro el Ekrano"
 msgid "Grab Screen &Zone"
 msgstr "Preni Ekranan &Zonon"
 
-#: src/bnpview.cpp:632
+#: src/bnpview.cpp:629
 #, kde-format
 msgid "&New Basket..."
 msgstr "&Nova Korbo..."
 
-#: src/bnpview.cpp:638
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "Nova &Subkorbo..."
 
-#: src/bnpview.cpp:643
+#: src/bnpview.cpp:640
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Nova Gefrata Kor&bo..."
 
-#: src/bnpview.cpp:646
+#: src/bnpview.cpp:643
 #, kde-format
 msgid "&New"
 msgstr "&Nova"
 
-#: src/bnpview.cpp:656
+#: src/bnpview.cpp:653
 #, kde-format
 msgid "&Properties..."
 msgstr "&Trajtoj..."
 
-#: src/bnpview.cpp:662
+#: src/bnpview.cpp:659
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Ordigi Infanojn Kreskante"
 
-#: src/bnpview.cpp:667
+#: src/bnpview.cpp:664
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Ordigi Infanojn Malkreskante"
 
-#: src/bnpview.cpp:672
+#: src/bnpview.cpp:669
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Ordigi Gefratojn Kreskante"
 
-#: src/bnpview.cpp:677
+#: src/bnpview.cpp:674
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Ordigi Gefratojn Malkreskante"
 
-#: src/bnpview.cpp:682
+#: src/bnpview.cpp:679
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "Fo&rigi"
 
-#: src/bnpview.cpp:688
+#: src/bnpview.cpp:685
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Pas&vorto..."
 
-#: src/bnpview.cpp:693
+#: src/bnpview.cpp:690
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "Ŝ&losi"
 
-#: src/bnpview.cpp:706
+#: src/bnpview.cpp:703
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtrilo"
 
-#: src/bnpview.cpp:716
+#: src/bnpview.cpp:715
 #, kde-format
 msgid "&Search All"
 msgstr "&Serĉi ĉiujn"
 
-#: src/bnpview.cpp:724
+#: src/bnpview.cpp:723
 #, kde-format
 msgid "&Reset Filter"
 msgstr "&Restarigi Filtrilon"
 
-#: src/bnpview.cpp:732
+#: src/bnpview.cpp:731
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&Antaŭa Korbo"
 
-#: src/bnpview.cpp:738
+#: src/bnpview.cpp:737
 #, kde-format
 msgid "&Next Basket"
 msgstr "&Sekva Korbo"
 
-#: src/bnpview.cpp:744
+#: src/bnpview.cpp:743
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&Faldi Korbon"
 
-#: src/bnpview.cpp:750
+#: src/bnpview.cpp:749
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Vastigi Korbon"
 
-#: src/bnpview.cpp:758
+#: src/bnpview.cpp:757
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "Konverti tekstajn notojn al riĉaj tekstaj notoj"
 
-#: src/bnpview.cpp:767
+#: src/bnpview.cpp:766
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&Bonvenaj Korboj"
 
-#: src/bnpview.cpp:1032
+#: src/bnpview.cpp:1031
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Konvertiĝo de Plattekstaj Notoj"
 
-#: src/bnpview.cpp:1033
+#: src/bnpview.cpp:1032
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "Konvertado de klartekstaj notoj al riĉtekstaj notoj..."
 
-#: src/bnpview.cpp:1607
+#: src/bnpview.cpp:1606
 #, kde-format
 msgid "Locked"
 msgstr "Ŝlosita"
 
-#: src/bnpview.cpp:1611
+#: src/bnpview.cpp:1610
 #, kde-format
 msgid "No notes"
 msgstr "Neniuj notoj"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1612
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 noto"
 msgstr[1] "%1 notoj"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1613
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 elektita"
 msgstr[1] "%1 elektitaj"
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "all matches"
 msgstr "ĉiuj kongruoj"
 
-#: src/bnpview.cpp:1615
+#: src/bnpview.cpp:1614
 #, kde-format
 msgid "no filter"
 msgstr "neniu filtrilo"
 
-#: src/bnpview.cpp:1617
+#: src/bnpview.cpp:1616
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 kongruo"
 msgstr[1] "%1 kongruoj"
 
-#: src/bnpview.cpp:1618
+#: src/bnpview.cpp:1617
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1753
+#: src/bnpview.cpp:1752
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "La klartekstaj notoj estis konvertitaj al riĉa teksto."
 
-#: src/bnpview.cpp:1753 src/bnpview.cpp:1755
+#: src/bnpview.cpp:1752 src/bnpview.cpp:1754
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Konvertiĝo Finita"
 
-#: src/bnpview.cpp:1755
+#: src/bnpview.cpp:1754
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Ne estas klartekstaj notoj por konverti."
 
-#: src/bnpview.cpp:1772
+#: src/bnpview.cpp:1771
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1545,70 +1545,70 @@ msgid ""
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
 
-#: src/bnpview.cpp:1786
+#: src/bnpview.cpp:1785
 #, kde-format
 msgid "Resource not Found"
 msgstr "Rimedo ne Trovita"
 
-#: src/bnpview.cpp:1815
+#: src/bnpview.cpp:1814
 #, kde-format
 msgid "Cannot add note."
 msgstr "Ne povas aldoni noton."
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1961
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr ""
 
-#: src/bnpview.cpp:1963
+#: src/bnpview.cpp:1962
 #, kde-format
 msgid "Remove Basket"
 msgstr "Forigi Korbon"
 
-#: src/bnpview.cpp:1964
+#: src/bnpview.cpp:1963
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Forigi Korbon"
 
-#: src/bnpview.cpp:1974
+#: src/bnpview.cpp:1973
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
 msgstr ""
 
-#: src/bnpview.cpp:1976
+#: src/bnpview.cpp:1975
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Forigi Infanajn Korbojn"
 
-#: src/bnpview.cpp:1977
+#: src/bnpview.cpp:1976
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&Forigi Infanajn Korbojn"
 
-#: src/bnpview.cpp:2047 src/bnpview.cpp:2094
+#: src/bnpview.cpp:2046 src/bnpview.cpp:2093
 #, kde-format
 msgid "Basket Archives"
 msgstr "Korbo-Arkivoj"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "La dosiero <b>%1</b> jam ekzistas. Ĉu vi vere volas anstataŭigi ĝin?"
 
-#: src/bnpview.cpp:2058 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Ĉu anstataŭigi dosieron?"
 
-#: src/bnpview.cpp:2479
+#: src/bnpview.cpp:2478
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Asigni novan etikedon..."
 
-#: src/bnpview.cpp:2484
+#: src/bnpview.cpp:2483
 #, kde-format
 msgid "&Remove All"
 msgstr "Fo&rigi Ĉiujn"
@@ -1668,7 +1668,7 @@ msgstr "Ekzempla indico"
 msgid "Track number"
 msgstr "Trako nombro"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2161
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2162
 #, kde-format
 msgid "Comment"
 msgstr "Komento"
@@ -1817,7 +1817,7 @@ msgid ""
 msgstr ""
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
-#: src/variouswidgets.cpp:405
+#: src/variouswidgets.cpp:404
 #, kde-format
 msgid "(Default)"
 msgstr "(Defaŭlte)"
@@ -2123,7 +2123,7 @@ msgstr "Kruc-referenco"
 msgid "Launcher"
 msgstr "Lanĉilo"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1201
+#: src/notecontent.cpp:111 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
 msgstr "Koloro"
@@ -2248,7 +2248,7 @@ msgstr "Malfermi tekston kun:"
 msgid "Open texts with:"
 msgstr "Malfermi tekstojn kun:"
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1464
+#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
 #, kde-format
 msgid "Size"
 msgstr "Grandeco"
@@ -2293,244 +2293,244 @@ msgstr "Malfermi bildojn kun:"
 msgid "Click for full size view"
 msgstr "Klaku por plengranda vido"
 
-#: src/notecontent.cpp:1375
+#: src/notecontent.cpp:1376
 #, kde-format
 msgid "Opening animation..."
 msgstr "Malferma animacio..."
 
-#: src/notecontent.cpp:1377
+#: src/notecontent.cpp:1378
 #, kde-format
 msgid "Opening animations..."
 msgstr "Malferma animacioj..."
 
-#: src/notecontent.cpp:1379
+#: src/notecontent.cpp:1380
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Malferma animacio kun..."
 
-#: src/notecontent.cpp:1381
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Malfermante animaciojn kun..."
 
-#: src/notecontent.cpp:1383
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Open animation with:"
 msgstr "Malfermi animacion kun:"
 
-#: src/notecontent.cpp:1385
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Open animations with:"
 msgstr "Malfermi animaciojn kun:"
 
-#: src/notecontent.cpp:1469
+#: src/notecontent.cpp:1470
 #, kde-format
 msgid "Type"
 msgstr "Tipo"
 
-#: src/notecontent.cpp:1510
+#: src/notecontent.cpp:1511
 #, kde-format
 msgid "Open this file"
 msgstr "Malfermi ĉi tiun dosieron"
 
-#: src/notecontent.cpp:1529
+#: src/notecontent.cpp:1530
 #, kde-format
 msgid "Opening file..."
 msgstr "Malfermante dosieron..."
 
-#: src/notecontent.cpp:1531
+#: src/notecontent.cpp:1532
 #, kde-format
 msgid "Opening files..."
 msgstr "Malfermante dosierojn..."
 
-#: src/notecontent.cpp:1533
+#: src/notecontent.cpp:1534
 #, kde-format
 msgid "Opening file with..."
 msgstr "Malfermante dosieron kun..."
 
-#: src/notecontent.cpp:1535
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Opening files with..."
 msgstr "Malfermante dosierojn kun..."
 
-#: src/notecontent.cpp:1537
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Open file with:"
 msgstr "Malfermi dosieron kun:"
 
-#: src/notecontent.cpp:1539
+#: src/notecontent.cpp:1540
 #, kde-format
 msgid "Open files with:"
 msgstr "Malfermi dosierojn kun:"
 
-#: src/notecontent.cpp:1631
+#: src/notecontent.cpp:1632
 #, kde-format
 msgid "Open this sound"
 msgstr "Malfermi ĉi tiun sonon"
 
-#: src/notecontent.cpp:1657
+#: src/notecontent.cpp:1658
 #, kde-format
 msgid "Opening sound..."
 msgstr "Malferma sono..."
 
-#: src/notecontent.cpp:1659
+#: src/notecontent.cpp:1660
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Malfermaj sonoj..."
 
-#: src/notecontent.cpp:1661
+#: src/notecontent.cpp:1662
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Malferma sono kun..."
 
-#: src/notecontent.cpp:1663
+#: src/notecontent.cpp:1664
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Malfermaj sonoj kun..."
 
-#: src/notecontent.cpp:1665
+#: src/notecontent.cpp:1666
 #, kde-format
 msgid "Open sound with:"
 msgstr "Malfermi sonon kun:"
 
-#: src/notecontent.cpp:1667
+#: src/notecontent.cpp:1668
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Malfermi sonojn kun:"
 
-#: src/notecontent.cpp:1730 src/notecontent.cpp:2001
+#: src/notecontent.cpp:1731 src/notecontent.cpp:2002
 #, kde-format
 msgid "Target"
 msgstr "Celo"
 
-#: src/notecontent.cpp:1752 src/notecontent.cpp:2023
+#: src/notecontent.cpp:1753 src/notecontent.cpp:2024
 #, kde-format
 msgid "Open this link"
 msgstr "Malfermi ĉi tiun ligon"
 
-#: src/notecontent.cpp:1778
+#: src/notecontent.cpp:1779
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Ligo ne havas URL por malfermi."
 
-#: src/notecontent.cpp:1782
+#: src/notecontent.cpp:1783
 #, kde-format
 msgid "Opening link target..."
 msgstr "Malferma celo de ligilo..."
 
-#: src/notecontent.cpp:1784
+#: src/notecontent.cpp:1785
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Malfermante ligajn celojn..."
 
-#: src/notecontent.cpp:1786
+#: src/notecontent.cpp:1787
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Malfermante ligilon kun..."
 
-#: src/notecontent.cpp:1788
+#: src/notecontent.cpp:1789
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Malfermante ligajn celojn kun..."
 
-#: src/notecontent.cpp:1790
+#: src/notecontent.cpp:1791
 #, kde-format
 msgid "Open link target with:"
 msgstr "Malfermi ligilon kun:"
 
-#: src/notecontent.cpp:1792
+#: src/notecontent.cpp:1793
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Malfermi ligajn celojn kun:"
 
-#: src/notecontent.cpp:2036
+#: src/notecontent.cpp:2037
 #, kde-format
 msgid "Link to %1"
 msgstr "Ligo al %1"
 
-#: src/notecontent.cpp:2049
+#: src/notecontent.cpp:2050
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Ligilo ne havas korbon por malfermi."
 
-#: src/notecontent.cpp:2053
+#: src/notecontent.cpp:2054
 #, kde-format
 msgid "Opening basket..."
 msgstr "Malferma korbo..."
 
-#: src/notecontent.cpp:2158
+#: src/notecontent.cpp:2159
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(kuri en terminalo)</i>"
 
-#: src/notecontent.cpp:2163
+#: src/notecontent.cpp:2164
 #, kde-format
 msgid "Command"
 msgstr "Komando"
 
-#: src/notecontent.cpp:2187
+#: src/notecontent.cpp:2188
 #, kde-format
 msgid "Launch this application"
 msgstr "Lanĉi ĉi tiun aplikaĵon"
 
-#: src/notecontent.cpp:2208
+#: src/notecontent.cpp:2209
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "La lanĉilo ne havas komandon por ruli."
 
-#: src/notecontent.cpp:2212
+#: src/notecontent.cpp:2213
 #, kde-format
 msgid "Launching application..."
 msgstr "Lanĉante aplikaĵon..."
 
-#: src/notecontent.cpp:2214
+#: src/notecontent.cpp:2215
 #, kde-format
 msgid "Launching applications..."
 msgstr "Lanĉante aplikaĵojn..."
 
-#: src/notecontent.cpp:2334
+#: src/notecontent.cpp:2335
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RVB"
 
-#: src/notecontent.cpp:2335
+#: src/notecontent.cpp:2336
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Ruĝa</i>: %1, <i>Verda</i>: %2, <i>Blua</i>: %3,"
 
-#: src/notecontent.cpp:2339
+#: src/notecontent.cpp:2340
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2340
+#: src/notecontent.cpp:2341
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Nuanco</i>: %1, <i>Saturiĝo</i>: %2, <i>Valoro</i>: %3,"
 
-#: src/notecontent.cpp:2344
+#: src/notecontent.cpp:2345
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS Kolora Nomo"
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "Is Web Color"
 msgstr "Ĉu Reteja Koloro"
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "Yes"
 msgstr "Jes"
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "No"
 msgstr "Ne"
 
-#: src/noteedit.cpp:538
+#: src/noteedit.cpp:541
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2538,29 +2538,29 @@ msgid ""
 "Do you want to open it with an application that understand it?"
 msgstr ""
 
-#: src/noteedit.cpp:540
+#: src/noteedit.cpp:543
 #, kde-format
 msgid "Edit Image Note"
 msgstr "Redakti Bildan Noton"
 
-#: src/noteedit.cpp:565
+#: src/noteedit.cpp:568
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
 msgstr ""
 
-#: src/noteedit.cpp:567
+#: src/noteedit.cpp:570
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "Redakti Animacian Noton"
 
-#: src/noteedit.cpp:660
+#: src/noteedit.cpp:663
 #, kde-format
 msgid "Edit Color Note"
 msgstr "Redakti Koloran Noton"
 
-#: src/noteedit.cpp:685
+#: src/noteedit.cpp:688
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2568,127 +2568,127 @@ msgid ""
 "it."
 msgstr ""
 
-#: src/noteedit.cpp:687
+#: src/noteedit.cpp:690
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "Redakti Nekonatan Noton"
 
-#: src/noteedit.cpp:699
+#: src/noteedit.cpp:702
 #, kde-format
 msgid "Edit Link Note"
 msgstr "Redakti Lig-Noton"
 
-#: src/noteedit.cpp:719 src/noteedit.cpp:752
+#: src/noteedit.cpp:722 src/noteedit.cpp:755
 #, kde-format
 msgid "Auto"
 msgstr "Aŭtomata"
 
-#: src/noteedit.cpp:731 src/noteedit.cpp:1057
+#: src/noteedit.cpp:734 src/noteedit.cpp:1060
 #, kde-format
 msgid "&Icon:"
 msgstr "P&iktogramo:"
 
-#: src/noteedit.cpp:774 src/noteedit.cpp:945
+#: src/noteedit.cpp:777 src/noteedit.cpp:948
 #, kde-format
 msgid "Ta&rget:"
 msgstr "Ta&rget:"
 
-#: src/noteedit.cpp:779
+#: src/noteedit.cpp:782
 #, kde-format
 msgid "&Title:"
 msgstr "&Titolo:"
 
-#: src/noteedit.cpp:912
+#: src/noteedit.cpp:915
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Redakti Krucreferencon"
 
-#: src/noteedit.cpp:1031
+#: src/noteedit.cpp:1034
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Redakti Lanĉilan Noton"
 
-#: src/noteedit.cpp:1045
+#: src/noteedit.cpp:1048
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Elekti komandon por ruli:"
 
-#: src/noteedit.cpp:1062
+#: src/noteedit.cpp:1065
 #, kde-format
 msgid "&Guess"
 msgstr "&Diveni"
 
-#: src/noteedit.cpp:1080
+#: src/noteedit.cpp:1083
 #, kde-format
 msgid "Comman&d:"
 msgstr "Komando&d:"
 
-#: src/noteedit.cpp:1085 src/tagsedit.cpp:386
+#: src/noteedit.cpp:1088 src/tagsedit.cpp:386
 #, kde-format
 msgid "&Name:"
 msgstr "&Nomo:"
 
-#: src/noteedit.cpp:1183
+#: src/noteedit.cpp:1186
 #, kde-format
 msgid "Font"
 msgstr "Tiparo"
 
-#: src/noteedit.cpp:1191
+#: src/noteedit.cpp:1194
 #, kde-format
 msgid "Font Size"
 msgstr "Tiparo Grandeco"
 
-#: src/noteedit.cpp:1206 src/tagsedit.cpp:468
+#: src/noteedit.cpp:1209 src/tagsedit.cpp:468
 #, kde-format
 msgid "Bold"
 msgstr "Grasa"
 
-#: src/noteedit.cpp:1213 src/tagsedit.cpp:480
+#: src/noteedit.cpp:1216 src/tagsedit.cpp:480
 #, kde-format
 msgid "Italic"
 msgstr "Kursiva"
 
-#: src/noteedit.cpp:1220 src/tagsedit.cpp:474
+#: src/noteedit.cpp:1223 src/tagsedit.cpp:474
 #, kde-format
 msgid "Underline"
 msgstr "Substrekita"
 
-#: src/noteedit.cpp:1228
+#: src/noteedit.cpp:1231
 #, kde-format
 msgid "Superscript"
 msgstr "Superskribo"
 
-#: src/noteedit.cpp:1234
+#: src/noteedit.cpp:1237
 #, kde-format
 msgid "Subscript"
 msgstr "Malalta skribo"
 
-#: src/noteedit.cpp:1241
+#: src/noteedit.cpp:1244
 #, kde-format
 msgid "Align Left"
 msgstr "Vicigi Maldekstre"
 
-#: src/noteedit.cpp:1247
+#: src/noteedit.cpp:1250
 #, kde-format
 msgid "Centered"
 msgstr "Centrita"
 
-#: src/noteedit.cpp:1253
+#: src/noteedit.cpp:1256
 #, kde-format
 msgid "Align Right"
 msgstr "Vicigi Dekstren"
 
-#: src/noteedit.cpp:1259
+#: src/noteedit.cpp:1262
 #, kde-format
 msgid "Justified"
 msgstr "Pravigita"
 
-#: src/noteedit.cpp:1271
+#: src/noteedit.cpp:1274
 #, kde-format
 msgid "Undo"
 msgstr "Malfari"
 
-#: src/noteedit.cpp:1277
+#: src/noteedit.cpp:1280
 #, kde-format
 msgid "Redo"
 msgstr "Refari"
@@ -2743,7 +2743,7 @@ msgid "Load File Content into a Note"
 msgstr "Ŝargi Dosieran Enhavon en Noton"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:592
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:595
 #, kde-format
 msgid "Password Protection"
 msgstr "Pasvorta Protekto"
@@ -2780,97 +2780,97 @@ msgstr ""
 "Elektu regionon per la muso. Por preni la momentkopion, premu la Enter-"
 "klavon. Premu Esc por ĉesigi."
 
-#: src/settings.cpp:435
+#: src/settings.cpp:438
 #, kde-format
 msgid "On left"
 msgstr "Maldekstre"
 
-#: src/settings.cpp:436
+#: src/settings.cpp:439
 #, kde-format
 msgid "On right"
 msgstr "Dekstre"
 
-#: src/settings.cpp:438
+#: src/settings.cpp:441
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "Kor&ba arbpozicio:"
 
-#: src/settings.cpp:443 src/settings.cpp:701
+#: src/settings.cpp:446 src/settings.cpp:704
 #, kde-format
 msgid "On top"
 msgstr "Supre"
 
-#: src/settings.cpp:444 src/settings.cpp:702
+#: src/settings.cpp:447 src/settings.cpp:705
 #, kde-format
 msgid "On bottom"
 msgstr "Sur la fundo"
 
-#: src/settings.cpp:446
+#: src/settings.cpp:449
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "Pozicio de &filtrilo:"
 
-#: src/settings.cpp:492
+#: src/settings.cpp:495
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "&Montri konsiletojn en korboj"
 
-#: src/settings.cpp:496
+#: src/settings.cpp:499
 #, kde-format
 msgid "&Big notes"
 msgstr "Gran&daj notoj"
 
-#: src/settings.cpp:502
+#: src/settings.cpp:505
 #, kde-format
 msgid "Behavior"
 msgstr "Konduto"
 
-#: src/settings.cpp:507
+#: src/settings.cpp:510
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "&Transformi liniojn komencantajn per * aŭ - al listoj en tekstredaktiloj"
 
-#: src/settings.cpp:511
+#: src/settings.cpp:514
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "Peti konfirmon antaŭ &forigi notojn"
 
-#: src/settings.cpp:515
+#: src/settings.cpp:518
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Konservi tekstoformatadon dum algluado"
 
-#: src/settings.cpp:519
+#: src/settings.cpp:522
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Aŭtomate detekti etikedojn el la enhavo de noto"
 
-#: src/settings.cpp:526
+#: src/settings.cpp:529
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Eksporti etikedojn en tekstoj"
 
-#: src/settings.cpp:530
+#: src/settings.cpp:533
 #, kde-format
 msgid "When does this apply?"
 msgstr "Kiam ĉi tio validas?"
 
-#: src/settings.cpp:531
+#: src/settings.cpp:534
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
 msgstr ""
 
-#: src/settings.cpp:532
+#: src/settings.cpp:535
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr ""
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:533 src/tagsedit.cpp:524
+#: src/settings.cpp:536 src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -2878,17 +2878,17 @@ msgid ""
 "empty checkbox and a checked box."
 msgstr ""
 
-#: src/settings.cpp:545
+#: src/settings.cpp:548
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Grupigi novan noton klakante dekstre de la enmeta linio"
 
-#: src/settings.cpp:547
+#: src/settings.cpp:550
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Kiel grupigi novan noton?"
 
-#: src/settings.cpp:548
+#: src/settings.cpp:551
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -2896,7 +2896,7 @@ msgid ""
 "with the one under the cursor:</p>"
 msgstr ""
 
-#: src/settings.cpp:551
+#: src/settings.cpp:554
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -2905,187 +2905,187 @@ msgid ""
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
 
-#: src/settings.cpp:567
+#: src/settings.cpp:570
 #, kde-format
 msgid "Do nothing"
 msgstr "Fari nenion"
 
-#: src/settings.cpp:568
+#: src/settings.cpp:571
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Alglui tondujon"
 
-#: src/settings.cpp:571
+#: src/settings.cpp:574
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Enigi krucreferencon"
 
-#: src/settings.cpp:572
+#: src/settings.cpp:575
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Enmeti lanĉilan noton"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:578
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Enigi koloron el ekrano"
 
-#: src/settings.cpp:576
+#: src/settings.cpp:579
 #, kde-format
 msgid "Load note from file"
 msgstr "Ŝargi noton el dosiero"
 
-#: src/settings.cpp:577
+#: src/settings.cpp:580
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Importi Lanĉilon por labortabla aplikaĵo"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:581
 #, kde-format
 msgid "Import icon"
 msgstr "Importi piktogramon"
 
-#: src/settings.cpp:581
+#: src/settings.cpp:584
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+mezklaku ien ajn:"
 
-#: src/settings.cpp:586
+#: src/settings.cpp:589
 #, kde-format
 msgid "at cursor position"
 msgstr "ĉe kursora pozicio"
 
-#: src/settings.cpp:601
+#: src/settings.cpp:604
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "Aŭtomate ŝlosi protektitajn korbojn kiam fermitaj d&um"
 
-#: src/settings.cpp:605
+#: src/settings.cpp:608
 #, kde-format
 msgid " minutes"
 msgstr "minutoj"
 
-#: src/settings.cpp:616
+#: src/settings.cpp:619
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Uzu GnuPG-agenton por protektitaj korboj de &privata/publika ŝlosilo"
 
-#: src/settings.cpp:698
+#: src/settings.cpp:701
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Loko de novaj notoj:"
 
-#: src/settings.cpp:703
+#: src/settings.cpp:706
 #, kde-format
 msgid "At current note"
 msgstr "Je nuna noto"
 
-#: src/settings.cpp:722
+#: src/settings.cpp:725
 #, kde-format
 msgid "&New images size:"
 msgstr "&Nova grandeco de bildoj:"
 
-#: src/settings.cpp:735
+#: src/settings.cpp:738
 #, kde-format
 msgid "&by"
 msgstr "o&ble"
 
-#: src/settings.cpp:740
+#: src/settings.cpp:743
 #, kde-format
 msgid "pixels"
 msgstr "rastrumeroj"
 
-#: src/settings.cpp:742
+#: src/settings.cpp:745
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Vidigi..."
 
-#: src/settings.cpp:750
+#: src/settings.cpp:753
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Rigardi Enhavon de Aldonitaj Dosieroj por la Sekvaj Tipoj"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:755
 #, kde-format
 msgid "&Plain text"
 msgstr "&Platteksto"
 
-#: src/settings.cpp:753
+#: src/settings.cpp:756
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML-paĝo"
 
-#: src/settings.cpp:754
+#: src/settings.cpp:757
 #, kde-format
 msgid "&Image or animation"
 msgstr "B&ildo aŭ animacio"
 
-#: src/settings.cpp:755
+#: src/settings.cpp:758
 #, kde-format
 msgid "&Sound"
 msgstr "&Sono"
 
-#: src/settings.cpp:823
+#: src/settings.cpp:826
 #, kde-format
 msgid "Conference audio record"
 msgstr "Konferenca sonregistro"
 
-#: src/settings.cpp:824
+#: src/settings.cpp:827
 #, kde-format
 msgid "Annual report"
 msgstr "Jarraporto"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:828
 #, kde-format
 msgid "Home folder"
 msgstr "Hejma dosierujo"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:830
 #, kde-format
 msgid "Launch %1"
 msgstr "Lanĉi %1"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:831
 #, kde-format
 msgid "Another basket"
 msgstr "Alia korbo"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:833
 #, kde-format
 msgid "&Sounds"
 msgstr "&Sonoj"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:834
 #, kde-format
 msgid "&Files"
 msgstr "&Dosieroj"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:835
 #, kde-format
 msgid "&Local Links"
 msgstr "&Lokaj Ligiloj"
 
-#: src/settings.cpp:833
+#: src/settings.cpp:836
 #, kde-format
 msgid "&Network Links"
 msgstr "&Retaj Ligiloj"
 
-#: src/settings.cpp:834
+#: src/settings.cpp:837
 #, kde-format
 msgid "Launc&hers"
 msgstr "Lanĉi&loj"
 
-#: src/settings.cpp:835
+#: src/settings.cpp:838
 #, kde-format
 msgid "&Cross References"
 msgstr "&Krucaj referencoj"
 
-#: src/settings.cpp:876
+#: src/settings.cpp:879
 #, kde-format
 msgid "General Launch Associations"
 msgstr ""
 
-#: src/settings.cpp:879
+#: src/settings.cpp:882
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3104,7 +3104,7 @@ msgid ""
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
 
-#: src/settings.cpp:893
+#: src/settings.cpp:896
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3123,7 +3123,7 @@ msgid ""
 "browser), read the third button tooltip.</p>"
 msgstr ""
 
-#: src/settings.cpp:907
+#: src/settings.cpp:910
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3141,62 +3141,62 @@ msgid ""
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 msgstr ""
 
-#: src/settings.cpp:955
+#: src/settings.cpp:958
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr ""
 
-#: src/settings.cpp:957
+#: src/settings.cpp:960
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Malfermi &tekstajn notojn per propra aplikaĵo:"
 
-#: src/settings.cpp:958
+#: src/settings.cpp:961
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Malfermi tekstajn notojn kun:"
 
-#: src/settings.cpp:965
+#: src/settings.cpp:968
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Malfermi b&ildajn notojn per propra aplikaĵo:"
 
-#: src/settings.cpp:966
+#: src/settings.cpp:969
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Malfermi bildnotojn kun:"
 
-#: src/settings.cpp:973
+#: src/settings.cpp:976
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Malfermi a&nimaciajn notojn per propra aplikaĵo:"
 
-#: src/settings.cpp:974
+#: src/settings.cpp:977
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Malfermi animaciajn notojn kun:"
 
-#: src/settings.cpp:981
+#: src/settings.cpp:984
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Malfermi sonajn notojn per &propra aplikaĵo:"
 
-#: src/settings.cpp:982
+#: src/settings.cpp:985
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Malfermi sonnotojn kun:"
 
-#: src/settings.cpp:989
+#: src/settings.cpp:992
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "Malfermi http-ligilajn notojn per tajlorita aplikaĵo:"
 
-#: src/settings.cpp:990
+#: src/settings.cpp:993
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "Malfermi http-ligilajn notojn per:"
 
-#: src/settings.cpp:998
+#: src/settings.cpp:1001
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3204,7 +3204,7 @@ msgid ""
 "Konqueror will be used.</p>"
 msgstr ""
 
-#: src/settings.cpp:1008
+#: src/settings.cpp:1011
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
