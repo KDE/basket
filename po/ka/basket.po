@@ -1936,7 +1936,7 @@ msgstr ""
 #: src/variouswidgets.cpp:404
 #, kde-format
 msgid "(Default)"
-msgstr "(ნაგულისხმები)"
+msgstr "(ნაგულისხმევი)"
 
 #: src/kcolorcombo2.cpp:124
 #, kde-format
@@ -1956,7 +1956,7 @@ msgstr "წ:%1, მ:%2, ლ:%3"
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
-msgstr "(ნაგულისხმები)"
+msgstr "(ნაგულისხმევი)"
 
 #: src/kgpgme.cpp:47
 #, kde-format
