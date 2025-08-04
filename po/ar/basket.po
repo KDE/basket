@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-12 00:46+0000\n"
-"PO-Revision-Date: 2025-05-18 22:17+0400\n"
+"PO-Revision-Date: 2025-08-03 14:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1236,7 +1236,7 @@ msgstr ""
 #: src/bnpview.cpp:440
 #, kde-format
 msgid "&Clear Formatting"
-msgstr "ا&مسح التنسيق"
+msgstr "ا&محُ التنسيق"
 
 #: src/bnpview.cpp:444
 #, kde-format
@@ -2742,7 +2742,7 @@ msgstr ""
 #: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:595
 #, kde-format
 msgid "Password Protection"
-msgstr "حماية كلمة المرور"
+msgstr "حماية كلمة السر"
 
 #: src/password.cpp:59
 #, kde-format
