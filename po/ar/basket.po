@@ -1592,7 +1592,7 @@ msgstr ""
 #: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr "الملف <b>%1</b> موجود بالفعل. أتود حقًّا الكتابة فوقه؟"
+msgstr "الملف <b>%1</b> موجود فعلًا. أتود حقًّا الكتابة فوقه؟"
 
 #: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
