@@ -82,9 +82,6 @@ if (DEBUG_PIPE)
     add_definitions(-DDEBUG_PIPE)
 endif()
 
-# TODO make X11 optional
-find_package(X11 REQUIRED)
-
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Concurrent
     Core
