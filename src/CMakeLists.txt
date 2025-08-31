@@ -63,6 +63,7 @@ target_link_libraries(LibBasket
     KF6::ConfigWidgets
     KF6::CoreAddons
     KF6::Codecs
+    KF6::ColorScheme
     KF6::Crash
     KF6::DBusAddons
     KF6::FileMetaData
@@ -71,6 +72,7 @@ target_link_libraries(LibBasket
     KF6::I18n
     KF6::IconWidgets
     KF6::IconThemes
+    KF6::JobWidgets
     KF6::KCMUtils
     KF6::KIOWidgets
     KF6::Notifications

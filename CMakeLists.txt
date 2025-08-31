@@ -99,6 +99,7 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Archive
     Codecs
+    ColorScheme
     Completion
     Config
     ConfigWidgets #KCM
@@ -110,6 +111,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     GuiAddons
     I18n
     IconThemes
+    JobWidgets
     KCMUtils
     KIO
     Notifications
