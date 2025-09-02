@@ -9,6 +9,7 @@ Categories=Qt;KDE;Office;
 X-DBUS-StartupType=Unique
 
 Name=BasKet Note Pads
+Name[ar]=دفاتر ملاحظات السلة
 Name[ca]=Bloc de notes BasKet
 Name[ca@valencia]=Bloc de notes BasKet
 Name[cs]=Poznámky BasKet
@@ -39,6 +40,7 @@ Name[x-test]=xxBasKet Note Padsxx
 Name[zh_CN]=笔记篮记事贴
 Name[zh_TW]=BasKet 筆記本
 GenericName=Notes and to-dos organizer
+GenericName[ar]=منظم الملاحظات والمهام
 GenericName[ca]=Organitzador de notes i tasques pendents
 GenericName[ca@valencia]=Organitzador de notes i tasques pendents
 GenericName[cs]=Shromažďování poznámek a úkolů
@@ -70,6 +72,7 @@ GenericName[zh_CN]=记事贴和待办事项组织工具
 GenericName[zh_TW]=筆記與待辦事項管理工具
 
 Comment=Taking care of your ideas.
+Comment[ar]=يعتني بأفكارك
 Comment[ca]=Per a tenir cura de les vostres idees.
 Comment[ca@valencia]=Per a tindre cura de les vostres idees.
 Comment[cs]=Staráme se o vaše nápady.
