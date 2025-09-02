@@ -386,7 +386,7 @@ msgstr "Última còpia de seguretat: %1"
 #: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
-msgstr "Seleccioneu una carpeta cap a on s'han de moure les cistelles"
+msgstr "Trieu una carpeta cap a on s'han de moure les cistelles"
 
 #: src/backup.cpp:161
 #, kde-format
@@ -492,8 +492,8 @@ msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
-"Seleccioneu «Cistella -> Còpia de seguretat i restaura -> Utilitza una altra "
-"carpeta existent…» i seleccioneu esta carpeta."
+"Trieu «Cistella -> Còpia de seguretat i restaura -> Utilitza una altra "
+"carpeta existent…» i trieu esta carpeta."
 
 #: src/backup.cpp:281
 #, kde-format
@@ -824,12 +824,12 @@ msgstr "Redimensiona esta nota"
 #: src/basketscene.cpp:2778
 #, kde-format
 msgid "Select or move this note"
-msgstr "Selecciona o mou esta nota"
+msgstr "Tria o mou esta nota"
 
 #: src/basketscene.cpp:2781
 #, kde-format
 msgid "Select or move this group"
-msgstr "Selecciona o mou este grup"
+msgstr "Tria o mou este grup"
 
 #: src/basketscene.cpp:2784
 #, kde-format
@@ -1338,7 +1338,7 @@ msgstr "Sup&rimix"
 #: src/bnpview.cpp:425
 #, kde-format
 msgid "Selects all notes"
-msgstr "Selecciona totes les notes"
+msgstr "Tria totes les notes"
 
 #: src/bnpview.cpp:428
 #, kde-format
@@ -2907,7 +2907,7 @@ msgstr "Importa la icona com a imatge"
 #: src/notefactory.cpp:1053
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
-msgstr "Seleccioneu la mida de la icona per a importar-la com a imatge:"
+msgstr "Trieu la mida de la icona per a importar-la com a imatge:"
 
 #: src/notefactory.cpp:1069
 #, kde-format
@@ -2949,8 +2949,8 @@ msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
-"Seleccioneu una regió amb el ratolí. Per a prendre la captura de pantalla, "
-"premeu la tecla «Retorn». Premeu «Esc» per a eixir."
+"Trieu una regió amb el ratolí. Per a prendre la captura de pantalla, premeu "
+"la tecla «Retorn». Premeu «Esc» per a eixir."
 
 #: src/settings.cpp:438
 #, kde-format
@@ -3300,7 +3300,7 @@ msgstr ""
 "per a llistar, buscar i iniciar aplicacions amb configuracions específiques</"
 "p><p>Esta és la manera de fer-ho si voleu iniciar el navegador Falkon amb un "
 "perfil específic.</p><ul><li>Obriu el navegador de menús de KDE i escriviu "
-"«Falkon» al filtre de busca;</li><li>Seleccioneu l'iniciador de l'escriptori "
+"«Falkon» al filtre de busca;</li><li>Trieu l'iniciador de l'escriptori "
 "«Falkon», feu clic dret, copieu i apegueu;</li><li>Editeu els camps de "
 "propietats «General» com «Name», «Description», o «Comment».</li><li>Editeu "
 "el camp «Command-line arguments» a alguna cosa com «--profile 'L'iniciador "
