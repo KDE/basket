@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:46+0000\n"
+"POT-Creation-Date: 2025-09-03 00:46+0000\n"
 "PO-Revision-Date: 2025-03-07 23:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -764,7 +764,7 @@ msgstr "Bazı yeni notlar süzgece uymuyorlar, gizliler."
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Yeni notlar süzgece uymuyorlar,gizliler."
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:91
+#: src/basketscene.cpp:1468 src/notecontent.cpp:90
 #, kde-format
 msgid "Group"
 msgstr "Grupla"
@@ -1775,7 +1775,7 @@ msgstr "Örnek hızı"
 msgid "Track number"
 msgstr "Parça numarası"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2162
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
 msgid "Comment"
 msgstr "Yorum"
@@ -2212,454 +2212,454 @@ msgstr "Serbest Biçim"
 msgid "Mind map"
 msgstr "Zihin Haritası"
 
-#: src/notecontent.cpp:93
+#: src/notecontent.cpp:92
 #, kde-format
 msgid "Plain Text"
 msgstr "Düz Metin"
 
-#: src/notecontent.cpp:95
+#: src/notecontent.cpp:94
 #, kde-format
 msgid "Text"
 msgstr "Metin"
 
-#: src/notecontent.cpp:97
+#: src/notecontent.cpp:96
 #, kde-format
 msgid "Image"
 msgstr "Görsel"
 
-#: src/notecontent.cpp:99
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Animation"
 msgstr "Canlandırma"
 
-#: src/notecontent.cpp:101
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Sound"
 msgstr "Ses"
 
-#: src/notecontent.cpp:103
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "File"
 msgstr "Dosya"
 
-#: src/notecontent.cpp:105
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Link"
 msgstr "Bağlantı"
 
-#: src/notecontent.cpp:107
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Cross Reference"
 msgstr "Çapraz Başvuru"
 
-#: src/notecontent.cpp:109
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Launcher"
 msgstr "Başlatıcı"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1204
+#: src/notecontent.cpp:110 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
 msgstr "Renk"
 
-#: src/notecontent.cpp:113 src/notecontent.cpp:115
+#: src/notecontent.cpp:112 src/notecontent.cpp:114
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: src/notecontent.cpp:591
+#: src/notecontent.cpp:590
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Bu düz metni düzenle"
 
-#: src/notecontent.cpp:595
+#: src/notecontent.cpp:594
 #, kde-format
 msgid "Edit this text"
 msgstr "Bu metni düzenle"
 
-#: src/notecontent.cpp:599
+#: src/notecontent.cpp:598
 #, kde-format
 msgid "Edit this image"
 msgstr "Bu görseli düzenle"
 
-#: src/notecontent.cpp:603
+#: src/notecontent.cpp:602
 #, kde-format
 msgid "Edit this animation"
 msgstr "Bu canlandırmayı düzenle"
 
-#: src/notecontent.cpp:607
+#: src/notecontent.cpp:606
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Bu sesin dosya adını düzenle"
 
-#: src/notecontent.cpp:611
+#: src/notecontent.cpp:610
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "BU dosyanın adını düzenle"
 
-#: src/notecontent.cpp:615
+#: src/notecontent.cpp:614
 #, kde-format
 msgid "Edit this link"
 msgstr "Bu bağlantıyı düzenle"
 
-#: src/notecontent.cpp:619
+#: src/notecontent.cpp:618
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Bu çapraz başvuruyu düzenle"
 
-#: src/notecontent.cpp:623
+#: src/notecontent.cpp:622
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Bu başlatıcıyı düzenle"
 
-#: src/notecontent.cpp:627
+#: src/notecontent.cpp:626
 #, kde-format
 msgid "Edit this color"
 msgstr "Bu rengi düzenle"
 
-#: src/notecontent.cpp:631
+#: src/notecontent.cpp:630
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Bu bilinmeyen nesneyi düzenle"
 
-#: src/notecontent.cpp:993
+#: src/notecontent.cpp:992
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Düz metin açılıyor…"
 
-#: src/notecontent.cpp:995
+#: src/notecontent.cpp:994
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Düz metinler açılıyor…"
 
-#: src/notecontent.cpp:997
+#: src/notecontent.cpp:996
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Düz metin birlikte açılıyor…"
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:998
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "Düz metinler birlikte açılıyor…"
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1000
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Düz metni birlikte aç:"
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1002
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Düz metinleri birlikte aç:"
 
-#: src/notecontent.cpp:1114
+#: src/notecontent.cpp:1113
 #, kde-format
 msgid "Opening text..."
 msgstr "Metin açılıyor…"
 
-#: src/notecontent.cpp:1116
+#: src/notecontent.cpp:1115
 #, kde-format
 msgid "Opening texts..."
 msgstr "Metinler açılıyor…"
 
-#: src/notecontent.cpp:1118
+#: src/notecontent.cpp:1117
 #, kde-format
 msgid "Opening text with..."
 msgstr "Metin birlikte açılıyor…"
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1119
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Metinler birlikte açılıyor…"
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1121
 #, kde-format
 msgid "Open text with:"
 msgstr "Metni birlikte aç:"
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1123
 #, kde-format
 msgid "Open texts with:"
 msgstr "Metinleri birlikte aç:"
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
+#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
 #, kde-format
 msgid "Size"
 msgstr "Boyut"
 
-#: src/notecontent.cpp:1247 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 × %2 piksel"
 
-#: src/notecontent.cpp:1254
+#: src/notecontent.cpp:1253
 #, kde-format
 msgid "Opening image..."
 msgstr "Görsel açılıyor…"
 
-#: src/notecontent.cpp:1256
+#: src/notecontent.cpp:1255
 #, kde-format
 msgid "Opening images..."
 msgstr "Görseller açılıyor…"
 
-#: src/notecontent.cpp:1258
+#: src/notecontent.cpp:1257
 #, kde-format
 msgid "Opening image with..."
 msgstr "Görseller birlikte açılıyor…"
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1259
 #, kde-format
 msgid "Opening images with..."
 msgstr "Görseller birlikte açılıyor…"
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1261
 #, kde-format
 msgid "Open image with:"
 msgstr "Görseli birlikte aç:"
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1263
 #, kde-format
 msgid "Open images with:"
 msgstr "Görselleri birlikte aç:"
 
-#: src/notecontent.cpp:1289
+#: src/notecontent.cpp:1288
 #, kde-format
 msgid "Click for full size view"
 msgstr "Tam boyutu görüntülemek için tıklayın"
 
-#: src/notecontent.cpp:1376
+#: src/notecontent.cpp:1375
 #, kde-format
 msgid "Opening animation..."
 msgstr "Canlandırma açılıyor…"
 
-#: src/notecontent.cpp:1378
+#: src/notecontent.cpp:1377
 #, kde-format
 msgid "Opening animations..."
 msgstr "Canlandırma açılıyor…"
 
-#: src/notecontent.cpp:1380
+#: src/notecontent.cpp:1379
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Canlandırma birlikte açılıyor…"
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1381
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Canlandırma birlikte açılıyor…"
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1383
 #, kde-format
 msgid "Open animation with:"
 msgstr "Canlandırmayı birlikte aç:"
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1385
 #, kde-format
 msgid "Open animations with:"
 msgstr "Canlandırmaları birlikte aç:"
 
-#: src/notecontent.cpp:1470
+#: src/notecontent.cpp:1469
 #, kde-format
 msgid "Type"
 msgstr "Tür"
 
-#: src/notecontent.cpp:1511
+#: src/notecontent.cpp:1510
 #, kde-format
 msgid "Open this file"
 msgstr "Bu dosyayı aç"
 
-#: src/notecontent.cpp:1530
+#: src/notecontent.cpp:1529
 #, kde-format
 msgid "Opening file..."
 msgstr "Dosya açılıyor…"
 
-#: src/notecontent.cpp:1532
+#: src/notecontent.cpp:1531
 #, kde-format
 msgid "Opening files..."
 msgstr "Dosyalar açılıyor…"
 
-#: src/notecontent.cpp:1534
+#: src/notecontent.cpp:1533
 #, kde-format
 msgid "Opening file with..."
 msgstr "Dosya birlikte açılıyor…"
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1535
 #, kde-format
 msgid "Opening files with..."
 msgstr "Dosyalar birlikte açılıyor…"
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1537
 #, kde-format
 msgid "Open file with:"
 msgstr "Dosyayı birlikte aç:"
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1539
 #, kde-format
 msgid "Open files with:"
 msgstr "Dosyaları birlikte aç:"
 
-#: src/notecontent.cpp:1632
+#: src/notecontent.cpp:1640
 #, kde-format
 msgid "Open this sound"
 msgstr "Bu sesi aç"
 
-#: src/notecontent.cpp:1658
+#: src/notecontent.cpp:1666
 #, kde-format
 msgid "Opening sound..."
 msgstr "Ses açılıyor…"
 
-#: src/notecontent.cpp:1660
+#: src/notecontent.cpp:1668
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Sesler açılıyor…"
 
-#: src/notecontent.cpp:1662
+#: src/notecontent.cpp:1670
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Ses birlikte açılıyor…"
 
-#: src/notecontent.cpp:1664
+#: src/notecontent.cpp:1672
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Sesler birlikte açılıyor…"
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1674
 #, kde-format
 msgid "Open sound with:"
 msgstr "Sesi birlikte aç:"
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1676
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Sesleri birlikte aç:"
 
-#: src/notecontent.cpp:1731 src/notecontent.cpp:2002
+#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
 #, kde-format
 msgid "Target"
 msgstr "Hedef"
 
-#: src/notecontent.cpp:1753 src/notecontent.cpp:2024
+#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
 #, kde-format
 msgid "Open this link"
 msgstr "Bu bağlantıyı aç"
 
-#: src/notecontent.cpp:1779
+#: src/notecontent.cpp:1787
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Bağlantıyı açmak için bir URL yok."
 
-#: src/notecontent.cpp:1783
+#: src/notecontent.cpp:1791
 #, kde-format
 msgid "Opening link target..."
 msgstr "Bağlantı hedefi açılıyor…"
 
-#: src/notecontent.cpp:1785
+#: src/notecontent.cpp:1793
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Bağlantı hedefleri açılıyor…"
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1795
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Bağlantı hedefi birlikte açılıyor…"
 
-#: src/notecontent.cpp:1789
+#: src/notecontent.cpp:1797
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Bağlantı hedefleri birlikte açılıyor…"
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1799
 #, kde-format
 msgid "Open link target with:"
 msgstr "Bağlantı hedefini birlikte aç:"
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1801
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Bağlantı hedeflerini birlikte aç:"
 
-#: src/notecontent.cpp:2037
+#: src/notecontent.cpp:2045
 #, kde-format
 msgid "Link to %1"
 msgstr "%1 Konumuna Bağlantıla"
 
-#: src/notecontent.cpp:2050
+#: src/notecontent.cpp:2058
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Bağlantının açacağı bir sepet yok."
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2062
 #, kde-format
 msgid "Opening basket..."
 msgstr "Sepet açılıyor…"
 
-#: src/notecontent.cpp:2159
+#: src/notecontent.cpp:2167
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(konsolda çalıştır)</i>"
 
-#: src/notecontent.cpp:2164
+#: src/notecontent.cpp:2172
 #, kde-format
 msgid "Command"
 msgstr "Komut"
 
-#: src/notecontent.cpp:2188
+#: src/notecontent.cpp:2196
 #, kde-format
 msgid "Launch this application"
 msgstr "Bu uygulamayı başlat"
 
-#: src/notecontent.cpp:2209
+#: src/notecontent.cpp:2217
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "Çalıştırmak için başlatıcıya ait bir komut yok."
 
-#: src/notecontent.cpp:2213
+#: src/notecontent.cpp:2221
 #, kde-format
 msgid "Launching application..."
 msgstr "Uygulama başlatılıyor…"
 
-#: src/notecontent.cpp:2215
+#: src/notecontent.cpp:2223
 #, kde-format
 msgid "Launching applications..."
 msgstr "Uygulamalar başlatılıyor…"
 
-#: src/notecontent.cpp:2335
+#: src/notecontent.cpp:2343
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2336
+#: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Kırmızı</i>: %1, <i>Yeşil</i>: %2, <i>Mavi</i>: %3,"
 
-#: src/notecontent.cpp:2340
+#: src/notecontent.cpp:2348
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2341
+#: src/notecontent.cpp:2349
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Ton</i>: %1, <i>Doygunluk</i>: %2, <i>Değer</i>: %3,"
 
-#: src/notecontent.cpp:2345
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS Renk Adı"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Is Web Color"
 msgstr "Web Rengi"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Yes"
 msgstr "Evet"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "No"
 msgstr "Hayır"

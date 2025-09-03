@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:46+0000\n"
+"POT-Creation-Date: 2025-09-03 00:46+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -749,7 +749,7 @@ msgstr "केचन नूतनाः स्वराः फ़िल्टर
 msgid "The new notes do not match the filter and are hidden."
 msgstr "नवीनाः स्वराः फ़िल्टरेन सह न मेलन्ति, गुप्ताः च सन्ति ।"
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:91
+#: src/basketscene.cpp:1468 src/notecontent.cpp:90
 #, kde-format
 msgid "Group"
 msgstr "समूह"
@@ -1736,7 +1736,7 @@ msgstr "नमूना दर"
 msgid "Track number"
 msgstr "पटल संख्या"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2162
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
 msgid "Comment"
 msgstr "टिप्पणी"
@@ -2167,454 +2167,454 @@ msgstr "मुक्त-रूप"
 msgid "Mind map"
 msgstr "मन मानचित्र"
 
-#: src/notecontent.cpp:93
+#: src/notecontent.cpp:92
 #, kde-format
 msgid "Plain Text"
 msgstr "सादा पाठः"
 
-#: src/notecontent.cpp:95
+#: src/notecontent.cpp:94
 #, kde-format
 msgid "Text"
 msgstr "पाठ"
 
-#: src/notecontent.cpp:97
+#: src/notecontent.cpp:96
 #, kde-format
 msgid "Image"
 msgstr "छवि"
 
-#: src/notecontent.cpp:99
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Animation"
 msgstr "एनिमेशन"
 
-#: src/notecontent.cpp:101
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Sound"
 msgstr "ध्वनि"
 
-#: src/notecontent.cpp:103
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "File"
 msgstr "सञ्चिका"
 
-#: src/notecontent.cpp:105
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Link"
 msgstr "सम्बन्ध"
 
-#: src/notecontent.cpp:107
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Cross Reference"
 msgstr "क्रॉस सन्दर्भ"
 
-#: src/notecontent.cpp:109
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Launcher"
 msgstr "प्रक्षेपक"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1204
+#: src/notecontent.cpp:110 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
 msgstr "वर्ण"
 
-#: src/notecontent.cpp:113 src/notecontent.cpp:115
+#: src/notecontent.cpp:112 src/notecontent.cpp:114
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: src/notecontent.cpp:591
+#: src/notecontent.cpp:590
 #, kde-format
 msgid "Edit this plain text"
 msgstr "एतत् साधारणं पाठं सम्पादयतु"
 
-#: src/notecontent.cpp:595
+#: src/notecontent.cpp:594
 #, kde-format
 msgid "Edit this text"
 msgstr "एतत् पाठं सम्पादयतु"
 
-#: src/notecontent.cpp:599
+#: src/notecontent.cpp:598
 #, kde-format
 msgid "Edit this image"
 msgstr "एतत् चित्रं सम्पादयन्तु"
 
-#: src/notecontent.cpp:603
+#: src/notecontent.cpp:602
 #, kde-format
 msgid "Edit this animation"
 msgstr "एतत् एनिमेशनं सम्पादयन्तु"
 
-#: src/notecontent.cpp:607
+#: src/notecontent.cpp:606
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "अस्य ध्वनिस्य सञ्चिकानाम सम्पादयन्तु"
 
-#: src/notecontent.cpp:611
+#: src/notecontent.cpp:610
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "अस्याः सञ्चिकायाः नाम सम्पादयन्तु"
 
-#: src/notecontent.cpp:615
+#: src/notecontent.cpp:614
 #, kde-format
 msgid "Edit this link"
 msgstr "एतत् लिङ्कं सम्पादयन्तु"
 
-#: src/notecontent.cpp:619
+#: src/notecontent.cpp:618
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "एतत् क्रॉस् सन्दर्भं सम्पादयन्तु"
 
-#: src/notecontent.cpp:623
+#: src/notecontent.cpp:622
 #, kde-format
 msgid "Edit this launcher"
 msgstr "एतत् प्रक्षेपकं सम्पादयन्तु"
 
-#: src/notecontent.cpp:627
+#: src/notecontent.cpp:626
 #, kde-format
 msgid "Edit this color"
 msgstr "एतत् वर्णं सम्पादयतु"
 
-#: src/notecontent.cpp:631
+#: src/notecontent.cpp:630
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "एतत् अज्ञातवस्तु सम्पादयतु"
 
-#: src/notecontent.cpp:993
+#: src/notecontent.cpp:992
 #, kde-format
 msgid "Opening plain text..."
 msgstr "सादा पाठं उद्घाटयन्..."
 
-#: src/notecontent.cpp:995
+#: src/notecontent.cpp:994
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "सादे ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:997
+#: src/notecontent.cpp:996
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "सादा पाठं उद्घाटयन्..."
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:998
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "सादे ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1000
 #, kde-format
 msgid "Open plain text with:"
 msgstr "साधारणं पाठं उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1002
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "साधारणग्रन्थान् उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1114
+#: src/notecontent.cpp:1113
 #, kde-format
 msgid "Opening text..."
 msgstr "पाठः उद्घाटितः..."
 
-#: src/notecontent.cpp:1116
+#: src/notecontent.cpp:1115
 #, kde-format
 msgid "Opening texts..."
 msgstr "ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:1118
+#: src/notecontent.cpp:1117
 #, kde-format
 msgid "Opening text with..."
 msgstr "पाठं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1119
 #, kde-format
 msgid "Opening texts with..."
 msgstr "ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1121
 #, kde-format
 msgid "Open text with:"
 msgstr "पाठं उद्घाटयतु :"
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1123
 #, kde-format
 msgid "Open texts with:"
 msgstr "ग्रन्थान् उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
+#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
 #, kde-format
 msgid "Size"
 msgstr "आकृति"
 
-#: src/notecontent.cpp:1247 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 द्वारा %2 पिक्सेल"
 
-#: src/notecontent.cpp:1254
+#: src/notecontent.cpp:1253
 #, kde-format
 msgid "Opening image..."
 msgstr "उद्घाटन चित्रम्..."
 
-#: src/notecontent.cpp:1256
+#: src/notecontent.cpp:1255
 #, kde-format
 msgid "Opening images..."
 msgstr "चित्राणि उद्घाटयन्..."
 
-#: src/notecontent.cpp:1258
+#: src/notecontent.cpp:1257
 #, kde-format
 msgid "Opening image with..."
 msgstr "सह चित्रं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1259
 #, kde-format
 msgid "Opening images with..."
 msgstr "चित्राणि उद्घाटयन्..."
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1261
 #, kde-format
 msgid "Open image with:"
 msgstr "सह चित्रं उद्घाटयन्तु:"
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1263
 #, kde-format
 msgid "Open images with:"
 msgstr "चित्राणि उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1289
+#: src/notecontent.cpp:1288
 #, kde-format
 msgid "Click for full size view"
 msgstr "पूर्ण आकारदर्शनार्थं क्लिक् कुर्वन्तु"
 
-#: src/notecontent.cpp:1376
+#: src/notecontent.cpp:1375
 #, kde-format
 msgid "Opening animation..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1378
+#: src/notecontent.cpp:1377
 #, kde-format
 msgid "Opening animations..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1380
+#: src/notecontent.cpp:1379
 #, kde-format
 msgid "Opening animation with..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1381
 #, kde-format
 msgid "Opening animations with..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1383
 #, kde-format
 msgid "Open animation with:"
 msgstr "एनिमेशनं उद्घाटयतु :"
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1385
 #, kde-format
 msgid "Open animations with:"
 msgstr "एनिमेशनं उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1470
+#: src/notecontent.cpp:1469
 #, kde-format
 msgid "Type"
 msgstr "प्रकारः"
 
-#: src/notecontent.cpp:1511
+#: src/notecontent.cpp:1510
 #, kde-format
 msgid "Open this file"
 msgstr "एतां सञ्चिकां उद्घाटयन्तु"
 
-#: src/notecontent.cpp:1530
+#: src/notecontent.cpp:1529
 #, kde-format
 msgid "Opening file..."
 msgstr "सञ्चिकां उद्घाटयति..."
 
-#: src/notecontent.cpp:1532
+#: src/notecontent.cpp:1531
 #, kde-format
 msgid "Opening files..."
 msgstr "सञ्चिकाः उद्घाटयन्..."
 
-#: src/notecontent.cpp:1534
+#: src/notecontent.cpp:1533
 #, kde-format
 msgid "Opening file with..."
 msgstr "सञ्चिकां उद्घाटयन्..."
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1535
 #, kde-format
 msgid "Opening files with..."
 msgstr "सञ्चिकाः उद्घाटयन्..."
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1537
 #, kde-format
 msgid "Open file with:"
 msgstr "सञ्चिकां उद्घाटयन्तु यत्र:"
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1539
 #, kde-format
 msgid "Open files with:"
 msgstr "सञ्चिकाः उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1632
+#: src/notecontent.cpp:1640
 #, kde-format
 msgid "Open this sound"
 msgstr "एषः शब्दः उद्घाटयतु"
 
-#: src/notecontent.cpp:1658
+#: src/notecontent.cpp:1666
 #, kde-format
 msgid "Opening sound..."
 msgstr "उद्घाटन ध्वनि..."
 
-#: src/notecontent.cpp:1660
+#: src/notecontent.cpp:1668
 #, kde-format
 msgid "Opening sounds..."
 msgstr "उद्घाटन ध्वनयः..."
 
-#: src/notecontent.cpp:1662
+#: src/notecontent.cpp:1670
 #, kde-format
 msgid "Opening sound with..."
 msgstr "ध्वनिं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1664
+#: src/notecontent.cpp:1672
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "ध्वनयः उद्घाटयन्..."
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1674
 #, kde-format
 msgid "Open sound with:"
 msgstr "मुक्तध्वनिः सह :"
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1676
 #, kde-format
 msgid "Open sounds with:"
 msgstr "मुक्तध्वनयः सह :"
 
-#: src/notecontent.cpp:1731 src/notecontent.cpp:2002
+#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
 #, kde-format
 msgid "Target"
 msgstr "लक्ष्य"
 
-#: src/notecontent.cpp:1753 src/notecontent.cpp:2024
+#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
 #, kde-format
 msgid "Open this link"
 msgstr "एतत् लिङ्क् उद्घाटयन्तु"
 
-#: src/notecontent.cpp:1779
+#: src/notecontent.cpp:1787
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "लिङ्कस्य उद्घाटनार्थं URL नास्ति ।"
 
-#: src/notecontent.cpp:1783
+#: src/notecontent.cpp:1791
 #, kde-format
 msgid "Opening link target..."
 msgstr "लिङ्क लक्ष्यं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1785
+#: src/notecontent.cpp:1793
 #, kde-format
 msgid "Opening link targets..."
 msgstr "लिङ्क लक्ष्यं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1795
 #, kde-format
 msgid "Opening link target with..."
 msgstr "लिङ्क लक्ष्यं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1789
+#: src/notecontent.cpp:1797
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "सह लिङ्क् लक्ष्याणि उद्घाटयन्..."
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1799
 #, kde-format
 msgid "Open link target with:"
 msgstr "लिङ्क् लक्ष्यं उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1801
 #, kde-format
 msgid "Open link targets with:"
 msgstr "लिङ्क् लक्ष्याणि उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:2037
+#: src/notecontent.cpp:2045
 #, kde-format
 msgid "Link to %1"
 msgstr "%1 इत्यस्य लिङ्क्"
 
-#: src/notecontent.cpp:2050
+#: src/notecontent.cpp:2058
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "लिङ्कस्य उद्घाटनार्थं टोकरी नास्ति।"
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2062
 #, kde-format
 msgid "Opening basket..."
 msgstr "उद्घाटन टोकरी..."
 
-#: src/notecontent.cpp:2159
+#: src/notecontent.cpp:2167
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(टर्मिनल् मध्ये चालयन्तु)</i>"
 
-#: src/notecontent.cpp:2164
+#: src/notecontent.cpp:2172
 #, kde-format
 msgid "Command"
 msgstr "आदेश"
 
-#: src/notecontent.cpp:2188
+#: src/notecontent.cpp:2196
 #, kde-format
 msgid "Launch this application"
 msgstr "एतत् अनुप्रयोगं प्रारम्भं कुर्वन्तु"
 
-#: src/notecontent.cpp:2209
+#: src/notecontent.cpp:2217
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "प्रक्षेपकस्य चालनार्थं कोऽपि आदेशः नास्ति ।"
 
-#: src/notecontent.cpp:2213
+#: src/notecontent.cpp:2221
 #, kde-format
 msgid "Launching application..."
 msgstr "एप्लिकेशनं प्रारम्भं कुर्वन्..."
 
-#: src/notecontent.cpp:2215
+#: src/notecontent.cpp:2223
 #, kde-format
 msgid "Launching applications..."
 msgstr "अनुप्रयोगानाम् आरम्भः..."
 
-#: src/notecontent.cpp:2335
+#: src/notecontent.cpp:2343
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "आरजीबी"
 
-#: src/notecontent.cpp:2336
+#: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>लाल</i>: %1, <i>हरिद्रा</i>: %2, <i>नील</i>: %3, 10."
 
-#: src/notecontent.cpp:2340
+#: src/notecontent.cpp:2348
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "एच.एस.वी"
 
-#: src/notecontent.cpp:2341
+#: src/notecontent.cpp:2349
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Hue</i>: %1, <i>संतृप्ति</i>: %2, <i>मूल्य</i>: %3, 10."
 
-#: src/notecontent.cpp:2345
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS रङ्ग नाम"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Is Web Color"
 msgstr "जालवर्णः अस्ति"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Yes"
 msgstr "आम्‌"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "No"
 msgstr "नहि"

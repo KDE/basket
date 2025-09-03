@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:46+0000\n"
+"POT-Creation-Date: 2025-09-03 00:46+0000\n"
 "PO-Revision-Date: 2025-07-11 09:54+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -757,7 +757,7 @@ msgstr "Jotkin uudet muistiinpanot eivät vastaa suodatinta ja piilotetaan."
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Uudet muistiinpanot eivät vastaa suodatinta ja piilotetaan."
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:91
+#: src/basketscene.cpp:1468 src/notecontent.cpp:90
 #, kde-format
 msgid "Group"
 msgstr "Ryhmittele"
@@ -1762,7 +1762,7 @@ msgstr "Näytteenottotaajuus"
 msgid "Track number"
 msgstr "Raita"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2162
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
 msgid "Comment"
 msgstr "Kommentti"
@@ -2199,454 +2199,454 @@ msgstr "Vapaamuotoinen"
 msgid "Mind map"
 msgstr "Miellekartta"
 
-#: src/notecontent.cpp:93
+#: src/notecontent.cpp:92
 #, kde-format
 msgid "Plain Text"
 msgstr "Muotoilematon teksti"
 
-#: src/notecontent.cpp:95
+#: src/notecontent.cpp:94
 #, kde-format
 msgid "Text"
 msgstr "Teksti"
 
-#: src/notecontent.cpp:97
+#: src/notecontent.cpp:96
 #, kde-format
 msgid "Image"
 msgstr "Kuva"
 
-#: src/notecontent.cpp:99
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Animation"
 msgstr "Animaatio"
 
-#: src/notecontent.cpp:101
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Sound"
 msgstr "Ääni"
 
-#: src/notecontent.cpp:103
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "File"
 msgstr "Tiedosto"
 
-#: src/notecontent.cpp:105
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Link"
 msgstr "Linkki"
 
-#: src/notecontent.cpp:107
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Cross Reference"
 msgstr "Viite"
 
-#: src/notecontent.cpp:109
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Launcher"
 msgstr "Käynnistin"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1204
+#: src/notecontent.cpp:110 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
 msgstr "Väri"
 
-#: src/notecontent.cpp:113 src/notecontent.cpp:115
+#: src/notecontent.cpp:112 src/notecontent.cpp:114
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: src/notecontent.cpp:591
+#: src/notecontent.cpp:590
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Muokkaa tätä muotoilematonta tekstiä"
 
-#: src/notecontent.cpp:595
+#: src/notecontent.cpp:594
 #, kde-format
 msgid "Edit this text"
 msgstr "Muokkaa tätä tekstiä"
 
-#: src/notecontent.cpp:599
+#: src/notecontent.cpp:598
 #, kde-format
 msgid "Edit this image"
 msgstr "Muokkaa tätä kuvaa"
 
-#: src/notecontent.cpp:603
+#: src/notecontent.cpp:602
 #, kde-format
 msgid "Edit this animation"
 msgstr "Muokkaa tätä animaatiota"
 
-#: src/notecontent.cpp:607
+#: src/notecontent.cpp:606
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Muuta tämän äänen tiedostonimeä"
 
-#: src/notecontent.cpp:611
+#: src/notecontent.cpp:610
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "Muuta tämän tiedoston nimeä"
 
-#: src/notecontent.cpp:615
+#: src/notecontent.cpp:614
 #, kde-format
 msgid "Edit this link"
 msgstr "Muokkaa tätä linkkiä"
 
-#: src/notecontent.cpp:619
+#: src/notecontent.cpp:618
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Muokkaa tätä viitettä"
 
-#: src/notecontent.cpp:623
+#: src/notecontent.cpp:622
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Muokkaa tätä käynnistintä"
 
-#: src/notecontent.cpp:627
+#: src/notecontent.cpp:626
 #, kde-format
 msgid "Edit this color"
 msgstr "Muuta tätä väriä"
 
-#: src/notecontent.cpp:631
+#: src/notecontent.cpp:630
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Muokkaa tätä tuntematonta oliota"
 
-#: src/notecontent.cpp:993
+#: src/notecontent.cpp:992
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Avataan muotoilematonta tekstiä…"
 
-#: src/notecontent.cpp:995
+#: src/notecontent.cpp:994
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Avataan muotoilemattomia tekstejä…"
 
-#: src/notecontent.cpp:997
+#: src/notecontent.cpp:996
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Avaa muotoilematon teksti ohjelmalla…"
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:998
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "Avaa muotoilemattomat tekstit ohjelmalla…"
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1000
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Avaa muotoilematon teksti ohjelmalla:"
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1002
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Avaa muotoilemattomat tekstit ohjelmalla:"
 
-#: src/notecontent.cpp:1114
+#: src/notecontent.cpp:1113
 #, kde-format
 msgid "Opening text..."
 msgstr "Avataan tekstiä…"
 
-#: src/notecontent.cpp:1116
+#: src/notecontent.cpp:1115
 #, kde-format
 msgid "Opening texts..."
 msgstr "Avataan tekstejä…"
 
-#: src/notecontent.cpp:1118
+#: src/notecontent.cpp:1117
 #, kde-format
 msgid "Opening text with..."
 msgstr "Avataan tekstiä ohjelmalla…"
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1119
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Avataan tekstejä ohjelmalla…"
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1121
 #, kde-format
 msgid "Open text with:"
 msgstr "Avaa teksti ohjelmalla:"
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1123
 #, kde-format
 msgid "Open texts with:"
 msgstr "Avaa tekstit ohjelmalla:"
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
+#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
 #, kde-format
 msgid "Size"
 msgstr "Koko"
 
-#: src/notecontent.cpp:1247 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 × %2 kuvapistettä"
 
-#: src/notecontent.cpp:1254
+#: src/notecontent.cpp:1253
 #, kde-format
 msgid "Opening image..."
 msgstr "Avataan kuvaa…"
 
-#: src/notecontent.cpp:1256
+#: src/notecontent.cpp:1255
 #, kde-format
 msgid "Opening images..."
 msgstr "Avataan kuvia…"
 
-#: src/notecontent.cpp:1258
+#: src/notecontent.cpp:1257
 #, kde-format
 msgid "Opening image with..."
 msgstr "Avataan kuvaa ohjelmalla…"
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1259
 #, kde-format
 msgid "Opening images with..."
 msgstr "Avataan kuvia ohjelmalla…"
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1261
 #, kde-format
 msgid "Open image with:"
 msgstr "Avaa kuva ohjelmalla:"
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1263
 #, kde-format
 msgid "Open images with:"
 msgstr "Avaa kuvat ohjelmalla:"
 
-#: src/notecontent.cpp:1289
+#: src/notecontent.cpp:1288
 #, kde-format
 msgid "Click for full size view"
 msgstr "Täysi koko napsauttamalla"
 
-#: src/notecontent.cpp:1376
+#: src/notecontent.cpp:1375
 #, kde-format
 msgid "Opening animation..."
 msgstr "Avataan animaatiota…"
 
-#: src/notecontent.cpp:1378
+#: src/notecontent.cpp:1377
 #, kde-format
 msgid "Opening animations..."
 msgstr "Avataan animaatioita…"
 
-#: src/notecontent.cpp:1380
+#: src/notecontent.cpp:1379
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Avataan animaatiota ohjelmalla…"
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1381
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Avataan animaatioita ohjelmalla…"
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1383
 #, kde-format
 msgid "Open animation with:"
 msgstr "Avaa animaatio ohjelmalla:"
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1385
 #, kde-format
 msgid "Open animations with:"
 msgstr "Avaa animaatiot ohjelmalla:"
 
-#: src/notecontent.cpp:1470
+#: src/notecontent.cpp:1469
 #, kde-format
 msgid "Type"
 msgstr "Tyyppi"
 
-#: src/notecontent.cpp:1511
+#: src/notecontent.cpp:1510
 #, kde-format
 msgid "Open this file"
 msgstr "Avaa tämä tiedosto"
 
-#: src/notecontent.cpp:1530
+#: src/notecontent.cpp:1529
 #, kde-format
 msgid "Opening file..."
 msgstr "Avataan tiedostoa…"
 
-#: src/notecontent.cpp:1532
+#: src/notecontent.cpp:1531
 #, kde-format
 msgid "Opening files..."
 msgstr "Avataan tiedostoja…"
 
-#: src/notecontent.cpp:1534
+#: src/notecontent.cpp:1533
 #, kde-format
 msgid "Opening file with..."
 msgstr "Avaa tiedosto ohjelmalla…"
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1535
 #, kde-format
 msgid "Opening files with..."
 msgstr "Avaa tiedostot ohjelmalla…"
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1537
 #, kde-format
 msgid "Open file with:"
 msgstr "Avaa tiedosto ohjelmalla:"
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1539
 #, kde-format
 msgid "Open files with:"
 msgstr "Avaa tiedostot ohjelmalla:"
 
-#: src/notecontent.cpp:1632
+#: src/notecontent.cpp:1640
 #, kde-format
 msgid "Open this sound"
 msgstr "Avaa tämä ääni"
 
-#: src/notecontent.cpp:1658
+#: src/notecontent.cpp:1666
 #, kde-format
 msgid "Opening sound..."
 msgstr "Avataan ääntä…"
 
-#: src/notecontent.cpp:1660
+#: src/notecontent.cpp:1668
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Avataan ääniä…"
 
-#: src/notecontent.cpp:1662
+#: src/notecontent.cpp:1670
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Avaa ääni ohjelmalla…"
 
-#: src/notecontent.cpp:1664
+#: src/notecontent.cpp:1672
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Avataan ääniä ohjelmalla…"
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1674
 #, kde-format
 msgid "Open sound with:"
 msgstr "Avaa ääni ohjelmalla:"
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1676
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Avaa äänet ohjelmalla:"
 
-#: src/notecontent.cpp:1731 src/notecontent.cpp:2002
+#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
 #, kde-format
 msgid "Target"
 msgstr "Kohde"
 
-#: src/notecontent.cpp:1753 src/notecontent.cpp:2024
+#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
 #, kde-format
 msgid "Open this link"
 msgstr "Avaa tämä linkki"
 
-#: src/notecontent.cpp:1779
+#: src/notecontent.cpp:1787
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Linkissä ei ole avattavaa verkko-osoitetta."
 
-#: src/notecontent.cpp:1783
+#: src/notecontent.cpp:1791
 #, kde-format
 msgid "Opening link target..."
 msgstr "Avataan linkin kohdetta…"
 
-#: src/notecontent.cpp:1785
+#: src/notecontent.cpp:1793
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Avataan linkin kohteita…"
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1795
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Avataan linkin kohde ohjelmalla…"
 
-#: src/notecontent.cpp:1789
+#: src/notecontent.cpp:1797
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Avataan linkin kohteet ohjelmalla…"
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1799
 #, kde-format
 msgid "Open link target with:"
 msgstr "Avaa linkin kohde ohjelmalla:"
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1801
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Avaa linkin kohteet ohjelmalla:"
 
-#: src/notecontent.cpp:2037
+#: src/notecontent.cpp:2045
 #, kde-format
 msgid "Link to %1"
 msgstr "Linkki kohteeseen %1"
 
-#: src/notecontent.cpp:2050
+#: src/notecontent.cpp:2058
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Linkissä ei ole avattavaa koria."
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2062
 #, kde-format
 msgid "Opening basket..."
 msgstr "Avataan koria…"
 
-#: src/notecontent.cpp:2159
+#: src/notecontent.cpp:2167
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(suorita päätteessä)</i>"
 
-#: src/notecontent.cpp:2164
+#: src/notecontent.cpp:2172
 #, kde-format
 msgid "Command"
 msgstr "Komento"
 
-#: src/notecontent.cpp:2188
+#: src/notecontent.cpp:2196
 #, kde-format
 msgid "Launch this application"
 msgstr "Käynnistä tämä sovellus"
 
-#: src/notecontent.cpp:2209
+#: src/notecontent.cpp:2217
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "Käynnistimessä ei ole suoritettavaa komentoa."
 
-#: src/notecontent.cpp:2213
+#: src/notecontent.cpp:2221
 #, kde-format
 msgid "Launching application..."
 msgstr "Käynnistetään sovellusta…"
 
-#: src/notecontent.cpp:2215
+#: src/notecontent.cpp:2223
 #, kde-format
 msgid "Launching applications..."
 msgstr "Käynnistetään sovelluksia…"
 
-#: src/notecontent.cpp:2335
+#: src/notecontent.cpp:2343
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2336
+#: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>punainen</i>: %1, <i>vihreä</i>: %2, <i>sininen</i>: %3,"
 
-#: src/notecontent.cpp:2340
+#: src/notecontent.cpp:2348
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2341
+#: src/notecontent.cpp:2349
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>sävy</i>: %1, <i>kylläisyys</i>: %2, <i>arvo</i>: %3,"
 
-#: src/notecontent.cpp:2345
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS-värinimi"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Is Web Color"
 msgstr "On verkkoväri"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Yes"
 msgstr "Kyllä"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "No"
 msgstr "Ei"

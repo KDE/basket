@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:46+0000\n"
+"POT-Creation-Date: 2025-09-03 00:46+0000\n"
 "PO-Revision-Date: 2022-12-04 23:21+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -703,7 +703,7 @@ msgstr ""
 msgid "The new notes do not match the filter and are hidden."
 msgstr ""
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:91
+#: src/basketscene.cpp:1468 src/notecontent.cpp:90
 #, kde-format
 msgid "Group"
 msgstr "Gruppe"
@@ -1680,7 +1680,7 @@ msgstr "&Rapidore:"
 msgid "Track number"
 msgstr "Nró del track"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2162
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
 msgid "Comment"
 msgstr "Comenta"
@@ -2090,412 +2090,412 @@ msgstr "Visibil nómine, p.ex «Mi comande de shell»"
 msgid "Mind map"
 msgstr "Corespondentie"
 
-#: src/notecontent.cpp:93
+#: src/notecontent.cpp:92
 #, kde-format
 msgid "Plain Text"
 msgstr "Simplic textu"
 
-#: src/notecontent.cpp:95
+#: src/notecontent.cpp:94
 #, kde-format
 msgid "Text"
 msgstr "Textu"
 
-#: src/notecontent.cpp:97
+#: src/notecontent.cpp:96
 #, kde-format
 msgid "Image"
 msgstr "Image"
 
-#: src/notecontent.cpp:99
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Animation"
 msgstr "Animation"
 
-#: src/notecontent.cpp:101
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Sound"
 msgstr "Son"
 
-#: src/notecontent.cpp:103
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "File"
 msgstr "File"
 
-#: src/notecontent.cpp:105
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Link"
 msgstr "Ligament"
 
-#: src/notecontent.cpp:107
+#: src/notecontent.cpp:106
 #, fuzzy, kde-format
 msgid "Cross Reference"
 msgstr "Quam &referentie"
 
-#: src/notecontent.cpp:109
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Launcher"
 msgstr "Lansator"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1204
+#: src/notecontent.cpp:110 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
 msgstr "Color"
 
-#: src/notecontent.cpp:113 src/notecontent.cpp:115
+#: src/notecontent.cpp:112 src/notecontent.cpp:114
 #, kde-format
 msgid "Unknown"
 msgstr "Ínconosset"
 
-#: src/notecontent.cpp:591
+#: src/notecontent.cpp:590
 #, fuzzy, kde-format
 msgid "Edit this plain text"
 msgstr "Simplic &textu..."
 
-#: src/notecontent.cpp:595
+#: src/notecontent.cpp:594
 #, fuzzy, kde-format
 msgid "Edit this text"
 msgstr "Redacte files textual"
 
-#: src/notecontent.cpp:599
+#: src/notecontent.cpp:598
 #, fuzzy, kde-format
 msgid "Edit this image"
 msgstr "Redacter ti-ci image"
 
-#: src/notecontent.cpp:603
+#: src/notecontent.cpp:602
 #, fuzzy, kde-format
 msgid "Edit this animation"
 msgstr "Animation"
 
-#: src/notecontent.cpp:607
+#: src/notecontent.cpp:606
 #, fuzzy, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Redacter tags ID3/OGG de ti-ci file."
 
-#: src/notecontent.cpp:611
+#: src/notecontent.cpp:610
 #, fuzzy, kde-format
 msgid "Edit the name of this file"
 msgstr "Redacter tags ID3/OGG de ti-ci file."
 
-#: src/notecontent.cpp:615
+#: src/notecontent.cpp:614
 #, fuzzy, kde-format
 msgid "Edit this link"
 msgstr "Modificar li ligament"
 
-#: src/notecontent.cpp:619
+#: src/notecontent.cpp:618
 #, fuzzy, kde-format
 msgid "Edit this cross reference"
 msgstr "Quam &referentie"
 
-#: src/notecontent.cpp:623
+#: src/notecontent.cpp:622
 #, fuzzy, kde-format
 msgid "Edit this launcher"
 msgstr "_Modificar li lansator"
 
-#: src/notecontent.cpp:627
+#: src/notecontent.cpp:626
 #, fuzzy, kde-format
 msgid "Edit this color"
 msgstr "Redacter per"
 
-#: src/notecontent.cpp:631
+#: src/notecontent.cpp:630
 #, fuzzy, kde-format
 msgid "Edit this unknown object"
 msgstr "Ínconosset"
 
-#: src/notecontent.cpp:993
+#: src/notecontent.cpp:992
 #, fuzzy, kde-format
 msgid "Opening plain text..."
 msgstr "Simplic &textu..."
 
-#: src/notecontent.cpp:995
+#: src/notecontent.cpp:994
 #, fuzzy, kde-format
 msgid "Opening plain texts..."
 msgstr "Simplic"
 
-#: src/notecontent.cpp:997
+#: src/notecontent.cpp:996
 #, fuzzy, kde-format
 msgid "Opening plain text with..."
 msgstr "Exportar quam simplic textu"
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:998
 #, fuzzy, kde-format
 msgid "Opening plain texts with..."
 msgstr "Simplic"
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1000
 #, fuzzy, kde-format
 msgid "Open plain text with:"
 msgstr "Simplic &textu..."
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1002
 #, fuzzy, kde-format
 msgid "Open plain texts with:"
 msgstr "Textus"
 
-#: src/notecontent.cpp:1114
+#: src/notecontent.cpp:1113
 #, fuzzy, kde-format
 msgid "Opening text..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1116
+#: src/notecontent.cpp:1115
 #, fuzzy, kde-format
 msgid "Opening texts..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1118
+#: src/notecontent.cpp:1117
 #, fuzzy, kde-format
 msgid "Opening text with..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1119
 #, fuzzy, kde-format
 msgid "Opening texts with..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1121
 #, fuzzy, kde-format
 msgid "Open text with:"
 msgstr "&Textu"
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1123
 #, fuzzy, kde-format
 msgid "Open texts with:"
 msgstr "Textus"
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
+#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
 #, kde-format
 msgid "Size"
 msgstr "Dimension"
 
-#: src/notecontent.cpp:1247 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
 #, fuzzy, kde-format
 msgid "%1 by %2 pixels"
 msgstr "Dimension de image: %1x%2 pixeles"
 
-#: src/notecontent.cpp:1254
+#: src/notecontent.cpp:1253
 #, fuzzy, kde-format
 msgid "Opening image..."
 msgstr "Apertente li image «%s»"
 
-#: src/notecontent.cpp:1256
+#: src/notecontent.cpp:1255
 #, fuzzy, kde-format
 msgid "Opening images..."
 msgstr "images"
 
-#: src/notecontent.cpp:1258
+#: src/notecontent.cpp:1257
 #, fuzzy, kde-format
 msgid "Opening image with..."
 msgstr "Apertente li image «%s»"
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1259
 #, fuzzy, kde-format
 msgid "Opening images with..."
 msgstr "images"
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1261
 #, fuzzy, kde-format
 msgid "Open image with:"
 msgstr "Aperter un _image..."
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1263
 #, fuzzy, kde-format
 msgid "Open images with:"
 msgstr "Aperter images pos un"
 
-#: src/notecontent.cpp:1289
+#: src/notecontent.cpp:1288
 #, fuzzy, kde-format
 msgid "Click for full size view"
 msgstr "(klicken Sie das Bild an, um es in Originalgröße anzuzeigen)"
 
-#: src/notecontent.cpp:1376
+#: src/notecontent.cpp:1375
 #, fuzzy, kde-format
 msgid "Opening animation..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1378
+#: src/notecontent.cpp:1377
 #, fuzzy, kde-format
 msgid "Opening animations..."
 msgstr "Animationes:"
 
-#: src/notecontent.cpp:1380
+#: src/notecontent.cpp:1379
 #, fuzzy, kde-format
 msgid "Opening animation with..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1381
 #, fuzzy, kde-format
 msgid "Opening animations with..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1383
 #, fuzzy, kde-format
 msgid "Open animation with:"
 msgstr "Animation"
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1385
 #, fuzzy, kde-format
 msgid "Open animations with:"
 msgstr "Animationes:"
 
-#: src/notecontent.cpp:1470
+#: src/notecontent.cpp:1469
 #, kde-format
 msgid "Type"
 msgstr "Tip"
 
-#: src/notecontent.cpp:1511
+#: src/notecontent.cpp:1510
 #, fuzzy, kde-format
 msgid "Open this file"
 msgstr "Aperter un págine"
 
-#: src/notecontent.cpp:1530
+#: src/notecontent.cpp:1529
 #, fuzzy, kde-format
 msgid "Opening file..."
 msgstr "Un errore evenit apertente un file"
 
-#: src/notecontent.cpp:1532
+#: src/notecontent.cpp:1531
 #, fuzzy, kde-format
 msgid "Opening files..."
 msgstr "Un errore evenit apertente files"
 
-#: src/notecontent.cpp:1534
+#: src/notecontent.cpp:1533
 #, fuzzy, kde-format
 msgid "Opening file with..."
 msgstr "Un errore evenit apertente li file «%s»"
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1535
 #, fuzzy, kde-format
 msgid "Opening files with..."
 msgstr "Un errore evenit apertente files"
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1537
 #, fuzzy, kde-format
 msgid "Open file with:"
 msgstr "Aperter un &file..."
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1539
 #, fuzzy, kde-format
 msgid "Open files with:"
 msgstr "In apertet files"
 
-#: src/notecontent.cpp:1632
+#: src/notecontent.cpp:1640
 #, fuzzy, kde-format
 msgid "Open this sound"
 msgstr "Audioexeada OSS"
 
-#: src/notecontent.cpp:1658
+#: src/notecontent.cpp:1666
 #, fuzzy, kde-format
 msgid "Opening sound..."
 msgstr "Son"
 
-#: src/notecontent.cpp:1660
+#: src/notecontent.cpp:1668
 #, fuzzy, kde-format
 msgid "Opening sounds..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1662
+#: src/notecontent.cpp:1670
 #, fuzzy, kde-format
 msgid "Opening sound with..."
 msgstr "Son"
 
-#: src/notecontent.cpp:1664
+#: src/notecontent.cpp:1672
 #, fuzzy, kde-format
 msgid "Opening sounds with..."
 msgstr "Aperter"
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1674
 #, fuzzy, kde-format
 msgid "Open sound with:"
 msgstr "Audioexeada OSS"
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1676
 #, fuzzy, kde-format
 msgid "Open sounds with:"
 msgstr "Null sones"
 
-#: src/notecontent.cpp:1731 src/notecontent.cpp:2002
+#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
 #, kde-format
 msgid "Target"
 msgstr "Destination"
 
-#: src/notecontent.cpp:1753 src/notecontent.cpp:2024
+#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
 #, fuzzy, kde-format
 msgid "Open this link"
 msgstr "Ne posset aperter li ligament extern"
 
-#: src/notecontent.cpp:1779
+#: src/notecontent.cpp:1787
 #, fuzzy, kde-format
 msgid "Link have no URL to open."
 msgstr "Crear un ligament a un URL"
 
-#: src/notecontent.cpp:1783
+#: src/notecontent.cpp:1791
 #, fuzzy, kde-format
 msgid "Opening link target..."
 msgstr "<b>Ad_resse de ligament:</b>"
 
-#: src/notecontent.cpp:1785
+#: src/notecontent.cpp:1793
 #, fuzzy, kde-format
 msgid "Opening link targets..."
 msgstr "Cibles"
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1795
 #, fuzzy, kde-format
 msgid "Opening link target with..."
 msgstr "<b>Ad_resse de ligament:</b>"
 
-#: src/notecontent.cpp:1789
+#: src/notecontent.cpp:1797
 #, fuzzy, kde-format
 msgid "Opening link targets with..."
 msgstr "Cibles"
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1799
 #, fuzzy, kde-format
 msgid "Open link target with:"
 msgstr "<b>Ad_resse de ligament:</b>"
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1801
 #, fuzzy, kde-format
 msgid "Open link targets with:"
 msgstr "Aperter li ligament"
 
-#: src/notecontent.cpp:2037
+#: src/notecontent.cpp:2045
 #, kde-format
 msgid "Link to %1"
 msgstr "Ligament a %1"
 
-#: src/notecontent.cpp:2050
+#: src/notecontent.cpp:2058
 #, fuzzy, kde-format
 msgid "Link has no basket to open."
 msgstr "Aperter ligament in un nov carte"
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2062
 #, fuzzy, kde-format
 msgid "Opening basket..."
 msgstr "&Corb"
 
-#: src/notecontent.cpp:2159
+#: src/notecontent.cpp:2167
 #, fuzzy, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "<i>[Ti missage esset removet: %1]</i>"
 
-#: src/notecontent.cpp:2164
+#: src/notecontent.cpp:2172
 #, kde-format
 msgid "Command"
 msgstr "Comande"
 
-#: src/notecontent.cpp:2188
+#: src/notecontent.cpp:2196
 #, fuzzy, kde-format
 msgid "Launch this application"
 msgstr "Ne successat lansar li application predefinit por «%s»"
 
-#: src/notecontent.cpp:2209
+#: src/notecontent.cpp:2217
 #, fuzzy, kde-format
 msgid "The launcher have no command to run."
 msgstr "Li comande del lansator ne es assignat."
 
-#: src/notecontent.cpp:2213
+#: src/notecontent.cpp:2221
 #, fuzzy, kde-format
 msgid "Launching application..."
 msgstr "Un errore evenit lansante li application."
 
-#: src/notecontent.cpp:2215
+#: src/notecontent.cpp:2223
 #, fuzzy, kde-format
 msgid "Launching applications..."
 msgstr ""
@@ -2506,44 +2506,44 @@ msgstr ""
 "con un sistema de plugines, quel es similar a li de GNOME Nautilus, un fork "
 "de quel Caja es. </p>"
 
-#: src/notecontent.cpp:2335
+#: src/notecontent.cpp:2343
 #, fuzzy, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2336
+#: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr ""
 
-#: src/notecontent.cpp:2340
+#: src/notecontent.cpp:2348
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr ""
 
-#: src/notecontent.cpp:2341
+#: src/notecontent.cpp:2349
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr ""
 
-#: src/notecontent.cpp:2345
+#: src/notecontent.cpp:2353
 #, fuzzy, kde-format
 msgid "CSS Color Name"
 msgstr "CSS"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Is Web Color"
 msgstr "Es un color web"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "Yes"
 msgstr "Yes"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "No"
 msgstr "No"
