@@ -8,6 +8,7 @@
     <name translate="no">KDE</name>
   </developer>
   <name>Basket</name>
+  <name xml:lang="ar">سلة</name>
   <name xml:lang="ca">Basket</name>
   <name xml:lang="ca-valencia">Basket</name>
   <name xml:lang="cs">Basket</name>
@@ -42,6 +43,7 @@
   <name xml:lang="zh-CN">Basket 笔记筐</name>
   <name xml:lang="zh-TW">Basket</name>
   <summary>Notes and to-dos organizer</summary>
+  <summary xml:lang="ar">منظم الملاحظات والمهام</summary>
   <summary xml:lang="ca">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="ca-valencia">Organitzador de notes i tasques pendents</summary>
   <summary xml:lang="cs">Shromažďování poznámek a úkolů</summary>
@@ -74,6 +76,7 @@
   <summary xml:lang="zh-TW">筆記與待辦事項管理工具</summary>
   <description>
     <p>This application provides as many baskets as you wish, and you can drag and drop.</p>
+    <p xml:lang="ar">يوفر هذا التطبيق عددًا غير محدود من السلال، ويمكنك سحبها وإفلاتها.</p>
     <p xml:lang="ca">Aquesta aplicació proporciona tantes cistelles com desitgeu, i les podeu arrossegar i deixar anar.</p>
     <p xml:lang="ca-valencia">Esta aplicació proporciona tantes cistelles com voleu, i les podeu arrossegar i deixar anar.</p>
     <p xml:lang="cs">Tato aplikace poskytuje kolik košíků chcete a můžete je různě přesunovat.</p>
@@ -104,6 +107,7 @@
     <p xml:lang="zh-CN">此应用程序可以创建无限量的笔记篮以拖放内容</p>
     <p xml:lang="zh-TW">這個應用程式提供不限數量的筆記本，也支援拖放。</p>
     <p>Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
+    <p xml:lang="ar">يمكن تحرير الكائنات ونسخها وسحبها... لذا، يمكنك ترتيبها كما تريد!</p>
     <p xml:lang="ca">Els objectes es poden editar, copiar, arrossegar... És a dir, els podeu organitzar com vulgueu!</p>
     <p xml:lang="ca-valencia">Els objectes es poden editar, copiar, arrossegar… És a dir, els podeu organitzar com vulgueu!</p>
     <p xml:lang="en-GB">Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
@@ -133,6 +137,7 @@
     <p xml:lang="zh-CN">对象可以自由编辑、复制、拖放，让您可以随心所欲地对它们进行整理。</p>
     <p xml:lang="zh-TW">物件可以被編輯、複製或拖曳等等... 您可以隨心所欲排列它們！</p>
     <p>It allows to arrange notes, track to-dos and much more.</p>
+    <p xml:lang="ar">يتيح لك ترتيب الملاحظات وتتبع المهام المطلوب إنجازها وغير ذلك الكثير.</p>
     <p xml:lang="ca">Permet organitzar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="ca-valencia">Permet organitzar notes, seguir tasques pendents i molt més.</p>
     <p xml:lang="cs">Umožňuje organizovat poznámky, sledovat úlohy a spoustu dalšího.</p>
