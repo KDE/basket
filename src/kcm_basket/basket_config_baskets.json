@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Baskets",
+        "Description[ar]": "السلال",
         "Description[ca@valencia]": "Cistelles",
         "Description[ca]": "Cistelles",
         "Description[es]": "Cestas",
@@ -25,6 +26,7 @@
         "Description[zh_CN]": "笔记篮",
         "Icon": "basket",
         "Name": "Baskets",
+        "Name[ar]": "السلال",
         "Name[ca@valencia]": "Cistelles",
         "Name[ca]": "Cistelles",
         "Name[es]": "Baskets",

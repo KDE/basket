@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "New Notes",
+        "Description[ar]": "ملاحظات جديدة",
         "Description[ca@valencia]": "Notes noves",
         "Description[ca]": "Notes noves",
         "Description[es]": "Nuevas notas",
@@ -25,6 +26,7 @@
         "Description[zh_CN]": "新建笔记",
         "Icon": "knotes-symbolic",
         "Name": "New Notes",
+        "Name[ar]": "ملاحظات جديدة",
         "Name[ca@valencia]": "Notes noves",
         "Name[ca]": "Notes noves",
         "Name[es]": "Nuevas notas",

@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Version Sync",
+        "Description[ar]": "مزامنة الإصدارات",
         "Description[ca@valencia]": "Sincronitza la versió",
         "Description[ca]": "Sincronitza la versió",
         "Description[es]": "Sincronización de la versión",
@@ -25,6 +26,7 @@
         "Description[zh_CN]": "版本同步",
         "Icon": "folder-sync",
         "Name": "Version Sync",
+        "Name[ar]": "مزامنة الإصدارات",
         "Name[ca@valencia]": "Sincronitza la versió",
         "Name[ca]": "Sincronitza la versió",
         "Name[es]": "Sincronización de la versión",

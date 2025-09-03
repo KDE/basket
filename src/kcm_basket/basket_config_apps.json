@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Applications",
+        "Description[ar]": "التطبيقات",
         "Description[ca@valencia]": "Aplicacions",
         "Description[ca]": "Aplicacions",
         "Description[es]": "Aplicaciones",
@@ -25,6 +26,7 @@
         "Description[zh_CN]": "应用",
         "Icon": "preferences-desktop-filetype-association",
         "Name": "Applications",
+        "Name[ar]": "التطبيقات",
         "Name[ca@valencia]": "Aplicacions",
         "Name[ca]": "Aplicacions",
         "Name[es]": "Aplicaciones",

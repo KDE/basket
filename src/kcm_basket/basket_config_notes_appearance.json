@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Notes Appearance",
+        "Description[ar]": "مظهر الملاحظات",
         "Description[ca@valencia]": "Aparença de les notes",
         "Description[ca]": "Aparença de les notes",
         "Description[es]": "Aspecto de las notas",
@@ -25,6 +26,7 @@
         "Description[zh_CN]": "笔记外观",
         "Icon": "preferences-desktop-theme",
         "Name": "Notes Appearance",
+        "Name[ar]": "مظهر الملاحظات",
         "Name[ca@valencia]": "Aparença de les notes",
         "Name[ca]": "Aparença de les notes",
         "Name[es]": "Aspecto de las notas",
