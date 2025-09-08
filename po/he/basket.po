@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
-"PO-Revision-Date: 2025-08-31 15:42+0300\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
+"PO-Revision-Date: 2025-09-07 22:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -215,12 +215,12 @@ msgstr "פטרי דמשטן"
 #: src/aboutdata.cpp:32
 #, kde-format
 msgid "Basket encryption, Kontact integration, KnowIt importer"
-msgstr ""
+msgstr "הצפנת סלים, שילוב מול Kontact, מייבא מ־KnowIt"
 
 #: src/aboutdata.cpp:33
 #, kde-format
 msgid "Alex Gontmakher"
-msgstr ""
+msgstr "אלכס גונטמאכר"
 
 #: src/aboutdata.cpp:34
 #, kde-format
@@ -228,6 +228,8 @@ msgid ""
 "Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, "
 "drop to basket name"
 msgstr ""
+"נעילה אוטומטית של סלים, סמל מצב שמירה, העתקה/הדבקה של HTML, חלונית עצה עם שם "
+"הסל, גרירה לשם הסל"
 
 #: src/aboutdata.cpp:36
 #, kde-format
@@ -258,12 +260,12 @@ msgstr ""
 #: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
 #, kde-format
 msgid "Basket Archive Error"
-msgstr ""
+msgstr "שגיאת ארכיון סל"
 
 #: src/archive.cpp:273
 #, kde-format
 msgid "Extraction path already exists."
-msgstr ""
+msgstr "נתיב החילוץ כבר קיים."
 
 #: src/archive.cpp:277
 #, kde-format
@@ -365,12 +367,12 @@ msgstr ""
 #: src/backup.cpp:162
 #, kde-format
 msgid "Overwrite Folder?"
-msgstr ""
+msgstr "לדרוס את התיקייה?"
 
 #: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
 #, kde-format
 msgid "&Overwrite"
-msgstr ""
+msgstr "ל&דרוס"
 
 #: src/backup.cpp:173
 #, kde-format
@@ -378,6 +380,7 @@ msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
 msgstr ""
+"הסלים שלך הועברו אל <b>%1</b>. %2 יופעל מחדש כדי שהשינוי הזה ייכנס לתוקף."
 
 #: src/backup.cpp:185
 #, kde-format
@@ -390,38 +393,38 @@ msgstr ""
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
-msgstr ""
+msgstr "סלים_%1"
 
 #: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
-msgstr ""
+msgstr "ארכיוני Tar דחוסים ב־Gzip"
 
 #: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
 #: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
-msgstr ""
+msgstr "כל הקבצים"
 
 #: src/backup.cpp:206 src/backup.cpp:214
 #, kde-format
 msgid "Backup Baskets"
-msgstr ""
+msgstr "גיבוי סלים"
 
 #: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
-msgstr ""
+msgstr "הסלים מגובים. נא להמתין…"
 
 #: src/backup.cpp:256 src/bnpview.cpp:2094
 #, kde-format
 msgid "Open Basket Archive"
-msgstr ""
+msgstr "פתיחת ארכיון סלים"
 
 #: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
-msgstr ""
+msgstr "README.txt"
 
 #: src/backup.cpp:271
 #, kde-format
@@ -435,7 +438,7 @@ msgstr ""
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
 "restore, you can remove this folder."
-msgstr ""
+msgstr "אם השחזור הצליח ושחזרת מה שרצית לשחזר, אפשר להסיר את התיקייה הזאת."
 
 #: src/backup.cpp:275
 #, kde-format
@@ -443,6 +446,8 @@ msgid ""
 "If something went wrong during the restoration process, you can re-use this "
 "folder to store your baskets and nothing will be lost."
 msgstr ""
+"אם משהו השתבש במהלך השחזור, אפשר להשתמש בתיקייה הזאת מחדש כדי לאחסן את הסלים "
+"שלך ושום דבר לא ילך לאיבוד."
 
 #: src/backup.cpp:277
 #, kde-format
@@ -454,19 +459,19 @@ msgstr ""
 #: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
-msgstr ""
+msgstr "<b>%1</b> משוחזר. נא להמתין…"
 
 #: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
-msgstr ""
+msgstr "אם משהו משתבש במהלך השחזור, יש לקרוא את הקובץ <b>%1</b>."
 
 #: src/backup.cpp:285
 #, kde-format
 msgid "Restore Baskets"
-msgstr ""
+msgstr "שחזור סלים"
 
 #: src/backup.cpp:318
 #, kde-format
@@ -474,11 +479,13 @@ msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
 "imported. Your old baskets have been preserved instead."
 msgstr ""
+"או שהארכיון הזה אינו גיבוי של סלים או שהוא פגום. אי אפשר לייבא אותו. הסלים "
+"הישנים שלך נשמרו במקום."
 
 #: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
-msgstr ""
+msgstr "שגיאת שחזור"
 
 #: src/backup.cpp:328
 #, kde-format
@@ -486,44 +493,46 @@ msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
 msgstr ""
+"הגיבוי שלך שוחזר בהצלחה אל <b>%1</b>.‏ %2 יופעל מחדש כדי שהשינוי הזה ייכנס "
+"לתוקף."
 
 #: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "הפעלה מחדש"
 
 #: src/backup.cpp:383
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
-msgstr ""
+msgstr "סלים לפני שחזור"
 
 #: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
-msgstr ""
+msgstr "סלים לפני שחזור (%1)"
 
 #: src/basket_options.h:19
 #, kde-format
 msgid "Show the debug window"
-msgstr ""
+msgstr "הצגת חלון ניפוי השגיאות"
 
 #: src/basket_options.h:21
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
-msgstr ""
+msgstr "תיקייה מותאמת אישית לטעינת ושמירת סלים ונתונים נוספים של היישום."
 
 #: src/basket_options.h:22
 #, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
-msgstr ""
+msgstr "תיקייה"
 
 #: src/basket_options.h:24
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
-msgstr ""
+msgstr "להסתיר את החלון הראשי אוטומטית בשורת המערכת עם העלייה."
 
 #: src/basket_options.h:26
 #, kde-format
@@ -1803,31 +1812,31 @@ msgstr ""
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
-msgstr ""
+msgstr "קובצי_%1"
 
 #: src/htmlexporter.cpp:120 src/htmlexporter.cpp:165
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
-msgstr ""
+msgstr "סמלים"
 
 #: src/htmlexporter.cpp:121 src/htmlexporter.cpp:167
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
-msgstr ""
+msgstr " תמונות"
 
 #: src/htmlexporter.cpp:122 src/htmlexporter.cpp:163
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
-msgstr ""
+msgstr "סלים"
 
 #: src/htmlexporter.cpp:155 src/htmlexporter.cpp:161 src/htmlexporter.cpp:162
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
-msgstr ""
+msgstr "נתונים"
 
 #: src/htmlexporter.cpp:402
 #, kde-format
@@ -1835,17 +1844,18 @@ msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
 "information at hand."
 msgstr ""
+"נוצר עם <a href=\"%1\">%2</a>‏ %3, כלי לכתיבת פתקיות ולשמור על מידע בהישג יד."
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
 #: src/variouswidgets.cpp:404
 #, kde-format
 msgid "(Default)"
-msgstr ""
+msgstr "(ברירת מחדל)"
 
 #: src/kcolorcombo2.cpp:124
 #, kde-format
 msgid "Other..."
-msgstr ""
+msgstr "אחר…"
 
 #. i18n("(Default)")).height() + 2
 #. TODO: isDefaultColorSelected()
@@ -1860,92 +1870,92 @@ msgstr ""
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
-msgstr ""
+msgstr "(ברירת מחדל)"
 
 #: src/kgpgme.cpp:47
 #, kde-format
 msgid "Private Key List"
-msgstr ""
+msgstr "רשימת מפתחות פרטיים"
 
 #: src/kgpgme.cpp:65
 #, kde-format
 msgid "Email"
-msgstr ""
+msgstr "דוא״ל"
 
 #: src/kgpgme.cpp:65
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "מזהה"
 
 #: src/kgpgme.cpp:69
 #, kde-format
 msgid "Choose a secret key:"
-msgstr ""
+msgstr "נא לבחור מפתח סודי:"
 
 #: src/kgpgme.cpp:258
 #, kde-format
 msgid "Key listing unexpectedly truncated."
-msgstr ""
+msgstr "הצגת המפתחות נקטעה במפתיע."
 
 #: src/kgpgme.cpp:292
 #, kde-format
 msgid "That public key is not meant for encryption"
-msgstr ""
+msgstr "המפתח הציבורי הזה לא מיועד להצפנה"
 
 #: src/kgpgme.cpp:336
 #, kde-format
 msgid "Unsupported algorithm"
-msgstr ""
+msgstr "אלגוריתם לא נתמך"
 
 #: src/kgpgme.cpp:428
 #, kde-format
 msgid "Wrong password."
-msgstr ""
+msgstr "סיסמה שגויה."
 
 #: src/kgpgme.cpp:443
 #, kde-format
 msgid "Please enter a new password:"
-msgstr ""
+msgstr "נא למלא סיסמה חדשה:"
 
 #: src/linklabel.cpp:604
 #, kde-format
 msgid "I&talic"
-msgstr ""
+msgstr "&נטוי"
 
 #: src/linklabel.cpp:607
 #, kde-format
 msgid "&Bold"
-msgstr ""
+msgstr "מו&דגש"
 
 #: src/linklabel.cpp:615
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: src/linklabel.cpp:616
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: src/linklabel.cpp:617
 #, kde-format
 msgid "On mouse hovering"
-msgstr ""
+msgstr "עם ריחוף העכבר מעל"
 
 #: src/linklabel.cpp:618
 #, kde-format
 msgid "When mouse is outside"
-msgstr ""
+msgstr "כאשר העכבר מחוץ"
 
 #: src/linklabel.cpp:620
 #, kde-format
 msgid "&Underline:"
-msgstr ""
+msgstr "קו &תחתון:"
 
 #: src/linklabel.cpp:627
 #, kde-format
 msgid "Colo&r:"
-msgstr ""
+msgstr "&צבע:"
 
 #: src/linklabel.cpp:634
 #, kde-format
@@ -2136,419 +2146,419 @@ msgstr ""
 #: src/notecontent.cpp:106
 #, kde-format
 msgid "Cross Reference"
-msgstr ""
+msgstr "סימוכין"
 
 #: src/notecontent.cpp:108
 #, kde-format
 msgid "Launcher"
-msgstr ""
+msgstr "משגר"
 
 #: src/notecontent.cpp:110 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
-msgstr ""
+msgstr "צבע"
 
 #: src/notecontent.cpp:112 src/notecontent.cpp:114
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #: src/notecontent.cpp:590
 #, kde-format
 msgid "Edit this plain text"
-msgstr ""
+msgstr "עריכת הטקסט הפשוט הזה"
 
 #: src/notecontent.cpp:594
 #, kde-format
 msgid "Edit this text"
-msgstr ""
+msgstr "עריכת הטקסט הזה"
 
 #: src/notecontent.cpp:598
 #, kde-format
 msgid "Edit this image"
-msgstr ""
+msgstr "עריכת התמונה הזאת"
 
 #: src/notecontent.cpp:602
 #, kde-format
 msgid "Edit this animation"
-msgstr ""
+msgstr "עריכת ההנפשה הזאת"
 
 #: src/notecontent.cpp:606
 #, kde-format
 msgid "Edit the file name of this sound"
-msgstr ""
+msgstr "עריכת שם הקובץ של הצליל הזה"
 
 #: src/notecontent.cpp:610
 #, kde-format
 msgid "Edit the name of this file"
-msgstr ""
+msgstr "עריכת שם הקובץ הזה"
 
 #: src/notecontent.cpp:614
 #, kde-format
 msgid "Edit this link"
-msgstr ""
+msgstr "עריכת הקישור הזה"
 
 #: src/notecontent.cpp:618
 #, kde-format
 msgid "Edit this cross reference"
-msgstr ""
+msgstr "עריכת ההפניה"
 
 #: src/notecontent.cpp:622
 #, kde-format
 msgid "Edit this launcher"
-msgstr ""
+msgstr "עריכת המשגר הזה"
 
 #: src/notecontent.cpp:626
 #, kde-format
 msgid "Edit this color"
-msgstr ""
+msgstr "עריכת הצבע הזה"
 
 #: src/notecontent.cpp:630
 #, kde-format
 msgid "Edit this unknown object"
-msgstr ""
+msgstr "עריכת הפריט הלא ידוע הזה"
 
 #: src/notecontent.cpp:992
 #, kde-format
 msgid "Opening plain text..."
-msgstr ""
+msgstr "טקסט פשוט נפתח…"
 
 #: src/notecontent.cpp:994
 #, kde-format
 msgid "Opening plain texts..."
-msgstr ""
+msgstr "טקסטים פשוטים נפתחים…"
 
 #: src/notecontent.cpp:996
 #, kde-format
 msgid "Opening plain text with..."
-msgstr ""
+msgstr "טקסט פשוט נפתח עם…"
 
 #: src/notecontent.cpp:998
 #, kde-format
 msgid "Opening plain texts with..."
-msgstr ""
+msgstr "טקסטים פשוטים נפתחים עם…"
 
 #: src/notecontent.cpp:1000
 #, kde-format
 msgid "Open plain text with:"
-msgstr ""
+msgstr "פתיחת טקסט פשוט עם:"
 
 #: src/notecontent.cpp:1002
 #, kde-format
 msgid "Open plain texts with:"
-msgstr ""
+msgstr "פתיחת טקסטים פשוטים עם:"
 
 #: src/notecontent.cpp:1113
 #, kde-format
 msgid "Opening text..."
-msgstr ""
+msgstr "טקסט נפתח…"
 
 #: src/notecontent.cpp:1115
 #, kde-format
 msgid "Opening texts..."
-msgstr ""
+msgstr "טקסטים נפתחים…"
 
 #: src/notecontent.cpp:1117
 #, kde-format
 msgid "Opening text with..."
-msgstr ""
+msgstr "טקסט נפתח עם…"
 
 #: src/notecontent.cpp:1119
 #, kde-format
 msgid "Opening texts with..."
-msgstr ""
+msgstr "טקסטים נפתחים עם…"
 
 #: src/notecontent.cpp:1121
 #, kde-format
 msgid "Open text with:"
-msgstr ""
+msgstr "פתיחת טקסט עם:"
 
 #: src/notecontent.cpp:1123
 #, kde-format
 msgid "Open texts with:"
-msgstr ""
+msgstr "פתיחת טקסטים עם:"
 
 #: src/notecontent.cpp:1246 src/notecontent.cpp:1464
 #, kde-format
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
-msgstr ""
+msgstr "%1 על %2 פיקסלים"
 
 #: src/notecontent.cpp:1253
 #, kde-format
 msgid "Opening image..."
-msgstr ""
+msgstr "תמונה נפתחת…"
 
 #: src/notecontent.cpp:1255
 #, kde-format
 msgid "Opening images..."
-msgstr ""
+msgstr "תמונות נפתחות…"
 
 #: src/notecontent.cpp:1257
 #, kde-format
 msgid "Opening image with..."
-msgstr ""
+msgstr "תמונה נפתחת עם…"
 
 #: src/notecontent.cpp:1259
 #, kde-format
 msgid "Opening images with..."
-msgstr ""
+msgstr "תמונות נפתחות עם…"
 
 #: src/notecontent.cpp:1261
 #, kde-format
 msgid "Open image with:"
-msgstr ""
+msgstr "פתיחת תמונה עם:"
 
 #: src/notecontent.cpp:1263
 #, kde-format
 msgid "Open images with:"
-msgstr ""
+msgstr "פתיחת תמונות עם:"
 
 #: src/notecontent.cpp:1288
 #, kde-format
 msgid "Click for full size view"
-msgstr ""
+msgstr "יש ללחוץ לתצוגה בגודל מלא"
 
 #: src/notecontent.cpp:1375
 #, kde-format
 msgid "Opening animation..."
-msgstr ""
+msgstr "ההנפשה נפתחת…"
 
 #: src/notecontent.cpp:1377
 #, kde-format
 msgid "Opening animations..."
-msgstr ""
+msgstr "ההנפשות נפתחות…"
 
 #: src/notecontent.cpp:1379
 #, kde-format
 msgid "Opening animation with..."
-msgstr ""
+msgstr "פתיחת הנפשה עם…"
 
 #: src/notecontent.cpp:1381
 #, kde-format
 msgid "Opening animations with..."
-msgstr ""
+msgstr "פתיחת הנפשות עם…"
 
 #: src/notecontent.cpp:1383
 #, kde-format
 msgid "Open animation with:"
-msgstr ""
+msgstr "פתיחת הנפשה עם:"
 
 #: src/notecontent.cpp:1385
 #, kde-format
 msgid "Open animations with:"
-msgstr ""
+msgstr "פתיחת הנפשות עם:"
 
 #: src/notecontent.cpp:1469
 #, kde-format
 msgid "Type"
-msgstr ""
+msgstr "סוג"
 
 #: src/notecontent.cpp:1510
 #, kde-format
 msgid "Open this file"
-msgstr ""
+msgstr "פתיחת הקובץ הזה"
 
 #: src/notecontent.cpp:1529
 #, kde-format
 msgid "Opening file..."
-msgstr ""
+msgstr "הקובץ נפתח…"
 
 #: src/notecontent.cpp:1531
 #, kde-format
 msgid "Opening files..."
-msgstr ""
+msgstr "הקבצים נפתחים…"
 
 #: src/notecontent.cpp:1533
 #, kde-format
 msgid "Opening file with..."
-msgstr ""
+msgstr "פתיחת קובץ עם…"
 
 #: src/notecontent.cpp:1535
 #, kde-format
 msgid "Opening files with..."
-msgstr ""
+msgstr "פתיחת קבצים עם…"
 
 #: src/notecontent.cpp:1537
 #, kde-format
 msgid "Open file with:"
-msgstr ""
+msgstr "פתיחת קובץ עם:"
 
 #: src/notecontent.cpp:1539
 #, kde-format
 msgid "Open files with:"
-msgstr ""
+msgstr "פתיחת קבצים עם:"
 
 #: src/notecontent.cpp:1640
 #, kde-format
 msgid "Open this sound"
-msgstr ""
+msgstr "פתיחת הצליל הזה"
 
 #: src/notecontent.cpp:1666
 #, kde-format
 msgid "Opening sound..."
-msgstr ""
+msgstr "הצליל נפתח…"
 
 #: src/notecontent.cpp:1668
 #, kde-format
 msgid "Opening sounds..."
-msgstr ""
+msgstr "הצלילים נפתחים…"
 
 #: src/notecontent.cpp:1670
 #, kde-format
 msgid "Opening sound with..."
-msgstr ""
+msgstr "הצליל נפתח עם…"
 
 #: src/notecontent.cpp:1672
 #, kde-format
 msgid "Opening sounds with..."
-msgstr ""
+msgstr "הצלילים נפתחים עם…"
 
 #: src/notecontent.cpp:1674
 #, kde-format
 msgid "Open sound with:"
-msgstr ""
+msgstr "פתיחת צליל עם:"
 
 #: src/notecontent.cpp:1676
 #, kde-format
 msgid "Open sounds with:"
-msgstr ""
+msgstr "פתיחת צלילים עם:"
 
 #: src/notecontent.cpp:1739 src/notecontent.cpp:2010
 #, kde-format
 msgid "Target"
-msgstr ""
+msgstr "יעד"
 
 #: src/notecontent.cpp:1761 src/notecontent.cpp:2032
 #, kde-format
 msgid "Open this link"
-msgstr ""
+msgstr "פתיחת הקישור הזה"
 
 #: src/notecontent.cpp:1787
 #, kde-format
 msgid "Link have no URL to open."
-msgstr ""
+msgstr "לקישור הזה אין כתובת לפתיחה."
 
 #: src/notecontent.cpp:1791
 #, kde-format
 msgid "Opening link target..."
-msgstr ""
+msgstr "יעד הקישור נפתח…"
 
 #: src/notecontent.cpp:1793
 #, kde-format
 msgid "Opening link targets..."
-msgstr ""
+msgstr "יעדי הקישור נפתחים…"
 
 #: src/notecontent.cpp:1795
 #, kde-format
 msgid "Opening link target with..."
-msgstr ""
+msgstr "יעד הקישור נפתח עם…"
 
 #: src/notecontent.cpp:1797
 #, kde-format
 msgid "Opening link targets with..."
-msgstr ""
+msgstr "יעדי הקישור נפתחים עם…"
 
 #: src/notecontent.cpp:1799
 #, kde-format
 msgid "Open link target with:"
-msgstr ""
+msgstr "פתיחת יעד קישור עם:"
 
 #: src/notecontent.cpp:1801
 #, kde-format
 msgid "Open link targets with:"
-msgstr ""
+msgstr "פתיחת יעדי הקישור עם:"
 
 #: src/notecontent.cpp:2045
 #, kde-format
 msgid "Link to %1"
-msgstr ""
+msgstr "קישור אל %1"
 
 #: src/notecontent.cpp:2058
 #, kde-format
 msgid "Link has no basket to open."
-msgstr ""
+msgstr "לקישור אין סל לפתיחה."
 
 #: src/notecontent.cpp:2062
 #, kde-format
 msgid "Opening basket..."
-msgstr ""
+msgstr "סל נפתח…"
 
 #: src/notecontent.cpp:2167
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
-msgstr ""
+msgstr "%1 <i>(הרצה במסוף)</i>"
 
 #: src/notecontent.cpp:2172
 #, kde-format
 msgid "Command"
-msgstr ""
+msgstr "פקודה"
 
 #: src/notecontent.cpp:2196
 #, kde-format
 msgid "Launch this application"
-msgstr ""
+msgstr "הפעלת היישום הזה"
 
 #: src/notecontent.cpp:2217
 #, kde-format
 msgid "The launcher have no command to run."
-msgstr ""
+msgstr "למשגר אין פקודה להרצה."
 
 #: src/notecontent.cpp:2221
 #, kde-format
 msgid "Launching application..."
-msgstr ""
+msgstr "היישום נטען…"
 
 #: src/notecontent.cpp:2223
 #, kde-format
 msgid "Launching applications..."
-msgstr ""
+msgstr "היישומים נטענים…"
 
 #: src/notecontent.cpp:2343
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
-msgstr ""
+msgstr "RGB"
 
 #: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
-msgstr ""
+msgstr "<i>אדום</i>: %1, <i>ירוק</i>: %2, <i>כחול</i>: %3,"
 
 #: src/notecontent.cpp:2348
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
-msgstr ""
+msgstr "HSV"
 
 #: src/notecontent.cpp:2349
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
-msgstr ""
+msgstr "<i>גוון</i>: %1, <i>רוויה</i>: %2, <i>ערך</i>: %3,"
 
 #: src/notecontent.cpp:2353
 #, kde-format
 msgid "CSS Color Name"
-msgstr ""
+msgstr "שם צבע ב־CSS"
 
 #: src/notecontent.cpp:2356
 #, kde-format
 msgid "Is Web Color"
-msgstr ""
+msgstr "האם זה צבע אינטרנט"
 
 #: src/notecontent.cpp:2356
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "כן"
 
 #: src/notecontent.cpp:2356
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "לא"
 
 #: src/noteedit.cpp:541
 #, kde-format
@@ -2557,11 +2567,14 @@ msgid ""
 "Pads will include an image editor).\n"
 "Do you want to open it with an application that understand it?"
 msgstr ""
+"אי אפשר לערוך כאן תמונות כרגע (הגרסה הבאה של מחברות BasKet תכלול עורך "
+"תמונות).\n"
+"לפתוח אותה עם יישום שיודע איך להתמודד איתה?"
 
 #: src/noteedit.cpp:543
 #, kde-format
 msgid "Edit Image Note"
-msgstr ""
+msgstr "עריכת פתקית תמונה"
 
 #: src/noteedit.cpp:568
 #, kde-format
@@ -2569,16 +2582,18 @@ msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
 msgstr ""
+"אי אפשר לערוך כאן תמונה מונפשת.\n"
+"לפתוח אותה ביישום שיודע להתמודד איתה?"
 
 #: src/noteedit.cpp:570
 #, kde-format
 msgid "Edit Animation Note"
-msgstr ""
+msgstr "עריכת פתקית הנפשה"
 
 #: src/noteedit.cpp:663
 #, kde-format
 msgid "Edit Color Note"
-msgstr ""
+msgstr "עריכת פתקית צבע"
 
 #: src/noteedit.cpp:688
 #, kde-format
@@ -2591,127 +2606,127 @@ msgstr ""
 #: src/noteedit.cpp:690
 #, kde-format
 msgid "Edit Unknown Note"
-msgstr ""
+msgstr "עריכת פתקית לא ידועה"
 
 #: src/noteedit.cpp:702
 #, kde-format
 msgid "Edit Link Note"
-msgstr ""
+msgstr "עריכת פתקית קישור"
 
 #: src/noteedit.cpp:722 src/noteedit.cpp:755
 #, kde-format
 msgid "Auto"
-msgstr ""
+msgstr "אוטו׳"
 
 #: src/noteedit.cpp:734 src/noteedit.cpp:1060
 #, kde-format
 msgid "&Icon:"
-msgstr ""
+msgstr "&סמל:"
 
 #: src/noteedit.cpp:777 src/noteedit.cpp:948
 #, kde-format
 msgid "Ta&rget:"
-msgstr ""
+msgstr "י&עד:"
 
 #: src/noteedit.cpp:782
 #, kde-format
 msgid "&Title:"
-msgstr ""
+msgstr "&כותרת:"
 
 #: src/noteedit.cpp:915
 #, kde-format
 msgid "Edit Cross Reference"
-msgstr ""
+msgstr "עריכת סימוכין"
 
 #: src/noteedit.cpp:1034
 #, kde-format
 msgid "Edit Launcher Note"
-msgstr ""
+msgstr "עריכת פתקית משגר"
 
 #: src/noteedit.cpp:1048
 #, kde-format
 msgid "Choose a command to run:"
-msgstr ""
+msgstr "נא לבחור פקודה להרצה:"
 
 #: src/noteedit.cpp:1065
 #, kde-format
 msgid "&Guess"
-msgstr ""
+msgstr "&ניחוש"
 
 #: src/noteedit.cpp:1083
 #, kde-format
 msgid "Comman&d:"
-msgstr ""
+msgstr "פ&קודה:"
 
 #: src/noteedit.cpp:1088 src/tagsedit.cpp:386
 #, kde-format
 msgid "&Name:"
-msgstr ""
+msgstr "&שם:"
 
 #: src/noteedit.cpp:1186
 #, kde-format
 msgid "Font"
-msgstr ""
+msgstr "גופן"
 
 #: src/noteedit.cpp:1194
 #, kde-format
 msgid "Font Size"
-msgstr ""
+msgstr "גודל כתב"
 
 #: src/noteedit.cpp:1209 src/tagsedit.cpp:468
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "מודגש"
 
 #: src/noteedit.cpp:1216 src/tagsedit.cpp:480
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "נטוי"
 
 #: src/noteedit.cpp:1223 src/tagsedit.cpp:474
 #, kde-format
 msgid "Underline"
-msgstr ""
+msgstr "קו תחתון"
 
 #: src/noteedit.cpp:1231
 #, kde-format
 msgid "Superscript"
-msgstr ""
+msgstr "כתב עילי"
 
 #: src/noteedit.cpp:1237
 #, kde-format
 msgid "Subscript"
-msgstr ""
+msgstr "כתב תחתי"
 
 #: src/noteedit.cpp:1244
 #, kde-format
 msgid "Align Left"
-msgstr ""
+msgstr "יישור שמאלה"
 
 #: src/noteedit.cpp:1250
 #, kde-format
 msgid "Centered"
-msgstr ""
+msgstr "ממורכז"
 
 #: src/noteedit.cpp:1256
 #, kde-format
 msgid "Align Right"
-msgstr ""
+msgstr "יישור ימינה"
 
 #: src/noteedit.cpp:1262
 #, kde-format
 msgid "Justified"
-msgstr ""
+msgstr "מפוזר לצדדים"
 
 #: src/noteedit.cpp:1274
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "הסגה"
 
 #: src/noteedit.cpp:1280
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "ביצוע מחדש"
 
 #: src/notefactory.cpp:491
 #, kde-format
@@ -2725,7 +2740,7 @@ msgstr ""
 #: src/notefactory.cpp:497
 #, kde-format
 msgid "Unsupported MIME Type(s)"
-msgstr ""
+msgstr "סוגי תוכן (MIME) לא נתמכים"
 
 #: src/notefactory.cpp:553
 #, kde-format
@@ -2801,47 +2816,47 @@ msgstr ""
 #: src/settings.cpp:438
 #, kde-format
 msgid "On left"
-msgstr ""
+msgstr "משמאל"
 
 #: src/settings.cpp:439
 #, kde-format
 msgid "On right"
-msgstr ""
+msgstr "מימין"
 
 #: src/settings.cpp:441
 #, kde-format
 msgid "&Basket tree position:"
-msgstr ""
+msgstr "מקום &עץ סלים:"
 
 #: src/settings.cpp:446 src/settings.cpp:704
 #, kde-format
 msgid "On top"
-msgstr ""
+msgstr "למעלה"
 
 #: src/settings.cpp:447 src/settings.cpp:705
 #, kde-format
 msgid "On bottom"
-msgstr ""
+msgstr "למטה"
 
 #: src/settings.cpp:449
 #, kde-format
 msgid "&Filter bar position:"
-msgstr ""
+msgstr "מקום סרגל &סינון:"
 
 #: src/settings.cpp:495
 #, kde-format
 msgid "&Show tooltips in baskets"
-msgstr ""
+msgstr "הצגת חלוניות &עצה בסלים"
 
 #: src/settings.cpp:499
 #, kde-format
 msgid "&Big notes"
-msgstr ""
+msgstr "פתקיות &גדולות"
 
 #: src/settings.cpp:505
 #, kde-format
 msgid "Behavior"
-msgstr ""
+msgstr "התנהגות"
 
 #: src/settings.cpp:510
 #, kde-format
@@ -2866,19 +2881,19 @@ msgstr ""
 #: src/settings.cpp:529
 #, kde-format
 msgid "&Export tags in texts"
-msgstr ""
+msgstr "יי&צוא תגיות בטקסטים"
 
 #: src/settings.cpp:533
 #, kde-format
 msgid "When does this apply?"
-msgstr ""
+msgstr "מתי זה תקף?"
 
 #: src/settings.cpp:534
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
-msgstr ""
+msgstr "זה תקף במקרים של העתקה והדבקה או גרירה של פתקיות לעורך טקסט."
 
 #: src/settings.cpp:535
 #, kde-format
@@ -3252,86 +3267,80 @@ msgstr ""
 #: src/settings_versionsync.ui:17
 #, kde-format
 msgid "Enable distributed version control"
-msgstr ""
+msgstr "הפעלת בקרת גרסאות מבוזרת"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
 #: src/settings_versionsync.ui:24
 #, kde-format
 msgid "BasKet is built without version control (libgit2) support"
-msgstr ""
+msgstr "BasKet נבנה ללא תמיכה בבקרת גרסאות (libgit2)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
 #: src/settings_versionsync.ui:34
 #, kde-format
 msgid "Control"
-msgstr ""
+msgstr "בקרה"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
 #: src/settings_versionsync.ui:45
 #, kde-format
 msgid "Clear version history"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr ""
+msgstr "מחיקת היסטוריית גרסאות"
 
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
-msgstr ""
+msgstr "ייבוא ההיררכיה"
 
 #: src/softwareimporters.cpp:59
 #, kde-format
 msgid "How to Import the Notes?"
-msgstr ""
+msgstr "איך לייבא את הפתקיות?"
 
 #: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
-msgstr ""
+msgstr "ל&שמור על ההיררכיה המקורית (כל הפתקיות בסלים נפרדים)"
 
 #: src/softwareimporters.cpp:64
 #, kde-format
 msgid "&First level notes in separate baskets"
-msgstr ""
+msgstr "פתקיות ברמה &ראשונה בסלים נפרדים"
 
 #: src/softwareimporters.cpp:65
 #, kde-format
 msgid "&All notes in one basket"
-msgstr ""
+msgstr "&כל הפתקיות בסל אחד"
 
 #: src/softwareimporters.cpp:109
 #, kde-format
 msgid "Import Text File"
-msgstr ""
+msgstr "ייבוא קובץ טקסט"
 
 #: src/softwareimporters.cpp:113
 #, kde-format
 msgid "Format of the Text File"
-msgstr ""
+msgstr "תבנית קובץ הטקסט"
 
 #: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes separated by an &empty line"
-msgstr ""
+msgstr "פתקיות מופרדות בשורה &ריקה"
 
 #: src/softwareimporters.cpp:119
 #, kde-format
 msgid "One &note per line"
-msgstr ""
+msgstr "&פתקית בשורה"
 
 #: src/softwareimporters.cpp:120
 #, kde-format
 msgid "Notes begin with a &dash (-)"
-msgstr ""
+msgstr "פתקיות מתחילות במי&נוס (-)"
 
 #: src/softwareimporters.cpp:121
 #, kde-format
 msgid "Notes begin with a &star (*)"
-msgstr "הערות מתחילות ב&כוכב (*)"
+msgstr "פתקיות מתחילות ב&כוכב (*)"
 
 #: src/softwareimporters.cpp:122
 #, kde-format
@@ -3341,7 +3350,7 @@ msgstr "להשתמש במפריד &אחר:"
 #: src/softwareimporters.cpp:138
 #, kde-format
 msgid "&All in one note"
-msgstr "ה&כול בהערה אחת"
+msgstr "ה&כול בפתקית אחת"
 
 #: src/softwareimporters.cpp:217
 #, kde-format
@@ -3573,63 +3582,63 @@ msgstr ""
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
-msgstr ""
+msgstr "מראש העץ (נתיב מוחלט):"
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
-msgstr ""
+msgstr "[[/פריט ברמה עליונה/צאצא|כותרת רשות]]"
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "Relative to the current basket:"
-msgstr ""
+msgstr "ביחס לסל הנוכחי:"
 
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[../sibling|optional title]]"
-msgstr ""
+msgstr "[[../אחאי|כותרת רשות]]"
 
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[child|optional title]]"
-msgstr ""
+msgstr "[[צאצא|כותרת רשות]]"
 
 #: src/tagsedit.cpp:407
 #, kde-format
 msgid "[[./child|optional title]]"
-msgstr ""
+msgstr "[[./אצא|כותרת רשות]]"
 
 #: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "לכידת סלים אינה תלויית רישיות."
 
 #: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
 msgid "State"
-msgstr ""
+msgstr "מצב"
 
 #: src/tagsedit.cpp:430
 #, kde-format
 msgid "Na&me:"
-msgstr ""
+msgstr "&שם:"
 
 #: src/tagsedit.cpp:438
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
-msgstr ""
+msgstr "הס&רה"
 
 #: src/tagsedit.cpp:439
 #, kde-format
 msgid "&Emblem:"
-msgstr ""
+msgstr "&סימן:"
 
 #: src/tagsedit.cpp:456
 #, kde-format
 msgid "&Background:"
-msgstr ""
+msgstr "&רקע:"
 
 #: src/tagsedit.cpp:486
 #, kde-format
@@ -3639,32 +3648,32 @@ msgstr "קו חוצה"
 #: src/tagsedit.cpp:488
 #, kde-format
 msgid "&Text:"
-msgstr ""
+msgstr "&טקסט:"
 
 #: src/tagsedit.cpp:499
 #, kde-format
 msgid "Co&lor:"
-msgstr ""
+msgstr "&צבע:"
 
 #: src/tagsedit.cpp:504
 #, kde-format
 msgid "&Font:"
-msgstr ""
+msgstr "&גופן:"
 
 #: src/tagsedit.cpp:508
 #, kde-format
 msgid "&Size:"
-msgstr ""
+msgstr "גו&דל:"
 
 #: src/tagsedit.cpp:512
 #, kde-format
 msgid "Te&xt equivalent:"
-msgstr ""
+msgstr "מקבילה ב&טקסט:"
 
 #: src/tagsedit.cpp:519
 #, kde-format
 msgid "What is this for?"
-msgstr ""
+msgstr "למה זה מיועד?"
 
 #: src/tagsedit.cpp:521
 #, kde-format
@@ -3752,3 +3761,6 @@ msgid ""
 "Resize the window to select the image size\n"
 "and close it or press Escape to accept changes."
 msgstr ""
+
+#~ msgid "TextLabel"
+#~ msgstr "תווית טקסט"

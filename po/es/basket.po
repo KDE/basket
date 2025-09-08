@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2025-04-05 01:46+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -3495,12 +3495,6 @@ msgstr "Control"
 msgid "Clear version history"
 msgstr "Borrar el historial de versiones"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "EtiquetaDeTexto"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3991,3 +3985,6 @@ msgid ""
 msgstr ""
 "Redimensione la ventana para escoger el tamaño de la imagen\n"
 "y ciérrela o pulse Escape para aceptar los cambios."
+
+#~ msgid "TextLabel"
+#~ msgstr "EtiquetaDeTexto"

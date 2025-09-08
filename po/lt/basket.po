@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2020-09-21 02:37+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -3254,12 +3254,6 @@ msgstr ""
 #: src/settings_versionsync.ui:45
 #, kde-format
 msgid "Clear version history"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
 msgstr ""
 
 #: src/softwareimporters.cpp:49

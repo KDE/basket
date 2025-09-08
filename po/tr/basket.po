@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2025-09-04 14:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3459,12 +3459,6 @@ msgstr "Denetle"
 msgid "Clear version history"
 msgstr "Sürüm geçmişini temizle"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "Metin Etiketi"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3952,6 +3946,9 @@ msgid ""
 msgstr ""
 "Görsel boyutunu seçmek için pencereyi boyutlandırın ve kapatın\n"
 "ya da Esc düğmesine basarak değişiklikleri kabul edin."
+
+#~ msgid "TextLabel"
+#~ msgstr "Metin Etiketi"
 
 #~ msgid ""
 #~ "Failed to migrate Basket data from KDE4. You will need to close Basket "

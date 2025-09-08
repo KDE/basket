@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2024-12-16 11:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3487,12 +3487,6 @@ msgstr "Besturing"
 msgid "Clear version history"
 msgstr "Versiegeschiedenis wissen"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "Tekstlabel"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3986,6 +3980,9 @@ msgstr ""
 "Het venster van grootte wijzigen om de afbeeldingsgrootte\n"
 "te selecteren en het sluiten of op Escape drukken om wijzigingen te "
 "accepteren."
+
+#~ msgid "TextLabel"
+#~ msgstr "Tekstlabel"
 
 #~ msgid ""
 #~ "Failed to migrate Basket data from KDE4. You will need to close Basket "

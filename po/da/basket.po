@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2008-06-27 16:12+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team:  <opensuse-translation@opensuse.org>\n"
@@ -3470,12 +3470,6 @@ msgstr ""
 msgid "Clear version history"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, fuzzy, kde-format
-msgid "TextLabel"
-msgstr "Tekst"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3964,6 +3958,10 @@ msgid ""
 msgstr ""
 "Ændr størrelse på vinduet for at vælge billedstørrelsen\n"
 "og luk det eller tryk Escape for at acceptere ændringer."
+
+#, fuzzy
+#~ msgid "TextLabel"
+#~ msgstr "Tekst"
 
 #, fuzzy
 #~ msgid "Choose action"

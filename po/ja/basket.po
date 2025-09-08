@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket-ja\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2020-04-07 20:59-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -3458,12 +3458,6 @@ msgstr ""
 msgid "Clear version history"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, fuzzy, kde-format
-msgid "TextLabel"
-msgstr "テキスト"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3953,6 +3947,10 @@ msgstr ""
 "画像のサイズを選択してください。\n"
 "ウィンドウを閉じるか Escape を\n"
 "押すと、変更が適用されます。"
+
+#, fuzzy
+#~ msgid "TextLabel"
+#~ msgstr "テキスト"
 
 #, fuzzy
 #~ msgid "Choose action"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2024-12-18 03:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3463,12 +3463,6 @@ msgstr "კონტროლი"
 msgid "Clear version history"
 msgstr "ვერსიის ისტორიის გასუფთავება"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "ტექსტური ჭდე"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3956,6 +3950,9 @@ msgid ""
 msgstr ""
 "შეცვალეთ ფანჯრის ზომა, რომ აირჩიოთ გამოსახულების ზომა\n"
 "და დახურეთ ის, ან დააჭირეთ ღილაკს Escape, რომ ცვლილებები მიიღოთ."
+
+#~ msgid "TextLabel"
+#~ msgstr "ტექსტური ჭდე"
 
 #~ msgid "Choose action"
 #~ msgstr "აირჩიეთ ქმედება"

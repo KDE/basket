@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2025-01-10 17:08+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -3524,12 +3524,6 @@ msgstr "Contrôle"
 msgid "Clear version history"
 msgstr "Effacer l'historique de versions"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "Étiquette de texte"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -4019,6 +4013,9 @@ msgid ""
 msgstr ""
 "Redimensionnez la fenêtre pour sélectionner la taille de l'image\n"
 "et fermez la ou appuyer sur la touche « Entrée » pour valider."
+
+#~ msgid "TextLabel"
+#~ msgstr "Étiquette de texte"
 
 #~ msgid ""
 #~ "Failed to migrate Basket data from KDE4. You will need to close Basket "

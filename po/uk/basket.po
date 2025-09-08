@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2024-12-16 12:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -3514,12 +3514,6 @@ msgstr "Керування"
 msgid "Clear version history"
 msgstr "Спорожнити журнал версій"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "Текстова мітка"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -4011,6 +4005,9 @@ msgid ""
 msgstr ""
 "Змініть розміри вікна, щоб вибрати розмір зображення,\n"
 "закрийте його або натисніть клавішу Escape, щоб підтвердити зміни."
+
+#~ msgid "TextLabel"
+#~ msgstr "Текстова мітка"
 
 #~ msgid ""
 #~ "Failed to migrate Basket data from KDE4. You will need to close Basket "

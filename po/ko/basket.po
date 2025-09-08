@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-03 00:46+0000\n"
+"POT-Creation-Date: 2025-09-08 00:47+0000\n"
 "PO-Revision-Date: 2024-12-24 16:03+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3402,12 +3402,6 @@ msgstr "제어"
 msgid "Clear version history"
 msgstr "버전 기록 비우기"
 
-#. i18n: ectx: property (text), widget (QLabel, labelHistorySize)
-#: src/settings_versionsync.ui:52
-#, kde-format
-msgid "TextLabel"
-msgstr "텍스트 레이블"
-
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
@@ -3892,6 +3886,9 @@ msgid ""
 msgstr ""
 "그림 크기를 선택하려면 창 크기를 조절하고\n"
 "창을 닫거나 Esc 키를 누르면 변경 사항을 적용합니다."
+
+#~ msgid "TextLabel"
+#~ msgstr "텍스트 레이블"
 
 #~ msgid ""
 #~ "Failed to migrate Basket data from KDE4. You will need to close Basket "
