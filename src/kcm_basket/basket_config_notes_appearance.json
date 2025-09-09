@@ -22,7 +22,6 @@
         "Description[sv]": "Anteckningarnas utseende",
         "Description[tr]": "Notlar Görünüşü",
         "Description[uk]": "Вигляд нотаток",
-        "Description[x-test]": "xxNotes Appearancexx",
         "Description[zh_CN]": "笔记外观",
         "Icon": "preferences-desktop-theme",
         "Name": "Notes Appearance",
@@ -47,7 +46,6 @@
         "Name[sv]": "Anteckningarnas utseende",
         "Name[tr]": "Notlar Görünüşü",
         "Name[uk]": "Вигляд нотаток",
-        "Name[x-test]": "xxNotes Appearancexx",
         "Name[zh_CN]": "笔记外观",
         "ServiceTypes": [
             "KCModule"
