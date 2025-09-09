@@ -39,7 +39,6 @@
   <name xml:lang="sv">Basket</name>
   <name xml:lang="tr">Basket</name>
   <name xml:lang="uk">Basket</name>
-  <name xml:lang="x-test">xxBasketxx</name>
   <name xml:lang="zh-CN">Basket 笔记筐</name>
   <name xml:lang="zh-TW">Basket</name>
   <summary>Notes and to-dos organizer</summary>
@@ -71,7 +70,6 @@
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
   <summary xml:lang="tr">Notlar ve Yapılacaklar Düzenleyicisi</summary>
   <summary xml:lang="uk">Програма для впорядкування нотаток і завдань</summary>
-  <summary xml:lang="x-test">xxNotes and to-dos organizerxx</summary>
   <summary xml:lang="zh-CN">记事贴和待办事项组织工具</summary>
   <summary xml:lang="zh-TW">筆記與待辦事項管理工具</summary>
   <description>
@@ -103,7 +101,6 @@
     <p xml:lang="sv">Programmet tillhandahåller så många korgar som du vill, och du kan dra och släppa.</p>
     <p xml:lang="tr">Bu uygulama, içine sürükleyip bırakabileceğiniz istediğiniz sayıda sepet sunar.</p>
     <p xml:lang="uk">Ця програма створює довільну кількість кошиків, які ви можете перетягувати і скидати.</p>
-    <p xml:lang="x-test">xxThis application provides as many baskets as you wish, and you can drag and drop.xx</p>
     <p xml:lang="zh-CN">此应用程序可以创建无限量的笔记篮以拖放内容</p>
     <p xml:lang="zh-TW">這個應用程式提供不限數量的筆記本，也支援拖放。</p>
     <p>Objects can be edited, copied, dragged... So, you can arrange them as you want !</p>
@@ -133,7 +130,6 @@
     <p xml:lang="sv">Objekt kan redigeras, kopieras, dras, ... Så du kan arrangera dem som du vill.</p>
     <p xml:lang="tr">Nesneler düzenlenebilir, kopyalanabilir, sürüklenebilir… İstediğiniz gibi düzenleyebilirsiniz!</p>
     <p xml:lang="uk">Об'єкти можна редагувати, копіювати, перетягувати… Отже, ви можете впорядкувати їх так, як вам заманеться!</p>
-    <p xml:lang="x-test">xxObjects can be edited, copied, dragged... So, you can arrange them as you want !xx</p>
     <p xml:lang="zh-CN">对象可以自由编辑、复制、拖放，让您可以随心所欲地对它们进行整理。</p>
     <p xml:lang="zh-TW">物件可以被編輯、複製或拖曳等等... 您可以隨心所欲排列它們！</p>
     <p>It allows to arrange notes, track to-dos and much more.</p>
@@ -164,7 +160,6 @@
     <p xml:lang="sv">Den gör det möjligt att arrangera anteckningar, följa uppgifter, med mera.</p>
     <p xml:lang="tr">Notları, yapılacakları ve çok daha fazlasını izlemenize olanak verir.</p>
     <p xml:lang="uk">Програма уможливлює упорядкування нотаток, стеження за завданнями та виконання багатьох інших завдань.</p>
-    <p xml:lang="x-test">xxIt allows to arrange notes, track to-dos and much more.xx</p>
     <p xml:lang="zh-CN">它可以用来整理记事贴，跟踪待办事项的完成情况以及更多用途。</p>
     <p xml:lang="zh-TW">它讓您排列筆記、追蹤待辦事項等等。</p>
   </description>
