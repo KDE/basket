@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-08 00:47+0000\n"
-"PO-Revision-Date: 2025-09-07 22:58+0300\n"
+"PO-Revision-Date: 2025-09-17 15:26+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -254,7 +254,7 @@ msgstr "שמירה כארכיון Basket"
 #: src/archive.cpp:51
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
-msgstr ""
+msgstr "נשמר כארכיון סל. נא להמתין…"
 
 #: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
 #: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
@@ -273,6 +273,8 @@ msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
 msgstr ""
+"הקובץ הזה נוצר עם גרסה עדכנית יותר של %1. נא לשדרג לגרסה חדשה יותר כדי שאפשר "
+"יהיה לפתוח את הקובץ הזה."
 
 #: src/archive.cpp:284
 #, kde-format
@@ -357,12 +359,12 @@ msgstr "גיבוי אחרון: %1"
 #: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
-msgstr ""
+msgstr "נא לבחור תיקייה להעברת הסלים"
 
 #: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
-msgstr ""
+msgstr "התיקייה <b>%1</b> אינה ריקה. לדרוס אותה?"
 
 #: src/backup.cpp:162
 #, kde-format
@@ -388,6 +390,8 @@ msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
 "going to be restarted to take this change into account."
 msgstr ""
+"תיקיית שמירת הסל שלך השתנתה בהצלחה ל־<b>%1</b>.‏ %2 יופעל מחדש כדי שהשינוי "
+"הזה ייכנס לתוקף."
 
 #: src/backup.cpp:197
 #, kde-format
@@ -431,7 +435,7 @@ msgstr "README.txt"
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
 "restore the backup %1."
-msgstr ""
+msgstr "זה עותק בטוח של הסלים שלך כפי שהם היו לפני שהתחלת לשחזר את הגיבוי %1."
 
 #: src/backup.cpp:274
 #, kde-format
@@ -538,71 +542,72 @@ msgstr "להסתיר את החלון הראשי אוטומטית בשורת המ
 #, kde-format
 msgid "On crash, use the standard KDE crash handler rather than send an email."
 msgstr ""
+"במקרה של קריסה, יש להשתמש במטפל הקריסות המובנה של KDE במקום לשלוח דוא״ל."
 
 #: src/basket_options.h:28
 #, kde-format
 msgid "Open a basket archive or template."
-msgstr ""
+msgstr "פתיחת ארכיון או תבנית סל."
 
 #: src/basketfactory.cpp:54
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
-msgstr ""
+msgstr "יצירת התיקייה לסל החדש הזה נכשלה, מחילה."
 
 #: src/basketfactory.cpp:54 src/basketfactory.cpp:87 src/basketfactory.cpp:108
 #, kde-format
 msgid "Basket Creation Failed"
-msgstr ""
+msgstr "יצירת סל נכשלה"
 
 #: src/basketfactory.cpp:87
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
-msgstr ""
+msgstr "העתקת התבנית לסל החדש הזה נכשלה, מחילה."
 
 #: src/basketfactory.cpp:108
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
-msgstr ""
+msgstr "התאמת התבנית לסל החדש הזה נכשלה, מחילה."
 
 #: src/basketlistview.cpp:631
 #, kde-format
 msgid "%1+%2+"
-msgstr ""
+msgstr "%1+%2+"
 
 #: src/basketlistview.cpp:633
 #, kde-format
 msgid "%1+"
-msgstr ""
+msgstr "%1+"
 
 #: src/basketlistview.cpp:636
 #, kde-format
 msgid "%1+%2"
-msgstr ""
+msgstr "%1+%2"
 
 #: src/basketproperties.cpp:46
 #, kde-format
 msgid "Basket Properties"
-msgstr ""
+msgstr "מאפייני הסל"
 
 #: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
 #, kde-format
 msgid "Icon"
-msgstr ""
+msgstr "סמל"
 
 #: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: src/basketproperties.cpp:89
 #, kde-format
 msgid "(None)"
-msgstr ""
+msgstr "(ללא)"
 
 #: src/basketproperties.cpp:134
 #, kde-format
 msgid "Learn some tips..."
-msgstr ""
+msgstr "כמה עצות לעיון…"
 
 #: src/basketproperties.cpp:135
 #, kde-format
@@ -625,25 +630,25 @@ msgstr ""
 #: src/basketproperties.ui:27 src/settings.cpp:490 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
-msgstr ""
+msgstr "מראה"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/basketproperties.ui:48
 #, kde-format
 msgid "Background &image:"
-msgstr ""
+msgstr "תמונת &רקע:"
 
 #. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
 #: src/basketproperties.ui:58
 #, kde-format
 msgid "&Background color:"
-msgstr ""
+msgstr "צ&בע רקע:"
 
 #. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
 #: src/basketproperties.ui:65
 #, kde-format
 msgid "&Text color:"
-msgstr ""
+msgstr "צבע &טקסט:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
 #: src/basketproperties.ui:75
@@ -655,7 +660,7 @@ msgstr ""
 #: src/basketproperties.ui:81
 #, kde-format
 msgid "Col&umns:"
-msgstr ""
+msgstr "&עמודות:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
 #: src/basketproperties.ui:88
@@ -667,51 +672,51 @@ msgstr ""
 #: src/basketproperties.ui:114
 #, kde-format
 msgid "&Mind map"
-msgstr ""
+msgstr "מפת &חשיבה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
 #: src/basketproperties.ui:124
 #, kde-format
 msgid "Keyboard Shortcut"
-msgstr ""
+msgstr "קיצור מקשים במקלדת"
 
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
 #: src/basketproperties.ui:151
 #, kde-format
 msgid "S&how this basket"
-msgstr ""
+msgstr "הצגת ה&סל הזה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
 #: src/basketproperties.ui:158
 #, kde-format
 msgid "Show this basket (&global shortcut)"
-msgstr ""
+msgstr "הצגת הסל הזה (קיצור דרך מ&קיף)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
 #: src/basketproperties.ui:165
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
-msgstr ""
+msgstr "מ&עבר לסל הזה (קיצור דרך מקיף)"
 
 #: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
-msgstr ""
+msgstr "הפתקית החדשה לא תואמת לכללי הסינון והיא מוסתרת."
 
 #: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
-msgstr ""
+msgstr "פתקית חדשה לא תואמת לכללי הסינון והיא מוסתרת."
 
 #: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
-msgstr ""
+msgstr "חלק מהפתקיות החדשות לא תואמות לכללי הסינון והן מוסתרות."
 
 #: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
-msgstr ""
+msgstr "הפתקיות החדשות לא תואמות לכללי הסינון והן מוסתרות."
 
 #: src/basketscene.cpp:1468 src/notecontent.cpp:90
 #, kde-format
@@ -721,7 +726,7 @@ msgstr ""
 #: src/basketscene.cpp:1470
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "הוספה"
 
 #: src/basketscene.cpp:2317
 #, kde-format
@@ -740,52 +745,52 @@ msgstr ""
 #: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize those columns"
-msgstr ""
+msgstr "שינוי גודל העמודות האלה"
 
 #: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize this group"
-msgstr ""
+msgstr "שינוי גודל הקבוצה הזאת"
 
 #: src/basketscene.cpp:2775
 #, kde-format
 msgid "Resize this note"
-msgstr ""
+msgstr "שינוי גודל הפתקית"
 
 #: src/basketscene.cpp:2778
 #, kde-format
 msgid "Select or move this note"
-msgstr ""
+msgstr "לבחור או להעביר את הפתקית הזאת"
 
 #: src/basketscene.cpp:2781
 #, kde-format
 msgid "Select or move this group"
-msgstr ""
+msgstr "לבחור או להעביר את הקבוצה הזאת"
 
 #: src/basketscene.cpp:2784
 #, kde-format
 msgid "Assign or remove tags from this note"
-msgstr ""
+msgstr "הקצאת או הסרת תגיות מהפתקית הזאת"
 
 #: src/basketscene.cpp:2792
 #, kde-format
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: src/basketscene.cpp:2794
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
-msgstr ""
+msgstr "<b>תגיות מוקצות</b>: %1"
 
 #: src/basketscene.cpp:2801
 #, kde-format
 msgid "Expand this group"
-msgstr ""
+msgstr "הרחבת הקבוצה הזאת"
 
 #: src/basketscene.cpp:2801
 #, kde-format
 msgid "Collapse this group"
-msgstr ""
+msgstr "צמצום הקבוצה הזאת"
 
 #: src/basketscene.cpp:2812
 #, kde-format
@@ -793,6 +798,8 @@ msgid ""
 "Group note with the one below\n"
 "Right click for more options"
 msgstr ""
+"קיבוץ הפתקית עם זאת שמתחתיה\n"
+"לחיצה ימנית לאפשרויות נוספות"
 
 #: src/basketscene.cpp:2815
 #, kde-format
@@ -800,6 +807,8 @@ msgid ""
 "Group note with the one above\n"
 "Right click for more options"
 msgstr ""
+"קיבוץ הפתקית עם זאת שמעליה\n"
+"לחיצה ימנית לאפשרויות נוספות"
 
 #: src/basketscene.cpp:2833
 #, kde-format
@@ -809,13 +818,13 @@ msgstr ""
 #: src/basketscene.cpp:2833
 #, kde-format
 msgid "Last Modification"
-msgstr ""
+msgstr "שינוי אחרון"
 
 #: src/basketscene.cpp:2838
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
-msgstr ""
+msgstr "<b>%1</b>: %2"
 
 #: src/basketscene.cpp:2842
 #, kde-format
@@ -857,32 +866,32 @@ msgstr ""
 #: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
-msgstr ""
+msgstr "בטעינה…"
 
 #: src/basketscene.cpp:3236 src/basketscene.cpp:3278
 #, kde-format
 msgid "&Remove"
-msgstr ""
+msgstr "הס&רה"
 
 #: src/basketscene.cpp:3239 src/basketscene.cpp:3282 src/bnpview.cpp:2489
 #, kde-format
 msgid "&Customize..."
-msgstr ""
+msgstr "התאמה &אישית…"
 
 #: src/basketscene.cpp:3245 src/basketscene.cpp:3288
 #, kde-format
 msgid "&Filter by this Tag"
-msgstr ""
+msgstr "סינון לפי ה&תגית הזאת"
 
 #: src/basketscene.cpp:3291
 #, kde-format
 msgid "Filter by this &State"
-msgstr ""
+msgstr "סינון לפי המ&צב הזה"
 
 #: src/basketscene.cpp:3372
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "תגיות"
 
 #: src/basketscene.cpp:3949
 #, kde-format
@@ -897,10 +906,10 @@ msgstr[3] ""
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "מחיקת פתקית"
+msgstr[1] "מחיקת פתקיות"
+msgstr[2] "מחיקת פתקיות"
+msgstr[3] "מחיקת פתקיות"
 
 #: src/basketscene.cpp:4049
 #, kde-format
@@ -932,28 +941,28 @@ msgstr[3] ""
 #: src/basketscene.cpp:4119 src/basketscene.cpp:4194
 #, kde-format
 msgid "Unable to open this note."
-msgstr ""
+msgstr "לא ניתן לפתוח את הפתקית הזאת."
 
 #. i18n: ectx: Menu (edit)
 #: src/basketscene.cpp:4121 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "&עריכה"
 
 #: src/basketscene.cpp:4157
 #, kde-format
 msgid "You are not authorized to open this file."
-msgstr ""
+msgstr "אין לך הרשאה לפתוח את הקובץ הזה."
 
 #: src/basketscene.cpp:4215
 #, kde-format
 msgid "Save to File"
-msgstr ""
+msgstr "שמירה לקובץ"
 
 #: src/basketstatusbar.cpp:106
 #, kde-format
 msgid "Shows if there are changes that have not yet been saved."
-msgstr ""
+msgstr "להציג אם יש שינויים שעדיין לא נשמרו."
 
 #: src/basketstatusbar.cpp:137
 #, kde-format
@@ -974,84 +983,84 @@ msgstr ""
 #: src/basketui.rc:6
 #, kde-format
 msgid "&Basket"
-msgstr ""
+msgstr "&סל"
 
 #. i18n: ectx: Menu
 #: src/basketui.rc:11 src/basketui.rc:170
 #, kde-format
 msgid "&Export"
-msgstr ""
+msgstr "יי&צוא"
 
 #. i18n: ectx: Menu
 #: src/basketui.rc:16 src/basketui.rc:175
 #, kde-format
 msgid "&Sort"
-msgstr ""
+msgstr "&מיון"
 
 #. i18n: ectx: Menu (fileimport)
 #. i18n: ectx: Menu
 #: src/basketui.rc:28 src/basketui.rc:187 src/basketui.rc:198
 #, kde-format
 msgid "&Import"
-msgstr ""
+msgstr "יי&בוא"
 
 #. i18n: ectx: Menu (go)
 #: src/basketui.rc:55
 #, kde-format
 msgid "&Go"
-msgstr ""
+msgstr "מ&עבר"
 
 #. i18n: ectx: Menu (note)
 #: src/basketui.rc:62
 #, kde-format
 msgid "&Note"
-msgstr ""
+msgstr "&פתקית"
 
 #. i18n: ectx: Menu (tags)
 #: src/basketui.rc:78
 #, kde-format
 msgid "&Tags"
-msgstr ""
+msgstr "&תגיות"
 
 #. i18n: ectx: Menu (insert)
 #: src/basketui.rc:81
 #, kde-format
 msgid "&Insert"
-msgstr ""
+msgstr "הו&ספה"
 
 #. i18n: ectx: Menu (settings)
 #: src/basketui.rc:97
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "ה&גדרות"
 
 #. i18n: ectx: Menu (help)
 #: src/basketui.rc:108
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "ע&זרה"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/basketui.rc:123
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "סרגל כלים ראשי"
 
 #. i18n: ectx: ToolBar (richTextEditToolBar)
 #: src/basketui.rc:141
 #, kde-format
 msgid "Text Formatting Toolbar"
-msgstr ""
+msgstr "סרגל עיצוב טקסט"
 
 #: src/bnpview.cpp:166 src/bnpview.cpp:1246
 #, kde-format
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: src/bnpview.cpp:234
 #, kde-format
 msgid "Paste clipboard contents in current basket"
-msgstr ""
+msgstr "ה&דבקת תוכן לוח הגזירים בסל הנוכחי"
 
 #: src/bnpview.cpp:236
 #, kde-format
@@ -1075,7 +1084,7 @@ msgstr ""
 #: src/bnpview.cpp:248
 #, kde-format
 msgid "Create a new basket"
-msgstr ""
+msgstr "יצירת סל חדש"
 
 #: src/bnpview.cpp:250
 #, kde-format
@@ -1084,35 +1093,38 @@ msgid ""
 "(you then can use the other global shortcuts to add a note, paste clipboard "
 "or paste selection in this new basket)."
 msgstr ""
+"מאפשר לך ליצור סל חדש מבלי לפתוח את החלון הראשי (אפשר להשתמש בקיצורי המקשים "
+"המקיפים כדי להוסיף פתקית, להדביק את תוכן לוח הגזירים או להדביק בחירה בסל "
+"החדש הזה)."
 
 #: src/bnpview.cpp:255
 #, kde-format
 msgid "Go to previous basket"
-msgstr ""
+msgstr "מעבר לסל הקודם"
 
 #: src/bnpview.cpp:257
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
 "open the main window."
-msgstr ""
+msgstr "מאפשר לך לעבור מהסל הנוכחי לקודם מבלי צורך לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:261
 #, kde-format
 msgid "Go to next basket"
-msgstr ""
+msgstr "מעבר לסל הבא"
 
 #: src/bnpview.cpp:263
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
 "the main window."
-msgstr ""
+msgstr "מאפשר לך לעבור מהסל הנוכחי לבא מבלי צורך לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:267
 #, kde-format
 msgid "Insert text note"
-msgstr ""
+msgstr "הוספת פתקית טקסט"
 
 #: src/bnpview.cpp:269
 #, kde-format
@@ -1146,19 +1158,19 @@ msgstr ""
 #: src/bnpview.cpp:286 src/settings.cpp:576
 #, kde-format
 msgid "Insert color note"
-msgstr ""
+msgstr "הוספת פתקית צבע"
 
 #: src/bnpview.cpp:288
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
 "window."
-msgstr ""
+msgstr "הוספת פתקית צבע לסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:292
 #, kde-format
 msgid "Pick color from screen"
-msgstr ""
+msgstr "בחירת צבע מהמסך"
 
 #: src/bnpview.cpp:294
 #, kde-format
@@ -1166,11 +1178,12 @@ msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
 "without having to open the main window."
 msgstr ""
+"הוספת פתקית בצבע שנבחר מפיקסל אחד במסך לסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:299 src/settings.cpp:577
 #, kde-format
 msgid "Grab screen zone"
-msgstr ""
+msgstr "צילום אזור במסך"
 
 #: src/bnpview.cpp:301
 #, kde-format
@@ -1182,7 +1195,7 @@ msgstr ""
 #: src/bnpview.cpp:307
 #, kde-format
 msgid "Insert plain text note"
-msgstr ""
+msgstr "הוספת פתקית בטקסט פשוט"
 
 #: src/bnpview.cpp:309
 #, kde-format
@@ -1194,7 +1207,7 @@ msgstr ""
 #: src/bnpview.cpp:318
 #, kde-format
 msgid "Baskets"
-msgstr ""
+msgstr "סלים"
 
 #: src/bnpview.cpp:363
 #, kde-format
@@ -1218,12 +1231,12 @@ msgstr ""
 #: src/bnpview.cpp:396
 #, kde-format
 msgid "Text &File..."
-msgstr ""
+msgstr "קובץ &טקסט…"
 
 #: src/bnpview.cpp:401
 #, kde-format
 msgid "&Backup && Restore..."
-msgstr ""
+msgstr "&גיבוי ושחזור…"
 
 #: src/bnpview.cpp:405
 #, kde-format
@@ -1233,251 +1246,251 @@ msgstr ""
 #: src/bnpview.cpp:416
 #, kde-format
 msgid "D&elete"
-msgstr ""
+msgstr "מ&חיקה"
 
 #: src/bnpview.cpp:425
 #, kde-format
 msgid "Selects all notes"
-msgstr ""
+msgstr "בחירה בכל הפתקיות"
 
 #: src/bnpview.cpp:428
 #, kde-format
 msgid "U&nselect All"
-msgstr ""
+msgstr "בי&טול בחירה"
 
 #: src/bnpview.cpp:430
 #, kde-format
 msgid "Unselects all selected notes"
-msgstr ""
+msgstr "ביטול הבחירה בכל הפתקיות שנבחרו"
 
 #: src/bnpview.cpp:433
 #, kde-format
 msgid "&Invert Selection"
-msgstr ""
+msgstr "הי&פוך הבחירה"
 
 #: src/bnpview.cpp:437
 #, kde-format
 msgid "Inverts the current selection of notes"
-msgstr ""
+msgstr "היפוך בחירת הפתקיות הנוכחית"
 
 #: src/bnpview.cpp:440
 #, kde-format
 msgid "&Clear Formatting"
-msgstr ""
+msgstr "ה&סרת עיצוב"
 
 #: src/bnpview.cpp:444
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
-msgstr ""
+msgstr "ע&ריכה…"
 
 #: src/bnpview.cpp:451
 #, kde-format
 msgid "&Open"
-msgstr ""
+msgstr "&פתיחה"
 
 #: src/bnpview.cpp:455
 #, kde-format
 msgid "Open &With..."
-msgstr ""
+msgstr "פתיחה &עם…"
 
 #: src/bnpview.cpp:460
 #, kde-format
 msgid "&Save to File..."
-msgstr ""
+msgstr "&שמירה לקובץ…"
 
 #: src/bnpview.cpp:464
 #, kde-format
 msgid "&Group"
-msgstr ""
+msgstr "&קיבוץ"
 
 #: src/bnpview.cpp:470
 #, kde-format
 msgid "U&ngroup"
-msgstr ""
+msgstr "פ&ריטה"
 
 #: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Top"
-msgstr ""
+msgstr "העלאה ל&ראש"
 
 #: src/bnpview.cpp:481
 #, kde-format
 msgid "Move &Up"
-msgstr ""
+msgstr "ה&עלאה"
 
 #: src/bnpview.cpp:487
 #, kde-format
 msgid "Move &Down"
-msgstr ""
+msgstr "הור&דה"
 
 #: src/bnpview.cpp:493
 #, kde-format
 msgid "Move on &Bottom"
-msgstr ""
+msgstr "הורדה ל&תחתית"
 
 #: src/bnpview.cpp:504
 #, kde-format
 msgid "Plai&n Text"
-msgstr ""
+msgstr "טקסט &פשוט"
 
 #: src/bnpview.cpp:511
 #, kde-format
 msgid "&Text"
-msgstr ""
+msgstr "&טקסט"
 
 #: src/bnpview.cpp:517
 #, kde-format
 msgid "&Link"
-msgstr ""
+msgstr "&קישור"
 
 #: src/bnpview.cpp:523
 #, kde-format
 msgid "Cross &Reference"
-msgstr ""
+msgstr "ה&פניה"
 
 #: src/bnpview.cpp:528
 #, kde-format
 msgid "&Image"
-msgstr ""
+msgstr "&תמונה"
 
 #: src/bnpview.cpp:533
 #, kde-format
 msgid "&Color"
-msgstr ""
+msgstr "&צבע"
 
 #: src/bnpview.cpp:538
 #, kde-format
 msgid "L&auncher"
-msgstr ""
+msgstr "מ&שגר"
 
 #: src/bnpview.cpp:543
 #, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr ""
+msgstr "ייבוא מש&גר ליישום שולחן עבודה…"
 
 #: src/bnpview.cpp:548
 #, kde-format
 msgid "Im&port Icon..."
-msgstr ""
+msgstr "ייבוא &סמל…"
 
 #: src/bnpview.cpp:553 src/noteedit.cpp:545
 #, kde-format
 msgid "Load From &File..."
-msgstr ""
+msgstr "&טעינה מקובץ…"
 
 #: src/bnpview.cpp:589
 #, kde-format
 msgid "C&olor from Screen"
-msgstr ""
+msgstr "צבע &מהמסך"
 
 #: src/bnpview.cpp:597
 #, kde-format
 msgid "Grab Screen &Zone"
-msgstr ""
+msgstr "&צילום אזור במסך"
 
 #: src/bnpview.cpp:629
 #, kde-format
 msgid "&New Basket..."
-msgstr ""
+msgstr "סל &חדש…"
 
 #: src/bnpview.cpp:635
 #, kde-format
 msgid "New &Sub-Basket..."
-msgstr ""
+msgstr "&תת־סל חדש…"
 
 #: src/bnpview.cpp:640
 #, kde-format
 msgid "New Si&bling Basket..."
-msgstr ""
+msgstr "סל &אחאי חדש…"
 
 #: src/bnpview.cpp:643
 #, kde-format
 msgid "&New"
-msgstr ""
+msgstr "&חדש"
 
 #: src/bnpview.cpp:653
 #, kde-format
 msgid "&Properties..."
-msgstr ""
+msgstr "מ&אפיינים…"
 
 #: src/bnpview.cpp:659
 #, kde-format
 msgid "Sort Children Ascending"
-msgstr ""
+msgstr "סידור הצאצאים בסדר עולה"
 
 #: src/bnpview.cpp:664
 #, kde-format
 msgid "Sort Children Descending"
-msgstr ""
+msgstr "סידור הצאצאים בסדר יורד"
 
 #: src/bnpview.cpp:669
 #, kde-format
 msgid "Sort Siblings Ascending"
-msgstr ""
+msgstr "סידור האחאים בסדר עולה"
 
 #: src/bnpview.cpp:674
 #, kde-format
 msgid "Sort Siblings Descending"
-msgstr ""
+msgstr "סידור האחאים בסדר יורד"
 
 #: src/bnpview.cpp:679
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
-msgstr ""
+msgstr "הס&רה"
 
 #: src/bnpview.cpp:685
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
-msgstr ""
+msgstr "&סיסמה…"
 
 #: src/bnpview.cpp:690
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
-msgstr ""
+msgstr "&נעילה"
 
 #: src/bnpview.cpp:703
 #, kde-format
 msgid "&Filter"
-msgstr ""
+msgstr "&סינון"
 
 #: src/bnpview.cpp:715
 #, kde-format
 msgid "&Search All"
-msgstr ""
+msgstr "&חיפוש בהכול"
 
 #: src/bnpview.cpp:723
 #, kde-format
 msgid "&Reset Filter"
-msgstr ""
+msgstr "&איפוס מסנן"
 
 #: src/bnpview.cpp:731
 #, kde-format
 msgid "&Previous Basket"
-msgstr ""
+msgstr "הסל ה&קודם"
 
 #: src/bnpview.cpp:737
 #, kde-format
 msgid "&Next Basket"
-msgstr ""
+msgstr "הסל ה&בא"
 
 #: src/bnpview.cpp:743
 #, kde-format
 msgid "&Fold Basket"
-msgstr ""
+msgstr "&קיפול סל"
 
 #: src/bnpview.cpp:749
 #, kde-format
 msgid "&Expand Basket"
-msgstr ""
+msgstr "ה&רחבת סל"
 
 #: src/bnpview.cpp:757
 #, kde-format
 msgid "Convert text notes to rich text notes"
-msgstr ""
+msgstr "המרת פתקיות טקסט לפתקיות טקסט עשיר"
 
 #: src/bnpview.cpp:766
 #, kde-format
@@ -1497,70 +1510,70 @@ msgstr ""
 #: src/bnpview.cpp:1606
 #, kde-format
 msgid "Locked"
-msgstr ""
+msgstr "נעולה"
 
 #: src/bnpview.cpp:1610
 #, kde-format
 msgid "No notes"
-msgstr ""
+msgstr "אין פתקיות"
 
 #: src/bnpview.cpp:1612
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "פתקית"
+msgstr[1] "שתי פתקיות"
+msgstr[2] "%1 פתקיות"
+msgstr[3] "%1 פתקיות"
 
 #: src/bnpview.cpp:1613
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "נבחרה אחת"
+msgstr[1] "נבחרו שתיים"
+msgstr[2] "נבחרו %1"
+msgstr[3] "נבחרו %1"
 
 #: src/bnpview.cpp:1614
 #, kde-format
 msgid "all matches"
-msgstr ""
+msgstr "כל התוצאות"
 
 #: src/bnpview.cpp:1614
 #, kde-format
 msgid "no filter"
-msgstr ""
+msgstr "ללא מסנן"
 
 #: src/bnpview.cpp:1616
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "תוצאה אחת"
+msgstr[1] "שתי תוצאות"
+msgstr[2] "%1 תוצאות"
+msgstr[3] "%1 תוצאות"
 
 #: src/bnpview.cpp:1617
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
-msgstr ""
+msgstr "%1, %2, %3"
 
 #: src/bnpview.cpp:1752
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
-msgstr ""
+msgstr "הפתקיות בטקסט פשוט הומרו לטקסט עשיר."
 
 #: src/bnpview.cpp:1752 src/bnpview.cpp:1754
 #, kde-format
 msgid "Conversion Finished"
-msgstr ""
+msgstr "ההמרה הושלמה"
 
 #: src/bnpview.cpp:1754
 #, kde-format
 msgid "There are no plain text notes to convert."
-msgstr ""
+msgstr "אין פתקיות בטקסט פשוט להמרה."
 
 #: src/bnpview.cpp:1771
 #, kde-format
@@ -1577,45 +1590,45 @@ msgstr ""
 #: src/bnpview.cpp:1785
 #, kde-format
 msgid "Resource not Found"
-msgstr ""
+msgstr "המשאב לא נמצא"
 
 #: src/bnpview.cpp:1814
 #, kde-format
 msgid "Cannot add note."
-msgstr ""
+msgstr "לא ניתן להוסיף פתקית."
 
 #: src/bnpview.cpp:1961
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
-msgstr ""
+msgstr "<qt>להסיר את הסל <b>%1</b> על תוכנו?</qt>"
 
 #: src/bnpview.cpp:1962
 #, kde-format
 msgid "Remove Basket"
-msgstr ""
+msgstr "הסרת סל"
 
 #: src/bnpview.cpp:1963
 #, kde-format
 msgid "&Remove Basket"
-msgstr ""
+msgstr "לה&סיר את הסל"
 
 #: src/bnpview.cpp:1973
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
-msgstr ""
+msgstr "<qt>לסל <b>%1</b> יש את הסלים הצאצאיים הבאים.<br>להסיר גם אותם?</qt>"
 
 #: src/bnpview.cpp:1975
 #, kde-format
 msgid "Remove Children Baskets"
-msgstr ""
+msgstr "הסרת סלים צאצאיים"
 
 #: src/bnpview.cpp:1976
 #, kde-format
 msgid "&Remove Children Baskets"
-msgstr ""
+msgstr "להסיר את הסלים ה&צאצאיים"
 
 #: src/bnpview.cpp:2046 src/bnpview.cpp:2093
 #, kde-format
@@ -1630,7 +1643,7 @@ msgstr ""
 #: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
-msgstr ""
+msgstr "לדרוס את הקובץ?"
 
 #: src/bnpview.cpp:2478
 #, kde-format
@@ -1645,132 +1658,132 @@ msgstr ""
 #: src/common.cpp:56
 #, kde-format
 msgid "Please enter the password for the following private key:"
-msgstr ""
+msgstr "נא למלא את הסיסמה למפתח הפרטי הבא:"
 
 #: src/common.cpp:58
 #, kde-format
 msgid "Please enter the password for the basket <b>%1</b>:"
-msgstr ""
+msgstr "נא למלא את הסיסמה לסל <b>%1</b>:"
 
 #: src/common.cpp:94
 #, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
-msgstr ""
+msgstr "נא להקצות סיסמה לסל <b>%1</b>:"
 
 #: src/common.cpp:144
 #, kde-format
 msgid "Error while saving: "
-msgstr ""
+msgstr "שגיאה בשמירה: "
 
 #: src/debugwindow.cpp:23
 #, kde-format
 msgid "Debug Window"
-msgstr ""
+msgstr "חלון ניפוי שגיאות"
 
 #: src/file_metadata.cpp:18
 #, kde-format
 msgid "Bit rate"
-msgstr ""
+msgstr "קצב סיביות"
 
 #: src/file_metadata.cpp:19
 #, kde-format
 msgid "Channels"
-msgstr ""
+msgstr "ערוצים"
 
 #: src/file_metadata.cpp:20
 #, kde-format
 msgid "Duration"
-msgstr ""
+msgstr "משך"
 
 #: src/file_metadata.cpp:21
 #, kde-format
 msgid "Genre"
-msgstr ""
+msgstr "סוגה"
 
 #: src/file_metadata.cpp:22
 #, kde-format
 msgid "Sample rate"
-msgstr ""
+msgstr "קצב דגימה"
 
 #: src/file_metadata.cpp:23
 #, kde-format
 msgid "Track number"
-msgstr ""
+msgstr "מספר רצועה"
 
 #: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "הערה"
 
 #: src/file_metadata.cpp:25
 #, kde-format
 msgid "Artist"
-msgstr ""
+msgstr "אומן/נית"
 
 #: src/file_metadata.cpp:26
 #, kde-format
 msgid "Album"
-msgstr ""
+msgstr "אלבום"
 
 #: src/file_metadata.cpp:27 src/tag.cpp:719
 #, kde-format
 msgid "Title"
-msgstr ""
+msgstr "כותרת"
 
 #: src/file_metadata.cpp:28
 #, kde-format
 msgid "Word count"
-msgstr ""
+msgstr "כמות מילים"
 
 #: src/file_metadata.cpp:29
 #, kde-format
 msgid "Line count"
-msgstr ""
+msgstr "כמות שורות"
 
 #: src/file_metadata.cpp:30
 #, kde-format
 msgid "Copyright"
-msgstr ""
+msgstr "זכויות יוצרים"
 
 #: src/file_metadata.cpp:31
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "תאריך"
 
 #: src/file_metadata.cpp:32
 #, kde-format
 msgid "Frame rate"
-msgstr ""
+msgstr "קצב תמוניות"
 
 #: src/filter.cpp:42
 #, kde-format
 msgid "Reset Filter"
-msgstr ""
+msgstr "איפוס מסנן"
 
 #: src/filter.cpp:47
 #, kde-format
 msgid "&Filter: "
-msgstr ""
+msgstr "&סינון: "
 
 #: src/filter.cpp:51
 #, kde-format
 msgid "T&ag: "
-msgstr ""
+msgstr "ת&גית: "
 
 #: src/filter.cpp:55
 #, kde-format
 msgid "Filter All Baskets"
-msgstr ""
+msgstr "סינון כל הסלים"
 
 #: src/filter.cpp:132
 #, kde-format
 msgid "(Not tagged)"
-msgstr ""
+msgstr "(לא מתויגות)"
 
 #: src/filter.cpp:133
 #, kde-format
 msgid "(Tagged)"
-msgstr ""
+msgstr "(מתויגות)"
 
 #: src/formatimporter.cpp:119
 #, kde-format
@@ -1791,22 +1804,22 @@ msgstr ""
 #: src/history.cpp:19
 #, kde-format
 msgid "Set current basket to %1"
-msgstr ""
+msgstr "הגדרת הסל הנוכחי לסל %1"
 
 #: src/htmlexporter.cpp:52
 #, kde-format
 msgid "HTML Documents"
-msgstr ""
+msgstr "מסמכי HTML"
 
 #: src/htmlexporter.cpp:56 src/htmlexporter.cpp:78
 #, kde-format
 msgid "Export to HTML"
-msgstr ""
+msgstr "ייצוא ל־HTML"
 
 #: src/htmlexporter.cpp:79
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
-msgstr ""
+msgstr "מתבצע ייצוא ל־HTML. נא להמתין…"
 
 #: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
 #, kde-format
@@ -1965,37 +1978,37 @@ msgstr ""
 #: src/linklabel.cpp:643
 #, kde-format
 msgid "&Icon size:"
-msgstr ""
+msgstr "&גודל סמלים:"
 
 #: src/linklabel.cpp:649
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "ללא"
 
 #: src/linklabel.cpp:650
 #, kde-format
 msgid "Icon size"
-msgstr ""
+msgstr "גודל סמלים"
 
 #: src/linklabel.cpp:651
 #, kde-format
 msgid "Twice the icon size"
-msgstr ""
+msgstr "כפול מגודל הסמל"
 
 #: src/linklabel.cpp:652
 #, kde-format
 msgid "Three times the icon size"
-msgstr ""
+msgstr "פי שלוש מגודל הסמל"
 
 #: src/linklabel.cpp:654
 #, kde-format
 msgid "&Preview:"
-msgstr ""
+msgstr "&תצוגה מקדימה:"
 
 #: src/linklabel.cpp:657
 #, kde-format
 msgid "You disabled preview but still see images?"
-msgstr ""
+msgstr "כיבית את התצוגה המקדימה אך עדיין מופיעות תמונות?"
 
 #: src/linklabel.cpp:658
 #, kde-format
@@ -2016,7 +2029,7 @@ msgstr ""
 #: src/linklabel.cpp:675
 #, kde-format
 msgid "Example"
-msgstr ""
+msgstr "דוגמה"
 
 #: src/mainwindow.cpp:74
 #, kde-format
@@ -2101,12 +2114,12 @@ msgstr ""
 #: src/newbasketdialog.cpp:320
 #, kde-format
 msgid "Free-form"
-msgstr ""
+msgstr "צורה חופשית"
 
 #: src/newbasketdialog.cpp:322
 #, kde-format
 msgid "Mind map"
-msgstr ""
+msgstr "מפת חשיבה"
 
 #: src/notecontent.cpp:92
 #, kde-format
@@ -2136,17 +2149,17 @@ msgstr "צליל"
 #: src/notecontent.cpp:102
 #, kde-format
 msgid "File"
-msgstr ""
+msgstr "קובץ"
 
 #: src/notecontent.cpp:104
 #, kde-format
 msgid "Link"
-msgstr ""
+msgstr "קישור"
 
 #: src/notecontent.cpp:106
 #, kde-format
 msgid "Cross Reference"
-msgstr "סימוכין"
+msgstr "הפניה"
 
 #: src/notecontent.cpp:108
 #, kde-format
@@ -2636,7 +2649,7 @@ msgstr "&כותרת:"
 #: src/noteedit.cpp:915
 #, kde-format
 msgid "Edit Cross Reference"
-msgstr "עריכת סימוכין"
+msgstr "עריכת הפניה"
 
 #: src/noteedit.cpp:1034
 #, kde-format
@@ -2750,61 +2763,61 @@ msgstr ""
 #: src/notefactory.cpp:554
 #, kde-format
 msgid "&Copy Here\tCtrl"
-msgstr ""
+msgstr "הע&תקה לכאן\tCtrl"
 
 #: src/notefactory.cpp:555
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
-msgstr ""
+msgstr "&קישור לכאן\tCtrl+Shift"
 
 #: src/notefactory.cpp:561
 #, kde-format
 msgid "C&ancel\tEscape"
-msgstr ""
+msgstr "&ביטול\tEscape"
 
 #: src/notefactory.cpp:1052
 #, kde-format
 msgid "Import Icon as Image"
-msgstr ""
+msgstr "ייבוא סמל כתמונה"
 
 #: src/notefactory.cpp:1053
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
-msgstr ""
+msgstr "נא לבחור את גודל הסמל לייבוא כתמונה:"
 
 #: src/notefactory.cpp:1069
 #, kde-format
 msgid "Load File Content into a Note"
-msgstr ""
+msgstr "טעינת תוכן קובץ לפתקית"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
 #: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:595
 #, kde-format
 msgid "Password Protection"
-msgstr ""
+msgstr "הגנה בסיסמה"
 
 #: src/password.cpp:59
 #, kde-format
 msgid "No private key selected."
-msgstr ""
+msgstr "לא נבחר מפתח פרטי."
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passwordlayout.ui:29
 #, kde-format
 msgid "&No protection"
-msgstr ""
+msgstr "&אין הגנה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
 #: src/passwordlayout.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
-msgstr ""
+msgstr "הגנה על הסל ב&סיסמה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
 #: src/passwordlayout.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
-msgstr ""
+msgstr "הגנה על הסל במפתח &פרטי:"
 
 #: src/regiongrabber.cpp:102
 #, kde-format
@@ -2812,6 +2825,8 @@ msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 msgstr ""
+"נא לבחור אזור בעזרת העכבר. כדי לצלם את המסך, יש ללחוץ על מקש Enter. על Esc "
+"ליציאה."
 
 #: src/settings.cpp:438
 #, kde-format
@@ -2866,17 +2881,17 @@ msgstr ""
 #: src/settings.cpp:514
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
-msgstr ""
+msgstr "לבקש אישור &טרם מחיקת פתקיות"
 
 #: src/settings.cpp:518
 #, kde-format
 msgid "Keep text formatting when pasting"
-msgstr ""
+msgstr "לשמור על סגנון הטקסט בהדבקה"
 
 #: src/settings.cpp:522
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "לזהות תגיות אוטומטית מתוכן הפתקית"
 
 #: src/settings.cpp:529
 #, kde-format
@@ -2899,7 +2914,7 @@ msgstr "זה תקף במקרים של העתקה והדבקה או גרירה ש
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
-msgstr ""
+msgstr "אם האפשרות פעילה, המאפיין הזה מאפשר לך להדביק את התגיות כמקבילות טקסט."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
 #: src/settings.cpp:536 src/tagsedit.cpp:524
@@ -2918,7 +2933,7 @@ msgstr ""
 #: src/settings.cpp:550
 #, kde-format
 msgid "How to group a new note?"
-msgstr ""
+msgstr "איך לקבץ פתקית חדשה?"
 
 #: src/settings.cpp:551
 #, kde-format
@@ -2940,42 +2955,42 @@ msgstr ""
 #: src/settings.cpp:570
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "לא לעשות כלום"
 
 #: src/settings.cpp:571
 #, kde-format
 msgid "Paste clipboard"
-msgstr ""
+msgstr "הדבקת לוח הגזירים"
 
 #: src/settings.cpp:574
 #, kde-format
 msgid "Insert cross reference"
-msgstr ""
+msgstr "הוספת הפניה"
 
 #: src/settings.cpp:575
 #, kde-format
 msgid "Insert launcher note"
-msgstr ""
+msgstr "הוספת פתקית משגר"
 
 #: src/settings.cpp:578
 #, kde-format
 msgid "Insert color from screen"
-msgstr ""
+msgstr "הוספת צבע מהמסך"
 
 #: src/settings.cpp:579
 #, kde-format
 msgid "Load note from file"
-msgstr ""
+msgstr "טעינת פתקית מקובץ"
 
 #: src/settings.cpp:580
 #, kde-format
 msgid "Import Launcher for desktop application"
-msgstr ""
+msgstr "ייבוא משגר ליישום שולחן עבודה"
 
 #: src/settings.cpp:581
 #, kde-format
 msgid "Import icon"
-msgstr ""
+msgstr "ייבוא סמל"
 
 #: src/settings.cpp:584
 #, kde-format
@@ -2985,7 +3000,7 @@ msgstr ""
 #: src/settings.cpp:589
 #, kde-format
 msgid "at cursor position"
-msgstr ""
+msgstr "במקום של הסמן"
 
 #: src/settings.cpp:604
 #, kde-format
@@ -2995,7 +3010,7 @@ msgstr ""
 #: src/settings.cpp:608
 #, kde-format
 msgid " minutes"
-msgstr ""
+msgstr " דקות"
 
 #: src/settings.cpp:619
 #, kde-format
@@ -3005,112 +3020,112 @@ msgstr ""
 #: src/settings.cpp:701
 #, kde-format
 msgid "&Place of new notes:"
-msgstr ""
+msgstr "מקום הפתקיות ה&חדשות:"
 
 #: src/settings.cpp:706
 #, kde-format
 msgid "At current note"
-msgstr ""
+msgstr "בפתקית הנוכחית"
 
 #: src/settings.cpp:725
 #, kde-format
 msgid "&New images size:"
-msgstr ""
+msgstr "&גודל תמונות חדש:"
 
 #: src/settings.cpp:738
 #, kde-format
 msgid "&by"
-msgstr ""
+msgstr "&על"
 
 #: src/settings.cpp:743
 #, kde-format
 msgid "pixels"
-msgstr ""
+msgstr "פיקסלים"
 
 #: src/settings.cpp:745
 #, kde-format
 msgid "&Visualize..."
-msgstr ""
+msgstr "המ&חשה…"
 
 #: src/settings.cpp:753
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
-msgstr ""
+msgstr "הצגת תוכן של קבצים שנוספים לסוגים הבאים"
 
 #: src/settings.cpp:755
 #, kde-format
 msgid "&Plain text"
-msgstr ""
+msgstr "טקסט &פשוט"
 
 #: src/settings.cpp:756
 #, kde-format
 msgid "&HTML page"
-msgstr ""
+msgstr "&עמוד HTML"
 
 #: src/settings.cpp:757
 #, kde-format
 msgid "&Image or animation"
-msgstr ""
+msgstr "תמונה או ה&נפשה"
 
 #: src/settings.cpp:758
 #, kde-format
 msgid "&Sound"
-msgstr ""
+msgstr "&צליל"
 
 #: src/settings.cpp:826
 #, kde-format
 msgid "Conference audio record"
-msgstr ""
+msgstr "הקלטת שמע של כנס"
 
 #: src/settings.cpp:827
 #, kde-format
 msgid "Annual report"
-msgstr ""
+msgstr "דוח שנתי"
 
 #: src/settings.cpp:828
 #, kde-format
 msgid "Home folder"
-msgstr ""
+msgstr "תיקיית בית"
 
 #: src/settings.cpp:830
 #, kde-format
 msgid "Launch %1"
-msgstr ""
+msgstr "הפעלת %1"
 
 #: src/settings.cpp:831
 #, kde-format
 msgid "Another basket"
-msgstr ""
+msgstr "סל אחר"
 
 #: src/settings.cpp:833
 #, kde-format
 msgid "&Sounds"
-msgstr ""
+msgstr "&צלילים"
 
 #: src/settings.cpp:834
 #, kde-format
 msgid "&Files"
-msgstr ""
+msgstr "&קבצים"
 
 #: src/settings.cpp:835
 #, kde-format
 msgid "&Local Links"
-msgstr ""
+msgstr "קישורים &מקומיים"
 
 #: src/settings.cpp:836
 #, kde-format
 msgid "&Network Links"
-msgstr ""
+msgstr "קישורי &רשת"
 
 #: src/settings.cpp:837
 #, kde-format
 msgid "Launc&hers"
-msgstr ""
+msgstr "מ&שגרים"
 
 #: src/settings.cpp:838
 #, kde-format
 msgid "&Cross References"
-msgstr ""
+msgstr "ה&פניות"
 
 #: src/settings.cpp:879
 #, kde-format
@@ -3176,57 +3191,57 @@ msgstr ""
 #: src/settings.cpp:958
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "שיוכי סלים נקודתיים"
 
 #: src/settings.cpp:960
 #, kde-format
 msgid "Open &text notes with a custom application:"
-msgstr ""
+msgstr "פתיחת פתקיות &טקסט עם יישום מותאם אישית:"
 
 #: src/settings.cpp:961
 #, kde-format
 msgid "Open text notes with:"
-msgstr ""
+msgstr "פתיחת פתקיות טקסט עם:"
 
 #: src/settings.cpp:968
 #, kde-format
 msgid "Open &image notes with a custom application:"
-msgstr ""
+msgstr "פתיחת פתקיות &תמונה עם יישום מותאם אישית:"
 
 #: src/settings.cpp:969
 #, kde-format
 msgid "Open image notes with:"
-msgstr ""
+msgstr "פתיחת פתקיות תמונה עם:"
 
 #: src/settings.cpp:976
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
-msgstr ""
+msgstr "פתיחת פתקיות ה&נפשה עם יישום מותאם אישית:"
 
 #: src/settings.cpp:977
 #, kde-format
 msgid "Open animation notes with:"
-msgstr ""
+msgstr "פתיחת פתקיות הנפשה עם:"
 
 #: src/settings.cpp:984
 #, kde-format
 msgid "Open so&und notes with a custom application:"
-msgstr ""
+msgstr "פתיחת פתקיות &צליל עם יישום מותאם אישית:"
 
 #: src/settings.cpp:985
 #, kde-format
 msgid "Open sound notes with:"
-msgstr ""
+msgstr "פתיחת פתקיות צליל עם:"
 
 #: src/settings.cpp:992
 #, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr ""
+msgstr "פתיחת פתקיות קישור http עם יישום מותאם אישית:"
 
 #: src/settings.cpp:993
 #, kde-format
 msgid "Open http link notes with:"
-msgstr ""
+msgstr "פתיחת פתקיות קישור http עם:"
 
 #: src/settings.cpp:1001
 #, kde-format
@@ -3246,22 +3261,22 @@ msgstr ""
 #: src/settings_versionsync.cpp:76
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
-msgstr ""
+msgstr "להסיר גרסאות ישנות של כל הסלים?"
 
 #: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Remove old Baskets"
-msgstr ""
+msgstr "הסרת סלים ישנים"
 
 #: src/settings_versionsync.cpp:78
 #, kde-format
 msgid "Version Sync"
-msgstr ""
+msgstr "סנכרון גרסה"
 
 #: src/settings_versionsync.cpp:91
 #, kde-format
 msgid "This will free %1 MB"
-msgstr ""
+msgstr "הפעולה הזאת תפנה %1 מ״ב"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3565,7 +3580,7 @@ msgstr ""
 #: src/tagsedit.cpp:398
 #, kde-format
 msgid "Allow Cross Reference Links"
-msgstr "לאפשר קישורים צולבים"
+msgstr "לאפשר קישורי הפניה"
 
 #: src/tagsedit.cpp:401
 #, kde-format
@@ -3578,6 +3593,8 @@ msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
+"האפשרות הזאת תאפשר לך להקליד קישורי הפניות ישירות לפתקיות טקסט. קישורי "
+"הפניות מתפקדים לפי התחביר הבא:"
 
 #: src/tagsedit.cpp:404
 #, kde-format
@@ -3681,6 +3698,8 @@ msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
 "will be inserted as a textual equivalent of the tag."
 msgstr ""
+"בעת העתקה והדבקה או גרירה של פתקיות לעורך טקסט, הטקסט הזה יתווסף כמקבילת "
+"טקסט של התגית."
 
 #: src/tagsedit.cpp:532
 #, kde-format
@@ -3698,6 +3717,8 @@ msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
 "on the first line or on every line of the note."
 msgstr ""
+"כאשר לפתקית יש מספר שורות, אפשר לבחור לייצר את התגית או את המצב בשורה "
+"הראשונה או בכל שורה של הפתקית."
 
 #: src/tagsedit.cpp:539
 #, kde-format
@@ -3705,12 +3726,14 @@ msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
 msgstr ""
+"בדוגמה שלהלן, התגית של הפתקית העליונה מיוצאת בשורה הראשונה בלבד, בעוד שהתגית "
+"של הפתקית התחתונה מיוצאת עם כל שורה של הפתקית."
 
 #: src/tagsedit.cpp:977
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
-msgstr ""
+msgstr "מחיקת התגית תסיר אותה מכל פתקית שהיא משויכת אליה."
 
 #: src/tagsedit.cpp:978
 #, kde-format
@@ -3743,7 +3766,7 @@ msgstr "מחיקת מצב"
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
@@ -3761,6 +3784,8 @@ msgid ""
 "Resize the window to select the image size\n"
 "and close it or press Escape to accept changes."
 msgstr ""
+"יש לשנות את החלון כדי לבחור את גודל התמונה ולסגור\n"
+"אותו או ללחוץ על Escape כדי לקבל את השינויים."
 
 #~ msgid "TextLabel"
 #~ msgstr "תווית טקסט"
