@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-08 00:47+0000\n"
-"PO-Revision-Date: 2025-09-17 15:26+0300\n"
+"PO-Revision-Date: 2025-09-17 15:41+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -734,6 +734,8 @@ msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
 msgstr ""
+"ההודעה הזאת לא אמורה להופיע אף פעם. אם היא בכל זאת הופיעה, יש תקלה בתוכנית! "
+"נא לדווח על התקלה למפתחים."
 
 #: src/basketscene.cpp:2756 src/basketscene.cpp:2809 src/basketscene.cpp:2818
 #, kde-format
@@ -839,22 +841,22 @@ msgstr ""
 #: src/basketscene.cpp:3022
 #, kde-format
 msgid "&Unlock"
-msgstr ""
+msgstr "&שחרור נעילה"
 
 #: src/basketscene.cpp:3027
 #, kde-format
 msgid "Password protected basket."
-msgstr ""
+msgstr "הגנה על סל בסיסמה."
 
 #: src/basketscene.cpp:3029
 #, kde-format
 msgid "Press Unlock to access it."
-msgstr ""
+msgstr "יש ללחוץ על שחרור נעילה כדי לגשת אליו."
 
 #: src/basketscene.cpp:3031
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
-msgstr ""
+msgstr "אין תמיכה בהצפנה<br/>בגרסה הזאת של %1."
 
 #: src/basketscene.cpp:3043
 #, kde-format
@@ -862,6 +864,8 @@ msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
 msgstr ""
+"כדי שסלים יישארו לא נעולים, יש לשנות את משך הנעילה<br>האוטומטית בהגדרות "
+"היישום."
 
 #: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
@@ -897,10 +901,10 @@ msgstr "תגיות"
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "<qt>למחוק את הפתקית הזאת?</qt>"
+msgstr[1] "<qt>למחוק את <b>שתי</b> הפתקיות האלה?</qt>"
+msgstr[2] "<qt>למחוק את <b>%1</b> הפתקיות האלה?</qt>"
+msgstr[3] "<qt>למחוק את <b>%1</b> הפתקיות האלה?</qt>"
 
 #: src/basketscene.cpp:3950
 #, kde-format
@@ -1068,11 +1072,12 @@ msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
 "to open the main window."
 msgstr ""
+"מאפשר לך להדביק את תוכן לוח הגזירים בסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:241
 #, kde-format
 msgid "Paste selection in current basket"
-msgstr ""
+msgstr "הדבקת הבחירה בסל הנוכחי"
 
 #: src/bnpview.cpp:243
 #, kde-format
@@ -1080,6 +1085,7 @@ msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
 "to open the main window."
 msgstr ""
+"מאפשר לך להדביק את בחירת לוח הגזירים בסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:248
 #, kde-format
@@ -1135,25 +1141,25 @@ msgstr ""
 #: src/bnpview.cpp:274 src/settings.cpp:572
 #, kde-format
 msgid "Insert image note"
-msgstr ""
+msgstr "הוספת פתקית תמונה"
 
 #: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
 "window."
-msgstr ""
+msgstr "הוספת פתקית תמונה לסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:280 src/settings.cpp:573
 #, kde-format
 msgid "Insert link note"
-msgstr ""
+msgstr "הוספת פתקית קישור"
 
 #: src/bnpview.cpp:282
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
-msgstr ""
+msgstr "הוספת פתקית קישור לסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:286 src/settings.cpp:576
 #, kde-format
@@ -1190,7 +1196,7 @@ msgstr "צילום אזור במסך"
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
 "the main window."
-msgstr ""
+msgstr "צילום חלק מהמסך כתמונה בסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:307
 #, kde-format
@@ -1202,7 +1208,7 @@ msgstr "הוספת פתקית בטקסט פשוט"
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
 "window."
-msgstr ""
+msgstr "הוספת פתקית טקסט פשוט לסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:318
 #, kde-format
