@@ -1463,11 +1463,10 @@ void BasketScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
         QAction *first = menu.actions().value(0);
 
-        // i18n: Verbs (for the "insert" menu)
         if (zone == Note::TopGroup || zone == Note::BottomGroup)
-            m_insertMenuTitle = menu.insertSection(first, i18n("Group"));
+            m_insertMenuTitle = menu.insertSection(first, i18nc("Verb (for the 'insert' menu)", "Group"));
         else
-            m_insertMenuTitle = menu.insertSection(first, i18n("Insert"));
+            m_insertMenuTitle = menu.insertSection(first, i18nc("Verb (for the 'insert' menu)", "Insert"));
 
         setInsertPopupMenu();
         connect(&menu, &QMenu::aboutToHide, this, &BasketScene::delayedCancelInsertPopupMenu);
