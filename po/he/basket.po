@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-08 00:47+0000\n"
-"PO-Revision-Date: 2025-09-17 15:41+0300\n"
+"PO-Revision-Date: 2025-09-19 08:26+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -153,6 +153,9 @@ msgid ""
 "makes it easy to record ideas as you think, and quickly find them later. "
 "Organizing your notes has never been so easy.</p>"
 msgstr ""
+"<p><b>הרעיונות שלך מקבלים מענה.</b></p><p>יישום לכתיבת פתקיות שמקל עליך "
+"ועלייך לתעד רעיונות תוך כדי חשיבה ולמצוא אותם במהירות לאחר מכן. ארגון "
+"הפתקיות שלך מעולם לא היה נוח כל כך.</p>"
 
 #: src/aboutdata.cpp:20
 #, kde-format
@@ -285,6 +288,10 @@ msgid ""
 "saving the file back, consider to save it to another file, to preserve the "
 "original one."
 msgstr ""
+"הקובץ נוצר עם גרסה עדכנית של %1. אפשר לפתוח אותו אבל לא כל הפרטים יהיו "
+"זמינים לך. למשל, חלק מהפתקיות עלולות להיות חסרות כיוון שהן מסוג שזמין רק "
+"בגרסאות חדשות. בעת שמירת הקובץ בחזרה, כדאי לשקול לשמור אותו בקובץ אחר כדי "
+"לשמור על המקורי."
 
 #: src/backup.cpp:54
 #, kde-format
@@ -459,6 +466,8 @@ msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
+"יש לבחור ב„סל” -> „גיבוי ושחזור…” -> „להשתמש בתיקייה קיימת אחרת…” ולבחור את "
+"התיקייה הזאת."
 
 #: src/backup.cpp:281
 #, kde-format
@@ -666,7 +675,7 @@ msgstr "&עמודות:"
 #: src/basketproperties.ui:88
 #, kde-format
 msgid "&Free-form"
-msgstr ""
+msgstr "צורה &חופשית"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mindMap)
 #: src/basketproperties.ui:114
@@ -743,6 +752,8 @@ msgid ""
 "Insert note here\n"
 "Right click for more options"
 msgstr ""
+"נא למלא פתקית כאן\n"
+"לחיצה ימנית לאפשרויות נוספות"
 
 #: src/basketscene.cpp:2775
 #, kde-format
@@ -815,7 +826,7 @@ msgstr ""
 #: src/basketscene.cpp:2833
 #, kde-format
 msgid "Added"
-msgstr ""
+msgstr "נוספה"
 
 #: src/basketscene.cpp:2833
 #, kde-format
@@ -831,12 +842,12 @@ msgstr "<b>%1</b>: %2"
 #: src/basketscene.cpp:2842
 #, kde-format
 msgid "Click on the right to group instead of insert"
-msgstr ""
+msgstr "לחיצה עם לחצן ימני כדי לקבץ במקום להוסיף"
 
 #: src/basketscene.cpp:2844
 #, kde-format
 msgid "Click on the left to insert instead of group"
-msgstr ""
+msgstr "לחיצה עם לחצן ימני כדי להוסיף במקום לקבץ"
 
 #: src/basketscene.cpp:3022
 #, kde-format
@@ -919,28 +930,28 @@ msgstr[3] "מחיקת פתקיות"
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "פתקית הועתקה ללוח הגזירים."
+msgstr[1] "פתקיות הועתקו ללוח הגזירים."
+msgstr[2] "פתקיות הועתקו ללוח הגזירים."
+msgstr[3] "פתקיות הועתקו ללוח הגזירים."
 
 #: src/basketscene.cpp:4052
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "גזירת פתקית ללוח הגזירים."
+msgstr[1] "גזירת פתקיות ללוח הגזירים."
+msgstr[2] "גזירת פתקיות ללוח הגזירים."
+msgstr[3] "גזירת פתקיות ללוח הגזירים."
 
 #: src/basketscene.cpp:4055
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "פתקית הועתקה לבחירה."
+msgstr[1] "פתקיות הועתקו לבחירה."
+msgstr[2] "פתקיות הועתקו לבחירה."
+msgstr[3] "פתקיות הועתקו לבחירה."
 
 #: src/basketscene.cpp:4119 src/basketscene.cpp:4194
 #, kde-format
@@ -971,17 +982,17 @@ msgstr "להציג אם יש שינויים שעדיין לא נשמרו."
 #: src/basketstatusbar.cpp:137
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
-msgstr ""
+msgstr "Ctrl+גרירה: העתקה, Shift+גרירה: העברה, Shift+Ctrl+גרירה: קישור."
 
 #: src/basketstatusbar.cpp:160
 #, kde-format
 msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
-msgstr ""
+msgstr "<p>הסל הזה <b>נעול</b>.<br>יש ללחוץ כדי לשחרר נעילה.</p>"
 
 #: src/basketstatusbar.cpp:163
 #, kde-format
 msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
-msgstr ""
+msgstr "<p>הנעילה של הסל הזה <b>משוחררת</b>.<br>יש ללחוץ כדי לנעול אותו.</p>"
 
 #. i18n: ectx: Menu (basket)
 #: src/basketui.rc:6
@@ -1136,7 +1147,7 @@ msgstr "הוספת פתקית טקסט"
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
-msgstr ""
+msgstr "הוספת פתקית טקסט לסל הנוכחי מבלי לפתוח את החלון הראשי."
 
 #: src/bnpview.cpp:274 src/settings.cpp:572
 #, kde-format
@@ -1227,12 +1238,12 @@ msgstr ""
 #: src/bnpview.cpp:378 src/bnpview.cpp:384
 #, kde-format
 msgid "&Basket Archive..."
-msgstr ""
+msgstr "&ארכיון סל…"
 
 #: src/bnpview.cpp:390
 #, kde-format
 msgid "&HTML Web Page..."
-msgstr ""
+msgstr "&עמוד אתר HTML…"
 
 #: src/bnpview.cpp:396
 #, kde-format
@@ -1247,7 +1258,7 @@ msgstr "&גיבוי ושחזור…"
 #: src/bnpview.cpp:405
 #, kde-format
 msgid "&Check && Cleanup..."
-msgstr ""
+msgstr "&בדיקה וניקוי…"
 
 #: src/bnpview.cpp:416
 #, kde-format
@@ -1501,17 +1512,17 @@ msgstr "המרת פתקיות טקסט לפתקיות טקסט עשיר"
 #: src/bnpview.cpp:766
 #, kde-format
 msgid "&Welcome Baskets"
-msgstr ""
+msgstr "סלי &קבלת פנים"
 
 #: src/bnpview.cpp:1031
 #, kde-format
 msgid "Plain Text Notes Conversion"
-msgstr ""
+msgstr "המרת פתקיות בטקסט פשוט"
 
 #: src/bnpview.cpp:1032
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
-msgstr ""
+msgstr "פתקיות טקסט פשוט מומרות לכאלה עם טקסט עשיר…"
 
 #: src/bnpview.cpp:1606
 #, kde-format
@@ -1639,12 +1650,12 @@ msgstr "להסיר את הסלים ה&צאצאיים"
 #: src/bnpview.cpp:2046 src/bnpview.cpp:2093
 #, kde-format
 msgid "Basket Archives"
-msgstr ""
+msgstr "ארכיוני סלים"
 
 #: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr ""
+msgstr "הקובץ <b>%1</b> כבר קיים. לדרוס אותו?"
 
 #: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
@@ -1654,12 +1665,12 @@ msgstr "לדרוס את הקובץ?"
 #: src/bnpview.cpp:2478
 #, kde-format
 msgid "&Assign new Tag..."
-msgstr ""
+msgstr "ה&קצאת תגית חדשה…"
 
 #: src/bnpview.cpp:2483
 #, kde-format
 msgid "&Remove All"
-msgstr ""
+msgstr "הסרה של ה&כול"
 
 #: src/common.cpp:56
 #, kde-format
@@ -1801,11 +1812,16 @@ msgid ""
 "that modifying one will not modify the other anymore as they are now "
 "separate entities.</p>"
 msgstr ""
+"<p>אי אפשר יותר לשקף תיקיות (ר׳ <a href='https://basket-notepads.github."
+"io'>basket-notepads.github.io</a> לפרטים נוספים).</p><p>התיקייה <b>%1</b> "
+"הועתקו לצורכי הסל. אפשר למחוק את התיקייה הזאת או למחוק את הסל, או להשתמש "
+"בשניהם. אך חשוב לזכור ששינוי אחד מהם לא תשפיע עוד על השני והם ישויות נפרדות "
+"מעתה.</p>"
 
 #: src/formatimporter.cpp:125
 #, kde-format
 msgid "Folder Mirror Import"
-msgstr ""
+msgstr "ייבוא שיקוף תיקיות"
 
 #: src/history.cpp:19
 #, kde-format
@@ -1883,7 +1899,7 @@ msgstr "אחר…"
 #: src/kcolorcombo2.cpp:638
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
-msgstr ""
+msgstr "אדום:%1, ירוק:%2, כחול:%3"
 
 #: src/kcolorcombo2.cpp:638
 #, kde-format
@@ -1979,7 +1995,7 @@ msgstr "&צבע:"
 #: src/linklabel.cpp:634
 #, kde-format
 msgid "&Mouse hover color:"
-msgstr ""
+msgstr "צבע ריחוף עם העכבר:"
 
 #: src/linklabel.cpp:643
 #, kde-format
@@ -2621,6 +2637,8 @@ msgid ""
 "You however can drag or copy the note into an application that understands "
 "it."
 msgstr ""
+"סוג הפתקית הזאת לא ידוע ואי אפשר לערוך אותו כאן.\n"
+"למרות זאת, אפשר לגרור או להעתיק את הפתקית ליישום שיכול לפענח אותו."
 
 #: src/noteedit.cpp:690
 #, kde-format
@@ -2755,6 +2773,9 @@ msgid ""
 "understand it.</p><p>If you want the support of these data, please contact "
 "developer.</p>"
 msgstr ""
+"<p>%1 לא תומך בנתונים שגררת.<br>אך בכל זאת נוצרה פתקית כללית, שמאפשרת לך "
+"לגרור או להעתיק אותה ליישום שמבין אותה.</p><p>לתמיכה בנתונים מהסוג הזה יש "
+"ליצור קשר עם המפתחים.</p>"
 
 #: src/notefactory.cpp:497
 #, kde-format
@@ -2764,7 +2785,7 @@ msgstr "סוגי תוכן (MIME) לא נתמכים"
 #: src/notefactory.cpp:553
 #, kde-format
 msgid "&Move Here\tShift"
-msgstr ""
+msgstr "העברה ל&כאן\tShift"
 
 #: src/notefactory.cpp:554
 #, kde-format
@@ -2882,7 +2903,7 @@ msgstr "התנהגות"
 #: src/settings.cpp:510
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
-msgstr ""
+msgstr "ה&תמרת שורות שמתחילות ב־* או ב־- לרשימות בעורכי טקסט"
 
 #: src/settings.cpp:514
 #, kde-format
@@ -2930,6 +2951,8 @@ msgid ""
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
 "empty checkbox and a checked box."
 msgstr ""
+"למשל, רשימת פתקיות עם התגיות <b>לביצוע</b> ו<b>בוצע</b> מיוצאות כשורות "
+"שמתחילות ב־<b>[ ]</b> או ב־<b>[x]</b>, לייצוג תיבת סימון ריקה ותיבה מסומנת."
 
 #: src/settings.cpp:548
 #, kde-format
@@ -3001,7 +3024,7 @@ msgstr "ייבוא סמל"
 #: src/settings.cpp:584
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
-msgstr ""
+msgstr "Shift+כפתור עכבר אמצעי במקום &כלשהו:"
 
 #: src/settings.cpp:589
 #, kde-format
@@ -3011,7 +3034,7 @@ msgstr "במקום של הסמן"
 #: src/settings.cpp:604
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
-msgstr ""
+msgstr "לנעול סלים מו&גנים לאחר שנסגרו למשך"
 
 #: src/settings.cpp:608
 #, kde-format
@@ -3021,7 +3044,7 @@ msgstr " דקות"
 #: src/settings.cpp:619
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
-msgstr ""
+msgstr "להשתמש בסוכן GuPG לסלים שמוגנים במפתח &פרטי/ציבורי"
 
 #: src/settings.cpp:701
 #, kde-format
@@ -3136,7 +3159,7 @@ msgstr "ה&פניות"
 #: src/settings.cpp:879
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "שיוכי שיגור כלליים"
 
 #: src/settings.cpp:882
 #, kde-format
@@ -3256,6 +3279,8 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
+"<p>אם האפשרות מסומנת, היישום שמוגדר להלן ישמש לפתיחת סוג הפתקית הזאת.</"
+"p><p>אחרת, ייעשה שימוש ביישום שהגדרת ב־Konqueror.</p>"
 
 #: src/settings.cpp:1011
 #, kde-format
@@ -3263,6 +3288,7 @@ msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr ""
+"<p>הגדרת היישום לפתיחת סוג הפתקיות הזה במקום היישום שמוגדר ב־Konqueror.</p>"
 
 #: src/settings_versionsync.cpp:76
 #, kde-format
@@ -3387,7 +3413,7 @@ msgstr "%1: %2"
 #: src/tag.cpp:592
 #, kde-format
 msgid "To Do"
-msgstr "מטלה"
+msgstr "לביצוע"
 
 #: src/tag.cpp:592
 #, kde-format
@@ -3581,7 +3607,7 @@ msgstr "קיצור &דרך:"
 #: src/tagsedit.cpp:396
 #, kde-format
 msgid "&Inherited by new sibling notes"
-msgstr ""
+msgstr "&עובר בירושה לפתקיות אחאיות"
 
 #: src/tagsedit.cpp:398
 #, kde-format
