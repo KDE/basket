@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-08 00:47+0000\n"
-"PO-Revision-Date: 2025-09-19 08:26+0300\n"
+"POT-Creation-Date: 2025-09-21 00:45+0000\n"
+"PO-Revision-Date: 2025-09-20 15:49+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -727,17 +727,21 @@ msgstr "חלק מהפתקיות החדשות לא תואמות לכללי הסי
 msgid "The new notes do not match the filter and are hidden."
 msgstr "הפתקיות החדשות לא תואמות לכללי הסינון והן מוסתרות."
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:90
-#, kde-format
+#: src/basketscene.cpp:1467
+#, fuzzy, kde-format
+#| msgid "&Group"
+msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
-msgstr ""
+msgstr "&קיבוץ"
 
-#: src/basketscene.cpp:1470
-#, kde-format
+#: src/basketscene.cpp:1469
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "הוספה"
 
-#: src/basketscene.cpp:2317
+#: src/basketscene.cpp:2316
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -746,7 +750,7 @@ msgstr ""
 "ההודעה הזאת לא אמורה להופיע אף פעם. אם היא בכל זאת הופיעה, יש תקלה בתוכנית! "
 "נא לדווח על התקלה למפתחים."
 
-#: src/basketscene.cpp:2756 src/basketscene.cpp:2809 src/basketscene.cpp:2818
+#: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -755,57 +759,57 @@ msgstr ""
 "נא למלא פתקית כאן\n"
 "לחיצה ימנית לאפשרויות נוספות"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, kde-format
 msgid "Resize those columns"
 msgstr "שינוי גודל העמודות האלה"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, kde-format
 msgid "Resize this group"
 msgstr "שינוי גודל הקבוצה הזאת"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, kde-format
 msgid "Resize this note"
 msgstr "שינוי גודל הפתקית"
 
-#: src/basketscene.cpp:2778
+#: src/basketscene.cpp:2777
 #, kde-format
 msgid "Select or move this note"
 msgstr "לבחור או להעביר את הפתקית הזאת"
 
-#: src/basketscene.cpp:2781
+#: src/basketscene.cpp:2780
 #, kde-format
 msgid "Select or move this group"
 msgstr "לבחור או להעביר את הקבוצה הזאת"
 
-#: src/basketscene.cpp:2784
+#: src/basketscene.cpp:2783
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "הקצאת או הסרת תגיות מהפתקית הזאת"
 
-#: src/basketscene.cpp:2792
+#: src/basketscene.cpp:2791
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2794
+#: src/basketscene.cpp:2793
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>תגיות מוקצות</b>: %1"
 
-#: src/basketscene.cpp:2801
+#: src/basketscene.cpp:2800
 #, kde-format
 msgid "Expand this group"
 msgstr "הרחבת הקבוצה הזאת"
 
-#: src/basketscene.cpp:2801
+#: src/basketscene.cpp:2800
 #, kde-format
 msgid "Collapse this group"
 msgstr "צמצום הקבוצה הזאת"
 
-#: src/basketscene.cpp:2812
+#: src/basketscene.cpp:2811
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -814,7 +818,7 @@ msgstr ""
 "קיבוץ הפתקית עם זאת שמתחתיה\n"
 "לחיצה ימנית לאפשרויות נוספות"
 
-#: src/basketscene.cpp:2815
+#: src/basketscene.cpp:2814
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -823,53 +827,53 @@ msgstr ""
 "קיבוץ הפתקית עם זאת שמעליה\n"
 "לחיצה ימנית לאפשרויות נוספות"
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2832
 #, kde-format
 msgid "Added"
 msgstr "נוספה"
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2832
 #, kde-format
 msgid "Last Modification"
 msgstr "שינוי אחרון"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2837
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2842
+#: src/basketscene.cpp:2841
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "לחיצה עם לחצן ימני כדי לקבץ במקום להוסיף"
 
-#: src/basketscene.cpp:2844
+#: src/basketscene.cpp:2843
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "לחיצה עם לחצן ימני כדי להוסיף במקום לקבץ"
 
-#: src/basketscene.cpp:3022
+#: src/basketscene.cpp:3021
 #, kde-format
 msgid "&Unlock"
 msgstr "&שחרור נעילה"
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3026
 #, kde-format
 msgid "Password protected basket."
 msgstr "הגנה על סל בסיסמה."
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3028
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "יש ללחוץ על שחרור נעילה כדי לגשת אליו."
 
-#: src/basketscene.cpp:3031
+#: src/basketscene.cpp:3030
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "אין תמיכה בהצפנה<br/>בגרסה הזאת של %1."
 
-#: src/basketscene.cpp:3043
+#: src/basketscene.cpp:3042
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -878,37 +882,37 @@ msgstr ""
 "כדי שסלים יישארו לא נעולים, יש לשנות את משך הנעילה<br>האוטומטית בהגדרות "
 "היישום."
 
-#: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
+#: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
 msgstr "בטעינה…"
 
-#: src/basketscene.cpp:3236 src/basketscene.cpp:3278
+#: src/basketscene.cpp:3235 src/basketscene.cpp:3277
 #, kde-format
 msgid "&Remove"
 msgstr "הס&רה"
 
-#: src/basketscene.cpp:3239 src/basketscene.cpp:3282 src/bnpview.cpp:2489
+#: src/basketscene.cpp:3238 src/basketscene.cpp:3281 src/bnpview.cpp:2489
 #, kde-format
 msgid "&Customize..."
 msgstr "התאמה &אישית…"
 
-#: src/basketscene.cpp:3245 src/basketscene.cpp:3288
+#: src/basketscene.cpp:3244 src/basketscene.cpp:3287
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "סינון לפי ה&תגית הזאת"
 
-#: src/basketscene.cpp:3291
+#: src/basketscene.cpp:3290
 #, kde-format
 msgid "Filter by this &State"
 msgstr "סינון לפי המ&צב הזה"
 
-#: src/basketscene.cpp:3372
+#: src/basketscene.cpp:3371
 #, kde-format
 msgid "Tags"
 msgstr "תגיות"
 
-#: src/basketscene.cpp:3949
+#: src/basketscene.cpp:3948
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
@@ -917,7 +921,7 @@ msgstr[1] "<qt>למחוק את <b>שתי</b> הפתקיות האלה?</qt>"
 msgstr[2] "<qt>למחוק את <b>%1</b> הפתקיות האלה?</qt>"
 msgstr[3] "<qt>למחוק את <b>%1</b> הפתקיות האלה?</qt>"
 
-#: src/basketscene.cpp:3950
+#: src/basketscene.cpp:3949
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
@@ -926,7 +930,7 @@ msgstr[1] "מחיקת פתקיות"
 msgstr[2] "מחיקת פתקיות"
 msgstr[3] "מחיקת פתקיות"
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4048
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
@@ -935,7 +939,7 @@ msgstr[1] "פתקיות הועתקו ללוח הגזירים."
 msgstr[2] "פתקיות הועתקו ללוח הגזירים."
 msgstr[3] "פתקיות הועתקו ללוח הגזירים."
 
-#: src/basketscene.cpp:4052
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
@@ -944,7 +948,7 @@ msgstr[1] "גזירת פתקיות ללוח הגזירים."
 msgstr[2] "גזירת פתקיות ללוח הגזירים."
 msgstr[3] "גזירת פתקיות ללוח הגזירים."
 
-#: src/basketscene.cpp:4055
+#: src/basketscene.cpp:4054
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
@@ -953,23 +957,23 @@ msgstr[1] "פתקיות הועתקו לבחירה."
 msgstr[2] "פתקיות הועתקו לבחירה."
 msgstr[3] "פתקיות הועתקו לבחירה."
 
-#: src/basketscene.cpp:4119 src/basketscene.cpp:4194
+#: src/basketscene.cpp:4118 src/basketscene.cpp:4193
 #, kde-format
 msgid "Unable to open this note."
 msgstr "לא ניתן לפתוח את הפתקית הזאת."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4121 src/basketui.rc:40
+#: src/basketscene.cpp:4120 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&עריכה"
 
-#: src/basketscene.cpp:4157
+#: src/basketscene.cpp:4156
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "אין לך הרשאה לפתוח את הקובץ הזה."
 
-#: src/basketscene.cpp:4215
+#: src/basketscene.cpp:4214
 #, kde-format
 msgid "Save to File"
 msgstr "שמירה לקובץ"
@@ -1234,6 +1238,9 @@ msgid ""
 "by creating new baskets inside others. You can browse between them by "
 "clicking a basket to open it, or reorganize them using drag and drop."
 msgstr ""
+"<h2>עץ הסלים</h2>להלן רשימת הסלים שלך. אפשר לסדר את הנתונים שלך על ידי הצבתם "
+"בסלים השונים. אפשר לקבץ סלים לפי נושא על ידי יצירת סלים חדשים בתוך סלים "
+"אחרים. אפשר לעיין בהם בלחיצה על סל כדי לפתוח אותו או לסדר אותם מחדש בגרירה."
 
 #: src/bnpview.cpp:378 src/bnpview.cpp:384
 #, kde-format
@@ -1603,6 +1610,12 @@ msgid ""
 "sure the application is correctly installed but you had a preview version of "
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
+"<p><b>נראה שהקובץ basketui.rc seems לא קיים או שהוא ישן מדי.<br>%1 לא יכול "
+"לרוץ בלעדיו ולכן יעצור.</b></p><p>נא לבדוק שההתקנה של %2 תקינה.</p><p>אם אין "
+"לך גישת ניהול להתקין את היישום לכלל המערכת, אפשר להעתיק את הקובץ basketui.rc "
+"מארכיון ההתקנה לתיקייה<a href='file://%3'>%4</a>.</p><p>כמוצא אחרון, אם "
+"היישום מותקן נכון בוודאות אבל הייתה לך גרסת תצוגה מקדימה שלו, כדאי לנסות "
+"להסיר את הקובץ ‎%5basketui.rc</p>"
 
 #: src/bnpview.cpp:1785
 #, kde-format
@@ -2047,6 +2060,16 @@ msgid ""
 "you drop, go to the \"General\" page and uncheck \"Image or animation\" in "
 "the \"View Content of Added Files for the Following Types\" group.</p>"
 msgstr ""
+"<p>זה בסדר כיוון שיש מספר סוגים של פתקיות.<br>ההגדרה הזאת חלה רק על פתקיות "
+"שמקושרות לקבצים ופריטים מקומיים.<br>התמונות שמופיעות הן פתקיות תמונות, לא "
+"פתקיות קבצים.<br>פתקיות קבצים הן לקבצים כלליים, בעוד שפתקיות תמונות הן "
+"תמונות שניתן לצייר עליהן.</p><p>בעת גרירת פתקיות לסלים, %1 מזהה את הסוג שלהם "
+"ומציג את תוכן הקבצים.<br>למשל, בגרירת קובצי תמונות או טקסט, נוצרות עבורן "
+"פתקיות תמונות או טקסט.<br>סוגי קבצים שאין מזוהים על ידי %2 , מופיעים בתור "
+"פתקיות קבצים כלליים עם סמל או תצוגה מקדימה של הקובץ ושם הקובץ.</p><p>כדי "
+"שהיישום לא ייצור פתקיות לפי תוכן הקבצים שנגררים, יש לגשת לעמוד „כללי” ולבטל "
+"את הסימון „תמונה או הנפשה” בקבוצה „הצגת תוכן של קבצים שנוספו מהסוגים הבאים”."
+"</p>"
 
 #: src/linklabel.cpp:675
 #, kde-format
@@ -2132,6 +2155,11 @@ msgid ""
 "sections with sub-baskets representing chapters or pages;</li><li>Making a "
 "group of baskets to export together (to eg. email them to people).</li></ul>"
 msgstr ""
+"<p>יצירת סלים בתוך סלים אחרים מייצרת היררכיה שמאפשרת לך לשמור על סדר על ידי "
+"למשל:</p><ul><li>קיבוץ סלים לפי תחומים או נושאים,</li><li>קיבוץ סלים בתיקיות "
+"למיזמים שונים,</li><li>יצירת סעיפים עם תת־סלים לייצוג פרקים או עמודים,</"
+"li><li>יצירת קבוצה של סלים לייצוא ביחד (למשל כדי לשלוח אותם לאנשים בדוא״ל).</"
+"li></ul>"
 
 #: src/newbasketdialog.cpp:320
 #, kde-format
@@ -2142,6 +2170,11 @@ msgstr "צורה חופשית"
 #, kde-format
 msgid "Mind map"
 msgstr "מפת חשיבה"
+
+#: src/notecontent.cpp:90
+#, kde-format
+msgid "Group"
+msgstr ""
 
 #: src/notecontent.cpp:92
 #, kde-format
@@ -2957,7 +2990,7 @@ msgstr ""
 #: src/settings.cpp:548
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
-msgstr ""
+msgstr "&קיבוץ פתקית חדשה בלחיצה על החלק השמאלי של שורת ההוספת"
 
 #: src/settings.cpp:550
 #, kde-format
@@ -2971,6 +3004,8 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
+"<p>כשהאפשרות הזאת פעילה, שורת ההוספה לא רק מרשה לך להוסיף פתקיות במקום של "
+"הסמן, אלא גם מאפשרת לך לקבץ פתקיות חדשות עם אלו שתחת הסמן:</p>"
 
 #: src/settings.cpp:554
 #, kde-format
@@ -2980,6 +3015,10 @@ msgid ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
+"<p>אפשר להציב את הסמן שלך בין פתקיות במקום בו ברצונך להוסיף אחת חדשה."
+"<br>ללחוץ על החלק ה<b>ימני</b> של סמן האמצע של שורת ההוספה כדי <b>להוסיף</b> "
+"פתקית.<br>יש ללחוץ מ<b>שמאל</b> כדי <b>לקבץ</b> פתקית עם זאת ש<b>מעליה או "
+"מתחתיה</b>, כתלות במקום של סמן העכבר שלך.</p>"
 
 #: src/settings.cpp:570
 #, kde-format
@@ -3079,7 +3118,7 @@ msgstr "המ&חשה…"
 #: src/settings.cpp:753
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
-msgstr "הצגת תוכן של קבצים שנוספים לסוגים הבאים"
+msgstr "הצגת תוכן של קבצים שנוספו מהסוגים הבאים"
 
 #: src/settings.cpp:755
 #, kde-format

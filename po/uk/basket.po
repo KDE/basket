@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-08 00:47+0000\n"
+"POT-Creation-Date: 2025-09-21 00:45+0000\n"
 "PO-Revision-Date: 2024-12-16 12:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -773,17 +773,21 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr ""
 "Нові нотатки не відповідають критеріям фільтрування — їх буде приховано."
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:90
-#, kde-format
+#: src/basketscene.cpp:1467
+#, fuzzy, kde-format
+#| msgid "Group"
+msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "Згрупувати"
 
-#: src/basketscene.cpp:1470
-#, kde-format
+#: src/basketscene.cpp:1469
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Вставити"
 
-#: src/basketscene.cpp:2317
+#: src/basketscene.cpp:2316
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -792,7 +796,7 @@ msgstr ""
 "Якщо ви бачите це повідомлення, сталося щось непередбачене. Отже, у програмі "
 "виявлено ваду! Будь ласка, повідомте про неї розробників."
 
-#: src/basketscene.cpp:2756 src/basketscene.cpp:2809 src/basketscene.cpp:2818
+#: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -801,57 +805,57 @@ msgstr ""
 "Сюди можна вставити нотатку\n"
 "Клацання правою кнопкою — інші варіанти"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, kde-format
 msgid "Resize those columns"
 msgstr "Змінити розмір цих стовпчиків"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, kde-format
 msgid "Resize this group"
 msgstr "Змінити розмір цієї групи"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, kde-format
 msgid "Resize this note"
 msgstr "Змінити розмір цієї нотатки"
 
-#: src/basketscene.cpp:2778
+#: src/basketscene.cpp:2777
 #, kde-format
 msgid "Select or move this note"
 msgstr "Позначити або пересунути цю нотатку"
 
-#: src/basketscene.cpp:2781
+#: src/basketscene.cpp:2780
 #, kde-format
 msgid "Select or move this group"
 msgstr "Позначити або пересунути цю групу"
 
-#: src/basketscene.cpp:2784
+#: src/basketscene.cpp:2783
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Визначити або вилучити мітки для цієї нотатки"
 
-#: src/basketscene.cpp:2792
+#: src/basketscene.cpp:2791
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2794
+#: src/basketscene.cpp:2793
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Пов'язані мітки</b>: %1"
 
-#: src/basketscene.cpp:2801
+#: src/basketscene.cpp:2800
 #, kde-format
 msgid "Expand this group"
 msgstr "Розгорнути цю групу"
 
-#: src/basketscene.cpp:2801
+#: src/basketscene.cpp:2800
 #, kde-format
 msgid "Collapse this group"
 msgstr "Згорнути цю групу"
 
-#: src/basketscene.cpp:2812
+#: src/basketscene.cpp:2811
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -860,7 +864,7 @@ msgstr ""
 "Згрупувати нотатку із нотаткою нижче.\n"
 "Клацання правою кнопкою — інші варіанти"
 
-#: src/basketscene.cpp:2815
+#: src/basketscene.cpp:2814
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -869,53 +873,53 @@ msgstr ""
 "Згрупувати нотатку із нотаткою вище.\n"
 "Клацання правою кнопкою — інші варіанти"
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2832
 #, kde-format
 msgid "Added"
 msgstr "Додано"
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2832
 #, kde-format
 msgid "Last Modification"
 msgstr "Час останньої зміни"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2837
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2842
+#: src/basketscene.cpp:2841
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Клацніть праворуч, щоб згрупувати, а не вставити"
 
-#: src/basketscene.cpp:2844
+#: src/basketscene.cpp:2843
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Клацніть ліворуч, щоб вставити, а не згрупувати"
 
-#: src/basketscene.cpp:3022
+#: src/basketscene.cpp:3021
 #, kde-format
 msgid "&Unlock"
 msgstr "&Розблокувати"
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3026
 #, kde-format
 msgid "Password protected basket."
 msgstr "Кошик захищено паролем."
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3028
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Натисніть «Розблокувати», щоб отримати доступ."
 
-#: src/basketscene.cpp:3031
+#: src/basketscene.cpp:3030
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "У цій версії %1 не передбачено<br/>підтримки шифрування."
 
-#: src/basketscene.cpp:3043
+#: src/basketscene.cpp:3042
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -924,37 +928,37 @@ msgstr ""
 "Щоб програма не блокувала кошики, змініть інтервал<br>автоматичного "
 "блокування у параметрах роботи програми."
 
-#: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
+#: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
 msgstr "Завантаження…"
 
-#: src/basketscene.cpp:3236 src/basketscene.cpp:3278
+#: src/basketscene.cpp:3235 src/basketscene.cpp:3277
 #, kde-format
 msgid "&Remove"
 msgstr "Ви&лучити"
 
-#: src/basketscene.cpp:3239 src/basketscene.cpp:3282 src/bnpview.cpp:2489
+#: src/basketscene.cpp:3238 src/basketscene.cpp:3281 src/bnpview.cpp:2489
 #, kde-format
 msgid "&Customize..."
 msgstr "&Налаштувати…"
 
-#: src/basketscene.cpp:3245 src/basketscene.cpp:3288
+#: src/basketscene.cpp:3244 src/basketscene.cpp:3287
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Фільтрувати за цією міткою"
 
-#: src/basketscene.cpp:3291
+#: src/basketscene.cpp:3290
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Фільтрувати за цим ст&аном"
 
-#: src/basketscene.cpp:3372
+#: src/basketscene.cpp:3371
 #, kde-format
 msgid "Tags"
 msgstr "Мітки"
 
-#: src/basketscene.cpp:3949
+#: src/basketscene.cpp:3948
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
@@ -963,7 +967,7 @@ msgstr[1] "<qt>Ви справді хочете вилучити ці <b>%1</b> 
 msgstr[2] "<qt>Ви справді хочете вилучити ці <b>%1</b> нотаток?</qt>"
 msgstr[3] "<qt>Ви справді хочете вилучити цю нотатку?</qt>"
 
-#: src/basketscene.cpp:3950
+#: src/basketscene.cpp:3949
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
@@ -972,7 +976,7 @@ msgstr[1] "Вилучити нотатки"
 msgstr[2] "Вилучити нотатки"
 msgstr[3] "Вилучити нотатку"
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4048
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
@@ -981,7 +985,7 @@ msgstr[1] "Нотатки скопійовано до буфера обміну.
 msgstr[2] "Нотатки скопійовано до буфера обміну."
 msgstr[3] "Нотатку скопійовано до буфера обміну."
 
-#: src/basketscene.cpp:4052
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
@@ -990,7 +994,7 @@ msgstr[1] "Вирізати нотатки до буфера обміну."
 msgstr[2] "Вирізати нотатки до буфера обміну."
 msgstr[3] "Вирізати нотатку до буфера обміну."
 
-#: src/basketscene.cpp:4055
+#: src/basketscene.cpp:4054
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
@@ -999,23 +1003,23 @@ msgstr[1] "Нотатки скопійовано до позначеного."
 msgstr[2] "Нотатки скопійовано до позначеного."
 msgstr[3] "Нотатку скопійовано до позначеного."
 
-#: src/basketscene.cpp:4119 src/basketscene.cpp:4194
+#: src/basketscene.cpp:4118 src/basketscene.cpp:4193
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Не вдалося відкрити цю нотатку."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4121 src/basketui.rc:40
+#: src/basketscene.cpp:4120 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "З&міни"
 
-#: src/basketscene.cpp:4157
+#: src/basketscene.cpp:4156
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Вас не уповноважено на відкриття цього файла."
 
-#: src/basketscene.cpp:4215
+#: src/basketscene.cpp:4214
 #, kde-format
 msgid "Save to File"
 msgstr "Зберегти у файл"
@@ -2251,6 +2255,11 @@ msgstr "Довільна форма"
 #, kde-format
 msgid "Mind map"
 msgstr "Карта для запам'ятовування"
+
+#: src/notecontent.cpp:90
+#, kde-format
+msgid "Group"
+msgstr "Згрупувати"
 
 #: src/notecontent.cpp:92
 #, kde-format

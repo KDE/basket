@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-08 00:47+0000\n"
+"POT-Creation-Date: 2025-09-21 00:45+0000\n"
 "PO-Revision-Date: 2022-12-04 23:21+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -703,229 +703,233 @@ msgstr ""
 msgid "The new notes do not match the filter and are hidden."
 msgstr ""
 
-#: src/basketscene.cpp:1468 src/notecontent.cpp:90
-#, kde-format
+#: src/basketscene.cpp:1467
+#, fuzzy, kde-format
+#| msgid "Group"
+msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "Gruppe"
 
-#: src/basketscene.cpp:1470
-#, kde-format
+#: src/basketscene.cpp:1469
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Inserter"
 
-#: src/basketscene.cpp:2317
+#: src/basketscene.cpp:2316
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
 msgstr ""
 
-#: src/basketscene.cpp:2756 src/basketscene.cpp:2809 src/basketscene.cpp:2818
+#: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
 #, kde-format
 msgid ""
 "Insert note here\n"
 "Right click for more options"
 msgstr ""
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, fuzzy, kde-format
 msgid "Resize those columns"
 msgstr "_Columnes"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, fuzzy, kde-format
 msgid "Resize this group"
 msgstr "Ne redimensionar"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2774
 #, fuzzy, kde-format
 msgid "Resize this note"
 msgstr "Redimensionar li note"
 
-#: src/basketscene.cpp:2778
+#: src/basketscene.cpp:2777
 #, fuzzy, kde-format
 msgid "Select or move this note"
 msgstr "Selecte li fólder de destination por mover"
 
-#: src/basketscene.cpp:2781
+#: src/basketscene.cpp:2780
 #, fuzzy, kde-format
 msgid "Select or move this group"
 msgstr "Selecte li fólder de destination por mover"
 
-#: src/basketscene.cpp:2784
+#: src/basketscene.cpp:2783
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr ""
 
-#: src/basketscene.cpp:2792
+#: src/basketscene.cpp:2791
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2794
+#: src/basketscene.cpp:2793
 #, fuzzy, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Tags de F-Spot</b>"
 
-#: src/basketscene.cpp:2801
+#: src/basketscene.cpp:2800
 #, fuzzy, kde-format
 msgid "Expand this group"
 msgstr "_Expander"
 
-#: src/basketscene.cpp:2801
+#: src/basketscene.cpp:2800
 #, fuzzy, kde-format
 msgid "Collapse this group"
 msgstr "Contraer"
 
-#: src/basketscene.cpp:2812
+#: src/basketscene.cpp:2811
 #, kde-format
 msgid ""
 "Group note with the one below\n"
 "Right click for more options"
 msgstr ""
 
-#: src/basketscene.cpp:2815
+#: src/basketscene.cpp:2814
 #, kde-format
 msgid ""
 "Group note with the one above\n"
 "Right click for more options"
 msgstr ""
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2832
 #, kde-format
 msgid "Added"
 msgstr "Adjuntet"
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2832
 #, kde-format
 msgid "Last Modification"
 msgstr "Modificat"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2837
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2842
+#: src/basketscene.cpp:2841
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr ""
 
-#: src/basketscene.cpp:2844
+#: src/basketscene.cpp:2843
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr ""
 
-#: src/basketscene.cpp:3022
+#: src/basketscene.cpp:3021
 #, kde-format
 msgid "&Unlock"
 msgstr "D&esserrar"
 
-#: src/basketscene.cpp:3027
+#: src/basketscene.cpp:3026
 #, fuzzy, kde-format
 msgid "Password protected basket."
 msgstr "Ne protectet"
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3028
 #, fuzzy, kde-format
 msgid "Press Unlock to access it."
 msgstr "Presser"
 
-#: src/basketscene.cpp:3031
+#: src/basketscene.cpp:3030
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "Ciffration ne es supportat de<br/>ti version de %1."
 
-#: src/basketscene.cpp:3043
+#: src/basketscene.cpp:3042
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
 msgstr ""
 
-#: src/basketscene.cpp:3070 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
+#: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
 msgstr "Carga..."
 
-#: src/basketscene.cpp:3236 src/basketscene.cpp:3278
+#: src/basketscene.cpp:3235 src/basketscene.cpp:3277
 #, kde-format
 msgid "&Remove"
 msgstr "&Remover"
 
-#: src/basketscene.cpp:3239 src/basketscene.cpp:3282 src/bnpview.cpp:2489
+#: src/basketscene.cpp:3238 src/basketscene.cpp:3281 src/bnpview.cpp:2489
 #, fuzzy, kde-format
 msgid "&Customize..."
 msgstr "Personalisar..."
 
-#: src/basketscene.cpp:3245 src/basketscene.cpp:3288
+#: src/basketscene.cpp:3244 src/basketscene.cpp:3287
 #, fuzzy, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Filtre..."
 
-#: src/basketscene.cpp:3291
+#: src/basketscene.cpp:3290
 #, fuzzy, kde-format
 msgid "Filter by this &State"
 msgstr "Filtre:"
 
-#: src/basketscene.cpp:3372
+#: src/basketscene.cpp:3371
 #, kde-format
 msgid "Tags"
 msgstr "Etiquettes"
 
-#: src/basketscene.cpp:3949
+#: src/basketscene.cpp:3948
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/basketscene.cpp:3950
+#: src/basketscene.cpp:3949
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4048
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/basketscene.cpp:4052
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/basketscene.cpp:4055
+#: src/basketscene.cpp:4054
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/basketscene.cpp:4119 src/basketscene.cpp:4194
+#: src/basketscene.cpp:4118 src/basketscene.cpp:4193
 #, fuzzy, kde-format
 msgid "Unable to open this note."
 msgstr "Aperter modelle de nov note"
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4121 src/basketui.rc:40
+#: src/basketscene.cpp:4120 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&Modificar"
 
-#: src/basketscene.cpp:4157
+#: src/basketscene.cpp:4156
 #, fuzzy, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Vu ne have autorisation de executer ti file."
 
-#: src/basketscene.cpp:4215
+#: src/basketscene.cpp:4214
 #, kde-format
 msgid "Save to File"
 msgstr "Gardar a un file"
@@ -2089,6 +2093,11 @@ msgstr "Visibil nómine, p.ex «Mi comande de shell»"
 #, fuzzy, kde-format
 msgid "Mind map"
 msgstr "Corespondentie"
+
+#: src/notecontent.cpp:90
+#, kde-format
+msgid "Group"
+msgstr "Gruppe"
 
 #: src/notecontent.cpp:92
 #, kde-format
