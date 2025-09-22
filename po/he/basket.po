@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:45+0000\n"
-"PO-Revision-Date: 2025-09-20 15:49+0300\n"
+"PO-Revision-Date: 2025-09-21 15:38+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -337,6 +337,15 @@ msgid ""
 "folder manually (eg. adding a file in a basket folder will not add that file "
 "to the basket).</p>"
 msgstr ""
+"<p>אפשר להעביר את התיקייה בה %1 מאחסן את הסלים שלך כדי:</p><ul><li>לאחסן "
+"לאחסן את הסלים שלך במקום גלוי כמו תיקיית הבית שלך, כגון ~/פתקיות או ‎~/סלים, "
+"כדי לאפשר לך לגבות אותם ידנית בכל עת שנוחה לך.</li><li>לאחסן את הסלים שלך "
+"בשרת כדי לשתף אותם בין שני מחשבים.<br>במקרה הזה, יש לעדכן את התיקייה המשותפת "
+"למערכת הקבצים הנוכחית ולבקש מ־%1 להשתמש בנקודת העגינה הזאת.<br>אזהרה: אין "
+"להריץ את %1 בו־זמנית על שני המחשבים, המצב הזה כלול לגרום לאובדן מידע עקב "
+"חוסר סנכרון בין היישומים.</li></ul><p>נא לזכור שאין לשנות את תוכן התיקייה "
+"הזאת ידנית (כלומר: הוספת קובץ לתיקיית סל ידנית לא יוסיף את הקובץ הזה לסל).</"
+"p>"
 
 #: src/backup.cpp:104
 #, kde-format
@@ -663,7 +672,7 @@ msgstr "צבע &טקסט:"
 #: src/basketproperties.ui:75
 #, kde-format
 msgid "Disposition"
-msgstr ""
+msgstr "אופן סידור"
 
 #. i18n: ectx: property (text), widget (QRadioButton, columnForm)
 #: src/basketproperties.ui:81
@@ -728,15 +737,13 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr "הפתקיות החדשות לא תואמות לכללי הסינון והן מוסתרות."
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "&Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
-msgstr "&קיבוץ"
+msgstr "קיבוץ"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "הוספה"
@@ -2124,7 +2131,7 @@ msgstr "שלוש עמודות"
 #: src/newbasketdialog.cpp:187
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "חופשי"
 
 #: src/newbasketdialog.cpp:195
 #, kde-format
