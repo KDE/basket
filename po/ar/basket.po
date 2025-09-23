@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:45+0000\n"
-"PO-Revision-Date: 2025-09-01 21:47+0400\n"
+"PO-Revision-Date: 2025-09-22 20:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -748,15 +748,13 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr "الملاحظات الجديدة لا تطابق المرشح وهي مخفية."
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
-msgstr "المجموعة"
+msgstr "جمّع"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "أدرج"
