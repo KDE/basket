@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the basket package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:45+0000\n"
-"PO-Revision-Date: 2024-12-16 17:44+0100\n"
+"PO-Revision-Date: 2025-09-24 17:05+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -697,15 +697,13 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr ""
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "Gruppo"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Inserta"
@@ -2151,7 +2149,7 @@ msgstr ""
 #: src/notecontent.cpp:598
 #, kde-format
 msgid "Edit this image"
-msgstr ""
+msgstr "Modifica iste imagine"
 
 #: src/notecontent.cpp:602
 #, kde-format
@@ -2502,7 +2500,7 @@ msgstr "RGB"
 #: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
-msgstr ""
+msgstr "<i>Rubie</i>: %1, <i>Verde</i>: %2, <i>Blau</i>: %3 ,"
 
 #: src/notecontent.cpp:2348
 #, kde-format
@@ -3035,7 +3033,7 @@ msgstr ""
 #: src/settings.cpp:827
 #, kde-format
 msgid "Annual report"
-msgstr ""
+msgstr "Reporto Annual"
 
 #: src/settings.cpp:828
 #, kde-format
