@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:45+0000\n"
-"PO-Revision-Date: 2025-09-24 09:17+0300\n"
+"PO-Revision-Date: 2025-09-26 10:48+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2191,7 +2191,7 @@ msgstr "מפת חשיבה"
 #: src/notecontent.cpp:90
 #, kde-format
 msgid "Group"
-msgstr ""
+msgstr "קבוצה"
 
 #: src/notecontent.cpp:92
 #, kde-format
@@ -3235,6 +3235,17 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>בסביבות שולחן עבודה עדכניות, הגדרות המשגר מספקות מידע למערכת על איך לטפל "
+"ביישום. הקבצים האלו הם הכרחיים לשילוב יישומים בסביבת שולחן העבודה כדי להציג, "
+"לחפש ולהפעיל יישומים עם הגדרות מסוימות.</p><p>הנה הצעדים שיש לבצע כדי להפעיל "
+"את דפדפן Falkon עם פרופיל מסוים.</p><ul><li>לפתוח את עורך התפריטים של KDE "
+"ולהקליד „Falkon” במסנן החיפוש,</li><li>לבחור במשגר שולחן העבודה „Falkon”, "
+"לחיצה ימנית עליו, להעתיק ולהדביק,</li><li>לערוך את שדות המאפיין „כללי” כגון "
+"„שם”, „תיאור” או „הערה”. </li><li>לערוך את השדה „ארגומנטים לשורת הפקודות” "
+"למשהו בסגנון „‎--profile 'התחביב-שלך' %%u”.</li></ul><p>כעת, בחירה במשגר החדש "
+"שלך כמשגר פתקיות קישור סל, הסל יפתח את קישורי ה־HTTP עם הפרופיל „התחביב-שלך” "
+"ב־Falkon</p><p>להגדרות יותר נקודתיות (כמו פתיחת מסמכי pdf בעדיפות עם "
+"Falkon), יש לקרוא את חלונית העצה של הכפתור השני.</p>"
 
 #: src/settings.cpp:896
 #, kde-format
