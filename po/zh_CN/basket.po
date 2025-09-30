@@ -710,15 +710,13 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr "不匹配过滤条件的新记事贴会被隐藏。"
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "编组"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "插入"
