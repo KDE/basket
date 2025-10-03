@@ -710,18 +710,16 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr "Nové poznámky neodpovídají filtru a jsou skryty."
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
-msgstr "Skupina"
+msgstr ""
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
-msgstr "Vložit"
+msgstr ""
 
 #: src/basketscene.cpp:2316
 #, kde-format
@@ -3869,6 +3867,3 @@ msgstr ""
 "Změňte velikost okna pro vybrání\n"
 "velikosti obrázku a zavřete ho\n"
 "nebo stiskněte Esc pro uložení změny."
-
-#~ msgid "TextLabel"
-#~ msgstr "Textový popisek"
