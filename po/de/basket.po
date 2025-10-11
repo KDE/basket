@@ -3,14 +3,13 @@
 # Translation of basket.pot to German.
 # Copyright (C) 2004 Patrick Haas <p@trickhaas.de>
 # This file is distributed under the same license as the BasKet package.
-# Sébastien <slaout@linux62.org>, 2004.
-# Patrick Haas <p@trickhaas.de>, 2004.
-# Florian Sievert <kde@floriansievert.de>, 2005, 2006, 2007.
-# Sébastien Laoût <slaout@linux62.org>, 2005.
-# Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
-# Burkhard Lück <lueck@hube-lueck.de>, 2020, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
-#
+# SPDX-FileCopyrightText: 2004 Sébastien <slaout@linux62.org>
+# SPDX-FileCopyrightText: 2004 Patrick Haas <p@trickhaas.de>
+# SPDX-FileCopyrightText: 2005, 2006, 2007 Florian Sievert <kde@floriansievert.de>
+# SPDX-FileCopyrightText: 2005 Sébastien Laoût <slaout@linux62.org>
+# SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
+# SPDX-FileCopyrightText: 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
