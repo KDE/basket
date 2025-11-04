@@ -582,7 +582,7 @@ msgstr "Dossier"
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
 msgstr ""
-"Cacher automatiquement la fenêtre principale dans la boîte à miniatures au "
+"Cacher automatiquement la fenêtre principale dans la boite à miniatures au "
 "démarrage."
 
 #: src/basket_options.h:26
@@ -800,7 +800,7 @@ msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
 msgstr ""
-"Ce message ne devrait jamais apparaître. Si c'est le cas, cette application "
+"Ce message ne devrait jamais apparaitre. Si c'est le cas, cette application "
 "est boguée ! Merci de rapporter ce bogue au développeur."
 
 #: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
@@ -3078,7 +3078,7 @@ msgid ""
 msgstr ""
 "Par exemple, une liste de notes avec les marques <b>À faire</b> et <b>Fait</"
 "b> est exportée en tant que lignes précédées de <b>[ ]</b> ou <b>[x]</b>, "
-"représentant des boîtes à cocher."
+"représentant des boites à cocher."
 
 #: src/settings.cpp:548
 #, kde-format
