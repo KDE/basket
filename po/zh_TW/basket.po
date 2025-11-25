@@ -4,20 +4,20 @@
 # Copyright (C) 2003-2005.
 #
 # Rex <rexforce@hotmail.com>, 2004.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:55+0000\n"
-"PO-Revision-Date: 2023-12-26 22:41+0900\n"
+"PO-Revision-Date: 2025-11-24 22:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 26.03.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -31,57 +31,57 @@ msgid "Your emails"
 msgstr "rexforce@hotmail.com, mail@kisaragi-hiu.com"
 
 #: devtools/weaver/main.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "basketweaver"
-msgstr "BasKet"
+msgstr "basketweaver"
 
 #: devtools/weaver/main.cpp:19
 #, kde-format
 msgid "Encodes and decodes .baskets files"
-msgstr ""
+msgstr "編碼或解碼 .baskets 檔案"
 
 #: devtools/weaver/main.cpp:28
 #, kde-format
 msgid "Destination directory. Optional."
-msgstr ""
+msgstr "目的地目錄。可選。"
 
 #: devtools/weaver/main.cpp:33
 #, kde-format
 msgid ""
 "Use the <image> as preview image for a .baskets file. Must be a .png file."
-msgstr ""
+msgstr "使用 <image> 作為 .baskets 檔案的預覽影像。必須是 .png 檔案。"
 
 #: devtools/weaver/main.cpp:38
 #, kde-format
 msgid "Decodes the <file>. Cannot be used together with --weave."
-msgstr ""
+msgstr "解碼 <file>。不能與 --weave 同時使用。"
 
 #: devtools/weaver/main.cpp:43
 #, kde-format
 msgid "Encodes the <directory>. Cannot be used together with --unweave."
-msgstr ""
+msgstr "編碼 <directory>。不能與 --unweave 同時使用。"
 
 #: devtools/weaver/main.cpp:48
 #, kde-format
 msgid ""
 "This optional value will be used to label the new content within the "
 "optionally given output directory"
-msgstr ""
+msgstr "這個可選的值會用來標記指定輸出目錄中的新內容"
 
 #: devtools/weaver/main.cpp:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Overwrite existing files."
-msgstr "切換至下一個basket"
+msgstr "覆寫現存檔案。"
 
 #: devtools/weaver/weaver.cpp:44
 #, kde-format
 msgid "You need to provide at least one --weave/-w or --unweave/-u option"
-msgstr ""
+msgstr "您需要提供至少一個 --weave/-w 或 --unweave/-u 選項"
 
 #: devtools/weaver/weaver.cpp:49
 #, kde-format
 msgid "You cannot use --weave/-w and --unweave/-u options in conjunction."
-msgstr ""
+msgstr "您不能同時使用 --weave/-w 及 --unweave/-u 選項。"
 
 #: devtools/weaver/weaver.cpp:55
 #, kde-format
@@ -89,21 +89,23 @@ msgid ""
 "Multiple --weave/-w or --unweave/-u input options found. All but the first "
 "input are going to be ignored."
 msgstr ""
+"發現多個 --weave/-w 或 --unweave/-u 輸入選項。除了第一個輸入以外全部都會忽"
+"略。"
 
 #: devtools/weaver/weaver.cpp:79
 #, kde-format
 msgid "The source seems to be an invalid .baskets file"
-msgstr ""
+msgstr "來源似乎是無效的 .baskets 檔案"
 
 #: devtools/weaver/weaver.cpp:86 devtools/weaver/weaver.cpp:127
 #, kde-format
 msgid "Output directory does not exist."
-msgstr ""
+msgstr "輸出目錄不存在。"
 
 #: devtools/weaver/weaver.cpp:113
 #, kde-format
 msgid "The source seems to be invalid."
-msgstr ""
+msgstr "來源似乎是無效的。"
 
 #: devtools/weaver/weaver.cpp:280
 #, kde-format
@@ -111,36 +113,36 @@ msgid "Could not open file."
 msgstr "無法開啟檔案。"
 
 #: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
-#, fuzzy, kde-format
+#, kde-format
 msgid "Failed to open a file resource."
-msgstr "確認刪除"
+msgstr "開啟檔案資源失敗。"
 
 #: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
 #, kde-format
 msgid "This file is not a basket archive."
-msgstr ""
+msgstr "這個檔案不是 basket 封存。"
 
 #: devtools/weaver/weaver.cpp:310 src/archive.cpp:270
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
-msgstr ""
+msgstr "這個檔案已毀損。無法開啟。"
 
 #: devtools/weaver/weaver.cpp:313
 #, kde-format
 msgid "The destination path already exists."
-msgstr ""
+msgstr "目的地路徑已存在。"
 
 #: devtools/weaver/weaver.cpp:316
 #, kde-format
 msgid "This file supplied file format is not supported"
-msgstr ""
+msgstr "這個檔案提供的檔案格式不支援"
 
 #: devtools/weaver/weaver.cpp:319
 #, kde-format
 msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
-msgstr ""
+msgstr "這個檔案是用較新的 BasKet 筆記本版本所建立的。可能不完全支援它"
 
 #: src/aboutdata.cpp:16
 #, kde-format
@@ -149,12 +151,15 @@ msgid ""
 "makes it easy to record ideas as you think, and quickly find them later. "
 "Organizing your notes has never been so easy.</p>"
 msgstr ""
+"<p><b>小心呵護您的想法。</b></p><p>一個讓您能夠輕易隨思考記錄想法，並在之後快"
+"速找到它們的筆記本應用程式。管理筆記從來沒有這麼簡單過。</p>"
 
 #: src/aboutdata.cpp:20
 #, kde-format
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
 msgstr ""
+"Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
 
 #: src/aboutdata.cpp:27
 #, kde-format
@@ -169,37 +174,37 @@ msgstr "協同維護者"
 #: src/aboutdata.cpp:28
 #, kde-format
 msgid "Niccolò Venerandi"
-msgstr ""
+msgstr "Niccolò Venerandi"
 
 #: src/aboutdata.cpp:29
 #, kde-format
 msgid "OmegaPhil"
-msgstr ""
+msgstr "OmegaPhil"
 
 #: src/aboutdata.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Paste as plaintext option"
-msgstr "開啟自(&w),,,%1"
+msgstr "以純文字貼上的選項"
 
 #: src/aboutdata.cpp:30
 #, kde-format
 msgid "Kelvie Wong"
-msgstr ""
+msgstr "Kelvie Wong"
 
 #: src/aboutdata.cpp:30
 #, kde-format
 msgid "Ex-Maintainer"
-msgstr ""
+msgstr "前任維護者"
 
 #: src/aboutdata.cpp:31
 #, kde-format
 msgid "Sébastien Laoût"
-msgstr ""
+msgstr "Sébastien Laoût"
 
 #: src/aboutdata.cpp:31
 #, kde-format
 msgid "Original Author"
-msgstr ""
+msgstr "原始作者"
 
 #: src/aboutdata.cpp:32
 #, kde-format
@@ -209,12 +214,12 @@ msgstr "Petri Damstén"
 #: src/aboutdata.cpp:32
 #, kde-format
 msgid "Basket encryption, Kontact integration, KnowIt importer"
-msgstr ""
+msgstr "筆記本加密、Kontact 整合、KnowIt 匯入器"
 
 #: src/aboutdata.cpp:33
 #, kde-format
 msgid "Alex Gontmakher"
-msgstr ""
+msgstr "Alex Gontmakher"
 
 #: src/aboutdata.cpp:34
 #, kde-format
@@ -222,49 +227,51 @@ msgid ""
 "Baskets auto lock, save-status icon, HTML copy/paste, basket name tooltip, "
 "drop to basket name"
 msgstr ""
+"筆記本自動鎖定、儲存狀態圖示、HTML 複製貼上、筆記本名稱工具提示、拖放到筆記本"
+"名稱"
 
 #: src/aboutdata.cpp:36
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: src/aboutdata.cpp:36
 #, kde-format
 msgid "Original icon"
-msgstr ""
+msgstr "原始圖示"
 
 #: src/aboutdata.cpp:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "BasKet Note Pads"
-msgstr "Basket偏好設定"
+msgstr "BasKet 筆記本"
 
 #: src/archive.cpp:50 src/bnpview.cpp:2049
 #, kde-format
 msgid "Save as Basket Archive"
-msgstr ""
+msgstr "儲存為 Basket 封存"
 
 #: src/archive.cpp:51
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
-msgstr ""
+msgstr "正在儲存為 basket 封存。請稍候…"
 
 #: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
 #: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
 #, kde-format
 msgid "Basket Archive Error"
-msgstr ""
+msgstr "Basket 封存錯誤"
 
 #: src/archive.cpp:273
 #, kde-format
 msgid "Extraction path already exists."
-msgstr ""
+msgstr "解開路徑已經存在。"
 
 #: src/archive.cpp:277
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
-msgstr ""
+msgstr "這個檔案是用太新的 %1 版本所建立的。請更新到較新的版本來開啟它。"
 
 #: src/archive.cpp:284
 #, kde-format
@@ -275,21 +282,24 @@ msgid ""
 "saving the file back, consider to save it to another file, to preserve the "
 "original one."
 msgstr ""
+"這個檔案是用太新的 %1 版本所建立的。這個版本可以開啟它但是可能無法提供所有檔"
+"案內的資訊供您使用。舉例來說，如果有筆記是只有新版本才有的類型的話，它們可能"
+"就不會出現。儲存檔案時請注意要儲存到另一個檔案，來保留原本的檔案。"
 
 #: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
-msgstr ""
+msgstr "備份與復原"
 
 #: src/backup.cpp:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save Folder"
-msgstr "載入自檔案(&d)"
+msgstr "儲存資料夾"
 
 #: src/backup.cpp:77
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
-msgstr ""
+msgstr "您的筆記本目前儲存在此資料夾：<br><b>%1</b>"
 
 #: src/backup.cpp:84
 #, kde-format
@@ -302,9 +312,9 @@ msgid "&Use Another Existing Folder..."
 msgstr "用另一個現存資料夾(&U)..."
 
 #: src/backup.cpp:87
-#, fuzzy, kde-format
+#, kde-format
 msgid "Why to do that?"
-msgstr "貼上至所選擇"
+msgstr "為什麼？"
 
 #: src/backup.cpp:88
 #, kde-format
@@ -334,32 +344,32 @@ msgstr "備份(&B)..."
 #: src/backup.cpp:116
 #, kde-format
 msgid "&Restore a Backup..."
-msgstr ""
+msgstr "復原備份(&R)…"
 
 #: src/backup.cpp:139
 #, kde-format
 msgid "Last backup: never"
-msgstr ""
+msgstr "上次備份：從未"
 
 #: src/backup.cpp:141
 #, kde-format
 msgid "Last backup: %1"
-msgstr ""
+msgstr "上次備份：%1"
 
 #: src/backup.cpp:149 src/backup.cpp:180
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose a Folder Where to Move Baskets"
-msgstr "新建一個basket"
+msgstr "選擇要將筆記本移動到哪個資料夾"
 
 #: src/backup.cpp:161
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
-msgstr ""
+msgstr "資料夾 <b>%1</b> 不是空的。您要覆寫它嗎？"
 
 #: src/backup.cpp:162
-#, fuzzy, kde-format
+#, kde-format
 msgid "Overwrite Folder?"
-msgstr "載入自檔案(&d)"
+msgstr "覆寫資料夾？"
 
 #: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
 #, kde-format
@@ -371,65 +381,65 @@ msgstr "覆寫(&O)"
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
-msgstr ""
+msgstr "您的筆記本已成功移動到 <b>%1</b>。%2 將重新啟動來套用此變更。"
 
 #: src/backup.cpp:185
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
 "going to be restarted to take this change into account."
-msgstr ""
+msgstr "您的筆記本儲存資料夾已成功改為 <b>%1</b>。%2 將重新啟動來套用此變更。"
 
 #: src/backup.cpp:197
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
-msgstr "Basket %1"
+msgstr "Baskets_%1"
 
 #: src/backup.cpp:202 src/backup.cpp:251
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
-msgstr ""
+msgstr "以 Gzip 壓縮的 Tar 封存檔"
 
 #: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
 #: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
 #, kde-format
 msgid "All Files"
-msgstr ""
+msgstr "所有檔案"
 
 #: src/backup.cpp:206 src/backup.cpp:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "Backup Baskets"
-msgstr "(解除)鎖定basket"
+msgstr "備份筆記本"
 
 #: src/backup.cpp:215
 #, kde-format
 msgid "Backing up baskets. Please wait..."
-msgstr ""
+msgstr "正在備份筆記本。請稍候…"
 
 #: src/backup.cpp:256 src/bnpview.cpp:2094
 #, kde-format
 msgid "Open Basket Archive"
-msgstr ""
+msgstr "開啟 Basket 封存"
 
 #: src/backup.cpp:267
 #, kde-format
 msgid "README.txt"
-msgstr ""
+msgstr "README.txt"
 
 #: src/backup.cpp:271
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
 "restore the backup %1."
-msgstr ""
+msgstr "這是您在開始復原備份 %1 之前的筆記本的安全副本。"
 
 #: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
 "restore, you can remove this folder."
-msgstr ""
+msgstr "如果復原成功且符合期待，則您可以放心移除此資料夾。"
 
 #: src/backup.cpp:275
 #, kde-format
@@ -437,6 +447,8 @@ msgid ""
 "If something went wrong during the restoration process, you can re-use this "
 "folder to store your baskets and nothing will be lost."
 msgstr ""
+"但如果復原過程有發生問題，您可以重新使用這個資料夾來儲存您的筆記本，而不會遺"
+"失任何資料。"
 
 #: src/backup.cpp:277
 #, kde-format
@@ -444,23 +456,25 @@ msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
+"從選單選取「筆記本」→「備份與復原…」→「用另一個現存資料夾…」然後選取該資料"
+"夾。"
 
 #: src/backup.cpp:281
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
-msgstr ""
+msgstr "正在復原 <b>%1</b>。請稍候…"
 
 #: src/backup.cpp:282
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
-msgstr ""
+msgstr "如果復原過程有發生問題，請閱讀檔案 <b>%1</b>。"
 
 #: src/backup.cpp:285
-#, fuzzy, kde-format
+#, kde-format
 msgid "Restore Baskets"
-msgstr "新建basket"
+msgstr "復原筆記本"
 
 #: src/backup.cpp:318
 #, kde-format
@@ -468,35 +482,36 @@ msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
 "imported. Your old baskets have been preserved instead."
 msgstr ""
+"這個封存檔不是筆記本備份，或是已經損毀。它無法匯入。您的舊筆記本已被保留。"
 
 #: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
-msgstr ""
+msgstr "復原錯誤"
 
 #: src/backup.cpp:328
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
 "restarted to take this change into account."
-msgstr ""
+msgstr "您的備份已成功復原到 <b>%1</b>。%2 將重新啟動來套用此變更。"
 
 #: src/backup.cpp:366
 #, kde-format
 msgid "Restart"
-msgstr ""
+msgstr "重新啟動"
 
 #: src/backup.cpp:383
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
-msgstr "於滑鼠指標位置放置物件(&D)"
+msgstr "復原前的筆記本"
 
 #: src/backup.cpp:390
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
-msgstr ""
+msgstr "復原前的筆記本 (%1)"
 
 #: src/basket_options.h:19
 #, kde-format
@@ -506,7 +521,7 @@ msgstr "顯示除錯視窗"
 #: src/basket_options.h:21
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
-msgstr ""
+msgstr "載入與儲存筆記本與其他應用程式資料用的自訂資料夾。"
 
 #: src/basket_options.h:22
 #, kde-format
@@ -515,39 +530,39 @@ msgid "folder"
 msgstr "資料夾"
 
 #: src/basket_options.h:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
-msgstr "按下關閉鈕時隱藏主視窗(而非退出程式)(&H)"
+msgstr "啟動時最小化至系統匣。"
 
 #: src/basket_options.h:26
 #, kde-format
 msgid "On crash, use the standard KDE crash handler rather than send an email."
-msgstr ""
+msgstr "崩潰時，使用標準 KDE 崩潰處理程式而非傳送電子郵件。"
 
 #: src/basket_options.h:28
 #, kde-format
 msgid "Open a basket archive or template."
-msgstr ""
+msgstr "開啟 Basket 封存或模本。"
 
 #: src/basketfactory.cpp:54
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
-msgstr ""
+msgstr "不好意思，但新筆記本的資料夾建立已失敗。"
 
 #: src/basketfactory.cpp:54 src/basketfactory.cpp:87 src/basketfactory.cpp:108
-#, fuzzy, kde-format
+#, kde-format
 msgid "Basket Creation Failed"
-msgstr "Basket %1"
+msgstr "筆記本建立失敗"
 
 #: src/basketfactory.cpp:87
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
-msgstr ""
+msgstr "不好意思，但新筆記本的模本複製已失敗。"
 
 #: src/basketfactory.cpp:108
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
-msgstr ""
+msgstr "不好意思，但新筆記本的模本自訂已失敗。"
 
 #: src/basketlistview.cpp:631
 #, kde-format
@@ -565,29 +580,29 @@ msgid "%1+%2"
 msgstr "%1+%2"
 
 #: src/basketproperties.cpp:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "Basket Properties"
-msgstr "Basket偏好設定"
+msgstr "筆記本屬性"
 
 #: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
-#, fuzzy, kde-format
+#, kde-format
 msgid "Icon"
-msgstr "圖示(&I):"
+msgstr "圖示"
 
 #: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "Name"
-msgstr "名稱(&N):"
+msgstr "名稱"
 
 #: src/basketproperties.cpp:89
 #, kde-format
 msgid "(None)"
-msgstr ""
+msgstr "(無)"
 
 #: src/basketproperties.cpp:134
 #, kde-format
 msgid "Learn some tips..."
-msgstr ""
+msgstr "使用提示…"
 
 #: src/basketproperties.cpp:135
 #, kde-format
@@ -632,9 +647,9 @@ msgstr "文字顏色(&T)："
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
 #: src/basketproperties.ui:75
-#, fuzzy, kde-format
+#, kde-format
 msgid "Disposition"
-msgstr "於滑鼠指標位置放置物件(&D)"
+msgstr "配置"
 
 #. i18n: ectx: property (text), widget (QRadioButton, columnForm)
 #: src/basketproperties.ui:81
@@ -658,59 +673,57 @@ msgstr "心智圖(&M)"
 #: src/basketproperties.ui:124
 #, kde-format
 msgid "Keyboard Shortcut"
-msgstr ""
+msgstr "鍵盤快捷鍵"
 
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
 #: src/basketproperties.ui:151
-#, fuzzy, kde-format
+#, kde-format
 msgid "S&how this basket"
-msgstr "切換至上一個basket"
+msgstr "顯示此筆記本(&H)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
 #: src/basketproperties.ui:158
 #, kde-format
 msgid "Show this basket (&global shortcut)"
-msgstr ""
+msgstr "顯示此筆記本（全域快捷鍵）(&G)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
 #: src/basketproperties.ui:165
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
-msgstr ""
+msgstr "切換到此筆記本（全域快捷鍵）(&W)"
 
 #: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
-msgstr ""
+msgstr "新筆記不符合過濾器而已隱藏。"
 
 #: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
-msgstr ""
+msgstr "一個新筆記不符合過濾器而已隱藏。"
 
 #: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
-msgstr ""
+msgstr "有些新筆記不符合過濾器而已隱藏。"
 
 #: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
-msgstr ""
+msgstr "新筆記不符合過濾器而已隱藏。"
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "群組"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "&Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
-msgstr "插入(&I)"
+msgstr "插入"
 
 #: src/basketscene.cpp:2316
 #, kde-format
@@ -718,6 +731,8 @@ msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
 "report the bug to the developer."
 msgstr ""
+"這個訊息沒有任何情況下應該出現。如果它有出現，那代表這個程式有問題！請將此錯"
+"誤回報給開發者。"
 
 #: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
 #, kde-format
@@ -744,9 +759,9 @@ msgid "Resize this note"
 msgstr "調整這個筆記的大小"
 
 #: src/basketscene.cpp:2777
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select or move this note"
-msgstr "確認刪除"
+msgstr "選取或移動這個筆記"
 
 #: src/basketscene.cpp:2780
 #, kde-format
@@ -754,9 +769,9 @@ msgid "Select or move this group"
 msgstr "選取或移動這個群組"
 
 #: src/basketscene.cpp:2783
-#, fuzzy, kde-format
+#, kde-format
 msgid "Assign or remove tags from this note"
-msgstr "確認刪除"
+msgstr "編輯這個筆記的標籤"
 
 #: src/basketscene.cpp:2791
 #, kde-format
@@ -784,6 +799,8 @@ msgid ""
 "Group note with the one below\n"
 "Right click for more options"
 msgstr ""
+"將筆記與下方筆記群組化\n"
+"右鍵以見更多選項"
 
 #: src/basketscene.cpp:2814
 #, kde-format
@@ -791,32 +808,34 @@ msgid ""
 "Group note with the one above\n"
 "Right click for more options"
 msgstr ""
+"將筆記與上方筆記群組化\n"
+"右鍵以見更多選項"
 
 #: src/basketscene.cpp:2832
 #, kde-format
 msgid "Added"
-msgstr ""
+msgstr "加入"
 
 #: src/basketscene.cpp:2832
 #, kde-format
 msgid "Last Modification"
-msgstr ""
+msgstr "上次變更"
 
 #: src/basketscene.cpp:2837
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
-msgstr ""
+msgstr "<b>%1</b>：%2"
 
 #: src/basketscene.cpp:2841
 #, kde-format
 msgid "Click on the right to group instead of insert"
-msgstr ""
+msgstr "點擊右側來群組化而非插入"
 
 #: src/basketscene.cpp:2843
 #, kde-format
 msgid "Click on the left to insert instead of group"
-msgstr ""
+msgstr "點擊右側來插入而非群組化"
 
 #: src/basketscene.cpp:3021
 #, kde-format
@@ -826,29 +845,29 @@ msgstr "解除鎖定(&U)"
 #: src/basketscene.cpp:3026
 #, kde-format
 msgid "Password protected basket."
-msgstr ""
+msgstr "筆記本已受密碼保護。"
 
 #: src/basketscene.cpp:3028
 #, kde-format
 msgid "Press Unlock to access it."
-msgstr ""
+msgstr "按下「解除鎖定」來存取它。"
 
 #: src/basketscene.cpp:3030
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
-msgstr ""
+msgstr "這個版本的 %1<br/>不支援加密。"
 
 #: src/basketscene.cpp:3042
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
-msgstr ""
+msgstr "要讓筆記本維持解鎖，請變更應用程式設定中<br>的自動鎖定時間。"
 
 #: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
 #, kde-format
 msgid "Loading..."
-msgstr ""
+msgstr "載入中..."
 
 #: src/basketscene.cpp:3235 src/basketscene.cpp:3277
 #, kde-format
@@ -868,7 +887,7 @@ msgstr "依此標籤過濾(&F)"
 #: src/basketscene.cpp:3290
 #, kde-format
 msgid "Filter by this &State"
-msgstr ""
+msgstr "依此狀態過濾(&S)"
 
 #: src/basketscene.cpp:3371
 #, kde-format
@@ -876,10 +895,10 @@ msgid "Tags"
 msgstr "標籤"
 
 #: src/basketscene.cpp:3948
-#, fuzzy, kde-format
+#, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
-msgstr[0] "<qt>您真的確定要刪除<b>%1</b> ?</qt>"
+msgstr[0] "<qt>您確定要刪除這 <b>%1</b> 個筆記嗎？</qt>"
 
 #: src/basketscene.cpp:3949
 #, kde-format
@@ -894,10 +913,10 @@ msgid_plural "Copied notes to clipboard."
 msgstr[0] "已將筆記複製到剪貼簿。"
 
 #: src/basketscene.cpp:4051
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
-msgstr[0] "複製至剪貼簿"
+msgstr[0] "已將筆記剪下到剪貼簿。"
 
 #: src/basketscene.cpp:4054
 #, kde-format
@@ -906,9 +925,9 @@ msgid_plural "Copied notes to selection."
 msgstr[0] "已將筆記複製到選擇區。"
 
 #: src/basketscene.cpp:4118 src/basketscene.cpp:4193
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to open this note."
-msgstr "確認刪除"
+msgstr "無法開啟此筆記。"
 
 #. i18n: ectx: Menu (edit)
 #: src/basketscene.cpp:4120 src/basketui.rc:40
@@ -919,38 +938,38 @@ msgstr "編輯(&E)"
 #: src/basketscene.cpp:4156
 #, kde-format
 msgid "You are not authorized to open this file."
-msgstr ""
+msgstr "您沒有權限開啟此檔案。"
 
 #: src/basketscene.cpp:4214
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save to File"
-msgstr "載入自檔案(&d)"
+msgstr "儲存到檔案"
 
 #: src/basketstatusbar.cpp:106
 #, kde-format
 msgid "Shows if there are changes that have not yet been saved."
-msgstr ""
+msgstr "顯示是否有尚未儲存的變更。"
 
 #: src/basketstatusbar.cpp:137
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
-msgstr ""
+msgstr "Ctrl+放開：複製，Shift+放開：移動，Shift+Ctrl+放開：連結。"
 
 #: src/basketstatusbar.cpp:160
 #, kde-format
 msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
-msgstr ""
+msgstr "<p>這個筆記本已<b>鎖定</b>。<br>點擊以解除鎖定。</p>"
 
 #: src/basketstatusbar.cpp:163
 #, kde-format
 msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
-msgstr ""
+msgstr "<p>這個筆記本已<b>解除鎖定</b>。<br>點擊以鎖定。</p>"
 
 #. i18n: ectx: Menu (basket)
 #: src/basketui.rc:6
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Basket"
-msgstr "BasKet"
+msgstr "筆記本(&B)"
 
 #. i18n: ectx: Menu
 #: src/basketui.rc:11 src/basketui.rc:170
@@ -975,7 +994,7 @@ msgstr "匯入(&I)"
 #: src/basketui.rc:55
 #, kde-format
 msgid "&Go"
-msgstr "跳至(&G)"
+msgstr "跳到(&G)"
 
 #. i18n: ectx: Menu (note)
 #: src/basketui.rc:62
@@ -1011,47 +1030,47 @@ msgstr "說明(&H)"
 #: src/basketui.rc:123
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "主工具列"
 
 #. i18n: ectx: ToolBar (richTextEditToolBar)
 #: src/basketui.rc:141
 #, kde-format
 msgid "Text Formatting Toolbar"
-msgstr ""
+msgstr "文字格式工具列"
 
 #: src/bnpview.cpp:166 src/bnpview.cpp:1246
-#, fuzzy, kde-format
+#, kde-format
 msgid "General"
-msgstr "置中"
+msgstr "一般"
 
 #: src/bnpview.cpp:234
-#, fuzzy, kde-format
+#, kde-format
 msgid "Paste clipboard contents in current basket"
-msgstr "貼上剪貼簿內容至目前的basket"
+msgstr "貼上剪貼簿內容至目前的筆記本"
 
 #: src/bnpview.cpp:236
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
 "to open the main window."
-msgstr "允許您貼上剪貼簿內容至目前的basket而不用另開新視窗。"
+msgstr "允許您貼上剪貼簿內容至目前的筆記本而不用另開新視窗。"
 
 #: src/bnpview.cpp:241
 #, kde-format
 msgid "Paste selection in current basket"
-msgstr "貼上所選擇在目前的basket"
+msgstr "貼上選擇區到目前的筆記本"
 
 #: src/bnpview.cpp:243
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
 "to open the main window."
-msgstr "允許您貼上剪貼簿所選擇至目前的basket而不用另開新視窗"
+msgstr "允許您貼上剪貼簿選擇區至目前的筆記本而不用另開新視窗。"
 
 #: src/bnpview.cpp:248
 #, kde-format
 msgid "Create a new basket"
-msgstr "建立新的basket"
+msgstr "建立新的筆記本"
 
 #: src/bnpview.cpp:250
 #, kde-format
@@ -1060,30 +1079,32 @@ msgid ""
 "(you then can use the other global shortcuts to add a note, paste clipboard "
 "or paste selection in this new basket)."
 msgstr ""
+"允許您建立新的筆記本而不用開啟主視窗（您可以接著用其他全域快捷鍵來新增筆記、"
+"貼上剪貼簿或選取區到這個新筆記本裡）。"
 
 #: src/bnpview.cpp:255
 #, kde-format
 msgid "Go to previous basket"
-msgstr "切換至上一個basket"
+msgstr "切換至上一個筆記本"
 
 #: src/bnpview.cpp:257
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
 "open the main window."
-msgstr "允許您切換目前的basket至上一個而不用另開新視窗。"
+msgstr "允許您切換到上一個筆記本而不用開啟主視窗。"
 
 #: src/bnpview.cpp:261
 #, kde-format
 msgid "Go to next basket"
-msgstr "切換至下一個basket"
+msgstr "切換至下一個筆記本"
 
 #: src/bnpview.cpp:263
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
 "the main window."
-msgstr "允許您切換目前的basket至下一個而不用另開新視窗。"
+msgstr "允許您切換到下一個筆記本而不用開啟主視窗。"
 
 #: src/bnpview.cpp:267
 #, kde-format
@@ -1091,10 +1112,10 @@ msgid "Insert text note"
 msgstr "插入文字筆記"
 
 #: src/bnpview.cpp:269
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr "不開啟主視窗直接新增文字筆記到目前筆記本。"
 
 #: src/bnpview.cpp:274 src/settings.cpp:572
 #, kde-format
@@ -1102,11 +1123,11 @@ msgid "Insert image note"
 msgstr "插入影像筆記"
 
 #: src/bnpview.cpp:276
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
 "window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr "不開啟主視窗直接新增影像筆記到目前筆記本。"
 
 #: src/bnpview.cpp:280 src/settings.cpp:573
 #, kde-format
@@ -1114,10 +1135,10 @@ msgid "Insert link note"
 msgstr "插入連結筆記"
 
 #: src/bnpview.cpp:282
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr "不開啟主視窗直接新增連結筆記到目前筆記本。"
 
 #: src/bnpview.cpp:286 src/settings.cpp:576
 #, kde-format
@@ -1125,35 +1146,37 @@ msgid "Insert color note"
 msgstr "插入色彩筆記"
 
 #: src/bnpview.cpp:288
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
 "window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr "不開啟主視窗直接新增色彩筆記到目前筆記本。"
 
 #: src/bnpview.cpp:292
 #, kde-format
 msgid "Pick color from screen"
-msgstr "從螢幕提取顏色"
+msgstr "從螢幕挑選顏色"
 
 #: src/bnpview.cpp:294
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
 "without having to open the main window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr ""
+"不開啟主視窗直接從螢幕挑選一個像素的色彩然後將其作為色彩筆記新增到目前筆記"
+"本。"
 
 #: src/bnpview.cpp:299 src/settings.cpp:577
 #, kde-format
 msgid "Grab screen zone"
-msgstr ""
+msgstr "擷取螢幕範圍"
 
 #: src/bnpview.cpp:301
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
 "the main window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr "不開啟主視窗直接擷取螢幕區域成影像筆記然後將其新增到目前筆記本。"
 
 #: src/bnpview.cpp:307
 #, kde-format
@@ -1161,16 +1184,16 @@ msgid "Insert plain text note"
 msgstr "插入純文字筆記"
 
 #: src/bnpview.cpp:309
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
 "window."
-msgstr "允許您建立一個新物件至目前的basket而不用另開新視窗。"
+msgstr "不開啟主視窗直接新增純文字筆記到目前筆記本。"
 
 #: src/bnpview.cpp:318
-#, fuzzy, kde-format
+#, kde-format
 msgid "Baskets"
-msgstr "BasKet"
+msgstr "筆記本"
 
 #: src/bnpview.cpp:363
 #, kde-format
@@ -1180,11 +1203,14 @@ msgid ""
 "by creating new baskets inside others. You can browse between them by "
 "clicking a basket to open it, or reorganize them using drag and drop."
 msgstr ""
+"<h2>筆記本樹狀圖</h2>這是您的筆記本清單。您可以將資料放在不同的筆記本中來整理"
+"它們。筆記本內可以包含更多筆記本，讓您依主題來群組化它們。點擊筆記本來開啟"
+"它，或是拖放來整理它們。"
 
 #: src/bnpview.cpp:378 src/bnpview.cpp:384
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Basket Archive..."
-msgstr "新建basket"
+msgstr "Basket 封存(&B)…"
 
 #: src/bnpview.cpp:390
 #, kde-format
@@ -1192,9 +1218,9 @@ msgid "&HTML Web Page..."
 msgstr "HTML 網頁(&H)..."
 
 #: src/bnpview.cpp:396
-#, fuzzy, kde-format
+#, kde-format
 msgid "Text &File..."
-msgstr "載入自檔案(&d)"
+msgstr "文字檔案(&F)..."
 
 #: src/bnpview.cpp:401
 #, kde-format
@@ -1204,7 +1230,7 @@ msgstr "備份與復原(&B)..."
 #: src/bnpview.cpp:405
 #, kde-format
 msgid "&Check && Cleanup..."
-msgstr ""
+msgstr "檢查與清理(&C)…"
 
 #: src/bnpview.cpp:416
 #, kde-format
@@ -1214,12 +1240,12 @@ msgstr "刪除(&E)"
 #: src/bnpview.cpp:425
 #, kde-format
 msgid "Selects all notes"
-msgstr ""
+msgstr "選取所有筆記"
 
 #: src/bnpview.cpp:428
 #, kde-format
 msgid "U&nselect All"
-msgstr ""
+msgstr "取消全選(&N)"
 
 #: src/bnpview.cpp:430
 #, kde-format
@@ -1229,7 +1255,7 @@ msgstr "取消選取所有已選的筆記"
 #: src/bnpview.cpp:433
 #, kde-format
 msgid "&Invert Selection"
-msgstr "反向選擇(&I)"
+msgstr "反轉選取(&I)"
 
 #: src/bnpview.cpp:437
 #, kde-format
@@ -1253,9 +1279,9 @@ msgid "&Open"
 msgstr "開啟(&O)"
 
 #: src/bnpview.cpp:455
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open &With..."
-msgstr "開啟自(&w),,,%1"
+msgstr "開啟方式(&W)..."
 
 #: src/bnpview.cpp:460
 #, kde-format
@@ -1265,32 +1291,32 @@ msgstr "儲存到檔案(&S)..."
 #: src/bnpview.cpp:464
 #, kde-format
 msgid "&Group"
-msgstr "群組(&G)"
+msgstr "群組化(&G)"
 
 #: src/bnpview.cpp:470
 #, kde-format
 msgid "U&ngroup"
-msgstr "解除分組(&N)"
+msgstr "取消群組(&N)"
 
 #: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Top"
-msgstr ""
+msgstr "移到最上層(&T)"
 
 #: src/bnpview.cpp:481
 #, kde-format
 msgid "Move &Up"
-msgstr ""
+msgstr "上移(&U)"
 
 #: src/bnpview.cpp:487
 #, kde-format
 msgid "Move &Down"
-msgstr ""
+msgstr "下移(&D)"
 
 #: src/bnpview.cpp:493
-#, fuzzy, kde-format
+#, kde-format
 msgid "Move on &Bottom"
-msgstr "在底部"
+msgstr "移到最下層(&B)"
 
 #: src/bnpview.cpp:504
 #, kde-format
@@ -1320,22 +1346,22 @@ msgstr "影像(&I)"
 #: src/bnpview.cpp:533
 #, kde-format
 msgid "&Color"
-msgstr "顏色(&C)"
+msgstr "色彩(&C)"
 
 #: src/bnpview.cpp:538
 #, kde-format
 msgid "L&auncher"
-msgstr ""
+msgstr "啟動器(&A)"
 
 #: src/bnpview.cpp:543
 #, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr ""
+msgstr "匯入桌面應用程式的啟動器(&D)…"
 
 #: src/bnpview.cpp:548
-#, fuzzy, kde-format
+#, kde-format
 msgid "Im&port Icon..."
-msgstr "匯入一個圖示(&p)"
+msgstr "匯入圖示(&P)…"
 
 #: src/bnpview.cpp:553 src/noteedit.cpp:545
 #, kde-format
@@ -1345,27 +1371,27 @@ msgstr "從檔案載入(&F)..."
 #: src/bnpview.cpp:589
 #, kde-format
 msgid "C&olor from Screen"
-msgstr "從螢幕提取的顏色(&O)"
+msgstr "從螢幕挑選色彩(&O)"
 
 #: src/bnpview.cpp:597
 #, kde-format
 msgid "Grab Screen &Zone"
-msgstr ""
+msgstr "擷取螢幕範圍"
 
 #: src/bnpview.cpp:629
-#, fuzzy, kde-format
+#, kde-format
 msgid "&New Basket..."
-msgstr "新建basket"
+msgstr "新增筆記本(&N)…"
 
 #: src/bnpview.cpp:635
-#, fuzzy, kde-format
+#, kde-format
 msgid "New &Sub-Basket..."
-msgstr "新建basket"
+msgstr "新增子筆記本(&S)…"
 
 #: src/bnpview.cpp:640
-#, fuzzy, kde-format
+#, kde-format
 msgid "New Si&bling Basket..."
-msgstr "新建basket"
+msgstr "新增同層筆記本(&B)…"
 
 #: src/bnpview.cpp:643
 #, kde-format
@@ -1380,22 +1406,22 @@ msgstr "屬性(&P)..."
 #: src/bnpview.cpp:659
 #, kde-format
 msgid "Sort Children Ascending"
-msgstr ""
+msgstr "排序下層（遞增）"
 
 #: src/bnpview.cpp:664
 #, kde-format
 msgid "Sort Children Descending"
-msgstr ""
+msgstr "排序下層（遞減）"
 
 #: src/bnpview.cpp:669
 #, kde-format
 msgid "Sort Siblings Ascending"
-msgstr ""
+msgstr "排序同層（遞增）"
 
 #: src/bnpview.cpp:674
 #, kde-format
 msgid "Sort Siblings Descending"
-msgstr ""
+msgstr "排序同層（遞減）"
 
 #: src/bnpview.cpp:679
 #, kde-format
@@ -1431,49 +1457,49 @@ msgid "&Reset Filter"
 msgstr "重設過濾器(&R)"
 
 #: src/bnpview.cpp:731
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Previous Basket"
-msgstr "切換至上一個basket"
+msgstr "上一個筆記本(&P)"
 
 #: src/bnpview.cpp:737
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Next Basket"
-msgstr "新建basket"
+msgstr "下一個筆記本(&N)"
 
 #: src/bnpview.cpp:743
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Fold Basket"
-msgstr "BasKet"
+msgstr "收起筆記本(&F)"
 
 #: src/bnpview.cpp:749
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Expand Basket"
-msgstr "新建basket"
+msgstr "展開筆記本(&E)"
 
 #: src/bnpview.cpp:757
 #, kde-format
 msgid "Convert text notes to rich text notes"
-msgstr ""
+msgstr "將文字筆記轉換為豐富文字格式"
 
 #: src/bnpview.cpp:766
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Welcome Baskets"
-msgstr "新建basket"
+msgstr "歡迎筆記本(&W)"
 
 #: src/bnpview.cpp:1031
 #, kde-format
 msgid "Plain Text Notes Conversion"
-msgstr ""
+msgstr "純文字筆記轉換"
 
 #: src/bnpview.cpp:1032
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
-msgstr ""
+msgstr "正在將純文字筆記轉換為豐富文字格式…"
 
 #: src/bnpview.cpp:1606
 #, kde-format
 msgid "Locked"
-msgstr ""
+msgstr "已鎖定"
 
 #: src/bnpview.cpp:1610
 #, kde-format
@@ -1495,7 +1521,7 @@ msgstr[0] "選取 %1 個"
 #: src/bnpview.cpp:1614
 #, kde-format
 msgid "all matches"
-msgstr ""
+msgstr "所有相符"
 
 #: src/bnpview.cpp:1614
 #, kde-format
@@ -1517,17 +1543,17 @@ msgstr "%1，%2，%3"
 #: src/bnpview.cpp:1752
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
-msgstr ""
+msgstr "純文字筆記已轉換為豐富文字格式。"
 
 #: src/bnpview.cpp:1752 src/bnpview.cpp:1754
 #, kde-format
 msgid "Conversion Finished"
-msgstr ""
+msgstr "轉換完成"
 
 #: src/bnpview.cpp:1754
 #, kde-format
 msgid "There are no plain text notes to convert."
-msgstr ""
+msgstr "沒有要轉換的純文字筆記。"
 
 #: src/bnpview.cpp:1771
 #, kde-format
@@ -1540,11 +1566,16 @@ msgid ""
 "sure the application is correctly installed but you had a preview version of "
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
+"<p><b>檔案 basketui.rc 不存在或是太舊。<br>缺乏它的時候 %1 就無法執行，將會停"
+"止。</b></p><p>請檢查您的 %2 安裝。</p><p>如果您沒有管理員權限以管理系統應用"
+"程式安裝，您可以把 basketui.rc 檔案從安裝封存檔複製到資料夾 <a href='file://"
+"%3'>%4</a>。</p><p>作為最後的選擇，您如果確定應用程式有正確安裝但使用了它的預"
+"覽版，可能可以試著移除 %5basketui.rc</p>"
 
 #: src/bnpview.cpp:1785
 #, kde-format
 msgid "Resource not Found"
-msgstr ""
+msgstr "找不到資源"
 
 #: src/bnpview.cpp:1814
 #, kde-format
@@ -1552,57 +1583,57 @@ msgid "Cannot add note."
 msgstr "無法新增筆記。"
 
 #: src/bnpview.cpp:1961
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
-msgstr "<qt>您真的確定要刪除<b>%1</b> ?</qt>"
+msgstr "<qt>您真的確定要刪除筆記本 <b>%1</b> 與其內容嗎？</qt>"
 
 #: src/bnpview.cpp:1962
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove Basket"
-msgstr "新建basket"
+msgstr "移除筆記本"
 
 #: src/bnpview.cpp:1963
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Remove Basket"
-msgstr "新建basket"
+msgstr "移除筆記本(&R)"
 
 #: src/bnpview.cpp:1973
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
-msgstr ""
+msgstr "<qt><b>%1</b> 有以下的子筆記本。<br>您要一起移除它們嗎？</qt>"
 
 #: src/bnpview.cpp:1975
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove Children Baskets"
-msgstr "新建basket"
+msgstr "移除子筆記本"
 
 #: src/bnpview.cpp:1976
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Remove Children Baskets"
-msgstr "新建basket"
+msgstr "移除子筆記本(&R)"
 
 #: src/bnpview.cpp:2046 src/bnpview.cpp:2093
-#, fuzzy, kde-format
+#, kde-format
 msgid "Basket Archives"
-msgstr "Basket偏好設定"
+msgstr "Basket 封存"
 
 #: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr ""
+msgstr "檔案 <b>%1</b> 已存在。您確定要覆寫它嗎？"
 
 #: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
 msgid "Overwrite File?"
-msgstr ""
+msgstr "要覆寫檔案嗎？"
 
 #: src/bnpview.cpp:2478
 #, kde-format
 msgid "&Assign new Tag..."
-msgstr ""
+msgstr "指定新標籤(&A)…"
 
 #: src/bnpview.cpp:2483
 #, kde-format
@@ -1612,17 +1643,17 @@ msgstr "全部移除(&R)"
 #: src/common.cpp:56
 #, kde-format
 msgid "Please enter the password for the following private key:"
-msgstr ""
+msgstr "請輸入以下私密金鑰的密碼："
 
 #: src/common.cpp:58
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please enter the password for the basket <b>%1</b>:"
-msgstr "自剪貼簿(%1)貼上至basket<i>%2</i>"
+msgstr "請輸入筆記本 <b>%1</b> 的密碼："
 
 #: src/common.cpp:94
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
-msgstr "所選擇的(%1)貼上至basket<i>%2</i>"
+msgstr "請指定密碼給筆記本 <b>%1</b>："
 
 #: src/common.cpp:144
 #, kde-format
@@ -1642,7 +1673,7 @@ msgstr "位元率"
 #: src/file_metadata.cpp:19
 #, kde-format
 msgid "Channels"
-msgstr ""
+msgstr "頻道"
 
 #: src/file_metadata.cpp:20
 #, kde-format
@@ -1652,17 +1683,17 @@ msgstr "時長"
 #: src/file_metadata.cpp:21
 #, kde-format
 msgid "Genre"
-msgstr ""
+msgstr "曲風"
 
 #: src/file_metadata.cpp:22
 #, kde-format
 msgid "Sample rate"
-msgstr ""
+msgstr "取樣率"
 
 #: src/file_metadata.cpp:23
 #, kde-format
 msgid "Track number"
-msgstr ""
+msgstr "曲目編號"
 
 #: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
@@ -1677,7 +1708,7 @@ msgstr "藝人"
 #: src/file_metadata.cpp:26
 #, kde-format
 msgid "Album"
-msgstr ""
+msgstr "專輯"
 
 #: src/file_metadata.cpp:27 src/tag.cpp:719
 #, kde-format
@@ -1687,17 +1718,17 @@ msgstr "標題"
 #: src/file_metadata.cpp:28
 #, kde-format
 msgid "Word count"
-msgstr "單字計數"
+msgstr "單字數"
 
 #: src/file_metadata.cpp:29
 #, kde-format
 msgid "Line count"
-msgstr ""
+msgstr "行數"
 
 #: src/file_metadata.cpp:30
 #, kde-format
 msgid "Copyright"
-msgstr ""
+msgstr "著作權"
 
 #: src/file_metadata.cpp:31
 #, kde-format
@@ -1707,7 +1738,7 @@ msgstr "日期"
 #: src/file_metadata.cpp:32
 #, kde-format
 msgid "Frame rate"
-msgstr ""
+msgstr "影格率"
 
 #: src/filter.cpp:42
 #, kde-format
@@ -1725,9 +1756,9 @@ msgid "T&ag: "
 msgstr "標籤(&A)："
 
 #: src/filter.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filter All Baskets"
-msgstr "新建basket"
+msgstr "過濾所有筆記本"
 
 #: src/filter.cpp:132
 #, kde-format
@@ -1749,52 +1780,56 @@ msgid ""
 "that modifying one will not modify the other anymore as they are now "
 "separate entities.</p>"
 msgstr ""
+"<p>資料夾同步功能已不再支援（更多資訊請見 <a href='https://basket-notepads."
+"github.io'>basket-notepads.github.io</a>）。</p><p>資料夾 <b>%1</b> 已複製予"
+"筆記本需要。您可以刪除它或是刪除筆記本，或是兩個都使用。但請記得編輯其中一個"
+"不會再同時編輯另一個，因為它們現在是分開的個體了。</p>"
 
 #: src/formatimporter.cpp:125
 #, kde-format
 msgid "Folder Mirror Import"
-msgstr ""
+msgstr "資料夾同步匯入"
 
 #: src/history.cpp:19
 #, kde-format
 msgid "Set current basket to %1"
-msgstr ""
+msgstr "設定目前筆記本為 %1"
 
 #: src/htmlexporter.cpp:52
 #, kde-format
 msgid "HTML Documents"
-msgstr ""
+msgstr "HTML 文件"
 
 #: src/htmlexporter.cpp:56 src/htmlexporter.cpp:78
 #, kde-format
 msgid "Export to HTML"
-msgstr ""
+msgstr "匯出為 HTML"
 
 #: src/htmlexporter.cpp:79
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
-msgstr ""
+msgstr "正在匯出為 HTML。請稍候…"
 
 #: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
-msgstr "%1_檔案"
+msgstr "%1_files"
 
 #: src/htmlexporter.cpp:120 src/htmlexporter.cpp:165
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
-msgstr "圖示"
+msgstr "icons"
 
 #: src/htmlexporter.cpp:121 src/htmlexporter.cpp:167
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
-msgstr "影像"
+msgstr "images"
 
 #: src/htmlexporter.cpp:122 src/htmlexporter.cpp:163
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "baskets"
@@ -1803,14 +1838,14 @@ msgstr "baskets"
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
-msgstr "資料"
+msgstr "data"
 
 #: src/htmlexporter.cpp:402
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
 "information at hand."
-msgstr ""
+msgstr "以筆記工具 <a href=\"%1\">%2</a> %3 製作。"
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
 #: src/variouswidgets.cpp:404
@@ -1830,7 +1865,7 @@ msgstr "其他..."
 #: src/kcolorcombo2.cpp:638
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
-msgstr ""
+msgstr "R:%1, G:%2, B:%3"
 
 #: src/kcolorcombo2.cpp:638
 #, kde-format
@@ -1841,17 +1876,17 @@ msgstr "(預設)"
 #: src/kgpgme.cpp:47
 #, kde-format
 msgid "Private Key List"
-msgstr ""
+msgstr "私鑰清單"
 
 #: src/kgpgme.cpp:65
 #, kde-format
 msgid "Email"
-msgstr ""
+msgstr "電子郵件"
 
 #: src/kgpgme.cpp:65
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: src/kgpgme.cpp:69
 #, kde-format
@@ -1861,12 +1896,12 @@ msgstr "選擇私鑰："
 #: src/kgpgme.cpp:258
 #, kde-format
 msgid "Key listing unexpectedly truncated."
-msgstr ""
+msgstr "金鑰列表意外被截斷了。"
 
 #: src/kgpgme.cpp:292
 #, kde-format
 msgid "That public key is not meant for encryption"
-msgstr ""
+msgstr "該公鑰並非加密用"
 
 #: src/kgpgme.cpp:336
 #, kde-format
@@ -1884,7 +1919,7 @@ msgid "Please enter a new password:"
 msgstr "請輸入新的密碼："
 
 #: src/linklabel.cpp:604
-#, fuzzy, kde-format
+#, kde-format
 msgid "I&talic"
 msgstr "斜體(&I)"
 
@@ -1896,22 +1931,22 @@ msgstr "粗體(&B)"
 #: src/linklabel.cpp:615
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "總是"
 
 #: src/linklabel.cpp:616
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: src/linklabel.cpp:617
 #, kde-format
 msgid "On mouse hovering"
-msgstr ""
+msgstr "滑鼠懸停時"
 
 #: src/linklabel.cpp:618
 #, kde-format
 msgid "When mouse is outside"
-msgstr ""
+msgstr "滑鼠離開時"
 
 #: src/linklabel.cpp:620
 #, kde-format
@@ -1921,12 +1956,12 @@ msgstr "底線(&U)："
 #: src/linklabel.cpp:627
 #, kde-format
 msgid "Colo&r:"
-msgstr "顏色(&R)："
+msgstr "色彩(&R)："
 
 #: src/linklabel.cpp:634
 #, kde-format
 msgid "&Mouse hover color:"
-msgstr "滑鼠停駐時顏色(&M)："
+msgstr "滑鼠懸停時顏色(&M)："
 
 #: src/linklabel.cpp:643
 #, kde-format
@@ -1936,22 +1971,22 @@ msgstr "圖示大小(&I)："
 #: src/linklabel.cpp:649
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #: src/linklabel.cpp:650
-#, fuzzy, kde-format
+#, kde-format
 msgid "Icon size"
-msgstr "在旁邊"
+msgstr "圖示大小"
 
 #: src/linklabel.cpp:651
 #, kde-format
 msgid "Twice the icon size"
-msgstr ""
+msgstr "圖示大小的兩倍"
 
 #: src/linklabel.cpp:652
 #, kde-format
 msgid "Three times the icon size"
-msgstr ""
+msgstr "圖示大小的三倍"
 
 #: src/linklabel.cpp:654
 #, kde-format
@@ -1961,8 +1996,10 @@ msgstr "預覽(&P)："
 #: src/linklabel.cpp:657
 #, kde-format
 msgid "You disabled preview but still see images?"
-msgstr ""
+msgstr "停用了預覽但還是有影像嗎？"
 
+# Source text has not been updated to refer to "New Notes" instead of "General" yet, but "New Notes" is where the option is at now.
+# --Kisaragi, 2025-11-24
 #: src/linklabel.cpp:658
 #, kde-format
 msgid ""
@@ -1978,16 +2015,24 @@ msgid ""
 "you drop, go to the \"General\" page and uncheck \"Image or animation\" in "
 "the \"View Content of Added Files for the Following Types\" group.</p>"
 msgstr ""
+"<p>這是正常的，因為筆記有很多種。<br>這個設定只適用於檔案和本地連結筆記。<br>"
+"您停用預覽之後看到的影像是影像筆記，不是檔案筆記。<br>檔案筆記是一般文件，而"
+"影像筆記是您可以繪製的圖片。</p><p>當檔案被拖放到筆記本內時，%1 會偵測其類型"
+"並向您顯示檔案內容。<br>舉例來說，拖放影像或文字檔案時，BasKet 便會為它們建立"
+"影像或文字筆記。<br>對於 %2 不瞭解的檔案類型，它們會作為一般檔案筆記匯入，並"
+"顯示圖示、檔案預覽和檔案名稱。</p><p>如果您希望本應用程式不要依檔案內容改變建"
+"立的筆記類型，請到設定的「新筆記」頁面取消勾選「加入後為以下檔案類型顯示內"
+"容」群組下「影像或動畫」的選項。</p>"
 
 #: src/linklabel.cpp:675
 #, kde-format
 msgid "Example"
-msgstr ""
+msgstr "範例"
 
 #: src/mainwindow.cpp:74
 #, kde-format
 msgid "Minimize"
-msgstr ""
+msgstr "最小化"
 
 #: src/mainwindow.cpp:254
 #, kde-format
@@ -1995,14 +2040,14 @@ msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>您確定要離開 %1 嗎？</p>"
 
 #: src/mainwindow.cpp:258
-#, fuzzy, kde-format
+#, kde-format
 msgid "Quit Confirm"
-msgstr "確認退出"
+msgstr "確認離開"
 
 #: src/newbasketdialog.cpp:77
-#, fuzzy, kde-format
+#, kde-format
 msgid "New Basket"
-msgstr "新建basket"
+msgstr "新筆記本"
 
 #: src/newbasketdialog.cpp:111
 #, kde-format
@@ -2032,7 +2077,7 @@ msgstr "三欄"
 #: src/newbasketdialog.cpp:187
 #, kde-format
 msgid "Free"
-msgstr ""
+msgstr "自由"
 
 #: src/newbasketdialog.cpp:195
 #, kde-format
@@ -2040,9 +2085,9 @@ msgid "&Template:"
 msgstr "樣本(&T)："
 
 #: src/newbasketdialog.cpp:205
-#, fuzzy, kde-format
+#, kde-format
 msgid "(Baskets)"
-msgstr "BasKet"
+msgstr "(筆記本)"
 
 #: src/newbasketdialog.cpp:207
 #, kde-format
@@ -2052,7 +2097,7 @@ msgstr "建立在(&R)："
 #: src/newbasketdialog.cpp:209
 #, kde-format
 msgid "How is it useful?"
-msgstr ""
+msgstr "這有什麼用？"
 
 #: src/newbasketdialog.cpp:210
 #, kde-format
@@ -2063,16 +2108,20 @@ msgid ""
 "sections with sub-baskets representing chapters or pages;</li><li>Making a "
 "group of baskets to export together (to eg. email them to people).</li></ul>"
 msgstr ""
+"<p>在別的筆記本內建立筆記本來構築階層可以幫助您整理筆記，例如：</p><ul><li>依"
+"主題群組化筆記本</li><li>為不同專案把筆記本放在不同資料夾內</li><li>用子筆記"
+"本代表章節或頁面</li><li>群組化一群筆記本來一起匯出（可以傳電子郵件給別人）</"
+"li></ul>"
 
 #: src/newbasketdialog.cpp:320
 #, kde-format
 msgid "Free-form"
-msgstr ""
+msgstr "自由筆畫"
 
 #: src/newbasketdialog.cpp:322
 #, kde-format
 msgid "Mind map"
-msgstr ""
+msgstr "心智圖"
 
 #: src/notecontent.cpp:90
 #, kde-format
@@ -2102,7 +2151,7 @@ msgstr "動畫"
 #: src/notecontent.cpp:100
 #, kde-format
 msgid "Sound"
-msgstr ""
+msgstr "聲音"
 
 #: src/notecontent.cpp:102
 #, kde-format
@@ -2127,7 +2176,7 @@ msgstr "啟動器"
 #: src/notecontent.cpp:110 src/noteedit.cpp:1204
 #, kde-format
 msgid "Color"
-msgstr "顏色"
+msgstr "色彩"
 
 #: src/notecontent.cpp:112 src/notecontent.cpp:114
 #, kde-format
@@ -2152,7 +2201,7 @@ msgstr "編輯這個影像"
 #: src/notecontent.cpp:602
 #, kde-format
 msgid "Edit this animation"
-msgstr ""
+msgstr "編輯這個動畫"
 
 #: src/notecontent.cpp:606
 #, kde-format
@@ -2182,7 +2231,7 @@ msgstr "編輯這個啟動器"
 #: src/notecontent.cpp:626
 #, kde-format
 msgid "Edit this color"
-msgstr "編輯這個顏色"
+msgstr "編輯這個色彩"
 
 #: src/notecontent.cpp:630
 #, kde-format
@@ -2190,24 +2239,24 @@ msgid "Edit this unknown object"
 msgstr "編輯這個未知物件"
 
 #: src/notecontent.cpp:992
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening plain text..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟純文字…"
 
 #: src/notecontent.cpp:994
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening plain texts..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟純文字…"
 
 #: src/notecontent.cpp:996
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening plain text with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟純文字…"
 
 #: src/notecontent.cpp:998
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening plain texts with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟純文字…"
 
 #: src/notecontent.cpp:1000
 #, kde-format
@@ -2220,24 +2269,24 @@ msgid "Open plain texts with:"
 msgstr "純文字開啟方式："
 
 #: src/notecontent.cpp:1113
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening text..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟文字…"
 
 #: src/notecontent.cpp:1115
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening texts..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟文字…"
 
 #: src/notecontent.cpp:1117
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening text with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟文字…"
 
 #: src/notecontent.cpp:1119
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening texts with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟文字…"
 
 #: src/notecontent.cpp:1121
 #, kde-format
@@ -2252,32 +2301,32 @@ msgstr "文字開啟方式："
 #: src/notecontent.cpp:1246 src/notecontent.cpp:1464
 #, kde-format
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
 #, kde-format
 msgid "%1 by %2 pixels"
-msgstr "寬 %1 高 %2 像素"
+msgstr "%1 x %2 像素"
 
 #: src/notecontent.cpp:1253
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening image..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟影像…"
 
 #: src/notecontent.cpp:1255
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening images..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟影像…"
 
 #: src/notecontent.cpp:1257
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening image with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟影像…"
 
 #: src/notecontent.cpp:1259
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening images with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟影像…"
 
 #: src/notecontent.cpp:1261
 #, kde-format
@@ -2292,27 +2341,27 @@ msgstr "影像開啟方式："
 #: src/notecontent.cpp:1288
 #, kde-format
 msgid "Click for full size view"
-msgstr ""
+msgstr "點擊來以完整大小檢視"
 
 #: src/notecontent.cpp:1375
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening animation..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟動畫…"
 
 #: src/notecontent.cpp:1377
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening animations..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟動畫…"
 
 #: src/notecontent.cpp:1379
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening animation with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟動畫…"
 
 #: src/notecontent.cpp:1381
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening animations with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟動畫…"
 
 #: src/notecontent.cpp:1383
 #, kde-format
@@ -2335,24 +2384,24 @@ msgid "Open this file"
 msgstr "開啟這個檔案"
 
 #: src/notecontent.cpp:1529
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening file..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟檔案…"
 
 #: src/notecontent.cpp:1531
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening files..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟檔案…"
 
 #: src/notecontent.cpp:1533
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening file with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟檔案…"
 
 #: src/notecontent.cpp:1535
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening files with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟檔案…"
 
 #: src/notecontent.cpp:1537
 #, kde-format
@@ -2370,24 +2419,24 @@ msgid "Open this sound"
 msgstr "開啟這個聲音"
 
 #: src/notecontent.cpp:1666
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening sound..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟聲音…"
 
 #: src/notecontent.cpp:1668
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening sounds..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟聲音…"
 
 #: src/notecontent.cpp:1670
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening sound with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟聲音…"
 
 #: src/notecontent.cpp:1672
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening sounds with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟聲音…"
 
 #: src/notecontent.cpp:1674
 #, kde-format
@@ -2400,9 +2449,9 @@ msgid "Open sounds with:"
 msgstr "聲音開啟方式："
 
 #: src/notecontent.cpp:1739 src/notecontent.cpp:2010
-#, fuzzy, kde-format
+#, kde-format
 msgid "Target"
-msgstr "儲存目標"
+msgstr "目標"
 
 #: src/notecontent.cpp:1761 src/notecontent.cpp:2032
 #, kde-format
@@ -2412,27 +2461,27 @@ msgstr "開啟這個連結"
 #: src/notecontent.cpp:1787
 #, kde-format
 msgid "Link have no URL to open."
-msgstr ""
+msgstr "連結沒有能開啟的網址。"
 
 #: src/notecontent.cpp:1791
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening link target..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟連結目標…"
 
 #: src/notecontent.cpp:1793
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening link targets..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟連結目標…"
 
 #: src/notecontent.cpp:1795
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening link target with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟連結目標…"
 
 #: src/notecontent.cpp:1797
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening link targets with..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在用應用程式開啟連結目標…"
 
 #: src/notecontent.cpp:1799
 #, kde-format
@@ -2452,12 +2501,12 @@ msgstr "連結到 %1"
 #: src/notecontent.cpp:2058
 #, kde-format
 msgid "Link has no basket to open."
-msgstr ""
+msgstr "連結沒有能開啟的筆記本。"
 
 #: src/notecontent.cpp:2062
-#, fuzzy, kde-format
+#, kde-format
 msgid "Opening basket..."
-msgstr "開啟自(&w),,,%1"
+msgstr "正在開啟筆記本…"
 
 #: src/notecontent.cpp:2167
 #, kde-format
@@ -2477,7 +2526,7 @@ msgstr "啟動這個應用程式"
 #: src/notecontent.cpp:2217
 #, kde-format
 msgid "The launcher have no command to run."
-msgstr ""
+msgstr "啟動器沒有能執行的指令。"
 
 #: src/notecontent.cpp:2221
 #, kde-format
@@ -2498,7 +2547,7 @@ msgstr "RGB"
 #: src/notecontent.cpp:2344
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
-msgstr ""
+msgstr "<i>紅</i>: %1, <i>綠</i>: %2, <i>藍</i>: %3,"
 
 #: src/notecontent.cpp:2348
 #, kde-format
@@ -2509,7 +2558,7 @@ msgstr "HSV"
 #: src/notecontent.cpp:2349
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
-msgstr ""
+msgstr "<i>色相</i>: %1, <i>飽和</i>: %2, <i>明度</i>: %3,"
 
 #: src/notecontent.cpp:2353
 #, kde-format
@@ -2538,11 +2587,13 @@ msgid ""
 "Pads will include an image editor).\n"
 "Do you want to open it with an application that understand it?"
 msgstr ""
+"目前尚不支援在此編輯影像（BasKet 筆記本的下一個版本會包含影像編輯器）。\n"
+"您要用可以編輯它的應用程式開啟它嗎？"
 
 #: src/noteedit.cpp:543
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit Image Note"
-msgstr "編輯物件及偏好設定"
+msgstr "編輯影像筆記"
 
 #: src/noteedit.cpp:568
 #, kde-format
@@ -2550,11 +2601,13 @@ msgid ""
 "This animated image can not be edited here.\n"
 "Do you want to open it with an application that understands it?"
 msgstr ""
+"這個動態影像無法在此編輯。\n"
+"您要用可以編輯它的應用程式開啟它嗎？"
 
 #: src/noteedit.cpp:570
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit Animation Note"
-msgstr "註解(&t):"
+msgstr "編輯動畫筆記"
 
 #: src/noteedit.cpp:663
 #, kde-format
@@ -2568,16 +2621,18 @@ msgid ""
 "You however can drag or copy the note into an application that understands "
 "it."
 msgstr ""
+"這個筆記的類型未知而無法在此編輯。\n"
+"不過您還是可以拖曳或複製它到理解它的應用程式裡。"
 
 #: src/noteedit.cpp:690
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit Unknown Note"
-msgstr "註解(&t):"
+msgstr "編輯未知筆記"
 
 #: src/noteedit.cpp:702
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit Link Note"
-msgstr "註解(&t):"
+msgstr "編輯連結筆記"
 
 #: src/noteedit.cpp:722 src/noteedit.cpp:755
 #, kde-format
@@ -2590,14 +2645,14 @@ msgid "&Icon:"
 msgstr "圖示(&I)："
 
 #: src/noteedit.cpp:777 src/noteedit.cpp:948
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ta&rget:"
-msgstr "儲存目標"
+msgstr "目標(&R)："
 
 #: src/noteedit.cpp:782
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Title:"
-msgstr "標題(&T):"
+msgstr "標題(&T)："
 
 #: src/noteedit.cpp:915
 #, kde-format
@@ -2605,9 +2660,9 @@ msgid "Edit Cross Reference"
 msgstr "編輯交互參考"
 
 #: src/noteedit.cpp:1034
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit Launcher Note"
-msgstr "應用程式快捷列"
+msgstr "編輯啟動器筆記"
 
 #: src/noteedit.cpp:1048
 #, kde-format
@@ -2657,17 +2712,17 @@ msgstr "底線"
 #: src/noteedit.cpp:1231
 #, kde-format
 msgid "Superscript"
-msgstr ""
+msgstr "上標"
 
 #: src/noteedit.cpp:1237
 #, kde-format
 msgid "Subscript"
-msgstr ""
+msgstr "下標"
 
 #: src/noteedit.cpp:1244
 #, kde-format
 msgid "Align Left"
-msgstr ""
+msgstr "向左對齊"
 
 #: src/noteedit.cpp:1250
 #, kde-format
@@ -2675,9 +2730,9 @@ msgid "Centered"
 msgstr "置中"
 
 #: src/noteedit.cpp:1256
-#, fuzzy, kde-format
+#, kde-format
 msgid "Align Right"
-msgstr "靠右"
+msgstr "向右對齊"
 
 #: src/noteedit.cpp:1262
 #, kde-format
@@ -2692,7 +2747,7 @@ msgstr "復原"
 #: src/noteedit.cpp:1280
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: src/notefactory.cpp:491
 #, kde-format
@@ -2702,6 +2757,8 @@ msgid ""
 "understand it.</p><p>If you want the support of these data, please contact "
 "developer.</p>"
 msgstr ""
+"<p>%1 不支援您拖放的資料。<br>一個通用筆記仍然已建立，讓您可以拖曳或複製它到"
+"支援它的應用程式。</p><p>如果您希望支援這種資料，請與開發者聯繫。</p>"
 
 #: src/notefactory.cpp:497
 #, kde-format
@@ -2736,7 +2793,7 @@ msgstr "匯入圖示作為影像"
 #: src/notefactory.cpp:1053
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
-msgstr ""
+msgstr "選擇要匯入為影像的圖示尺寸："
 
 #: src/notefactory.cpp:1069
 #, kde-format
@@ -2752,7 +2809,7 @@ msgstr "密碼保護"
 #: src/password.cpp:59
 #, kde-format
 msgid "No private key selected."
-msgstr ""
+msgstr "未選取私鑰。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passwordlayout.ui:29
@@ -2764,45 +2821,45 @@ msgstr "不保護(&N)"
 #: src/passwordlayout.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
-msgstr ""
+msgstr "用密碼保護筆記本(&P)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
 #: src/passwordlayout.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
-msgstr ""
+msgstr "用私鑰保護筆記本(&K)"
 
 #: src/regiongrabber.cpp:102
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
-msgstr ""
+msgstr "用滑鼠選取範圍。要擷取快照，請按 Enter。按 Esc 來離開。"
 
 #: src/settings.cpp:438
-#, fuzzy, kde-format
+#, kde-format
 msgid "On left"
-msgstr "在頂端"
+msgstr "顯示在左邊"
 
 #: src/settings.cpp:439
 #, kde-format
 msgid "On right"
-msgstr ""
+msgstr "顯示在右邊"
 
 #: src/settings.cpp:441
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Basket tree position:"
-msgstr "於滑鼠指標位置放置物件(&D)"
+msgstr "筆記本樹狀圖位置(&B)："
 
 #: src/settings.cpp:446 src/settings.cpp:704
-#, fuzzy, kde-format
+#, kde-format
 msgid "On top"
-msgstr "在頂端"
+msgstr "上面"
 
 #: src/settings.cpp:447 src/settings.cpp:705
-#, fuzzy, kde-format
+#, kde-format
 msgid "On bottom"
-msgstr "在底部"
+msgstr "下面"
 
 #: src/settings.cpp:449
 #, kde-format
@@ -2810,14 +2867,14 @@ msgid "&Filter bar position:"
 msgstr "過濾器列的位置(&F)："
 
 #: src/settings.cpp:495
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Show tooltips in baskets"
-msgstr "即刻顯示工具提示(包括了物件註釋...)(&i)"
+msgstr "在筆記本中顯示工具提示(&S)"
 
 #: src/settings.cpp:499
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Big notes"
-msgstr "加入物件"
+msgstr "大型筆記(&B)"
 
 #: src/settings.cpp:505
 #, kde-format
@@ -2827,7 +2884,7 @@ msgstr "行為"
 #: src/settings.cpp:510
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
-msgstr ""
+msgstr "在文字編輯器中把 * 或 - 開頭的行變換為清單"
 
 #: src/settings.cpp:514
 #, kde-format
@@ -2837,12 +2894,12 @@ msgstr "刪除筆記之前先詢問確認(&D)"
 #: src/settings.cpp:518
 #, kde-format
 msgid "Keep text formatting when pasting"
-msgstr ""
+msgstr "貼上時保留文字格式"
 
 #: src/settings.cpp:522
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "自動從筆記內容偵測標籤"
 
 #: src/settings.cpp:529
 #, kde-format
@@ -2852,20 +2909,20 @@ msgstr "匯出文字中的標籤(&E)"
 #: src/settings.cpp:533
 #, kde-format
 msgid "When does this apply?"
-msgstr ""
+msgstr "這在什麼時候適用呢？"
 
 #: src/settings.cpp:534
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
-msgstr ""
+msgstr "在複製貼上或是拖放筆記到文字編輯器的時候會適用。"
 
 #: src/settings.cpp:535
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
-msgstr ""
+msgstr "啟用時，此屬性讓您將標籤以文字版本貼上。"
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
 #: src/settings.cpp:536 src/tagsedit.cpp:524
@@ -2875,11 +2932,13 @@ msgid ""
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
 "empty checkbox and a checked box."
 msgstr ""
+"舉例來說，包含 <b>To Do</b> 和 <b>Done</b> 標籤的筆記清單會匯出成以 <b>[ ]</"
+"b> 或 <b>[x]</b> 前綴的行，代表未勾選和已勾選的核取方塊。"
 
 #: src/settings.cpp:548
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
-msgstr ""
+msgstr "點擊插入線右側時群組化新筆記(&G)"
 
 #: src/settings.cpp:550
 #, kde-format
@@ -2893,6 +2952,8 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
+"<p>啟用此選項時，插入線不只讓您可以在游標位置插入筆記，也讓您可以將一個新的筆"
+"記與游標下的筆記群組化。</p>"
 
 #: src/settings.cpp:554
 #, kde-format
@@ -2902,16 +2963,19 @@ msgid ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
+"<p>將您的滑鼠放於筆記之間，在您希望新增筆記的位置。<br>點擊插入線的<b>左半邊"
+"</b>來<b>插入</b>筆記。<br>點擊<b>右半邊</b>來<b>群組化</b>筆記，與<b>下面或"
+"上面</b>的筆記一起（依據您點擊時的滑鼠位置）。</p>"
 
 #: src/settings.cpp:570
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "什麼都不做"
 
 #: src/settings.cpp:571
-#, fuzzy, kde-format
+#, kde-format
 msgid "Paste clipboard"
-msgstr "複製至剪貼簿"
+msgstr "貼上剪貼簿"
 
 #: src/settings.cpp:574
 #, kde-format
@@ -2936,17 +3000,17 @@ msgstr "從檔案載入筆記"
 #: src/settings.cpp:580
 #, kde-format
 msgid "Import Launcher for desktop application"
-msgstr ""
+msgstr "匯入桌面應用程式的啟動器"
 
 #: src/settings.cpp:581
-#, fuzzy, kde-format
+#, kde-format
 msgid "Import icon"
-msgstr "匯入一個圖示(&p)"
+msgstr "匯入圖示"
 
 #: src/settings.cpp:584
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
-msgstr ""
+msgstr "在任何地方按 &Shift+滑鼠中鍵："
 
 #: src/settings.cpp:589
 #, kde-format
@@ -2956,7 +3020,7 @@ msgstr "在游標位置"
 #: src/settings.cpp:604
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
-msgstr ""
+msgstr "經過多久之後自動鎖定受密碼保護的筆記本(&U)"
 
 #: src/settings.cpp:608
 #, kde-format
@@ -2966,7 +3030,7 @@ msgstr " 分鐘"
 #: src/settings.cpp:619
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
-msgstr ""
+msgstr "為公鑰/私鑰保護的筆記本使用 GnuPG 代理程式(&P)"
 
 #: src/settings.cpp:701
 #, kde-format
@@ -2984,9 +3048,9 @@ msgid "&New images size:"
 msgstr "新影像的大小(&N)："
 
 #: src/settings.cpp:738
-#, fuzzy, kde-format
+#, kde-format
 msgid "&by"
-msgstr "高"
+msgstr "&x"
 
 #: src/settings.cpp:743
 #, kde-format
@@ -3001,7 +3065,7 @@ msgstr "預覽(&V)"
 #: src/settings.cpp:753
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
-msgstr ""
+msgstr "加入後為以下檔案類型顯示內容"
 
 #: src/settings.cpp:755
 #, kde-format
@@ -3026,7 +3090,7 @@ msgstr "聲音(&S)"
 #: src/settings.cpp:826
 #, kde-format
 msgid "Conference audio record"
-msgstr ""
+msgstr "會議錄音"
 
 #: src/settings.cpp:827
 #, kde-format
@@ -3036,17 +3100,17 @@ msgstr "年度報告"
 #: src/settings.cpp:828
 #, kde-format
 msgid "Home folder"
-msgstr ""
+msgstr "家資料夾"
 
 #: src/settings.cpp:830
-#, fuzzy, kde-format
+#, kde-format
 msgid "Launch %1"
-msgstr "BasKet"
+msgstr "啟動 %1"
 
 #: src/settings.cpp:831
-#, fuzzy, kde-format
+#, kde-format
 msgid "Another basket"
-msgstr "切換至上一個basket"
+msgstr "另一個筆記本"
 
 #: src/settings.cpp:833
 #, kde-format
@@ -3071,7 +3135,7 @@ msgstr "網路連結(&N)"
 #: src/settings.cpp:837
 #, kde-format
 msgid "Launc&hers"
-msgstr ""
+msgstr "啟動器(&H)"
 
 #: src/settings.cpp:838
 #, kde-format
@@ -3081,7 +3145,7 @@ msgstr "交互參考(&C)"
 #: src/settings.cpp:879
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "通用啟動關聯"
 
 #: src/settings.cpp:882
 #, kde-format
@@ -3101,6 +3165,15 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>在現代的桌面環境，啟動器設定檔案會向系統提供如何處理一個應用程式的資訊。這"
+"些檔案對於讓應用程式與桌面環境整合是必要的，例如列出、搜尋與用指定設定啟動應"
+"用程式</p><p>如果您要以某個設定檔啟動 Falkon 瀏覽器的話，可以這樣做：</"
+"p><ul><li>開啟 KDE 選單編輯器，然後在搜尋列輸入 \"Falkon\"</li><li>選取 "
+"\"Falkon\" 桌面啟動器，右鍵然後複製貼上</li><li>編輯「一般」屬性欄位，像是名"
+"稱、描述、註解。</li><li>編輯「命令列參數」並填入 \"--profile '範例設定檔' %"
+"%u\"。</li></ul><p>完成之後，當您選取您的新啟動器作為 basket 連結筆記的啟動"
+"器，basket 就會用 Falkon 的 \"範例設定檔\" 設定檔來開啟 HTTP 連結。</p><p>更"
+"多詳細設定（像是用 Falkon 開啟 PDF 文件）請見第二個按鈕的工具提示。</p>"
 
 #: src/settings.cpp:896
 #, kde-format
@@ -3120,6 +3193,15 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 msgstr ""
+"<p>開啟網頁連結時，會依連結內容（網頁、影像、PDF 文件…）來在不同的應用程式中"
+"開啟，就好像它們是您的電腦上的檔案一樣。</p><p>如果您希望所有網頁連結都要用網"
+"頁瀏覽器開啟的話，可以這樣做（您如果使用 GNOME、XFCE 等等而非使用 Plasma 的話"
+"這可能會有用）：</p><ul><li>開啟 KDE 系統設定（如果看不到它的話試試看用終端機"
+"執行 \"systemsettings\"）</li><li>到「應用程式」→「預設應用程式」</li><li>選"
+"取「網頁瀏覽器」，勾選「用以下命令」，然後輸入您的網頁瀏覽器的名稱（像是 "
+"\"firefox\" 或 \"epiphany\"）。</li></ul><p>完成之後點擊<i>任何</i>以 "
+"\"https://</p> 開頭的連結便總是會以您的瀏覽器開啟。<p><p>更多詳細設定（像是讓"
+"瀏覽器只開啟網頁）請見第三個按鈕的工具提示。</p>"
 
 #: src/settings.cpp:910
 #, kde-format
@@ -3142,7 +3224,7 @@ msgstr ""
 #: src/settings.cpp:958
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "特定筆記本關聯"
 
 #: src/settings.cpp:960
 #, kde-format
@@ -3185,16 +3267,14 @@ msgid "Open sound notes with:"
 msgstr "聲音筆記開啟方式："
 
 #: src/settings.cpp:992
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "用自訂應用程式開啟文字筆記(&T)："
+msgstr "用自訂應用程式開啟 HTTP 連結筆記："
 
 #: src/settings.cpp:993
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "文字筆記開啟方式："
+msgstr "HTTP 連結筆記開啟方式："
 
 #: src/settings.cpp:1001
 #, kde-format
@@ -3203,6 +3283,8 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
+"<p>勾選時，以下定義的應用程式將會用來開啟該類型的筆記。</p><p>否則將會使用您"
+"在 Konqueror 中設定的應用程式。</p>"
 
 #: src/settings.cpp:1011
 #, kde-format
@@ -3210,16 +3292,17 @@ msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr ""
+"<p>定義要用來開啟該筆記類型的應用程式，而非 Konqueror 所設定的應用程式。</p>"
 
 #: src/settings_versionsync.cpp:76
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
-msgstr ""
+msgstr "您確定要移除所有筆記本的舊版本嗎？"
 
 #: src/settings_versionsync.cpp:77
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "新建basket"
+msgstr "移除舊的筆記本"
 
 #: src/settings_versionsync.cpp:78
 #, kde-format
@@ -3235,30 +3318,30 @@ msgstr "這會釋放 %1 MB"
 #: src/settings_versionsync.ui:17
 #, kde-format
 msgid "Enable distributed version control"
-msgstr ""
+msgstr "啟用分散式版本控制"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
 #: src/settings_versionsync.ui:24
 #, kde-format
 msgid "BasKet is built without version control (libgit2) support"
-msgstr ""
+msgstr "BasKet 編譯時未包含版本控制 (libgit2) 支援"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
 #: src/settings_versionsync.ui:34
 #, kde-format
 msgid "Control"
-msgstr ""
+msgstr "控制"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonClearHistory)
 #: src/settings_versionsync.ui:45
 #, kde-format
 msgid "Clear version history"
-msgstr ""
+msgstr "清除版本歷史"
 
 #: src/softwareimporters.cpp:49
 #, kde-format
 msgid "Import Hierarchy"
-msgstr ""
+msgstr "匯入階層"
 
 #: src/softwareimporters.cpp:59
 #, kde-format
@@ -3268,32 +3351,32 @@ msgstr "要如何匯入筆記？"
 #: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
-msgstr ""
+msgstr "保留原始階層（所有筆記在分開的筆記本裡）"
 
 #: src/softwareimporters.cpp:64
 #, kde-format
 msgid "&First level notes in separate baskets"
-msgstr ""
+msgstr "讓頂層筆記在不同的筆記本中(&F)"
 
 #: src/softwareimporters.cpp:65
-#, fuzzy, kde-format
+#, kde-format
 msgid "&All notes in one basket"
-msgstr "即刻顯示工具提示(包括了物件註釋...)(&i)"
+msgstr "將所有筆記置於同一個筆記本中(&A)"
 
 #: src/softwareimporters.cpp:109
 #, kde-format
 msgid "Import Text File"
-msgstr ""
+msgstr "匯入文字檔案"
 
 #: src/softwareimporters.cpp:113
 #, kde-format
 msgid "Format of the Text File"
-msgstr ""
+msgstr "文字檔案格式"
 
 #: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes separated by an &empty line"
-msgstr ""
+msgstr "以空行分隔的筆記(&E)"
 
 #: src/softwareimporters.cpp:119
 #, kde-format
@@ -3303,12 +3386,12 @@ msgstr "一行一個筆記(&N)"
 #: src/softwareimporters.cpp:120
 #, kde-format
 msgid "Notes begin with a &dash (-)"
-msgstr ""
+msgstr "以 \"-\" 開頭的筆記"
 
 #: src/softwareimporters.cpp:121
 #, kde-format
 msgid "Notes begin with a &star (*)"
-msgstr ""
+msgstr "以星號 (\"*\") 開頭的筆記"
 
 #: src/softwareimporters.cpp:122
 #, kde-format
@@ -3324,7 +3407,7 @@ msgstr "全部在一個筆記裡(&A)"
 #, kde-format
 msgctxt "From TextFile.txt"
 msgid "From %1"
-msgstr ""
+msgstr "來自 %1"
 
 #: src/tag.cpp:80
 #, kde-format
@@ -3394,27 +3477,27 @@ msgstr "中"
 #: src/tag.cpp:648
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #: src/tag.cpp:648
 #, kde-format
 msgid "Preference"
-msgstr "偏好設定"
+msgstr "偏好"
 
 #: src/tag.cpp:648
 #, kde-format
 msgid "Bad"
-msgstr ""
+msgstr "不好"
 
 #: src/tag.cpp:649
 #, kde-format
 msgid "Good"
-msgstr ""
+msgstr "好"
 
 #: src/tag.cpp:649
 #, kde-format
 msgid "Excellent"
-msgstr ""
+msgstr "極佳"
 
 #: src/tag.cpp:649
 #, kde-format
@@ -3424,7 +3507,7 @@ msgstr "突顯"
 #: src/tag.cpp:718
 #, kde-format
 msgid "Important"
-msgstr ""
+msgstr "重要"
 
 #: src/tag.cpp:718
 #, kde-format
@@ -3439,13 +3522,13 @@ msgstr "資訊"
 #: src/tag.cpp:719
 #, kde-format
 msgid "Idea"
-msgstr ""
+msgstr "主意"
 
 #: src/tag.cpp:719
 #, kde-format
 msgctxt "The initial of 'Idea'"
 msgid "I."
-msgstr ""
+msgstr "I."
 
 #: src/tag.cpp:720
 #, kde-format
@@ -3461,23 +3544,23 @@ msgstr "工作"
 #, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
-msgstr ""
+msgstr "W."
 
 #: src/tag.cpp:738
 #, kde-format
 msgid "Personal"
-msgstr ""
+msgstr "個人"
 
 #: src/tag.cpp:738
 #, kde-format
 msgctxt "The initial of 'Personal'"
 msgid "P."
-msgstr ""
+msgstr "P."
 
 #: src/tag.cpp:738
 #, kde-format
 msgid "Funny"
-msgstr ""
+msgstr "好玩"
 
 #: src/tagsedit.cpp:312
 #, kde-format
@@ -3497,12 +3580,12 @@ msgstr "新狀態(&A)"
 #: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
-msgstr ""
+msgstr "上移 (Ctrl+Shift+Up)"
 
 #: src/tagsedit.cpp:354
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
-msgstr ""
+msgstr "下移 (Ctrl+Shift+Down)"
 
 #: src/tagsedit.cpp:355
 #, kde-format
@@ -3528,7 +3611,7 @@ msgstr "快捷鍵(&H)："
 #: src/tagsedit.cpp:396
 #, kde-format
 msgid "&Inherited by new sibling notes"
-msgstr ""
+msgstr "由同層筆記繼承(&I)"
 
 #: src/tagsedit.cpp:398
 #, kde-format
@@ -3546,43 +3629,43 @@ msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
-"這個選項會讓您可以直接打字插入一個交互參考連結到文字筆記中。交互參考連結語法"
-"如下："
+"這個選項會讓您可以直接打字插入交互參考連結到文字筆記中。交互參考連結語法如"
+"下："
 
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
-msgstr ""
+msgstr "從樹狀頂端（絕對路徑）："
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
-msgstr ""
+msgstr "[[/頂層項目/子項目|可選的標題]]"
 
 #: src/tagsedit.cpp:405
 #, kde-format
 msgid "Relative to the current basket:"
-msgstr ""
+msgstr "相對於目前筆記本："
 
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[../sibling|optional title]]"
-msgstr ""
+msgstr "[[../同層項目|可選的標題]]"
 
 #: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[child|optional title]]"
-msgstr ""
+msgstr "[[子項目|可選的標題]]"
 
 #: src/tagsedit.cpp:407
 #, kde-format
 msgid "[[./child|optional title]]"
-msgstr ""
+msgstr "[[./子項目|可選的標題]]"
 
 #: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "筆記本符合時會區分大小寫。"
 
 #: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
@@ -3603,7 +3686,7 @@ msgstr "移除(&V)"
 #: src/tagsedit.cpp:439
 #, kde-format
 msgid "&Emblem:"
-msgstr ""
+msgstr "徽章(&E)："
 
 #: src/tagsedit.cpp:456
 #, kde-format
@@ -3638,12 +3721,12 @@ msgstr "大小(&S)："
 #: src/tagsedit.cpp:512
 #, kde-format
 msgid "Te&xt equivalent:"
-msgstr ""
+msgstr "替換為文字(&X)："
 
 #: src/tagsedit.cpp:519
 #, kde-format
 msgid "What is this for?"
-msgstr ""
+msgstr "這個的用處是什麼？"
 
 #: src/tagsedit.cpp:521
 #, kde-format
@@ -3651,6 +3734,7 @@ msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
 "will be inserted as a textual equivalent of the tag."
 msgstr ""
+"當您複製貼上或拖放筆記到文字編輯器裡，這個文字會作為標籤的文字對等插入。"
 
 #: src/tagsedit.cpp:532
 #, kde-format
@@ -3668,6 +3752,8 @@ msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
 "on the first line or on every line of the note."
 msgstr ""
+"當一個筆記有好幾行的時候，您可以選擇將筆記或是狀態匯出到第一行或是筆記的每一"
+"行。"
 
 #: src/tagsedit.cpp:539
 #, kde-format
@@ -3675,12 +3761,14 @@ msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
 msgstr ""
+"在上方的範例中，頂部筆記的標籤只有匯出到第一行，而底部筆記的標籤是匯出到每一"
+"行的。"
 
 #: src/tagsedit.cpp:977
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
-msgstr ""
+msgstr "刪除標籤將會將它從所有已指定有該標籤的筆記上移除。"
 
 #: src/tagsedit.cpp:978
 #, kde-format
@@ -3697,7 +3785,7 @@ msgstr "刪除標籤"
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
-msgstr ""
+msgstr "刪除狀態將會將該標籤從所有已指定有該狀態的筆記上移除。"
 
 #: src/tagsedit.cpp:983
 #, kde-format
@@ -3713,7 +3801,7 @@ msgstr "刪除狀態"
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
@@ -3731,6 +3819,8 @@ msgid ""
 "Resize the window to select the image size\n"
 "and close it or press Escape to accept changes."
 msgstr ""
+"調整視窗大小來選取影像大小\n"
+"關閉它或是按 Esc 來接受變更。"
 
 #, fuzzy
 #~ msgid "TextLabel"
