@@ -23,6 +23,7 @@
         "Description[tr]": "Yeni Notlar",
         "Description[uk]": "Нові нотатки",
         "Description[zh_CN]": "新建笔记",
+        "Description[zh_TW]": "新筆記",
         "Icon": "knotes-symbolic",
         "Name": "New Notes",
         "Name[ar]": "ملاحظات جديدة",
@@ -47,6 +48,7 @@
         "Name[tr]": "Yeni Notlar",
         "Name[uk]": "Нові нотатки",
         "Name[zh_CN]": "新建笔记",
+        "Name[zh_TW]": "新筆記",
         "ServiceTypes": [
             "KCModule"
         ]

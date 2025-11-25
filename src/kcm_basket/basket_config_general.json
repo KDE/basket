@@ -23,6 +23,7 @@
         "Description[tr]": "Genel",
         "Description[uk]": "Загальне",
         "Description[zh_CN]": "通用",
+        "Description[zh_TW]": "一般",
         "Icon": "configure",
         "Name": "General",
         "Name[ar]": "عام",
@@ -47,6 +48,7 @@
         "Name[tr]": "Genel",
         "Name[uk]": "Загальне",
         "Name[zh_CN]": "通用",
+        "Name[zh_TW]": "一般",
         "ServiceTypes": [
             "KCModule"
         ]

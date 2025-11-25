@@ -23,6 +23,7 @@
         "Description[tr]": "Notlar Görünüşü",
         "Description[uk]": "Вигляд нотаток",
         "Description[zh_CN]": "笔记外观",
+        "Description[zh_TW]": "筆記外觀",
         "Icon": "preferences-desktop-theme",
         "Name": "Notes Appearance",
         "Name[ar]": "مظهر الملاحظات",
@@ -47,6 +48,7 @@
         "Name[tr]": "Notlar Görünüşü",
         "Name[uk]": "Вигляд нотаток",
         "Name[zh_CN]": "笔记外观",
+        "Name[zh_TW]": "筆記外觀",
         "ServiceTypes": [
             "KCModule"
         ]
