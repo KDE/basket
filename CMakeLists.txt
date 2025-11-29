@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: (C) 2018 Luigi Toscano <luigi.toscano@tiscali.it>
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 project(Basket VERSION 2.49.90)
 
@@ -22,8 +22,6 @@ option(DEBUG_PIPE "Enabled Named Debugging Pipe" OFF)
 # do we use a GNU compiler?
 if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fno-delete-null-pointer-checks")
-    # TODO: after removing kdelibs4support this could also be removed
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
