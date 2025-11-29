@@ -51,7 +51,9 @@ ecm_setup_version(
 
 # GPG
 if (ENABLE_GPG)
-    find_package(Gpgme 1.23.2)
+    find_package(PkgConfig)
+    pkg_check_modules(gpgme REQUIRED IMPORTED_TARGET gpgme>=1.23.2)
+    set(HAVE_LIBGPGME 1)
 endif()
 
 # libgit2
@@ -124,20 +126,6 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
-
-if (GPGME_FOUND)
-    MESSAGE(STATUS "FOUND GPG")
-    set(HAVE_LIBGPGME 1)
-    SET(LARGEFILE_SOURCE_1)
-    ADD_DEFINITIONS(-D_FILE_OFFSET_BITS=64)
-else()
-    if (NOT ENABLE_GPG)
-        MESSAGE(VERBOSE "GPG disabled, configuring without")
-    else()
-        MESSAGE(WARNING "GPG not found, configuring without")
-    endif()
-endif()
-
 
 #Make libbasketcommon search for translations in basket.mo
 add_definitions(-DTRANSLATION_DOMAIN=\"basket\")

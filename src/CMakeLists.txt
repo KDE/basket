@@ -1,5 +1,3 @@
-include_directories(${GPGME_INCLUDES})
-
 ########### next target ###############
 
 set(libbasket_SRCS
@@ -58,7 +56,6 @@ qt_add_resources(basket_RESOURCES ../basket.qrc)
 add_library(LibBasket SHARED ${libbasket_SRCS} ${basket_FORM_HDRS} ${basket_RESOURCES})
 
 target_link_libraries(LibBasket
-    ${GPGME_VANILLA_LIBRARIES}
     KF6::Archive
     KF6::ConfigWidgets
     KF6::CoreAddons
@@ -83,6 +80,10 @@ target_link_libraries(LibBasket
     Qt::Core
     Qt::Multimedia
 )
+
+if(TARGET PkgConfig::gpgme)
+    target_link_libraries(LibBasket PkgConfig::gpgme)
+endif()
 
 set_target_properties(LibBasket PROPERTIES
     VERSION
