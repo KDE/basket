@@ -41,22 +41,14 @@ Application::Application(int &argc, char **argv)
     connect(&m_service, &KDBusService::activateRequested, this, &Application::onActivateRequested);
 
 #ifdef WITH_LIBGIT2
-#if LIBGIT2_VER_MAJOR > 0 || (LIBGIT2_VER_MAJOR == 0 && LIBGIT2_VER_MINOR >= 22)
     git_libgit2_init();
-#else
-    git_threads_init();
-#endif
 #endif
 }
 
 Application::~Application()
 {
 #ifdef WITH_LIBGIT2
-#if LIBGIT2_VER_MAJOR > 0 || (LIBGIT2_VER_MAJOR == 0 && LIBGIT2_VER_MINOR >= 22)
     git_libgit2_shutdown();
-#else
-    git_threads_shutdown();
-#endif
 #endif
 }
 
