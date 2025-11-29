@@ -87,9 +87,9 @@ endif()
 
 set_target_properties(LibBasket PROPERTIES
     VERSION
-        ${Qt6Core_VERSION}
+        ${BASKET_VERSION}
     SOVERSION
-        ${Qt6Core_VERSION_MAJOR}
+        ${BASKET_SOVERSION}
 )
 
 install(TARGETS LibBasket DESTINATION ${KDE_INSTALL_LIBDIR})
