@@ -56,24 +56,8 @@ endif()
 
 # libgit2
 if (ENABLE_GIT)
-    find_package(Libgit2 1.8.4 QUIET)
-    set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
-        PURPOSE "Add git support to Basket"
-        URL "https://libgit2.org"
-        TYPE OPTIONAL
-    )
-endif()
-
-if (LIBGIT2_FOUND)
-    MESSAGE(STATUS "FOUND: Git2")
-    include_directories(${LIBGIT2_INCLUDE_DIR})
-    add_definitions(-DWITH_LIBGIT2)
-else()
-    if (NOT ENABLE_GIT)
-        MESSAGE(VERBOSE "Git2 disabled, configuring without")
-    else()
-        MESSAGE(WARNING "Git2 not found, configuring without")
-    endif()
+    find_package(LibGit2 1.8.4 REQUIRED)
+    set(HAVE_LIBGIT2 TRUE)
 endif()
 
 # Debugging Pipe

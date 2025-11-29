@@ -11,10 +11,11 @@
 #include <QMutexLocker>
 
 #include "basketscene.h"
+#include "config.h"
 #include "gitwrapper.h"
 #include "settings.h"
 
-#ifdef WITH_LIBGIT2
+#if HAVE_LIBGIT2
 
 extern "C" {
 #include <git2.h>
@@ -414,7 +415,7 @@ void GitWrapper::gitErrorHandling()
     qDebug() << "Error in git (error,class,message)" << e->klass << e->message;
 }
 
-#else // WITH_LIBGIT2
+#else // HAVE_LIBGIT2
 // make everything noop
 void GitWrapper::initializeGitRepository(QString folder)
 {
@@ -459,4 +460,4 @@ void GitWrapper::gitErrorHandling()
 {
 }
 
-#endif // NOT WITH_LIBGIT2
+#endif // NOT HAVE_LIBGIT2

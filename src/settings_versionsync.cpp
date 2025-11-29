@@ -5,6 +5,7 @@
  */
 #include "settings_versionsync.h"
 #include "aboutdata.h"
+#include "config.h"
 #include "settings.h"
 #include "tools.h"
 #include "ui_settings_versionsync.h"
@@ -30,7 +31,7 @@ VersionSyncPage::VersionSyncPage(QObject *parent, const KPluginMetaData &data)
 {
     ui->setupUi(this->widget());
 
-#ifdef WITH_LIBGIT2
+#if HAVE_LIBGIT2
     ui->labelWithoutVersionControlSupport->setVisible(false);
     QtConcurrent::run(showHistorySize, this);
 #else
@@ -50,7 +51,7 @@ VersionSyncPage::~VersionSyncPage()
 void VersionSyncPage::load()
 {
     ui->checkBoxEnable->setChecked(Settings::versionSyncEnabled());
-#ifdef WITH_LIBGIT2
+#if HAVE_LIBGIT2
     onCheckBoxEnableClicked();
 #endif
 }

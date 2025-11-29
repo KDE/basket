@@ -117,9 +117,9 @@ endif()
 add_executable(basket ${basket_SRCS})
 target_link_libraries(basket LibBasket)
 
-if (LIBGIT2_FOUND)
-    target_link_libraries(LibBasket ${LIBGIT2_LIBRARIES})
-    target_link_libraries(basket ${LIBGIT2_LIBRARIES})
+if (TARGET LibGit2::LibGit2)
+    target_link_libraries(LibBasket LibGit2::LibGit2)
+    target_link_libraries(basket LibGit2::LibGit2)
 endif()
 
 install(TARGETS basket DESTINATION ${KDE_INSTALL_BINDIR})

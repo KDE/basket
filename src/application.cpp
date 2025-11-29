@@ -20,7 +20,7 @@
 #include "global.h"
 #include "mainwindow.h"
 
-#ifdef WITH_LIBGIT2
+#if HAVE_LIBGIT2
 extern "C" {
 #include <git2.h>
 }
@@ -40,14 +40,14 @@ Application::Application(int &argc, char **argv)
 
     connect(&m_service, &KDBusService::activateRequested, this, &Application::onActivateRequested);
 
-#ifdef WITH_LIBGIT2
+#if HAVE_LIBGIT2
     git_libgit2_init();
 #endif
 }
 
 Application::~Application()
 {
-#ifdef WITH_LIBGIT2
+#if HAVE_LIBGIT2
     git_libgit2_shutdown();
 #endif
 }
