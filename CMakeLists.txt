@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.16)
 project(Basket VERSION 2.49.90)
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF_MIN_VERSION "6.2.0")
+set(KF_MIN_VERSION "6.9.0")
 
 # Options
 option(BUILD_DEVTOOLS "Enabled Devtools" ON)

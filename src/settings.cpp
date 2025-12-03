@@ -31,7 +31,6 @@
 #include <KLocalizedString>
 #include <KPluginMetaData>
 #include <QProcess>
-#include <kcmutils_version.h>
 
 #include "aboutdata.h"
 #include "basketscene.h"
@@ -351,11 +350,7 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     qInfo() << "SettingsDialog" << availablePlugins.size();
     for (const KPluginMetaData &metaData : availablePlugins) {
         qInfo() << "SettingsDialog" << metaData.pluginId() << metaData.fileName() << metaData.name();
-#if KCMUTILS_VERSION >= QT_VERSION_CHECK(6, 5, 0)
         addModule(metaData);
-#else
-        addModule(metaData.pluginId());
-#endif
     }
 
     // Access the button box and connect the buttons
