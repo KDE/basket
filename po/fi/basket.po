@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2025-12-04 00:46+0000\n"
 "PO-Revision-Date: 2025-07-11 09:54+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -666,7 +666,7 @@ msgstr ""
 "tai valinnan nykyiseen koriin mistä tahansa.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:490 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:485 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
 msgstr "Ulkoasu"
@@ -1178,7 +1178,7 @@ msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr "Lisää tekstimuistiinpano nykyiseen koriin pääikkunaa avaamatta."
 
-#: src/bnpview.cpp:274 src/settings.cpp:572
+#: src/bnpview.cpp:274 src/settings.cpp:567
 #, kde-format
 msgid "Insert image note"
 msgstr "Lisää kuvamuistiinpano"
@@ -1190,7 +1190,7 @@ msgid ""
 "window."
 msgstr "Lisää kuvamuistiinpano nykyiseen koriin pääikkunaa avaamatta."
 
-#: src/bnpview.cpp:280 src/settings.cpp:573
+#: src/bnpview.cpp:280 src/settings.cpp:568
 #, kde-format
 msgid "Insert link note"
 msgstr "Liitä linkkimuistiinpano"
@@ -1201,7 +1201,7 @@ msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr "Lisää linkkimuistiinpano nykyiseen koriin pääikkunaa avaamatta."
 
-#: src/bnpview.cpp:286 src/settings.cpp:576
+#: src/bnpview.cpp:286 src/settings.cpp:571
 #, kde-format
 msgid "Insert color note"
 msgstr "Lisää värimuistiinpano"
@@ -1228,7 +1228,7 @@ msgstr ""
 "koriin pääikkunaa avaamatta.Lisää värimuistiinpano ruudun kuvapisteestä "
 "poimitusta väristä nykyiseen koriin pääikkunaa avaamatta."
 
-#: src/bnpview.cpp:299 src/settings.cpp:577
+#: src/bnpview.cpp:299 src/settings.cpp:572
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Kaappaa ruudun alue"
@@ -2883,7 +2883,7 @@ msgid "Load File Content into a Note"
 msgstr "Lataa muistiinpanoon tiedoston sisältö"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:595
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:590
 #, kde-format
 msgid "Password Protection"
 msgstr "Salasanasuojaus"
@@ -2920,82 +2920,82 @@ msgstr ""
 "Valitse alue hiirellä. Ota ruutukaappaus painamalla Enter. Lopeta painamalla "
 "Esc."
 
-#: src/settings.cpp:438
+#: src/settings.cpp:433
 #, kde-format
 msgid "On left"
 msgstr "Vasemmalla"
 
-#: src/settings.cpp:439
+#: src/settings.cpp:434
 #, kde-format
 msgid "On right"
 msgstr "Oikealla"
 
-#: src/settings.cpp:441
+#: src/settings.cpp:436
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&Koripuun sijainti:"
 
-#: src/settings.cpp:446 src/settings.cpp:704
+#: src/settings.cpp:441 src/settings.cpp:699
 #, kde-format
 msgid "On top"
 msgstr "Ylhäällä"
 
-#: src/settings.cpp:447 src/settings.cpp:705
+#: src/settings.cpp:442 src/settings.cpp:700
 #, kde-format
 msgid "On bottom"
 msgstr "Alhaalla"
 
-#: src/settings.cpp:449
+#: src/settings.cpp:444
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "&Suodatinrivin sijainti:"
 
-#: src/settings.cpp:495
+#: src/settings.cpp:490
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "Näytä koreissa työkalu&vihjeet"
 
-#: src/settings.cpp:499
+#: src/settings.cpp:494
 #, kde-format
 msgid "&Big notes"
 msgstr "S&uuret muistiinpanot"
 
-#: src/settings.cpp:505
+#: src/settings.cpp:500
 #, kde-format
 msgid "Behavior"
 msgstr "Toiminta"
 
-#: src/settings.cpp:510
+#: src/settings.cpp:505
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr "Muunna muokkaimessa luetelmiksi rivit, jotka alkavat * tai -"
 
-#: src/settings.cpp:514
+#: src/settings.cpp:509
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "&Pyydä vahvistamaan muistiinpanojen poistaminen"
 
-#: src/settings.cpp:518
+#: src/settings.cpp:513
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Säilytä tekstin muotoilu liitettäessä"
 
-#: src/settings.cpp:522
+#: src/settings.cpp:517
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Havaitse muistiinpanoista luokitukset automaattisesti"
 
-#: src/settings.cpp:529
+#: src/settings.cpp:524
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Vie tekstien tunnisteet"
 
-#: src/settings.cpp:533
+#: src/settings.cpp:528
 #, kde-format
 msgid "When does this apply?"
 msgstr "Koska tätä käytetään?"
 
-#: src/settings.cpp:534
+#: src/settings.cpp:529
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3005,14 +3005,14 @@ msgstr ""
 "muistiinpanoja muokkaimeen.Tätä käytetään kopioitaessa ja liitettäessä tai "
 "vedettäessä ja pudotettaessa muistiinpanoja muokkaimeen."
 
-#: src/settings.cpp:535
+#: src/settings.cpp:530
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr "Jos valittu, voit lisätä luokituksia tekstivastineinaan."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:536 src/tagsedit.cpp:524
+#: src/settings.cpp:531 src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3023,18 +3023,18 @@ msgstr ""
 "b> viedään riveinä, joita edeltää <b>[ ]</b> tai <b>[×]</b> (tyhjä tai "
 "valittu valintaruutu)."
 
-#: src/settings.cpp:548
+#: src/settings.cpp:543
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr ""
 "&Ryhmittele uusi muistiinpano napsautettaessa lisäysrivin oikealle puolen"
 
-#: src/settings.cpp:550
+#: src/settings.cpp:545
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Miten ryhmitellä uusi muistiinpano?"
 
-#: src/settings.cpp:551
+#: src/settings.cpp:546
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3045,7 +3045,7 @@ msgstr ""
 "muistiinpanoja kohdistimen kohdalle vaan myös ryhmitellä uuden muistiinpanon "
 "kohdistimen alla olevan kanssa:</p>"
 
-#: src/settings.cpp:554
+#: src/settings.cpp:549
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3059,187 +3059,187 @@ msgstr ""
 "tai yllä olevan kanssa</b> hiiren sijainnin mukaan napsauta <b>oikealta</b>."
 "</p>"
 
-#: src/settings.cpp:570
+#: src/settings.cpp:565
 #, kde-format
 msgid "Do nothing"
 msgstr "Älä tee mitään"
 
-#: src/settings.cpp:571
+#: src/settings.cpp:566
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Liitä leikepöytä"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:569
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Lisää ristiviite"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:570
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Lisää käynnistinmuistiinpano"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:573
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Lisää väri ruudulta"
 
-#: src/settings.cpp:579
+#: src/settings.cpp:574
 #, kde-format
 msgid "Load note from file"
 msgstr "Lataa muistiinpano tiedostosta"
 
-#: src/settings.cpp:580
+#: src/settings.cpp:575
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Tuo työpöytäsovelluksen käynnistin"
 
-#: src/settings.cpp:581
+#: src/settings.cpp:576
 #, kde-format
 msgid "Import icon"
 msgstr "Tuo kuvake"
 
-#: src/settings.cpp:584
+#: src/settings.cpp:579
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Vaihto+keskinapsautus missä vain:"
 
-#: src/settings.cpp:589
+#: src/settings.cpp:584
 #, kde-format
 msgid "at cursor position"
 msgstr "kohdistimen kohdalla"
 
-#: src/settings.cpp:604
+#: src/settings.cpp:599
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "&Lukitse suojatut korit automaattisesti, kun ovat olleet kiinni"
 
-#: src/settings.cpp:608
+#: src/settings.cpp:603
 #, kde-format
 msgid " minutes"
 msgstr " minuuttia"
 
-#: src/settings.cpp:619
+#: src/settings.cpp:614
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Käytä &GnuPG-asiakasta avaimella suojattuihin koreihin"
 
-#: src/settings.cpp:701
+#: src/settings.cpp:696
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "Uusien &muistiinpanojen paikka:"
 
-#: src/settings.cpp:706
+#: src/settings.cpp:701
 #, kde-format
 msgid "At current note"
 msgstr "Nykyiseen muistiinpanoon"
 
-#: src/settings.cpp:725
+#: src/settings.cpp:720
 #, kde-format
 msgid "&New images size:"
 msgstr "&Uusien kuvien koko:"
 
-#: src/settings.cpp:738
+#: src/settings.cpp:733
 #, kde-format
 msgid "&by"
 msgstr "×"
 
-#: src/settings.cpp:743
+#: src/settings.cpp:738
 #, kde-format
 msgid "pixels"
 msgstr "kuvapistettä"
 
-#: src/settings.cpp:745
+#: src/settings.cpp:740
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Havainnollista…"
 
-#: src/settings.cpp:753
+#: src/settings.cpp:748
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Näytä sisältö lisätyistä seuraavien tyyppien tiedostoista"
 
-#: src/settings.cpp:755
+#: src/settings.cpp:750
 #, kde-format
 msgid "&Plain text"
 msgstr "&Muotoilematon teksti"
 
-#: src/settings.cpp:756
+#: src/settings.cpp:751
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML-sivu"
 
-#: src/settings.cpp:757
+#: src/settings.cpp:752
 #, kde-format
 msgid "&Image or animation"
 msgstr "&Kuva tai animaatio"
 
-#: src/settings.cpp:758
+#: src/settings.cpp:753
 #, kde-format
 msgid "&Sound"
 msgstr "&Ääni"
 
-#: src/settings.cpp:826
+#: src/settings.cpp:821
 #, kde-format
 msgid "Conference audio record"
 msgstr "Konferenssin äänitallenne"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:822
 #, kde-format
 msgid "Annual report"
 msgstr "Vuosiraportti"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:823
 #, kde-format
 msgid "Home folder"
 msgstr "Kotikansio"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:825
 #, kde-format
 msgid "Launch %1"
 msgstr "Käynnistä %1"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:826
 #, kde-format
 msgid "Another basket"
 msgstr "Toinen kori"
 
-#: src/settings.cpp:833
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Sounds"
 msgstr "&Äänet"
 
-#: src/settings.cpp:834
+#: src/settings.cpp:829
 #, kde-format
 msgid "&Files"
 msgstr "Tie&dostot"
 
-#: src/settings.cpp:835
+#: src/settings.cpp:830
 #, kde-format
 msgid "&Local Links"
 msgstr "&Paikalliset linkit"
 
-#: src/settings.cpp:836
+#: src/settings.cpp:831
 #, kde-format
 msgid "&Network Links"
 msgstr "&Verkkolinkit"
 
-#: src/settings.cpp:837
+#: src/settings.cpp:832
 #, kde-format
 msgid "Launc&hers"
 msgstr "&Käynnistimet"
 
-#: src/settings.cpp:838
+#: src/settings.cpp:833
 #, kde-format
 msgid "&Cross References"
 msgstr "&Ristiviitteet"
 
-#: src/settings.cpp:879
+#: src/settings.cpp:874
 #, kde-format
 msgid "General Launch Associations"
 msgstr "Yleiset käynnistyskytkökset"
 
-#: src/settings.cpp:882
+#: src/settings.cpp:877
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3272,7 +3272,7 @@ msgstr ""
 "(esim. haluat avata PDF-tiedostot mieluiten Falkoniin), lue toisen "
 "painikkeen työkaluvihje.</p>"
 
-#: src/settings.cpp:896
+#: src/settings.cpp:891
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3304,7 +3304,7 @@ msgstr ""
 "(esim. haluat avata vain verkkosivut verkkoselaimeen) lue kolmannen "
 "painikkeen työkaluvihje.</p>"
 
-#: src/settings.cpp:910
+#: src/settings.cpp:905
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3335,62 +3335,62 @@ msgstr ""
 "ensimmäiseksi kohdaksi</li><li>tee sama vielä puun kohdalle ”application” → "
 "”xhtml+xml”.</li></ul>"
 
-#: src/settings.cpp:958
+#: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "Erityiset Basket-kytkökset"
 
-#: src/settings.cpp:960
+#: src/settings.cpp:955
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Avaa &tekstimuistiinpanot omaan ohjelmaan:"
 
-#: src/settings.cpp:961
+#: src/settings.cpp:956
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Avaa tekstimuistiinpanot ohjelmalla:"
 
-#: src/settings.cpp:968
+#: src/settings.cpp:963
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Avaa &kuvamuistiinpanot omaan ohjelmaan:"
 
-#: src/settings.cpp:969
+#: src/settings.cpp:964
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Avaa kuvamuistiinpanot ohjelmalla:"
 
-#: src/settings.cpp:976
+#: src/settings.cpp:971
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "A&vaa animaatiomuistiinpanot omaan ohjelmaan:"
 
-#: src/settings.cpp:977
+#: src/settings.cpp:972
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Avaa animaatiomuistiinpanot ohjelmalla:"
 
-#: src/settings.cpp:984
+#: src/settings.cpp:979
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Avaa &äänimuistiinpanot omaan ohjelmaan:"
 
-#: src/settings.cpp:985
+#: src/settings.cpp:980
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Avaa äänimuistiinpanot ohjelmalla:"
 
-#: src/settings.cpp:992
+#: src/settings.cpp:987
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "Avaa http-linkkiset muistiinpanot mukautetulla ohjelmalla:"
 
-#: src/settings.cpp:993
+#: src/settings.cpp:988
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "Avaa http-linkkiset muistiinpanot ohjelmalla:"
 
-#: src/settings.cpp:1001
+#: src/settings.cpp:996
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3400,7 +3400,7 @@ msgstr ""
 "<p>Jos valittu, alla asetettua sovellusta käytetään avaamaan tämän tyypin "
 "muistiinpano.</p><p>Muuten käytetään Konquerorissa asetettua sovellusta.</p>"
 
-#: src/settings.cpp:1011
+#: src/settings.cpp:1006
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
