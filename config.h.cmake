@@ -5,5 +5,5 @@
 #cmakedefine01 HAVE_LIBGIT2
 
 /* Version number of package */
-#define VERSION "2.49-beta"
+#define VERSION "@PROJECT_VERSION@"
 

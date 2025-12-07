@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 cmake_minimum_required(VERSION 3.16)
 
-project(Basket VERSION 2.49.90)
+project(Basket VERSION 2.50.90)
 
 set(QT_MIN_VERSION "6.5.0")
 set(KF_MIN_VERSION "6.9.0")
