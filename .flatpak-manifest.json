@@ -18,6 +18,23 @@
    ],
    "modules" : [
       {
+         "name": "libgit2",
+         "buildsystem": "cmake-ninja",
+         "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release",
+            "-DBUILD_CLI=OFF",
+            "-DBUILD_SHARED_LIBS=ON",
+            "-DBUILD_TESTS=OFF"
+         ],
+         "sources": [
+            {
+               "type": "git",
+               "url": "https://github.com/libgit2/libgit2.git",
+               "branch": "v1.9.2"
+            }
+         ]
+      },
+      {
          "name" : "basket",
          "buildsystem" : "cmake-ninja",
          "sources" : [
