@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2025-12-08 00:46+0000\n"
 "PO-Revision-Date: 2025-12-06 15:47+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3434,22 +3434,22 @@ msgstr ""
 "<p>Zdefiniuj program do otwierania tego typu notatek zamiast programu "
 "zdefiniowanego w Konquerorze.</p>"
 
-#: src/settings_versionsync.cpp:76
+#: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Czy na pewno usunąć stare wersje wszystkich koszyków?"
 
-#: src/settings_versionsync.cpp:77
+#: src/settings_versionsync.cpp:78
 #, kde-format
 msgid "Remove old Baskets"
 msgstr "Usuń stare koszyki"
 
-#: src/settings_versionsync.cpp:78
+#: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Version Sync"
 msgstr "Synchronizacja wersji"
 
-#: src/settings_versionsync.cpp:91
+#: src/settings_versionsync.cpp:92
 #, kde-format
 msgid "This will free %1 MB"
 msgstr "Zwolni to %1 MB"

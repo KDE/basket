@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2025-12-08 00:46+0000\n"
 "PO-Revision-Date: 2022-12-04 23:21+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -3238,23 +3238,23 @@ msgid ""
 "the application configured in Konqueror.</p>"
 msgstr ""
 
-#: src/settings_versionsync.cpp:76
+#: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr ""
 
-#: src/settings_versionsync.cpp:77
+#: src/settings_versionsync.cpp:78
 #, fuzzy, kde-format
 #| msgid "Remove Basket"
 msgid "Remove old Baskets"
 msgstr "Remover li corb"
 
-#: src/settings_versionsync.cpp:78
+#: src/settings_versionsync.cpp:79
 #, fuzzy, kde-format
 msgid "Version Sync"
 msgstr "_Sinc"
 
-#: src/settings_versionsync.cpp:91
+#: src/settings_versionsync.cpp:92
 #, fuzzy, kde-format
 msgid "This will free %1 MB"
 msgstr "%1 líber"

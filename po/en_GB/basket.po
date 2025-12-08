@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2025-12-08 00:46+0000\n"
 "PO-Revision-Date: 2021-02-14 15:06+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -3421,23 +3421,23 @@ msgstr ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 
-#: src/settings_versionsync.cpp:76
+#: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Do you really want to remove old versions for all baskets?"
 
-#: src/settings_versionsync.cpp:77
+#: src/settings_versionsync.cpp:78
 #, fuzzy, kde-format
 #| msgid "Remove Basket"
 msgid "Remove old Baskets"
 msgstr "Remove Basket"
 
-#: src/settings_versionsync.cpp:78
+#: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Version Sync"
 msgstr "Version Sync"
 
-#: src/settings_versionsync.cpp:91
+#: src/settings_versionsync.cpp:92
 #, kde-format
 msgid "This will free %1 MB"
 msgstr "This will free %1 MB"

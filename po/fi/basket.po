@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2025-12-08 00:46+0000\n"
 "PO-Revision-Date: 2025-07-11 09:54+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3409,22 +3409,22 @@ msgstr ""
 "<p>Määritä sovellus, jota käytetään tämän tyypin muistiinpanojen avaamiseen "
 "Konquerorissa asetetun sovelluksen sijaan.</p>"
 
-#: src/settings_versionsync.cpp:76
+#: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Haluatko varmasti poistaa kaikkien korien vanhat versiot?"
 
-#: src/settings_versionsync.cpp:77
+#: src/settings_versionsync.cpp:78
 #, kde-format
 msgid "Remove old Baskets"
 msgstr "Poista vanhat korit"
 
-#: src/settings_versionsync.cpp:78
+#: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Version Sync"
 msgstr "Versiosynkronointi"
 
-#: src/settings_versionsync.cpp:91
+#: src/settings_versionsync.cpp:92
 #, kde-format
 msgid "This will free %1 MB"
 msgstr "Tämä vapauttaa %1 Mt"

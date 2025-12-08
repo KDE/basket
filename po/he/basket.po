@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-04 00:46+0000\n"
+"POT-Creation-Date: 2025-12-08 00:46+0000\n"
 "PO-Revision-Date: 2025-10-05 12:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -3379,22 +3379,22 @@ msgid ""
 msgstr ""
 "<p>הגדרת היישום לפתיחת סוג הפתקיות הזה במקום היישום שמוגדר ב־Konqueror.</p>"
 
-#: src/settings_versionsync.cpp:76
+#: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr "להסיר גרסאות ישנות של כל הסלים?"
 
-#: src/settings_versionsync.cpp:77
+#: src/settings_versionsync.cpp:78
 #, kde-format
 msgid "Remove old Baskets"
 msgstr "הסרת סלים ישנים"
 
-#: src/settings_versionsync.cpp:78
+#: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Version Sync"
 msgstr "סנכרון גרסה"
 
-#: src/settings_versionsync.cpp:91
+#: src/settings_versionsync.cpp:92
 #, kde-format
 msgid "This will free %1 MB"
 msgstr "הפעולה הזאת תפנה %1 מ״ב"
