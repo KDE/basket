@@ -24,9 +24,6 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fno-delete-null-pointer-checks")
 endif()
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED YES)
-
 # ECM
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
