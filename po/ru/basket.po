@@ -3,19 +3,20 @@
 #
 # Danil Dotsenko <dd@accentsolution.com>, 2006.
 # Daniel Dotsenko <dd@accentsolution.com>, 2007.
+# SPDX-FileCopyrightText: 2026 Alexander Yavorskiy <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2016-12-10 18:04+0100\n"
-"Last-Translator: Gleb Baryshev <gleb.baryshev@gmail.com>\n"
-"Language-Team:  <ru@li.org>\n"
+"PO-Revision-Date: 2026-01-05 18:14+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 25.12.0\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Language: ru_RU\n"
@@ -24,12 +25,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Danil Dotsenko,Gleb Baryshev"
+msgstr "Danil Dotsenko,Gleb Baryshev,Александр Яворский"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "dd@accentsolution.com,gleb.baryshev@gmail.com"
+msgstr "dd@accentsolution.com,gleb.baryshev@gmail.com,kekcuha@gmail.com"
 
 #: devtools/weaver/main.cpp:18
 #, fuzzy, kde-format
@@ -41,28 +42,34 @@ msgstr "Корзины"
 #: devtools/weaver/main.cpp:19
 #, kde-format
 msgid "Encodes and decodes .baskets files"
-msgstr ""
+msgstr "Кодирование и  декодирование файлов .baskets"
 
 #: devtools/weaver/main.cpp:28
 #, kde-format
 msgid "Destination directory. Optional."
-msgstr ""
+msgstr "Каталог назначения (необязательный параметр)"
 
 #: devtools/weaver/main.cpp:33
 #, kde-format
 msgid ""
 "Use the <image> as preview image for a .baskets file. Must be a .png file."
 msgstr ""
+"Использует изображение <image> в качестве миниатюры для файла .baskets. "
+"Изображение должно быть файлом .png."
 
 #: devtools/weaver/main.cpp:38
 #, kde-format
 msgid "Decodes the <file>. Cannot be used together with --weave."
 msgstr ""
+"Декодирует файл <file>. Не может использоваться совместно с параметром --"
+"weave."
 
 #: devtools/weaver/main.cpp:43
 #, kde-format
 msgid "Encodes the <directory>. Cannot be used together with --unweave."
 msgstr ""
+"Кодирует каталог <directory>. Не может использоваться совместно с параметром "
+"--unweave."
 
 #: devtools/weaver/main.cpp:48
 #, kde-format
@@ -70,22 +77,24 @@ msgid ""
 "This optional value will be used to label the new content within the "
 "optionally given output directory"
 msgstr ""
+"Это необязательное значение будет использовано для обозначения нового "
+"содержимого в опционально указанном каталоге вывода."
 
 #: devtools/weaver/main.cpp:52
-#, fuzzy, kde-format
-#| msgid "Override File?"
+#, kde-format
 msgid "Overwrite existing files."
-msgstr "Переписать поверх файла?"
+msgstr "Перезаписывать существующие файлы."
 
 #: devtools/weaver/weaver.cpp:44
 #, kde-format
 msgid "You need to provide at least one --weave/-w or --unweave/-u option"
 msgstr ""
+"Требуется указать как минимум один параметр: --weave/-w или --unweave/-u."
 
 #: devtools/weaver/weaver.cpp:49
 #, kde-format
 msgid "You cannot use --weave/-w and --unweave/-u options in conjunction."
-msgstr ""
+msgstr "Аргументы --weave/-w и --unweave/-u нельзя использовать одновременно."
 
 #: devtools/weaver/weaver.cpp:55
 #, kde-format
@@ -93,6 +102,8 @@ msgid ""
 "Multiple --weave/-w or --unweave/-u input options found. All but the first "
 "input are going to be ignored."
 msgstr ""
+"Обнаружено несколько параметров --weave/-w или --unweave/-u. Все параметры, "
+"кроме первого, будут проигнорированы."
 
 #: devtools/weaver/weaver.cpp:79
 #, kde-format
@@ -102,18 +113,17 @@ msgstr ""
 #: devtools/weaver/weaver.cpp:86 devtools/weaver/weaver.cpp:127
 #, kde-format
 msgid "Output directory does not exist."
-msgstr ""
+msgstr "Выходной каталог не существует."
 
 #: devtools/weaver/weaver.cpp:113
 #, kde-format
 msgid "The source seems to be invalid."
-msgstr ""
+msgstr "Указан недопустимый источник."
 
 #: devtools/weaver/weaver.cpp:280
-#, fuzzy, kde-format
-#| msgid "Load note from file"
+#, kde-format
 msgid "Could not open file."
-msgstr "Загрузить из файла..."
+msgstr "Не удалось открыть файл."
 
 #: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
 #, fuzzy, kde-format
@@ -134,24 +144,21 @@ msgstr "Файл повреждён. Чтение невозможно."
 #: devtools/weaver/weaver.cpp:313
 #, kde-format
 msgid "The destination path already exists."
-msgstr ""
+msgstr "Каталог назначения уже существует."
 
 #: devtools/weaver/weaver.cpp:316
 #, kde-format
 msgid "This file supplied file format is not supported"
-msgstr ""
+msgstr "Формат указанного файла не поддерживается."
 
 #: devtools/weaver/weaver.cpp:319
-#, fuzzy, kde-format
-#| msgid ""
-#| "This file was created with a recent version of %1. Please upgrade to a "
-#| "newer version to be able to open that file."
+#, kde-format
 msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
 msgstr ""
-"Этот файл был создан другой версией %1. Пожалуйста, установите более новую "
-"версию приложения."
+"Этот файл создан более новой версией BasKet Note Pads. Поддержка новых "
+"функций может быть неполной."
 
 #: src/aboutdata.cpp:16
 #, kde-format
@@ -165,31 +172,30 @@ msgstr ""
 "холсте.</p>"
 
 #: src/aboutdata.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
-msgstr "© 2003–2007, Sébastien Laoût; © 2013–2016, Gleb Baryshev"
+msgstr "© 2003–2007, Sébastien Laoût; © 2013–2019, Gleb Baryshev"
 
 #: src/aboutdata.cpp:27
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "Carl Schwan"
 
 #: src/aboutdata.cpp:27 src/aboutdata.cpp:28
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgid "Co-Maintainer"
-msgstr "Сопровождение"
+msgstr "Сопровождающий"
 
 #: src/aboutdata.cpp:28
 #, kde-format
 msgid "Niccolò Venerandi"
-msgstr ""
+msgstr "Niccolò Venerandi"
 
 #: src/aboutdata.cpp:29
 #, kde-format
 msgid "OmegaPhil"
-msgstr ""
+msgstr "OmegaPhil"
 
 #: src/aboutdata.cpp:29
 #, kde-format
@@ -199,18 +205,17 @@ msgstr "Отбрасывание форматирования при встав�
 #: src/aboutdata.cpp:30
 #, kde-format
 msgid "Kelvie Wong"
-msgstr ""
+msgstr "Kelvie Wong"
 
 #: src/aboutdata.cpp:30
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgid "Ex-Maintainer"
-msgstr "Сопровождение"
+msgstr "Прежний сопровождающий"
 
 #: src/aboutdata.cpp:31
 #, kde-format
 msgid "Sébastien Laoût"
-msgstr ""
+msgstr "Sébastien Laoût"
 
 #: src/aboutdata.cpp:31
 #, kde-format
@@ -220,7 +225,7 @@ msgstr "Первоначальный автор"
 #: src/aboutdata.cpp:32
 #, kde-format
 msgid "Petri Damstén"
-msgstr ""
+msgstr "Petri Damstén"
 
 #: src/aboutdata.cpp:32
 #, kde-format
@@ -230,7 +235,7 @@ msgstr "Шифрование корзин, Интеграция с Kontact, Им
 #: src/aboutdata.cpp:33
 #, kde-format
 msgid "Alex Gontmakher"
-msgstr ""
+msgstr "Alex Gontmakher"
 
 #: src/aboutdata.cpp:34
 #, kde-format
@@ -244,7 +249,7 @@ msgstr ""
 #: src/aboutdata.cpp:36
 #, kde-format
 msgid "Marco Martin"
-msgstr ""
+msgstr "Marco Martin"
 
 #: src/aboutdata.cpp:36
 #, kde-format
@@ -275,19 +280,16 @@ msgstr "Ошибка в контейнер."
 #: src/archive.cpp:273
 #, kde-format
 msgid "Extraction path already exists."
-msgstr ""
+msgstr "Путь для извлечения уже существует."
 
 #: src/archive.cpp:277
-#, fuzzy, kde-format
-#| msgid ""
-#| "This file was created with a recent version of %1. Please upgrade to a "
-#| "newer version to be able to open that file."
+#, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
 msgstr ""
-"Этот файл был создан другой версией %1. Пожалуйста, установите более новую "
-"версию приложения."
+"Этот файл был создан устаревшей версией %1. Установите новую версию "
+"приложения, чтобы открыть этот файл."
 
 #: src/archive.cpp:284
 #, kde-format
@@ -298,10 +300,11 @@ msgid ""
 "saving the file back, consider to save it to another file, to preserve the "
 "original one."
 msgstr ""
-"Этот файл был создан другой версией %1. Его можно прочитать но, возможно, не "
-"все данные будут импортированны вследствие несовпадения встроенных типов "
-"данных. Сохраните ваши изменения в другом файле, иначе неимпортированные "
-"данные могут быть утеряны."
+"Этот файл создан устаревшей версией %1. Файл можно открыть, но не вся "
+"информация будет доступна. Например, некоторые заметки могут отсутствовать, "
+"так как они относятся к типам, поддерживаемым только в новых версиях. При "
+"сохранении файла рекомендуется сохранить его под другим именем, чтобы не "
+"повредить исходный файл."
 
 #: src/backup.cpp:54
 #, kde-format
@@ -388,22 +391,19 @@ msgid "Choose a Folder Where to Move Baskets"
 msgstr "Выберите папку"
 
 #: src/backup.cpp:161
-#, fuzzy, kde-format
-#| msgid "The folder <b>%1</b> is not empty. Do you want to override it?"
+#, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
-msgstr "Папка <b>%1</b> не пуста. Стереть содержимое?"
+msgstr "Папка <b>%1</b> не пуста. Перезаписать её содержимое?"
 
 #: src/backup.cpp:162
-#, fuzzy, kde-format
-#| msgid "Override Folder?"
+#, kde-format
 msgid "Overwrite Folder?"
-msgstr "Заменить содержимое папки?"
+msgstr "Перезаписать содержимое папки?"
 
 #: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
-#, fuzzy, kde-format
-#| msgid "&Override"
+#, kde-format
 msgid "&Overwrite"
-msgstr "За&менить"
+msgstr "&Перезаписать"
 
 #: src/backup.cpp:173
 #, kde-format
@@ -554,10 +554,10 @@ msgid "Custom folder to load and save baskets and other application data."
 msgstr "Папка для хранения корзин и других данных программы"
 
 #: src/basket_options.h:22
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
-msgstr "Папка \"Домой\""
+msgstr "папка"
 
 #: src/basket_options.h:24
 #, kde-format
@@ -757,15 +757,13 @@ msgid "The new notes do not match the filter and are hidden."
 msgstr "Новые заметки не подходят под категории фильтра и были спрятаны."
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
-msgstr "Сгруппировать"
+msgstr "Группировать"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Вставить"
@@ -942,46 +940,49 @@ msgid "Tags"
 msgstr "Метки"
 
 #: src/basketscene.cpp:3948
-#, fuzzy, kde-format
-#| msgid "<qt>Do you really want to delete this note?</qt>"
-#| msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
+#, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
-msgstr[0] "<qt>Удалить корзину и её содержимое?</qt>"
-msgstr[1] "<qt>Удалить <b>%1</b> корзины и их содержимое?</qt>"
-msgstr[2] "<qt>Удалить <b>%1</b> корзин и их содержимое?</qt>"
+msgstr[0] "<qt>Удалить эти <b>%1</b> заметку?</qt>"
+msgstr[1] "<qt>Удалить эти <b>%1</b> заметку?</qt>"
+msgstr[2] "<qt>Удалить эти <b>%1</b> заметок?</qt>"
+msgstr[3] "<qt>Удалить эту заметку?</qt>"
 
 #: src/basketscene.cpp:3949
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
-msgstr[0] "Удалить заметку"
+msgstr[0] "Удалить заметки"
 msgstr[1] "Удалить заметки"
 msgstr[2] "Удалить заметки"
+msgstr[3] "Удалить заметку "
 
 #: src/basketscene.cpp:4048
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
-msgstr[0] "Заметка скопирована в буфер."
-msgstr[1] "Заметки скопированы в буфер."
-msgstr[2] "Заметки скопированы в буфер."
+msgstr[0] "Заметки скопированы в буфер обмена."
+msgstr[1] "Заметки скопированы в буфер обмена."
+msgstr[2] "Заметки скопированы в буфер обмена."
+msgstr[3] "Заметка скопирована в буфер обмена."
 
 #: src/basketscene.cpp:4051
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
-msgstr[0] "Вырезать заметку в буфер обмена"
-msgstr[1] "Вырезать заметки в буфер обмена"
-msgstr[2] "Вырезать заметки в буфер обмена"
+msgstr[0] "Вырезать заметки в буфер обмена."
+msgstr[1] "Вырезать заметки в буфер обмена."
+msgstr[2] "Вырезать заметки в буфер обмена."
+msgstr[3] "Вырезать заметку в буфер обмена."
 
 #: src/basketscene.cpp:4054
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
-msgstr[0] "Заметка скопирована в выделение."
+msgstr[0] "Заметки скопированы в выделение."
 msgstr[1] "Заметки скопированы в выделение."
 msgstr[2] "Заметки скопированы в выделение."
+msgstr[3] "Заметка скопирована в выделение."
 
 #: src/basketscene.cpp:4118 src/basketscene.cpp:4193
 #, kde-format
@@ -1099,10 +1100,9 @@ msgstr "Основная панель инструментов"
 
 #. i18n: ectx: ToolBar (richTextEditToolBar)
 #: src/basketui.rc:141
-#, fuzzy, kde-format
-#| msgid "Text Formating Toolbar"
+#, kde-format
 msgid "Text Formatting Toolbar"
-msgstr "Панель инструментов Формат"
+msgstr "Панель инструментов форматирования текста"
 
 #: src/bnpview.cpp:166 src/bnpview.cpp:1246
 #, kde-format
@@ -1345,10 +1345,9 @@ msgid "Inverts the current selection of notes"
 msgstr "Уберает выделение с выделенных заметок, выделяет невыделенные заметки"
 
 #: src/bnpview.cpp:440
-#, fuzzy, kde-format
-#| msgid "Text Formating Toolbar"
+#, kde-format
 msgid "&Clear Formatting"
-msgstr "Панель инструментов Формат"
+msgstr "&Убрать форматирование"
 
 #: src/bnpview.cpp:444
 #, kde-format
@@ -1591,20 +1590,22 @@ msgid "No notes"
 msgstr "Пусто"
 
 #: src/bnpview.cpp:1612
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 заметка"
 msgstr[1] "%1 заметки"
 msgstr[2] "%1 заметок"
+msgstr[3] "%1 заметка"
 
 #: src/bnpview.cpp:1613
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 выбрана"
 msgstr[1] "%1 выбрано"
 msgstr[2] "%1 выбрано"
+msgstr[3] "%1 выбрана"
 
 #: src/bnpview.cpp:1614
 #, kde-format
@@ -1617,12 +1618,13 @@ msgid "no filter"
 msgstr "фильтр не установлен"
 
 #: src/bnpview.cpp:1616
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 совпадение"
 msgstr[1] "%1 совпадения"
 msgstr[2] "%1 совпадений"
+msgstr[3] "%1 совпадение"
 
 #: src/bnpview.cpp:1617
 #, kde-format
@@ -1646,15 +1648,7 @@ msgid "There are no plain text notes to convert."
 msgstr "Заметки с обычным текстом отсутствуют."
 
 #: src/bnpview.cpp:1771
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
-#| "run without it and will stop.</b></p><p>Please check your installation of "
-#| "%2.</p><p>If you do not have administrator access to install the "
-#| "application system wide, you can copy the file basketui.rc from the "
-#| "installation archive to the folder <a href='file://%3'>%4</a>.</p><p>As "
-#| "last ressort, if you are sure the application is correctly installed but "
-#| "you had a preview version of it, try to remove the file %5basketui.rc</p>"
+#, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
 "run without it and will stop.</b></p><p>Please check your installation of %2."
@@ -1664,12 +1658,13 @@ msgid ""
 "sure the application is correctly installed but you had a preview version of "
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
-"<p><b>Файл basketui.rc либо не сществует, либо очень стар.<br>%1 не может "
-"работать без него и останавливает свою работу.</b></p><p>Проверьте "
-"сложенность инсталяции %2.</p><p>Если у вас нету прав администратора для "
-"полноценной установки приложения, можно скопировать файл basket.rc из "
-"инсталяционного пакета в папку <a href='file://%3'>%4</a>.</p><p>В крайнем "
-"случае, можно попробовать удалить файл %5basketui.rc</p>"
+"<p><b>Файл basketui.rc отсутствует или устарел.<br> Приложение %1 не может "
+"быть запущено без него и будет остановлено.</b></p><p>Проверьте корректность "
+"установки %2.</p><p>При отсутствии прав администратора для установки "
+"приложения в систему, файл basketui.rc можно скопировать из установочного "
+"архива в каталог <a href='file://%3'>%4</a>.</p><p>В крайнем случае, если "
+"приложение установлено корректно, но ранее использовалась предварительная "
+"версия, следует попытаться удалить файл %5basketui.rc.</p>"
 
 #: src/bnpview.cpp:1785
 #, kde-format
@@ -1721,17 +1716,14 @@ msgid "Basket Archives"
 msgstr "Свойства корзины"
 
 #: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
-#, fuzzy, kde-format
-#| msgid ""
-#| "The file <b>%1</b> already exists. Do you really want to override it?"
+#, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
-msgstr "Файл <b>%1</b> уже существует. Переписать поверх?"
+msgstr "Файл <b>%1</b> уже существует. Заменить его?"
 
 #: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
-#, fuzzy, kde-format
-#| msgid "Override File?"
+#, kde-format
 msgid "Overwrite File?"
-msgstr "Переписать поверх файла?"
+msgstr "Заменить файл?"
 
 #: src/bnpview.cpp:2478
 #, kde-format
@@ -1759,10 +1751,9 @@ msgid "Please assign a password to the basket <b>%1</b>:"
 msgstr "Введите пароль для корзины '%1':"
 
 #: src/common.cpp:144
-#, fuzzy, kde-format
-#| msgid "Error while saving"
+#, kde-format
 msgid "Error while saving: "
-msgstr "Ошибка сохранения"
+msgstr "Ошибка сохранения: "
 
 #: src/debugwindow.cpp:23
 #, kde-format
@@ -1772,32 +1763,32 @@ msgstr "Окно служебных сообщений"
 #: src/file_metadata.cpp:18
 #, kde-format
 msgid "Bit rate"
-msgstr ""
+msgstr "Битрейт"
 
 #: src/file_metadata.cpp:19
 #, kde-format
 msgid "Channels"
-msgstr ""
+msgstr "Каналы"
 
 #: src/file_metadata.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Duration"
-msgstr "Информация"
+msgstr "Длительность"
 
 #: src/file_metadata.cpp:21
 #, kde-format
 msgid "Genre"
-msgstr ""
+msgstr "Жанр"
 
 #: src/file_metadata.cpp:22
 #, kde-format
 msgid "Sample rate"
-msgstr ""
+msgstr "Частота дискретизации"
 
 #: src/file_metadata.cpp:23
 #, kde-format
 msgid "Track number"
-msgstr ""
+msgstr "Номер дорожки"
 
 #: src/file_metadata.cpp:24 src/notecontent.cpp:2170
 #, kde-format
@@ -1807,12 +1798,12 @@ msgstr "Комментарий"
 #: src/file_metadata.cpp:25
 #, kde-format
 msgid "Artist"
-msgstr ""
+msgstr "Исполнитель"
 
 #: src/file_metadata.cpp:26
 #, kde-format
 msgid "Album"
-msgstr ""
+msgstr "Альбом"
 
 #: src/file_metadata.cpp:27 src/tag.cpp:719
 #, kde-format
@@ -1822,27 +1813,27 @@ msgstr "Заголовок"
 #: src/file_metadata.cpp:28
 #, kde-format
 msgid "Word count"
-msgstr ""
+msgstr "Количество слов"
 
 #: src/file_metadata.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Line count"
-msgstr "Одна колонка"
+msgstr "Количество строк"
 
 #: src/file_metadata.cpp:30
 #, kde-format
 msgid "Copyright"
-msgstr ""
+msgstr "Авторские права"
 
 #: src/file_metadata.cpp:31
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: src/file_metadata.cpp:32
 #, kde-format
 msgid "Frame rate"
-msgstr ""
+msgstr "Частота кадров"
 
 #: src/filter.cpp:42
 #, kde-format
@@ -1875,14 +1866,7 @@ msgid "(Tagged)"
 msgstr "(помечен)"
 
 #: src/formatimporter.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Folder mirroring is not possible anymore (see <a href='http://basket-"
-#| "notepads.github.io'>basket-notepads.github.io</a> for more information).</"
-#| "p><p>The folder <b>%1</b> has been copied for the basket needs. You can "
-#| "either delete this folder or delete the basket, or use both. But remember "
-#| "that modifying one will not modify the other anymore as they are now "
-#| "separate entities.</p>"
+#, kde-format
 msgid ""
 "<p>Folder mirroring is not possible anymore (see <a href='https://basket-"
 "notepads.github.io'>basket-notepads.github.io</a> for more information).</"
@@ -1891,11 +1875,12 @@ msgid ""
 "that modifying one will not modify the other anymore as they are now "
 "separate entities.</p>"
 msgstr ""
-"<p>Функция не поддерживается. (Более по вопросу на <a href='http://basket-"
-"notepads.github.io'>basket-notepads.github.io</a>).</p><p>Папка <b>%1</b> "
-"была скопирована для нужд корзины. Вы можете удалить папку, корзину, или "
-"использовать оба.Но, помните! Модификация одного НЕ отражается на состоянии "
-"другого. Теперь они - отдельные, несвязанные ресурсы.</p>"
+"<p>Функция не поддерживается. (более подробная информация на странице <a "
+"href='https://basket-notepads.github.io'>basket-notepads.github.io</a>).</"
+"p><p>Папка <b>%1</b> была скопирована для нужд корзины. Вы можете удалить "
+"папку, корзину, или использовать оба. Но помните, что изменение одной из "
+"копий не влияет на состояние другой копии. Теперь это отдельные, несвязанные "
+"ресурсы.</p>"
 
 #: src/formatimporter.cpp:125
 #, kde-format
@@ -3427,10 +3412,9 @@ msgid "Do you really want to remove old versions for all baskets?"
 msgstr "Удалить старые версии для всех корзин?"
 
 #: src/settings_versionsync.cpp:78
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Удалить"
+msgstr "Удалить старые корзины"
 
 #: src/settings_versionsync.cpp:79
 #, kde-format
@@ -3798,7 +3782,7 @@ msgstr "[[./дочерний элемент|заголовок по желани
 #: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "При сравнении корзин регистр не учитывается."
 
 #: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
@@ -3937,7 +3921,7 @@ msgstr "Удалить состояние метки"
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
@@ -3945,10 +3929,9 @@ msgstr ""
 #: src/variouswidgets.cpp:275 src/variouswidgets.cpp:276
 #: src/variouswidgets.cpp:277 src/variouswidgets.cpp:278
 #: src/variouswidgets.cpp:279 src/variouswidgets.cpp:280
-#, fuzzy, kde-format
-#| msgid "%1 by %2 pixels"
+#, kde-format
 msgid "%1 by %1 pixels"
-msgstr "%1 х %2 точек"
+msgstr "%1 х %1 точек"
 
 #: src/variouswidgets.cpp:195
 #, kde-format
