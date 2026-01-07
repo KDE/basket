@@ -105,8 +105,8 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
         comment = service->comment();
     } else {
         buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
-        displayName = QStringLiteral("Choose an Application Launcher ...");
-        comment = QStringLiteral("Use KDE Plasma Application Launchers to open your Basket Notes");
+        displayName = i18n("Choose an Application Launcher ...");
+        comment = i18n("Use KDE Plasma Application Launchers to open your Basket Notes");
     }
 
     m_serviceChooser->setIcon(buttonIcon);

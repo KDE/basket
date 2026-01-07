@@ -921,7 +921,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     QIcon buttonIcon = QIcon::fromTheme(QStringLiteral("kmenuedit"));
     m_menuEdit->setIcon(buttonIcon);
     m_menuEdit->setIconSize(QSize(24, 24));
-    m_menuEdit->setText(QStringLiteral("Launch KDE Menu Editor"));
+    m_menuEdit->setText(i18n("Launch KDE Menu Editor"));
     m_menuEdit->setToolTip(menuEditTooltip);
     connect(m_menuEdit, &QAbstractButton::clicked, this, &ApplicationsPage::openMenuEditor);
     hLay->addWidget(m_menuEdit);
@@ -930,7 +930,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     buttonIcon = QIcon::fromTheme(QStringLiteral("preferences-desktop-default-applications"));
     m_componentChooser->setIcon(buttonIcon);
     m_componentChooser->setIconSize(QSize(24, 24));
-    m_componentChooser->setText(QStringLiteral("Default Applications"));
+    m_componentChooser->setText(i18n("Default Applications"));
     m_componentChooser->setToolTip(componentChooserTooltip);
     connect(m_componentChooser, &QAbstractButton::clicked, this, &ApplicationsPage::openDefaultApplications);
     hLay->addWidget(m_componentChooser);
@@ -939,7 +939,7 @@ ApplicationsPage::ApplicationsPage(QObject *parent, const KPluginMetaData &data)
     buttonIcon = QIcon::fromTheme(QStringLiteral("preferences-desktop-filetype-association"));
     m_fileTypes->setIcon(buttonIcon);
     m_fileTypes->setIconSize(QSize(24, 24));
-    m_fileTypes->setText(QStringLiteral("File Associations"));
+    m_fileTypes->setText(i18n("File Associations"));
     m_fileTypes->setToolTip(fileAssociationsTooltip);
     connect(m_fileTypes, &QAbstractButton::clicked, this, &ApplicationsPage::openFileAssociations);
     hLay->addWidget(m_fileTypes);
