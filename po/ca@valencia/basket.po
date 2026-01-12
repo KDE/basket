@@ -120,7 +120,7 @@ msgstr "No s'ha pogut obrir el fitxer."
 #: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
 #, kde-format
 msgid "Failed to open a file resource."
-msgstr "No s'ha pogut obrir un recurs de fitxer."
+msgstr "Ha fallat mentre s'obria un recurs de fitxer."
 
 #: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
 #, kde-format
@@ -269,7 +269,7 @@ msgstr "S'està guardant com a arxiu de cistelles. Espereu…"
 #: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
 #, kde-format
 msgid "Basket Archive Error"
-msgstr "S'ha produït un error en l'arxiu de cistelles"
+msgstr "S'ha produït un error durant l'arxiu de cistelles"
 
 #: src/archive.cpp:273
 #, kde-format
@@ -527,7 +527,7 @@ msgstr ""
 #: src/backup.cpp:319
 #, kde-format
 msgid "Restore Error"
-msgstr "S'ha produït un error en restaurar"
+msgstr "S'ha produït un error mentre es restaurava"
 
 #: src/backup.cpp:328
 #, kde-format
@@ -1766,7 +1766,7 @@ msgstr "Assigneu una contrasenya a la cistella <b>%1</b>:"
 #: src/common.cpp:144
 #, kde-format
 msgid "Error while saving: "
-msgstr "S'ha produït un error en guardar: "
+msgstr "S'ha produït un error mentre es guardava: "
 
 #: src/debugwindow.cpp:23
 #, kde-format
@@ -2894,7 +2894,7 @@ msgstr "&Mou ací\t«Majús»"
 #: src/notefactory.cpp:554
 #, kde-format
 msgid "&Copy Here\tCtrl"
-msgstr "&Copia ací\tCtrl"
+msgstr "&Copia ací\t«Ctrl»"
 
 #: src/notefactory.cpp:555
 #, kde-format
