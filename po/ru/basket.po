@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2026-01-05 18:14+0200\n"
+"PO-Revision-Date: 2026-02-13 21:31+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.2\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Language: ru_RU\n"
@@ -33,11 +33,9 @@ msgid "Your emails"
 msgstr "dd@accentsolution.com,gleb.baryshev@gmail.com,kekcuha@gmail.com"
 
 #: devtools/weaver/main.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "HTML export folder (baskets)"
-#| msgid "baskets"
+#, kde-format
 msgid "basketweaver"
-msgstr "Корзины"
+msgstr "basketweaver"
 
 #: devtools/weaver/main.cpp:19
 #, kde-format
@@ -108,7 +106,7 @@ msgstr ""
 #: devtools/weaver/weaver.cpp:79
 #, kde-format
 msgid "The source seems to be an invalid .baskets file"
-msgstr ""
+msgstr "Похоже, исходный файл .baskets повреждён или имеет неверный формат."
 
 #: devtools/weaver/weaver.cpp:86 devtools/weaver/weaver.cpp:127
 #, kde-format
@@ -126,10 +124,9 @@ msgid "Could not open file."
 msgstr "Не удалось открыть файл."
 
 #: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
-#, fuzzy, kde-format
-#| msgid "Unable to open this note."
+#, kde-format
 msgid "Failed to open a file resource."
-msgstr "Невозможно открыть заметку."
+msgstr "Не удалось открыть файловый ресурс."
 
 #: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
 #, kde-format
@@ -1436,9 +1433,9 @@ msgid "L&auncher"
 msgstr "Ссылка на &приложение"
 
 #: src/bnpview.cpp:543
-#, fuzzy, kde-format
+#, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr "Вставить сылку приложения из меню KDE..."
+msgstr "Импорт средства запуска для &настольного приложения…"
 
 #: src/bnpview.cpp:548
 #, kde-format
@@ -1938,12 +1935,13 @@ msgid "data"
 msgstr "Данные"
 
 #: src/htmlexporter.cpp:402
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
 "information at hand."
 msgstr ""
-"Создано с <a href=\"%1\">%2</a> %3. Организуем невозможное с лёгкостью."
+"Создано с помощью <a href=\"%1\">%2</a> %3 — инструмента для создания "
+"заметок и хранения информации под рукой."
 
 #: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
 #: src/variouswidgets.cpp:404
@@ -2996,15 +2994,14 @@ msgid "Ask confirmation before &deleting notes"
 msgstr "Спрашивать разрешение перед удалением заметки"
 
 #: src/settings.cpp:513
-#, fuzzy, kde-format
-#| msgid "Do not keep text formatting when pasting"
+#, kde-format
 msgid "Keep text formatting when pasting"
-msgstr "Не сохранять форматирование текста при вставке"
+msgstr "Сохранять форматирование текста при вставке"
 
 #: src/settings.cpp:517
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "Автоматически определять теги из содержимого заметки"
 
 #: src/settings.cpp:524
 #, kde-format
@@ -3107,9 +3104,9 @@ msgid "Load note from file"
 msgstr "Загрузить из файла..."
 
 #: src/settings.cpp:575
-#, fuzzy, kde-format
+#, kde-format
 msgid "Import Launcher for desktop application"
-msgstr "Вставить сылку приложения из меню KDE..."
+msgstr "Импорт средства запуска для настольного приложения"
 
 #: src/settings.cpp:576
 #, kde-format
@@ -3254,7 +3251,7 @@ msgstr "Перекрёстные ссылки"
 #: src/settings.cpp:874
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Общие связи запуска"
 
 #: src/settings.cpp:877
 #, kde-format
@@ -3274,9 +3271,24 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>В современных окружениях рабочего стола конфигурации средств запуска "
+"предоставляют системе сведения об обработке приложений. Эти файлы необходимы "
+"для интеграции приложений в окружение рабочего стола, а также для вывода "
+"списка, поиска и запуска приложений с определёнными параметрами.</p><p>Чтобы "
+"запустить браузер Falkon с определённым профилем, сделайте следующее:</"
+"p><ul><li>Откройте Редактор меню KDE и введите \"Falkon\" в поле поиска;</"
+"li><li>Выберите средство запуска рабочего стола \"Falkon\", щёлкните правой "
+"кнопкой мыши, скопируйте и вставьте;</li><li>Измените свойства на вкладке "
+"\"Общие\", такие как \"Название\", \"Описание\" или \"Комментарий\".</"
+"li><li>Измените поле \"Аргументы командной строки\", например на --profile "
+"'Ваш-Обширный-Профиль' %%u\".</li></ul><p>Теперь при выборе вашего нового "
+"средства запуска для ссылок в заметках, Basket будет открывать HTTP-ссылки с "
+"профилем Falkon \"Ваш-Обширный-Профиль\".</p><p>Дополнительные сведения о "
+"тонкой настройке (например, открытие PDF-документов предпочтительно в "
+"Falkon) приведены в подсказке второй кнопки.</p>"
 
 #: src/settings.cpp:891
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3293,19 +3305,22 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 msgstr ""
-"<p>Щёлкая на линк, вы откроете содержимое привязанного файла в "
-"соответсвуйщем приложении, что похоже на поведение в остальных частях "
-"операционной системы.</p><p>Если естиь желание изменить приложение в котором "
-"откроется линк:</p><ul><li>Откройте Центр Управления (Настройка KDE) (или "
-"запустите \"kcontrol\" в коммандной строке);</li><li>Перейдите в "
-"\"Компоненты KDE\" и \"Выбор Компонентов\" секцию;</li><li>Выберите \"Браузер"
-"\", активируйте \"в следующем браузере:\" и введите комманду запуска другого "
-"браузера. (Примеры: \"firefox\" или \"epiphany\").</li></ul><p>С этих пор "
-"<i>все</i> линки начинающиеся с \"http://...\", будут открываться там где "
-"вам надо.</p>"
+"<p>Веб-ссылки открываются в разных приложениях в зависимости от их "
+"содержимого (веб-страница, изображение, PDF-документ...), как если бы они "
+"были файлами на вашем компьютере.</p><p>Чтобы все веб-адреса открывались в "
+"веб-браузере (полезно, если вы используете не Plasma, а например GNOME, "
+"XFCE...), сделайте следующее:</p><ul><li>Откройте Параметры системы KDE "
+"(если недоступны, попробуйте ввести \"systemsettings\" в командной строке);</"
+"li><li>Перейдите в раздел \"Приложения\", затем \"Приложения по умолчанию\";"
+"</li><li>Выберите \"Веб-браузер\", отметьте \"с помощью следующей команды:\" "
+"и укажите название вашего браузера (например \"firefox\" или \"epiphany\").</"
+"li></ul><p>После этого любая ссылка, начинающаяся с \"https://...\", будет "
+"открываться в вашем веб-браузере (например Mozilla Firefox, Epiphany и т.д.)."
+"</p><p>Дополнительные сведения о тонкой настройке (например, открытие только "
+"веб-страниц в браузере) приведены в подсказке третьей кнопки.</p>"
 
 #: src/settings.cpp:905
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
 "also applies to Web links if you choose not to open them systematically in a "
@@ -3321,20 +3336,24 @@ msgid ""
 "the applications list, add your Web browser as the first entry;</li><li>Do "
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 msgstr ""
-"<p>Что бы научить приложение открывать линки в специфических приложениях "
-"опробуйте следующий способ.</p> <p>Допустим, мы хотим открывать HTML линки в "
-"специальном браузере, но остольные файлы в стандарном режиме. Следуйте этим "
-"шагам для каждого типа фалов.</p><ul><li>Откройте Центр Управления "
-"(Настройка KDE) (или запустите \"kcontrol\" в коммандной строке);</"
-"li><li>Выберите \"Компоненты KDE\" и \"Ассоциации Файлов\" секцию;</li><li>В "
-"дереве, выберите \"text\", затем \"html\";</li><li>Добавьте выше желаемое "
-"первым в листе приложений;</li><li>Повторите процедуру в типе \"application -"
-"> xhtml+xml\".</li></ul>"
+"<p>Ниже описано, как назначить приложение для каждого типа файлов. Это также "
+"применимо к веб-ссылкам, если вы не хотите, чтобы они всегда открывались в "
+"браузере (см. первую справку). Настроек по умолчанию обычно достаточно, но "
+"этот совет полезен, если вы используете GNOME, XFCE или другое окружение, "
+"отличное от Plasma.</p><p>Пример настройки открытия HTML-страниц в веб-"
+"браузере (с сохранением других приложений для остальных адресов или файлов). "
+"Повторите эти действия для каждого типа файлов, которые нужно открывать в "
+"определённом приложении.</p><ul><li>Откройте Параметры системы KDE (если "
+"недоступны, попробуйте ввести \"systemsettings\" в командной строке);</"
+"li><li>Перейдите в раздел \"Приложения\", затем \"Связи приложений\";</"
+"li><li>В дереве разверните \"text\" и выберите \"html\";</li><li>В списке "
+"приложений добавьте ваш веб-браузер первым в списке;</li><li>Повторите то же "
+"самое для типа \"application -> xhtml+xml\".</li></ul>"
 
 #: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Особые связи корзин"
 
 #: src/settings.cpp:955
 #, kde-format
@@ -3377,16 +3396,14 @@ msgid "Open sound notes with:"
 msgstr "Открыть заметки со звуками в:"
 
 #: src/settings.cpp:987
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "Открыть заметки с текстом во внешнем приложении:"
+msgstr "Открывать заметки с HTTP-ссылками в другом приложении:"
 
 #: src/settings.cpp:988
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Открыть текст:"
+msgstr "Открывать заметки с HTTP-ссылками с помощью:"
 
 #: src/settings.cpp:996
 #, kde-format
@@ -3738,16 +3755,13 @@ msgid "What does this do?"
 msgstr "Что это значит?"
 
 #: src/tagsedit.cpp:403
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option will enable you to type a cross reference link directly into "
-#| "a text note. Cross Reference links can have the following sytax:"
+#, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
-"Эта опция позволит вам вставить перекрёстную ссылку прямо в текст. Ссылки "
-"имеют следующий синтакис:"
+"Этот параметр позволяет ввести перекрёстную ссылку непосредственно в "
+"текстовой заметке. Перекрёстные ссылки могут иметь следующий синтаксис:"
 
 #: src/tagsedit.cpp:404
 #, kde-format
