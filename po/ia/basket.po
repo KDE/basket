@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the basket package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024, 2025, 2026 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2025-09-24 17:05+0200\n"
+"PO-Revision-Date: 2026-02-20 11:45+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -644,7 +644,7 @@ msgstr "Col&umnas:"
 #: src/basketproperties.ui:88
 #, kde-format
 msgid "&Free-form"
-msgstr ""
+msgstr "&Forma-libere"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mindMap)
 #: src/basketproperties.ui:114
@@ -1238,7 +1238,7 @@ msgstr ""
 #: src/bnpview.cpp:440
 #, kde-format
 msgid "&Clear Formatting"
-msgstr ""
+msgstr "&Netta formatation"
 
 #: src/bnpview.cpp:444
 #, kde-format
@@ -1274,7 +1274,7 @@ msgstr "Levar de gru&ppo"
 #: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Top"
-msgstr ""
+msgstr "Move a cu&lmine"
 
 #: src/bnpview.cpp:481
 #, kde-format
@@ -1289,7 +1289,7 @@ msgstr "Move a &basso "
 #: src/bnpview.cpp:493
 #, kde-format
 msgid "Move on &Bottom"
-msgstr ""
+msgstr "Move a f&undo"
 
 #: src/bnpview.cpp:504
 #, kde-format
@@ -2069,7 +2069,7 @@ msgstr ""
 #: src/newbasketdialog.cpp:320
 #, kde-format
 msgid "Free-form"
-msgstr ""
+msgstr "Forma-libere"
 
 #: src/newbasketdialog.cpp:322
 #, kde-format
