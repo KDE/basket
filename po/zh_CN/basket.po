@@ -1317,7 +1317,7 @@ msgstr "纯文本(&N)"
 #: src/bnpview.cpp:511
 #, kde-format
 msgid "&Text"
-msgstr "文字(&T)"
+msgstr "文本(&T)"
 
 #: src/bnpview.cpp:517
 #, kde-format
