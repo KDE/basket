@@ -2602,7 +2602,7 @@ msgstr "يفتح سلة..."
 #: src/notecontent.cpp:2167
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
-msgstr "%1 <i>(شغّل في الطّرفيّة)</i>"
+msgstr "%1 <i>(شغّل في الطرفية)</i>"
 
 #: src/notecontent.cpp:2172
 #, kde-format
