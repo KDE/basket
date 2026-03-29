@@ -10,20 +10,21 @@
 # SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
 # SPDX-FileCopyrightText: 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2026 Ewald Müller <EMuede@netscape.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2023-02-09 00:22+0100\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2026-03-27 17:05+0100\n"
+"Last-Translator: Ewald Müller <EMuede@netscape.net>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -43,7 +44,7 @@ msgstr "basketweaver"
 #: devtools/weaver/main.cpp:19
 #, kde-format
 msgid "Encodes and decodes .baskets files"
-msgstr "Verschlüsselt und entschlüsselt .basket-Dateien"
+msgstr "Verschlüsselt und entschlüsselt „.baskets“-Dateien"
 
 #: devtools/weaver/main.cpp:28
 #, kde-format
@@ -55,18 +56,22 @@ msgstr "Zielordner. Optional."
 msgid ""
 "Use the <image> as preview image for a .baskets file. Must be a .png file."
 msgstr ""
+"Das <Bild> als Vorschaubild für eine „.baskets“-Datei verwenden. Es muss "
+"eine „.png“-Datei sein."
 
 #: devtools/weaver/main.cpp:38
 #, kde-format
 msgid "Decodes the <file>. Cannot be used together with --weave."
 msgstr ""
-"Entschlüsselt die <dateil>. Kann nicht zusammen mit --weave verwendet werden."
+"Entschlüsselt die <datei>. Kann nicht zusammen mit „--weave“ verwendet "
+"werden."
 
 #: devtools/weaver/main.cpp:43
 #, kde-format
 msgid "Encodes the <directory>. Cannot be used together with --unweave."
 msgstr ""
-"Verschlüsselt die <dateil>. Kann nicht zusammen mit --weave verwendet werden."
+"Verschlüsselt das <verzeichnis>. Kann nicht zusammen mit „--unweave“ "
+"verwendet werden."
 
 #: devtools/weaver/main.cpp:48
 #, kde-format
@@ -74,6 +79,8 @@ msgid ""
 "This optional value will be used to label the new content within the "
 "optionally given output directory"
 msgstr ""
+"Dieser optionale Wert wird verwendet, um den neuen Inhalt eines optional "
+"angegebenen Zielverzeichnisses zu beschriften"
 
 #: devtools/weaver/main.cpp:52
 #, kde-format
@@ -83,12 +90,13 @@ msgstr "Existierende Dateien überschreiben."
 #: devtools/weaver/weaver.cpp:44
 #, kde-format
 msgid "You need to provide at least one --weave/-w or --unweave/-u option"
-msgstr "Sie müssen mindestens eine Option --weave/-w oder --unweave/-u angeben"
+msgstr ""
+"Sie müssen mindestens eine Option „--weave/-w“ oder „--unweave/-u“ angeben"
 
 #: devtools/weaver/weaver.cpp:49
 #, kde-format
 msgid "You cannot use --weave/-w and --unweave/-u options in conjunction."
-msgstr "Sie können --weave/-w und --unweave/-u nicht gemeinsam benutzen."
+msgstr "Sie können „--weave/-w“ und „--unweave/-u“ nicht gemeinsam verwenden."
 
 #: devtools/weaver/weaver.cpp:55
 #, kde-format
@@ -96,11 +104,13 @@ msgid ""
 "Multiple --weave/-w or --unweave/-u input options found. All but the first "
 "input are going to be ignored."
 msgstr ""
+"Mehrere „--weave/-w“ oder „--unweave/-u“ Eingabeoptionen gefunden. Nur die "
+"erste Option wird berücksichtigt."
 
 #: devtools/weaver/weaver.cpp:79
 #, kde-format
 msgid "The source seems to be an invalid .baskets file"
-msgstr "Die Quelle scheint eine ungültige .basket-Datet zu sein"
+msgstr "Die Quelle scheint eine ungültige „.baskets“-Datei zu sein"
 
 #: devtools/weaver/weaver.cpp:86 devtools/weaver/weaver.cpp:127
 #, kde-format
@@ -144,16 +154,13 @@ msgid "This file supplied file format is not supported"
 msgstr "Dieses Dateiformat wird nicht unterstützt"
 
 #: devtools/weaver/weaver.cpp:319
-#, fuzzy, kde-format
-#| msgid ""
-#| "This file was created with a recent version of %1. Please upgrade to a "
-#| "newer version to be able to open that file."
+#, kde-format
 msgid ""
 "This file was created with a more recent version of BasKet Note Pads. It "
 "might not be fully supported"
 msgstr ""
-"Diese Datei wurde mit einer älteren Version von %1 erzeugt. Bitte versuchen "
-"Sie eine neuere Version zu installieren, um diese Datei zu öffnen."
+"Diese Datei wurde mit einer neueren Version von BasKet-Notizblätter erzeugt. "
+"Es kann sein, dass sie nicht komplett unterstützt wird."
 
 #: src/aboutdata.cpp:16
 #, kde-format
@@ -277,7 +284,7 @@ msgstr "Korbarchiv-Fehler"
 #: src/archive.cpp:273
 #, kde-format
 msgid "Extraction path already exists."
-msgstr ""
+msgstr "Der Extraktionspfad existiert bereits."
 
 #: src/archive.cpp:277
 #, kde-format
@@ -285,8 +292,8 @@ msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
 msgstr ""
-"Diese Datei wurde mit einer älteren Version von %1 erzeugt. Bitte versuchen "
-"Sie eine neuere Version zu installieren, um diese Datei zu öffnen."
+"Diese Datei wurde mit einer aktuellen Version von %1 erzeugt. Bitte "
+"aktualisieren Sie auf eine neuere Version, um diese Datei zu öffnen."
 
 #: src/archive.cpp:284
 #, kde-format
@@ -297,12 +304,12 @@ msgid ""
 "saving the file back, consider to save it to another file, to preserve the "
 "original one."
 msgstr ""
-"Diese Datei wurde mit einer älteren Version von %1 erzeugt. Sie kann "
+"Diese Datei wurde mit einer aktuellen Version von %1 erzeugt. Sie kann "
 "geöffnet werden, allerdings werden nicht alle Bestandteile für Sie verfügbar "
 "sein. Beispielsweise könnten einige Notizen fehlen, die von einem Notiztyp "
 "sind, der erst in neueren Versionen verfügbar ist. Wenn Sie die Datei "
-"zurückschreiben wollen, speichern Sie diese in einer anderen Datei, um die "
-"Ursprüngliche zu erhalten."
+"zurückschreiben möchten, speichern Sie diese in einer anderen Datei, um die "
+"ursprüngliche zu erhalten."
 
 #: src/backup.cpp:54
 #, kde-format
@@ -322,12 +329,12 @@ msgstr "Ihre Körbe befinden sich momentan an diesem Ort:<br><b>%1</b>"
 #: src/backup.cpp:84
 #, kde-format
 msgid "&Move to Another Folder..."
-msgstr "&An einen anderen Ort verschieben ..."
+msgstr "&In einen anderen Ordner verschieben …"
 
 #: src/backup.cpp:85
 #, kde-format
 msgid "&Use Another Existing Folder..."
-msgstr "&Einen anderen existierenden Ordner ..."
+msgstr "&Einen anderen existierenden Ordner verwenden …"
 
 #: src/backup.cpp:87
 #, kde-format
@@ -348,15 +355,15 @@ msgid ""
 "folder manually (eg. adding a file in a basket folder will not add that file "
 "to the basket).</p>"
 msgstr ""
-"<p>Sie können den Ordner bestimmen in denen %1 Ihre Körbe sichern werden:</"
-"p><ul> <li>an einem leicht zu erreichenden Ort in Ihrem Heimatverzeichnis, "
+"<p>Sie können den Ordner bestimmen, in dem %1 Ihre Körbe speichert:</"
+"p><ul><li>an einem leicht zu erreichenden Ort in Ihrem Heimatverzeichnis, "
 "wie beispielsweise ~/Notizen oder ~/Körbe. Auf diese Weise können Sie Ihre "
-"Körbe stets manuell sichern.</li> <li>auf einem Server, um Ihre Körbe auf "
+"Körbe stets manuell sichern.</li><li>auf einem Server, um Ihre Körbe auf "
 "zwei Computern nutzen zu können. <br>In diesem Fall müssen Sie den gemeinsam "
 "verwendeten Ordner ins lokale Dateisystem mounten und %1 anweisen den "
 "Mountpunkt zu verwenden.<br>Achtung: Sie sollten %1 nicht gleichzeitig auf "
 "beiden Computern verwenden! Ansonsten riskieren Sie den Verlust von Daten, "
-"wenn beide Anwendungen asyncron darauf zugreifen.</li> </ul><p>Bitte "
+"wenn beide Anwendungen asynchron darauf zugreifen.</li></ul><p>Bitte "
 "beachten Sie, dass Sie den Inhalt des Ordners nicht eigenständig verändern "
 "sollten. (z. B. wird durch das Hinzufügen einer Datei diese nicht "
 "automatisch im Korb angezeigt).</p>"
@@ -389,7 +396,7 @@ msgstr "Letzte Sicherung: %1"
 #: src/backup.cpp:149 src/backup.cpp:180
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
-msgstr "Wählen Sie einen Ort"
+msgstr "Wählen Sie einen Ordner, in den die Körbe verschoben werden sollen"
 
 #: src/backup.cpp:161
 #, kde-format
@@ -495,8 +502,8 @@ msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
-"Wählen Sie „Korb“ → „Sichern & Wiederherstellen ...“ → „Einen anderen "
-"existierenden Ordner ...“ und wählen Sie diesen Ordner aus."
+"Wählen Sie „Korb“ → „Sichern & Wiederherstellen …“ → „Einen anderen "
+"existierenden Ordner verwenden …“ und wählen Sie diesen Ordner aus."
 
 #: src/backup.cpp:281
 #, kde-format
@@ -567,6 +574,8 @@ msgstr "Das Debug-Fenster zeigen"
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
 msgstr ""
+"Benutzerdefinierter Ordner zum Laden und Speichern der Körbe und anderer "
+"Anwendungsdaten."
 
 #: src/basket_options.h:22
 #, kde-format
@@ -585,6 +594,8 @@ msgstr ""
 #, kde-format
 msgid "On crash, use the standard KDE crash handler rather than send an email."
 msgstr ""
+"Bei einem Absturz die standardmäßige KDE-Absturzbehandlung dem Senden einer "
+"E-Mail vorziehen."
 
 #: src/basket_options.h:28
 #, kde-format
@@ -652,7 +663,7 @@ msgid "Learn some tips..."
 msgstr "Lerne einige Tipps ..."
 
 #: src/basketproperties.cpp:135
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
 "option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> "
@@ -671,16 +682,16 @@ msgstr ""
 "ersten Option weisen Sie dem Korb ein Tastenkürzel in der Form <strong>Alt"
 "+Buchstabe</strong> zu. Der gewählte Buchstabe wird in der Korbansicht "
 "unterstrichen.<br>Beispiel: Wenn Sie einem Korb namens <i>Tipps</i> das "
-"Tastenkürzel <i>Alt+T</i> zuweisen, wird dieser in der Korbansicht angezeigt "
-"als <i><u>T</u>ipps</i> . Diese Visualisierung wird Ihnen helfen sich "
+"Tastenkürzel <i>Alt+T</i> zuweisen, wird dieser in der Korbansicht als "
+"<i><u>T</u>ipps</i> angezeigt. Diese Visualisierung wird Ihnen helfen, sich "
 "schneller an die vergebenen Tastenkürzel zu erinnern.</p><p><strong>Lokale "
-"gegenüber Globale</strong>:<br>Die erste Option zeigt Ihnen den Korb an "
+"versus Globale</strong>:<br>Die erste Option zeigt Ihnen den Korb an, "
 "solange das Hauptfenster aktiv ist. Globale Tastenkürzel sind überall gültig "
-"- sogar wenn das Fenster minimiert worden ist.</p> <p><strong>Anzeigen "
-"gegenüber Umschalten</strong>:<br>Die letzte Option wählt einen Korb aus "
-"ohne dabei das Hauptfenster zu öffnen. Dies ist hilfreich in Kombination mit "
-"anderen globalen Tastenkürzeln. Zum Beispiel um den Inhalt der "
-"Zwischenablage in den aktuellen Korb zu kopieren.</p>"
+"– sogar, wenn das Fenster minimiert worden ist.</p><p><strong>Anzeigen "
+"versus Umschalten</strong>:<br>Die letzte Option wählt einen Korb aus, ohne "
+"dabei das Hauptfenster zu öffnen. Dies ist hilfreich in Kombination mit "
+"anderen globalen Tastenkürzeln, z. B. um den Inhalt der Zwischenablage in "
+"den aktuellen Korb zu kopieren.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
 #: src/basketproperties.ui:27 src/settings.cpp:485 src/tagsedit.cpp:1108
@@ -777,15 +788,13 @@ msgstr ""
 "Die neuen Notizen entsprechen nicht dem Filter und werden nicht angezeigt."
 
 #: src/basketscene.cpp:1467
-#, fuzzy, kde-format
-#| msgid "Group"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
-msgstr "Gruppe"
+msgstr "Gruppieren"
 
 #: src/basketscene.cpp:1469
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Einfügen"
@@ -1374,7 +1383,7 @@ msgstr "&Formatierung löschen"
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
-msgstr "B&earbeiten ..."
+msgstr "B&earbeiten …"
 
 #: src/bnpview.cpp:451
 #, kde-format
@@ -1457,14 +1466,14 @@ msgid "L&auncher"
 msgstr "&Starter"
 
 #: src/bnpview.cpp:543
-#, fuzzy, kde-format
+#, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr "&KDE Menu-Starter importieren"
+msgstr "&KDE Menü-Starter importieren …"
 
 #: src/bnpview.cpp:548
 #, kde-format
 msgid "Im&port Icon..."
-msgstr "Symbol im&portieren ..."
+msgstr "Symbol im&portieren …"
 
 #: src/bnpview.cpp:553 src/noteedit.cpp:545
 #, kde-format
@@ -1509,22 +1518,22 @@ msgstr "&Eigenschaften ..."
 #: src/bnpview.cpp:659
 #, kde-format
 msgid "Sort Children Ascending"
-msgstr ""
+msgstr "Unterkörbe aufsteigend sortieren"
 
 #: src/bnpview.cpp:664
 #, kde-format
 msgid "Sort Children Descending"
-msgstr ""
+msgstr "Unterkörbe absteigend sortieren"
 
 #: src/bnpview.cpp:669
 #, kde-format
 msgid "Sort Siblings Ascending"
-msgstr ""
+msgstr "Geschwisterkörbe aufsteigend sortieren"
 
 #: src/bnpview.cpp:674
 #, kde-format
 msgid "Sort Siblings Descending"
-msgstr ""
+msgstr "Geschwisterkörbe absteigend sortieren"
 
 #: src/bnpview.cpp:679
 #, kde-format
@@ -1660,7 +1669,7 @@ msgstr "Konvertierung beendet."
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr ""
-"Es existiert keine einfachen Textnotizen, die konvertiert werden müssen."
+"Es existieren keine einfachen Textnotizen, die konvertiert werden müssen."
 
 #: src/bnpview.cpp:1771
 #, kde-format
@@ -1678,7 +1687,7 @@ msgstr ""
 "p><p>Bitte überprüfen Sie die Installation von %2.<br>Sollten Sie keinen "
 "Root-Zugriff haben, um das Programm systemweit zu installieren, können Sie "
 "die Datei basketui.rc ins Verzeichnis <a href='file://%3'>%4</a> kopieren.</"
-"p> <p>Sollte dies immer noch zu keinem Erfolg führen und Sie sich sicher "
+"p><p>Sollte dies immer noch zu keinem Erfolg führen und Sie sich sicher "
 "sind, dass die Anwendung richtig installiert wurde, sollten Sie versuchen "
 "die Datei %5basketui.rc zu entfernen.</p>"
 
@@ -1895,13 +1904,13 @@ msgid ""
 "that modifying one will not modify the other anymore as they are now "
 "separate entities.</p>"
 msgstr ""
-"<p>Das Spiegeln von Ordner ist leider nicht mehr möglich.  (Bitte besuche <a "
-"href='https://basket-notepads.github.io'>basket-notepads.github.io</a> für "
-"weitere Informationen)</p><p>Der Ordner <b>%1</b> wurde kopiert und den "
-"Bedürfnissen des Korbes angepasst. Sie können entweder den Ordner, den Korb "
-"oder Beides entfernen. Bitte denken Sie jedoch daran, dass Veränderungen am "
-"Korb keine Auswirkung mehr auf den Ordner haben, da beides nun voneinander "
-"getrennt existiert.</p>"
+"<p>Das Spiegeln von Ordnern ist leider nicht mehr möglich. Bitte besuchen "
+"Sie <a href='https://basket-notepads.github.io'>basket-notepads.github.io</"
+"a> für weitere Informationen.</p><p>Der Ordner <b>%1</b> wurde kopiert und "
+"den Bedürfnissen des Korbes angepasst. Sie können entweder den Ordner, den "
+"Korb oder Beides entfernen. Bitte denken Sie jedoch daran, dass "
+"Veränderungen am Korb keine Auswirkung mehr auf den Ordner haben, da beides "
+"nun voneinander getrennt existiert.</p>"
 
 #: src/formatimporter.cpp:125
 #, kde-format
@@ -1909,9 +1918,9 @@ msgid "Folder Mirror Import"
 msgstr "Import einer Ordnerspiegelung"
 
 #: src/history.cpp:19
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set current basket to %1"
-msgstr "Zeigt den Namen des aktuellen Korbes"
+msgstr "„%1“ als aktuellen Korb festlegen"
 
 #: src/htmlexporter.cpp:52
 #, kde-format
@@ -2396,22 +2405,22 @@ msgstr "Einfache Texte öffnen mit:"
 #: src/notecontent.cpp:1113
 #, kde-format
 msgid "Opening text..."
-msgstr "Text wird geöffnet ..."
+msgstr "Text wird geöffnet …"
 
 #: src/notecontent.cpp:1115
 #, kde-format
 msgid "Opening texts..."
-msgstr "Texte werden geöffnet ..."
+msgstr "Texte werden geöffnet …"
 
 #: src/notecontent.cpp:1117
 #, kde-format
 msgid "Opening text with..."
-msgstr "Text wird geöffnet mit ..."
+msgstr "Text wird geöffnet mit …"
 
 #: src/notecontent.cpp:1119
 #, kde-format
 msgid "Opening texts with..."
-msgstr "Texte werden geöffnet mit ..."
+msgstr "Texte werden geöffnet mit …"
 
 #: src/notecontent.cpp:1121
 #, kde-format
@@ -2546,22 +2555,22 @@ msgstr "Diesen Klang öffnen"
 #: src/notecontent.cpp:1666
 #, kde-format
 msgid "Opening sound..."
-msgstr "Klang wird geöffnet ..."
+msgstr "Klang wird geöffnet …"
 
 #: src/notecontent.cpp:1668
 #, kde-format
 msgid "Opening sounds..."
-msgstr "Klänge werden geöffnet ..."
+msgstr "Klänge werden geöffnet …"
 
 #: src/notecontent.cpp:1670
 #, kde-format
 msgid "Opening sound with..."
-msgstr "Klang wird geöffnet mit ..."
+msgstr "Klang wird geöffnet mit …"
 
 #: src/notecontent.cpp:1672
 #, kde-format
 msgid "Opening sounds with..."
-msgstr "Klänge werden geöffnet mit ..."
+msgstr "Klänge werden geöffnet mit …"
 
 #: src/notecontent.cpp:1674
 #, kde-format
@@ -2591,22 +2600,22 @@ msgstr "Die Verknüpfung hat keine URL, die aufgerufen werden kann."
 #: src/notecontent.cpp:1791
 #, kde-format
 msgid "Opening link target..."
-msgstr "Verknüpfungsziel wird geöffnet ..."
+msgstr "Verknüpfungsziel wird geöffnet …"
 
 #: src/notecontent.cpp:1793
 #, kde-format
 msgid "Opening link targets..."
-msgstr "Verknüpfungsziele werden geöffnet ..."
+msgstr "Verknüpfungsziele werden geöffnet …"
 
 #: src/notecontent.cpp:1795
 #, kde-format
 msgid "Opening link target with..."
-msgstr "Verknüpfungsziel wird geöffnet mit ..."
+msgstr "Verknüpfungsziel wird geöffnet mit …"
 
 #: src/notecontent.cpp:1797
 #, kde-format
 msgid "Opening link targets with..."
-msgstr "Verknüpfungsziele werden geöffnet mit ..."
+msgstr "Verknüpfungsziele werden geöffnet mit …"
 
 #: src/notecontent.cpp:1799
 #, kde-format
@@ -2624,14 +2633,14 @@ msgid "Link to %1"
 msgstr "Verknüpfung mit %1"
 
 #: src/notecontent.cpp:2058
-#, fuzzy, kde-format
+#, kde-format
 msgid "Link has no basket to open."
-msgstr "Die Verknüpfung hat keine URL, die aufgerufen werden kann."
+msgstr "Die Verknüpfung enthält keinen Korb, der geöffnet werden kann."
 
 #: src/notecontent.cpp:2062
 #, kde-format
 msgid "Opening basket..."
-msgstr "Korb wird geöffnet ..."
+msgstr "Korb wird geöffnet …"
 
 #: src/notecontent.cpp:2167
 #, kde-format
@@ -2656,12 +2665,12 @@ msgstr "Der Starter hat keinen Befehl, der ausgeführt werden kann."
 #: src/notecontent.cpp:2221
 #, kde-format
 msgid "Launching application..."
-msgstr "Anwendung wird gestartet ..."
+msgstr "Anwendung wird gestartet …"
 
 #: src/notecontent.cpp:2223
 #, kde-format
 msgid "Launching applications..."
-msgstr "Anwendungen werden gestartet ..."
+msgstr "Anwendungen werden gestartet …"
 
 #: src/notecontent.cpp:2343
 #, kde-format
@@ -2922,7 +2931,7 @@ msgstr "Symbol als Bild importieren"
 #: src/notefactory.cpp:1053
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
-msgstr "Wählen Sie die Größe des Symbols um es als Bild zu importieren."
+msgstr "Wählen Sie die Größe des Symbols, das als Bild importiert werden soll:"
 
 #: src/notefactory.cpp:1069
 #, kde-format
@@ -3031,7 +3040,7 @@ msgstr "Textformatierung beim Einfügen behalten"
 #: src/settings.cpp:517
 #, kde-format
 msgid "Automatically detect tags from note's content"
-msgstr ""
+msgstr "Beschriftungen automatisch aus den Notizinhalten erkennen"
 
 #: src/settings.cpp:524
 #, kde-format
@@ -3139,9 +3148,9 @@ msgid "Load note from file"
 msgstr "Notiz aus Datei laden"
 
 #: src/settings.cpp:575
-#, fuzzy, kde-format
+#, kde-format
 msgid "Import Launcher for desktop application"
-msgstr "&KDE Menu-Starter importieren"
+msgstr "&KDE Menü-Starter importieren"
 
 #: src/settings.cpp:576
 #, kde-format
@@ -3288,7 +3297,7 @@ msgstr "&Querverweise"
 #: src/settings.cpp:874
 #, kde-format
 msgid "General Launch Associations"
-msgstr ""
+msgstr "Allgemeine Startzuordnungen"
 
 #: src/settings.cpp:877
 #, kde-format
@@ -3308,9 +3317,24 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
+"<p>In modernen Arbeitsumgebungen bieten Starter-Konfigurationen dem System "
+"Informationen, wie Anwendungen behandelt werden sollen. Diese Dateien sind "
+"notwendig, um Anwendungen in die Arbeitsumgebung zu integrieren, um sie "
+"auflisten, suchen und mit bestimmten Konfigurationen starten zu können.</"
+"p><p>Hier ein Beispiel, wie man den Falkon Browser mit einem bestimmten "
+"Profil startet.</p><ul><li>Öffnen Sie den KDE Menü-Editor und geben Sie "
+"„Falkon“ im Suchfilter ein;</li><li>Wählen Sie den „Falkon“ Startmenü-"
+"Eintrag, Rechtsklick, kopieren & einfügen;</li><li>Bearbeiten Sie die "
+"Eigenschaften im Unterfenster „Allgemein“ wie „Name“, „Beschreibung“ oder "
+"„Kommentar“.</li><li>Geben Sie in das „Befehlszeilen-Argumente“-Feld z. B. "
+"„--profile 'Ihr-bevorzugtes-Hobby' %%u“ ein.</li></ul><p>Nun, wenn Sie den "
+"neuen Startmenü-Eintrag als eine BasKet-Verknüpfung wählen, wird BasKet HTTP-"
+"Verknüpfungen mit Falkons Profil „Ihr-bevorzugtes-Hobby“ öffnen.</p><p>Für "
+"eine feinkörnigere Konfiguration (um z. B. PDF-Dateien bevorzugt mit Falkon "
+"zu öffnen), lesen Sie bitte die Kurzinfo zum zweiten Knopf.</p>"
 
 #: src/settings.cpp:891
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
 "depending on the content of the link (a Web page, an image, a PDF "
@@ -3327,22 +3351,24 @@ msgid ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 msgstr ""
-"<p>Wenn Sie eine Verknüpfung ins Web folgen, wird die Datei (je nach Inhalt) "
-"in Anwendungen geöffnet als würde sie lokal auf Ihrem Rechner verfügbar sein."
-"</p><p>Hier wird beschrieben wie Sie einstellen können, dass jede "
+"<p>Wenn Sie einer Verknüpfung ins Web folgen, wird die Datei je nach Inhalt "
+"(sei es eine Webseite, ein Bild oder ein PDF-Dokument, …) in "
+"unterschiedlichen Anwendungen geöffnet, als wäre sie lokal auf Ihrem Rechner "
+"vorhanden.</p><p>Hier wird beschrieben wie Sie einstellen können, dass jede "
 "Verknüpfung in Ihrem Browser geöffnet werden soll. Dies kann für Sie "
 "interessant sein, wenn Sie kein KDE verwenden (also beispielsweise GNOME, "
-"XFCE etc.).</p><ul> <li>Öffnen Sie das KDE-Kontrollzentrum. Sollte dies "
-"nicht verfügbar sein, rufen Sie in einer Konsole „kcontrol“ auf)</li> "
-"<li>Gehen Sie auf „KDE-Komponenten“ und danach auf „Komponenten-Auswahl“</"
-"li> <li>Wählen Sie „Webbrowser“ aus und tragen Sie im Feld „in den folgenden "
-"Browser“ den Namen Ihres Webbrowsers ein (z. B. „firefox“ oder „epiphany“)</"
-"li></ul><p>Nun wird <i>jede</i> Verknüpfung die mit „http://“ beginnt in "
-"Ihrem Webbrowser geöffnet.</p><p>Für eine feinkörnigen Konfiguration (z. B. "
-"nur Webseiten im Brower zu öffnen), lesen Sie bitten den zweiten Tipp.</p>"
+"XFCE etc.).</p><ul><li>Öffnen Sie die Systemeinstellungen. Sollten sie nicht "
+"verfügbar sein, rufen Sie in einer Konsole „systemsettings“ auf.</"
+"li><li>Wechseln Sie zu „Anwendungen“ und danach zu „Standard-Anwendungen“</"
+"li><li>Wählen Sie „Webbrowser“ aus und tragen Sie im Feld „Webbrowser“ den "
+"Namen Ihres Webbrowsers ein (z. B. „firefox“ oder „epiphany“).</li></"
+"ul><p>Nun wird <i>jede</i> Verknüpfung, die mit „http://“ beginnt, in Ihrem "
+"Webbrowser geöffnet.</p><p>Für eine feinkörnigere Konfiguration (z. B. nur "
+"Webseiten im Browser zu öffnen), lesen Sie bitte die Kurzinfo zum dritten "
+"Knopf.</p>"
 
 #: src/settings.cpp:905
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
 "also applies to Web links if you choose not to open them systematically in a "
@@ -3367,18 +3393,18 @@ msgstr ""
 "XFCE oder eine andere Desktopumgebung als KDE verwenden.</p><p>Dieses "
 "Beispiel demonstriert, wie man HTML-Seiten in Ihrem Browser anzeigt. "
 "Wiederholen Sie die beschriebenen Schritte für jeden Dateitypen, den Sie in "
-"einer speziellen Anwendung öffnen möchten.</p><ul><li>Öffnen Sie das KDE "
-"Kontrollzentrum (wenn dies nicht verfügbar ist, versuchen Sie in einer "
-"Konsole „kcontrol“ auszuführen)</li><li>Gehen Sie auf „KDE-Komponenten“ und "
-"danach auf „Dateizuordnungen“</li> <li>Erweitern Sie in der Baumansicht "
-"„text“ und klicken Sie auf „html“</li> <li>Fügen Sie Ihren Webbrowser in der "
-"Liste der Anwendungsprogramme als ersten Eintrag hinzu</li> <li>Machen Sie "
-"das gleiche für den MIME-Typ \"application->xhtml+xml\"</li></ul>"
+"einer speziellen Anwendung öffnen möchten.</p><ul><li>Öffnen Sie die "
+"Systemeinstellungen. Sollten sie nicht verfügbar sein, versuchen Sie in "
+"einer Konsole „systemsettings“ auszuführen.</li><li>Wechseln Sie zu "
+"„Anwendungen“ und danach zu „Dateizuordnungen“</li><li>Erweitern Sie in der "
+"Baumansicht „text“ und klicken Sie auf „html“</li><li>Fügen Sie Ihren "
+"Webbrowser in der Liste der Anwendungsprogramme als ersten Eintrag hinzu</"
+"li><li>Machen Sie das Gleiche für den Typ „application → xhtml+xml“</li></ul>"
 
 #: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr ""
+msgstr "Spezielle Korb-Zuordnungen"
 
 #: src/settings.cpp:955
 #, kde-format
@@ -3421,16 +3447,15 @@ msgid "Open sound notes with:"
 msgstr "Klangnotiz öffnen mit:"
 
 #: src/settings.cpp:987
-#, fuzzy, kde-format
-#| msgid "Open &text notes with a custom application:"
+#, kde-format
 msgid "Open http link notes with a custom application:"
-msgstr "&Textnotiz mit dieser Anwendung öffnen:"
+msgstr ""
+"Notizen mit Web-Verknüpfungen mit benutzerdefinierter Anwendung öffnen:"
 
 #: src/settings.cpp:988
-#, fuzzy, kde-format
-#| msgid "Open text notes with:"
+#, kde-format
 msgid "Open http link notes with:"
-msgstr "Textnotiz öffnen mit:"
+msgstr "Notizen mit Web-Verknüpfungen öffnen mit:"
 
 #: src/settings.cpp:996
 #, kde-format
@@ -3455,18 +3480,17 @@ msgstr ""
 #: src/settings_versionsync.cpp:77
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
-msgstr ""
+msgstr "Möchten Sie wirklich alte Versionen aller Körbe entfernen?"
 
 #: src/settings_versionsync.cpp:78
-#, fuzzy, kde-format
-#| msgid "Remove Basket"
+#, kde-format
 msgid "Remove old Baskets"
-msgstr "Korb entfernen"
+msgstr "Alte Körbe entfernen"
 
 #: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Version Sync"
-msgstr ""
+msgstr "Versionsabgleich"
 
 #: src/settings_versionsync.cpp:92
 #, kde-format
@@ -3477,13 +3501,13 @@ msgstr "Dadurch wird %1 MB frei"
 #: src/settings_versionsync.ui:17
 #, kde-format
 msgid "Enable distributed version control"
-msgstr ""
+msgstr "Verteilte Versionskontrolle aktivieren"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWithoutVersionControlSupport)
 #: src/settings_versionsync.ui:24
 #, kde-format
 msgid "BasKet is built without version control (libgit2) support"
-msgstr ""
+msgstr "BasKet wurde ohne Versionsverwaltungs-Unterstützung (libgit2) erstellt"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBoxControl)
 #: src/settings_versionsync.ui:34
@@ -3776,7 +3800,7 @@ msgstr "Geer&bt von neuen gleichwertigen Notizen"
 #: src/tagsedit.cpp:398
 #, kde-format
 msgid "Allow Cross Reference Links"
-msgstr ""
+msgstr "Querverweise erlauben"
 
 #: src/tagsedit.cpp:401
 #, kde-format
@@ -3789,11 +3813,13 @@ msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
+"Diese Einstellung erlaubt es Ihnen, Querverweise direkt in einer Textnotiz "
+"einzutragen. Sie können folgende Syntax haben:"
 
 #: src/tagsedit.cpp:404
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
-msgstr ""
+msgstr "Von der Wurzel ausgehend (absoluter Pfad):"
 
 #: src/tagsedit.cpp:405
 #, kde-format
@@ -3823,7 +3849,7 @@ msgstr "[[./child|optional title]]"
 #: src/tagsedit.cpp:408
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
-msgstr ""
+msgstr "Bei der Korbsuche wird die Groß-/Kleinschreibung ignoriert."
 
 #: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
 #, kde-format
@@ -3887,13 +3913,14 @@ msgid "What is this for?"
 msgstr "Was ist das?"
 
 #: src/tagsedit.cpp:521
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
 "will be inserted as a textual equivalent of the tag."
 msgstr ""
-"Dies findet Verwendung, wenn Sie eine Notiz kopieren und einfügen oder sie "
-"ziehen und in einem Texteditor ablegen."
+"Wenn Sie eine Notiz durch Kopieren und Einfügen oder durch Ziehen und "
+"Ablegen in einem Texteditor platzieren, wird dieser Text als symbolische "
+"Darstellung der Marke eingefügt."
 
 #: src/tagsedit.cpp:532
 #, kde-format
