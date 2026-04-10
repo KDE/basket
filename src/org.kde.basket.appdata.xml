@@ -69,6 +69,7 @@
   <summary xml:lang="pt-BR">Organizador de notas e tarefas</summary>
   <summary xml:lang="ru">Управление заметками и задачами</summary>
   <summary xml:lang="sa">नोट्स् तथा टू-डोस् आयोजकः</summary>
+  <summary xml:lang="sk">Organizátor poznámok a úloh</summary>
   <summary xml:lang="sl">Organizator zabeležk in nalog</summary>
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
   <summary xml:lang="tr">Notlar ve Yapılacaklar Organizatörü</summary>
@@ -102,6 +103,7 @@
     <p xml:lang="pt-BR">Este aplicativo fornece quantas cestas você desejar, e você pode arrastar e soltar.</p>
     <p xml:lang="ru">Приложение предоставляет неограниченное количество корзин и поддерживает перетаскивание.</p>
     <p xml:lang="sa">एतत् अनुप्रयोगं यावन्तः टोकरीः इच्छन्ति तावन्तः प्रदाति, भवन्तः च कर्षितुं पातयितुं च शक्नुवन्ति ।</p>
+    <p xml:lang="sk">Táto aplikácia poskytuje toľko košíkov, koľko si želáte, a môžete presúvať myšou.</p>
     <p xml:lang="sl">Ta aplikacija ponuja toliko košar, kot želite, lahko jih povlečete in spuščate.</p>
     <p xml:lang="sv">Programmet tillhandahåller så många korgar som du vill, och du kan dra och släppa.</p>
     <p xml:lang="tr">Bu uygulama, içine sürükleyip bırakabileceğiniz istediğiniz sayıda sepet sunar.</p>
@@ -133,6 +135,7 @@
     <p xml:lang="pt-BR">Os objetos podem ser editados, copiados, arrastados... Então, você pode organizá-los como quiser!</p>
     <p xml:lang="ru">Объекты можно редактировать, копировать и перетаскивать, что позволяет упорядочивать их произвольным образом.</p>
     <p xml:lang="sa">वस्तुनः सम्पादनं, प्रतिलिपिः, कर्षणं च कर्तुं शक्यते... अतः, भवान् तान् यथा इच्छति तथा व्यवस्थापयितुं शक्नोति !</p>
+    <p xml:lang="sk">Objekty je možné upravovať, kopírovať, presúvať... Takže si ich môžete usporiadať, ako chcete!</p>
     <p xml:lang="sl">Predmete lahko urejate, kopirate, vlečete ... Torej jih lahko uredite kot želite!</p>
     <p xml:lang="sv">Objekt kan redigeras, kopieras, dras, ... Så du kan arrangera dem som du vill.</p>
     <p xml:lang="tr">Nesneler düzenlenebilir, kopyalanabilir, sürüklenebilir… İstediğiniz gibi düzenleyebilirsiniz!</p>
@@ -165,6 +168,7 @@
     <p xml:lang="pt-BR">Permite organizar notas, acompanhar tarefas e muito mais.</p>
     <p xml:lang="ru">Позволяет упорядочивать заметки, отслеживать задачи и многое другое.</p>
     <p xml:lang="sa">एतेन टिप्पणीनां व्यवस्थापनं, कार्याणि अनुसरणं च बहु किमपि भवति ।</p>
+    <p xml:lang="sk">Umožňuje organizovať poznámky, sledovať úlohy a oveľa viac.</p>
     <p xml:lang="sl">Omogoča urejanje zabeležk, nalog in veliko več.</p>
     <p xml:lang="sv">Den gör det möjligt att arrangera anteckningar, följa uppgifter, med mera.</p>
     <p xml:lang="tr">Notları, yapılacakları ve çok daha fazlasını izlemenize olanak verir.</p>
