@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Pawe�Kot <pkot@bezsensu.pl>, 2005.
 # Mikolaj Machowski <mikmach@wp.pl>, 2006.
-# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2025-12-06 15:47+0100\n"
+"PO-Revision-Date: 2026-04-11 08:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -2912,7 +2912,7 @@ msgstr "Wczytaj zawartość pliku do notatki"
 #: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:590
 #, kde-format
 msgid "Password Protection"
-msgstr "Ochrona hasłem"
+msgstr "Zabezpieczenie hasłem"
 
 #: src/password.cpp:59
 #, kde-format
