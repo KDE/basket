@@ -2780,7 +2780,7 @@ msgstr "&სახელი:"
 #: src/noteedit.cpp:1186
 #, kde-format
 msgid "Font"
-msgstr "შრიფტი"
+msgstr "ფონტი"
 
 #: src/noteedit.cpp:1194
 #, kde-format
