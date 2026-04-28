@@ -152,9 +152,9 @@ msgid ""
 "makes it easy to record ideas as you think, and quickly find them later. "
 "Organizing your notes has never been so easy.</p>"
 msgstr ""
-"<p><b>Staráme sa o vaše nápady.</b></p><p>A note-taking application that "
-"makes it easy to record ideas as you think, and quickly find them later. "
-"Organizing your notes has never been so easy.</p>"
+"<p><b>Staráme sa o vaše nápady.</b></p><p>Aplikácia na zapisovanie poznámok, "
+"ktorá uľahčuje zaznamenávanie nápadov hneď ako vás napadnú a ich rýchle "
+"neskoršie vyhľadanie. Usporiadanie poznámok nebolo nikdy také jednoduché.</p>"
 
 #: src/aboutdata.cpp:20
 #, kde-format
@@ -274,9 +274,8 @@ msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
 "version to be able to open that file."
 msgstr ""
-"Tento súbor bol vytvorený nedávnou verziou %1. Aktualizujte na novšiu "
-"verziu, aby ste ho mohli otvoriť. to a newer version to be able to open that "
-"file."
+"Tento súbor bol vytvorený novšou verziou %1. Aktualizujte na novšiu verziu, "
+"aby ste ho mohli otvoriť."
 
 #: src/archive.cpp:284
 #, kde-format
@@ -287,11 +286,10 @@ msgid ""
 "saving the file back, consider to save it to another file, to preserve the "
 "original one."
 msgstr ""
-"Tento súbor bol vytvorený nedávnou verziou %1. Je ho možné otvoriť, ale nie "
-"všetky informácie budú dostupné. but not every information will be available "
-"to you. For instance, some notes may be missing because they are of a type "
-"only available in new versions. When saving the file back, consider to save "
-"it to another file, to preserve the original one."
+"Tento súbor bol vytvorený novšou verziou %1. Je ho možné otvoriť, ale nie "
+"všetky informácie budú dostupné. Napríklad niektoré poznámky môžu chýbať, "
+"pretože sú typu dostupného iba v nových verziách. Pri ukladaní súboru zvážte "
+"uloženie do iného súboru, aby sa zachoval originál."
 
 #: src/backup.cpp:54
 #, kde-format
@@ -337,16 +335,16 @@ msgid ""
 "folder manually (eg. adding a file in a basket folder will not add that file "
 "to the basket).</p>"
 msgstr ""
-"<p>Môžete presunúť priečinok, kde %1 ukladá vaše košíky do:</p><ul><li>Store "
-"your baskets in a visible place in your home folder, like ~/Notes or ~/"
-"Baskets, so you can manually backup them when you want.</li><li>Store your "
-"baskets on a server to share them between two computers.<br>In this case, "
-"mount the shared-folder to the local file system and ask %1 to use that "
-"mount point.<br>Warning: you should not run %1 at the same time on both "
-"computers, or you risk to loss data while the two applications are desynced."
-"</li></ul><p>Please remember that you should not change the content of that "
-"folder manually (eg. adding a file in a basket folder will not add that file "
-"to the basket).</p>"
+"<p>Môžete presunúť priečinok, kde %1 ukladá vaše košíky, na:</"
+"p><ul><li>Uložte košíky na viditeľné miesto vo vašom domovskom priečinku, "
+"napríklad ~/Notes alebo ~/Baskets, takže ich môžete kedykoľvek manuálne "
+"zálohovať.</li><li>Uložte košíky na server, aby ste ich mohli zdieľať medzi "
+"dvoma počítačmi.<br>V takom prípade pripojte zdieľaný priečinok k lokálnemu "
+"súborovému systému a požiadajte %1, aby použil tento bod pripojenia."
+"<br>Upozornenie: nemali by ste spúšťať %1 súčasne na oboch počítačoch, inak "
+"riskujete stratu údajov, kým sú obe aplikácie nesynchronizované.</li></"
+"ul><p>Nezabudnite, že obsah tohto priečinka by ste nemali meniť ručne (napr. "
+"pridanie súboru do priečinka košíka nepridá tento súbor do košíka).</p>"
 
 #: src/backup.cpp:104
 #, kde-format
@@ -1140,9 +1138,9 @@ msgid ""
 "(you then can use the other global shortcuts to add a note, paste clipboard "
 "or paste selection in this new basket)."
 msgstr ""
-"Umožňuje vytvoriť nový košík bez nutnosti otvoriť hlavné okno (you then can "
-"use the other global shortcuts to add a note, paste clipboard or paste "
-"selection in this new basket)."
+"Umožňuje vytvoriť nový košík bez nutnosti otvoriť hlavné okno (potom môžete "
+"použiť ostatné globálne klávesové skratky na pridanie poznámky, vloženie "
+"schránky alebo vloženie výberu do tohto nového košíka)."
 
 #: src/bnpview.cpp:255
 #, kde-format
@@ -1281,10 +1279,11 @@ msgid ""
 "by creating new baskets inside others. You can browse between them by "
 "clicking a basket to open it, or reorganize them using drag and drop."
 msgstr ""
-"<h2>Strom košíkov</h2>Tu je zoznam vašich košíkov. You can organize your "
-"data by putting them in different baskets. You can group baskets by subject "
-"by creating new baskets inside others. You can browse between them by "
-"clicking a basket to open it, or reorganize them using drag and drop."
+"<h2>Strom košíkov</h2>Tu je zoznam vašich košíkov. Môžete organizovať svoje "
+"údaje tým, že ich uložíte do rôznych košíkov. Košíky môžete zoskupovať podľa "
+"témy vytváraním nových košíkov vo vnútri iných. Môžete medzi nimi prechádzať "
+"kliknutím na košík, aby ste ho otvorili, alebo ich reorganizovať pomocou "
+"pretiahnutia."
 
 #: src/bnpview.cpp:378 src/bnpview.cpp:384
 #, kde-format
@@ -1651,13 +1650,13 @@ msgid ""
 "sure the application is correctly installed but you had a preview version of "
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
-"<p><b>Súbor basketui.rc zrejme neexistuje or is too old.<br>%1 cannot run "
-"without it and will stop.</b></p><p>Please check your installation of %2.</"
-"p><p>If you do not have administrator access to install the application "
-"system wide, you can copy the file basketui.rc from the installation archive "
-"to the folder <a href='file://%3'>%4</a>.</p><p>As last resort, if you are "
-"sure the application is correctly installed but you had a preview version of "
-"it, try to remove the file %5basketui.rc</p>"
+"<p><b>Zdá sa, že súbor basketui.rc neexistuje alebo je príliš starý.<br>%1 "
+"bez neho nemôže bežať a zastaví sa.</b></p><p>Skontrolujte svoju inštaláciu "
+"%2.</p><p>Ak nemáte prístup správcu na inštaláciu aplikácie pre celý systém, "
+"môžete skopírovať súbor basketui.rc z inštalačného archívu do priečinka <a "
+"href='file://%3'>%4</a>.</p><p>Ako posledná možnosť, ak ste si istý, že "
+"aplikácia je správne nainštalovaná, ale mali ste jej ukážkovú verziu, skúste "
+"odstrániť súbor %5basketui.rc</p>"
 
 #: src/bnpview.cpp:1785
 #, kde-format
@@ -1673,7 +1672,7 @@ msgstr "Nie je možné add note."
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
-msgstr "<qt>Naozaj chcete odstrániť košík <b>%1</b> and its contents?</qt>"
+msgstr "<qt>Naozaj chcete odstrániť košík <b>%1</b> a jeho obsah?</qt>"
 
 #: src/bnpview.cpp:1962
 #, kde-format
@@ -1691,8 +1690,8 @@ msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
 msgstr ""
-"<qt><b>%1</b> má nasledujúce podradené košíky.<br>Do you want to remove them "
-"too?</qt>"
+"<qt><b>%1</b> má nasledujúce podradené košíky.<br>Chcete ich tiež odstrániť?"
+"</qt>"
 
 #: src/bnpview.cpp:1975
 #, kde-format
@@ -1732,17 +1731,17 @@ msgstr "Odstrániť všetko"
 #: src/common.cpp:56
 #, kde-format
 msgid "Please enter the password for the following private key:"
-msgstr "Prosím, enter the password for the following private key:"
+msgstr "Prosím, zadajte heslo pre nasledujúci súkromný kľúč:"
 
 #: src/common.cpp:58
 #, kde-format
 msgid "Please enter the password for the basket <b>%1</b>:"
-msgstr "Prosím, enter the password for the basket <b>%1</b>:"
+msgstr "Prosím, zadajte heslo pre košík <b>%1</b>:"
 
 #: src/common.cpp:94
 #, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
-msgstr "Prosím, assign a password to the basket <b>%1</b>:"
+msgstr "Prosím, priraďte heslo ku košíku <b>%1</b>:"
 
 #: src/common.cpp:144
 #, kde-format
@@ -1869,12 +1868,12 @@ msgid ""
 "that modifying one will not modify the other anymore as they are now "
 "separate entities.</p>"
 msgstr ""
-"<p>Zrkadlenie priečinkov už nie je možné (see <a href='https://basket-"
-"notepads.github.io'>basket-notepads.github.io</a> for more information).</"
-"p><p>The folder <b>%1</b> has been copied for the basket needs. You can "
-"either delete this folder or delete the basket, or use both. But remember "
-"that modifying one will not modify the other anymore as they are now "
-"separate entities.</p>"
+"<p>Zrkadlenie priečinkov už nie je možné (ďalšie informácie nájdete na <a "
+"href='https://basket-notepads.github.io'>basket-notepads.github.io</a>).</"
+"p><p>Priečinok <b>%1</b> bol skopírovaný pre potreby košíka. Môžete tento "
+"priečinok odstrániť alebo odstrániť košík, alebo použiť oboje. Nezabudnite "
+"však, že úprava jedného už nebude upravovať druhé, pretože sú teraz "
+"samostatnými entitami.</p>"
 
 #: src/formatimporter.cpp:125
 #, kde-format
@@ -2106,18 +2105,19 @@ msgid ""
 "you drop, go to the \"General\" page and uncheck \"Image or animation\" in "
 "the \"View Content of Added Files for the Following Types\" group.</p>"
 msgstr ""
-"<p>Toto je normálne, pretože existuje niekoľko typov poznámok.<br>This "
-"setting only applies to file and local link notes.<br>The images you see are "
-"image notes, not file notes.<br>File notes are generic documents, whereas "
-"image notes are pictures you can draw in.</p><p>When dropping files to "
-"baskets, %1 detects their type and shows you the content of the files."
-"<br>For instance, when dropping image or text files, image and text notes "
-"are created for them.<br>For type of files %2 does not understand, they are "
-"shown as generic file notes with just an icon or file preview and a filename."
-"</p><p>If you do not want the application to create notes depending on the "
-"content of the files you drop, go to the \"General\" page and uncheck "
-"\"Image or animation\" in the \"View Content of Added Files for the "
-"Following Types\" group.</p>"
+"<p>Toto je normálne, pretože existuje niekoľko typov poznámok.<br>Toto "
+"nastavenie sa vzťahuje iba na poznámky súborov a lokálnych odkazov."
+"<br>Obrázky, ktoré vidíte, sú obrazové poznámky, nie poznámky súborov."
+"<br>Poznámky súborov sú všeobecné dokumenty, zatiaľ čo obrazové poznámky sú "
+"obrázky, do ktorých môžete kresliť.</p><p>Pri preťahovaní súborov do košíkov "
+"%1 zistí ich typ a zobrazí vám obsah súborov.<br>Napríklad pri preťahovaní "
+"obrazových alebo textových súborov sa pre ne vytvoria obrazové a textové "
+"poznámky.<br>Pre typy súborov, ktorým %2 nerozumie, sa zobrazujú ako "
+"všeobecné poznámky súborov len s ikonou alebo ukážkou súboru a názvom súboru."
+"</p><p>Ak nechcete, aby aplikácia vytvárala poznámky v závislosti od obsahu "
+"preťahovaných súborov, prejdite na stránku \"Všeobecné\" a zrušte "
+"zaškrtnutie \"Obrázok alebo animácia\" v skupine \"Zobraziť obsah pridaných "
+"súborov pre nasledujúce typy\".</p>"
 
 #: src/linklabel.cpp:675
 #, kde-format
@@ -2203,11 +2203,12 @@ msgid ""
 "sections with sub-baskets representing chapters or pages;</li><li>Making a "
 "group of baskets to export together (to eg. email them to people).</li></ul>"
 msgstr ""
-"<p>Vytváranie košíkov vnútri iných košíkov to form a hierarchy allows you to "
-"be more organized by eg.:</p><ul><li>Grouping baskets by themes or topics;</"
-"li><li>Grouping baskets in folders for different projects;</li><li>Making "
-"sections with sub-baskets representing chapters or pages;</li><li>Making a "
-"group of baskets to export together (to eg. email them to people).</li></ul>"
+"<p>Vytváranie košíkov vo vnútri iných košíkov na vytvorenie hierarchie vám "
+"umožní byť organizovanejší, napr.:</p><ul><li>Zoskupovanie košíkov podľa tém "
+"alebo predmetov;</li><li>Zoskupovanie košíkov v priečinkoch pre rôzne "
+"projekty;</li><li>Vytváranie sekcií s podkošíkmi reprezentujúcimi kapitoly "
+"alebo stránky;</li><li>Vytváranie skupiny košíkov na spoločný export (napr. "
+"na ich odoslanie e-mailom ľuďom).</li></ul>"
 
 #: src/newbasketdialog.cpp:320
 #, kde-format
@@ -2683,9 +2684,9 @@ msgid ""
 "Pads will include an image editor).\n"
 "Do you want to open it with an application that understand it?"
 msgstr ""
-"Obrázky momentálne nie je možné tu upravovať (the next version of BasKet "
-"Note Pads will include an image editor).\n"
-"Do you want to open it with an application that understand it?"
+"Obrázky momentálne nie je možné tu upravovať (nasledujúca verzia BasKet Note "
+"Pads bude obsahovať editor obrázkov).\n"
+"Chcete ho otvoriť pomocou aplikácie, ktorá mu rozumie?"
 
 #: src/noteedit.cpp:543
 #, kde-format
@@ -2699,7 +2700,7 @@ msgid ""
 "Do you want to open it with an application that understands it?"
 msgstr ""
 "Tento animovaný obrázok nie je tu možné upravovať.\n"
-"Do you want to open it with an application that understands it?"
+"Chcete ho otvoriť pomocou aplikácie, ktorá mu rozumie?"
 
 #: src/noteedit.cpp:570
 #, kde-format
@@ -2718,9 +2719,8 @@ msgid ""
 "You however can drag or copy the note into an application that understands "
 "it."
 msgstr ""
-"Typ tejto poznámky je neznámy and can not be edited here.\n"
-"You however can drag or copy the note into an application that understands "
-"it."
+"Typ tejto poznámky je neznámy a nie je ju tu možné upravovať.\n"
+"Môžete ju však pretiahnuť alebo skopírovať do aplikácie, ktorá jej rozumie."
 
 #: src/noteedit.cpp:690
 #, kde-format
@@ -2855,9 +2855,10 @@ msgid ""
 "understand it.</p><p>If you want the support of these data, please contact "
 "developer.</p>"
 msgstr ""
-"<p>%1 nepodporuje dáta, ktoré ste pustili.<br>It however created a generic "
-"note, allowing you to drag or copy it to an application that understand it.</"
-"p><p>If you want the support of these data, please contact developer.</p>"
+"<p>%1 nepodporuje dáta, ktoré ste pustili.<br>Vytvorilo však všeobecnú "
+"poznámku, ktorá vám umožňuje ju pretiahnuť alebo skopírovať do aplikácie, "
+"ktorá im rozumie.</p><p>Ak chcete podporu týchto dát, kontaktujte vývojára.</"
+"p>"
 
 #: src/notefactory.cpp:497
 #, kde-format
@@ -3038,9 +3039,9 @@ msgid ""
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
 "empty checkbox and a checked box."
 msgstr ""
-"Napríklad zoznam poznámok so značkami <b>Úloha</b> and <b>Done</b> tags are "
-"exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
-"empty checkbox and a checked box."
+"Napríklad zoznam poznámok so značkami <b>Úloha</b> a <b>Hotovo</b> sa "
+"exportuje ako riadky predchádzané <b>[ ]</b> alebo <b>[x]</b>, predstavujúce "
+"prázdne zaškrtávacie políčko a zaškrtnuté políčko."
 
 #: src/settings.cpp:543
 #, kde-format
@@ -3059,9 +3060,9 @@ msgid ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 msgstr ""
-"<p>Keď je táto možnosť povolená, vkladací riadok not only allows you to "
-"insert notes at the cursor position, but also allows you to group a new note "
-"with the one under the cursor:</p>"
+"<p>Keď je táto možnosť povolená, vkladací riadok nielen umožňuje vkladať "
+"poznámky na pozíciu kurzora, ale tiež umožňuje zoskupiť novú poznámku s tou "
+"pod kurzorom:</p>"
 
 #: src/settings.cpp:549
 #, kde-format
@@ -3071,10 +3072,10 @@ msgid ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 msgstr ""
-"<p>Umiestnite myš medzi poznámky, where you want to add a new one.<br>Click "
-"on the <b>left</b> of the insertion-line middle-mark to <b>insert</b> a note."
-"<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
-"or above</b>, depending on where your mouse is.</p>"
+"<p>Umiestnite myš medzi poznámky, tam, kde chcete pridať novú.<br>Kliknite "
+"<b>vľavo</b> od stredovej značky vkladacieho riadka, aby ste <b>vložili</b> "
+"poznámku.<br>Kliknite <b>vpravo</b>, aby ste <b>zoskupili</b> poznámku s tou "
+"<b>nižšie alebo vyššie</b>, v závislosti od polohy myši.</p>"
 
 #: src/settings.cpp:565
 #, kde-format
@@ -3274,20 +3275,21 @@ msgid ""
 "more fine-grained configuration (like opening pdf documents preferably with "
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
-"<p>V moderných desktopových prostrediach konfigurácie spúšťačov provide "
-"information to the system about how to handle an application.These files are "
-"essential for integrating applications into the desktop environment, to "
-"list, lookup and launch apps with specific configurations</p><p>Here is how "
-"to do if you want to launch Falkon Browser with a specific profile.</"
-"p><ul><li>Open the KDE Menu Editor, and type \"Falkon\" in the search filter;"
-"</li><li>Select \"Falkon\" desktop launcher, right-click, copy and paste;</"
-"li><li>Edit the \"General\" property fields like \"Name\", \"Description\" "
-"or \"Comment\".</li><li>Edit the \"Command-line arguments\" field to "
-"something like \"--profile 'Your-Extensive-Hobby' %%u\".</li></ul><p>Now, "
-"when you choose your new launcher as basket link notes launcher, basket will "
-"open HTTP links with Falkon's \"Your-Extensive-Hobby\" profile</p><p>For "
-"more fine-grained configuration (like opening pdf documents preferably with "
-"Falkon), read the second button tooltip.</p>"
+"<p>V moderných desktopových prostrediach poskytujú konfigurácie spúšťačov "
+"systému informácie o tom, ako narábať s aplikáciou. Tieto súbory sú "
+"nevyhnutné na integráciu aplikácií do desktopového prostredia, na výpis, "
+"vyhľadávanie a spúšťanie aplikácií s konkrétnymi konfiguráciami.</p><p>Tu je "
+"návod, ako postupovať, ak chcete spustiť prehliadač Falkon s konkrétnym "
+"profilom.</p><ul><li>Otvorte Editor ponuky KDE a do filtra vyhľadávania "
+"zadajte \"Falkon\";</li><li>Vyberte spúšťač pracovnej plochy \"Falkon\", "
+"kliknite pravým tlačidlom, skopírujte a vložte;</li><li>Upravte polia "
+"vlastností \"Všeobecné\", napríklad \"Názov\", \"Popis\" alebo \"Komentár\"."
+"</li><li>Upravte pole \"Argumenty príkazového riadka\" na niečo ako \"--"
+"profile 'Your-Extensive-Hobby' %%u\".</li></ul><p>Keď teraz zvolíte nový "
+"spúšťač ako spúšťač odkazov košíka, košík bude otvárať HTTP odkazy s "
+"profilom Falkonu \"Your-Extensive-Hobby\".</p><p>Pre podrobnejšiu "
+"konfiguráciu (napríklad otváranie dokumentov PDF prednostne vo Falkone) si "
+"prečítajte tooltip druhého tlačidla.</p>"
 
 #: src/settings.cpp:891
 #, kde-format
@@ -3415,9 +3417,9 @@ msgid ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 msgstr ""
-"<p>Ak je zaškrtnuté, nižšie definovaná aplikácia will be used when opening "
-"that type of note.</p><p>Otherwise, the application you've configured in "
-"Konqueror will be used.</p>"
+"<p>Ak je zaškrtnuté, pri otváraní tohto typu poznámky sa použije nižšie "
+"definovaná aplikácia.</p><p>V opačnom prípade sa použije aplikácia, ktorú "
+"ste nakonfigurovali v Konquerore.</p>"
 
 #: src/settings.cpp:1006
 #, kde-format
@@ -3425,8 +3427,8 @@ msgid ""
 "<p>Define the application to use for opening that type of note instead of "
 "the application configured in Konqueror.</p>"
 msgstr ""
-"<p>Definujte aplikáciu na otvorenie that type of note instead of the "
-"application configured in Konqueror.</p>"
+"<p>Definujte aplikáciu, ktorá sa má použiť na otvorenie tohto typu poznámky "
+"namiesto aplikácie nakonfigurovanej v Konquerore.</p>"
 
 #: src/settings_versionsync.cpp:77
 #, kde-format
@@ -3896,8 +3898,8 @@ msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
 msgstr ""
-"V príklade vyššie sa značka hornej poznámky is only exported on the first "
-"line, while the tag of the bottom note is exported on every line of the note."
+"V príklade vyššie sa značka hornej poznámky exportuje iba na prvom riadku, "
+"zatiaľ čo značka dolnej poznámky sa exportuje na každom riadku poznámky."
 
 #: src/tagsedit.cpp:977
 #, kde-format
