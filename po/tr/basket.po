@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2026-01-17 16:05+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"PO-Revision-Date: 2026-05-02 18:52+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -133,7 +133,7 @@ msgstr "Bu dosya bozuk. Açılamadı."
 #: devtools/weaver/weaver.cpp:313
 #, kde-format
 msgid "The destination path already exists."
-msgstr "Hedef yolu halihazırda var."
+msgstr "Hedef yolu hâlihazırda var."
 
 #: devtools/weaver/weaver.cpp:316
 #, kde-format
@@ -271,7 +271,7 @@ msgstr "Basket Arşiv Hatası"
 #: src/archive.cpp:273
 #, kde-format
 msgid "Extraction path already exists."
-msgstr "Çıkarma yolu halihazırda var."
+msgstr "Çıkarma yolu hâlihazırda var."
 
 #: src/archive.cpp:277
 #, kde-format
@@ -1703,7 +1703,7 @@ msgstr "Basket Arşivleri"
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr ""
-"<b>%1</b> dosyası halihazırda var. Dosyanın üzerine yazmak ister misiniz?"
+"<b>%1</b> dosyası hâlihazırda var. Dosyanın üzerine yazmak ister misiniz?"
 
 #: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
 #, kde-format
