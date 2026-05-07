@@ -10,22 +10,23 @@
 # SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
 # SPDX-FileCopyrightText: 2020-2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2022-2023 Frederik Schwarzer <schwarzer@kde.org>
-# SPDX-FileCopyrightText: 2026 Ewald Müller <EMuede@netscape.net>
 # SPDX-FileCopyrightText: 2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
+# SPDX-FileCopyrightText: 2026 Ewald Müller <EMuede@netscape.net>
+# SPDX-FileCopyrightText: 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-08 00:46+0000\n"
-"PO-Revision-Date: 2026-04-19 22:02+0200\n"
-"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
+"PO-Revision-Date: 2026-04-29 16:02+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -315,7 +316,7 @@ msgstr ""
 #: src/backup.cpp:54
 #, kde-format
 msgid "Backup & Restore"
-msgstr "Sichern & Wiederherstellen"
+msgstr "Sichern && Wiederherstellen"
 
 #: src/backup.cpp:71
 #, kde-format
@@ -503,7 +504,7 @@ msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
-"Wählen Sie „Korb“ → „Sichern & Wiederherstellen …“ → „Einen anderen "
+"Wählen Sie „Korb“ → „Sichern && Wiederherstellen …“ → „Einen anderen "
 "existierenden Ordner verwenden …“ und wählen Sie diesen Ordner aus."
 
 #: src/backup.cpp:281
@@ -3182,7 +3183,7 @@ msgstr " Minuten"
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr ""
-"GnuPG-Agent für mit privaten/öffentlichen Schlüsseln geschützte Körbe "
+"GnuPG-Agent für mit &privaten/öffentlichen Schlüsseln geschützte Körbe "
 "verwenden"
 
 #: src/settings.cpp:696
@@ -3325,7 +3326,7 @@ msgstr ""
 "p><p>Hier ein Beispiel, wie man den Falkon Browser mit einem bestimmten "
 "Profil startet.</p><ul><li>Öffnen Sie den KDE Menü-Editor und geben Sie "
 "„Falkon“ im Suchfilter ein;</li><li>Wählen Sie den „Falkon“ Startmenü-"
-"Eintrag, Rechtsklick, kopieren & einfügen;</li><li>Bearbeiten Sie die "
+"Eintrag, Rechtsklick, kopieren und einfügen;</li><li>Bearbeiten Sie die "
 "Eigenschaften im Unterfenster „Allgemein“ wie „Name“, „Beschreibung“ oder "
 "„Kommentar“.</li><li>Geben Sie in das „Befehlszeilen-Argumente“-Feld z. B. "
 "„--profile 'Ihr-bevorzugtes-Hobby' %%u“ ein.</li></ul><p>Nun, wenn Sie den "
@@ -3566,7 +3567,7 @@ msgstr "Notizen getrennt durch eine &leere Zeile"
 #: src/softwareimporters.cpp:119
 #, kde-format
 msgid "One &note per line"
-msgstr "Eine Notiz in jeder Zeile"
+msgstr "Eine &Notiz in jeder Zeile"
 
 #: src/softwareimporters.cpp:120
 #, kde-format
