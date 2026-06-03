@@ -39,6 +39,7 @@
   <name xml:lang="sl">Basket</name>
   <name xml:lang="sv">Basket</name>
   <name xml:lang="tr">Basket</name>
+  <name xml:lang="ug">Basket خاتىرە دەپتەر</name>
   <name xml:lang="uk">Basket</name>
   <name xml:lang="zh-CN">Basket 笔记筐</name>
   <name xml:lang="zh-TW">Basket</name>
@@ -73,6 +74,7 @@
   <summary xml:lang="sl">Organizator zabeležk in nalog</summary>
   <summary xml:lang="sv">Antecknings- och uppgiftsorganisatör</summary>
   <summary xml:lang="tr">Notlar ve Yapılacaklar Organizatörü</summary>
+  <summary xml:lang="ug">خاتىرە ۋە بىجىرىلىدىغانلارنى تەشكىللىگۈچ</summary>
   <summary xml:lang="uk">Програма для впорядкування нотаток і завдань</summary>
   <summary xml:lang="zh-CN">记事贴和待办事项组织工具</summary>
   <summary xml:lang="zh-TW">筆記與待辦事項管理工具</summary>
