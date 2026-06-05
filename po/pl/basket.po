@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-08 00:46+0000\n"
+"POT-Creation-Date: 2026-06-05 00:48+0000\n"
 "PO-Revision-Date: 2026-04-11 08:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3359,6 +3359,23 @@ msgstr ""
 "liście programów dodaj swoją przeglądarkę sieciową jako pierwszy wpis;</"
 "li><li>Powtórz dla rodzaju \"application -> xhtml+xml\".</li></ul>"
 
+#: src/settings.cpp:924
+#, kde-format
+msgid "Launch KDE Menu Editor"
+msgstr ""
+
+#: src/settings.cpp:933
+#, fuzzy, kde-format
+#| msgid "Applications"
+msgid "Default Applications"
+msgstr "Programy"
+
+#: src/settings.cpp:942
+#, fuzzy, kde-format
+#| msgid "Specific Basket Associations"
+msgid "File Associations"
+msgstr "Szczególne skojarzenia Basketa"
+
 #: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
@@ -3950,6 +3967,16 @@ msgstr "Usuń stan"
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
+
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgid "Choose an Application Launcher ..."
+msgstr ""
+
+#: src/variouswidgets.cpp:109
+#, kde-format
+msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
+msgstr ""
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
@@ -4681,9 +4708,6 @@ msgstr ""
 
 #~ msgid "Actions"
 #~ msgstr "Działania"
-
-#~ msgid "Applications"
-#~ msgstr "Programy"
 
 #~ msgid "Devices"
 #~ msgstr "Urządzenia"

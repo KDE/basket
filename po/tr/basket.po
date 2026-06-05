@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-08 00:46+0000\n"
+"POT-Creation-Date: 2026-06-05 00:48+0000\n"
 "PO-Revision-Date: 2026-05-02 18:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3345,6 +3345,23 @@ msgstr ""
 "girdi olarak ekleyin.</li><li> Aynı işlemi “application -> xhtml+xml” türü "
 "için de uygulayın.</li></ul>"
 
+#: src/settings.cpp:924
+#, kde-format
+msgid "Launch KDE Menu Editor"
+msgstr ""
+
+#: src/settings.cpp:933
+#, fuzzy, kde-format
+#| msgid "Launch this application"
+msgid "Default Applications"
+msgstr "Bu uygulamayı başlat"
+
+#: src/settings.cpp:942
+#, fuzzy, kde-format
+#| msgid "Specific Basket Associations"
+msgid "File Associations"
+msgstr "Belirli Basket İlişkilendirmeleri"
+
 #: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
@@ -3932,6 +3949,16 @@ msgstr "İfadeyi Sil"
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " — "
+
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgid "Choose an Application Launcher ..."
+msgstr ""
+
+#: src/variouswidgets.cpp:109
+#, kde-format
+msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
+msgstr ""
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-08 00:46+0000\n"
+"POT-Creation-Date: 2026-06-05 00:48+0000\n"
 "PO-Revision-Date: 2024-12-19 22:43+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -3355,6 +3355,23 @@ msgstr ""
 "lista de aplicacións, engada o seu navegador web como a primeira entrada;</"
 "li><li>Faga o mesmo para o tipo «aplicación» → «xhtml+xml».</li></ul>"
 
+#: src/settings.cpp:924
+#, kde-format
+msgid "Launch KDE Menu Editor"
+msgstr ""
+
+#: src/settings.cpp:933
+#, fuzzy, kde-format
+#| msgid "Launch this application"
+msgid "Default Applications"
+msgstr "Iniciar a aplicación"
+
+#: src/settings.cpp:942
+#, fuzzy, kde-format
+#| msgid "Specific Basket Associations"
+msgid "File Associations"
+msgstr "Asociacións específicas de Basket"
+
 #: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
@@ -3943,6 +3960,16 @@ msgstr "Eliminar o estado"
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " — "
+
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgid "Choose an Application Launcher ..."
+msgstr ""
+
+#: src/variouswidgets.cpp:109
+#, kde-format
+msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
+msgstr ""
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
