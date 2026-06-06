@@ -3184,16 +3184,14 @@ msgid "Launch KDE Menu Editor"
 msgstr ""
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Launch this application"
+#, kde-format
 msgid "Default Applications"
-msgstr "启动此应用程序"
+msgstr ""
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "特定的笔记栏关联"
+msgstr ""
 
 #: src/settings.cpp:953
 #, kde-format
