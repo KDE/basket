@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the basket package.
 #
-# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:48+0000\n"
-"PO-Revision-Date: 2025-10-05 12:35+0300\n"
+"PO-Revision-Date: 2026-06-06 06:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3309,19 +3309,17 @@ msgstr ""
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "הפעלת עורך התפריטים של KDE"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Launch this application"
+#, kde-format
 msgid "Default Applications"
-msgstr "הפעלת היישום הזה"
+msgstr "יישומי ברירת מחדל"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "שיוכי סלים נקודתיים"
+msgstr "שיוכי קבצים"
 
 #: src/settings.cpp:953
 #, kde-format
@@ -3909,12 +3907,12 @@ msgstr " – "
 #: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "נא לבחור משגר יישומים…"
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
-msgstr ""
+msgstr "להשתמש במשגרי היישומים של KDE כדי לפתוח את פתקיות הסל שלך"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138

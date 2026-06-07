@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the basket package.
-# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:48+0000\n"
-"PO-Revision-Date: 2025-10-09 00:08+0200\n"
+"PO-Revision-Date: 2026-06-06 11:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3293,19 +3293,17 @@ msgstr ""
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "KDE 메뉴 편집기 실행"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Launch this application"
+#, kde-format
 msgid "Default Applications"
-msgstr "이 앱 실행"
+msgstr "기본 앱"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "지정된 바구니 연결"
+msgstr "파일 연결"
 
 #: src/settings.cpp:953
 #, kde-format
@@ -3895,12 +3893,12 @@ msgstr " – "
 #: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "앱 실행기 선택..."
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
-msgstr ""
+msgstr "KDE Plasma 앱 실행기를 사용하여 내 Basket 노트 열기"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
