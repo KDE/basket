@@ -4,20 +4,20 @@
 # Copyright (C) 2003-2005.
 #
 # Rex <rexforce@hotmail.com>, 2004.
-# SPDX-FileCopyrightText: 2023, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2025-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:48+0000\n"
-"PO-Revision-Date: 2025-11-24 22:29+0900\n"
+"PO-Revision-Date: 2026-06-07 15:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -330,6 +330,13 @@ msgid ""
 "folder manually (eg. adding a file in a basket folder will not add that file "
 "to the basket).</p>"
 msgstr ""
+"<p>您可以移動 %1 儲存筆記本的資料夾來：</p><ul><li>把筆記本儲存於家目錄中明顯"
+"的位置（像是 ~/筆記本、~/Notes 或是 ~/Baskets），方便隨時進行手動備份。</"
+"li><li>將記事本儲存在伺服器上，方便在兩台電腦間共用。<br>這個情況，請將共享資"
+"料夾掛在到本地檔案系統然後設定 %1 使用該掛載點。<br>警告：請不要在兩台電腦上"
+"同時執行 %1，否則很可能會因為兩邊的應用程式沒有同步而造成資料遺失。</li></"
+"ul><p>請注意，請不要自己改變該資料夾的內容（例如：直接將檔案加入筆記本資料夾"
+"並足以將該檔案加入筆記本）。</p>"
 
 #: src/backup.cpp:104
 #, kde-format
@@ -620,6 +627,15 @@ msgid ""
 "is useful in addition to the configurable global shortcuts, eg. to paste the "
 "clipboard or the selection into the current basket from anywhere.</p>"
 msgstr ""
+"<p><strong>輕鬆記住您的快捷鍵</strong>：<br>用第一個選項時，如果您為筆記本設"
+"定 <strong>Alt+字母</strong> 這種快捷鍵，則該字母會在筆記本樹狀圖當中加上底"
+"線。<br>舉例來說，如果您為名為 <i>Tips</i> 的筆記本設定 <i>Alt+T</i> 快捷鍵，"
+"該筆記本會在樹狀圖當中顯示為 <i><u>T</u>ips</i>。這樣透過視覺顯示快捷鍵能夠幫"
+"助您更快地記住它們。</p><p><strong>本地或是全域</strong>：<br>本地快捷鍵讓您"
+"在已切換到主視窗時隨時顯示該筆記本。全域快捷鍵則在任何視窗皆有作用，即使主視"
+"窗已隱藏。</p><p><strong>顯示或是切換</strong>：<br>切換會讓這個筆記本變成目"
+"前的筆記本，而不開啟主視窗。與其他可設定的全域快捷鍵一起使用時，這可以讓您將"
+"剪貼簿或選取區從任何地方貼上到切換到的筆記本裡。</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
 #: src/basketproperties.ui:27 src/settings.cpp:485 src/tagsedit.cpp:1108
@@ -3220,22 +3236,31 @@ msgid ""
 "the applications list, add your Web browser as the first entry;</li><li>Do "
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 msgstr ""
+"<p>您可以為不同檔案類型設定要使用的應用程式。如果您選擇不總是用瀏覽器開啟網路"
+"連結（請見第一個說明連結），這個設定值也會適用於網路連結。預設的設定應該已經"
+"足夠直接使用，但尤其在使用 Plasma 以外的桌面環境（像是 GNOME、XFCE 等等）時您"
+"可能會希望調整這些設定。</p><p>以下範例會指定用網頁瀏覽器開啟 HTML 頁面，並且"
+"保留其他位址或檔案的設定不動。如果您有其他類型的檔案希望指定開啟用的應用程"
+"式，只要重複這些步驟即可。</p><ul><li>開啟 KDE 系統設定（如果找不到，請試著在"
+"終端機輸入 \"systemsettings\" 指令）；</li><li>前往「應用程式」→「檔案關聯」"
+"區塊；</li><li>在樹狀檢視當中展開 \"text\" 並點擊 \"html\"；</li><li>在應用程"
+"式清單中將您的瀏覽器移動到第一個；</li><li>為樹狀檢視裡 \"application\" → "
+"\"xhtml+xml\" 重複同樣步驟。</li></ul>"
 
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "啟動 KDE 選單編輯器"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default Applications"
-msgstr "應用程式快捷列"
+msgstr "預設應用程式"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "特定筆記本關聯"
+msgstr "檔案關聯"
 
 #: src/settings.cpp:953
 #, kde-format
@@ -3820,14 +3845,14 @@ msgid " – "
 msgstr " – "
 
 #: src/variouswidgets.cpp:108
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr "應用程式快捷列"
+msgstr "選擇應用程式啟動器 ..."
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
-msgstr ""
+msgstr "使用 KDE Plasma 的應用程式啟動器來開啟您的 Basket 筆記"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138

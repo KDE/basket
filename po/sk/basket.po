@@ -3358,24 +3358,22 @@ msgstr ""
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "Spustiť editor ponuky KDE"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Launch this application"
+#, kde-format
 msgid "Default Applications"
-msgstr "Spustiť túto aplikáciu"
+msgstr "Predvolené aplikácie"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "Specific Basket Associations"
+msgstr "Asociácie súborov"
 
 #: src/settings.cpp:953
 #, kde-format
 msgid "Specific Basket Associations"
-msgstr "Specific Basket Associations"
+msgstr "Špecifické asociácie pre Basket"
 
 #: src/settings.cpp:955
 #, kde-format
@@ -3964,12 +3962,12 @@ msgstr " – "
 #: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "Vyberte spúšťač aplikácií ..."
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
-msgstr ""
+msgstr "Použiť spúšťače aplikácií KDE Plasma na otvorenie poznámok Basket"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
