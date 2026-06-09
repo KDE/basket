@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the basket package.
-# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:48+0000\n"
-"PO-Revision-Date: 2025-10-15 17:29+0400\n"
+"PO-Revision-Date: 2026-06-08 21:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3340,19 +3340,17 @@ msgstr ""
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "شغّل محرِّر القوائم لـكِيدِي"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Launch this application"
+#, kde-format
 msgid "Default Applications"
-msgstr "شغل هذا التطبيق"
+msgstr "التطبيقات المبدئية"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "ارتباطات السلة الخاصة"
+msgstr "ارتباطات الملفّات"
 
 #: src/settings.cpp:953
 #, kde-format
@@ -3941,12 +3939,12 @@ msgstr " – "
 #: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "اختر مطلق التطبيقات …"
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
-msgstr ""
+msgstr "استخدم مطلقات تطبيقات من كيدي بلازما لفتح ملاحظات السلة"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
