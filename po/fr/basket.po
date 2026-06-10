@@ -6,7 +6,7 @@
 # Sébastien Laoût <slaout@linux62.org>, 2004, 2005, 2006, 2007.
 # Yann Verley <yann.verley@free.fr>, 2007.
 # Guillaume Martres <smarter@ubuntu.com>, 2009.
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025, 2026 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2020-2021, 2023-2026 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:48+0000\n"
-"PO-Revision-Date: 2026-05-03 12:22+0200\n"
+"PO-Revision-Date: 2026-06-08 10:46+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3411,19 +3411,17 @@ msgstr ""
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "Lancer l'éditeur de menus de KDE"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Applications"
+#, kde-format
 msgid "Default Applications"
-msgstr "Applications"
+msgstr "Applications par défaut"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "Associations de paniers spécifiques"
+msgstr "Associations de fichiers"
 
 #: src/settings.cpp:953
 #, kde-format
@@ -4022,12 +4020,14 @@ msgstr " – "
 #: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "Sélectionnez un lanceur d'applications..."
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
+"Utilisez les lanceurs d'applications de KDE Plasma pour l'ouverture de vos "
+"notes dans Basket"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
