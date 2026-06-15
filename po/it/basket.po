@@ -1,6 +1,6 @@
 # translation of BasKet to Italian
 #
-# SPDX-FileCopyrightText: 2006, 2007, 2014, 2016, 2018, 2020, 2021, 2024, 2025 Luigi Toscano <luigi.toscano@tiscali.it>
+# SPDX-FileCopyrightText: 2006-2007, 2014, 2016, 2018, 2020-2021, 2024-2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Nicola Ruggero <nicola@nxnt.org>, 2011.
 # SPDX-FileCopyrightText: 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:48+0000\n"
-"PO-Revision-Date: 2025-09-25 00:39+0200\n"
+"PO-Revision-Date: 2026-06-07 22:38+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.04.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -3379,19 +3379,17 @@ msgstr ""
 #: src/settings.cpp:924
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "Esegui l'editore del menu di KDE"
 
 #: src/settings.cpp:933
-#, fuzzy, kde-format
-#| msgid "Applications"
+#, kde-format
 msgid "Default Applications"
-msgstr "Applicazioni"
+msgstr "Applicazioni predefinite"
 
 #: src/settings.cpp:942
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "Associazioni specifiche di Basket"
+msgstr "Associazioni dei file"
 
 #: src/settings.cpp:953
 #, kde-format
@@ -3989,12 +3987,14 @@ msgstr " – "
 #: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "Scegli un avviatore di applicazioni ..."
 
 #: src/variouswidgets.cpp:109
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
+"Usa gli avviatori di applicazioni di KDE Plasma per aprire i tuoi appunti di "
+"Basket"
 
 #: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
 #: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
