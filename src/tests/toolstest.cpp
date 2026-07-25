@@ -12,6 +12,7 @@ class ToolsTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void testHtmlToText_data();
     void testHtmlToText();
 
 private:
@@ -20,19 +21,27 @@ private:
 
 QTEST_MAIN(ToolsTest)
 
+void ToolsTest::testHtmlToText_data()
+{
+    QTest::addColumn<QString>("filename");
+
+    const QDir datadir(QFINDTESTDATA("htmltotext/"));
+    for (const QString &entry : datadir.entryList({QStringLiteral("*.html")}, QDir::Files, QDir::Name)) {
+        QTest::newRow(qPrintable(entry)) << entry;
+    }
+}
+
 void ToolsTest::testHtmlToText()
 {
     // Test the function on files from htmltotext/
 
-    for (int i = 1; i <= 5; i++) {
-        QString html, text;
-        QString basename = QFINDTESTDATA("htmltotext/");
-        QVERIFY2(QDir(basename).exists(), "Test data file not found");
-        basename += QString::number(i);
+    QFETCH(QString, filename);
 
-        if (readAll(basename + QStringLiteral(".html"), html) && readAll(basename + QStringLiteral(".txt"), text))
-            QCOMPARE(Tools::htmlToText(html), text);
-    }
+    const QString basename = QFINDTESTDATA("htmltotext/");
+    QString html, text;
+    QVERIFY(readAll(basename + filename, html));
+    QVERIFY(readAll(basename + filename.chopped(4) + QStringLiteral("txt"), text));
+    QCOMPARE(Tools::htmlToText(html), text);
 }
 
 bool ToolsTest::readAll(QString fileName, QString &text)
