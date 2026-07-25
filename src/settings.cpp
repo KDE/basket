@@ -345,7 +345,6 @@ void Settings::setAutoBullet(bool yes)
 SettingsDialog::SettingsDialog(QWidget *parent)
     : KCMultiDialog(parent)
 {
-    QCoreApplication::addLibraryPath(QStringLiteral("/lib/plugins"));
     const QList<KPluginMetaData> availablePlugins = KPluginMetaData::findPlugins(QStringLiteral("pim/kcms/basket"));
     qInfo() << "SettingsDialog" << availablePlugins.size();
     for (const KPluginMetaData &metaData : availablePlugins) {
