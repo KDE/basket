@@ -92,7 +92,7 @@ set_target_properties(LibBasket PROPERTIES
         ${BASKET_SOVERSION}
 )
 
-install(TARGETS LibBasket DESTINATION ${KDE_INSTALL_LIBDIR})
+install(TARGETS LibBasket DESTINATION ${KDE_INSTALL_LIBDIR} LIBRARY NAMELINK_SKIP)
 
 # Add unit tests after all variables have been set.
 # If we save target_link_libraries to a variable, we can reuse it too
