@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-05 00:48+0000\n"
+"POT-Creation-Date: 2026-07-26 00:47+0000\n"
 "PO-Revision-Date: 2021-02-14 15:06+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -665,7 +665,7 @@ msgstr ""
 "clipboard or the selection into the current basket from anywhere.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:485 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:484 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
 msgstr "Appearance"
@@ -1179,7 +1179,7 @@ msgid ""
 msgstr ""
 "Add a text note to the current basket without having to open the main window."
 
-#: src/bnpview.cpp:274 src/settings.cpp:567
+#: src/bnpview.cpp:274 src/settings.cpp:566
 #, kde-format
 msgid "Insert image note"
 msgstr "Insert image note"
@@ -1193,7 +1193,7 @@ msgstr ""
 "Add an image note to the current basket without having to open the main "
 "window."
 
-#: src/bnpview.cpp:280 src/settings.cpp:568
+#: src/bnpview.cpp:280 src/settings.cpp:567
 #, kde-format
 msgid "Insert link note"
 msgstr "Insert link note"
@@ -1205,7 +1205,7 @@ msgid ""
 msgstr ""
 "Add a link note to the current basket without having to open the main window."
 
-#: src/bnpview.cpp:286 src/settings.cpp:571
+#: src/bnpview.cpp:286 src/settings.cpp:570
 #, kde-format
 msgid "Insert color note"
 msgstr "Insert colour note"
@@ -1233,7 +1233,7 @@ msgstr ""
 "Add a colour note picked from one pixel on screen to the current basket "
 "without having to open the main window."
 
-#: src/bnpview.cpp:299 src/settings.cpp:572
+#: src/bnpview.cpp:299 src/settings.cpp:571
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Grab screen zone"
@@ -2891,7 +2891,7 @@ msgid "Load File Content into a Note"
 msgstr "Load File Content into a Note"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:590
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:589
 #, kde-format
 msgid "Password Protection"
 msgstr "Password Protection"
@@ -2928,82 +2928,82 @@ msgstr ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
 "Press Esc to quit."
 
-#: src/settings.cpp:433
+#: src/settings.cpp:432
 #, kde-format
 msgid "On left"
 msgstr "On left"
 
-#: src/settings.cpp:434
+#: src/settings.cpp:433
 #, kde-format
 msgid "On right"
 msgstr "On right"
 
-#: src/settings.cpp:436
+#: src/settings.cpp:435
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&Basket tree position:"
 
-#: src/settings.cpp:441 src/settings.cpp:699
+#: src/settings.cpp:440 src/settings.cpp:698
 #, kde-format
 msgid "On top"
 msgstr "On top"
 
-#: src/settings.cpp:442 src/settings.cpp:700
+#: src/settings.cpp:441 src/settings.cpp:699
 #, kde-format
 msgid "On bottom"
 msgstr "On bottom"
 
-#: src/settings.cpp:444
+#: src/settings.cpp:443
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "&Filter bar position:"
 
-#: src/settings.cpp:490
+#: src/settings.cpp:489
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "&Show tooltips in baskets"
 
-#: src/settings.cpp:494
+#: src/settings.cpp:493
 #, kde-format
 msgid "&Big notes"
 msgstr "&Big notes"
 
-#: src/settings.cpp:500
+#: src/settings.cpp:499
 #, kde-format
 msgid "Behavior"
 msgstr "Behaviour"
 
-#: src/settings.cpp:505
+#: src/settings.cpp:504
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr "&Transform lines starting with * or - to lists in text editors"
 
-#: src/settings.cpp:509
+#: src/settings.cpp:508
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "Ask confirmation before &deleting notes"
 
-#: src/settings.cpp:513
+#: src/settings.cpp:512
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Keep text formatting when pasting"
 
-#: src/settings.cpp:517
+#: src/settings.cpp:516
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Automatically detect tags from note's content"
 
-#: src/settings.cpp:524
+#: src/settings.cpp:523
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Export tags in texts"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:527
 #, kde-format
 msgid "When does this apply?"
 msgstr "When does this apply?"
 
-#: src/settings.cpp:529
+#: src/settings.cpp:528
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3012,7 +3012,7 @@ msgstr ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
 "editor."
 
-#: src/settings.cpp:530
+#: src/settings.cpp:529
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
@@ -3020,7 +3020,7 @@ msgstr ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:531 src/tagsedit.cpp:524
+#: src/settings.cpp:530 src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3031,17 +3031,17 @@ msgstr ""
 "exported as lines preceded by <b>[ ]</b> or <b>[x]</b>, representing an "
 "empty tick box and a ticked tick box."
 
-#: src/settings.cpp:543
+#: src/settings.cpp:542
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Group a new note when clicking on the right of the insertion line"
 
-#: src/settings.cpp:545
+#: src/settings.cpp:544
 #, kde-format
 msgid "How to group a new note?"
 msgstr "How to group a new note?"
 
-#: src/settings.cpp:546
+#: src/settings.cpp:545
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3052,7 +3052,7 @@ msgstr ""
 "insert notes at the cursor position, but also allows you to group a new note "
 "with the one under the cursor:</p>"
 
-#: src/settings.cpp:549
+#: src/settings.cpp:548
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3065,187 +3065,187 @@ msgstr ""
 "<br>Click on the <b>right</b> to <b>group</b> a note, with the one <b>below "
 "or above</b>, depending on where your mouse is.</p>"
 
-#: src/settings.cpp:565
+#: src/settings.cpp:564
 #, kde-format
 msgid "Do nothing"
 msgstr "Do nothing"
 
-#: src/settings.cpp:566
+#: src/settings.cpp:565
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Paste clipboard"
 
-#: src/settings.cpp:569
+#: src/settings.cpp:568
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Insert cross reference"
 
-#: src/settings.cpp:570
+#: src/settings.cpp:569
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Insert launcher note"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:572
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Insert colour from screen"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:573
 #, kde-format
 msgid "Load note from file"
 msgstr "Load note from file"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:574
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Import Launcher for desktop application"
 
-#: src/settings.cpp:576
+#: src/settings.cpp:575
 #, kde-format
 msgid "Import icon"
 msgstr "Import icon"
 
-#: src/settings.cpp:579
+#: src/settings.cpp:578
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+middle-click anywhere:"
 
-#: src/settings.cpp:584
+#: src/settings.cpp:583
 #, kde-format
 msgid "at cursor position"
 msgstr "at cursor position"
 
-#: src/settings.cpp:599
+#: src/settings.cpp:598
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "A&utomatically lock protected baskets when closed for"
 
-#: src/settings.cpp:603
+#: src/settings.cpp:602
 #, kde-format
 msgid " minutes"
 msgstr " minutes"
 
-#: src/settings.cpp:614
+#: src/settings.cpp:613
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Use GnuPG agent for &private/public key protected baskets"
 
-#: src/settings.cpp:696
+#: src/settings.cpp:695
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Place of new notes:"
 
-#: src/settings.cpp:701
+#: src/settings.cpp:700
 #, kde-format
 msgid "At current note"
 msgstr "At current note"
 
-#: src/settings.cpp:720
+#: src/settings.cpp:719
 #, kde-format
 msgid "&New images size:"
 msgstr "&New images size:"
 
-#: src/settings.cpp:733
+#: src/settings.cpp:732
 #, kde-format
 msgid "&by"
 msgstr "&by"
 
-#: src/settings.cpp:738
+#: src/settings.cpp:737
 #, kde-format
 msgid "pixels"
 msgstr "pixels"
 
-#: src/settings.cpp:740
+#: src/settings.cpp:739
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Visualise..."
 
-#: src/settings.cpp:748
+#: src/settings.cpp:747
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "View Content of Added Files for the Following Types"
 
-#: src/settings.cpp:750
+#: src/settings.cpp:749
 #, kde-format
 msgid "&Plain text"
 msgstr "&Plain text"
 
-#: src/settings.cpp:751
+#: src/settings.cpp:750
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML page"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:751
 #, kde-format
 msgid "&Image or animation"
 msgstr "&Image or animation"
 
-#: src/settings.cpp:753
+#: src/settings.cpp:752
 #, kde-format
 msgid "&Sound"
 msgstr "&Sound"
 
-#: src/settings.cpp:821
+#: src/settings.cpp:820
 #, kde-format
 msgid "Conference audio record"
 msgstr "Conference audio record"
 
-#: src/settings.cpp:822
+#: src/settings.cpp:821
 #, kde-format
 msgid "Annual report"
 msgstr "Annual report"
 
-#: src/settings.cpp:823
+#: src/settings.cpp:822
 #, kde-format
 msgid "Home folder"
 msgstr "Home folder"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:824
 #, kde-format
 msgid "Launch %1"
 msgstr "Launch %1"
 
-#: src/settings.cpp:826
+#: src/settings.cpp:825
 #, kde-format
 msgid "Another basket"
 msgstr "Another basket"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:827
 #, kde-format
 msgid "&Sounds"
 msgstr "&Sounds"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Files"
 msgstr "&Files"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:829
 #, kde-format
 msgid "&Local Links"
 msgstr "&Local Links"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:830
 #, kde-format
 msgid "&Network Links"
 msgstr "&Network Links"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:831
 #, kde-format
 msgid "Launc&hers"
 msgstr "Launc&hers"
 
-#: src/settings.cpp:833
+#: src/settings.cpp:832
 #, kde-format
 msgid "&Cross References"
 msgstr "&Cross References"
 
-#: src/settings.cpp:874
+#: src/settings.cpp:873
 #, kde-format
 msgid "General Launch Associations"
 msgstr ""
 
-#: src/settings.cpp:877
+#: src/settings.cpp:876
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3264,7 +3264,7 @@ msgid ""
 "Falkon), read the second button tooltip.</p>"
 msgstr ""
 
-#: src/settings.cpp:891
+#: src/settings.cpp:890
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>When opening Web links, they are opened in different applications, "
@@ -3313,7 +3313,7 @@ msgstr ""
 "more fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the second help link.</p>"
 
-#: src/settings.cpp:905
+#: src/settings.cpp:904
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3344,80 +3344,80 @@ msgstr ""
 "the applications list, add your Web browser as the first entry;</li><li>Do "
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 
-#: src/settings.cpp:924
+#: src/settings.cpp:923
 #, kde-format
 msgid "Launch KDE Menu Editor"
 msgstr ""
 
-#: src/settings.cpp:933
+#: src/settings.cpp:932
 #, fuzzy, kde-format
 #| msgid "Launch this application"
 msgid "Default Applications"
 msgstr "Launch this application"
 
-#: src/settings.cpp:942
+#: src/settings.cpp:941
 #, kde-format
 msgid "File Associations"
 msgstr ""
 
-#: src/settings.cpp:953
+#: src/settings.cpp:952
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr ""
 
-#: src/settings.cpp:955
+#: src/settings.cpp:954
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Open &text notes with a custom application:"
 
-#: src/settings.cpp:956
+#: src/settings.cpp:955
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Open text notes with:"
 
-#: src/settings.cpp:963
+#: src/settings.cpp:962
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Open &image notes with a custom application:"
 
-#: src/settings.cpp:964
+#: src/settings.cpp:963
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Open image notes with:"
 
-#: src/settings.cpp:971
+#: src/settings.cpp:970
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Open a&nimation notes with a custom application:"
 
-#: src/settings.cpp:972
+#: src/settings.cpp:971
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Open animation notes with:"
 
-#: src/settings.cpp:979
+#: src/settings.cpp:978
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Open so&und notes with a custom application:"
 
-#: src/settings.cpp:980
+#: src/settings.cpp:979
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Open sound notes with:"
 
-#: src/settings.cpp:987
+#: src/settings.cpp:986
 #, fuzzy, kde-format
 #| msgid "Open &text notes with a custom application:"
 msgid "Open http link notes with a custom application:"
 msgstr "Open &text notes with a custom application:"
 
-#: src/settings.cpp:988
+#: src/settings.cpp:987
 #, fuzzy, kde-format
 #| msgid "Open text notes with:"
 msgid "Open http link notes with:"
 msgstr "Open text notes with:"
 
-#: src/settings.cpp:996
+#: src/settings.cpp:995
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3428,7 +3428,7 @@ msgstr ""
 "type of note.</p><p>Otherwise, the application you've configured in "
 "Konqueror will be used.</p>"
 
-#: src/settings.cpp:1006
+#: src/settings.cpp:1005
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "

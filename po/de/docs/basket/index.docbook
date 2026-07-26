@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>Das Handbuch zu &basket;</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>2016–11–07</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>Bewahren Sie Ihre Ideen.</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>KDE</keyword>
+			<keyword
+>BasKet</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>Notiz: Das Handbuch wurde noch nicht verfasst</title>
+		<para
+>&basket; hat immer noch kein Handbuch, Mitwirkende sind also willkommen! Lesen Sie die <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+>KDE-Dokumentation</ulink
+>, dort finden Sie Tipps und Anleitungen zum DocBook-Format.</para>
+			<para
+>Zwischenzeitlich können Sie im Internet nach Hilfe suchen. Sehen Sie sich speziell die <ulink url="https://basket-notepads.github.io"
+>alte Website</ulink
+> durch oder schlagen Sie in Linux-Magazinen nach (wenn Sie Zugriff darauf haben), z. B.: <itemizedlist>
+					<listitem
+><para
+><quote
+>Tutorial: Basket: Capture your thoughts.</quote
+> Linux Format 120 (Andy Channelle) </para
+></listitem>
+					<listitem
+><para
+><quote
+>A Virtual Basket. Storing, sorting, and filing with KDE&apos;s Basket</quote
+> Linux Magazine 54 (Stefanie Teufel) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>Einführung</title>
+				<para
+>&basket; ist hauptsächlich ein universelles Notizbuch, aber ein spezielles:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>BasKet verwenden</title>
+				<para
+></para>
+				<sect1>
+					<title
+>Versionsabgleich</title>
+					<para
+>Wenn aktiviert, stellt Versionsabgleich Ihre Körbe und Notizen unter Versionsverwaltung. Zur Zeit ist dies eine experimentelle Funktion mit nur wenigen implementierten Basisfunktionen, sodass evtl. einige Zusatzprogramme und manuelles Einrichten erforderlich sind. Im Folgenden finden Sie einiges, was mithilfe von externen Hilfsprogrammen (aber noch ohne BasKet-Schnittstelle) bewerkstelligt werden kann:</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>Ältere Versionen auschecken und Änderungen rückgängig machen</para>
+						</listitem>
+						<listitem>
+							<para
+>Abgleich der Körbe auf verschiedenen Rechnern (Zusammenführen der Änderungen)</para>
+						</listitem>
+						<listitem>
+							<para
+>Sicherung der Körbe in ein fernes Projektarchiv übertragen</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>Um es zu aktivieren, wählen Sie <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>BasKet-Notizblätter einrichten</guimenuitem
+> </menuchoice
+> → <guibutton
+>Versionsabgleich</guibutton
+> und <guibutton
+>Verteilte Versionskontrolle aktivieren</guibutton
+>. Dies wird ein Git-Projektarchiv in <filename
+>~/.kde/share/apps/basket/baskets</filename
+> initialisieren, bei dem übliche Git-Werkzeuge verwendet werden können.</para>
+						<sect2>
+							<title
+>Versionsverlauf leeren</title>
+							<para
+>Den Versionsverlauf zu leeren kann in folgenden Fällen nützlich sein:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>Sie haben einen Korb gesperrt und möchten alle unverschlüsselten Vorgängerversionen entfernen (die immer noch im System gespeichert sind)</para>
+								</listitem>
+								<listitem>
+									<para
+>Wenn Sie Festplattenplatz freigeben möchten (kann wichtig werden, wenn Sie eine Menge Fotos oder anderer Dateien in BasKet eingefügt haben)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>Beachten Sie, dass Sie jede manuelle Einstellung, die Sie am Git-Projektarchiv vorgenommen haben, rückgängig machen müssen.</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>Dateistruktur von BasKet</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>Einführung</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>Archivdateiformat von BasKet</title>
+						<para
+>Das BasKet-Dateiformat (.baskets) ist eine Struktur, die ein komprimiertes tar-Archiv mit einem Vorschaubild verbindet. Die letzte Archivformat-Version ist 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>Dateistruktur</title>
+							<para
+>Die Archivdatei ist in folgende Strukturen aufgeteilt: Dateikopf, Vorschaubild-Header, ein Vorschaubild (.png), Header für Inhaltsarchiv und ein mittels gzip komprimiertes tar-Archiv (.tar.gz), das einen Korb-Dateibaum enthält. Folgende Skizze veranschaulicht die oben beschriebene Struktur:</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>Archiv-Dateikopf</title>
+							<para
+>Der Dateikopf ist eine kurze Struktur, die aus Zeichenketten-Zeilen, der Datei-Beschreibung und der Format-Version besteht.</para>
+
+							<para
+>Die ersten 17 Bytes enthalten die Zeichenkette <code
+>BasKetNP:archive</code
+>, gefolgt von einem Zeilenvorschubzeichen (0x0A) in ISO-8869-1 Kodierung,</para>
+							<para
+>Der zweite String enthält die Zeichenkette <code
+>version:0.6.1</code
+>, gefolgt von einem Zeilenvorschubzeichen (0x0A) in ISO-8869-1 Kodierung,</para>
+							<para
+>Ein Beispiel:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>Vorschaubild-Kopfeintrag</title>
+							<para
+>Zurzeit enthält die BasKet-Archivdatei eine Vorschaudatei, die aus dem Inhalt des ersten Korbes abgeleitet wird.</para>
+							<para
+>Direkt im Anschluss an den Dateikopf folgt eine Zeichenkette <code
+>preview*:&lt;size&gt;</code
+> in ISO-8869-1 Kodierung, wieder gefolgt von einem Zeilenvorschubzeichen. Der Parameter <code
+>&lt;size&gt;</code
+> ist eine Zeichenkette, die eine Dezimalzahl darstellt. Diese gibt die Größe des Vorschaubildes in Bytes an. Datentyp von <code
+>&lt;size&gt;</code
+> ist „unsigned long“.</para>
+							<para
+>Ein Beispiel:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>Vorschaubild-Datei</title>
+							<para
+>Das Vorschaubild ist vom Typ „.png“. Seine Größe ist im Vorschaubild-Kopfeintrag angegeben. Die Vorschaubild-Datei folgt als Datenstrom direkt dem Vorschaubild-Kopfeintrag.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>BasKet Inhaltsarchiv-Kopfeintrag</title>
+							<para
+>Genau wie bei der Vorschaubild-Datei beginnt das Inhaltsarchiv mit einer Zeichenkette, die dessen Größe angibt. Dieser Zeichenkette folgt direkt der Datenstrom des Archivs.</para>
+							<para
+>Diese Zeichenkette muss mit <code
+>archive*:&lt;size&gt;</code
+> beginnen, gefolgt von einem Zeilenvorschubzeichen, in ISO-8869-1 Kodierung. Der Parameter <code
+>&lt;size&gt;</code
+> ist eine Zeichenkette vom Datentyp „unsigned long integer“.</para>
+							<para
+>Ein Beispiel:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>BasKet Inhaltsarchiv</title>
+							<para
+>Das Inhaltsarchiv enthält den Dateibaum von BasKet als ein mittels gzip komprimiertes tar-Archiv (.tar.gz). Seine Größe ist im Inhaltsarchiv-Kopfeintrag angegeben.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>Beispielhafter Bytestrom</title>
+							<para
+>Die folgende Tabelle zeigt Schlüsselteile des Basket-Archivdateiformats. Die linke Spalte gibt den Offset im Dateistrom an. Die mittlere Spalte gibt den Bytestrom am jetzigen Offset im hexadezimalen Format an. Die rechte Spalte zeigt die druckbaren Zeichen innerhalb dieses Bytestroms an.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>Fragen, Antworten und Tipps</title>
+
+					<qandaset id="faq">
+						<title
+>Häufig gestellte Fragen</title>
+						<qandaentry>
+							<question>
+								<para
+>Frage 1</para>
+							</question>
+							<answer>
+								<para
+>Die Antwort</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->

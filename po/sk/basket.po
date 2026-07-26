@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-05 00:48+0000\n"
+"POT-Creation-Date: 2026-07-26 00:47+0000\n"
 "PO-Revision-Date: 2020-03-10 15:07+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -663,7 +663,7 @@ msgstr ""
 "clipboard or the selection into the current basket from anywhere.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:485 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:484 src/tagsedit.cpp:1108
 #, kde-format
 msgid "Appearance"
 msgstr "Vzhľad"
@@ -1183,7 +1183,7 @@ msgstr ""
 "Pridať textovú poznámku do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:274 src/settings.cpp:567
+#: src/bnpview.cpp:274 src/settings.cpp:566
 #, kde-format
 msgid "Insert image note"
 msgstr "Vložiť obrázok poznámka"
@@ -1197,7 +1197,7 @@ msgstr ""
 "Pridať obrázkovú poznámku do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:280 src/settings.cpp:568
+#: src/bnpview.cpp:280 src/settings.cpp:567
 #, kde-format
 msgid "Insert link note"
 msgstr "Vložiť odkaz poznámka"
@@ -1210,7 +1210,7 @@ msgstr ""
 "Pridať poznámku s odkazom do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:286 src/settings.cpp:571
+#: src/bnpview.cpp:286 src/settings.cpp:570
 #, kde-format
 msgid "Insert color note"
 msgstr "Vložiť farba poznámka"
@@ -1238,7 +1238,7 @@ msgstr ""
 "Pridať farebnú poznámku vybranú z jedného pixelu na obrazovke do aktuálneho "
 "košíka bez nutnosti otvoriť hlavné okno."
 
-#: src/bnpview.cpp:299 src/settings.cpp:572
+#: src/bnpview.cpp:299 src/settings.cpp:571
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Zachytiť oblasť obrazovky"
@@ -2901,7 +2901,7 @@ msgid "Load File Content into a Note"
 msgstr "Načítať obsah súboru do poznámky"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:590
+#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:589
 #, kde-format
 msgid "Password Protection"
 msgstr "Ochrana heslom"
@@ -2938,83 +2938,83 @@ msgstr ""
 "Vyberte oblasť pomocou myši. Pre zachytenie stlačte Enter. Stlačte Esc pre "
 "ukončenie."
 
-#: src/settings.cpp:433
+#: src/settings.cpp:432
 #, kde-format
 msgid "On left"
 msgstr "Naľavo"
 
-#: src/settings.cpp:434
+#: src/settings.cpp:433
 #, kde-format
 msgid "On right"
 msgstr "Napravo"
 
-#: src/settings.cpp:436
+#: src/settings.cpp:435
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&Pozícia stromu košíkov:"
 
-#: src/settings.cpp:441 src/settings.cpp:699
+#: src/settings.cpp:440 src/settings.cpp:698
 #, kde-format
 msgid "On top"
 msgstr "Hore"
 
-#: src/settings.cpp:442 src/settings.cpp:700
+#: src/settings.cpp:441 src/settings.cpp:699
 #, kde-format
 msgid "On bottom"
 msgstr "Dole"
 
-#: src/settings.cpp:444
+#: src/settings.cpp:443
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "&Pozícia panela filtra:"
 
-#: src/settings.cpp:490
+#: src/settings.cpp:489
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "&Zobrazovať popisy v košíkoch"
 
-#: src/settings.cpp:494
+#: src/settings.cpp:493
 #, kde-format
 msgid "&Big notes"
 msgstr "&Veľké poznámky"
 
-#: src/settings.cpp:500
+#: src/settings.cpp:499
 #, kde-format
 msgid "Behavior"
 msgstr "Správanie"
 
-#: src/settings.cpp:505
+#: src/settings.cpp:504
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "&Transformovať riadky začínajúce * alebo - na zoznamy v textových editoroch"
 
-#: src/settings.cpp:509
+#: src/settings.cpp:508
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "Opýtať sa na potvrdenie pred &odstraňovaním poznámok"
 
-#: src/settings.cpp:513
+#: src/settings.cpp:512
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Zachovať formátovanie textu pri vkladaní"
 
-#: src/settings.cpp:517
+#: src/settings.cpp:516
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Automaticky detegovať značky z obsahu poznámky"
 
-#: src/settings.cpp:524
+#: src/settings.cpp:523
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Exportovať značky v textoch"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:527
 #, kde-format
 msgid "When does this apply?"
 msgstr "Kedy sa to uplatní?"
 
-#: src/settings.cpp:529
+#: src/settings.cpp:528
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3023,7 +3023,7 @@ msgstr ""
 "Uplatní sa pri kopírovaní a vkladaní alebo presúvaní poznámok do textového "
 "editora."
 
-#: src/settings.cpp:530
+#: src/settings.cpp:529
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
@@ -3032,7 +3032,7 @@ msgstr ""
 "ekvivalenty."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:531 src/tagsedit.cpp:524
+#: src/settings.cpp:530 src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3043,17 +3043,17 @@ msgstr ""
 "exportuje ako riadky predchádzané <b>[ ]</b> alebo <b>[x]</b>, predstavujúce "
 "prázdne zaškrtávacie políčko a zaškrtnuté políčko."
 
-#: src/settings.cpp:543
+#: src/settings.cpp:542
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Zoskupiť novú poznámku kliknutím napravo od vkladacieho riadku"
 
-#: src/settings.cpp:545
+#: src/settings.cpp:544
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Ako zoskupiť novú poznámku?"
 
-#: src/settings.cpp:546
+#: src/settings.cpp:545
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3064,7 +3064,7 @@ msgstr ""
 "poznámky na pozíciu kurzora, ale tiež umožňuje zoskupiť novú poznámku s tou "
 "pod kurzorom:</p>"
 
-#: src/settings.cpp:549
+#: src/settings.cpp:548
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3077,187 +3077,187 @@ msgstr ""
 "poznámku.<br>Kliknite <b>vpravo</b>, aby ste <b>zoskupili</b> poznámku s tou "
 "<b>nižšie alebo vyššie</b>, v závislosti od polohy myši.</p>"
 
-#: src/settings.cpp:565
+#: src/settings.cpp:564
 #, kde-format
 msgid "Do nothing"
 msgstr "Nerobiť nič"
 
-#: src/settings.cpp:566
+#: src/settings.cpp:565
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Vložiť schránka"
 
-#: src/settings.cpp:569
+#: src/settings.cpp:568
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Vložiť krížový odkaz"
 
-#: src/settings.cpp:570
+#: src/settings.cpp:569
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Vložiť poznámku spúšťača"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:572
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Vložiť farbu z obrazovky"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:573
 #, kde-format
 msgid "Load note from file"
 msgstr "Načítať poznámku zo súboru"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:574
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Importovať spúšťač pre aplikáciu na pracovnej ploche"
 
-#: src/settings.cpp:576
+#: src/settings.cpp:575
 #, kde-format
 msgid "Import icon"
 msgstr "Importovať ikona"
 
-#: src/settings.cpp:579
+#: src/settings.cpp:578
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+stredný klik kdekoľvek:"
 
-#: src/settings.cpp:584
+#: src/settings.cpp:583
 #, kde-format
 msgid "at cursor position"
 msgstr "na pozícii kurzora"
 
-#: src/settings.cpp:599
+#: src/settings.cpp:598
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "A&utomaticky zamknúť chránené košíky po zatvorení na"
 
-#: src/settings.cpp:603
+#: src/settings.cpp:602
 #, kde-format
 msgid " minutes"
 msgstr " minúty"
 
-#: src/settings.cpp:614
+#: src/settings.cpp:613
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Použiť agenta GnuPG pre košíky chránené &súkromným/verejným kľúčom"
 
-#: src/settings.cpp:696
+#: src/settings.cpp:695
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Miesto nových poznámok:"
 
-#: src/settings.cpp:701
+#: src/settings.cpp:700
 #, kde-format
 msgid "At current note"
 msgstr "Pri aktuálnej poznámke"
 
-#: src/settings.cpp:720
+#: src/settings.cpp:719
 #, kde-format
 msgid "&New images size:"
 msgstr "&Veľkosť nových obrázkov:"
 
-#: src/settings.cpp:733
+#: src/settings.cpp:732
 #, kde-format
 msgid "&by"
 msgstr "&x"
 
-#: src/settings.cpp:738
+#: src/settings.cpp:737
 #, kde-format
 msgid "pixels"
 msgstr "bodov"
 
-#: src/settings.cpp:740
+#: src/settings.cpp:739
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Vizualizovať..."
 
-#: src/settings.cpp:748
+#: src/settings.cpp:747
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Zobraziť obsah pridaných súborov pre nasledujúce typy"
 
-#: src/settings.cpp:750
+#: src/settings.cpp:749
 #, kde-format
 msgid "&Plain text"
 msgstr "Čistý text"
 
-#: src/settings.cpp:751
+#: src/settings.cpp:750
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML stránka"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:751
 #, kde-format
 msgid "&Image or animation"
 msgstr "&Obrázok alebo animácia"
 
-#: src/settings.cpp:753
+#: src/settings.cpp:752
 #, kde-format
 msgid "&Sound"
 msgstr "Zvuk"
 
-#: src/settings.cpp:821
+#: src/settings.cpp:820
 #, kde-format
 msgid "Conference audio record"
 msgstr "Zvukový záznam konferencie"
 
-#: src/settings.cpp:822
+#: src/settings.cpp:821
 #, kde-format
 msgid "Annual report"
 msgstr "Ročná správa"
 
-#: src/settings.cpp:823
+#: src/settings.cpp:822
 #, kde-format
 msgid "Home folder"
 msgstr "Domovský priečinok"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:824
 #, kde-format
 msgid "Launch %1"
 msgstr "Spustiť %1"
 
-#: src/settings.cpp:826
+#: src/settings.cpp:825
 #, kde-format
 msgid "Another basket"
 msgstr "Ďalší košík"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:827
 #, kde-format
 msgid "&Sounds"
 msgstr "Zvuky"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Files"
 msgstr "Súbory"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:829
 #, kde-format
 msgid "&Local Links"
 msgstr "&Miestne odkazy"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:830
 #, kde-format
 msgid "&Network Links"
 msgstr "&Sieťové odkazy"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:831
 #, kde-format
 msgid "Launc&hers"
 msgstr "Spúšťa&če"
 
-#: src/settings.cpp:833
+#: src/settings.cpp:832
 #, kde-format
 msgid "&Cross References"
 msgstr "&Krížové odkazy"
 
-#: src/settings.cpp:874
+#: src/settings.cpp:873
 #, kde-format
 msgid "General Launch Associations"
 msgstr "General Launch Associations"
 
-#: src/settings.cpp:877
+#: src/settings.cpp:876
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3291,7 +3291,7 @@ msgstr ""
 "konfiguráciu (napríklad otváranie dokumentov PDF prednostne vo Falkone) si "
 "prečítajte tooltip druhého tlačidla.</p>"
 
-#: src/settings.cpp:891
+#: src/settings.cpp:890
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3324,7 +3324,7 @@ msgstr ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 
-#: src/settings.cpp:905
+#: src/settings.cpp:904
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3355,77 +3355,77 @@ msgstr ""
 "the applications list, add your Web browser as the first entry;</li><li>Do "
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 
-#: src/settings.cpp:924
+#: src/settings.cpp:923
 #, kde-format
 msgid "Launch KDE Menu Editor"
 msgstr "Spustiť editor ponuky KDE"
 
-#: src/settings.cpp:933
+#: src/settings.cpp:932
 #, kde-format
 msgid "Default Applications"
 msgstr "Predvolené aplikácie"
 
-#: src/settings.cpp:942
+#: src/settings.cpp:941
 #, kde-format
 msgid "File Associations"
 msgstr "Asociácie súborov"
 
-#: src/settings.cpp:953
+#: src/settings.cpp:952
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "Špecifické asociácie pre Basket"
 
-#: src/settings.cpp:955
+#: src/settings.cpp:954
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Otvoriť &textové poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:956
+#: src/settings.cpp:955
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Otvoriť textové poznámky pomocou:"
 
-#: src/settings.cpp:963
+#: src/settings.cpp:962
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Otvoriť &obrázkové poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:964
+#: src/settings.cpp:963
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Otvoriť obrázkové poznámky pomocou:"
 
-#: src/settings.cpp:971
+#: src/settings.cpp:970
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Otvoriť a&nimačné poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:972
+#: src/settings.cpp:971
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Otvoriť animačné poznámky pomocou:"
 
-#: src/settings.cpp:979
+#: src/settings.cpp:978
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Otvoriť zv&ukové poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:980
+#: src/settings.cpp:979
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Otvoriť zvukové poznámky pomocou:"
 
-#: src/settings.cpp:987
+#: src/settings.cpp:986
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "Otvoriť poznámky s http odkazmi vlastnou aplikáciou:"
 
-#: src/settings.cpp:988
+#: src/settings.cpp:987
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "Otvoriť súbor s"
 
-#: src/settings.cpp:996
+#: src/settings.cpp:995
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3436,7 +3436,7 @@ msgstr ""
 "definovaná aplikácia.</p><p>V opačnom prípade sa použije aplikácia, ktorú "
 "ste nakonfigurovali v Konquerore.</p>"
 
-#: src/settings.cpp:1006
+#: src/settings.cpp:1005
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
