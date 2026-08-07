@@ -6,7 +6,7 @@
 
 #include "weaver.h"
 
-#include <config.h>
+#include <basket_version.h>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
 
-    KAboutData aboutData(QStringLiteral("basketweaver"), i18n("basketweaver"), QStringLiteral(VERSION));
+    KAboutData aboutData(QStringLiteral("basketweaver"), i18n("basketweaver"), QStringLiteral(BASKET_VERSION_STRING));
     aboutData.setShortDescription(i18n("Encodes and decodes .baskets files"));
 
     KAboutData::setApplicationData(aboutData);

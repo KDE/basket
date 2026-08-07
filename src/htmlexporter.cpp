@@ -38,6 +38,8 @@
 #include <QProgressDialog>
 #include <QTextStream>
 
+#include <basket_version.h>
+
 HTMLExporter::HTMLExporter(BasketScene *basket)
     : dialog(new QProgressDialog())
 {
@@ -250,7 +252,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
               " <head>\n"
               "  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n"
               "  <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"><meta name=\"Generator\" content=\""
-           << QGuiApplication::applicationDisplayName() << " " << VERSION << " " << KAboutData::applicationData().homepage()
+           << QGuiApplication::applicationDisplayName() << " " << BASKET_VERSION_STRING << " " << KAboutData::applicationData().homepage()
            << "\">\n"
               "  <style type=\"text/css\">\n"
               //      "   @media print {\n"
@@ -402,7 +404,7 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
                   .arg(i18n("Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep information at hand.",
                             KAboutData::applicationData().homepage(),
                             QGuiApplication::applicationDisplayName(),
-                            QStringLiteral(VERSION)));
+                            QStringLiteral(BASKET_VERSION_STRING)));
 
     stream << " </body>\n"
               "</html>\n";
