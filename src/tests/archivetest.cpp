@@ -105,7 +105,7 @@ void ArchiveTest::initTestCase()
     KTar archive(referenceData, QStringLiteral("application/x-gzip"));
 
     // Open the archive
-    archive.open(QIODevice::ReadOnly);
+    QVERIFY(archive.open(QIODevice::ReadOnly));
     QString destination = QDir::currentPath();
     archive.directory()->copyTo(destination, true);
     archive.close();
