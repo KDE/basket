@@ -1161,6 +1161,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_movingNote(nullptr)
     , m_pickedHandle(0, 0)
     , m_notesToBeDeleted()
+    , m_animated(true)
     , m_clickedToInsert(nullptr)
     , m_zoneToInsert(0)
     , m_posToInsert(-1, -1)
@@ -1209,7 +1210,6 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_startOfShiftSelectionNote(nullptr)
     , m_finishLoadOnFirstShow(false)
     , m_relayoutOnNextShow(false)
-    , m_animated(true)
 {
     m_view = new BasketView(this);
     m_view->setFocusPolicy(Qt::StrongFocus);
