@@ -381,7 +381,7 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
     } else { // this handels application/x-basket-note drag events.
         qDebug() << "Forwarding dropped data to the basket";
         event->setDropAction(Qt::MoveAction);
-        QTreeWidgetItem *item = itemAt(event->pos());
+        QTreeWidgetItem *item = itemAt(event->position().toPoint());
         auto *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (bitem) {
             bitem->basket()->blindDrop(event->mimeData(), event->dropAction(), event->source());
@@ -403,7 +403,7 @@ void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
     // qDebug() << "BasketTreeListView::dragMoveEvent";
 
     if (!event->mimeData()->hasFormat(TREE_ITEM_MIME_STRING)) {
-        QTreeWidgetItem *item = itemAt(event->pos());
+        QTreeWidgetItem *item = itemAt(event->position().toPoint());
         auto *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (m_autoOpenItem != item) {
             m_autoOpenItem = item;
