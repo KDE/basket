@@ -673,23 +673,23 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     // Some keyboard shortcuts:       // Ctrl+arrows instead of Alt+arrows (same as Go menu in the main window) because Alt+Down is for combo boxes
     auto *selectAbove = new QAction(this);
-    selectAbove->setShortcut(Qt::CTRL + Qt::Key_Up);
+    selectAbove->setShortcut(Qt::CTRL | Qt::Key_Up);
     connect(selectAbove, &QAction::triggered, this, &TagsEditDialog::selectUp);
 
     auto *selectBelow = new QAction(this);
-    selectBelow->setShortcut(Qt::CTRL + Qt::Key_Down);
+    selectBelow->setShortcut(Qt::CTRL | Qt::Key_Down);
     connect(selectBelow, &QAction::triggered, this, &TagsEditDialog::selectDown);
 
     auto *selectLeft = new QAction(this);
-    selectLeft->setShortcut(Qt::CTRL + Qt::Key_Left);
+    selectLeft->setShortcut(Qt::CTRL | Qt::Key_Left);
     connect(selectLeft, &QAction::triggered, this, &TagsEditDialog::selectLeft);
 
     auto *selectRight = new QAction(this);
-    selectRight->setShortcut(Qt::CTRL + Qt::Key_Right);
+    selectRight->setShortcut(Qt::CTRL | Qt::Key_Right);
     connect(selectRight, &QAction::triggered, this, &TagsEditDialog::selectRight);
 
     auto *moveAbove = new QAction(this);
-    moveAbove->setShortcut(Qt::CTRL + Qt::Key_Up);
+    moveAbove->setShortcut(Qt::CTRL | Qt::Key_Up);
     connect(moveAbove, &QAction::triggered, this, &TagsEditDialog::moveUp);
 
     auto *moveBelow = new QAction(this);

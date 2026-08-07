@@ -228,21 +228,21 @@ void BNPView::setupGlobalShortcuts()
 
     // Ctrl+Shift+W only works when started standalone:
 
-    int modifier = Qt::CTRL | Qt::ALT | Qt::SHIFT;
+    const Qt::Modifiers modifier = Qt::CTRL | Qt::ALT | Qt::SHIFT;
 
     a = ac->addAction(QStringLiteral("global_paste"), Global::bnpView, &BNPView::globalPasteInCurrentBasket);
     a->setText(i18n("Paste clipboard contents in current basket"));
     a->setStatusTip(
         i18n("Allows you to paste clipboard contents in the current basket "
              "without having to open the main window."));
-    KGlobalAccel::setGlobalShortcut(a, QKeySequence(modifier + Qt::Key_V));
+    KGlobalAccel::setGlobalShortcut(a, QKeySequence(modifier | Qt::Key_V));
 
     a = ac->addAction(QStringLiteral("global_paste_selection"), Global::bnpView, &BNPView::pasteSelInCurrentBasket);
     a->setText(i18n("Paste selection in current basket"));
     a->setStatusTip(
         i18n("Allows you to paste clipboard selection in the current basket "
              "without having to open the main window."));
-    KGlobalAccel::setGlobalShortcut(a, (QKeySequence(Qt::CTRL | Qt::ALT | Qt::SHIFT + Qt::Key_S)));
+    KGlobalAccel::setGlobalShortcut(a, (QKeySequence(Qt::CTRL | Qt::ALT | Qt::SHIFT | Qt::Key_S)));
 
     a = ac->addAction(QStringLiteral("global_new_basket"), Global::bnpView, qOverload<>(&BNPView::askNewBasket));
     a->setText(i18n("Create a new basket"));
@@ -268,7 +268,7 @@ void BNPView::setupGlobalShortcuts()
     a->setStatusTip(
         i18n("Add a text note to the current basket without having to open "
              "the main window."));
-    KGlobalAccel::setGlobalShortcut(a, (QKeySequence(modifier + Qt::Key_T)));
+    KGlobalAccel::setGlobalShortcut(a, (QKeySequence(modifier | Qt::Key_T)));
 
     a = ac->addAction(QStringLiteral("global_note_add_image"), Global::bnpView, &BNPView::addNoteImage);
     a->setText(i18n("Insert image note"));
@@ -431,7 +431,7 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("edit_invert_selection"), this, &BNPView::slotInvertSelection);
     a->setText(i18n("&Invert Selection"));
-    m_actionCollection->setDefaultShortcut(a, Qt::CTRL + Qt::Key_Asterisk);
+    m_actionCollection->setDefaultShortcut(a, Qt::CTRL | Qt::Key_Asterisk);
     m_actInvertSelection = a;
 
     m_actInvertSelection->setStatusTip(i18n("Inverts the current selection of notes"));
