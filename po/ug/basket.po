@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:47+0000\n"
+"POT-Creation-Date: 2026-08-08 00:48+0000\n"
 "PO-Revision-Date: 2026-05-28 17:15-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Overwrite Folder?"
 msgstr ""
 
-#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:69
 #, kde-format
 msgid "&Overwrite"
 msgstr "قاپلا(&O)"
@@ -390,7 +390,7 @@ msgid "Tar Archives Compressed by Gzip"
 msgstr ""
 
 #: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
-#: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
+#: src/bnpview.cpp:2093 src/htmlexporter.cpp:54
 #, kde-format
 msgid "All Files"
 msgstr "بارلىق ھۆججەت"
@@ -1583,12 +1583,12 @@ msgstr ""
 msgid "Basket Archives"
 msgstr ""
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2056 src/htmlexporter.cpp:67
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr ""
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:68
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ھۆججەت قاپلامسىز؟"
@@ -1754,52 +1754,52 @@ msgstr ""
 msgid "Set current basket to %1"
 msgstr ""
 
-#: src/htmlexporter.cpp:52
+#: src/htmlexporter.cpp:54
 #, kde-format
 msgid "HTML Documents"
 msgstr ""
 
-#: src/htmlexporter.cpp:56 src/htmlexporter.cpp:78
+#: src/htmlexporter.cpp:58 src/htmlexporter.cpp:80
 #, kde-format
 msgid "Export to HTML"
 msgstr ""
 
-#: src/htmlexporter.cpp:79
+#: src/htmlexporter.cpp:81
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr ""
 
-#: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
+#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr ""
 
-#: src/htmlexporter.cpp:120 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr ""
 
-#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr ""
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:163
+#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr ""
 
-#: src/htmlexporter.cpp:155 src/htmlexporter.cpp:161 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr ""
 
-#: src/htmlexporter.cpp:402
+#: src/htmlexporter.cpp:404
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "

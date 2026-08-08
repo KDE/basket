@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:47+0000\n"
+"POT-Creation-Date: 2026-08-08 00:48+0000\n"
 "PO-Revision-Date: 2026-06-08 21:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -384,7 +384,7 @@ msgstr "المجلد <b>%1</b> ليس فارغًا. هل تريد الكتابة
 msgid "Overwrite Folder?"
 msgstr "الكتابة فوق المجلد؟"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:69
 #, kde-format
 msgid "&Overwrite"
 msgstr "ا&ستبدل"
@@ -418,7 +418,7 @@ msgid "Tar Archives Compressed by Gzip"
 msgstr "أرشيفات تار مضغوطة بـ Gzip"
 
 #: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
-#: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
+#: src/bnpview.cpp:2093 src/htmlexporter.cpp:54
 #, kde-format
 msgid "All Files"
 msgstr "كلّ الملفّات"
@@ -1707,12 +1707,12 @@ msgstr "أز&ل السلال الفرعية"
 msgid "Basket Archives"
 msgstr "أرشيفات السلة"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2056 src/htmlexporter.cpp:67
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "الملف <b>%1</b> موجود فعلًا. أتود حقًّا الكتابة فوقه؟"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:68
 #, kde-format
 msgid "Overwrite File?"
 msgstr "أأكتب فوق الملفّ؟"
@@ -1883,52 +1883,52 @@ msgstr "استيراد مزامنة المجلد"
 msgid "Set current basket to %1"
 msgstr "اجعل السلة الحالية %1"
 
-#: src/htmlexporter.cpp:52
+#: src/htmlexporter.cpp:54
 #, kde-format
 msgid "HTML Documents"
 msgstr "مستند HTML"
 
-#: src/htmlexporter.cpp:56 src/htmlexporter.cpp:78
+#: src/htmlexporter.cpp:58 src/htmlexporter.cpp:80
 #, kde-format
 msgid "Export to HTML"
 msgstr "صدّر إلى HTML"
 
-#: src/htmlexporter.cpp:79
+#: src/htmlexporter.cpp:81
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "يصدر إلى HTML. من فضلك انتظر..."
 
-#: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
+#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_files"
 
-#: src/htmlexporter.cpp:120 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "أيقونات"
 
-#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr " صورة"
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:163
+#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "سلال"
 
-#: src/htmlexporter.cpp:155 src/htmlexporter.cpp:161 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "بيانات"
 
-#: src/htmlexporter.cpp:402
+#: src/htmlexporter.cpp:404
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "

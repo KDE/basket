@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:47+0000\n"
+"POT-Creation-Date: 2026-08-08 00:48+0000\n"
 "PO-Revision-Date: 2026-06-07 22:38+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -392,7 +392,7 @@ msgstr "La cartella <b>%1</b> non è vuota. Vuoi veramente sovrascriverla?"
 msgid "Overwrite Folder?"
 msgstr "Sovrascrivere la cartella?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:67
+#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:69
 #, kde-format
 msgid "&Overwrite"
 msgstr "S&ovrascrivi"
@@ -428,7 +428,7 @@ msgid "Tar Archives Compressed by Gzip"
 msgstr "Archivi tar compressi con gzip"
 
 #: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
-#: src/bnpview.cpp:2093 src/htmlexporter.cpp:52
+#: src/bnpview.cpp:2093 src/htmlexporter.cpp:54
 #, kde-format
 msgid "All Files"
 msgstr "Tutti i file"
@@ -1722,12 +1722,12 @@ msgstr "&Rimuovi sottocesti"
 msgid "Basket Archives"
 msgstr "Archivi basket"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:65
+#: src/bnpview.cpp:2056 src/htmlexporter.cpp:67
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "Il file <b>%1</b> esiste già. Vuoi veramente sovrascriverlo?"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2057 src/htmlexporter.cpp:68
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Sovrascrivere il file?"
@@ -1899,52 +1899,52 @@ msgstr "Importa mirror di cartella"
 msgid "Set current basket to %1"
 msgstr "Imposta il cesto corrente a %1"
 
-#: src/htmlexporter.cpp:52
+#: src/htmlexporter.cpp:54
 #, kde-format
 msgid "HTML Documents"
 msgstr "Documenti HTML"
 
-#: src/htmlexporter.cpp:56 src/htmlexporter.cpp:78
+#: src/htmlexporter.cpp:58 src/htmlexporter.cpp:80
 #, kde-format
 msgid "Export to HTML"
 msgstr "Esporta in HTML"
 
-#: src/htmlexporter.cpp:79
+#: src/htmlexporter.cpp:81
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "Esportazione in HTML in corso. Attendere..."
 
-#: src/htmlexporter.cpp:114 src/htmlexporter.cpp:150 src/htmlexporter.cpp:160
+#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_file"
 
-#: src/htmlexporter.cpp:120 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "icone"
 
-#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "immagini"
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:163
+#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "cesti"
 
-#: src/htmlexporter.cpp:155 src/htmlexporter.cpp:161 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "dati"
 
-#: src/htmlexporter.cpp:402
+#: src/htmlexporter.cpp:404
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
