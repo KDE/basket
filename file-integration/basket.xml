@@ -2,6 +2,14 @@
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
   <mime-type type="application/x-basket-archive">
     <comment>Basket Archive</comment>
+    <comment xml:lang="ar">أرشيف السلة</comment>
+    <comment xml:lang="ca">Arxiu del Basket</comment>
+    <comment xml:lang="ca@valencia">Arxiu de Basket</comment>
+    <comment xml:lang="es">Archivo de Basket</comment>
+    <comment xml:lang="nl">Archief van basket</comment>
+    <comment xml:lang="pt_BR">Arquivo Basket</comment>
+    <comment xml:lang="tr">Basket arşivi</comment>
+    <comment xml:lang="uk">Архів Basket</comment>
     <icon name="basket" />
     <glob pattern="*.baskets" weight="50" />
     <magic priority="90">
@@ -11,6 +19,14 @@
 
   <mime-type type="application/x-basket-template">
     <comment>Basket Template</comment>
+    <comment xml:lang="ar">قالب السلة</comment>
+    <comment xml:lang="ca">Plantilla del Basket</comment>
+    <comment xml:lang="ca@valencia">Plantilla de Basket</comment>
+    <comment xml:lang="es">Plantilla de Basket</comment>
+    <comment xml:lang="nl">Basketsjabloon</comment>
+    <comment xml:lang="pt_BR">Modelo Basket</comment>
+    <comment xml:lang="tr">Basket şablonu</comment>
+    <comment xml:lang="uk">Шаблон Basket</comment>
     <icon name="basket" />
     <glob pattern="*.baskett" weight="50" />
     <magic priority="90">
@@ -22,6 +38,14 @@
     <sub-class-of type="text/xml"/>
     <sub-class-of type="application/xml"/>
     <comment>Basket Note Pads</comment>
+    <comment xml:lang="ar">دفاتر ملاحظات السلة</comment>
+    <comment xml:lang="ca">Bloc de notes del Basket</comment>
+    <comment xml:lang="ca@valencia">Bloc de notes de Basket</comment>
+    <comment xml:lang="es">Cuadernos de Basket</comment>
+    <comment xml:lang="nl">Basket notitieblaadjes</comment>
+    <comment xml:lang="pt_BR">Blocos de notas Basket</comment>
+    <comment xml:lang="tr">Basket not defteri</comment>
+    <comment xml:lang="uk">Нотатники Basket</comment>
     <icon name="basket" />
     <glob pattern=".basket" weight="60" />
     <magic priority="90">
