@@ -682,14 +682,9 @@ void Tools::deleteRecursively(const QString &folderOrFile)
 
     QFileInfo fileInfo(folderOrFile);
     if (fileInfo.isDir()) {
-        // Delete the child files:
-        QDir dir(folderOrFile, QString(), QDir::Name | QDir::IgnoreCase, QDir::TypeMask | QDir::Hidden);
-        QStringList list = dir.entryList();
-        for (QStringList::Iterator it = list.begin(); it != list.end(); ++it)
-            if (*it != QStringLiteral(".") && *it != QStringLiteral(".."))
-                deleteRecursively(folderOrFile + QLatin1Char('/') + *it);
-        // And then delete the folder:
-        dir.rmdir(folderOrFile);
+        // Delete the folder recursively:
+        QDir dir(folderOrFile);
+        dir.removeRecursively();
     } else
         // Delete the file:
         QFile::remove(folderOrFile);
