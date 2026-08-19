@@ -347,7 +347,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
         QString line = stream.readLine();
         if (line != QStringLiteral("BasKetNP:archive")) {
             file.close();
-            Tools::deleteRecursively(l_destination);
+            dir.removeRecursively();
             return IOErrorCode::NotABasketArchive;
         }
         QString version;
@@ -377,7 +377,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 const qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    Tools::deleteRecursively(l_destination);
+                    dir.removeRecursively();
                     return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the preview file:
@@ -403,7 +403,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 if (version != QStringLiteral("0.6.1") && !readCompatibleVersions.contains(QStringLiteral("0.6.1"))
                     && !writeCompatibleVersions.contains(QStringLiteral("0.6.1"))) {
                     file.close();
-                    Tools::deleteRecursively(l_destination);
+                    dir.removeRecursively();
                     return IOErrorCode::IncompatibleBasketVersion;
                 }
 
@@ -411,7 +411,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    Tools::deleteRecursively(l_destination);
+                    dir.removeRecursively();
                     return IOErrorCode::CorruptedBasketArchive;
                 }
 
@@ -448,7 +448,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 qint64 size = value.toULong(&ok);
                 if (!ok) {
                     file.close();
-                    Tools::deleteRecursively(l_destination);
+                    dir.removeRecursively();
                     return IOErrorCode::CorruptedBasketArchive;
                 }
                 // Get the archive file:
