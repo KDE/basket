@@ -498,7 +498,6 @@ Archive::createArchiveFromSource(const QString &sourcePath, const QString &previ
     if (!archive.open(QIODevice::WriteOnly)) {
         // Failed to open file.
         archive.close();
-        Tools::deleteRecursively(tempDir.path());
         return IOErrorCode::FailedToOpenResource;
     }
 
