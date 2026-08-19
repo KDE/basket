@@ -38,6 +38,7 @@ include(ECMInstallIcons)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(ECMFeatureSummary)
+include(GenerateExportHeader)
 
 ecm_setup_version(
     PROJECT

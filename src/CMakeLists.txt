@@ -55,6 +55,8 @@ qt_add_resources(basket_RESOURCES ../basket.qrc)
 
 add_library(LibBasket SHARED ${libbasket_SRCS} ${basket_FORM_HDRS} ${basket_RESOURCES})
 
+generate_export_header(LibBasket BASE_NAME "basket")
+
 target_link_libraries(LibBasket
     KF6::Archive
     KF6::ConfigWidgets
