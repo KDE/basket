@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:48+0000\n"
+"POT-Creation-Date: 2026-08-20 00:48+0000\n"
 "PO-Revision-Date: 2008-06-27 16:12+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team:  <opensuse-translation@opensuse.org>\n"
@@ -3956,7 +3956,7 @@ msgstr "Bekræft sletning af tilstand"
 msgid "Delete State"
 msgstr "Slet tilstand"
 
-#: src/tools.cpp:809
+#: src/tools.cpp:804
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "

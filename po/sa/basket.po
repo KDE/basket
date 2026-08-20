@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:48+0000\n"
+"POT-Creation-Date: 2026-08-20 00:48+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3892,7 +3892,7 @@ msgstr "Delete State इत्यस्य पुष्टिं कुर्व
 msgid "Delete State"
 msgstr "राज्यं विलोपयन्तु"
 
-#: src/tools.cpp:809
+#: src/tools.cpp:804
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:48+0000\n"
+"POT-Creation-Date: 2026-08-20 00:48+0000\n"
 "PO-Revision-Date: 2026-06-06 06:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -3898,7 +3898,7 @@ msgstr "אישור מחיקת מצב"
 msgid "Delete State"
 msgstr "מחיקת מצב"
 
-#: src/tools.cpp:809
+#: src/tools.cpp:804
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:48+0000\n"
+"POT-Creation-Date: 2026-08-20 00:48+0000\n"
 "PO-Revision-Date: 2026-06-05 08:52+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4003,7 +4003,7 @@ msgstr "Підтвердження вилучення стану"
 msgid "Delete State"
 msgstr "Вилучити стан"
 
-#: src/tools.cpp:809
+#: src/tools.cpp:804
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "

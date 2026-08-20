@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:48+0000\n"
+"POT-Creation-Date: 2026-08-20 00:48+0000\n"
 "PO-Revision-Date: 2021-02-08 00:42+0000\n"
 "Last-Translator: Nuno J. Silva <nunojsg@gmail.com>\n"
 "Language-Team: Português <pt@li.org>\n"
@@ -3995,7 +3995,7 @@ msgstr "Confirmar a Remoção do Estado"
 msgid "Delete State"
 msgstr "Apagar o Estado"
 
-#: src/tools.cpp:809
+#: src/tools.cpp:804
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
