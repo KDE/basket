@@ -9,10 +9,10 @@
 #include "settings.h"
 #include "tools.h"
 #include "ui_settings_versionsync.h"
+#include <KFormat>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QDir>
-#include <QLocale>
 #include <QPointer>
 #include <QtConcurrent/QtConcurrentRun>
 
@@ -88,8 +88,8 @@ void VersionSyncPage::onButtonClearHistoryClicked()
 
 void VersionSyncPage::setHistorySize(qint64 size_bytes)
 {
-    QString size_mb = QLocale().toString((float)size_bytes / 1024 / 1024, 'f', 2);
-    ui->labelHistorySize->setText(i18n("This will free %1 MB", size_mb));
+    QString size_mb = KFormat().formatByteSize(size_bytes, 2, KFormat::DefaultBinaryDialect, KFormat::UnitMegaByte);
+    ui->labelHistorySize->setText(i18n("This will free %1", size_mb));
 }
 
 #include "moc_settings_versionsync.cpp"
