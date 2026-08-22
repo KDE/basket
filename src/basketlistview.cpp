@@ -30,7 +30,6 @@
 #include "bnpview.h"
 #include "decoratedbasket.h"
 #include "global.h"
-#include "icon_names.h"
 #include "notedrag.h"
 #include "settings.h"
 #include "tools.h"

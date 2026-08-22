@@ -31,7 +31,6 @@
 #include "bnpview.h"
 #include "debugwindow.h"
 #include "global.h"
-#include "icon_names.h"
 #include "notefactory.h"
 #include "tools.h"
 #include "xmlwork.h"

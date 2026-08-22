@@ -41,7 +41,6 @@
 #include "basketlistview.h"
 #include "basketscene.h"
 #include "focusedwidgets.h"
-#include "icon_names.h"
 #include "note.h"
 #include "notecontent.h"
 #include "notefactory.h"

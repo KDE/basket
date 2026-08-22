@@ -59,7 +59,6 @@
 #include "gitwrapper.h"
 #include "history.h"
 #include "htmlexporter.h"
-#include "icon_names.h"
 #include "newbasketdialog.h"
 #include "notedrag.h"
 #include "noteedit.h" // To launch InlineEditors::initToolBars()
