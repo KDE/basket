@@ -21,7 +21,7 @@
 #include "basketscene.h"
 #include "kgpgme.h"
 
-PasswordDlg::PasswordDlg(QWidget *parent)
+PasswordDialog::PasswordDialog(QWidget *parent)
     : QDialog(parent)
     , w(nullptr)
 {
@@ -35,8 +35,8 @@ PasswordDlg::PasswordDlg(QWidget *parent)
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &PasswordDlg::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &PasswordDlg::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &PasswordDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &PasswordDialog::reject);
     mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setModal(true);
@@ -46,12 +46,12 @@ PasswordDlg::PasswordDlg(QWidget *parent)
     toplayout->addWidget(w, 1);
 }
 
-PasswordDlg::~PasswordDlg()
+PasswordDialog::~PasswordDialog()
 {
     delete w;
 }
 
-void PasswordDlg::accept()
+void PasswordDialog::accept()
 {
     int n = type();
     if (n == BasketScene::PrivateKeyEncryption && key().isEmpty())
@@ -60,7 +60,7 @@ void PasswordDlg::accept()
         QDialog::accept();
 }
 
-QString PasswordDlg::key() const
+QString PasswordDialog::key() const
 {
     QString s = w->keyCombo->currentText();
     if (s.length() < 16)
@@ -71,7 +71,7 @@ QString PasswordDlg::key() const
     return s.mid(n + 1);
 }
 
-int PasswordDlg::type() const
+int PasswordDialog::type() const
 {
     if (w->noPasswordRadioButton->isChecked())
         return BasketScene::NoEncryption;
@@ -82,7 +82,7 @@ int PasswordDlg::type() const
     return -1;
 }
 
-void PasswordDlg::setKey(const QString &key)
+void PasswordDialog::setKey(const QString &key)
 {
     for (int i = 0; i < w->keyCombo->count(); ++i) {
         if (w->keyCombo->itemText(i).contains(key)) {
@@ -92,7 +92,7 @@ void PasswordDlg::setKey(const QString &key)
     }
 }
 
-void PasswordDlg::setType(int type)
+void PasswordDialog::setType(int type)
 {
     if (type == BasketScene::NoEncryption)
         w->noPasswordRadioButton->setChecked(true);

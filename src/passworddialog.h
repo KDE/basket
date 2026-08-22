@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
-#ifndef PASSWORD_H
-#define PASSWORD_H
+#ifndef PASSWORDDIALOG_H
+#define PASSWORDDIALOG_H
 
 #include <config.h>
 
@@ -24,12 +24,12 @@ public:
     ~Password();
 };
 
-class PasswordDlg : public QDialog
+class PasswordDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PasswordDlg(QWidget *parent = nullptr);
-    ~PasswordDlg() override;
+    explicit PasswordDialog(QWidget *parent = nullptr);
+    ~PasswordDialog() override;
 
     QString key() const;
     int type() const;
@@ -46,4 +46,4 @@ private:
 
 #endif // HAVE_LIBGPGME
 
-#endif // PASSWORD_H
+#endif // PASSWORDDIALOG_H

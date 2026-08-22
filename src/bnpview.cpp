@@ -1989,7 +1989,7 @@ void BNPView::doBasketDeletion(BasketScene *basket)
 void BNPView::password()
 {
 #ifdef HAVE_LIBGPGME
-    QPointer<PasswordDlg> dlg = new PasswordDlg(qApp->activeWindow());
+    QPointer<PasswordDialog> dlg = new PasswordDialog(qApp->activeWindow());
     BasketScene *cur = currentBasket();
 
     dlg->setType(cur->encryptionType());
