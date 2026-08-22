@@ -10,11 +10,6 @@
 
 class QDomElement;
 
-namespace KIO
-{
-class Job;
-}
-
 /**
  * @author Sébastien Laoût
  */
@@ -28,11 +23,6 @@ public:
 
     void copyFolder(const QString &folder, const QString &newFolder);
     void moveFolder(const QString &folder, const QString &newFolder);
-private Q_SLOTS:
-    void slotCopyingDone(KIO::Job *);
-
-private:
-    bool copyFinished;
 };
 
 #endif // FORMATIMPORTER_H

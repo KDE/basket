@@ -43,26 +43,14 @@ bool FormatImporter::shouldImportBaskets()
 
 void FormatImporter::copyFolder(const QString &folder, const QString &newFolder)
 {
-    copyFinished = false;
     KIO::CopyJob *copyJob = KIO::copyAs(QUrl::fromLocalFile(folder), QUrl::fromLocalFile(newFolder), KIO::HideProgressInfo);
-    connect(copyJob, &KIO::CopyJob::copyingDone, this, &FormatImporter::slotCopyingDone);
-    while (!copyFinished)
-        qApp->processEvents();
+    copyJob->exec();
 }
 
 void FormatImporter::moveFolder(const QString &folder, const QString &newFolder)
 {
-    copyFinished = false;
     KIO::CopyJob *copyJob = KIO::moveAs(QUrl::fromLocalFile(folder), QUrl::fromLocalFile(newFolder), KIO::HideProgressInfo);
-    connect(copyJob, &KIO::CopyJob::copyingDone, this, &FormatImporter::slotCopyingDone);
-    while (!copyFinished)
-        qApp->processEvents();
-}
-
-void FormatImporter::slotCopyingDone(KIO::Job *)
-{
-    //  qDebug() << "Copy finished of " + from.path() + " to " + to.path();
-    copyFinished = true;
+    copyJob->exec();
 }
 
 void FormatImporter::importBaskets()
