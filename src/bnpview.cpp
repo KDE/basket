@@ -63,7 +63,7 @@
 #include "notedrag.h"
 #include "noteedit.h" // To launch InlineEditors::initToolBars()
 #include "notefactory.h"
-#include "password.h"
+#include "passworddialog.h"
 #include "regiongrabber.h"
 #include "settings.h"
 #include "softwareimporters.h"

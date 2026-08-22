@@ -35,7 +35,7 @@ set(libbasket_SRCS
     noteedit.cpp noteedit.h
     notefactory.cpp notefactory.h
     noteselection.cpp noteselection.h
-    password.cpp password.h
+    passworddialog.cpp passworddialog.h
     regiongrabber.cpp regiongrabber.h
     settings.cpp settings.h
     settings_versionsync.cpp settings_versionsync.h

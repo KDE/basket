@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#include "password.h"
+#include "passworddialog.h"
 
 #ifdef HAVE_LIBGPGME
 
@@ -124,6 +124,6 @@ Password::~Password()
 {
 }
 
-#include "moc_password.cpp"
+#include "moc_passworddialog.cpp"
 
 #endif
