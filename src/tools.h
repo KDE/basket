@@ -124,9 +124,6 @@ BASKET_EXPORT qint64 computeSizeRecursively(const QString &path);
  */
 BASKET_EXPORT bool isAFileCut(const QMimeData *source);
 
-/// Implementation of system encoding detection from KDE 4
-BASKET_EXPORT QByteArray systemCodeset();
-
 // Debug
 BASKET_EXPORT void printChildren(QObject *parent);
 }

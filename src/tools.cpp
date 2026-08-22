@@ -37,8 +37,6 @@
 #include "htmlexporter.h"
 #include "linklabel.h"
 
-#include <langinfo.h>
-
 QVector<QTime> StopWatch::starts;
 QVector<double> StopWatch::totals;
 QVector<uint> StopWatch::counts;
@@ -805,25 +803,4 @@ QString Tools::makeStandardCaption(const QString &userCaption)
     }
 
     return caption;
-}
-
-QByteArray Tools::systemCodeset()
-{
-    QByteArray codeset;
-#if 0 // TODO verify
-#if _LANGINFO_H
-    // Qt since 4.2 always returns 'System' as codecForLocale and libraries like for example
-    // KEncodingFileDialog expects real encoding name. So on systems that have langinfo.h use
-    // nl_langinfo instead, just like Qt compiled without iconv does. Windows already has its own
-    // workaround
-
-    codeset = nl_langinfo(CODESET);
-
-    if ((codeset == "ANSI_X3.4-1968") || (codeset == "US-ASCII")) {
-        // means ascii, "C"; QTextCodec doesn't know, so avoid warning
-        codeset = "ISO-8859-1";
-    }
-#endif
-#endif
-    return codeset;
 }
