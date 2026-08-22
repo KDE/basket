@@ -78,7 +78,7 @@ QString BasketFactory::unpackTemplate(const QString &templateName)
                                                                                                                 : QStringLiteral("false")));
         if (nbColumns > 0)
             for (int i = 0; i < nbColumns; ++i)
-                stream << QStringLiteral("  <group width=\"%1\"></group>\n").arg(QLatin1Char(columnWidth));
+                stream << QStringLiteral("  <group width=\"%1\"></group>\n").arg(columnWidth);
         stream << " </notes>\n"
                   "</basket>\n";
         file.close();
