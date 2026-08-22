@@ -20,7 +20,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QList>
-#include <QLocale>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPushButton>

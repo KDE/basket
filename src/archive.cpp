@@ -9,7 +9,6 @@
 #include <QDir>
 #include <QGuiApplication>
 #include <QList>
-#include <QLocale>
 #include <QMap>
 #include <QPainter>
 #include <QPixmap>

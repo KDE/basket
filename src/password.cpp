@@ -10,7 +10,6 @@
 
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
-#include <QLocale>
 #include <QPushButton>
 #include <QString>
 #include <QVBoxLayout>

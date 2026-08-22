@@ -32,7 +32,6 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QList>
-#include <QLocale>
 #include <QPainter>
 #include <QPixmap>
 #include <QProgressDialog>

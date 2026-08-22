@@ -20,7 +20,6 @@
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QKeyEvent>
-#include <QLocale>
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QPaintEvent>

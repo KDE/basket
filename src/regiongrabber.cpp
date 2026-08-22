@@ -7,7 +7,6 @@
 #include "regiongrabber.h"
 
 #include <QApplication>
-#include <QLocale>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScreen>

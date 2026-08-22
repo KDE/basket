@@ -11,7 +11,6 @@
 #include <QFileDialog>
 #include <QGroupBox>
 #include <QHBoxLayout>
-#include <QLocale>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QRegularExpression>

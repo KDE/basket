@@ -9,7 +9,6 @@
 #include <QAction>
 #include <QApplication>
 // #include <QDesktopWidget>
-#include <QLocale>
 #include <QMoveEvent>
 #include <QResizeEvent>
 #include <QStatusBar>

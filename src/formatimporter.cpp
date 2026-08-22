@@ -7,7 +7,6 @@
 
 #include <QApplication>
 #include <QDir>
-#include <QLocale>
 #include <QString>
 #include <QStringList>
 #include <QTextStream>

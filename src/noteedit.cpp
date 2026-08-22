@@ -18,7 +18,6 @@
 #include <QKeyEvent>
 #include <QLabel>
 #include <QLineEdit>
-#include <QLocale>
 #include <QPushButton>
 #include <QScrollBar>
 #include <QTextCharFormat>

@@ -5,7 +5,6 @@
 
 #include "basketstatusbar.h"
 
-#include <QLocale>
 #include <QStatusBar>
 
 #include <QLabel>

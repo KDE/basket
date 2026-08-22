@@ -32,7 +32,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QList>
-#include <QLocale>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPainter>

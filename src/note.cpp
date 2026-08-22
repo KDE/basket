@@ -14,7 +14,6 @@
 #include <QGraphicsView>
 #include <QImage>
 #include <QList>
-#include <QLocale> //For KGLobal::locale(
 #include <QPainter>
 #include <QPixmap>
 #include <QStyle>

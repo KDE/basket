@@ -15,7 +15,6 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <QLocale>
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QPluginLoader>

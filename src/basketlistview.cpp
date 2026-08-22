@@ -13,7 +13,6 @@
 #include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QFocusEvent>
-#include <QLocale>
 #include <QMimeData>
 #include <QPainter>
 #include <QPixmap>

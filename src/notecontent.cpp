@@ -7,7 +7,6 @@
 #include "notecontent.h"
 
 #include <QAudioOutput>
-#include <QLocale>
 #include <QMediaPlayer>
 #include <QMimeData>
 #include <QMimeDatabase>

@@ -9,7 +9,6 @@
 #include <QString>
 #include <QVBoxLayout>
 
-#include <QLocale>
 #include <QTextBrowser>
 
 #include <KLocalizedString>

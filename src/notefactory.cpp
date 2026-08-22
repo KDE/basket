@@ -17,7 +17,6 @@
 #include <QGuiApplication>
 #include <QImage>
 #include <QImageReader>
-#include <QLocale>
 #include <QMenu>
 #include <QMimeData>
 #include <QMimeDatabase>

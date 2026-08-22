@@ -16,7 +16,6 @@
 #include <QLineEdit>
 #include <QList>
 #include <QListWidget>
-#include <QLocale>
 #include <QPointer>
 #include <QPushButton>
 #include <QResizeEvent>

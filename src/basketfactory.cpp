@@ -7,7 +7,6 @@
 
 #include <QDir>
 #include <QGraphicsView>
-#include <QLocale>
 #include <QTextStream>
 #include <QtXml/QDomElement>
 

@@ -19,7 +19,6 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLayout>
-#include <QLocale>
 #include <QProgressBar>
 #include <QProgressDialog>
 #include <QPushButton>

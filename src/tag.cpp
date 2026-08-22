@@ -13,7 +13,6 @@
 #include <QFont>
 #include <QIcon>
 #include <QList>
-#include <QLocale>
 #include <QTextStream>
 #include <QtXml/QDomDocument>
 
