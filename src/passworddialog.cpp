@@ -35,7 +35,7 @@ PasswordDialog::PasswordDialog(QWidget *parent)
     KGpgKeyList list = gpg.keys(true);
     for (KGpgKeyList::iterator it = list.begin(); it != list.end(); ++it) {
         QString name = gpg.checkForUtf8((*it).name);
-        m_ui->keyCombo->addItem(QStringLiteral("%1 <%2> %3").arg(name).arg((*it).email).arg((*it).id));
+        m_ui->keyCombo->addItem(QStringLiteral("%1 <%2> %3").arg(name).arg((*it).email).arg((*it).id), (*it).id);
     }
     m_ui->publicPrivateRadioButton->setEnabled(m_ui->keyCombo->count() > 0);
     m_ui->keyCombo->setEnabled(m_ui->keyCombo->count() > 0);
@@ -57,13 +57,7 @@ void PasswordDialog::accept()
 
 QString PasswordDialog::key() const
 {
-    QString s = m_ui->keyCombo->currentText();
-    if (s.length() < 16)
-        return {};
-    int n = s.lastIndexOf(QLatin1Char(' '));
-    if (n < 0)
-        return {};
-    return s.mid(n + 1);
+    return m_ui->keyCombo->currentData().toString();
 }
 
 int PasswordDialog::type() const
@@ -79,11 +73,9 @@ int PasswordDialog::type() const
 
 void PasswordDialog::setKey(const QString &key)
 {
-    for (int i = 0; i < m_ui->keyCombo->count(); ++i) {
-        if (m_ui->keyCombo->itemText(i).contains(key)) {
-            m_ui->keyCombo->setCurrentIndex(i);
-            return;
-        }
+    const int index = m_ui->keyCombo->findData(key);
+    if (index >= 0) {
+        m_ui->keyCombo->setCurrentIndex(index);
     }
 }
 
