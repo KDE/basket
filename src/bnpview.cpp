@@ -179,31 +179,13 @@ void BNPView::lateInit()
 
 void BNPView::addWelcomeBaskets()
 {
-    // Possible paths where to find the welcome basket archive, trying the translated one, and falling back to the English one:
-    QStringList possiblePaths;
-    if (QString::fromUtf8(Tools::systemCodeset())
-        == QStringLiteral("UTF-8")) { // Welcome baskets are encoded in UTF-8. If the system is not, then use the English version:
-        QString lang = QLocale().languageToString(QLocale().language());
-        possiblePaths.append(
-            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_") + lang + QStringLiteral(".baskets")));
-        possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                    QStringLiteral("basket/welcome/Welcome_") + lang.split(QLatin1Char('_'))[0] + QStringLiteral(".baskets")));
-    }
-    possiblePaths.append(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome_en_US.baskets")));
-
-    // Take the first EXISTING basket archive found:
-    QDir dir;
-    QString path;
-    for (QStringList::Iterator it = possiblePaths.begin(); it != possiblePaths.end(); ++it) {
-        if (dir.exists(*it)) {
-            path = *it;
-            break;
-        }
-    }
+    // First locate the English version:
+    QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("basket/welcome/Welcome.baskets"));
+    // Then try to locate the localized version:
+    path = KLocalizedString::localizedFilePath(path);
 
     // Extract:
-    if (!path.isEmpty())
-        Archive::open(path);
+    Archive::open(path);
 }
 
 void BNPView::onFirstShow()
