@@ -497,43 +497,43 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("insert_link"));
     a->setText(i18n("&Link"));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::LINK)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("insert-link")));
     m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Y")));
     m_actInsertLink = a;
 
     a = ac->addAction(QStringLiteral("insert_cross_reference"));
     a->setText(i18n("Cross &Reference"));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::CROSS_REF)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("insert-link")));
     m_actInsertCrossReference = a;
 
     a = ac->addAction(QStringLiteral("insert_image"));
     a->setText(i18n("&Image"));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::IMAGE)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("insert-image")));
     m_actInsertImage = a;
 
     a = ac->addAction(QStringLiteral("insert_color"));
     a->setText(i18n("&Color"));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::COLOR)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("fill-color")));
     m_actInsertColor = a;
 
     a = ac->addAction(QStringLiteral("insert_launcher"));
     a->setText(i18n("L&auncher"));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::LAUNCH)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
     m_actInsertLauncher = a;
 
     a = ac->addAction(QStringLiteral("insert_kmenu"));
     a->setText(i18n("Import Launcher for &desktop application..."));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::KMENU)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("kde")));
     m_actImportKMenu = a;
 
     a = ac->addAction(QStringLiteral("insert_icon"));
     a->setText(i18n("Im&port Icon..."));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::ICONS)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-icons")));
     m_actImportIcon = a;
 
     a = ac->addAction(QStringLiteral("insert_from_file"));
     a->setText(i18n("Load From &File..."));
-    a->setIcon(QIcon::fromTheme(QString::fromUtf8(IconNames::DOCUMENT_IMPORT)));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("document-import")));
     m_actLoadFile = a;
 
     //  connect( m_actInsertText, QAction::triggered, this, [this] () { insertEmpty(NoteType::Text); });

@@ -550,12 +550,12 @@ void FoundCountIcon::paint(QPainter *painter, const QStyleOptionViewItem &option
         effectiveWidth += countPixmap.width() + MARGIN;
     }
     if (showLoadingIcon) {
-        QPixmap icon = KIconLoader::global()->loadIcon(QString::fromUtf8(IconNames::LOADING), KIconLoader::NoGroup, BASKET_ICON_SIZE);
+        QPixmap icon = KIconLoader::global()->loadIcon(QStringLiteral("process-idle"), KIconLoader::NoGroup, BASKET_ICON_SIZE);
         painter->drawPixmap(effectiveWidth, y, icon);
         effectiveWidth += BASKET_ICON_SIZE + MARGIN;
     }
     if (showEncryptedIcon && !showLoadingIcon) {
-        QPixmap icon = KIconLoader::global()->loadIcon(QString::fromUtf8(IconNames::LOCKED), KIconLoader::NoGroup, BASKET_ICON_SIZE);
+        QPixmap icon = KIconLoader::global()->loadIcon(QStringLiteral("object-locked"), KIconLoader::NoGroup, BASKET_ICON_SIZE);
         painter->drawPixmap(effectiveWidth, y, icon);
     }
 }
