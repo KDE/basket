@@ -10,19 +10,12 @@
 
 #ifdef HAVE_LIBGPGME
 
-#include "ui_passwordlayout.h"
 #include <QDialog>
 
-/**
-    @author Petri Damsten <damu@iki.fi>
-*/
-class Password : public QWidget, public Ui::PasswordLayout
+namespace Ui
 {
-    Q_OBJECT
-public:
-    explicit Password(QWidget *parent = nullptr);
-    ~Password();
-};
+class PasswordDialog;
+}
 
 class PasswordDialog : public QDialog
 {
@@ -41,7 +34,7 @@ public:
     void accept() override;
 
 private:
-    Password *w;
+    Ui::PasswordDialog *m_ui;
 };
 
 #endif // HAVE_LIBGPGME

@@ -18,6 +18,7 @@
 #include <QList>
 #include <QMenu>
 #include <QPixmap>
+#include <QPointer>
 #include <QProgressDialog>
 #include <QRegularExpression>
 #include <QResizeEvent>
