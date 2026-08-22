@@ -1065,8 +1065,6 @@ void BasketScene::newFilter(const FilterData &data, bool andEnsureVisible /* = t
     if (!isLoaded())
         return;
 
-    // StopWatch::start(20);
-
     m_countFounds = 0;
     // Search within basket titles as well
     if (data.tagFilterType == FilterData::DontCareTagsFilter)
@@ -1087,8 +1085,6 @@ void BasketScene::newFilter(const FilterData &data, bool andEnsureVisible /* = t
         ensureNoteVisible(m_focusedNote);
 
     Global::bnpView->setFiltering(data.isFiltering);
-
-    // StopWatch::check(20);
 }
 
 bool BasketScene::isFiltering()

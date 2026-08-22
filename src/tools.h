@@ -9,7 +9,7 @@
 
 #include "basket_export.h"
 
-#include <QVector>
+#include <QList>
 
 class State;
 class QColor;
@@ -18,22 +18,9 @@ class QMimeData;
 class QObject;
 class QPixmap;
 class QString;
-class QTime;
 class QTextDocument;
 
 class HTMLExporter;
-
-class StopWatch
-{
-public:
-    static void start(int id);
-    static void check(int id);
-
-private:
-    static QVector<QTime> starts;
-    static QVector<double> totals;
-    static QVector<uint> counts;
-};
 
 /** Some useful functions for that application.
  * @author Sébastien Laoût
