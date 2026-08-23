@@ -8,6 +8,7 @@
 
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
+#include <QHash>
 #include <QLabel>
 #include <QLineEdit>
 #include <QListWidget>
@@ -33,6 +34,10 @@
 #include "kcolorcombo2.h"
 #include "tools.h"
 #include "variouswidgets.h" //For HelpLabel
+
+enum {
+    TemplateRole = Qt::UserRole,
+};
 
 /** class UnselectableListWidget: */
 
@@ -134,6 +139,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
         else
             defaultTemplate = QStringLiteral("3columns");
     }
+    QHash<QString, QListWidgetItem *> templateItems;
 
     // Empty:
     // * * * * *
@@ -157,9 +163,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.drawRect(iconBorderRect);
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("One column"), m_templates);
-
-    if (defaultTemplate == QStringLiteral("1column"))
-        m_templates->setCurrentItem(lastTemplate);
+    lastTemplate->setData(TemplateRole, QStringLiteral("1column"));
+    templateItems.insert(lastTemplate->data(TemplateRole).toString(), lastTemplate);
 
     painter.begin(&icon);
     painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
@@ -168,9 +173,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.drawLine(icon.width() / 2, 0, icon.width() / 2, icon.height());
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Two columns"), m_templates);
-
-    if (defaultTemplate == QStringLiteral("2columns"))
-        m_templates->setCurrentItem(lastTemplate);
+    lastTemplate->setData(TemplateRole, QStringLiteral("2columns"));
+    templateItems.insert(lastTemplate->data(TemplateRole).toString(), lastTemplate);
 
     painter.begin(&icon);
     painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
@@ -180,9 +184,8 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.drawLine(icon.width() * 2 / 3, 0, icon.width() * 2 / 3, icon.height());
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Three columns"), m_templates);
-
-    if (defaultTemplate == QStringLiteral("3columns"))
-        m_templates->setCurrentItem(lastTemplate);
+    lastTemplate->setData(TemplateRole, QStringLiteral("3columns"));
+    templateItems.insert(lastTemplate->data(TemplateRole).toString(), lastTemplate);
 
     painter.begin(&icon);
     painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
@@ -192,9 +195,11 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.drawRect(icon.width() * 2 / 5, icon.width() * 2 / 5, icon.width() / 4, icon.height() / 8);
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Free"), m_templates);
+    lastTemplate->setData(TemplateRole, QStringLiteral("free"));
+    templateItems.insert(lastTemplate->data(TemplateRole).toString(), lastTemplate);
 
-    if (defaultTemplate == QStringLiteral("free"))
-        m_templates->setCurrentItem(lastTemplate);
+    if (QListWidgetItem *defaultTemplateItem = templateItems.value(defaultTemplate))
+        m_templates->setCurrentItem(defaultTemplateItem);
 
     m_templates->setMinimumHeight(topLayout->minimumSize().width() * 9 / 16);
 
@@ -315,19 +320,9 @@ void NewBasketDialog::nameChanged(const QString &newName)
 void NewBasketDialog::slotOk()
 {
     QListWidgetItem *item = m_templates->currentItem();
-    QString templateName;
     if (!item)
         return;
-    if (item->text() == i18n("One column"))
-        templateName = QStringLiteral("1column");
-    if (item->text() == i18n("Two columns"))
-        templateName = QStringLiteral("2columns");
-    if (item->text() == i18n("Three columns"))
-        templateName = QStringLiteral("3columns");
-    if (item->text() == i18n("Free-form"))
-        templateName = QStringLiteral("free");
-    if (item->text() == i18n("Mind map"))
-        templateName = QStringLiteral("mindmap");
+    const QString templateName = item->data(TemplateRole).toString();
 
     Global::bnpView->closeAllEditors();
 
