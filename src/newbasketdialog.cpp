@@ -10,6 +10,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QListWidget>
 #include <QPainter>
 #include <QPixmap>
 #include <QPushButton>
@@ -33,25 +34,29 @@
 #include "tools.h"
 #include "variouswidgets.h" //For HelpLabel
 
-/** class SingleSelectionKIconView: */
+/** class UnselectableListWidget: */
 
-SingleSelectionKIconView::SingleSelectionKIconView(QWidget *parent)
+/** Helper class to avoid delecting items.
+ */
+class UnselectableListWidget : public QListWidget
+{
+public:
+    UnselectableListWidget(QWidget *parent = nullptr);
+
+protected:
+    QItemSelectionModel::SelectionFlags selectionCommand(const QModelIndex &index, const QEvent *event = nullptr) const override;
+};
+
+UnselectableListWidget::UnselectableListWidget(QWidget *parent)
     : QListWidget(parent)
-    , m_lastSelected(nullptr)
 {
-    setViewMode(QListView::IconMode);
-    connect(this, &SingleSelectionKIconView::currentItemChanged, this, &SingleSelectionKIconView::slotSelectionChanged);
 }
 
-QMimeData *SingleSelectionKIconView::dragObject()
+QItemSelectionModel::SelectionFlags UnselectableListWidget::selectionCommand(const QModelIndex &index, const QEvent *event) const
 {
-    return nullptr;
-}
-
-void SingleSelectionKIconView::slotSelectionChanged(QListWidgetItem *cur)
-{
-    if (cur)
-        m_lastSelected = cur;
+    QItemSelectionModel::SelectionFlags baseFlags = QListWidget::selectionCommand(index, event);
+    baseFlags &= ~QItemSelectionModel::Deselect;
+    return baseFlags;
 }
 
 /** class NewBasketDefaultProperties: */
@@ -138,7 +143,9 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     // *Meeting Summary
     // Hobbies:
     // *
-    m_templates = new SingleSelectionKIconView(page);
+    m_templates = new UnselectableListWidget(page);
+    m_templates->setViewMode(QListView::IconMode);
+    m_templates->setDragEnabled(false);
     m_templates->setSelectionMode(QAbstractItemView::SingleSelection);
     QListWidgetItem *lastTemplate = nullptr;
     QPixmap icon(40, 53);
@@ -307,7 +314,7 @@ void NewBasketDialog::nameChanged(const QString &newName)
 
 void NewBasketDialog::slotOk()
 {
-    QListWidgetItem *item = ((SingleSelectionKIconView *)m_templates)->selectedItem();
+    QListWidgetItem *item = m_templates->currentItem();
     QString templateName;
     if (!item)
         return;

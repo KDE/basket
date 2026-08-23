@@ -9,39 +9,17 @@
 
 #include <QDialog>
 
-#include <QListWidget>
 #include <QMap>
 
 class KIconButton;
 class QLineEdit;
-class QMimeData;
 class KComboBox;
 class QTreeWidgetItem;
+class QListWidget;
 
 class BasketScene;
 
 class KColorCombo2;
-
-/** The class QListWidget allow to drag items. We don't want to, so we disable it.
- * This class also unselect the selected item when the user right click an empty space. We don't want to, so we reselect it if that happens.
- * @author Sébastien Laoût
- */
-class SingleSelectionKIconView : public QListWidget
-{
-    Q_OBJECT
-public:
-    explicit SingleSelectionKIconView(QWidget *parent = nullptr);
-    QMimeData *dragObject();
-    QListWidgetItem *selectedItem()
-    {
-        return m_lastSelected;
-    }
-private Q_SLOTS:
-    void slotSelectionChanged(QListWidgetItem *cur);
-
-private:
-    QListWidgetItem *m_lastSelected;
-};
 
 /** Struct to store default properties of a new basket.
  * When the dialog shows up, the @p icon is used, as well as the @p backgroundColor.
