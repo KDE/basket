@@ -142,11 +142,12 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     m_templates->setSelectionMode(QAbstractItemView::SingleSelection);
     QListWidgetItem *lastTemplate = nullptr;
     QPixmap icon(40, 53);
+    const QRect iconBorderRect = icon.rect();
 
     QPainter painter(&icon);
-    painter.fillRect(0, 0, icon.width(), icon.height(), palette().color(QPalette::Base));
+    painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
     painter.setPen(palette().color(QPalette::Text));
-    painter.drawRect(0, 0, icon.width(), icon.height());
+    painter.drawRect(iconBorderRect);
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("One column"), m_templates);
 
@@ -154,9 +155,9 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
         m_templates->setCurrentItem(lastTemplate);
 
     painter.begin(&icon);
-    painter.fillRect(0, 0, icon.width(), icon.height(), palette().color(QPalette::Base));
+    painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
     painter.setPen(palette().color(QPalette::Text));
-    painter.drawRect(0, 0, icon.width(), icon.height());
+    painter.drawRect(iconBorderRect);
     painter.drawLine(icon.width() / 2, 0, icon.width() / 2, icon.height());
     painter.end();
     lastTemplate = new QListWidgetItem(icon, i18n("Two columns"), m_templates);
@@ -165,9 +166,9 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
         m_templates->setCurrentItem(lastTemplate);
 
     painter.begin(&icon);
-    painter.fillRect(0, 0, icon.width(), icon.height(), palette().color(QPalette::Base));
+    painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
     painter.setPen(palette().color(QPalette::Text));
-    painter.drawRect(0, 0, icon.width(), icon.height());
+    painter.drawRect(iconBorderRect);
     painter.drawLine(icon.width() / 3, 0, icon.width() / 3, icon.height());
     painter.drawLine(icon.width() * 2 / 3, 0, icon.width() * 2 / 3, icon.height());
     painter.end();
@@ -177,9 +178,9 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
         m_templates->setCurrentItem(lastTemplate);
 
     painter.begin(&icon);
-    painter.fillRect(0, 0, icon.width(), icon.height(), palette().color(QPalette::Base));
+    painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
     painter.setPen(palette().color(QPalette::Text));
-    painter.drawRect(0, 0, icon.width(), icon.height());
+    painter.drawRect(iconBorderRect);
     painter.drawRect(icon.width() / 5, icon.width() / 5, icon.width() / 4, icon.height() / 8);
     painter.drawRect(icon.width() * 2 / 5, icon.width() * 2 / 5, icon.width() / 4, icon.height() / 8);
     painter.end();
