@@ -76,7 +76,6 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
 {
     m_serviceLauncher = serviceLauncher;
 
-    QString iconPath;
     QString name;
     QString genericName;
     QString displayName;
@@ -88,10 +87,19 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
     if (service && service->isApplication()) {
         KIconLoader *iconLoader = KIconLoader::global();
 
-        iconPath = iconLoader->iconPath(service->icon(), KIconLoader::Desktop, true);
-
+        const QString serviceIcon = service->icon();
+        QString iconPath;
+        if (!serviceIcon.isEmpty()) {
+            iconPath = iconLoader->iconPath(serviceIcon, KIconLoader::Desktop, true);
+        }
         if (!iconPath.isEmpty()) {
-            buttonIcon = QIcon(iconPath);
+            if (serviceIcon.contains(QLatin1Char('/'))) {
+                // Path-like, so use it as-is
+                buttonIcon = QIcon(iconPath);
+            } else {
+                // Name only, so assume it is in the icon theme
+                buttonIcon = QIcon::fromTheme(serviceIcon);
+            }
         } else {
             buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
         }
