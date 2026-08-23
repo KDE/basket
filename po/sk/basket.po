@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-20 00:48+0000\n"
+"POT-Creation-Date: 2026-08-23 00:48+0000\n"
 "PO-Revision-Date: 2020-03-10 15:07+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -111,17 +111,17 @@ msgstr "Zdroj sa zdá byť neplatný."
 msgid "Could not open file."
 msgstr "Nepodarilo sa otvoriť súbor."
 
-#: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
+#: devtools/weaver/weaver.cpp:304 src/archive.cpp:263
 #, kde-format
 msgid "Failed to open a file resource."
 msgstr "Nepodarilo sa open a file resource."
 
-#: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
+#: devtools/weaver/weaver.cpp:307 src/archive.cpp:266
 #, kde-format
 msgid "This file is not a basket archive."
 msgstr "Tento súbor nie je archív košíka."
 
-#: devtools/weaver/weaver.cpp:310 src/archive.cpp:270
+#: devtools/weaver/weaver.cpp:310 src/archive.cpp:269
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
 msgstr "Tento súbor je poškodený. Nie je ho možné otvoriť."
@@ -247,28 +247,28 @@ msgstr "Pôvodná ikona"
 msgid "BasKet Note Pads"
 msgstr "BasKet Note Pads"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2049
+#: src/archive.cpp:49 src/bnpview.cpp:2031
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Uložiť ako archív košíka"
 
-#: src/archive.cpp:51
+#: src/archive.cpp:50
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
 msgstr "Ukladanie ako archív košíka. Prosím čakajte..."
 
-#: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
-#: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
+#: src/archive.cpp:263 src/archive.cpp:266 src/archive.cpp:269
+#: src/archive.cpp:272 src/archive.cpp:279 src/archive.cpp:288
 #, kde-format
 msgid "Basket Archive Error"
 msgstr "Basket Archive Error"
 
-#: src/archive.cpp:273
+#: src/archive.cpp:272
 #, kde-format
 msgid "Extraction path already exists."
 msgstr "Extraction path už existuje."
 
-#: src/archive.cpp:277
+#: src/archive.cpp:276
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
@@ -277,7 +277,7 @@ msgstr ""
 "Tento súbor bol vytvorený novšou verziou %1. Aktualizujte na novšiu verziu, "
 "aby ste ho mohli otvoriť."
 
-#: src/archive.cpp:284
+#: src/archive.cpp:283
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1. It can be opened but not "
@@ -291,37 +291,37 @@ msgstr ""
 "pretože sú typu dostupného iba v nových verziách. Pri ukladaní súboru zvážte "
 "uloženie do iného súboru, aby sa zachoval originál."
 
-#: src/backup.cpp:54
+#: src/backup.cpp:53
 #, kde-format
 msgid "Backup & Restore"
 msgstr "Záloha a obnova"
 
-#: src/backup.cpp:71
+#: src/backup.cpp:70
 #, kde-format
 msgid "Save Folder"
 msgstr "Save Folder"
 
-#: src/backup.cpp:77
+#: src/backup.cpp:76
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr "Vaše košíky sú momentálne uložené v priečinku:<br><b>%1</b>"
 
-#: src/backup.cpp:84
+#: src/backup.cpp:83
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "&Presunúť do iného priečinka..."
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "&Použiť iný existujúci priečinok..."
 
-#: src/backup.cpp:87
+#: src/backup.cpp:86
 #, kde-format
 msgid "Why to do that?"
 msgstr "Prečo to robiť?"
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -346,52 +346,52 @@ msgstr ""
 "ul><p>Nezabudnite, že obsah tohto priečinka by ste nemali meniť ručne (napr. "
 "pridanie súboru do priečinka košíka nepridá tento súbor do košíka).</p>"
 
-#: src/backup.cpp:104
+#: src/backup.cpp:103
 #, kde-format
 msgid "Backups"
 msgstr "Zálohy"
 
-#: src/backup.cpp:115
+#: src/backup.cpp:114
 #, kde-format
 msgid "&Backup..."
 msgstr "Zálohovať"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "&Obnoviť zálohu..."
 
-#: src/backup.cpp:139
+#: src/backup.cpp:138
 #, kde-format
 msgid "Last backup: never"
 msgstr "Posledná záloha: nikdy"
 
-#: src/backup.cpp:141
+#: src/backup.cpp:140
 #, kde-format
 msgid "Last backup: %1"
 msgstr "Posledná záloha: %1"
 
-#: src/backup.cpp:149 src/backup.cpp:180
+#: src/backup.cpp:148 src/backup.cpp:179
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Vyberte priečinok, kam presunúť košíky"
 
-#: src/backup.cpp:161
+#: src/backup.cpp:160
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "Priečinok <b>%1</b> nie je prázdny. Chcete ho prepísať?"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Prepísať"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:69
+#: src/backup.cpp:162 src/bnpview.cpp:2040 src/htmlexporter.cpp:68
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Prepísať"
 
-#: src/backup.cpp:173
+#: src/backup.cpp:172
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -400,7 +400,7 @@ msgstr ""
 "Vaše košíky boli úspešne presunuté do <b>%1</b>. %2 sa reštartuje, aby sa "
 "táto zmena prejavila."
 
-#: src/backup.cpp:185
+#: src/backup.cpp:184
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -409,44 +409,44 @@ msgstr ""
 "Priečinok na ukladanie vašich košíkov bol úspešne zmenený na <b>%1</b>. %2 "
 "sa reštartuje, aby sa táto zmena prejavila."
 
-#: src/backup.cpp:197
+#: src/backup.cpp:196
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Kosiky_%1"
 
-#: src/backup.cpp:202 src/backup.cpp:251
+#: src/backup.cpp:201 src/backup.cpp:250
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archívy Tar komprimované pomocou Gzip"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
-#: src/bnpview.cpp:2093 src/htmlexporter.cpp:54
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2028
+#: src/bnpview.cpp:2075 src/htmlexporter.cpp:53
 #, kde-format
 msgid "All Files"
 msgstr "Všetky súbory"
 
-#: src/backup.cpp:206 src/backup.cpp:214
+#: src/backup.cpp:205 src/backup.cpp:213
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Backup Baskets"
 
-#: src/backup.cpp:215
+#: src/backup.cpp:214
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Zálohovanie košíkov. Prosím čakajte..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2094
+#: src/backup.cpp:255 src/bnpview.cpp:2076
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Open Basket Archive"
 
-#: src/backup.cpp:267
+#: src/backup.cpp:266
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:271
+#: src/backup.cpp:270
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -455,7 +455,7 @@ msgstr ""
 "Toto je bezpečnostná kópia vašich košíkov v stave, v akom boli pred "
 "obnovením zálohy %1."
 
-#: src/backup.cpp:274
+#: src/backup.cpp:273
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -464,7 +464,7 @@ msgstr ""
 "Ak bola obnova úspešná a obnovili ste, čo ste chceli, môžete tento priečinok "
 "odstrániť."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -473,7 +473,7 @@ msgstr ""
 "Ak sa počas obnovy niečo pokazilo, môžete tento priečinok znovu použiť na "
 "uloženie vašich košíkov a nič sa nestratí."
 
-#: src/backup.cpp:277
+#: src/backup.cpp:276
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -482,24 +482,24 @@ msgstr ""
 "Vyberte \"Košík\" -> \"Záloha a obnova...\" -> \"Použiť iný existujúci "
 "priečinok...\" a vyberte tento priečinok."
 
-#: src/backup.cpp:281
+#: src/backup.cpp:280
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "Obnovovanie <b>%1</b>. Prosím čakajte..."
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
 "b>."
 msgstr "Ak sa počas obnovy niečo pokazí, prečítajte si súbor <b>%1</b>."
 
-#: src/backup.cpp:285
+#: src/backup.cpp:284
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Restore Baskets"
 
-#: src/backup.cpp:318
+#: src/backup.cpp:317
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -508,12 +508,12 @@ msgstr ""
 "Tento archív buď nie je zálohou košíkov alebo je poškodený. Nie je ho možné "
 "importovať. Vaše pôvodné košíky boli zachované."
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid "Restore Error"
 msgstr "Restore Error"
 
-#: src/backup.cpp:328
+#: src/backup.cpp:327
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -522,18 +522,18 @@ msgstr ""
 "Vaša záloha bola úspešne obnovená do <b>%1</b>. %2 sa reštartuje, aby sa "
 "táto zmena prejavila."
 
-#: src/backup.cpp:366
+#: src/backup.cpp:365
 #, kde-format
 msgid "Restart"
 msgstr "Reštart"
 
-#: src/backup.cpp:383
+#: src/backup.cpp:382
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Baskets Before Restoration"
 
-#: src/backup.cpp:390
+#: src/backup.cpp:389
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -573,67 +573,67 @@ msgstr ""
 msgid "Open a basket archive or template."
 msgstr "Otvoriť archív alebo šablónu košíka."
 
-#: src/basketfactory.cpp:54
+#: src/basketfactory.cpp:53
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr "Ľutujeme, ale vytvorenie priečinka pre tento nový košík zlyhalo."
 
-#: src/basketfactory.cpp:54 src/basketfactory.cpp:87 src/basketfactory.cpp:108
+#: src/basketfactory.cpp:53 src/basketfactory.cpp:86 src/basketfactory.cpp:107
 #, kde-format
 msgid "Basket Creation Failed"
 msgstr "Basket Creation Failed"
 
-#: src/basketfactory.cpp:87
+#: src/basketfactory.cpp:86
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
 msgstr "Ľutujeme, ale kopírovanie šablóny pre tento nový košík zlyhalo."
 
-#: src/basketfactory.cpp:108
+#: src/basketfactory.cpp:107
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr "Ľutujeme, ale prispôsobenie šablóny pre tento nový košík zlyhalo."
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:629
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:631
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:634
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:46
+#: src/basketproperties.cpp:45
 #, kde-format
 msgid "Basket Properties"
 msgstr "Basket Properties"
 
-#: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
 #, kde-format
 msgid "Icon"
 msgstr "Ikona"
 
-#: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Názov"
 
-#: src/basketproperties.cpp:89
+#: src/basketproperties.cpp:88
 #, kde-format
 msgid "(None)"
 msgstr "(Žiadne)"
 
-#: src/basketproperties.cpp:134
+#: src/basketproperties.cpp:133
 #, kde-format
 msgid "Learn some tips..."
 msgstr "Zistiť pár tipov..."
 
-#: src/basketproperties.cpp:135
+#: src/basketproperties.cpp:134
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -663,7 +663,7 @@ msgstr ""
 "clipboard or the selection into the current basket from anywhere.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:484 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1107
 #, kde-format
 msgid "Appearance"
 msgstr "Vzhľad"
@@ -734,39 +734,39 @@ msgstr "Zobraziť tento košík (&globálna skratka)"
 msgid "S&witch to this basket (global shortcut)"
 msgstr "P&repnúť na tento košík (globálna skratka)"
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:302
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "Nová poznámka nezodpovedá filtru a je skrytá."
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:304
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "Nová poznámka nezodpovedá filtru a je skrytá."
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:306
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "Niektoré nové poznámky nezodpovedajú filtru a sú skryté."
 
-#: src/basketscene.cpp:309
+#: src/basketscene.cpp:308
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Nové poznámky nezodpovedajú filtru a sú skryté."
 
-#: src/basketscene.cpp:1467
+#: src/basketscene.cpp:1462
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "Skupina"
 
-#: src/basketscene.cpp:1469
+#: src/basketscene.cpp:1464
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Vložiť"
 
-#: src/basketscene.cpp:2316
+#: src/basketscene.cpp:2311
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -775,7 +775,7 @@ msgstr ""
 "Táto správa by sa nemala nikdy zobraziť. Ak sa zobrazí, program obsahuje "
 "chybu! Nahláste prosím chybu vývojárovi."
 
-#: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
+#: src/basketscene.cpp:2750 src/basketscene.cpp:2803 src/basketscene.cpp:2812
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -784,57 +784,57 @@ msgstr ""
 "Vložiť poznámku sem\n"
 "Pravým kliknutím zobrazíte ďalšie možnosti"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize those columns"
 msgstr "Zmeniť veľkosť týchto stĺpcov"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize this group"
 msgstr "Zmeniť veľkosť tejto skupiny"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize this note"
 msgstr "Zmeniť veľkosť tejto poznámky"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2772
 #, kde-format
 msgid "Select or move this note"
 msgstr "Vybrať alebo presunúť túto poznámku"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Select or move this group"
 msgstr "Vybrať alebo presunúť túto skupinu"
 
-#: src/basketscene.cpp:2783
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Priradiť alebo odstrániť značky z tejto poznámky"
 
-#: src/basketscene.cpp:2791
+#: src/basketscene.cpp:2786
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2793
+#: src/basketscene.cpp:2788
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Priradené značky</b>: %1"
 
-#: src/basketscene.cpp:2800
+#: src/basketscene.cpp:2795
 #, kde-format
 msgid "Expand this group"
 msgstr "Rozbaliť túto skupinu"
 
-#: src/basketscene.cpp:2800
+#: src/basketscene.cpp:2795
 #, kde-format
 msgid "Collapse this group"
 msgstr "Zbaliť túto skupinu"
 
-#: src/basketscene.cpp:2811
+#: src/basketscene.cpp:2806
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -843,7 +843,7 @@ msgstr ""
 "Zoskupiť poznámku s tou nižšie\n"
 "Pravým kliknutím zobrazíte ďalšie možnosti"
 
-#: src/basketscene.cpp:2814
+#: src/basketscene.cpp:2809
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -852,53 +852,53 @@ msgstr ""
 "Zoskupiť poznámku s tou vyššie\n"
 "Pravým kliknutím zobrazíte ďalšie možnosti"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2827
 #, kde-format
 msgid "Added"
 msgstr "Pridané"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2827
 #, kde-format
 msgid "Last Modification"
 msgstr "Posledná zmena"
 
-#: src/basketscene.cpp:2837
+#: src/basketscene.cpp:2832
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2841
+#: src/basketscene.cpp:2836
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Kliknite napravo pre zoskupenie namiesto vloženia"
 
-#: src/basketscene.cpp:2843
+#: src/basketscene.cpp:2838
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Kliknite naľavo pre vloženie namiesto zoskupenia"
 
-#: src/basketscene.cpp:3021
+#: src/basketscene.cpp:3016
 #, kde-format
 msgid "&Unlock"
 msgstr "Odomknúť"
 
-#: src/basketscene.cpp:3026
+#: src/basketscene.cpp:3021
 #, kde-format
 msgid "Password protected basket."
 msgstr "Košík chránený heslom."
 
-#: src/basketscene.cpp:3028
+#: src/basketscene.cpp:3023
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Stlačte Odomknúť pre prístup."
 
-#: src/basketscene.cpp:3030
+#: src/basketscene.cpp:3025
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "Šifrovanie nie je podporované<br/>touto verziou %1."
 
-#: src/basketscene.cpp:3042
+#: src/basketscene.cpp:3037
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -907,37 +907,37 @@ msgstr ""
 "Aby košíky zostali odomknuté, zmeňte dobu automatického<br>zamykania v "
 "nastaveniach aplikácie."
 
-#: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
+#: src/basketscene.cpp:3064 src/basketstatusbar.cpp:88 src/bnpview.cpp:1590
 #, kde-format
 msgid "Loading..."
 msgstr "Loading..."
 
-#: src/basketscene.cpp:3235 src/basketscene.cpp:3277
+#: src/basketscene.cpp:3230 src/basketscene.cpp:3272
 #, kde-format
 msgid "&Remove"
 msgstr "O&dstrániť"
 
-#: src/basketscene.cpp:3238 src/basketscene.cpp:3281 src/bnpview.cpp:2489
+#: src/basketscene.cpp:3233 src/basketscene.cpp:3276 src/bnpview.cpp:2471
 #, kde-format
 msgid "&Customize..."
 msgstr "Prispôsobiť"
 
-#: src/basketscene.cpp:3244 src/basketscene.cpp:3287
+#: src/basketscene.cpp:3239 src/basketscene.cpp:3282
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Filtrovať podľa tejto značky"
 
-#: src/basketscene.cpp:3290
+#: src/basketscene.cpp:3285
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Filtrovať podľa tohto &stavu"
 
-#: src/basketscene.cpp:3371
+#: src/basketscene.cpp:3366
 #, kde-format
 msgid "Tags"
 msgstr "Značky"
 
-#: src/basketscene.cpp:3948
+#: src/basketscene.cpp:3943
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
@@ -945,7 +945,7 @@ msgstr[0] "Naozaj chcete odstrániť túto poznámku?"
 msgstr[1] "<qt>Naozaj chcete odstrániť poznámku <b>%1</b>?</qt>"
 msgstr[2] "<qt>Naozaj chcete odstrániť poznámku <b>%1</b>?</qt>"
 
-#: src/basketscene.cpp:3949
+#: src/basketscene.cpp:3944
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
@@ -953,7 +953,7 @@ msgstr[0] "Delete Note"
 msgstr[1] "Delete Notes"
 msgstr[2] "Delete Notes"
 
-#: src/basketscene.cpp:4048
+#: src/basketscene.cpp:4043
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
@@ -961,7 +961,7 @@ msgstr[0] "Poznámka bola skopírovaná do schránky."
 msgstr[1] "Poznámky boli skopírované do schránky."
 msgstr[2] "Poznámok bolo skopírovaných do schránky."
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4046
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
@@ -969,7 +969,7 @@ msgstr[0] "Poznámka bola vystrihnutá do schránky."
 msgstr[1] "Poznámky boli vystrihnuté do schránky."
 msgstr[2] "Poznámok bolo vystrihnutých do schránky."
 
-#: src/basketscene.cpp:4054
+#: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
@@ -977,45 +977,45 @@ msgstr[0] "Poznámka bola skopírovaná do výberu."
 msgstr[1] "Poznámky boli skopírované do výberu."
 msgstr[2] "Poznámok bolo skopírovaných do výberu."
 
-#: src/basketscene.cpp:4118 src/basketscene.cpp:4193
+#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Nie je možné open this note."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4120 src/basketui.rc:40
+#: src/basketscene.cpp:4115 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&Upraviť"
 
-#: src/basketscene.cpp:4156
+#: src/basketscene.cpp:4151
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Nemáte oprávnenie otvoriť tento súbor."
 
-#: src/basketscene.cpp:4214
+#: src/basketscene.cpp:4209
 #, kde-format
 msgid "Save to File"
 msgstr "Uložiť do súboru"
 
-#: src/basketstatusbar.cpp:106
+#: src/basketstatusbar.cpp:105
 #, kde-format
 msgid "Shows if there are changes that have not yet been saved."
 msgstr "Zobrazuje, či existujú zmeny, ktoré ešte neboli uložené."
 
-#: src/basketstatusbar.cpp:137
+#: src/basketstatusbar.cpp:136
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
 msgstr ""
 "Ctrl+pustenie: kopírovať, Shift+pustenie: presunúť, Shift+Ctrl+pustenie: "
 "odkaz."
 
-#: src/basketstatusbar.cpp:160
+#: src/basketstatusbar.cpp:159
 #, kde-format
 msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
 msgstr "<p>Tento košík je <b>zamknutý</b>.<br>Kliknite pre odomknutie.</p>"
 
-#: src/basketstatusbar.cpp:163
+#: src/basketstatusbar.cpp:162
 #, kde-format
 msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
 msgstr "<p>Tento košík je <b>odomknutý</b>.<br>Kliknite pre zamknutie.</p>"
@@ -1027,20 +1027,20 @@ msgid "&Basket"
 msgstr "&Košík"
 
 #. i18n: ectx: Menu
-#: src/basketui.rc:11 src/basketui.rc:170
+#: src/basketui.rc:11 src/basketui.rc:169
 #, kde-format
 msgid "&Export"
 msgstr "&Exportovať"
 
 #. i18n: ectx: Menu
-#: src/basketui.rc:16 src/basketui.rc:175
+#: src/basketui.rc:16 src/basketui.rc:174
 #, kde-format
 msgid "&Sort"
 msgstr "Triediť"
 
 #. i18n: ectx: Menu (fileimport)
 #. i18n: ectx: Menu
-#: src/basketui.rc:28 src/basketui.rc:187 src/basketui.rc:198
+#: src/basketui.rc:28 src/basketui.rc:186 src/basketui.rc:197
 #, kde-format
 msgid "&Import"
 msgstr "&Importovať"
@@ -1082,28 +1082,28 @@ msgid "&Help"
 msgstr "&Pomocník"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/basketui.rc:123
+#: src/basketui.rc:122
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
 #. i18n: ectx: ToolBar (richTextEditToolBar)
-#: src/basketui.rc:141
+#: src/basketui.rc:140
 #, kde-format
 msgid "Text Formatting Toolbar"
 msgstr "Text Formatting Toolbar"
 
-#: src/bnpview.cpp:166 src/bnpview.cpp:1246
+#: src/bnpview.cpp:166 src/bnpview.cpp:1228
 #, kde-format
 msgid "General"
 msgstr "Všeobecné"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:216
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Vložiť obsah schránky do aktuálneho košíka"
 
-#: src/bnpview.cpp:236
+#: src/bnpview.cpp:218
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1112,12 +1112,12 @@ msgstr ""
 "Umožňuje vložiť obsah schránky do aktuálneho košíka bez nutnosti otvoriť "
 "hlavné okno."
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:223
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "Vložiť výber do aktuálneho košíka"
 
-#: src/bnpview.cpp:243
+#: src/bnpview.cpp:225
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1126,12 +1126,12 @@ msgstr ""
 "Umožňuje vložiť výber zo schránky do aktuálneho košíka bez nutnosti otvoriť "
 "hlavné okno."
 
-#: src/bnpview.cpp:248
+#: src/bnpview.cpp:230
 #, kde-format
 msgid "Create a new basket"
 msgstr "Vytvoriť nový košík"
 
-#: src/bnpview.cpp:250
+#: src/bnpview.cpp:232
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1142,12 +1142,12 @@ msgstr ""
 "použiť ostatné globálne klávesové skratky na pridanie poznámky, vloženie "
 "schránky alebo vloženie výberu do tohto nového košíka)."
 
-#: src/bnpview.cpp:255
+#: src/bnpview.cpp:237
 #, kde-format
 msgid "Go to previous basket"
 msgstr "Prejsť na predchádzajúci košík"
 
-#: src/bnpview.cpp:257
+#: src/bnpview.cpp:239
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1156,12 +1156,12 @@ msgstr ""
 "Umožňuje zmeniť aktuálny košík na predchádzajúci bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:261
+#: src/bnpview.cpp:243
 #, kde-format
 msgid "Go to next basket"
 msgstr "Prejsť na nasledujúci košík"
 
-#: src/bnpview.cpp:263
+#: src/bnpview.cpp:245
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1170,12 +1170,12 @@ msgstr ""
 "Umožňuje zmeniť aktuálny košík na nasledujúci bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:267
+#: src/bnpview.cpp:249
 #, kde-format
 msgid "Insert text note"
 msgstr "Vložiť text poznámka"
 
-#: src/bnpview.cpp:269
+#: src/bnpview.cpp:251
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
@@ -1183,12 +1183,12 @@ msgstr ""
 "Pridať textovú poznámku do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:274 src/settings.cpp:566
+#: src/bnpview.cpp:256 src/settings.cpp:565
 #, kde-format
 msgid "Insert image note"
 msgstr "Vložiť obrázok poznámka"
 
-#: src/bnpview.cpp:276
+#: src/bnpview.cpp:258
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1197,12 +1197,12 @@ msgstr ""
 "Pridať obrázkovú poznámku do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:280 src/settings.cpp:567
+#: src/bnpview.cpp:262 src/settings.cpp:566
 #, kde-format
 msgid "Insert link note"
 msgstr "Vložiť odkaz poznámka"
 
-#: src/bnpview.cpp:282
+#: src/bnpview.cpp:264
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
@@ -1210,12 +1210,12 @@ msgstr ""
 "Pridať poznámku s odkazom do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:286 src/settings.cpp:570
+#: src/bnpview.cpp:268 src/settings.cpp:569
 #, kde-format
 msgid "Insert color note"
 msgstr "Vložiť farba poznámka"
 
-#: src/bnpview.cpp:288
+#: src/bnpview.cpp:270
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
@@ -1224,12 +1224,12 @@ msgstr ""
 "Pridať farebnú poznámku do aktuálneho košíka bez nutnosti otvoriť hlavné "
 "okno."
 
-#: src/bnpview.cpp:292
+#: src/bnpview.cpp:274
 #, kde-format
 msgid "Pick color from screen"
 msgstr "Vybrať farbu z obrazovky"
 
-#: src/bnpview.cpp:294
+#: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1238,12 +1238,12 @@ msgstr ""
 "Pridať farebnú poznámku vybranú z jedného pixelu na obrazovke do aktuálneho "
 "košíka bez nutnosti otvoriť hlavné okno."
 
-#: src/bnpview.cpp:299 src/settings.cpp:571
+#: src/bnpview.cpp:281 src/settings.cpp:570
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Zachytiť oblasť obrazovky"
 
-#: src/bnpview.cpp:301
+#: src/bnpview.cpp:283
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1252,12 +1252,12 @@ msgstr ""
 "Zachytiť oblasť obrazovky ako obrázok do aktuálneho košíka bez nutnosti "
 "otvoriť hlavné okno."
 
-#: src/bnpview.cpp:307
+#: src/bnpview.cpp:289
 #, kde-format
 msgid "Insert plain text note"
 msgstr "Vložiť poznámku s čistým textom"
 
-#: src/bnpview.cpp:309
+#: src/bnpview.cpp:291
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1266,12 +1266,12 @@ msgstr ""
 "Pridať poznámku s čistým textom do aktuálneho košíka bez nutnosti otvoriť "
 "hlavné okno."
 
-#: src/bnpview.cpp:318
+#: src/bnpview.cpp:300
 #, kde-format
 msgid "Baskets"
 msgstr "Baskets"
 
-#: src/bnpview.cpp:363
+#: src/bnpview.cpp:345
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1285,306 +1285,306 @@ msgstr ""
 "kliknutím na košík, aby ste ho otvorili, alebo ich reorganizovať pomocou "
 "pretiahnutia."
 
-#: src/bnpview.cpp:378 src/bnpview.cpp:384
+#: src/bnpview.cpp:360 src/bnpview.cpp:366
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "&Archív košíka..."
 
-#: src/bnpview.cpp:390
+#: src/bnpview.cpp:372
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "&HTML webová stránka..."
 
-#: src/bnpview.cpp:396
+#: src/bnpview.cpp:378
 #, kde-format
 msgid "Text &File..."
 msgstr "Textový súbor"
 
-#: src/bnpview.cpp:401
+#: src/bnpview.cpp:383
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&Záloha a obnova..."
 
-#: src/bnpview.cpp:405
+#: src/bnpview.cpp:387
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&Kontrola a upratovanie..."
 
-#: src/bnpview.cpp:416
+#: src/bnpview.cpp:398
 #, kde-format
 msgid "D&elete"
 msgstr "&Odstrániť"
 
-#: src/bnpview.cpp:425
+#: src/bnpview.cpp:407
 #, kde-format
 msgid "Selects all notes"
 msgstr "Vybrať všetky poznámky"
 
-#: src/bnpview.cpp:428
+#: src/bnpview.cpp:410
 #, kde-format
 msgid "U&nselect All"
 msgstr "Odz&načiť všetko"
 
-#: src/bnpview.cpp:430
+#: src/bnpview.cpp:412
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "Zrušiť výber všetkých vybraných poznámok"
 
-#: src/bnpview.cpp:433
+#: src/bnpview.cpp:415
 #, kde-format
 msgid "&Invert Selection"
 msgstr "&Invertovať označenie"
 
-#: src/bnpview.cpp:437
+#: src/bnpview.cpp:419
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Invertovať aktuálny výber poznámok"
 
-#: src/bnpview.cpp:440
+#: src/bnpview.cpp:422
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "&Vymazať formátovanie"
 
-#: src/bnpview.cpp:444
+#: src/bnpview.cpp:426
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "&Upraviť..."
 
-#: src/bnpview.cpp:451
+#: src/bnpview.cpp:433
 #, kde-format
 msgid "&Open"
 msgstr "&Otvoriť"
 
-#: src/bnpview.cpp:455
+#: src/bnpview.cpp:437
 #, kde-format
 msgid "Open &With..."
 msgstr "Otvoriť &pomocou..."
 
-#: src/bnpview.cpp:460
+#: src/bnpview.cpp:442
 #, kde-format
 msgid "&Save to File..."
 msgstr "&Uložiť do súboru..."
 
-#: src/bnpview.cpp:464
+#: src/bnpview.cpp:446
 #, kde-format
 msgid "&Group"
 msgstr "Skupina"
 
-#: src/bnpview.cpp:470
+#: src/bnpview.cpp:452
 #, kde-format
 msgid "U&ngroup"
 msgstr "Odzoskupiť"
 
-#: src/bnpview.cpp:475
+#: src/bnpview.cpp:457
 #, kde-format
 msgid "Move on &Top"
 msgstr "Presunúť na &vrch"
 
-#: src/bnpview.cpp:481
+#: src/bnpview.cpp:463
 #, kde-format
 msgid "Move &Up"
 msgstr "&Vyššie"
 
-#: src/bnpview.cpp:487
+#: src/bnpview.cpp:469
 #, kde-format
 msgid "Move &Down"
 msgstr "Posunúť &nižšie"
 
-#: src/bnpview.cpp:493
+#: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "Presunúť na &spodok"
 
-#: src/bnpview.cpp:504
+#: src/bnpview.cpp:486
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Čistý text"
 
-#: src/bnpview.cpp:511
+#: src/bnpview.cpp:493
 #, kde-format
 msgid "&Text"
 msgstr "Text"
 
-#: src/bnpview.cpp:517
+#: src/bnpview.cpp:499
 #, kde-format
 msgid "&Link"
 msgstr "Odkaz"
 
-#: src/bnpview.cpp:523
+#: src/bnpview.cpp:505
 #, kde-format
 msgid "Cross &Reference"
 msgstr "Krížový odkaz"
 
-#: src/bnpview.cpp:528
+#: src/bnpview.cpp:510
 #, kde-format
 msgid "&Image"
 msgstr "&Obrázok"
 
-#: src/bnpview.cpp:533
+#: src/bnpview.cpp:515
 #, kde-format
 msgid "&Color"
 msgstr "Farba"
 
-#: src/bnpview.cpp:538
+#: src/bnpview.cpp:520
 #, kde-format
 msgid "L&auncher"
 msgstr "Spúšťač"
 
-#: src/bnpview.cpp:543
+#: src/bnpview.cpp:525
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Importovať spúšťač pre aplikáciu na &pracovnej ploche..."
 
-#: src/bnpview.cpp:548
+#: src/bnpview.cpp:530
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Im&portovať ikonu..."
 
-#: src/bnpview.cpp:553 src/noteedit.cpp:545
+#: src/bnpview.cpp:535 src/noteedit.cpp:543
 #, kde-format
 msgid "Load From &File..."
 msgstr "Načítať zo súboru..."
 
-#: src/bnpview.cpp:589
+#: src/bnpview.cpp:571
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "F&arba z obrazovky"
 
-#: src/bnpview.cpp:597
+#: src/bnpview.cpp:579
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Zachytiť &oblasť obrazovky"
 
-#: src/bnpview.cpp:629
+#: src/bnpview.cpp:611
 #, kde-format
 msgid "&New Basket..."
 msgstr "&Nový košík..."
 
-#: src/bnpview.cpp:635
+#: src/bnpview.cpp:617
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "Nový &podkošík..."
 
-#: src/bnpview.cpp:640
+#: src/bnpview.cpp:622
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Nový ses&terský košík..."
 
-#: src/bnpview.cpp:643
+#: src/bnpview.cpp:625
 #, kde-format
 msgid "&New"
 msgstr "&Nový"
 
-#: src/bnpview.cpp:653
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "&Properties..."
 msgstr "&Vlastnosti..."
 
-#: src/bnpview.cpp:659
+#: src/bnpview.cpp:641
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Sort Children Ascending"
 
-#: src/bnpview.cpp:664
+#: src/bnpview.cpp:646
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Sort Children Descending"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:651
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Sort Siblings Ascending"
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:656
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Sort Siblings Descending"
 
-#: src/bnpview.cpp:679
+#: src/bnpview.cpp:661
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "O&dstrániť"
 
-#: src/bnpview.cpp:685
+#: src/bnpview.cpp:667
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Heslo:"
 
-#: src/bnpview.cpp:690
+#: src/bnpview.cpp:672
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&Zamknúť"
 
-#: src/bnpview.cpp:703
+#: src/bnpview.cpp:685
 #, kde-format
 msgid "&Filter"
 msgstr "&Filter"
 
-#: src/bnpview.cpp:715
+#: src/bnpview.cpp:697
 #, kde-format
 msgid "&Search All"
 msgstr "&Hľadať všetko"
 
-#: src/bnpview.cpp:723
+#: src/bnpview.cpp:705
 #, kde-format
 msgid "&Reset Filter"
 msgstr "&Obnoviť filter"
 
-#: src/bnpview.cpp:731
+#: src/bnpview.cpp:713
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&Predchádzajúci košík"
 
-#: src/bnpview.cpp:737
+#: src/bnpview.cpp:719
 #, kde-format
 msgid "&Next Basket"
 msgstr "&Nasledujúci košík"
 
-#: src/bnpview.cpp:743
+#: src/bnpview.cpp:725
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&Zbaliť košík"
 
-#: src/bnpview.cpp:749
+#: src/bnpview.cpp:731
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Rozbaliť košík"
 
-#: src/bnpview.cpp:757
+#: src/bnpview.cpp:739
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "Previesť textové poznámky na poznámky s formátovaným textom"
 
-#: src/bnpview.cpp:766
+#: src/bnpview.cpp:748
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&Uvítacie košíky"
 
-#: src/bnpview.cpp:1031
+#: src/bnpview.cpp:1013
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Prevod poznámok s čistým textom"
 
-#: src/bnpview.cpp:1032
+#: src/bnpview.cpp:1014
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "Prevádzanie poznámok s čistým textom na formátované..."
 
-#: src/bnpview.cpp:1606
+#: src/bnpview.cpp:1588
 #, kde-format
 msgid "Locked"
 msgstr "Zamknuté"
 
-#: src/bnpview.cpp:1610
+#: src/bnpview.cpp:1592
 #, kde-format
 msgid "No notes"
 msgstr "Žiadne poznámky"
 
-#: src/bnpview.cpp:1612
+#: src/bnpview.cpp:1594
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
@@ -1592,7 +1592,7 @@ msgstr[0] "%1 poznámka"
 msgstr[1] "%1 poznámky"
 msgstr[2] "%1 poznámok"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1595
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
@@ -1600,17 +1600,17 @@ msgstr[0] "%1 vybraté"
 msgstr[1] "%1 vybraté"
 msgstr[2] "%1 vybratých"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1596
 #, kde-format
 msgid "all matches"
 msgstr "všetky zhody"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1596
 #, kde-format
 msgid "no filter"
 msgstr "bez filtra"
 
-#: src/bnpview.cpp:1616
+#: src/bnpview.cpp:1598
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
@@ -1618,28 +1618,28 @@ msgstr[0] "%1 odpovedajúca"
 msgstr[1] "%1 odpovedajúce"
 msgstr[2] "%1 odpovedajúcich"
 
-#: src/bnpview.cpp:1617
+#: src/bnpview.cpp:1599
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1752
+#: src/bnpview.cpp:1734
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "Poznámky s čistým textom boli prevedené na formátovaný text."
 
-#: src/bnpview.cpp:1752 src/bnpview.cpp:1754
+#: src/bnpview.cpp:1734 src/bnpview.cpp:1736
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Conversion Finished"
 
-#: src/bnpview.cpp:1754
+#: src/bnpview.cpp:1736
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Neexistujú žiadne poznámky s čistým textom na prevod."
 
-#: src/bnpview.cpp:1771
+#: src/bnpview.cpp:1753
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1658,33 +1658,33 @@ msgstr ""
 "aplikácia je správne nainštalovaná, ale mali ste jej ukážkovú verziu, skúste "
 "odstrániť súbor %5basketui.rc</p>"
 
-#: src/bnpview.cpp:1785
+#: src/bnpview.cpp:1767
 #, kde-format
 msgid "Resource not Found"
 msgstr "Zdroj nenájdený"
 
-#: src/bnpview.cpp:1814
+#: src/bnpview.cpp:1796
 #, kde-format
 msgid "Cannot add note."
 msgstr "Nie je možné add note."
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1943
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt>Naozaj chcete odstrániť košík <b>%1</b> a jeho obsah?</qt>"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1944
 #, kde-format
 msgid "Remove Basket"
 msgstr "Remove Basket"
 
-#: src/bnpview.cpp:1963
+#: src/bnpview.cpp:1945
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Odstrániť košík"
 
-#: src/bnpview.cpp:1973
+#: src/bnpview.cpp:1955
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1693,37 +1693,37 @@ msgstr ""
 "<qt><b>%1</b> má nasledujúce podradené košíky.<br>Chcete ich tiež odstrániť?"
 "</qt>"
 
-#: src/bnpview.cpp:1975
+#: src/bnpview.cpp:1957
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Remove Children Baskets"
 
-#: src/bnpview.cpp:1976
+#: src/bnpview.cpp:1958
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&Odstrániť podradené košíky"
 
-#: src/bnpview.cpp:2046 src/bnpview.cpp:2093
+#: src/bnpview.cpp:2028 src/bnpview.cpp:2075
 #, kde-format
 msgid "Basket Archives"
 msgstr "Basket Archives"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:67
+#: src/bnpview.cpp:2038 src/htmlexporter.cpp:66
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "Súbor <b>%1</b> už existuje. Naozaj ho chcete prepísať?"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:2039 src/htmlexporter.cpp:67
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Prepísať súbor?"
 
-#: src/bnpview.cpp:2478
+#: src/bnpview.cpp:2460
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Priradiť novú značku..."
 
-#: src/bnpview.cpp:2483
+#: src/bnpview.cpp:2465
 #, kde-format
 msgid "&Remove All"
 msgstr "Odstrániť všetko"
@@ -1748,7 +1748,7 @@ msgstr "Prosím, priraďte heslo ku košíku <b>%1</b>:"
 msgid "Error while saving: "
 msgstr "Chyba počas ukladania"
 
-#: src/debugwindow.cpp:23
+#: src/debugwindow.cpp:22
 #, kde-format
 msgid "Debug Window"
 msgstr "Debug Window"
@@ -1783,7 +1783,7 @@ msgstr "Vzorkovacia frekvencia"
 msgid "Track number"
 msgstr "Číslo skladby"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2169
 #, kde-format
 msgid "Comment"
 msgstr "Komentár"
@@ -1798,7 +1798,7 @@ msgstr "Výtvarník"
 msgid "Album"
 msgstr "Album"
 
-#: src/file_metadata.cpp:27 src/tag.cpp:719
+#: src/file_metadata.cpp:27 src/tag.cpp:718
 #, kde-format
 msgid "Title"
 msgstr "Názov"
@@ -1828,37 +1828,37 @@ msgstr "Dátum"
 msgid "Frame rate"
 msgstr "Snímková frekvencia"
 
-#: src/filter.cpp:42
+#: src/filter.cpp:41
 #, kde-format
 msgid "Reset Filter"
 msgstr "Znovunastaviť filter"
 
-#: src/filter.cpp:47
+#: src/filter.cpp:46
 #, kde-format
 msgid "&Filter: "
 msgstr "Filter"
 
-#: src/filter.cpp:51
+#: src/filter.cpp:50
 #, kde-format
 msgid "T&ag: "
 msgstr "Značka"
 
-#: src/filter.cpp:55
+#: src/filter.cpp:54
 #, kde-format
 msgid "Filter All Baskets"
 msgstr "Filter All Baskets"
 
-#: src/filter.cpp:132
+#: src/filter.cpp:131
 #, kde-format
 msgid "(Not tagged)"
 msgstr "Neoznačené"
 
-#: src/filter.cpp:133
+#: src/filter.cpp:132
 #, kde-format
 msgid "(Tagged)"
 msgstr "Označené"
 
-#: src/formatimporter.cpp:119
+#: src/formatimporter.cpp:106
 #, kde-format
 msgid ""
 "<p>Folder mirroring is not possible anymore (see <a href='https://basket-"
@@ -1875,62 +1875,62 @@ msgstr ""
 "však, že úprava jedného už nebude upravovať druhé, pretože sú teraz "
 "samostatnými entitami.</p>"
 
-#: src/formatimporter.cpp:125
+#: src/formatimporter.cpp:112
 #, kde-format
 msgid "Folder Mirror Import"
 msgstr "Folder Mirror Import"
 
-#: src/history.cpp:19
+#: src/history.cpp:18
 #, kde-format
 msgid "Set current basket to %1"
 msgstr "Nastaviť aktuálny košík na %1"
 
-#: src/htmlexporter.cpp:54
+#: src/htmlexporter.cpp:53
 #, kde-format
 msgid "HTML Documents"
 msgstr "HTML dokumenty"
 
-#: src/htmlexporter.cpp:58 src/htmlexporter.cpp:80
+#: src/htmlexporter.cpp:57 src/htmlexporter.cpp:79
 #, kde-format
 msgid "Export to HTML"
 msgstr "Exportovať do HTML..."
 
-#: src/htmlexporter.cpp:81
+#: src/htmlexporter.cpp:80
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "Export do HTML. Prosím čakajte..."
 
-#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:115 src/htmlexporter.cpp:151 src/htmlexporter.cpp:161
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_subory"
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:166
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "Ikony"
 
-#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:168
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "Obrázky"
 
-#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:164
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "baskets"
 
-#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
+#: src/htmlexporter.cpp:156 src/htmlexporter.cpp:162 src/htmlexporter.cpp:163
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "Dáta"
 
-#: src/htmlexporter.cpp:404
+#: src/htmlexporter.cpp:403
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
@@ -1939,13 +1939,13 @@ msgstr ""
 "Vytvorené pomocou <a href=\"%1\">%2</a> %3, nástroja na zapisovanie poznámok "
 "a uchovávanie informácií po ruke."
 
-#: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
-#: src/variouswidgets.cpp:404
+#: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
+#: src/variouswidgets.cpp:403
 #, kde-format
 msgid "(Default)"
 msgstr "Predvolené"
 
-#: src/kcolorcombo2.cpp:124
+#: src/kcolorcombo2.cpp:123
 #, kde-format
 msgid "Other..."
 msgstr "Iné..."
@@ -1954,12 +1954,12 @@ msgstr "Iné..."
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:638
+#: src/kcolorcombo2.cpp:637
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "R:%1, G:%2, B:%3"
 
-#: src/kcolorcombo2.cpp:638
+#: src/kcolorcombo2.cpp:637
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2010,87 +2010,87 @@ msgstr "Nesprávne heslo."
 msgid "Please enter a new password:"
 msgstr "Prosím, enter a new password:"
 
-#: src/linklabel.cpp:604
+#: src/linklabel.cpp:603
 #, kde-format
 msgid "I&talic"
 msgstr "Kurzíva"
 
-#: src/linklabel.cpp:607
+#: src/linklabel.cpp:606
 #, kde-format
 msgid "&Bold"
 msgstr "&Tučné"
 
-#: src/linklabel.cpp:615
+#: src/linklabel.cpp:614
 #, kde-format
 msgid "Always"
 msgstr "Vždy"
 
-#: src/linklabel.cpp:616
+#: src/linklabel.cpp:615
 #, kde-format
 msgid "Never"
 msgstr "Nikdy"
 
-#: src/linklabel.cpp:617
+#: src/linklabel.cpp:616
 #, kde-format
 msgid "On mouse hovering"
 msgstr "Pri prejdení myšou"
 
-#: src/linklabel.cpp:618
+#: src/linklabel.cpp:617
 #, kde-format
 msgid "When mouse is outside"
 msgstr "Keď je myš mimo"
 
-#: src/linklabel.cpp:620
+#: src/linklabel.cpp:619
 #, kde-format
 msgid "&Underline:"
 msgstr "Podčiarknuté"
 
-#: src/linklabel.cpp:627
+#: src/linklabel.cpp:626
 #, kde-format
 msgid "Colo&r:"
 msgstr "Farba"
 
-#: src/linklabel.cpp:634
+#: src/linklabel.cpp:633
 #, kde-format
 msgid "&Mouse hover color:"
 msgstr "&Farba pri prejdení myšou:"
 
-#: src/linklabel.cpp:643
+#: src/linklabel.cpp:642
 #, kde-format
 msgid "&Icon size:"
 msgstr "Veľkosť ikon"
 
-#: src/linklabel.cpp:649
+#: src/linklabel.cpp:648
 #, kde-format
 msgid "None"
 msgstr "Žiadne"
 
-#: src/linklabel.cpp:650
+#: src/linklabel.cpp:649
 #, kde-format
 msgid "Icon size"
 msgstr "Veľkosť ikon"
 
-#: src/linklabel.cpp:651
+#: src/linklabel.cpp:650
 #, kde-format
 msgid "Twice the icon size"
 msgstr "Dvojnásobná veľkosť ikony"
 
-#: src/linklabel.cpp:652
+#: src/linklabel.cpp:651
 #, kde-format
 msgid "Three times the icon size"
 msgstr "Trojnásobná veľkosť ikony"
 
-#: src/linklabel.cpp:654
+#: src/linklabel.cpp:653
 #, kde-format
 msgid "&Preview:"
 msgstr "Náhľad"
 
-#: src/linklabel.cpp:657
+#: src/linklabel.cpp:656
 #, kde-format
 msgid "You disabled preview but still see images?"
 msgstr "Zakázali ste náhľad, ale stále vidíte obrázky?"
 
-#: src/linklabel.cpp:658
+#: src/linklabel.cpp:657
 #, kde-format
 msgid ""
 "<p>This is normal because there are several type of notes.<br>This setting "
@@ -2119,82 +2119,82 @@ msgstr ""
 "zaškrtnutie \"Obrázok alebo animácia\" v skupine \"Zobraziť obsah pridaných "
 "súborov pre nasledujúce typy\".</p>"
 
-#: src/linklabel.cpp:675
+#: src/linklabel.cpp:674
 #, kde-format
 msgid "Example"
 msgstr "Ukážka"
 
-#: src/mainwindow.cpp:74
+#: src/mainwindow.cpp:73
 #, kde-format
 msgid "Minimize"
 msgstr "Minimalizovať"
 
-#: src/mainwindow.cpp:254
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Naozaj chcete ukončiť %1?</p>"
 
-#: src/mainwindow.cpp:258
+#: src/mainwindow.cpp:257
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Quit Confirm"
 
-#: src/newbasketdialog.cpp:77
+#: src/newbasketdialog.cpp:76
 #, kde-format
 msgid "New Basket"
 msgstr "New Basket"
 
-#: src/newbasketdialog.cpp:111
+#: src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Background color"
 msgstr "Farba pozadia"
 
-#: src/newbasketdialog.cpp:119
+#: src/newbasketdialog.cpp:118
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "&Spravovať šablóny..."
 
-#: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:314
+#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
 #, kde-format
 msgid "One column"
 msgstr "Jeden stĺpec"
 
-#: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:316
+#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
 #, kde-format
 msgid "Two columns"
 msgstr "Dva stĺpce"
 
-#: src/newbasketdialog.cpp:175 src/newbasketdialog.cpp:318
+#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
 #, kde-format
 msgid "Three columns"
 msgstr "Tri stĺpce"
 
-#: src/newbasketdialog.cpp:187
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Free"
 msgstr "Voľné"
 
-#: src/newbasketdialog.cpp:195
+#: src/newbasketdialog.cpp:194
 #, kde-format
 msgid "&Template:"
 msgstr "Šablóna:"
 
-#: src/newbasketdialog.cpp:205
+#: src/newbasketdialog.cpp:204
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Košíky)"
 
-#: src/newbasketdialog.cpp:207
+#: src/newbasketdialog.cpp:206
 #, kde-format
 msgid "C&reate in:"
 msgstr "Vytvoriť v:"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:208
 #, kde-format
 msgid "How is it useful?"
 msgstr "Ako je to užitočné?"
 
-#: src/newbasketdialog.cpp:210
+#: src/newbasketdialog.cpp:209
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2210,474 +2210,474 @@ msgstr ""
 "alebo stránky;</li><li>Vytváranie skupiny košíkov na spoločný export (napr. "
 "na ich odoslanie e-mailom ľuďom).</li></ul>"
 
-#: src/newbasketdialog.cpp:320
+#: src/newbasketdialog.cpp:319
 #, kde-format
 msgid "Free-form"
 msgstr "Voľná forma"
 
-#: src/newbasketdialog.cpp:322
+#: src/newbasketdialog.cpp:321
 #, kde-format
 msgid "Mind map"
 msgstr "Myšlienková mapa"
 
-#: src/notecontent.cpp:90
+#: src/notecontent.cpp:89
 #, kde-format
 msgid "Group"
 msgstr "Skupina"
 
-#: src/notecontent.cpp:92
+#: src/notecontent.cpp:91
 #, kde-format
 msgid "Plain Text"
 msgstr "Čistý text"
 
-#: src/notecontent.cpp:94
+#: src/notecontent.cpp:93
 #, kde-format
 msgid "Text"
 msgstr "Text"
 
-#: src/notecontent.cpp:96
+#: src/notecontent.cpp:95
 #, kde-format
 msgid "Image"
 msgstr "Obrázok"
 
-#: src/notecontent.cpp:98
+#: src/notecontent.cpp:97
 #, kde-format
 msgid "Animation"
 msgstr "Animácia"
 
-#: src/notecontent.cpp:100
+#: src/notecontent.cpp:99
 #, kde-format
 msgid "Sound"
 msgstr "Zvuk"
 
-#: src/notecontent.cpp:102
+#: src/notecontent.cpp:101
 #, kde-format
 msgid "File"
 msgstr "Súbor"
 
-#: src/notecontent.cpp:104
+#: src/notecontent.cpp:103
 #, kde-format
 msgid "Link"
 msgstr "Odkaz"
 
-#: src/notecontent.cpp:106
+#: src/notecontent.cpp:105
 #, kde-format
 msgid "Cross Reference"
 msgstr "Krížový odkaz"
 
-#: src/notecontent.cpp:108
+#: src/notecontent.cpp:107
 #, kde-format
 msgid "Launcher"
 msgstr "Spúšťač"
 
-#: src/notecontent.cpp:110 src/noteedit.cpp:1204
+#: src/notecontent.cpp:109 src/noteedit.cpp:1202
 #, kde-format
 msgid "Color"
 msgstr "Farba"
 
-#: src/notecontent.cpp:112 src/notecontent.cpp:114
+#: src/notecontent.cpp:111 src/notecontent.cpp:113
 #, kde-format
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: src/notecontent.cpp:590
+#: src/notecontent.cpp:589
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Upraviť tento čistý text"
 
-#: src/notecontent.cpp:594
+#: src/notecontent.cpp:593
 #, kde-format
 msgid "Edit this text"
 msgstr "Upraviť tento text"
 
-#: src/notecontent.cpp:598
+#: src/notecontent.cpp:597
 #, kde-format
 msgid "Edit this image"
 msgstr "Upraviť obrázok"
 
-#: src/notecontent.cpp:602
+#: src/notecontent.cpp:601
 #, kde-format
 msgid "Edit this animation"
 msgstr "Upraviť túto animáciu"
 
-#: src/notecontent.cpp:606
+#: src/notecontent.cpp:605
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Upraviť názov súboru tohto zvuku"
 
-#: src/notecontent.cpp:610
+#: src/notecontent.cpp:609
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "Upraviť názov tohto súboru"
 
-#: src/notecontent.cpp:614
+#: src/notecontent.cpp:613
 #, kde-format
 msgid "Edit this link"
 msgstr "Upraviť tento odkaz"
 
-#: src/notecontent.cpp:618
+#: src/notecontent.cpp:617
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Upraviť tento krížový odkaz"
 
-#: src/notecontent.cpp:622
+#: src/notecontent.cpp:621
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Upraviť tento spúšťač"
 
-#: src/notecontent.cpp:626
+#: src/notecontent.cpp:625
 #, kde-format
 msgid "Edit this color"
 msgstr "Upraviť túto farbu"
 
-#: src/notecontent.cpp:630
+#: src/notecontent.cpp:629
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Upraviť tento neznámy objekt"
 
-#: src/notecontent.cpp:992
+#: src/notecontent.cpp:991
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Otváranie čistého textu..."
 
-#: src/notecontent.cpp:994
+#: src/notecontent.cpp:993
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Otváranie čistých textov..."
 
-#: src/notecontent.cpp:996
+#: src/notecontent.cpp:995
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Otváranie čistého textu pomocou..."
 
-#: src/notecontent.cpp:998
+#: src/notecontent.cpp:997
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "Otváranie čistých textov pomocou..."
 
-#: src/notecontent.cpp:1000
+#: src/notecontent.cpp:999
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Otvoriť čistý text pomocou:"
 
-#: src/notecontent.cpp:1002
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Otvoriť čisté texty pomocou:"
 
-#: src/notecontent.cpp:1113
+#: src/notecontent.cpp:1112
 #, kde-format
 msgid "Opening text..."
 msgstr "Otváranie textu..."
 
-#: src/notecontent.cpp:1115
+#: src/notecontent.cpp:1114
 #, kde-format
 msgid "Opening texts..."
 msgstr "Otváranie textov..."
 
-#: src/notecontent.cpp:1117
+#: src/notecontent.cpp:1116
 #, kde-format
 msgid "Opening text with..."
 msgstr "Otváranie textu pomocou..."
 
-#: src/notecontent.cpp:1119
+#: src/notecontent.cpp:1118
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Otváranie textov pomocou..."
 
-#: src/notecontent.cpp:1121
+#: src/notecontent.cpp:1120
 #, kde-format
 msgid "Open text with:"
 msgstr "Otvoriť text pomocou:"
 
-#: src/notecontent.cpp:1123
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Open texts with:"
 msgstr "Otvoriť texty pomocou:"
 
-#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
+#: src/notecontent.cpp:1245 src/notecontent.cpp:1463
 #, kde-format
 msgid "Size"
 msgstr "Veľkosť"
 
-#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 x %2 pixelov"
 
-#: src/notecontent.cpp:1253
+#: src/notecontent.cpp:1252
 #, kde-format
 msgid "Opening image..."
 msgstr "Otváranie obrázka..."
 
-#: src/notecontent.cpp:1255
+#: src/notecontent.cpp:1254
 #, kde-format
 msgid "Opening images..."
 msgstr "Otváranie obrázkov..."
 
-#: src/notecontent.cpp:1257
+#: src/notecontent.cpp:1256
 #, kde-format
 msgid "Opening image with..."
 msgstr "Otváranie obrázka pomocou..."
 
-#: src/notecontent.cpp:1259
+#: src/notecontent.cpp:1258
 #, kde-format
 msgid "Opening images with..."
 msgstr "Otváranie obrázkov pomocou..."
 
-#: src/notecontent.cpp:1261
+#: src/notecontent.cpp:1260
 #, kde-format
 msgid "Open image with:"
 msgstr "Otvoriť obrázok pomocou:"
 
-#: src/notecontent.cpp:1263
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Open images with:"
 msgstr "Otvoriť obrázky pomocou:"
 
-#: src/notecontent.cpp:1288
+#: src/notecontent.cpp:1287
 #, kde-format
 msgid "Click for full size view"
 msgstr "Kliknite pre zobrazenie v plnej veľkosti"
 
-#: src/notecontent.cpp:1375
+#: src/notecontent.cpp:1374
 #, kde-format
 msgid "Opening animation..."
 msgstr "Otváranie animácie..."
 
-#: src/notecontent.cpp:1377
+#: src/notecontent.cpp:1376
 #, kde-format
 msgid "Opening animations..."
 msgstr "Otváranie animácií..."
 
-#: src/notecontent.cpp:1379
+#: src/notecontent.cpp:1378
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Otváranie animácie pomocou..."
 
-#: src/notecontent.cpp:1381
+#: src/notecontent.cpp:1380
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Otváranie animácií pomocou..."
 
-#: src/notecontent.cpp:1383
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Open animation with:"
 msgstr "Otvoriť animáciu pomocou:"
 
-#: src/notecontent.cpp:1385
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Open animations with:"
 msgstr "Otvoriť animácie pomocou:"
 
-#: src/notecontent.cpp:1469
+#: src/notecontent.cpp:1468
 #, kde-format
 msgid "Type"
 msgstr "Typ"
 
-#: src/notecontent.cpp:1510
+#: src/notecontent.cpp:1509
 #, kde-format
 msgid "Open this file"
 msgstr "Otvoriť tento súbor"
 
-#: src/notecontent.cpp:1529
+#: src/notecontent.cpp:1528
 #, kde-format
 msgid "Opening file..."
 msgstr "Otváram súbor..."
 
-#: src/notecontent.cpp:1531
+#: src/notecontent.cpp:1530
 #, kde-format
 msgid "Opening files..."
 msgstr "Otváram súbory..."
 
-#: src/notecontent.cpp:1533
+#: src/notecontent.cpp:1532
 #, kde-format
 msgid "Opening file with..."
 msgstr "Otváranie súboru pomocou..."
 
-#: src/notecontent.cpp:1535
+#: src/notecontent.cpp:1534
 #, kde-format
 msgid "Opening files with..."
 msgstr "Otváranie súborov pomocou..."
 
-#: src/notecontent.cpp:1537
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Open file with:"
 msgstr "Otvoriť súbor s"
 
-#: src/notecontent.cpp:1539
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Open files with:"
 msgstr "Otvoriť súbory pomocou:"
 
-#: src/notecontent.cpp:1640
+#: src/notecontent.cpp:1639
 #, kde-format
 msgid "Open this sound"
 msgstr "Otvoriť tento zvuk"
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1665
 #, kde-format
 msgid "Opening sound..."
 msgstr "Otváranie zvuku..."
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1667
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Otváranie zvukov..."
 
-#: src/notecontent.cpp:1670
+#: src/notecontent.cpp:1669
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Otváranie zvuku pomocou..."
 
-#: src/notecontent.cpp:1672
+#: src/notecontent.cpp:1671
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Otváranie zvukov pomocou..."
 
-#: src/notecontent.cpp:1674
+#: src/notecontent.cpp:1673
 #, kde-format
 msgid "Open sound with:"
 msgstr "Otvoriť zvuk pomocou:"
 
-#: src/notecontent.cpp:1676
+#: src/notecontent.cpp:1675
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Otvoriť zvuky pomocou:"
 
-#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
+#: src/notecontent.cpp:1738 src/notecontent.cpp:2009
 #, kde-format
 msgid "Target"
 msgstr "Cieľ"
 
-#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
+#: src/notecontent.cpp:1760 src/notecontent.cpp:2031
 #, kde-format
 msgid "Open this link"
 msgstr "Otvoriť tento odkaz"
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1786
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Odkaz nemá URL na otvorenie."
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1790
 #, kde-format
 msgid "Opening link target..."
 msgstr "Otváranie cieľa odkazu..."
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1792
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Otváranie cieľov odkazov..."
 
-#: src/notecontent.cpp:1795
+#: src/notecontent.cpp:1794
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Otváranie cieľa odkazu pomocou..."
 
-#: src/notecontent.cpp:1797
+#: src/notecontent.cpp:1796
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Otváranie cieľov odkazov pomocou..."
 
-#: src/notecontent.cpp:1799
+#: src/notecontent.cpp:1798
 #, kde-format
 msgid "Open link target with:"
 msgstr "Otvoriť cieľ odkazu pomocou:"
 
-#: src/notecontent.cpp:1801
+#: src/notecontent.cpp:1800
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Otvoriť ciele odkazov pomocou:"
 
-#: src/notecontent.cpp:2045
+#: src/notecontent.cpp:2044
 #, kde-format
 msgid "Link to %1"
 msgstr "Odkaz na %1"
 
-#: src/notecontent.cpp:2058
+#: src/notecontent.cpp:2057
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Odkaz nemá žiadny košík na otvorenie."
 
-#: src/notecontent.cpp:2062
+#: src/notecontent.cpp:2061
 #, kde-format
 msgid "Opening basket..."
 msgstr "Otváranie košíka..."
 
-#: src/notecontent.cpp:2167
+#: src/notecontent.cpp:2166
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(spustiť v termináli)</i>"
 
-#: src/notecontent.cpp:2172
+#: src/notecontent.cpp:2171
 #, kde-format
 msgid "Command"
 msgstr "Príkaz"
 
-#: src/notecontent.cpp:2196
+#: src/notecontent.cpp:2195
 #, kde-format
 msgid "Launch this application"
 msgstr "Spustiť túto aplikáciu"
 
-#: src/notecontent.cpp:2217
+#: src/notecontent.cpp:2216
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "Spúšťač nemá žiadny príkaz na spustenie."
 
-#: src/notecontent.cpp:2221
+#: src/notecontent.cpp:2220
 #, kde-format
 msgid "Launching application..."
 msgstr "Spúšťanie aplikácie..."
 
-#: src/notecontent.cpp:2223
+#: src/notecontent.cpp:2222
 #, kde-format
 msgid "Launching applications..."
 msgstr "Spúšťanie aplikácií..."
 
-#: src/notecontent.cpp:2343
+#: src/notecontent.cpp:2342
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2344
+#: src/notecontent.cpp:2343
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Červená</i>: %1, <i>Zelená</i>: %2, <i>Modrá</i>: %3,"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2347
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2349
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Odtieň</i>: %1, <i>Sýtosť</i>: %2, <i>Hodnota</i>: %3,"
 
-#: src/notecontent.cpp:2353
+#: src/notecontent.cpp:2352
 #, kde-format
 msgid "CSS Color Name"
 msgstr "Názov farby CSS"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "Is Web Color"
 msgstr "Is Web Color"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "Yes"
 msgstr "Áno"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "No"
 msgstr "Nie"
 
-#: src/noteedit.cpp:541
+#: src/noteedit.cpp:539
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2688,12 +2688,12 @@ msgstr ""
 "Pads bude obsahovať editor obrázkov).\n"
 "Chcete ho otvoriť pomocou aplikácie, ktorá mu rozumie?"
 
-#: src/noteedit.cpp:543
+#: src/noteedit.cpp:541
 #, kde-format
 msgid "Edit Image Note"
 msgstr "Edit Image Note"
 
-#: src/noteedit.cpp:568
+#: src/noteedit.cpp:566
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
@@ -2702,17 +2702,17 @@ msgstr ""
 "Tento animovaný obrázok nie je tu možné upravovať.\n"
 "Chcete ho otvoriť pomocou aplikácie, ktorá mu rozumie?"
 
-#: src/noteedit.cpp:570
+#: src/noteedit.cpp:568
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "Edit Animation Note"
 
-#: src/noteedit.cpp:663
+#: src/noteedit.cpp:661
 #, kde-format
 msgid "Edit Color Note"
 msgstr "Edit Color Note"
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:686
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2722,132 +2722,132 @@ msgstr ""
 "Typ tejto poznámky je neznámy a nie je ju tu možné upravovať.\n"
 "Môžete ju však pretiahnuť alebo skopírovať do aplikácie, ktorá jej rozumie."
 
-#: src/noteedit.cpp:690
+#: src/noteedit.cpp:688
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "Edit Unknown Note"
 
-#: src/noteedit.cpp:702
+#: src/noteedit.cpp:700
 #, kde-format
 msgid "Edit Link Note"
 msgstr "Edit Link Note"
 
-#: src/noteedit.cpp:722 src/noteedit.cpp:755
+#: src/noteedit.cpp:720 src/noteedit.cpp:753
 #, kde-format
 msgid "Auto"
 msgstr "Automaticky"
 
-#: src/noteedit.cpp:734 src/noteedit.cpp:1060
+#: src/noteedit.cpp:732 src/noteedit.cpp:1058
 #, kde-format
 msgid "&Icon:"
 msgstr "&Ikona:"
 
-#: src/noteedit.cpp:777 src/noteedit.cpp:948
+#: src/noteedit.cpp:775 src/noteedit.cpp:946
 #, kde-format
 msgid "Ta&rget:"
 msgstr "Cieľ"
 
-#: src/noteedit.cpp:782
+#: src/noteedit.cpp:780
 #, kde-format
 msgid "&Title:"
 msgstr "&Názov:"
 
-#: src/noteedit.cpp:915
+#: src/noteedit.cpp:913
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Edit Cross Reference"
 
-#: src/noteedit.cpp:1034
+#: src/noteedit.cpp:1032
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Edit Launcher Note"
 
-#: src/noteedit.cpp:1048
+#: src/noteedit.cpp:1046
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Vyberte príkaz na spustenie:"
 
-#: src/noteedit.cpp:1065
+#: src/noteedit.cpp:1063
 #, kde-format
 msgid "&Guess"
 msgstr "Odhad"
 
-#: src/noteedit.cpp:1083
+#: src/noteedit.cpp:1081
 #, kde-format
 msgid "Comman&d:"
 msgstr "Príkaz"
 
-#: src/noteedit.cpp:1088 src/tagsedit.cpp:386
+#: src/noteedit.cpp:1086 src/tagsedit.cpp:385
 #, kde-format
 msgid "&Name:"
 msgstr "&Meno:"
 
-#: src/noteedit.cpp:1186
+#: src/noteedit.cpp:1184
 #, kde-format
 msgid "Font"
 msgstr "Písmo"
 
-#: src/noteedit.cpp:1194
+#: src/noteedit.cpp:1192
 #, kde-format
 msgid "Font Size"
 msgstr "Veľkosť písma"
 
-#: src/noteedit.cpp:1209 src/tagsedit.cpp:468
+#: src/noteedit.cpp:1207 src/tagsedit.cpp:467
 #, kde-format
 msgid "Bold"
 msgstr "Tučné"
 
-#: src/noteedit.cpp:1216 src/tagsedit.cpp:480
+#: src/noteedit.cpp:1214 src/tagsedit.cpp:479
 #, kde-format
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: src/noteedit.cpp:1223 src/tagsedit.cpp:474
+#: src/noteedit.cpp:1221 src/tagsedit.cpp:473
 #, kde-format
 msgid "Underline"
 msgstr "Podčiarknuté"
 
-#: src/noteedit.cpp:1231
+#: src/noteedit.cpp:1229
 #, kde-format
 msgid "Superscript"
 msgstr "Horný index"
 
-#: src/noteedit.cpp:1237
+#: src/noteedit.cpp:1235
 #, kde-format
 msgid "Subscript"
 msgstr "Dolný index"
 
-#: src/noteedit.cpp:1244
+#: src/noteedit.cpp:1242
 #, kde-format
 msgid "Align Left"
 msgstr "Zarovnať vľavo"
 
-#: src/noteedit.cpp:1250
+#: src/noteedit.cpp:1248
 #, kde-format
 msgid "Centered"
 msgstr "V strede"
 
-#: src/noteedit.cpp:1256
+#: src/noteedit.cpp:1254
 #, kde-format
 msgid "Align Right"
 msgstr "Zarovnať vpravo"
 
-#: src/noteedit.cpp:1262
+#: src/noteedit.cpp:1260
 #, kde-format
 msgid "Justified"
 msgstr "Vyrovnané"
 
-#: src/noteedit.cpp:1274
+#: src/noteedit.cpp:1272
 #, kde-format
 msgid "Undo"
 msgstr "Späť"
 
-#: src/noteedit.cpp:1280
+#: src/noteedit.cpp:1278
 #, kde-format
 msgid "Redo"
 msgstr "Znovu"
 
-#: src/notefactory.cpp:491
+#: src/notefactory.cpp:490
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2860,76 +2860,78 @@ msgstr ""
 "ktorá im rozumie.</p><p>Ak chcete podporu týchto dát, kontaktujte vývojára.</"
 "p>"
 
-#: src/notefactory.cpp:497
+#: src/notefactory.cpp:496
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "Nepodporované typy MIME"
 
-#: src/notefactory.cpp:553
+#: src/notefactory.cpp:552
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "Presunúť sem\tShift"
 
-#: src/notefactory.cpp:554
+#: src/notefactory.cpp:553
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "Kopírovať sem\tCtrl"
 
-#: src/notefactory.cpp:555
+#: src/notefactory.cpp:554
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "&Odkazovať sem\tCtrl+Shift"
 
-#: src/notefactory.cpp:561
+#: src/notefactory.cpp:560
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "Z&rušiť\tEscape"
 
-#: src/notefactory.cpp:1052
+#: src/notefactory.cpp:1051
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "Importovať ikonu ako obrázok"
 
-#: src/notefactory.cpp:1053
+#: src/notefactory.cpp:1052
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "Vyberte veľkosť ikony na importovanie ako obrázok:"
 
-#: src/notefactory.cpp:1069
+#: src/notefactory.cpp:1068
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "Načítať obsah súboru do poznámky"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:589
-#, kde-format
-msgid "Password Protection"
-msgstr "Ochrana heslom"
-
-#: src/password.cpp:59
+#: src/passworddialog.cpp:53
 #, kde-format
 msgid "No private key selected."
 msgstr "Nebol vybratý žiadny súkromný kľúč."
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
+#: src/passworddialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Password Protection"
+msgctxt "@title:window"
+msgid "Password Protection"
+msgstr "Ochrana heslom"
+
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
-#: src/passwordlayout.ui:29
+#: src/passworddialog.ui:29
 #, kde-format
 msgid "&No protection"
 msgstr "&Bez ochrany"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
-#: src/passwordlayout.ui:36
+#: src/passworddialog.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
 msgstr "Ochrániť košík &heslom"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
-#: src/passwordlayout.ui:51
+#: src/passworddialog.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
 msgstr "Ochrániť košík súkromným &kľúčom:"
 
-#: src/regiongrabber.cpp:102
+#: src/regiongrabber.cpp:101
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
@@ -2938,83 +2940,83 @@ msgstr ""
 "Vyberte oblasť pomocou myši. Pre zachytenie stlačte Enter. Stlačte Esc pre "
 "ukončenie."
 
-#: src/settings.cpp:432
+#: src/settings.cpp:431
 #, kde-format
 msgid "On left"
 msgstr "Naľavo"
 
-#: src/settings.cpp:433
+#: src/settings.cpp:432
 #, kde-format
 msgid "On right"
 msgstr "Napravo"
 
-#: src/settings.cpp:435
+#: src/settings.cpp:434
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&Pozícia stromu košíkov:"
 
-#: src/settings.cpp:440 src/settings.cpp:698
+#: src/settings.cpp:439 src/settings.cpp:697
 #, kde-format
 msgid "On top"
 msgstr "Hore"
 
-#: src/settings.cpp:441 src/settings.cpp:699
+#: src/settings.cpp:440 src/settings.cpp:698
 #, kde-format
 msgid "On bottom"
 msgstr "Dole"
 
-#: src/settings.cpp:443
+#: src/settings.cpp:442
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "&Pozícia panela filtra:"
 
-#: src/settings.cpp:489
+#: src/settings.cpp:488
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "&Zobrazovať popisy v košíkoch"
 
-#: src/settings.cpp:493
+#: src/settings.cpp:492
 #, kde-format
 msgid "&Big notes"
 msgstr "&Veľké poznámky"
 
-#: src/settings.cpp:499
+#: src/settings.cpp:498
 #, kde-format
 msgid "Behavior"
 msgstr "Správanie"
 
-#: src/settings.cpp:504
+#: src/settings.cpp:503
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "&Transformovať riadky začínajúce * alebo - na zoznamy v textových editoroch"
 
-#: src/settings.cpp:508
+#: src/settings.cpp:507
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "Opýtať sa na potvrdenie pred &odstraňovaním poznámok"
 
-#: src/settings.cpp:512
+#: src/settings.cpp:511
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Zachovať formátovanie textu pri vkladaní"
 
-#: src/settings.cpp:516
+#: src/settings.cpp:515
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Automaticky detegovať značky z obsahu poznámky"
 
-#: src/settings.cpp:523
+#: src/settings.cpp:522
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Exportovať značky v textoch"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:526
 #, kde-format
 msgid "When does this apply?"
 msgstr "Kedy sa to uplatní?"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:527
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3023,7 +3025,7 @@ msgstr ""
 "Uplatní sa pri kopírovaní a vkladaní alebo presúvaní poznámok do textového "
 "editora."
 
-#: src/settings.cpp:529
+#: src/settings.cpp:528
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
@@ -3032,7 +3034,7 @@ msgstr ""
 "ekvivalenty."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:530 src/tagsedit.cpp:524
+#: src/settings.cpp:529 src/tagsedit.cpp:523
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3043,17 +3045,17 @@ msgstr ""
 "exportuje ako riadky predchádzané <b>[ ]</b> alebo <b>[x]</b>, predstavujúce "
 "prázdne zaškrtávacie políčko a zaškrtnuté políčko."
 
-#: src/settings.cpp:542
+#: src/settings.cpp:541
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Zoskupiť novú poznámku kliknutím napravo od vkladacieho riadku"
 
-#: src/settings.cpp:544
+#: src/settings.cpp:543
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Ako zoskupiť novú poznámku?"
 
-#: src/settings.cpp:545
+#: src/settings.cpp:544
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3064,7 +3066,7 @@ msgstr ""
 "poznámky na pozíciu kurzora, ale tiež umožňuje zoskupiť novú poznámku s tou "
 "pod kurzorom:</p>"
 
-#: src/settings.cpp:548
+#: src/settings.cpp:547
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3077,187 +3079,192 @@ msgstr ""
 "poznámku.<br>Kliknite <b>vpravo</b>, aby ste <b>zoskupili</b> poznámku s tou "
 "<b>nižšie alebo vyššie</b>, v závislosti od polohy myši.</p>"
 
-#: src/settings.cpp:564
+#: src/settings.cpp:563
 #, kde-format
 msgid "Do nothing"
 msgstr "Nerobiť nič"
 
-#: src/settings.cpp:565
+#: src/settings.cpp:564
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Vložiť schránka"
 
-#: src/settings.cpp:568
+#: src/settings.cpp:567
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Vložiť krížový odkaz"
 
-#: src/settings.cpp:569
+#: src/settings.cpp:568
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Vložiť poznámku spúšťača"
 
-#: src/settings.cpp:572
+#: src/settings.cpp:571
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Vložiť farbu z obrazovky"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:572
 #, kde-format
 msgid "Load note from file"
 msgstr "Načítať poznámku zo súboru"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:573
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Importovať spúšťač pre aplikáciu na pracovnej ploche"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:574
 #, kde-format
 msgid "Import icon"
 msgstr "Importovať ikona"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:577
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+stredný klik kdekoľvek:"
 
-#: src/settings.cpp:583
+#: src/settings.cpp:582
 #, kde-format
 msgid "at cursor position"
 msgstr "na pozícii kurzora"
 
-#: src/settings.cpp:598
+#: src/settings.cpp:588
+#, kde-format
+msgid "Password Protection"
+msgstr "Ochrana heslom"
+
+#: src/settings.cpp:597
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "A&utomaticky zamknúť chránené košíky po zatvorení na"
 
-#: src/settings.cpp:602
+#: src/settings.cpp:601
 #, kde-format
 msgid " minutes"
 msgstr " minúty"
 
-#: src/settings.cpp:613
+#: src/settings.cpp:612
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Použiť agenta GnuPG pre košíky chránené &súkromným/verejným kľúčom"
 
-#: src/settings.cpp:695
+#: src/settings.cpp:694
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Miesto nových poznámok:"
 
-#: src/settings.cpp:700
+#: src/settings.cpp:699
 #, kde-format
 msgid "At current note"
 msgstr "Pri aktuálnej poznámke"
 
-#: src/settings.cpp:719
+#: src/settings.cpp:718
 #, kde-format
 msgid "&New images size:"
 msgstr "&Veľkosť nových obrázkov:"
 
-#: src/settings.cpp:732
+#: src/settings.cpp:731
 #, kde-format
 msgid "&by"
 msgstr "&x"
 
-#: src/settings.cpp:737
+#: src/settings.cpp:736
 #, kde-format
 msgid "pixels"
 msgstr "bodov"
 
-#: src/settings.cpp:739
+#: src/settings.cpp:738
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Vizualizovať..."
 
-#: src/settings.cpp:747
+#: src/settings.cpp:746
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Zobraziť obsah pridaných súborov pre nasledujúce typy"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:748
 #, kde-format
 msgid "&Plain text"
 msgstr "Čistý text"
 
-#: src/settings.cpp:750
+#: src/settings.cpp:749
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML stránka"
 
-#: src/settings.cpp:751
+#: src/settings.cpp:750
 #, kde-format
 msgid "&Image or animation"
 msgstr "&Obrázok alebo animácia"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:751
 #, kde-format
 msgid "&Sound"
 msgstr "Zvuk"
 
-#: src/settings.cpp:820
+#: src/settings.cpp:819
 #, kde-format
 msgid "Conference audio record"
 msgstr "Zvukový záznam konferencie"
 
-#: src/settings.cpp:821
+#: src/settings.cpp:820
 #, kde-format
 msgid "Annual report"
 msgstr "Ročná správa"
 
-#: src/settings.cpp:822
+#: src/settings.cpp:821
 #, kde-format
 msgid "Home folder"
 msgstr "Domovský priečinok"
 
-#: src/settings.cpp:824
+#: src/settings.cpp:823
 #, kde-format
 msgid "Launch %1"
 msgstr "Spustiť %1"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:824
 #, kde-format
 msgid "Another basket"
 msgstr "Ďalší košík"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:826
 #, kde-format
 msgid "&Sounds"
 msgstr "Zvuky"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:827
 #, kde-format
 msgid "&Files"
 msgstr "Súbory"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Local Links"
 msgstr "&Miestne odkazy"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:829
 #, kde-format
 msgid "&Network Links"
 msgstr "&Sieťové odkazy"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:830
 #, kde-format
 msgid "Launc&hers"
 msgstr "Spúšťa&če"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:831
 #, kde-format
 msgid "&Cross References"
 msgstr "&Krížové odkazy"
 
-#: src/settings.cpp:873
+#: src/settings.cpp:872
 #, kde-format
 msgid "General Launch Associations"
 msgstr "General Launch Associations"
 
-#: src/settings.cpp:876
+#: src/settings.cpp:875
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3291,7 +3298,7 @@ msgstr ""
 "konfiguráciu (napríklad otváranie dokumentov PDF prednostne vo Falkone) si "
 "prečítajte tooltip druhého tlačidla.</p>"
 
-#: src/settings.cpp:890
+#: src/settings.cpp:889
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3324,7 +3331,7 @@ msgstr ""
 "fine-grained configuration (like opening only Web pages in your Web "
 "browser), read the third button tooltip.</p>"
 
-#: src/settings.cpp:904
+#: src/settings.cpp:903
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3355,77 +3362,77 @@ msgstr ""
 "the applications list, add your Web browser as the first entry;</li><li>Do "
 "the same for the type \"application -> xhtml+xml\".</li></ul>"
 
-#: src/settings.cpp:923
+#: src/settings.cpp:922
 #, kde-format
 msgid "Launch KDE Menu Editor"
 msgstr "Spustiť editor ponuky KDE"
 
-#: src/settings.cpp:932
+#: src/settings.cpp:931
 #, kde-format
 msgid "Default Applications"
 msgstr "Predvolené aplikácie"
 
-#: src/settings.cpp:941
+#: src/settings.cpp:940
 #, kde-format
 msgid "File Associations"
 msgstr "Asociácie súborov"
 
-#: src/settings.cpp:952
+#: src/settings.cpp:951
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "Špecifické asociácie pre Basket"
 
-#: src/settings.cpp:954
+#: src/settings.cpp:953
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Otvoriť &textové poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:955
+#: src/settings.cpp:954
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Otvoriť textové poznámky pomocou:"
 
-#: src/settings.cpp:962
+#: src/settings.cpp:961
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Otvoriť &obrázkové poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:963
+#: src/settings.cpp:962
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Otvoriť obrázkové poznámky pomocou:"
 
-#: src/settings.cpp:970
+#: src/settings.cpp:969
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Otvoriť a&nimačné poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:971
+#: src/settings.cpp:970
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Otvoriť animačné poznámky pomocou:"
 
-#: src/settings.cpp:978
+#: src/settings.cpp:977
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Otvoriť zv&ukové poznámky vlastnou aplikáciou:"
 
-#: src/settings.cpp:979
+#: src/settings.cpp:978
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Otvoriť zvukové poznámky pomocou:"
 
-#: src/settings.cpp:986
+#: src/settings.cpp:985
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "Otvoriť poznámky s http odkazmi vlastnou aplikáciou:"
 
-#: src/settings.cpp:987
+#: src/settings.cpp:986
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "Otvoriť súbor s"
 
-#: src/settings.cpp:995
+#: src/settings.cpp:994
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3436,7 +3443,7 @@ msgstr ""
 "definovaná aplikácia.</p><p>V opačnom prípade sa použije aplikácia, ktorú "
 "ste nakonfigurovali v Konquerore.</p>"
 
-#: src/settings.cpp:1005
+#: src/settings.cpp:1004
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
@@ -3461,8 +3468,9 @@ msgid "Version Sync"
 msgstr "Version Sync"
 
 #: src/settings_versionsync.cpp:92
-#, kde-format
-msgid "This will free %1 MB"
+#, fuzzy, kde-format
+#| msgid "This will free %1 MB"
+msgid "This will free %1"
 msgstr "Toto uvoľní %1 MB"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
@@ -3489,292 +3497,292 @@ msgstr "Ovládanie"
 msgid "Clear version history"
 msgstr "Vyčistiť verzia história"
 
-#: src/softwareimporters.cpp:49
+#: src/softwareimporters.cpp:47
 #, kde-format
 msgid "Import Hierarchy"
 msgstr "Import Hierarchy"
 
-#: src/softwareimporters.cpp:59
+#: src/softwareimporters.cpp:57
 #, kde-format
 msgid "How to Import the Notes?"
 msgstr "Ako importovať poznámky?"
 
-#: src/softwareimporters.cpp:63
+#: src/softwareimporters.cpp:61
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
 msgstr "&Zachovať pôvodnú hierarchiu (všetky poznámky v samostatných košíkoch)"
 
-#: src/softwareimporters.cpp:64
+#: src/softwareimporters.cpp:62
 #, kde-format
 msgid "&First level notes in separate baskets"
 msgstr "&Poznámky prvej úrovne v samostatných košíkoch"
 
-#: src/softwareimporters.cpp:65
+#: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&All notes in one basket"
 msgstr "&Všetky poznámky v jednom košíku"
 
-#: src/softwareimporters.cpp:109
+#: src/softwareimporters.cpp:107
 #, kde-format
 msgid "Import Text File"
 msgstr "Importovať textový súbor"
 
-#: src/softwareimporters.cpp:113
+#: src/softwareimporters.cpp:111
 #, kde-format
 msgid "Format of the Text File"
 msgstr "Formát textového súboru"
 
-#: src/softwareimporters.cpp:118
+#: src/softwareimporters.cpp:116
 #, kde-format
 msgid "Notes separated by an &empty line"
 msgstr "Poznámky oddelené &prázdnym riadkom"
 
-#: src/softwareimporters.cpp:119
+#: src/softwareimporters.cpp:117
 #, kde-format
 msgid "One &note per line"
 msgstr "Jedna &poznámka na riadok"
 
-#: src/softwareimporters.cpp:120
+#: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes begin with a &dash (-)"
 msgstr "Poznámky začínajú &pomlčkou (-)"
 
-#: src/softwareimporters.cpp:121
+#: src/softwareimporters.cpp:119
 #, kde-format
 msgid "Notes begin with a &star (*)"
 msgstr "Poznámky začínajú &hviezdičkou (*)"
 
-#: src/softwareimporters.cpp:122
+#: src/softwareimporters.cpp:120
 #, kde-format
 msgid "&Use another separator:"
 msgstr "&Použiť iný oddeľovač:"
 
-#: src/softwareimporters.cpp:138
+#: src/softwareimporters.cpp:136
 #, kde-format
 msgid "&All in one note"
 msgstr "&Všetko v jednej poznámke"
 
-#: src/softwareimporters.cpp:217
+#: src/softwareimporters.cpp:215
 #, kde-format
 msgctxt "From TextFile.txt"
 msgid "From %1"
 msgstr "Z %1"
 
-#: src/tag.cpp:80
+#: src/tag.cpp:79
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "To Do"
 msgstr "Úloha"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "Unchecked"
 msgstr "Neoznačené"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "Done"
 msgstr "Hotovo"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "Progress"
 msgstr "Priebeh"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "0 %"
 msgstr "0 %"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "25 %"
 msgstr "25 %"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "50 %"
 msgstr "50 %"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "75 %"
 msgstr "75 %"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "100 %"
 msgstr "100 %"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Priority"
 msgstr "Priorita"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Low"
 msgstr "Nízka"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Medium"
 msgstr "Stredné"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "High"
 msgstr "Vysoká"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "Preference"
 msgstr "Priorita"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "Bad"
 msgstr "Zlý"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Good"
 msgstr "Dobrý"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Excellent"
 msgstr "Výborne"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Highlight"
 msgstr "Zvýrazniť"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Important"
 msgstr "Dôležité"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Very Important"
 msgstr "Very Important"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Information"
 msgstr "Informácie"
 
-#: src/tag.cpp:719
+#: src/tag.cpp:718
 #, kde-format
 msgid "Idea"
 msgstr "1. Nápad"
 
-#: src/tag.cpp:719
+#: src/tag.cpp:718
 #, kde-format
 msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr "I"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgid "Code"
 msgstr "Kód"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgid "Work"
 msgstr "Práca"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
 msgstr "Z"
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgid "Personal"
 msgstr "Osobný"
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgctxt "The initial of 'Personal'"
 msgid "P."
 msgstr "P"
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgid "Funny"
 msgstr "Zábavné"
 
-#: src/tagsedit.cpp:312
+#: src/tagsedit.cpp:311
 #, kde-format
 msgid "Customize Tags"
 msgstr "Customize Tags"
 
-#: src/tagsedit.cpp:331
+#: src/tagsedit.cpp:330
 #, kde-format
 msgid "Ne&w Tag"
 msgstr "Nová značka"
 
-#: src/tagsedit.cpp:332
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "New St&ate"
 msgstr "nový stav"
 
-#: src/tagsedit.cpp:353
+#: src/tagsedit.cpp:352
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "Presunúť hore (Ctrl+Shift+Hore)"
 
-#: src/tagsedit.cpp:354
+#: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "Presunúť dole (Ctrl+Shift+Dole)"
 
-#: src/tagsedit.cpp:355
+#: src/tagsedit.cpp:354
 #, kde-format
 msgid "Delete"
 msgstr "Vymazať zoznam"
 
-#: src/tagsedit.cpp:378
+#: src/tagsedit.cpp:377
 #, kde-format
 msgid "Tag"
 msgstr "Značka"
 
-#: src/tagsedit.cpp:390
+#: src/tagsedit.cpp:389
 #, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "O&dstrániť"
 
-#: src/tagsedit.cpp:391
+#: src/tagsedit.cpp:390
 #, kde-format
 msgid "S&hortcut:"
 msgstr "Skratka"
 
-#: src/tagsedit.cpp:396
+#: src/tagsedit.cpp:395
 #, kde-format
 msgid "&Inherited by new sibling notes"
 msgstr "&Zdedené novými sesterskými poznámkami"
 
-#: src/tagsedit.cpp:398
+#: src/tagsedit.cpp:397
 #, kde-format
 msgid "Allow Cross Reference Links"
 msgstr "Povoliť krížové odkazy"
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:400
 #, kde-format
 msgid "What does this do?"
 msgstr "Čo to robí?"
 
-#: src/tagsedit.cpp:403
+#: src/tagsedit.cpp:402
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3783,103 +3791,103 @@ msgstr ""
 "Táto možnosť vám umožní zadať krížový odkaz priamo do textovej poznámky. "
 "Krížové odkazy môžu mať nasledujúcu syntax:"
 
-#: src/tagsedit.cpp:404
+#: src/tagsedit.cpp:403
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "Od vrchu stromu (absolútna cesta):"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/položka najvyššej úrovne/podpoložka|voliteľný názov]]"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "Relatívne k aktuálnemu košíku:"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../sesterský|voliteľný názov]]"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[podpoložka|voliteľný názov]]"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./podpoložka|voliteľný názov]]"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr "Zhoda košíkov nerozlišuje veľkosť písmen."
 
-#: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
+#: src/tagsedit.cpp:421 src/tagsedit.cpp:1100 src/tagsedit.cpp:1116
 #, kde-format
 msgid "State"
 msgstr "Stav"
 
-#: src/tagsedit.cpp:430
+#: src/tagsedit.cpp:429
 #, kde-format
 msgid "Na&me:"
 msgstr "&Názov:"
 
-#: src/tagsedit.cpp:438
+#: src/tagsedit.cpp:437
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "Odst&rániť"
 
-#: src/tagsedit.cpp:439
+#: src/tagsedit.cpp:438
 #, kde-format
 msgid "&Emblem:"
 msgstr "&Emblém:"
 
-#: src/tagsedit.cpp:456
+#: src/tagsedit.cpp:455
 #, kde-format
 msgid "&Background:"
 msgstr "Po&zadie:"
 
-#: src/tagsedit.cpp:486
+#: src/tagsedit.cpp:485
 #, kde-format
 msgid "Strike Through"
 msgstr "Prečiarknuté"
 
-#: src/tagsedit.cpp:488
+#: src/tagsedit.cpp:487
 #, kde-format
 msgid "&Text:"
 msgstr "&Text:"
 
-#: src/tagsedit.cpp:499
+#: src/tagsedit.cpp:498
 #, kde-format
 msgid "Co&lor:"
 msgstr "Farba:"
 
-#: src/tagsedit.cpp:504
+#: src/tagsedit.cpp:503
 #, kde-format
 msgid "&Font:"
 msgstr "Písmo"
 
-#: src/tagsedit.cpp:508
+#: src/tagsedit.cpp:507
 #, kde-format
 msgid "&Size:"
 msgstr "Veľkosť:"
 
-#: src/tagsedit.cpp:512
+#: src/tagsedit.cpp:511
 #, kde-format
 msgid "Te&xt equivalent:"
 msgstr "Te&xtový ekvivalent:"
 
-#: src/tagsedit.cpp:519
+#: src/tagsedit.cpp:518
 #, kde-format
 msgid "What is this for?"
 msgstr "Na čo to slúži?"
 
-#: src/tagsedit.cpp:521
+#: src/tagsedit.cpp:520
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3888,17 +3896,17 @@ msgstr ""
 "Keď kopírujete a vkladáte alebo presúvate poznámky do textového editora, "
 "tento text sa vloží ako textový ekvivalent značky."
 
-#: src/tagsedit.cpp:532
+#: src/tagsedit.cpp:531
 #, kde-format
 msgid "On ever&y line"
 msgstr "Na kaž&dom riadku"
 
-#: src/tagsedit.cpp:535
+#: src/tagsedit.cpp:534
 #, kde-format
 msgid "What does this mean?"
 msgstr "Čo je nové"
 
-#: src/tagsedit.cpp:537
+#: src/tagsedit.cpp:536
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3907,7 +3915,7 @@ msgstr ""
 "Keď poznámka obsahuje viacero riadkov, môžete si vybrať export značky alebo "
 "stavu na prvom riadku alebo na každom riadku poznámky."
 
-#: src/tagsedit.cpp:539
+#: src/tagsedit.cpp:538
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3916,7 +3924,7 @@ msgstr ""
 "V príklade vyššie sa značka hornej poznámky exportuje iba na prvom riadku, "
 "zatiaľ čo značka dolnej poznámky sa exportuje na každom riadku poznámky."
 
-#: src/tagsedit.cpp:977
+#: src/tagsedit.cpp:976
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
@@ -3924,17 +3932,17 @@ msgstr ""
 "Odstránenie značky ju odstráni z každej poznámky, ku ktorej je aktuálne "
 "priradená."
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:977
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Confirm Delete Tag"
 
-#: src/tagsedit.cpp:979
+#: src/tagsedit.cpp:978
 #, kde-format
 msgid "Delete Tag"
 msgstr "Vymazať štítok"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:981
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3943,43 +3951,43 @@ msgstr ""
 "Odstránenie stavu odstráni značku z každej poznámky, ku ktorej je stav "
 "aktuálne priradený."
 
-#: src/tagsedit.cpp:983
+#: src/tagsedit.cpp:982
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "Confirm Delete State"
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:983
 #, kde-format
 msgid "Delete State"
 msgstr "Delete State"
 
-#: src/tools.cpp:804
+#: src/tools.cpp:773
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:107
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Vyberte spúšťač aplikácií ..."
 
-#: src/variouswidgets.cpp:109
+#: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr "Použiť spúšťače aplikácií KDE Plasma na otvorenie poznámok Basket"
 
-#: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
-#: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
-#: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
-#: src/variouswidgets.cpp:275 src/variouswidgets.cpp:276
-#: src/variouswidgets.cpp:277 src/variouswidgets.cpp:278
-#: src/variouswidgets.cpp:279 src/variouswidgets.cpp:280
+#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
+#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
+#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
+#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
+#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
+#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 x %1 pixelov"
 
-#: src/variouswidgets.cpp:195
+#: src/variouswidgets.cpp:194
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"

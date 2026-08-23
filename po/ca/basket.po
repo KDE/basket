@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-20 00:48+0000\n"
+"POT-Creation-Date: 2026-08-23 00:48+0000\n"
 "PO-Revision-Date: 2026-06-05 09:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -117,17 +117,17 @@ msgstr "Sembla que l'origen no és vàlid."
 msgid "Could not open file."
 msgstr "No s'ha pogut obrir el fitxer."
 
-#: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
+#: devtools/weaver/weaver.cpp:304 src/archive.cpp:263
 #, kde-format
 msgid "Failed to open a file resource."
 msgstr "Ha fallat en obrir un recurs de fitxer."
 
-#: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
+#: devtools/weaver/weaver.cpp:307 src/archive.cpp:266
 #, kde-format
 msgid "This file is not a basket archive."
 msgstr "Aquest fitxer no és un arxiu de cistelles."
 
-#: devtools/weaver/weaver.cpp:310 src/archive.cpp:270
+#: devtools/weaver/weaver.cpp:310 src/archive.cpp:269
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
 msgstr "Aquest fitxer està malmès. No es pot obrir."
@@ -256,28 +256,28 @@ msgstr "Icones originals"
 msgid "BasKet Note Pads"
 msgstr "Bloc de notes BasKet"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2049
+#: src/archive.cpp:49 src/bnpview.cpp:2031
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Desa com un arxiu de cistelles"
 
-#: src/archive.cpp:51
+#: src/archive.cpp:50
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
 msgstr "S'està desant com a arxiu de cistelles. Si us plau, espereu..."
 
-#: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
-#: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
+#: src/archive.cpp:263 src/archive.cpp:266 src/archive.cpp:269
+#: src/archive.cpp:272 src/archive.cpp:279 src/archive.cpp:288
 #, kde-format
 msgid "Basket Archive Error"
 msgstr "Error en l'arxiu de cistelles"
 
-#: src/archive.cpp:273
+#: src/archive.cpp:272
 #, kde-format
 msgid "Extraction path already exists."
 msgstr "El camí d'extracció ja existeix."
 
-#: src/archive.cpp:277
+#: src/archive.cpp:276
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
@@ -286,7 +286,7 @@ msgstr ""
 "Aquest fitxer s'ha creat amb una versió recent del %1. Actualitzeu a una "
 "versió més nova per a poder-lo obrir."
 
-#: src/archive.cpp:284
+#: src/archive.cpp:283
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1. It can be opened but not "
@@ -301,39 +301,39 @@ msgstr ""
 "el fitxer de nou, considereu desar-lo en un altre fitxer, per a conservar "
 "l'original."
 
-#: src/backup.cpp:54
+#: src/backup.cpp:53
 #, kde-format
 msgid "Backup & Restore"
 msgstr "Còpia de seguretat i restaura"
 
-#: src/backup.cpp:71
+#: src/backup.cpp:70
 #, kde-format
 msgid "Save Folder"
 msgstr "Desa la carpeta"
 
-#: src/backup.cpp:77
+#: src/backup.cpp:76
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr ""
 "Les vostres cistelles actualment estan emmagatzemades en aquesta carpeta:"
 "<br><b>%1</b>"
 
-#: src/backup.cpp:84
+#: src/backup.cpp:83
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "&Mou a una altra carpeta..."
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "Em&pra una altra carpeta existent..."
 
-#: src/backup.cpp:87
+#: src/backup.cpp:86
 #, kde-format
 msgid "Why to do that?"
 msgstr "Per què fer això?"
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -360,52 +360,52 @@ msgstr ""
 "manualment (p. ex., afegir un fitxer en una carpeta de cistella no l'afegirà "
 "a la cistella).</p>"
 
-#: src/backup.cpp:104
+#: src/backup.cpp:103
 #, kde-format
 msgid "Backups"
 msgstr "Còpies de seguretat"
 
-#: src/backup.cpp:115
+#: src/backup.cpp:114
 #, kde-format
 msgid "&Backup..."
 msgstr "Còpia de se&guretat..."
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "&Restaura una còpia de seguretat..."
 
-#: src/backup.cpp:139
+#: src/backup.cpp:138
 #, kde-format
 msgid "Last backup: never"
 msgstr "Última còpia de seguretat: mai"
 
-#: src/backup.cpp:141
+#: src/backup.cpp:140
 #, kde-format
 msgid "Last backup: %1"
 msgstr "Última còpia de seguretat: %1"
 
-#: src/backup.cpp:149 src/backup.cpp:180
+#: src/backup.cpp:148 src/backup.cpp:179
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Trieu una carpeta on moure les cistelles"
 
-#: src/backup.cpp:161
+#: src/backup.cpp:160
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "La carpeta <b>%1</b> no està buida. La voleu sobreescriure?"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Sobreescric la carpeta?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:69
+#: src/backup.cpp:162 src/bnpview.cpp:2040 src/htmlexporter.cpp:68
 #, kde-format
 msgid "&Overwrite"
 msgstr "S&obreescriu"
 
-#: src/backup.cpp:173
+#: src/backup.cpp:172
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -414,7 +414,7 @@ msgstr ""
 "Les vostres cistelles s'han mogut amb èxit a <b>%1</b>. El %2 es reiniciarà "
 "perquè tingui en compte aquest canvi."
 
-#: src/backup.cpp:185
+#: src/backup.cpp:184
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -423,45 +423,45 @@ msgstr ""
 "La vostra carpeta per a desar les cistelles s'ha canviat amb èxit a <b>%1</"
 "b>. El %2 es reiniciarà perquè tingui en compte aquest canvi."
 
-#: src/backup.cpp:197
+#: src/backup.cpp:196
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Cistelles_%1"
 
-#: src/backup.cpp:202 src/backup.cpp:251
+#: src/backup.cpp:201 src/backup.cpp:250
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Arxius TAR comprimits pel Gzip"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
-#: src/bnpview.cpp:2093 src/htmlexporter.cpp:54
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2028
+#: src/bnpview.cpp:2075 src/htmlexporter.cpp:53
 #, kde-format
 msgid "All Files"
 msgstr "Tots els fitxers"
 
-#: src/backup.cpp:206 src/backup.cpp:214
+#: src/backup.cpp:205 src/backup.cpp:213
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Còpia de seguretat de les cistelles"
 
-#: src/backup.cpp:215
+#: src/backup.cpp:214
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr ""
 "S'està fent la còpia de seguretat de les cistelles. Si us plau, espereu..."
 
-#: src/backup.cpp:256 src/bnpview.cpp:2094
+#: src/backup.cpp:255 src/bnpview.cpp:2076
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Obre un arxiu de cistelles"
 
-#: src/backup.cpp:267
+#: src/backup.cpp:266
 #, kde-format
 msgid "README.txt"
 msgstr "LLEGEIX-ME.txt"
 
-#: src/backup.cpp:271
+#: src/backup.cpp:270
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -470,7 +470,7 @@ msgstr ""
 "Aquesta és una còpia de seguretat de les vostres cistelles com eren abans "
 "que comencéssiu a restaurar la còpia de seguretat %1."
 
-#: src/backup.cpp:274
+#: src/backup.cpp:273
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -479,7 +479,7 @@ msgstr ""
 "Si la restauració ha estat amb èxit i heu restaurat el que volíeu restaurar, "
 "ja podeu eliminar aquesta carpeta."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -489,7 +489,7 @@ msgstr ""
 "aquesta carpeta per a emmagatzemar les vostres cistelles i així no es perdrà "
 "res."
 
-#: src/backup.cpp:277
+#: src/backup.cpp:276
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -498,12 +498,12 @@ msgstr ""
 "Trieu «Cistella -> Còpia de seguretat i restaura -> Empra una altra carpeta "
 "existent...» i seleccioneu aquesta carpeta."
 
-#: src/backup.cpp:281
+#: src/backup.cpp:280
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "S'està restaurant <b>%1</b>. Si us plau, espereu..."
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -512,12 +512,12 @@ msgstr ""
 "Si res va malament durant el procés de restauració, llegiu el fitxer <b>%1</"
 "b>."
 
-#: src/backup.cpp:285
+#: src/backup.cpp:284
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Restaura les cistelles"
 
-#: src/backup.cpp:318
+#: src/backup.cpp:317
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -527,12 +527,12 @@ msgstr ""
 "No es pot importar. En el seu lloc s'han conservat les vostres cistelles "
 "antigues."
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid "Restore Error"
 msgstr "Error en restaurar"
 
-#: src/backup.cpp:328
+#: src/backup.cpp:327
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -541,18 +541,18 @@ msgstr ""
 "La vostra còpia de seguretat s'ha restaurat amb èxit a <b>%1</b>. El %2 es "
 "reiniciarà perquè tingui en compte aquest canvi."
 
-#: src/backup.cpp:366
+#: src/backup.cpp:365
 #, kde-format
 msgid "Restart"
 msgstr "Reinicia"
 
-#: src/backup.cpp:383
+#: src/backup.cpp:382
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Cistelles abans de la restauració"
 
-#: src/backup.cpp:390
+#: src/backup.cpp:389
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -595,73 +595,73 @@ msgstr ""
 msgid "Open a basket archive or template."
 msgstr "Obre un arxiu o plantilla de cistella."
 
-#: src/basketfactory.cpp:54
+#: src/basketfactory.cpp:53
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr ""
 "Malauradament, ha fallat la creació de la carpeta per a aquesta cistella "
 "nova."
 
-#: src/basketfactory.cpp:54 src/basketfactory.cpp:87 src/basketfactory.cpp:108
+#: src/basketfactory.cpp:53 src/basketfactory.cpp:86 src/basketfactory.cpp:107
 #, kde-format
 msgid "Basket Creation Failed"
 msgstr "Ha fallat la creació de la cistella"
 
-#: src/basketfactory.cpp:87
+#: src/basketfactory.cpp:86
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
 msgstr ""
 "Malauradament, ha fallat la còpia de la plantilla per a aquesta cistella "
 "nova."
 
-#: src/basketfactory.cpp:108
+#: src/basketfactory.cpp:107
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr ""
 "Malauradament, ha fallat la personalització de la plantilla per a aquesta "
 "cistella nova."
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:629
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:631
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:634
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:46
+#: src/basketproperties.cpp:45
 #, kde-format
 msgid "Basket Properties"
 msgstr "Propietats de la cistella"
 
-#: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
 #, kde-format
 msgid "Icon"
 msgstr "Icona"
 
-#: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Nom"
 
-#: src/basketproperties.cpp:89
+#: src/basketproperties.cpp:88
 #, kde-format
 msgid "(None)"
 msgstr "(cap)"
 
-#: src/basketproperties.cpp:134
+#: src/basketproperties.cpp:133
 #, kde-format
 msgid "Learn some tips..."
 msgstr "Aprendre alguns consells..."
 
-#: src/basketproperties.cpp:135
+#: src/basketproperties.cpp:134
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -692,7 +692,7 @@ msgstr ""
 "retalls o la selecció a la cistella actual.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:484 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1107
 #, kde-format
 msgid "Appearance"
 msgstr "Aparença"
@@ -763,39 +763,39 @@ msgstr "Mostra aquesta cistella (drecera &global)"
 msgid "S&witch to this basket (global shortcut)"
 msgstr "Can&via a aquesta cistella (drecera global)"
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:302
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "La nota nova no coincideix amb el filtre i restarà oculta."
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:304
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "Una nota nova no coincideix amb el filtre i restarà oculta."
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:306
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "Algunes notes noves no coincideixen amb el filtre i restaran ocultes."
 
-#: src/basketscene.cpp:309
+#: src/basketscene.cpp:308
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Les notes noves no coincideixen amb el filtre i restaran ocultes."
 
-#: src/basketscene.cpp:1467
+#: src/basketscene.cpp:1462
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "Agrupa"
 
-#: src/basketscene.cpp:1469
+#: src/basketscene.cpp:1464
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Insereix"
 
-#: src/basketscene.cpp:2316
+#: src/basketscene.cpp:2311
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -804,7 +804,7 @@ msgstr ""
 "Aquest missatge no hauria d'aparèixer. Si ho fa. Aquest programa conté "
 "errors! Informeu-ne al desenvolupador."
 
-#: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
+#: src/basketscene.cpp:2750 src/basketscene.cpp:2803 src/basketscene.cpp:2812
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -813,57 +813,57 @@ msgstr ""
 "Inseriu la nota aquí\n"
 "Feu clic dret per a més opcions"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize those columns"
 msgstr "Redimensiona aquestes columnes"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize this group"
 msgstr "Redimensiona aquest grup"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize this note"
 msgstr "Redimensiona aquesta nota"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2772
 #, kde-format
 msgid "Select or move this note"
 msgstr "Selecciona o mou aquesta nota"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Select or move this group"
 msgstr "Selecciona o mou aquest grup"
 
-#: src/basketscene.cpp:2783
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Assigna o elimina etiquetes des d'aquesta nota"
 
-#: src/basketscene.cpp:2791
+#: src/basketscene.cpp:2786
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2793
+#: src/basketscene.cpp:2788
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Etiquetes assignades</b>: %1"
 
-#: src/basketscene.cpp:2800
+#: src/basketscene.cpp:2795
 #, kde-format
 msgid "Expand this group"
 msgstr "Expandeix aquest grup"
 
-#: src/basketscene.cpp:2800
+#: src/basketscene.cpp:2795
 #, kde-format
 msgid "Collapse this group"
 msgstr "Redueix aquest grup"
 
-#: src/basketscene.cpp:2811
+#: src/basketscene.cpp:2806
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -872,7 +872,7 @@ msgstr ""
 "Nota de grup amb la de sota\n"
 "Feu clic dret per a més opcions"
 
-#: src/basketscene.cpp:2814
+#: src/basketscene.cpp:2809
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -881,53 +881,53 @@ msgstr ""
 "Nota de grup amb la de sobre\n"
 "Feu clic dret per a més opcions"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2827
 #, kde-format
 msgid "Added"
 msgstr "Afegida"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2827
 #, kde-format
 msgid "Last Modification"
 msgstr "Darrera modificació"
 
-#: src/basketscene.cpp:2837
+#: src/basketscene.cpp:2832
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2841
+#: src/basketscene.cpp:2836
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Feu clic sobre la dreta per a agrupar en lloc d'inserir"
 
-#: src/basketscene.cpp:2843
+#: src/basketscene.cpp:2838
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Feu clic sobre l'esquerra per a inserir en lloc d'agrupar"
 
-#: src/basketscene.cpp:3021
+#: src/basketscene.cpp:3016
 #, kde-format
 msgid "&Unlock"
 msgstr "Des&bloqueja"
 
-#: src/basketscene.cpp:3026
+#: src/basketscene.cpp:3021
 #, kde-format
 msgid "Password protected basket."
 msgstr "Cistella protegida amb contrasenya."
 
-#: src/basketscene.cpp:3028
+#: src/basketscene.cpp:3023
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Premeu Desbloqueja per a accedir-hi."
 
-#: src/basketscene.cpp:3030
+#: src/basketscene.cpp:3025
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "L'encriptatge no està implementat<br/>per a aquesta versió del %1."
 
-#: src/basketscene.cpp:3042
+#: src/basketscene.cpp:3037
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -936,112 +936,112 @@ msgstr ""
 "Per a fer que les cistelles romanguin desblocades,<br>canvieu la durada del "
 "bloqueig automàtic a la configuració de l'aplicació."
 
-#: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
+#: src/basketscene.cpp:3064 src/basketstatusbar.cpp:88 src/bnpview.cpp:1590
 #, kde-format
 msgid "Loading..."
 msgstr "S'està carregant..."
 
-#: src/basketscene.cpp:3235 src/basketscene.cpp:3277
+#: src/basketscene.cpp:3230 src/basketscene.cpp:3272
 #, kde-format
 msgid "&Remove"
 msgstr "&Elimina"
 
-#: src/basketscene.cpp:3238 src/basketscene.cpp:3281 src/bnpview.cpp:2489
+#: src/basketscene.cpp:3233 src/basketscene.cpp:3276 src/bnpview.cpp:2471
 #, kde-format
 msgid "&Customize..."
 msgstr "P&ersonalitza..."
 
-#: src/basketscene.cpp:3244 src/basketscene.cpp:3287
+#: src/basketscene.cpp:3239 src/basketscene.cpp:3282
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&Filtra per etiqueta"
 
 # skip-rule: t-e_sola
-#: src/basketscene.cpp:3290
+#: src/basketscene.cpp:3285
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Filtra per e&stat"
 
-#: src/basketscene.cpp:3371
+#: src/basketscene.cpp:3366
 #, kde-format
 msgid "Tags"
 msgstr "Etiquetes"
 
-#: src/basketscene.cpp:3948
+#: src/basketscene.cpp:3943
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Realment voleu suprimir aquesta nota?</qt>"
 msgstr[1] "<qt>Realment voleu suprimir aquestes <b>%1</b> notes?</qt>"
 
-#: src/basketscene.cpp:3949
+#: src/basketscene.cpp:3944
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Suprimeix la nota"
 msgstr[1] "Suprimeix les notes"
 
-#: src/basketscene.cpp:4048
+#: src/basketscene.cpp:4043
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Copia la nota al porta-retalls."
 msgstr[1] "Copia les notes al porta-retalls."
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4046
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Retalla la nota al porta-retalls."
 msgstr[1] "Retalla les notes al porta-retalls."
 
-#: src/basketscene.cpp:4054
+#: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Copia la nota a la selecció."
 msgstr[1] "Copia les notes a la selecció."
 
-#: src/basketscene.cpp:4118 src/basketscene.cpp:4193
+#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
 #, kde-format
 msgid "Unable to open this note."
 msgstr "No s'ha pogut obrir aquesta nota."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4120 src/basketui.rc:40
+#: src/basketscene.cpp:4115 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&Edita"
 
-#: src/basketscene.cpp:4156
+#: src/basketscene.cpp:4151
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "No esteu autoritzat a obrir aquest fitxer."
 
-#: src/basketscene.cpp:4214
+#: src/basketscene.cpp:4209
 #, kde-format
 msgid "Save to File"
 msgstr "Desa a un fitxer"
 
-#: src/basketstatusbar.cpp:106
+#: src/basketstatusbar.cpp:105
 #, kde-format
 msgid "Shows if there are changes that have not yet been saved."
 msgstr "Mostra si hi ha canvis que encara no s'han desat."
 
-#: src/basketstatusbar.cpp:137
+#: src/basketstatusbar.cpp:136
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
 msgstr ""
 "Ctrl+deixa anar: copia, Maj+deixa anar: mou, Maj+Ctrl+deixa anar: enllaça."
 
-#: src/basketstatusbar.cpp:160
+#: src/basketstatusbar.cpp:159
 #, kde-format
 msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
 msgstr ""
 "<p>Aquesta cistella està <b>blocada</b>.<br>Feu-hi clic per a desblocar-la.</"
 "p>"
 
-#: src/basketstatusbar.cpp:163
+#: src/basketstatusbar.cpp:162
 #, kde-format
 msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
 msgstr ""
@@ -1055,20 +1055,20 @@ msgid "&Basket"
 msgstr "&Cistella"
 
 #. i18n: ectx: Menu
-#: src/basketui.rc:11 src/basketui.rc:170
+#: src/basketui.rc:11 src/basketui.rc:169
 #, kde-format
 msgid "&Export"
 msgstr "&Exporta"
 
 #. i18n: ectx: Menu
-#: src/basketui.rc:16 src/basketui.rc:175
+#: src/basketui.rc:16 src/basketui.rc:174
 #, kde-format
 msgid "&Sort"
 msgstr "&Ordena"
 
 #. i18n: ectx: Menu (fileimport)
 #. i18n: ectx: Menu
-#: src/basketui.rc:28 src/basketui.rc:187 src/basketui.rc:198
+#: src/basketui.rc:28 src/basketui.rc:186 src/basketui.rc:197
 #, kde-format
 msgid "&Import"
 msgstr "&Importa"
@@ -1110,28 +1110,28 @@ msgid "&Help"
 msgstr "A&juda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/basketui.rc:123
+#: src/basketui.rc:122
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
 #. i18n: ectx: ToolBar (richTextEditToolBar)
-#: src/basketui.rc:141
+#: src/basketui.rc:140
 #, kde-format
 msgid "Text Formatting Toolbar"
 msgstr "Barra d'eines per al format del text"
 
-#: src/bnpview.cpp:166 src/bnpview.cpp:1246
+#: src/bnpview.cpp:166 src/bnpview.cpp:1228
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:216
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Enganxa el contingut del porta-retalls a la cistella actual"
 
-#: src/bnpview.cpp:236
+#: src/bnpview.cpp:218
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1140,12 +1140,12 @@ msgstr ""
 "Permet enganxar el contingut del porta-retalls a la cistella actual sense "
 "haver d'obrir la finestra principal."
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:223
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "Enganxa la selecció a la cistella actual"
 
-#: src/bnpview.cpp:243
+#: src/bnpview.cpp:225
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1154,12 +1154,12 @@ msgstr ""
 "Permet enganxar la selecció del porta-retalls a la cistella actual sense "
 "haver d'obrir la finestra principal."
 
-#: src/bnpview.cpp:248
+#: src/bnpview.cpp:230
 #, kde-format
 msgid "Create a new basket"
 msgstr "Crea una cistella nova"
 
-#: src/bnpview.cpp:250
+#: src/bnpview.cpp:232
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1170,12 +1170,12 @@ msgstr ""
 "(després podreu usar les altres dreceres globals per a afegir una nota, "
 "enganxar des del porta-retalls o enganxar la selecció en aquesta cistella)."
 
-#: src/bnpview.cpp:255
+#: src/bnpview.cpp:237
 #, kde-format
 msgid "Go to previous basket"
 msgstr "Va a la cistella anterior"
 
-#: src/bnpview.cpp:257
+#: src/bnpview.cpp:239
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1184,12 +1184,12 @@ msgstr ""
 "Permet canviar la cistella actual a l'anterior sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:261
+#: src/bnpview.cpp:243
 #, kde-format
 msgid "Go to next basket"
 msgstr "Va a la cistella següent"
 
-#: src/bnpview.cpp:263
+#: src/bnpview.cpp:245
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1198,12 +1198,12 @@ msgstr ""
 "Permet canviar la cistella actual a la següent sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:267
+#: src/bnpview.cpp:249
 #, kde-format
 msgid "Insert text note"
 msgstr "Insereix una nota de text"
 
-#: src/bnpview.cpp:269
+#: src/bnpview.cpp:251
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
@@ -1211,12 +1211,12 @@ msgstr ""
 "Afegeix una nota de text a la cistella actual sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:274 src/settings.cpp:566
+#: src/bnpview.cpp:256 src/settings.cpp:565
 #, kde-format
 msgid "Insert image note"
 msgstr "Insereix una nota d'imatge"
 
-#: src/bnpview.cpp:276
+#: src/bnpview.cpp:258
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1225,12 +1225,12 @@ msgstr ""
 "Afegeix una nota d'imatge a la cistella actual sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:280 src/settings.cpp:567
+#: src/bnpview.cpp:262 src/settings.cpp:566
 #, kde-format
 msgid "Insert link note"
 msgstr "Insereix una nota d'enllaç"
 
-#: src/bnpview.cpp:282
+#: src/bnpview.cpp:264
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
@@ -1238,12 +1238,12 @@ msgstr ""
 "Afegeix una nota d'enllaç a la cistella actual sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:286 src/settings.cpp:570
+#: src/bnpview.cpp:268 src/settings.cpp:569
 #, kde-format
 msgid "Insert color note"
 msgstr "Insereix una nota de color"
 
-#: src/bnpview.cpp:288
+#: src/bnpview.cpp:270
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
@@ -1252,12 +1252,12 @@ msgstr ""
 "Afegeix una nota de color a la cistella actual sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:292
+#: src/bnpview.cpp:274
 #, kde-format
 msgid "Pick color from screen"
 msgstr "Tria un color des de la pantalla"
 
-#: src/bnpview.cpp:294
+#: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1266,12 +1266,12 @@ msgstr ""
 "Afegeix una nota de color -triat des d'un píxel a la pantalla- a la cistella "
 "actual sense haver d'obrir la finestra principal."
 
-#: src/bnpview.cpp:299 src/settings.cpp:571
+#: src/bnpview.cpp:281 src/settings.cpp:570
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Enregistra una àrea de la pantalla"
 
-#: src/bnpview.cpp:301
+#: src/bnpview.cpp:283
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1280,12 +1280,12 @@ msgstr ""
 "Enregistra una àrea de la pantalla com a una imatge a la cistella actual "
 "sense haver d'obrir la finestra principal."
 
-#: src/bnpview.cpp:307
+#: src/bnpview.cpp:289
 #, kde-format
 msgid "Insert plain text note"
 msgstr "Insereix una nota de text net"
 
-#: src/bnpview.cpp:309
+#: src/bnpview.cpp:291
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1294,12 +1294,12 @@ msgstr ""
 "Afegeix una nota de text net a la cistella actual sense haver d'obrir la "
 "finestra principal."
 
-#: src/bnpview.cpp:318
+#: src/bnpview.cpp:300
 #, kde-format
 msgid "Baskets"
 msgstr "Cistelles"
 
-#: src/bnpview.cpp:363
+#: src/bnpview.cpp:345
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1313,359 +1313,359 @@ msgstr ""
 "altres. Podreu navegar entre elles fent clic sobre una cistella per a obrir-"
 "la, o reorganitzar-les arrossegant i deixant anar."
 
-#: src/bnpview.cpp:378 src/bnpview.cpp:384
+#: src/bnpview.cpp:360 src/bnpview.cpp:366
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "Arxiu de &cistelles..."
 
-#: src/bnpview.cpp:390
+#: src/bnpview.cpp:372
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "Pàgina web en &HTML..."
 
-#: src/bnpview.cpp:396
+#: src/bnpview.cpp:378
 #, kde-format
 msgid "Text &File..."
 msgstr "&Fitxer de text..."
 
-#: src/bnpview.cpp:401
+#: src/bnpview.cpp:383
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "Cò&pia de seguretat i restaura..."
 
-#: src/bnpview.cpp:405
+#: src/bnpview.cpp:387
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&Comprova i neteja..."
 
-#: src/bnpview.cpp:416
+#: src/bnpview.cpp:398
 #, kde-format
 msgid "D&elete"
 msgstr "Su&primeix"
 
-#: src/bnpview.cpp:425
+#: src/bnpview.cpp:407
 #, kde-format
 msgid "Selects all notes"
 msgstr "Selecciona totes les notes"
 
-#: src/bnpview.cpp:428
+#: src/bnpview.cpp:410
 #, kde-format
 msgid "U&nselect All"
 msgstr "Desseleccio&na-ho tot"
 
-#: src/bnpview.cpp:430
+#: src/bnpview.cpp:412
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "Desselecciona totes les notes seleccionades"
 
-#: src/bnpview.cpp:433
+#: src/bnpview.cpp:415
 #, kde-format
 msgid "&Invert Selection"
 msgstr "&Inverteix la selecció"
 
-#: src/bnpview.cpp:437
+#: src/bnpview.cpp:419
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Inverteix la selecció actual de les notes"
 
-#: src/bnpview.cpp:440
+#: src/bnpview.cpp:422
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "&Neteja el format"
 
-#: src/bnpview.cpp:444
+#: src/bnpview.cpp:426
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "&Edita..."
 
-#: src/bnpview.cpp:451
+#: src/bnpview.cpp:433
 #, kde-format
 msgid "&Open"
 msgstr "&Obre"
 
-#: src/bnpview.cpp:455
+#: src/bnpview.cpp:437
 #, kde-format
 msgid "Open &With..."
 msgstr "Obre &amb..."
 
-#: src/bnpview.cpp:460
+#: src/bnpview.cpp:442
 #, kde-format
 msgid "&Save to File..."
 msgstr "De&sa a un fitxer..."
 
-#: src/bnpview.cpp:464
+#: src/bnpview.cpp:446
 #, kde-format
 msgid "&Group"
 msgstr "A&grupa"
 
-#: src/bnpview.cpp:470
+#: src/bnpview.cpp:452
 #, kde-format
 msgid "U&ngroup"
 msgstr "Desag&rupa"
 
-#: src/bnpview.cpp:475
+#: src/bnpview.cpp:457
 #, kde-format
 msgid "Move on &Top"
 msgstr "Mou a dal&t de tot"
 
-#: src/bnpview.cpp:481
+#: src/bnpview.cpp:463
 #, kde-format
 msgid "Move &Up"
 msgstr "Mou am&unt"
 
-#: src/bnpview.cpp:487
+#: src/bnpview.cpp:469
 #, kde-format
 msgid "Move &Down"
 msgstr "Mou a&vall"
 
-#: src/bnpview.cpp:493
+#: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "Mou a &baix de tot"
 
-#: src/bnpview.cpp:504
+#: src/bnpview.cpp:486
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Text &net"
 
-#: src/bnpview.cpp:511
+#: src/bnpview.cpp:493
 #, kde-format
 msgid "&Text"
 msgstr "&Text"
 
-#: src/bnpview.cpp:517
+#: src/bnpview.cpp:499
 #, kde-format
 msgid "&Link"
 msgstr "En&llaç"
 
-#: src/bnpview.cpp:523
+#: src/bnpview.cpp:505
 #, kde-format
 msgid "Cross &Reference"
 msgstr "&Referència creuada"
 
-#: src/bnpview.cpp:528
+#: src/bnpview.cpp:510
 #, kde-format
 msgid "&Image"
 msgstr "&Imatge"
 
-#: src/bnpview.cpp:533
+#: src/bnpview.cpp:515
 #, kde-format
 msgid "&Color"
 msgstr "&Color"
 
-#: src/bnpview.cpp:538
+#: src/bnpview.cpp:520
 #, kde-format
 msgid "L&auncher"
 msgstr "Ll&ançador"
 
-#: src/bnpview.cpp:543
+#: src/bnpview.cpp:525
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Importa un llançador per a l'aplicació &d'escriptori..."
 
-#: src/bnpview.cpp:548
+#: src/bnpview.cpp:530
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Importa una icona..."
 
-#: src/bnpview.cpp:553 src/noteedit.cpp:545
+#: src/bnpview.cpp:535 src/noteedit.cpp:543
 #, kde-format
 msgid "Load From &File..."
 msgstr "Carrega des d'un &fitxer..."
 
-#: src/bnpview.cpp:589
+#: src/bnpview.cpp:571
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "C&olor des de la pantalla"
 
-#: src/bnpview.cpp:597
+#: src/bnpview.cpp:579
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Enregistra una à&rea de la pantalla"
 
-#: src/bnpview.cpp:629
+#: src/bnpview.cpp:611
 #, kde-format
 msgid "&New Basket..."
 msgstr "Cistella &nova..."
 
-#: src/bnpview.cpp:635
+#: src/bnpview.cpp:617
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "&Subcistella nova..."
 
-#: src/bnpview.cpp:640
+#: src/bnpview.cpp:622
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Cistella germana nova..."
 
-#: src/bnpview.cpp:643
+#: src/bnpview.cpp:625
 #, kde-format
 msgid "&New"
 msgstr "&Nova"
 
-#: src/bnpview.cpp:653
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "&Properties..."
 msgstr "&Propietats..."
 
-#: src/bnpview.cpp:659
+#: src/bnpview.cpp:641
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Ordena les filles en ordre ascendent"
 
-#: src/bnpview.cpp:664
+#: src/bnpview.cpp:646
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Ordena les filles en ordre descendent"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:651
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Ordena les germanes en ordre ascendent"
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:656
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Ordena les germanes en ordre descendent"
 
-#: src/bnpview.cpp:679
+#: src/bnpview.cpp:661
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&Elimina"
 
-#: src/bnpview.cpp:685
+#: src/bnpview.cpp:667
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "&Contrasenya..."
 
-#: src/bnpview.cpp:690
+#: src/bnpview.cpp:672
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "B&loca"
 
-#: src/bnpview.cpp:703
+#: src/bnpview.cpp:685
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtre"
 
-#: src/bnpview.cpp:715
+#: src/bnpview.cpp:697
 #, kde-format
 msgid "&Search All"
 msgstr "&Cerca-ho tot"
 
-#: src/bnpview.cpp:723
+#: src/bnpview.cpp:705
 #, kde-format
 msgid "&Reset Filter"
 msgstr "&Reinicia el filtratge"
 
-#: src/bnpview.cpp:731
+#: src/bnpview.cpp:713
 #, kde-format
 msgid "&Previous Basket"
 msgstr "Cistella an&terior"
 
-#: src/bnpview.cpp:737
+#: src/bnpview.cpp:719
 #, kde-format
 msgid "&Next Basket"
 msgstr "Cistella següe&nt"
 
-#: src/bnpview.cpp:743
+#: src/bnpview.cpp:725
 #, kde-format
 msgid "&Fold Basket"
 msgstr "Car&peta de cistella"
 
-#: src/bnpview.cpp:749
+#: src/bnpview.cpp:731
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Expandeix la cistella"
 
-#: src/bnpview.cpp:757
+#: src/bnpview.cpp:739
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "Converteix les notes de text en notes de text enriquit"
 
-#: src/bnpview.cpp:766
+#: src/bnpview.cpp:748
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "Cistelles de &benvinguda"
 
-#: src/bnpview.cpp:1031
+#: src/bnpview.cpp:1013
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Conversió de les notes de text net"
 
-#: src/bnpview.cpp:1032
+#: src/bnpview.cpp:1014
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr ""
 "S'estan convertint les notes de text net en versions de text enriquit..."
 
-#: src/bnpview.cpp:1606
+#: src/bnpview.cpp:1588
 #, kde-format
 msgid "Locked"
 msgstr "Blocada"
 
-#: src/bnpview.cpp:1610
+#: src/bnpview.cpp:1592
 #, kde-format
 msgid "No notes"
 msgstr "Sense notes"
 
-#: src/bnpview.cpp:1612
+#: src/bnpview.cpp:1594
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 nota"
 msgstr[1] "%1 notes"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1595
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 seleccionada"
 msgstr[1] "%1 seleccionades"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1596
 #, kde-format
 msgid "all matches"
 msgstr "totes les coincidències"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1596
 #, kde-format
 msgid "no filter"
 msgstr "sense filtre"
 
-#: src/bnpview.cpp:1616
+#: src/bnpview.cpp:1598
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 coincidència"
 msgstr[1] "%1 coincidències"
 
-#: src/bnpview.cpp:1617
+#: src/bnpview.cpp:1599
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1752
+#: src/bnpview.cpp:1734
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "S'han convertit les notes de text net a text enriquit."
 
-#: src/bnpview.cpp:1752 src/bnpview.cpp:1754
+#: src/bnpview.cpp:1734 src/bnpview.cpp:1736
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Ha finalitzat la conversió"
 
-#: src/bnpview.cpp:1754
+#: src/bnpview.cpp:1736
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "No hi ha cap nota de text net per a convertir."
 
-#: src/bnpview.cpp:1771
+#: src/bnpview.cpp:1753
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1685,34 +1685,34 @@ msgstr ""
 "que teníeu una versió preliminar, intenteu eliminar el fitxer %5basketui.rc</"
 "p>"
 
-#: src/bnpview.cpp:1785
+#: src/bnpview.cpp:1767
 #, kde-format
 msgid "Resource not Found"
 msgstr "No s'ha trobat el recurs"
 
-#: src/bnpview.cpp:1814
+#: src/bnpview.cpp:1796
 #, kde-format
 msgid "Cannot add note."
 msgstr "No s'ha pogut afegir la nota."
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1943
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr ""
 "<qt>De veres voleu eliminar la cistella <b>%1</b> i el seu contingut?</qt>"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1944
 #, kde-format
 msgid "Remove Basket"
 msgstr "Elimina la cistella"
 
-#: src/bnpview.cpp:1963
+#: src/bnpview.cpp:1945
 #, kde-format
 msgid "&Remove Basket"
 msgstr "E&limina la cistella"
 
-#: src/bnpview.cpp:1973
+#: src/bnpview.cpp:1955
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1721,37 +1721,37 @@ msgstr ""
 "<qt><b>%1</b> té les següents cistelles filles.<br>També les voleu eliminar?"
 "</qt>"
 
-#: src/bnpview.cpp:1975
+#: src/bnpview.cpp:1957
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Elimina les cistelles filles"
 
-#: src/bnpview.cpp:1976
+#: src/bnpview.cpp:1958
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "E&limina les cistelles filles"
 
-#: src/bnpview.cpp:2046 src/bnpview.cpp:2093
+#: src/bnpview.cpp:2028 src/bnpview.cpp:2075
 #, kde-format
 msgid "Basket Archives"
 msgstr "Arxius de cistelles"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:67
+#: src/bnpview.cpp:2038 src/htmlexporter.cpp:66
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "El fitxer <b>%1</b> ja existeix. Realment voleu sobreescriure'l?"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:2039 src/htmlexporter.cpp:67
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Sobreescric el fitxer?"
 
-#: src/bnpview.cpp:2478
+#: src/bnpview.cpp:2460
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Assigna una etiqueta nova..."
 
-#: src/bnpview.cpp:2483
+#: src/bnpview.cpp:2465
 #, kde-format
 msgid "&Remove All"
 msgstr "&Elimina-ho tot"
@@ -1776,7 +1776,7 @@ msgstr "Assigneu una contrasenya a la cistella <b>%1</b>:"
 msgid "Error while saving: "
 msgstr "Error en desar: "
 
-#: src/debugwindow.cpp:23
+#: src/debugwindow.cpp:22
 #, kde-format
 msgid "Debug Window"
 msgstr "Finestra de depuració"
@@ -1811,7 +1811,7 @@ msgstr "Freqüència de mostreig"
 msgid "Track number"
 msgstr "Número de la peça"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2169
 #, kde-format
 msgid "Comment"
 msgstr "Comentari"
@@ -1826,7 +1826,7 @@ msgstr "Artista"
 msgid "Album"
 msgstr "Àlbum"
 
-#: src/file_metadata.cpp:27 src/tag.cpp:719
+#: src/file_metadata.cpp:27 src/tag.cpp:718
 #, kde-format
 msgid "Title"
 msgstr "Títol"
@@ -1856,37 +1856,37 @@ msgstr "Data"
 msgid "Frame rate"
 msgstr "Velocitat dels fotogrames"
 
-#: src/filter.cpp:42
+#: src/filter.cpp:41
 #, kde-format
 msgid "Reset Filter"
 msgstr "Reinicia el filtratge"
 
-#: src/filter.cpp:47
+#: src/filter.cpp:46
 #, kde-format
 msgid "&Filter: "
 msgstr "&Filtre: "
 
-#: src/filter.cpp:51
+#: src/filter.cpp:50
 #, kde-format
 msgid "T&ag: "
 msgstr "Etiquet&a: "
 
-#: src/filter.cpp:55
+#: src/filter.cpp:54
 #, kde-format
 msgid "Filter All Baskets"
 msgstr "Filtra totes les cistelles"
 
-#: src/filter.cpp:132
+#: src/filter.cpp:131
 #, kde-format
 msgid "(Not tagged)"
 msgstr "(sense etiqueta)"
 
-#: src/filter.cpp:133
+#: src/filter.cpp:132
 #, kde-format
 msgid "(Tagged)"
 msgstr "(amb etiqueta)"
 
-#: src/formatimporter.cpp:119
+#: src/formatimporter.cpp:106
 #, kde-format
 msgid ""
 "<p>Folder mirroring is not possible anymore (see <a href='https://basket-"
@@ -1903,62 +1903,62 @@ msgstr ""
 "ambdues. Però recordeu que modificar-ne una ja no modificarà l'altra, ja que "
 "ara són entitats separades.</p>"
 
-#: src/formatimporter.cpp:125
+#: src/formatimporter.cpp:112
 #, kde-format
 msgid "Folder Mirror Import"
 msgstr "Importa una rèplica de carpeta"
 
-#: src/history.cpp:19
+#: src/history.cpp:18
 #, kde-format
 msgid "Set current basket to %1"
 msgstr "Estableix la cistella actual a %1"
 
-#: src/htmlexporter.cpp:54
+#: src/htmlexporter.cpp:53
 #, kde-format
 msgid "HTML Documents"
 msgstr "Documents HTML"
 
-#: src/htmlexporter.cpp:58 src/htmlexporter.cpp:80
+#: src/htmlexporter.cpp:57 src/htmlexporter.cpp:79
 #, kde-format
 msgid "Export to HTML"
 msgstr "Exporta a HTML"
 
-#: src/htmlexporter.cpp:81
+#: src/htmlexporter.cpp:80
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "S'està exportant a HTML. Si us plau, espereu..."
 
-#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:115 src/htmlexporter.cpp:151 src/htmlexporter.cpp:161
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_fitxers"
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:166
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "icones"
 
-#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:168
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "imatges"
 
-#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:164
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "cistelles"
 
-#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
+#: src/htmlexporter.cpp:156 src/htmlexporter.cpp:162 src/htmlexporter.cpp:163
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "dades"
 
-#: src/htmlexporter.cpp:404
+#: src/htmlexporter.cpp:403
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
@@ -1967,13 +1967,13 @@ msgstr ""
 "Creada amb el <a href=\"%1\">%2</a> %3, una eina per a prendre notes i "
 "mantenir a mà la informació."
 
-#: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
-#: src/variouswidgets.cpp:404
+#: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
+#: src/variouswidgets.cpp:403
 #, kde-format
 msgid "(Default)"
 msgstr "(predeterminat)"
 
-#: src/kcolorcombo2.cpp:124
+#: src/kcolorcombo2.cpp:123
 #, kde-format
 msgid "Other..."
 msgstr "Altres..."
@@ -1982,12 +1982,12 @@ msgstr "Altres..."
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:638
+#: src/kcolorcombo2.cpp:637
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "Verm:%1, Verd:%2, Blau:%3"
 
-#: src/kcolorcombo2.cpp:638
+#: src/kcolorcombo2.cpp:637
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2038,87 +2038,87 @@ msgstr "Contrasenya errònia."
 msgid "Please enter a new password:"
 msgstr "Introduïu una contrasenya nova:"
 
-#: src/linklabel.cpp:604
+#: src/linklabel.cpp:603
 #, kde-format
 msgid "I&talic"
 msgstr "&Cursiva"
 
-#: src/linklabel.cpp:607
+#: src/linklabel.cpp:606
 #, kde-format
 msgid "&Bold"
 msgstr "&Negreta"
 
-#: src/linklabel.cpp:615
+#: src/linklabel.cpp:614
 #, kde-format
 msgid "Always"
 msgstr "Sempre"
 
-#: src/linklabel.cpp:616
+#: src/linklabel.cpp:615
 #, kde-format
 msgid "Never"
 msgstr "Mai"
 
-#: src/linklabel.cpp:617
+#: src/linklabel.cpp:616
 #, kde-format
 msgid "On mouse hovering"
 msgstr "En passar per sobre amb el ratolí"
 
-#: src/linklabel.cpp:618
+#: src/linklabel.cpp:617
 #, kde-format
 msgid "When mouse is outside"
 msgstr "Quan el ratolí romangui fora"
 
-#: src/linklabel.cpp:620
+#: src/linklabel.cpp:619
 #, kde-format
 msgid "&Underline:"
 msgstr "S&ubratllat:"
 
-#: src/linklabel.cpp:627
+#: src/linklabel.cpp:626
 #, kde-format
 msgid "Colo&r:"
 msgstr "Colo&r:"
 
-#: src/linklabel.cpp:634
+#: src/linklabel.cpp:633
 #, kde-format
 msgid "&Mouse hover color:"
 msgstr "Color del &ratolí a sobre:"
 
-#: src/linklabel.cpp:643
+#: src/linklabel.cpp:642
 #, kde-format
 msgid "&Icon size:"
 msgstr "Mida de les &icones:"
 
-#: src/linklabel.cpp:649
+#: src/linklabel.cpp:648
 #, kde-format
 msgid "None"
 msgstr "Cap"
 
-#: src/linklabel.cpp:650
+#: src/linklabel.cpp:649
 #, kde-format
 msgid "Icon size"
 msgstr "Mida de la icona"
 
-#: src/linklabel.cpp:651
+#: src/linklabel.cpp:650
 #, kde-format
 msgid "Twice the icon size"
 msgstr "Dues vegades la mida de la icona"
 
-#: src/linklabel.cpp:652
+#: src/linklabel.cpp:651
 #, kde-format
 msgid "Three times the icon size"
 msgstr "Tres vegades la mida de la icona"
 
-#: src/linklabel.cpp:654
+#: src/linklabel.cpp:653
 #, kde-format
 msgid "&Preview:"
 msgstr "Vista &prèvia:"
 
-#: src/linklabel.cpp:657
+#: src/linklabel.cpp:656
 #, kde-format
 msgid "You disabled preview but still see images?"
 msgstr "Heu desactivat la vista prèvia, però encara veieu les imatges?"
 
-#: src/linklabel.cpp:658
+#: src/linklabel.cpp:657
 #, kde-format
 msgid ""
 "<p>This is normal because there are several type of notes.<br>This setting "
@@ -2147,82 +2147,82 @@ msgstr ""
 "«Imatge o animació» al grup «Veure el contingut dels fitxers afegits per als "
 "següents tipus».</p>"
 
-#: src/linklabel.cpp:675
+#: src/linklabel.cpp:674
 #, kde-format
 msgid "Example"
 msgstr "Exemple"
 
-#: src/mainwindow.cpp:74
+#: src/mainwindow.cpp:73
 #, kde-format
 msgid "Minimize"
 msgstr "Minimitza"
 
-#: src/mainwindow.cpp:254
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Realment voleu sortir del %1?</p>"
 
-#: src/mainwindow.cpp:258
+#: src/mainwindow.cpp:257
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Confirma en sortir"
 
-#: src/newbasketdialog.cpp:77
+#: src/newbasketdialog.cpp:76
 #, kde-format
 msgid "New Basket"
 msgstr "Cistella nova"
 
-#: src/newbasketdialog.cpp:111
+#: src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Background color"
 msgstr "Color de fons"
 
-#: src/newbasketdialog.cpp:119
+#: src/newbasketdialog.cpp:118
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "&Gestiona les plantilles..."
 
-#: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:314
+#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
 #, kde-format
 msgid "One column"
 msgstr "Una columna"
 
-#: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:316
+#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
 #, kde-format
 msgid "Two columns"
 msgstr "Dues columnes"
 
-#: src/newbasketdialog.cpp:175 src/newbasketdialog.cpp:318
+#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
 #, kde-format
 msgid "Three columns"
 msgstr "Tres columnes"
 
-#: src/newbasketdialog.cpp:187
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Free"
 msgstr "Lliure"
 
-#: src/newbasketdialog.cpp:195
+#: src/newbasketdialog.cpp:194
 #, kde-format
 msgid "&Template:"
 msgstr "Plan&tilla:"
 
-#: src/newbasketdialog.cpp:205
+#: src/newbasketdialog.cpp:204
 #, kde-format
 msgid "(Baskets)"
 msgstr "(cistelles)"
 
-#: src/newbasketdialog.cpp:207
+#: src/newbasketdialog.cpp:206
 #, kde-format
 msgid "C&reate in:"
 msgstr "C&rea dins:"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:208
 #, kde-format
 msgid "How is it useful?"
 msgstr "Com és d'utilitat?"
 
-#: src/newbasketdialog.cpp:210
+#: src/newbasketdialog.cpp:209
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2238,474 +2238,474 @@ msgstr ""
 "o pàgines.</li><li>Creant un grup de cistelles per a exportar-les juntes (p. "
 "ex., enviar-les per correu electrònic).</li></ul>"
 
-#: src/newbasketdialog.cpp:320
+#: src/newbasketdialog.cpp:319
 #, kde-format
 msgid "Free-form"
 msgstr "Forma lliure"
 
-#: src/newbasketdialog.cpp:322
+#: src/newbasketdialog.cpp:321
 #, kde-format
 msgid "Mind map"
 msgstr "Mapa mental"
 
-#: src/notecontent.cpp:90
+#: src/notecontent.cpp:89
 #, kde-format
 msgid "Group"
 msgstr "Grup"
 
-#: src/notecontent.cpp:92
+#: src/notecontent.cpp:91
 #, kde-format
 msgid "Plain Text"
 msgstr "Text net"
 
-#: src/notecontent.cpp:94
+#: src/notecontent.cpp:93
 #, kde-format
 msgid "Text"
 msgstr "Text"
 
-#: src/notecontent.cpp:96
+#: src/notecontent.cpp:95
 #, kde-format
 msgid "Image"
 msgstr "Imatge"
 
-#: src/notecontent.cpp:98
+#: src/notecontent.cpp:97
 #, kde-format
 msgid "Animation"
 msgstr "Animació"
 
-#: src/notecontent.cpp:100
+#: src/notecontent.cpp:99
 #, kde-format
 msgid "Sound"
 msgstr "So"
 
-#: src/notecontent.cpp:102
+#: src/notecontent.cpp:101
 #, kde-format
 msgid "File"
 msgstr "Fitxer"
 
-#: src/notecontent.cpp:104
+#: src/notecontent.cpp:103
 #, kde-format
 msgid "Link"
 msgstr "Enllaç"
 
-#: src/notecontent.cpp:106
+#: src/notecontent.cpp:105
 #, kde-format
 msgid "Cross Reference"
 msgstr "Referència creuada"
 
-#: src/notecontent.cpp:108
+#: src/notecontent.cpp:107
 #, kde-format
 msgid "Launcher"
 msgstr "Llançador"
 
-#: src/notecontent.cpp:110 src/noteedit.cpp:1204
+#: src/notecontent.cpp:109 src/noteedit.cpp:1202
 #, kde-format
 msgid "Color"
 msgstr "Color"
 
-#: src/notecontent.cpp:112 src/notecontent.cpp:114
+#: src/notecontent.cpp:111 src/notecontent.cpp:113
 #, kde-format
 msgid "Unknown"
 msgstr "Desconeguda"
 
-#: src/notecontent.cpp:590
+#: src/notecontent.cpp:589
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Edita-la en text net"
 
-#: src/notecontent.cpp:594
+#: src/notecontent.cpp:593
 #, kde-format
 msgid "Edit this text"
 msgstr "Edita aquest text"
 
-#: src/notecontent.cpp:598
+#: src/notecontent.cpp:597
 #, kde-format
 msgid "Edit this image"
 msgstr "Edita aquesta imatge"
 
-#: src/notecontent.cpp:602
+#: src/notecontent.cpp:601
 #, kde-format
 msgid "Edit this animation"
 msgstr "Edita aquesta animació"
 
-#: src/notecontent.cpp:606
+#: src/notecontent.cpp:605
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Edita el nom de fitxer d'aquest so"
 
-#: src/notecontent.cpp:610
+#: src/notecontent.cpp:609
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "Edita el nom d'aquest fitxer"
 
-#: src/notecontent.cpp:614
+#: src/notecontent.cpp:613
 #, kde-format
 msgid "Edit this link"
 msgstr "Edita aquest enllaç"
 
-#: src/notecontent.cpp:618
+#: src/notecontent.cpp:617
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Edita aquesta referència creuada"
 
-#: src/notecontent.cpp:622
+#: src/notecontent.cpp:621
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Edita aquest llançador"
 
-#: src/notecontent.cpp:626
+#: src/notecontent.cpp:625
 #, kde-format
 msgid "Edit this color"
 msgstr "Edita aquest color"
 
-#: src/notecontent.cpp:630
+#: src/notecontent.cpp:629
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Edita aquest objecte desconegut"
 
-#: src/notecontent.cpp:992
+#: src/notecontent.cpp:991
 #, kde-format
 msgid "Opening plain text..."
 msgstr "S'està obrint en text net..."
 
-#: src/notecontent.cpp:994
+#: src/notecontent.cpp:993
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "S'estan obrint en text net..."
 
-#: src/notecontent.cpp:996
+#: src/notecontent.cpp:995
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "S'està obrint en text net amb..."
 
-#: src/notecontent.cpp:998
+#: src/notecontent.cpp:997
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "S'estan obrint en text net amb..."
 
-#: src/notecontent.cpp:1000
+#: src/notecontent.cpp:999
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Obre en text net amb:"
 
-#: src/notecontent.cpp:1002
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Obre en text net amb:"
 
-#: src/notecontent.cpp:1113
+#: src/notecontent.cpp:1112
 #, kde-format
 msgid "Opening text..."
 msgstr "S'està obrint el text..."
 
-#: src/notecontent.cpp:1115
+#: src/notecontent.cpp:1114
 #, kde-format
 msgid "Opening texts..."
 msgstr "S'estan obrint els textos..."
 
-#: src/notecontent.cpp:1117
+#: src/notecontent.cpp:1116
 #, kde-format
 msgid "Opening text with..."
 msgstr "S'està obrint el text amb..."
 
-#: src/notecontent.cpp:1119
+#: src/notecontent.cpp:1118
 #, kde-format
 msgid "Opening texts with..."
 msgstr "S'estan obrint els textos amb..."
 
-#: src/notecontent.cpp:1121
+#: src/notecontent.cpp:1120
 #, kde-format
 msgid "Open text with:"
 msgstr "Obre el text amb:"
 
-#: src/notecontent.cpp:1123
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Open texts with:"
 msgstr "Obre els textos amb:"
 
-#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
+#: src/notecontent.cpp:1245 src/notecontent.cpp:1463
 #, kde-format
 msgid "Size"
 msgstr "Mida"
 
-#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 per %2 píxels"
 
-#: src/notecontent.cpp:1253
+#: src/notecontent.cpp:1252
 #, kde-format
 msgid "Opening image..."
 msgstr "S'està obrint la imatge..."
 
-#: src/notecontent.cpp:1255
+#: src/notecontent.cpp:1254
 #, kde-format
 msgid "Opening images..."
 msgstr "S'estan obrint les imatges..."
 
-#: src/notecontent.cpp:1257
+#: src/notecontent.cpp:1256
 #, kde-format
 msgid "Opening image with..."
 msgstr "S'està obrint la imatge amb..."
 
-#: src/notecontent.cpp:1259
+#: src/notecontent.cpp:1258
 #, kde-format
 msgid "Opening images with..."
 msgstr "S'estan obrint les imatges amb..."
 
-#: src/notecontent.cpp:1261
+#: src/notecontent.cpp:1260
 #, kde-format
 msgid "Open image with:"
 msgstr "Obre la imatge amb:"
 
-#: src/notecontent.cpp:1263
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Open images with:"
 msgstr "Obre les imatges amb:"
 
-#: src/notecontent.cpp:1288
+#: src/notecontent.cpp:1287
 #, kde-format
 msgid "Click for full size view"
 msgstr "Feu clic per a veure la mida completa"
 
-#: src/notecontent.cpp:1375
+#: src/notecontent.cpp:1374
 #, kde-format
 msgid "Opening animation..."
 msgstr "S'està obrint l'animació..."
 
-#: src/notecontent.cpp:1377
+#: src/notecontent.cpp:1376
 #, kde-format
 msgid "Opening animations..."
 msgstr "S'estan obrint les animacions..."
 
-#: src/notecontent.cpp:1379
+#: src/notecontent.cpp:1378
 #, kde-format
 msgid "Opening animation with..."
 msgstr "S'està obrint l'animació amb..."
 
-#: src/notecontent.cpp:1381
+#: src/notecontent.cpp:1380
 #, kde-format
 msgid "Opening animations with..."
 msgstr "S'estan obrint les animacions amb..."
 
-#: src/notecontent.cpp:1383
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Open animation with:"
 msgstr "Obre l'animació amb:"
 
-#: src/notecontent.cpp:1385
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Open animations with:"
 msgstr "Obre les animacions amb:"
 
-#: src/notecontent.cpp:1469
+#: src/notecontent.cpp:1468
 #, kde-format
 msgid "Type"
 msgstr "Tipus"
 
-#: src/notecontent.cpp:1510
+#: src/notecontent.cpp:1509
 #, kde-format
 msgid "Open this file"
 msgstr "Obre aquest fitxer"
 
-#: src/notecontent.cpp:1529
+#: src/notecontent.cpp:1528
 #, kde-format
 msgid "Opening file..."
 msgstr "S'està obrint el fitxer..."
 
-#: src/notecontent.cpp:1531
+#: src/notecontent.cpp:1530
 #, kde-format
 msgid "Opening files..."
 msgstr "S'estan obrint els fitxers..."
 
-#: src/notecontent.cpp:1533
+#: src/notecontent.cpp:1532
 #, kde-format
 msgid "Opening file with..."
 msgstr "S'està obrint el fitxer amb..."
 
-#: src/notecontent.cpp:1535
+#: src/notecontent.cpp:1534
 #, kde-format
 msgid "Opening files with..."
 msgstr "S'estan obrint els fitxers amb..."
 
-#: src/notecontent.cpp:1537
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Open file with:"
 msgstr "Obre el fitxer amb:"
 
-#: src/notecontent.cpp:1539
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Open files with:"
 msgstr "Obre els fitxers amb:"
 
-#: src/notecontent.cpp:1640
+#: src/notecontent.cpp:1639
 #, kde-format
 msgid "Open this sound"
 msgstr "Obre aquest so"
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1665
 #, kde-format
 msgid "Opening sound..."
 msgstr "S'està obrint el so..."
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1667
 #, kde-format
 msgid "Opening sounds..."
 msgstr "S'estan obrint els sons..."
 
-#: src/notecontent.cpp:1670
+#: src/notecontent.cpp:1669
 #, kde-format
 msgid "Opening sound with..."
 msgstr "S'està obrint el so amb..."
 
-#: src/notecontent.cpp:1672
+#: src/notecontent.cpp:1671
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "S'estan obrint els sons amb..."
 
-#: src/notecontent.cpp:1674
+#: src/notecontent.cpp:1673
 #, kde-format
 msgid "Open sound with:"
 msgstr "Obre el so amb:"
 
-#: src/notecontent.cpp:1676
+#: src/notecontent.cpp:1675
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Obre els sons amb:"
 
-#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
+#: src/notecontent.cpp:1738 src/notecontent.cpp:2009
 #, kde-format
 msgid "Target"
 msgstr "Objectiu"
 
-#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
+#: src/notecontent.cpp:1760 src/notecontent.cpp:2031
 #, kde-format
 msgid "Open this link"
 msgstr "Obre aquest enllaç"
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1786
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "L'enllaç no té cap URL per a obrir."
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1790
 #, kde-format
 msgid "Opening link target..."
 msgstr "S'està obrint l'objectiu de l'enllaç..."
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1792
 #, kde-format
 msgid "Opening link targets..."
 msgstr "S'estan obrint els objectius de l'enllaç..."
 
-#: src/notecontent.cpp:1795
+#: src/notecontent.cpp:1794
 #, kde-format
 msgid "Opening link target with..."
 msgstr "S'està obrint l'objectiu de l'enllaç amb..."
 
-#: src/notecontent.cpp:1797
+#: src/notecontent.cpp:1796
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "S'estan obrint els objectius de l'enllaç amb..."
 
-#: src/notecontent.cpp:1799
+#: src/notecontent.cpp:1798
 #, kde-format
 msgid "Open link target with:"
 msgstr "Obre l'objectiu de l'enllaç amb:"
 
-#: src/notecontent.cpp:1801
+#: src/notecontent.cpp:1800
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Obre els objectius de l'enllaç amb:"
 
-#: src/notecontent.cpp:2045
+#: src/notecontent.cpp:2044
 #, kde-format
 msgid "Link to %1"
 msgstr "Enllaç cap a %1"
 
-#: src/notecontent.cpp:2058
+#: src/notecontent.cpp:2057
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "L'enllaç no té cap cistella per a obrir."
 
-#: src/notecontent.cpp:2062
+#: src/notecontent.cpp:2061
 #, kde-format
 msgid "Opening basket..."
 msgstr "S'està obrint la cistella..."
 
-#: src/notecontent.cpp:2167
+#: src/notecontent.cpp:2166
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(executa en un terminal)</i>"
 
-#: src/notecontent.cpp:2172
+#: src/notecontent.cpp:2171
 #, kde-format
 msgid "Command"
 msgstr "Ordre"
 
-#: src/notecontent.cpp:2196
+#: src/notecontent.cpp:2195
 #, kde-format
 msgid "Launch this application"
 msgstr "Llança aquesta aplicació"
 
-#: src/notecontent.cpp:2217
+#: src/notecontent.cpp:2216
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "El llançador no té cap ordre per a executar."
 
-#: src/notecontent.cpp:2221
+#: src/notecontent.cpp:2220
 #, kde-format
 msgid "Launching application..."
 msgstr "S'està llançant l'aplicació..."
 
-#: src/notecontent.cpp:2223
+#: src/notecontent.cpp:2222
 #, kde-format
 msgid "Launching applications..."
 msgstr "S'estan llançant les aplicacions..."
 
-#: src/notecontent.cpp:2343
+#: src/notecontent.cpp:2342
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2344
+#: src/notecontent.cpp:2343
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Vermell</i>: %1, <i>Verd</i>: %2, <i>Blau</i>: %3,"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2347
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2349
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>To</i>: %1, <i>Saturació</i>: %2, <i>Valor</i>: %3,"
 
-#: src/notecontent.cpp:2353
+#: src/notecontent.cpp:2352
 #, kde-format
 msgid "CSS Color Name"
 msgstr "Nom del color CSS"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "Is Web Color"
 msgstr "És un color web"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "Yes"
 msgstr "Sí"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "No"
 msgstr "No"
 
-#: src/noteedit.cpp:541
+#: src/noteedit.cpp:539
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2716,12 +2716,12 @@ msgstr ""
 "notes BasKet inclourà un editor d'imatges).\n"
 "Voleu obrir-la amb una aplicació que l'entengui?"
 
-#: src/noteedit.cpp:543
+#: src/noteedit.cpp:541
 #, kde-format
 msgid "Edit Image Note"
 msgstr "Edita la nota d'imatge"
 
-#: src/noteedit.cpp:568
+#: src/noteedit.cpp:566
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
@@ -2730,17 +2730,17 @@ msgstr ""
 "De moment no es poden editar aquí les imatges animades.\n"
 "Voleu obrir-la amb una aplicació que l'entengui?"
 
-#: src/noteedit.cpp:570
+#: src/noteedit.cpp:568
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "Edita la nota d'animació"
 
-#: src/noteedit.cpp:663
+#: src/noteedit.cpp:661
 #, kde-format
 msgid "Edit Color Note"
 msgstr "Edita la nota de color"
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:686
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2751,132 +2751,132 @@ msgstr ""
 "No obstant això, podeu arrossegar o copiar la nota en una aplicació que "
 "l'entengui."
 
-#: src/noteedit.cpp:690
+#: src/noteedit.cpp:688
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "Edita la nota desconeguda"
 
-#: src/noteedit.cpp:702
+#: src/noteedit.cpp:700
 #, kde-format
 msgid "Edit Link Note"
 msgstr "Edita la nota d'enllaç"
 
-#: src/noteedit.cpp:722 src/noteedit.cpp:755
+#: src/noteedit.cpp:720 src/noteedit.cpp:753
 #, kde-format
 msgid "Auto"
 msgstr "Automàtic"
 
-#: src/noteedit.cpp:734 src/noteedit.cpp:1060
+#: src/noteedit.cpp:732 src/noteedit.cpp:1058
 #, kde-format
 msgid "&Icon:"
 msgstr "&Icona:"
 
-#: src/noteedit.cpp:777 src/noteedit.cpp:948
+#: src/noteedit.cpp:775 src/noteedit.cpp:946
 #, kde-format
 msgid "Ta&rget:"
 msgstr "De&stinació:"
 
-#: src/noteedit.cpp:782
+#: src/noteedit.cpp:780
 #, kde-format
 msgid "&Title:"
 msgstr "&Títol:"
 
-#: src/noteedit.cpp:915
+#: src/noteedit.cpp:913
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Edita la referència creuada"
 
-#: src/noteedit.cpp:1034
+#: src/noteedit.cpp:1032
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Edita la nota del llançador"
 
-#: src/noteedit.cpp:1048
+#: src/noteedit.cpp:1046
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Escolliu una ordre a executar:"
 
-#: src/noteedit.cpp:1065
+#: src/noteedit.cpp:1063
 #, kde-format
 msgid "&Guess"
 msgstr "Est&imació"
 
-#: src/noteedit.cpp:1083
+#: src/noteedit.cpp:1081
 #, kde-format
 msgid "Comman&d:"
 msgstr "Or&dre:"
 
-#: src/noteedit.cpp:1088 src/tagsedit.cpp:386
+#: src/noteedit.cpp:1086 src/tagsedit.cpp:385
 #, kde-format
 msgid "&Name:"
 msgstr "&Nom:"
 
-#: src/noteedit.cpp:1186
+#: src/noteedit.cpp:1184
 #, kde-format
 msgid "Font"
 msgstr "Lletra"
 
-#: src/noteedit.cpp:1194
+#: src/noteedit.cpp:1192
 #, kde-format
 msgid "Font Size"
 msgstr "Mida de la lletra"
 
-#: src/noteedit.cpp:1209 src/tagsedit.cpp:468
+#: src/noteedit.cpp:1207 src/tagsedit.cpp:467
 #, kde-format
 msgid "Bold"
 msgstr "Negreta"
 
-#: src/noteedit.cpp:1216 src/tagsedit.cpp:480
+#: src/noteedit.cpp:1214 src/tagsedit.cpp:479
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: src/noteedit.cpp:1223 src/tagsedit.cpp:474
+#: src/noteedit.cpp:1221 src/tagsedit.cpp:473
 #, kde-format
 msgid "Underline"
 msgstr "Subratllat"
 
-#: src/noteedit.cpp:1231
+#: src/noteedit.cpp:1229
 #, kde-format
 msgid "Superscript"
 msgstr "Superíndex"
 
-#: src/noteedit.cpp:1237
+#: src/noteedit.cpp:1235
 #, kde-format
 msgid "Subscript"
 msgstr "Subíndex"
 
-#: src/noteedit.cpp:1244
+#: src/noteedit.cpp:1242
 #, kde-format
 msgid "Align Left"
 msgstr "Alinea a l'esquerra"
 
-#: src/noteedit.cpp:1250
+#: src/noteedit.cpp:1248
 #, kde-format
 msgid "Centered"
 msgstr "Centrat"
 
-#: src/noteedit.cpp:1256
+#: src/noteedit.cpp:1254
 #, kde-format
 msgid "Align Right"
 msgstr "Alinea a la dreta"
 
-#: src/noteedit.cpp:1262
+#: src/noteedit.cpp:1260
 #, kde-format
 msgid "Justified"
 msgstr "Justificat"
 
-#: src/noteedit.cpp:1274
+#: src/noteedit.cpp:1272
 #, kde-format
 msgid "Undo"
 msgstr "Desfés"
 
-#: src/noteedit.cpp:1280
+#: src/noteedit.cpp:1278
 #, kde-format
 msgid "Redo"
 msgstr "Refés"
 
-#: src/notefactory.cpp:491
+#: src/notefactory.cpp:490
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2889,76 +2889,78 @@ msgstr ""
 "l'entengui.</p><p>Si voleu el suport d'aquestes dades, contacteu amb el "
 "desenvolupador.</p>"
 
-#: src/notefactory.cpp:497
+#: src/notefactory.cpp:496
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "Tipus MIME no acceptats"
 
-#: src/notefactory.cpp:553
+#: src/notefactory.cpp:552
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "&Mou aquí\tMaj"
 
-#: src/notefactory.cpp:554
+#: src/notefactory.cpp:553
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "&Copia aquí\tCtrl"
 
-#: src/notefactory.cpp:555
+#: src/notefactory.cpp:554
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "En&llaça aquí\tCtrl+Maj"
 
-#: src/notefactory.cpp:561
+#: src/notefactory.cpp:560
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "C&ancel·la\tEscapada"
 
-#: src/notefactory.cpp:1052
+#: src/notefactory.cpp:1051
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "Importa la icona com a imatge"
 
-#: src/notefactory.cpp:1053
+#: src/notefactory.cpp:1052
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "Trieu la mida de la icona per a importar-la com a imatge:"
 
-#: src/notefactory.cpp:1069
+#: src/notefactory.cpp:1068
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "Carrega el contingut del fitxer a una nota"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:589
-#, kde-format
-msgid "Password Protection"
-msgstr "Protecció per contrasenya"
-
-#: src/password.cpp:59
+#: src/passworddialog.cpp:53
 #, kde-format
 msgid "No private key selected."
 msgstr "No s'ha seleccionat cap clau privada."
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
+#: src/passworddialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Password Protection"
+msgctxt "@title:window"
+msgid "Password Protection"
+msgstr "Protecció per contrasenya"
+
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
-#: src/passwordlayout.ui:29
+#: src/passworddialog.ui:29
 #, kde-format
 msgid "&No protection"
 msgstr "Se&nse protecció"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
-#: src/passwordlayout.ui:36
+#: src/passworddialog.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
 msgstr "Protegeix la cistella amb una con&trasenya"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
-#: src/passwordlayout.ui:51
+#: src/passworddialog.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
 msgstr "Protegeix la cistella amb una &clau privada:"
 
-#: src/regiongrabber.cpp:102
+#: src/regiongrabber.cpp:101
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
@@ -2967,84 +2969,84 @@ msgstr ""
 "Seleccioneu una regió amb el ratolí. Per a prendre la captura de pantalla, "
 "premeu la tecla «Retorn». Premeu «Esc» per a sortir."
 
-#: src/settings.cpp:432
+#: src/settings.cpp:431
 #, kde-format
 msgid "On left"
 msgstr "A l'esquerra"
 
-#: src/settings.cpp:433
+#: src/settings.cpp:432
 #, kde-format
 msgid "On right"
 msgstr "A la dreta"
 
-#: src/settings.cpp:435
+#: src/settings.cpp:434
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "Posició de l'arbre de &cistelles:"
 
-#: src/settings.cpp:440 src/settings.cpp:698
+#: src/settings.cpp:439 src/settings.cpp:697
 #, kde-format
 msgid "On top"
 msgstr "A la part superior"
 
-#: src/settings.cpp:441 src/settings.cpp:699
+#: src/settings.cpp:440 src/settings.cpp:698
 #, kde-format
 msgid "On bottom"
 msgstr "A la part inferior"
 
-#: src/settings.cpp:443
+#: src/settings.cpp:442
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "Posició de la barra de &filtre:"
 
-#: src/settings.cpp:489
+#: src/settings.cpp:488
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "Mo&stra consells a les cistelles"
 
-#: src/settings.cpp:493
+#: src/settings.cpp:492
 #, kde-format
 msgid "&Big notes"
 msgstr "Notes &grans"
 
-#: src/settings.cpp:499
+#: src/settings.cpp:498
 #, kde-format
 msgid "Behavior"
 msgstr "Comportament"
 
-#: src/settings.cpp:504
+#: src/settings.cpp:503
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "&Transforma les línies que comencen amb «*» o «-» a llistes en els editors "
 "de text"
 
-#: src/settings.cpp:508
+#: src/settings.cpp:507
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "Demana confirmació abans &de suprimir les notes"
 
-#: src/settings.cpp:512
+#: src/settings.cpp:511
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Manté el format del text quan s'enganxi"
 
-#: src/settings.cpp:516
+#: src/settings.cpp:515
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Detecta automàticament les etiquetes des del contingut de la nota"
 
-#: src/settings.cpp:523
+#: src/settings.cpp:522
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&Exporta les etiquetes en els textos"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:526
 #, kde-format
 msgid "When does this apply?"
 msgstr "Quan s'aplica això?"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:527
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3053,7 +3055,7 @@ msgstr ""
 "S'aplicarà quan copieu i enganxeu, o arrossegueu i deixeu anar notes a un "
 "editor de text."
 
-#: src/settings.cpp:529
+#: src/settings.cpp:528
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
@@ -3062,7 +3064,7 @@ msgstr ""
 "equivalents textuals."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:530 src/tagsedit.cpp:524
+#: src/settings.cpp:529 src/tagsedit.cpp:523
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3073,18 +3075,18 @@ msgstr ""
 "b> és exportada com a línies precedides per <b>[ ]</b> o <b>[x]</b>, "
 "representant una casella de selecció desmarcada i marcada."
 
-#: src/settings.cpp:542
+#: src/settings.cpp:541
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr ""
 "A&grupa una nota nova quan es faci clic a la dreta de la línia d'inserció"
 
-#: src/settings.cpp:544
+#: src/settings.cpp:543
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Com agrupar una nota nova?"
 
-#: src/settings.cpp:545
+#: src/settings.cpp:544
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3095,7 +3097,7 @@ msgstr ""
 "posar notes a la posició del cursor, sinó que també permetrà agrupar una "
 "nota nova amb la de sota el cursor:</p>"
 
-#: src/settings.cpp:548
+#: src/settings.cpp:547
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3109,190 +3111,195 @@ msgstr ""
 "<b>agrupar</b> una nota, amb la que està a <b>sota o dalt</b>, depenent d'on "
 "es trobi el vostre ratolí.</p>"
 
-#: src/settings.cpp:564
+#: src/settings.cpp:563
 #, kde-format
 msgid "Do nothing"
 msgstr "No facis res"
 
-#: src/settings.cpp:565
+#: src/settings.cpp:564
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Enganxa des del porta-retalls"
 
-#: src/settings.cpp:568
+#: src/settings.cpp:567
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Insereix una referència creuada"
 
-#: src/settings.cpp:569
+#: src/settings.cpp:568
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Insereix una nota del llançador"
 
-#: src/settings.cpp:572
+#: src/settings.cpp:571
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Insereix un color des de la pantalla"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:572
 #, kde-format
 msgid "Load note from file"
 msgstr "Carrega una nota des d'un fitxer"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:573
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Importa un llançador per a l'aplicació d'escriptori"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:574
 #, kde-format
 msgid "Import icon"
 msgstr "Importa una icona"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:577
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Maj+Clic_del_mig on sigui:"
 
-#: src/settings.cpp:583
+#: src/settings.cpp:582
 #, kde-format
 msgid "at cursor position"
 msgstr "a la posició del cursor"
 
-#: src/settings.cpp:598
+#: src/settings.cpp:588
+#, kde-format
+msgid "Password Protection"
+msgstr "Protecció per contrasenya"
+
+#: src/settings.cpp:597
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "Bloca a&utomàticament les cistelles protegides quan es tanquin per"
 
-#: src/settings.cpp:602
+#: src/settings.cpp:601
 #, kde-format
 msgid " minutes"
 msgstr " minuts"
 
-#: src/settings.cpp:613
+#: src/settings.cpp:612
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr ""
 "Empra l'agent GnuPG per a les cistelles protegides amb claus &privades/"
 "públiques"
 
-#: src/settings.cpp:695
+#: src/settings.cpp:694
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Lloc de les notes noves:"
 
-#: src/settings.cpp:700
+#: src/settings.cpp:699
 #, kde-format
 msgid "At current note"
 msgstr "A la nota actual"
 
-#: src/settings.cpp:719
+#: src/settings.cpp:718
 #, kde-format
 msgid "&New images size:"
 msgstr "Mida de les imatges &noves:"
 
-#: src/settings.cpp:732
+#: src/settings.cpp:731
 #, kde-format
 msgid "&by"
 msgstr "&per"
 
-#: src/settings.cpp:737
+#: src/settings.cpp:736
 #, kde-format
 msgid "pixels"
 msgstr "píxels"
 
-#: src/settings.cpp:739
+#: src/settings.cpp:738
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Visualitza..."
 
-#: src/settings.cpp:747
+#: src/settings.cpp:746
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Veure el contingut dels fitxers afegits per als següents tipus"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:748
 #, kde-format
 msgid "&Plain text"
 msgstr "Text &net"
 
-#: src/settings.cpp:750
+#: src/settings.cpp:749
 #, kde-format
 msgid "&HTML page"
 msgstr "Pàgina en &HTML"
 
-#: src/settings.cpp:751
+#: src/settings.cpp:750
 #, kde-format
 msgid "&Image or animation"
 msgstr "&Imatge o animació"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:751
 #, kde-format
 msgid "&Sound"
 msgstr "&So"
 
-#: src/settings.cpp:820
+#: src/settings.cpp:819
 #, kde-format
 msgid "Conference audio record"
 msgstr "Enregistrament d'àudio d'un congrés"
 
-#: src/settings.cpp:821
+#: src/settings.cpp:820
 #, kde-format
 msgid "Annual report"
 msgstr "Informe anual"
 
-#: src/settings.cpp:822
+#: src/settings.cpp:821
 #, kde-format
 msgid "Home folder"
 msgstr "Carpeta d'inici"
 
-#: src/settings.cpp:824
+#: src/settings.cpp:823
 #, kde-format
 msgid "Launch %1"
 msgstr "Llança el %1"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:824
 #, kde-format
 msgid "Another basket"
 msgstr "Una altra cistella"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:826
 #, kde-format
 msgid "&Sounds"
 msgstr "&Sons"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:827
 #, kde-format
 msgid "&Files"
 msgstr "&Fitxers"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Local Links"
 msgstr "Enllaços &locals"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:829
 #, kde-format
 msgid "&Network Links"
 msgstr "Enllaços de &xarxa"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:830
 #, kde-format
 msgid "Launc&hers"
 msgstr "Lla&nçadors"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:831
 #, kde-format
 msgid "&Cross References"
 msgstr "Referències &creuades"
 
-#: src/settings.cpp:873
+#: src/settings.cpp:872
 #, kde-format
 msgid "General Launch Associations"
 msgstr "Associacions de llançament generals"
 
 # skip-rule: t-apo_ini
-#: src/settings.cpp:876
+#: src/settings.cpp:875
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3327,7 +3334,7 @@ msgstr ""
 "documents PDF preferiblement amb el Falkon), llegiu el consell d'eina del "
 "segon botó.</p>"
 
-#: src/settings.cpp:890
+#: src/settings.cpp:889
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3361,7 +3368,7 @@ msgstr ""
 "(com obrir només les pàgines web en el vostre navegador web), llegiu el "
 "consell d'eina del tercer botó.</p>"
 
-#: src/settings.cpp:904
+#: src/settings.cpp:903
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3394,77 +3401,77 @@ msgstr ""
 "vostre navegador web com la primera entrada.</li><li>Feu el mateix per al "
 "tipus «application -> xhtml+xml».</li></ul>"
 
-#: src/settings.cpp:923
+#: src/settings.cpp:922
 #, kde-format
 msgid "Launch KDE Menu Editor"
 msgstr "Llança l'editor de menús de KDE"
 
-#: src/settings.cpp:932
+#: src/settings.cpp:931
 #, kde-format
 msgid "Default Applications"
 msgstr "Aplicacions predeterminades"
 
-#: src/settings.cpp:941
+#: src/settings.cpp:940
 #, kde-format
 msgid "File Associations"
 msgstr "Associacions de fitxers"
 
-#: src/settings.cpp:952
+#: src/settings.cpp:951
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "Associacions específiques de les cistelles"
 
-#: src/settings.cpp:954
+#: src/settings.cpp:953
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "Obre les notes de &text amb una aplicació personalitzada:"
 
-#: src/settings.cpp:955
+#: src/settings.cpp:954
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Obre les notes de text amb:"
 
-#: src/settings.cpp:962
+#: src/settings.cpp:961
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Obre les notes d'&imatge amb una aplicació personalitzada:"
 
-#: src/settings.cpp:963
+#: src/settings.cpp:962
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Obre les notes d'imatge amb:"
 
-#: src/settings.cpp:970
+#: src/settings.cpp:969
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Obre les notes d'a&nimació amb una aplicació personalitzada:"
 
-#: src/settings.cpp:971
+#: src/settings.cpp:970
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Obre les notes d'animació amb:"
 
-#: src/settings.cpp:978
+#: src/settings.cpp:977
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "Obre les notes de so amb &una aplicació personalitzada:"
 
-#: src/settings.cpp:979
+#: src/settings.cpp:978
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Obre les notes de so amb:"
 
-#: src/settings.cpp:986
+#: src/settings.cpp:985
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "Obre les notes d'enllaços HTTP amb una aplicació personalitzada:"
 
-#: src/settings.cpp:987
+#: src/settings.cpp:986
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "Obre les notes d'enllaços HTTP amb:"
 
-#: src/settings.cpp:995
+#: src/settings.cpp:994
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3475,7 +3482,7 @@ msgstr ""
 "tipus de nota.</p><p>En cas contrari, s'usarà l'aplicació que vàreu "
 "configurar en el Konqueror.</p>"
 
-#: src/settings.cpp:1005
+#: src/settings.cpp:1004
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
@@ -3500,8 +3507,9 @@ msgid "Version Sync"
 msgstr "Sincronització de versions"
 
 #: src/settings_versionsync.cpp:92
-#, kde-format
-msgid "This will free %1 MB"
+#, fuzzy, kde-format
+#| msgid "This will free %1 MB"
+msgid "This will free %1"
 msgstr "Això alliberarà %1 MB"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
@@ -3528,292 +3536,292 @@ msgstr "Control"
 msgid "Clear version history"
 msgstr "Neteja l'historial de versions"
 
-#: src/softwareimporters.cpp:49
+#: src/softwareimporters.cpp:47
 #, kde-format
 msgid "Import Hierarchy"
 msgstr "Importa la jerarquia"
 
-#: src/softwareimporters.cpp:59
+#: src/softwareimporters.cpp:57
 #, kde-format
 msgid "How to Import the Notes?"
 msgstr "Com importar les notes?"
 
-#: src/softwareimporters.cpp:63
+#: src/softwareimporters.cpp:61
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
 msgstr "Mantén la &jerarquia original (totes les notes de cistelles separades)"
 
-#: src/softwareimporters.cpp:64
+#: src/softwareimporters.cpp:62
 #, kde-format
 msgid "&First level notes in separate baskets"
 msgstr "Notes de &primer nivell en cistelles separades"
 
-#: src/softwareimporters.cpp:65
+#: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&All notes in one basket"
 msgstr "T&otes les notes en una cistella"
 
-#: src/softwareimporters.cpp:109
+#: src/softwareimporters.cpp:107
 #, kde-format
 msgid "Import Text File"
 msgstr "Importa un fitxer de text"
 
-#: src/softwareimporters.cpp:113
+#: src/softwareimporters.cpp:111
 #, kde-format
 msgid "Format of the Text File"
 msgstr "Format del fitxer de text"
 
-#: src/softwareimporters.cpp:118
+#: src/softwareimporters.cpp:116
 #, kde-format
 msgid "Notes separated by an &empty line"
 msgstr "Notes separades per una línia &buida"
 
-#: src/softwareimporters.cpp:119
+#: src/softwareimporters.cpp:117
 #, kde-format
 msgid "One &note per line"
 msgstr "Una &nota per línia"
 
-#: src/softwareimporters.cpp:120
+#: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes begin with a &dash (-)"
 msgstr "Les notes comencen amb un &guió (-)"
 
-#: src/softwareimporters.cpp:121
+#: src/softwareimporters.cpp:119
 #, kde-format
 msgid "Notes begin with a &star (*)"
 msgstr "Les notes comencen amb un a&sterisc (*)"
 
-#: src/softwareimporters.cpp:122
+#: src/softwareimporters.cpp:120
 #, kde-format
 msgid "&Use another separator:"
 msgstr "Empra &un altre separador:"
 
-#: src/softwareimporters.cpp:138
+#: src/softwareimporters.cpp:136
 #, kde-format
 msgid "&All in one note"
 msgstr "Tot en un&a nota"
 
-#: src/softwareimporters.cpp:217
+#: src/softwareimporters.cpp:215
 #, kde-format
 msgctxt "From TextFile.txt"
 msgid "From %1"
 msgstr "Des del %1"
 
-#: src/tag.cpp:80
+#: src/tag.cpp:79
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "To Do"
 msgstr "Pendent"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "Unchecked"
 msgstr "Desmarcada"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "Done"
 msgstr "Fet"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "Progress"
 msgstr "Progrés"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "0 %"
 msgstr "0 %"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "25 %"
 msgstr "25 %"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "50 %"
 msgstr "50 %"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "75 %"
 msgstr "75 %"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "100 %"
 msgstr "100 %"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Priority"
 msgstr "Prioritat"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Low"
 msgstr "Baixa"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Medium"
 msgstr "Mitjana"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "High"
 msgstr "Alta"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "Preference"
 msgstr "Preferència"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "Bad"
 msgstr "Dolenta"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Good"
 msgstr "Bona"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Excellent"
 msgstr "Excel·lent"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Highlight"
 msgstr "Ressaltada"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Important"
 msgstr "Important"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Very Important"
 msgstr "Molt important"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Information"
 msgstr "Informació"
 
-#: src/tag.cpp:719
+#: src/tag.cpp:718
 #, kde-format
 msgid "Idea"
 msgstr "Idea"
 
-#: src/tag.cpp:719
+#: src/tag.cpp:718
 #, kde-format
 msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr "I."
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgid "Code"
 msgstr "Codi"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgid "Work"
 msgstr "Feina"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
 msgstr "F."
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgid "Personal"
 msgstr "Personal"
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgctxt "The initial of 'Personal'"
 msgid "P."
 msgstr "P."
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgid "Funny"
 msgstr "Divertit"
 
-#: src/tagsedit.cpp:312
+#: src/tagsedit.cpp:311
 #, kde-format
 msgid "Customize Tags"
 msgstr "Personalitza les etiquetes"
 
-#: src/tagsedit.cpp:331
+#: src/tagsedit.cpp:330
 #, kde-format
 msgid "Ne&w Tag"
 msgstr "Etiqueta no&va"
 
-#: src/tagsedit.cpp:332
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "New St&ate"
 msgstr "Est&at nou"
 
-#: src/tagsedit.cpp:353
+#: src/tagsedit.cpp:352
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "Mou amunt (Ctrl+Maj+Fletxa amunt)"
 
-#: src/tagsedit.cpp:354
+#: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "Mou avall (Ctrl+Maj+Fletxa avall)"
 
-#: src/tagsedit.cpp:355
+#: src/tagsedit.cpp:354
 #, kde-format
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: src/tagsedit.cpp:378
+#: src/tagsedit.cpp:377
 #, kde-format
 msgid "Tag"
 msgstr "Etiqueta"
 
-#: src/tagsedit.cpp:390
+#: src/tagsedit.cpp:389
 #, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "E&limina"
 
-#: src/tagsedit.cpp:391
+#: src/tagsedit.cpp:390
 #, kde-format
 msgid "S&hortcut:"
 msgstr "&Drecera:"
 
-#: src/tagsedit.cpp:396
+#: src/tagsedit.cpp:395
 #, kde-format
 msgid "&Inherited by new sibling notes"
 msgstr "&Heretada per les notes germanes noves"
 
-#: src/tagsedit.cpp:398
+#: src/tagsedit.cpp:397
 #, kde-format
 msgid "Allow Cross Reference Links"
 msgstr "Permetre els enllaços de referència creuada"
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:400
 #, kde-format
 msgid "What does this do?"
 msgstr "Què fa això?"
 
-#: src/tagsedit.cpp:403
+#: src/tagsedit.cpp:402
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3823,104 +3831,104 @@ msgstr ""
 "una nota de text. Els enllaços de referència creuada poden tenir la següent "
 "sintaxi:"
 
-#: src/tagsedit.cpp:404
+#: src/tagsedit.cpp:403
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "Des de la part superior de l'arbre (camí absolut):"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/element de nivell superior/fill|títol opcional]]"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "Relativa a la cistella actual:"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../germana|títol opcional]]"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[filla|títol opcional]]"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./filla|títol opcional]]"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr ""
 "La coincidència de les cistelles no distingeix majúscules i minúscules."
 
-#: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
+#: src/tagsedit.cpp:421 src/tagsedit.cpp:1100 src/tagsedit.cpp:1116
 #, kde-format
 msgid "State"
 msgstr "Estat"
 
-#: src/tagsedit.cpp:430
+#: src/tagsedit.cpp:429
 #, kde-format
 msgid "Na&me:"
 msgstr "No&m:"
 
-#: src/tagsedit.cpp:438
+#: src/tagsedit.cpp:437
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "E&limina"
 
-#: src/tagsedit.cpp:439
+#: src/tagsedit.cpp:438
 #, kde-format
 msgid "&Emblem:"
 msgstr "&Emblema:"
 
-#: src/tagsedit.cpp:456
+#: src/tagsedit.cpp:455
 #, kde-format
 msgid "&Background:"
 msgstr "&Fons:"
 
-#: src/tagsedit.cpp:486
+#: src/tagsedit.cpp:485
 #, kde-format
 msgid "Strike Through"
 msgstr "Ratllat"
 
-#: src/tagsedit.cpp:488
+#: src/tagsedit.cpp:487
 #, kde-format
 msgid "&Text:"
 msgstr "&Text:"
 
-#: src/tagsedit.cpp:499
+#: src/tagsedit.cpp:498
 #, kde-format
 msgid "Co&lor:"
 msgstr "Co&lor:"
 
-#: src/tagsedit.cpp:504
+#: src/tagsedit.cpp:503
 #, kde-format
 msgid "&Font:"
 msgstr "&Lletra:"
 
-#: src/tagsedit.cpp:508
+#: src/tagsedit.cpp:507
 #, kde-format
 msgid "&Size:"
 msgstr "&Mida:"
 
-#: src/tagsedit.cpp:512
+#: src/tagsedit.cpp:511
 #, kde-format
 msgid "Te&xt equivalent:"
 msgstr "Equivalent de te&xt:"
 
-#: src/tagsedit.cpp:519
+#: src/tagsedit.cpp:518
 #, kde-format
 msgid "What is this for?"
 msgstr "Per a què serveix?"
 
-#: src/tagsedit.cpp:521
+#: src/tagsedit.cpp:520
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3929,17 +3937,17 @@ msgstr ""
 "Quan copia i enganxa, o arrossegueu i deixeu anar les notes en un editor de "
 "text, aquest text serà inserit com un equivalent textual de l'etiqueta."
 
-#: src/tagsedit.cpp:532
+#: src/tagsedit.cpp:531
 #, kde-format
 msgid "On ever&y line"
 msgstr "A cada lín&ia"
 
-#: src/tagsedit.cpp:535
+#: src/tagsedit.cpp:534
 #, kde-format
 msgid "What does this mean?"
 msgstr "Què vol dir això?"
 
-#: src/tagsedit.cpp:537
+#: src/tagsedit.cpp:536
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3948,7 +3956,7 @@ msgstr ""
 "Quan una nota té diverses línies, podreu optar per a exportar l'etiqueta o "
 "l'estat en la primera línia o en cada línia de la nota."
 
-#: src/tagsedit.cpp:539
+#: src/tagsedit.cpp:538
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3958,7 +3966,7 @@ msgstr ""
 "primera línia, mentre que l'etiqueta de la nota inferior s'exportarà cada "
 "línia de la nota."
 
-#: src/tagsedit.cpp:977
+#: src/tagsedit.cpp:976
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
@@ -3966,17 +3974,17 @@ msgstr ""
 "En suprimir l'etiqueta, s'eliminarà de cada nota a la qual estigui "
 "actualment assignada."
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:977
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Confirmació de la supressió de l'etiqueta"
 
-#: src/tagsedit.cpp:979
+#: src/tagsedit.cpp:978
 #, kde-format
 msgid "Delete Tag"
 msgstr "Suprimeix l'etiqueta"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:981
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3985,46 +3993,46 @@ msgstr ""
 "En suprimir l'estat, s'eliminarà l'etiqueta de totes les notes a les quals "
 "estigui actualment assignat."
 
-#: src/tagsedit.cpp:983
+#: src/tagsedit.cpp:982
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "Confirmació de la supressió de l'estat"
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:983
 #, kde-format
 msgid "Delete State"
 msgstr "Suprimeix l'estat"
 
 # skip-rule: punctuation-space-start-no
-#: src/tools.cpp:804
+#: src/tools.cpp:773
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr ": "
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:107
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Trieu un llançador d'aplicacions..."
 
-#: src/variouswidgets.cpp:109
+#: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Utilitzeu el llançadors d'aplicacions del Plasma de KDE per a obrir les "
 "notes del Basket"
 
-#: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
-#: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
-#: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
-#: src/variouswidgets.cpp:275 src/variouswidgets.cpp:276
-#: src/variouswidgets.cpp:277 src/variouswidgets.cpp:278
-#: src/variouswidgets.cpp:279 src/variouswidgets.cpp:280
+#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
+#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
+#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
+#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
+#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
+#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 per %1 píxels"
 
-#: src/variouswidgets.cpp:195
+#: src/variouswidgets.cpp:194
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"

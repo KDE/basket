@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-20 00:48+0000\n"
+"POT-Creation-Date: 2026-08-23 00:48+0000\n"
 "PO-Revision-Date: 2026-06-05 12:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -115,17 +115,17 @@ msgstr "Kaynak, geçersiz gibi görünüyor."
 msgid "Could not open file."
 msgstr "Dosya açılamadı."
 
-#: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
+#: devtools/weaver/weaver.cpp:304 src/archive.cpp:263
 #, kde-format
 msgid "Failed to open a file resource."
 msgstr "Bir özkaynaktaki dosya açılamadı."
 
-#: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
+#: devtools/weaver/weaver.cpp:307 src/archive.cpp:266
 #, kde-format
 msgid "This file is not a basket archive."
 msgstr "Bu dosya bir basket arşivi değil."
 
-#: devtools/weaver/weaver.cpp:310 src/archive.cpp:270
+#: devtools/weaver/weaver.cpp:310 src/archive.cpp:269
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
 msgstr "Bu dosya bozuk. Açılamadı."
@@ -252,28 +252,28 @@ msgstr "Özgün simge"
 msgid "BasKet Note Pads"
 msgstr "Basket Not Defteri"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2049
+#: src/archive.cpp:49 src/bnpview.cpp:2031
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Basket Arşivi Olarak Kaydet"
 
-#: src/archive.cpp:51
+#: src/archive.cpp:50
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
 msgstr "Basket arşivi olarak kaydediliyor. Lütfen bekleyin…"
 
-#: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
-#: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
+#: src/archive.cpp:263 src/archive.cpp:266 src/archive.cpp:269
+#: src/archive.cpp:272 src/archive.cpp:279 src/archive.cpp:288
 #, kde-format
 msgid "Basket Archive Error"
 msgstr "Basket Arşiv Hatası"
 
-#: src/archive.cpp:273
+#: src/archive.cpp:272
 #, kde-format
 msgid "Extraction path already exists."
 msgstr "Çıkarma yolu hâlihazırda var."
 
-#: src/archive.cpp:277
+#: src/archive.cpp:276
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
@@ -282,7 +282,7 @@ msgstr ""
 "Bu dosya, %1 uygulamasının daha yeni bir sürümüyle oluşturulmuş. Bu dosyayı "
 "açabilmek için daha yeni bir sürüme yükseltin."
 
-#: src/archive.cpp:284
+#: src/archive.cpp:283
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1. It can be opened but not "
@@ -296,37 +296,37 @@ msgstr ""
 "sürümlerde kullanılan bazı notlarınız kaybolabilir. Dosyayı yeniden "
 "kaydederken başka bir dosyaya kaydedin ve özgün dosyayı koruyun."
 
-#: src/backup.cpp:54
+#: src/backup.cpp:53
 #, kde-format
 msgid "Backup & Restore"
 msgstr "Yedekle ve Yedek Yükle"
 
-#: src/backup.cpp:71
+#: src/backup.cpp:70
 #, kde-format
 msgid "Save Folder"
 msgstr "Kaydetme Klasörü"
 
-#: src/backup.cpp:77
+#: src/backup.cpp:76
 #, kde-format
 msgid "Your baskets are currently stored in that folder:<br><b>%1</b>"
 msgstr "Sepetleriniz şu klasöre kaydedildi: <br><b>%1</b>"
 
-#: src/backup.cpp:84
+#: src/backup.cpp:83
 #, kde-format
 msgid "&Move to Another Folder..."
 msgstr "&Başka Bir Klasöre Taşı…"
 
-#: src/backup.cpp:85
+#: src/backup.cpp:84
 #, kde-format
 msgid "&Use Another Existing Folder..."
 msgstr "Var Olan B&aşka Bir Klasör Kullan…"
 
-#: src/backup.cpp:87
+#: src/backup.cpp:86
 #, kde-format
 msgid "Why to do that?"
 msgstr "Bu neden yapılır?"
 
-#: src/backup.cpp:88
+#: src/backup.cpp:87
 #, kde-format
 msgid ""
 "<p>You can move the folder where %1 store your baskets to:</p><ul><li>Store "
@@ -352,52 +352,52 @@ msgstr ""
 "dizin içeriğini elle değiştirmemeniz gerektiğini unutmayın (bir sepet "
 "klasörüne dosya eklemek o dosyayı sepetinize eklemez).</p>"
 
-#: src/backup.cpp:104
+#: src/backup.cpp:103
 #, kde-format
 msgid "Backups"
 msgstr "Yedekler"
 
-#: src/backup.cpp:115
+#: src/backup.cpp:114
 #, kde-format
 msgid "&Backup..."
 msgstr "&Yedekle…"
 
-#: src/backup.cpp:116
+#: src/backup.cpp:115
 #, kde-format
 msgid "&Restore a Backup..."
 msgstr "&Bir Yedeklemeyi Geri Yükle…"
 
-#: src/backup.cpp:139
+#: src/backup.cpp:138
 #, kde-format
 msgid "Last backup: never"
 msgstr "Son yedekleme: yok"
 
-#: src/backup.cpp:141
+#: src/backup.cpp:140
 #, kde-format
 msgid "Last backup: %1"
 msgstr "Son yedekleme: %1"
 
-#: src/backup.cpp:149 src/backup.cpp:180
+#: src/backup.cpp:148 src/backup.cpp:179
 #, kde-format
 msgid "Choose a Folder Where to Move Baskets"
 msgstr "Seperlerin Taşınacağı Bir Klasör Seçin"
 
-#: src/backup.cpp:161
+#: src/backup.cpp:160
 #, kde-format
 msgid "The folder <b>%1</b> is not empty. Do you want to overwrite it?"
 msgstr "<b>%1</b> klasörü boş değil. Üzerine yazmak ister msiniz?"
 
-#: src/backup.cpp:162
+#: src/backup.cpp:161
 #, kde-format
 msgid "Overwrite Folder?"
 msgstr "Klasörün Üzerine Yazılsın mı?"
 
-#: src/backup.cpp:163 src/bnpview.cpp:2058 src/htmlexporter.cpp:69
+#: src/backup.cpp:162 src/bnpview.cpp:2040 src/htmlexporter.cpp:68
 #, kde-format
 msgid "&Overwrite"
 msgstr "&Üzerine Yaz"
 
-#: src/backup.cpp:173
+#: src/backup.cpp:172
 #, kde-format
 msgid ""
 "Your baskets have been successfully moved to <b>%1</b>. %2 is going to be "
@@ -406,7 +406,7 @@ msgstr ""
 "Sepetleriniz, <b>%1</b> klasörüne başarıyla taşındı. Bu değişikliğin etkin "
 "olabilmesi için %2 yeniden başlatılacak."
 
-#: src/backup.cpp:185
+#: src/backup.cpp:184
 #, kde-format
 msgid ""
 "Your basket save folder has been successfully changed to <b>%1</b>. %2 is "
@@ -415,44 +415,44 @@ msgstr ""
 "Sepet kaydetme klasörünüz <b>%1</b> olarak değiştirildi. Bu değişikliğin "
 "etkin olabilmesi için %2 yeniden başlatılacak."
 
-#: src/backup.cpp:197
+#: src/backup.cpp:196
 #, kde-format
 msgctxt "Backup filename (without extension), %1 is the date"
 msgid "Baskets_%1"
 msgstr "Sepetler_%1"
 
-#: src/backup.cpp:202 src/backup.cpp:251
+#: src/backup.cpp:201 src/backup.cpp:250
 #, kde-format
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Gzip Tarafından Sıkıştırılan Tar Arşivleri"
 
-#: src/backup.cpp:204 src/backup.cpp:253 src/bnpview.cpp:2046
-#: src/bnpview.cpp:2093 src/htmlexporter.cpp:54
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2028
+#: src/bnpview.cpp:2075 src/htmlexporter.cpp:53
 #, kde-format
 msgid "All Files"
 msgstr "Tüm Dosyalar"
 
-#: src/backup.cpp:206 src/backup.cpp:214
+#: src/backup.cpp:205 src/backup.cpp:213
 #, kde-format
 msgid "Backup Baskets"
 msgstr "Sepetleri Yedekle"
 
-#: src/backup.cpp:215
+#: src/backup.cpp:214
 #, kde-format
 msgid "Backing up baskets. Please wait..."
 msgstr "Sepetler yedekleniyor. Lütfen bekleyin…"
 
-#: src/backup.cpp:256 src/bnpview.cpp:2094
+#: src/backup.cpp:255 src/bnpview.cpp:2076
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Basket Arşivi Aç"
 
-#: src/backup.cpp:267
+#: src/backup.cpp:266
 #, kde-format
 msgid "README.txt"
 msgstr "README.txt"
 
-#: src/backup.cpp:271
+#: src/backup.cpp:270
 #, kde-format
 msgid ""
 "This is a safety copy of your baskets like they were before you started to "
@@ -461,7 +461,7 @@ msgstr ""
 "Bu, sepetlerinizin %1 yedeğinizi geri yüklemeden önceki halinin güvenlik "
 "için alınan bir kopyasıdır."
 
-#: src/backup.cpp:274
+#: src/backup.cpp:273
 #, kde-format
 msgid ""
 "If the restoration was a success and you restored what you wanted to "
@@ -470,7 +470,7 @@ msgstr ""
 "Eğer geri yükleme başarılı olduysa ve istediklerinizi geri yüklediyseniz bu "
 "klasörü silebilirsiniz."
 
-#: src/backup.cpp:275
+#: src/backup.cpp:274
 #, kde-format
 msgid ""
 "If something went wrong during the restoration process, you can re-use this "
@@ -479,7 +479,7 @@ msgstr ""
 "Eğer ger yükleme sırasında birşeyler ters gittiyse bu klasörü sepetleriniz "
 "kaydetmek için kullanabilirsiniz ve böylece hiç veri kaybetmezsiniz."
 
-#: src/backup.cpp:277
+#: src/backup.cpp:276
 #, kde-format
 msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
@@ -488,12 +488,12 @@ msgstr ""
 "“Sepet → Yedekle ve Yedeği Geri Yükle… → Var Olan Başka Bir Klasör Kullan…” "
 "yolunu takip ederek o klasörü seçin."
 
-#: src/backup.cpp:281
+#: src/backup.cpp:280
 #, kde-format
 msgid "Restoring <b>%1</b>. Please wait..."
 msgstr "<b>%1</b>Arşivi geri yükleniyor. Lütfen bekleyin…"
 
-#: src/backup.cpp:282
+#: src/backup.cpp:281
 #, kde-format
 msgid ""
 "If something goes wrong during the restoration process, read the file <b>%1</"
@@ -502,12 +502,12 @@ msgstr ""
 "Yedeği geri yükleme sürecinde birşeyler ters giderse <b>%1</b> dosyasını "
 "okuyun."
 
-#: src/backup.cpp:285
+#: src/backup.cpp:284
 #, kde-format
 msgid "Restore Baskets"
 msgstr "Sepetleri Yeniden Yükle"
 
-#: src/backup.cpp:318
+#: src/backup.cpp:317
 #, kde-format
 msgid ""
 "This archive is either not a backup of baskets or is corrupted. It cannot be "
@@ -516,12 +516,12 @@ msgstr ""
 "Bu dosya ya bir sepet arşivi değil ya da bozuk. İçe aktarılamaz. Bu dosya "
 "yerine eski sepetleriniz kullanılacak."
 
-#: src/backup.cpp:319
+#: src/backup.cpp:318
 #, kde-format
 msgid "Restore Error"
 msgstr "Geri Yükleme Hatası"
 
-#: src/backup.cpp:328
+#: src/backup.cpp:327
 #, kde-format
 msgid ""
 "Your backup has been successfully restored to <b>%1</b>. %2 is going to be "
@@ -530,18 +530,18 @@ msgstr ""
 "Yedeğiniz, <b>%1</b> klasörüne başarıyla geri yüklendi. Bu değişikliğin "
 "etkin olabilmesi için %2 yeniden başlatılacak."
 
-#: src/backup.cpp:366
+#: src/backup.cpp:365
 #, kde-format
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
-#: src/backup.cpp:383
+#: src/backup.cpp:382
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration"
 msgstr "Geri Yükleme Öncesi Sepetler"
 
-#: src/backup.cpp:390
+#: src/backup.cpp:389
 #, kde-format
 msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
@@ -581,67 +581,67 @@ msgstr ""
 msgid "Open a basket archive or template."
 msgstr "Bir sepet arşivi veya şablonu aç."
 
-#: src/basketfactory.cpp:54
+#: src/basketfactory.cpp:53
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
 msgstr "Bu yeni sepet için klasör oluşturma işlemi başarısız oldu."
 
-#: src/basketfactory.cpp:54 src/basketfactory.cpp:87 src/basketfactory.cpp:108
+#: src/basketfactory.cpp:53 src/basketfactory.cpp:86 src/basketfactory.cpp:107
 #, kde-format
 msgid "Basket Creation Failed"
 msgstr "Sepet Oluşturma İşlemi Başarısız Oldu"
 
-#: src/basketfactory.cpp:87
+#: src/basketfactory.cpp:86
 #, kde-format
 msgid "Sorry, but the template copying for this new basket has failed."
 msgstr "Bu yeni sepet için şablon kopyalama işlemi başarısız oldu."
 
-#: src/basketfactory.cpp:108
+#: src/basketfactory.cpp:107
 #, kde-format
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr "Bu yeni sepet için şablon özelleştirme işlemi başarısız oldu."
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:629
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:631
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:634
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:46
+#: src/basketproperties.cpp:45
 #, kde-format
 msgid "Basket Properties"
 msgstr "Sepet Özellikleri"
 
-#: src/basketproperties.cpp:70 src/newbasketdialog.cpp:101
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
 #, kde-format
 msgid "Icon"
 msgstr "Simge"
 
-#: src/basketproperties.cpp:73 src/kgpgme.cpp:65 src/newbasketdialog.cpp:106
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
 #, kde-format
 msgid "Name"
 msgstr "Ad"
 
-#: src/basketproperties.cpp:89
+#: src/basketproperties.cpp:88
 #, kde-format
 msgid "(None)"
 msgstr "(Hiçbiri)"
 
-#: src/basketproperties.cpp:134
+#: src/basketproperties.cpp:133
 #, kde-format
 msgid "Learn some tips..."
 msgstr "Birkaç ipucuna bakın…"
 
-#: src/basketproperties.cpp:135
+#: src/basketproperties.cpp:134
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -671,7 +671,7 @@ msgstr ""
 "kopyalamanıza izin verir.</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:484 src/tagsedit.cpp:1108
+#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1107
 #, kde-format
 msgid "Appearance"
 msgstr "Görünüş"
@@ -742,39 +742,39 @@ msgstr "Bu sepeti göster (&genel kısayol)"
 msgid "S&witch to this basket (global shortcut)"
 msgstr "Bu sepeti seç (genel kısayol)"
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:302
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "Yeni not süzgece uymuyor,gizli."
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:304
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "Bir yeni not süzgece uymuyor, gizli."
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:306
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "Bazı yeni notlar süzgece uymuyorlar, gizliler."
 
-#: src/basketscene.cpp:309
+#: src/basketscene.cpp:308
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "Yeni notlar süzgece uymuyorlar,gizliler."
 
-#: src/basketscene.cpp:1467
+#: src/basketscene.cpp:1462
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "Grupla"
 
-#: src/basketscene.cpp:1469
+#: src/basketscene.cpp:1464
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Ekle"
 
-#: src/basketscene.cpp:2316
+#: src/basketscene.cpp:2311
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -783,7 +783,7 @@ msgstr ""
 "Bu ileti asla ortaya çıkmamalıdır. Eğer bu iletiyi gördüyseniz bu programda "
 "hatalar var demektir! Lütfen hataları geliştiriciye raporlayın."
 
-#: src/basketscene.cpp:2755 src/basketscene.cpp:2808 src/basketscene.cpp:2817
+#: src/basketscene.cpp:2750 src/basketscene.cpp:2803 src/basketscene.cpp:2812
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -792,57 +792,57 @@ msgstr ""
 "Notu buraya ekle\n"
 "Daha fazla seçenek için sağ tıklayın"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize those columns"
 msgstr "Şu sütunları yeniden boyutlandır"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize this group"
 msgstr "Bu grubu yeniden boyutlandır"
 
-#: src/basketscene.cpp:2774
+#: src/basketscene.cpp:2769
 #, kde-format
 msgid "Resize this note"
 msgstr "Bu notu yeniden boyutlandır"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2772
 #, kde-format
 msgid "Select or move this note"
 msgstr "Bu notu seç ya da taşı"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2775
 #, kde-format
 msgid "Select or move this group"
 msgstr "Bu grubu seç ya da taşı"
 
-#: src/basketscene.cpp:2783
+#: src/basketscene.cpp:2778
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "Bu nota etiket ata ya da bu notun etiketini kaldır"
 
-#: src/basketscene.cpp:2791
+#: src/basketscene.cpp:2786
 #, kde-format
 msgid "%1, %2"
 msgstr "%1 %2"
 
-#: src/basketscene.cpp:2793
+#: src/basketscene.cpp:2788
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>Atanmış etiketler</b>: %1"
 
-#: src/basketscene.cpp:2800
+#: src/basketscene.cpp:2795
 #, kde-format
 msgid "Expand this group"
 msgstr "Bu grubu genişlet"
 
-#: src/basketscene.cpp:2800
+#: src/basketscene.cpp:2795
 #, kde-format
 msgid "Collapse this group"
 msgstr "Bu grubu topla"
 
-#: src/basketscene.cpp:2811
+#: src/basketscene.cpp:2806
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -851,7 +851,7 @@ msgstr ""
 "Notu alttaki ile grupla\n"
 "Daha çok seçenek için sağ tıklayın"
 
-#: src/basketscene.cpp:2814
+#: src/basketscene.cpp:2809
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -860,53 +860,53 @@ msgstr ""
 "Notu üstteki ile grupla\n"
 "Daha çok seçenek için sağ tıklayın"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2827
 #, kde-format
 msgid "Added"
 msgstr "Eklendi"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2827
 #, kde-format
 msgid "Last Modification"
 msgstr "Son Düzenleme"
 
-#: src/basketscene.cpp:2837
+#: src/basketscene.cpp:2832
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2841
+#: src/basketscene.cpp:2836
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "Eklemek yerine gruplamak için sağa tıklayın"
 
-#: src/basketscene.cpp:2843
+#: src/basketscene.cpp:2838
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "Eklemek yerine gruplamak için sola tıklayın"
 
-#: src/basketscene.cpp:3021
+#: src/basketscene.cpp:3016
 #, kde-format
 msgid "&Unlock"
 msgstr "&Kilidi Aç"
 
-#: src/basketscene.cpp:3026
+#: src/basketscene.cpp:3021
 #, kde-format
 msgid "Password protected basket."
 msgstr "Parola korumalı sepet."
 
-#: src/basketscene.cpp:3028
+#: src/basketscene.cpp:3023
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "Erişmek için Kilidi Aç düğmesine tıklayın."
 
-#: src/basketscene.cpp:3030
+#: src/basketscene.cpp:3025
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "%1 uygulamasının bu sürümünde<br/> şifreleme desteklenmiyor."
 
-#: src/basketscene.cpp:3042
+#: src/basketscene.cpp:3037
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -915,110 +915,110 @@ msgstr ""
 "Sepetlerin otomatik kilitlenmesini engellemek için<br> kilitlenme süresini "
 "belirleyen ayarı uygulamanın ayarlarından değiştirin."
 
-#: src/basketscene.cpp:3069 src/basketstatusbar.cpp:89 src/bnpview.cpp:1608
+#: src/basketscene.cpp:3064 src/basketstatusbar.cpp:88 src/bnpview.cpp:1590
 #, kde-format
 msgid "Loading..."
 msgstr "Yükleniyor…"
 
-#: src/basketscene.cpp:3235 src/basketscene.cpp:3277
+#: src/basketscene.cpp:3230 src/basketscene.cpp:3272
 #, kde-format
 msgid "&Remove"
 msgstr "&Kaldır"
 
-#: src/basketscene.cpp:3238 src/basketscene.cpp:3281 src/bnpview.cpp:2489
+#: src/basketscene.cpp:3233 src/basketscene.cpp:3276 src/bnpview.cpp:2471
 #, kde-format
 msgid "&Customize..."
 msgstr "&Özelleştir…"
 
-#: src/basketscene.cpp:3244 src/basketscene.cpp:3287
+#: src/basketscene.cpp:3239 src/basketscene.cpp:3282
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "Bu Etikete Göre S&üz"
 
-#: src/basketscene.cpp:3290
+#: src/basketscene.cpp:3285
 #, kde-format
 msgid "Filter by this &State"
 msgstr "Bu &İfadeye Göre Süz"
 
-#: src/basketscene.cpp:3371
+#: src/basketscene.cpp:3366
 #, kde-format
 msgid "Tags"
 msgstr "Etiketler"
 
-#: src/basketscene.cpp:3948
+#: src/basketscene.cpp:3943
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>Bu notu gerçekten silmek istiyor musunuz?</qt>"
 msgstr[1] "<qt>Bu %1 notu gerçekten silmek istiyor musunuz?</qt>"
 
-#: src/basketscene.cpp:3949
+#: src/basketscene.cpp:3944
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "Notu Sil"
 msgstr[1] "Notları Sil"
 
-#: src/basketscene.cpp:4048
+#: src/basketscene.cpp:4043
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "Not, panoya kopyalandı."
 msgstr[1] "Notlar, panoya kopyalandı."
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4046
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "Not, panoya kesildi."
 msgstr[1] "Notlar, panoya kesildi."
 
-#: src/basketscene.cpp:4054
+#: src/basketscene.cpp:4049
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "Not, seçime kopyalandı."
 msgstr[1] "Notlar, seçime kopyalandı."
 
-#: src/basketscene.cpp:4118 src/basketscene.cpp:4193
+#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
 #, kde-format
 msgid "Unable to open this note."
 msgstr "Bu not açılamadı."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4120 src/basketui.rc:40
+#: src/basketscene.cpp:4115 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "Dü&zen"
 
-#: src/basketscene.cpp:4156
+#: src/basketscene.cpp:4151
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "Bu dosyayı açmak için yetkiniz yok."
 
-#: src/basketscene.cpp:4214
+#: src/basketscene.cpp:4209
 #, kde-format
 msgid "Save to File"
 msgstr "Dosyaya Kaydet"
 
-#: src/basketstatusbar.cpp:106
+#: src/basketstatusbar.cpp:105
 #, kde-format
 msgid "Shows if there are changes that have not yet been saved."
 msgstr "Eğer henüz kaydedilmemiş bir değişiklik varsa gösterir."
 
-#: src/basketstatusbar.cpp:137
+#: src/basketstatusbar.cpp:136
 #, kde-format
 msgid "Ctrl+drop: copy, Shift+drop: move, Shift+Ctrl+drop: link."
 msgstr ""
 "Kontrol+bırak: Kopyala, Üst Karakter+bırak: Taşı, Üst Karakter+Kontrol"
 "+bırak: Bağlantıla."
 
-#: src/basketstatusbar.cpp:160
+#: src/basketstatusbar.cpp:159
 #, kde-format
 msgid "<p>This basket is <b>locked</b>.<br>Click to unlock it.</p>"
 msgstr "<p>Bu sepet<b>kilitli</b>.<br>Kilidi açmak için tıklayın.</p>"
 
-#: src/basketstatusbar.cpp:163
+#: src/basketstatusbar.cpp:162
 #, kde-format
 msgid "<p>This basket is <b>unlocked</b>.<br>Click to lock it.</p>"
 msgstr "<p>Bu sepet<b>kilitli değil</b>.<br>Kilitlemek için tıklayın.</p>"
@@ -1030,20 +1030,20 @@ msgid "&Basket"
 msgstr "&Sepet"
 
 #. i18n: ectx: Menu
-#: src/basketui.rc:11 src/basketui.rc:170
+#: src/basketui.rc:11 src/basketui.rc:169
 #, kde-format
 msgid "&Export"
 msgstr "&Dışa Aktar"
 
 #. i18n: ectx: Menu
-#: src/basketui.rc:16 src/basketui.rc:175
+#: src/basketui.rc:16 src/basketui.rc:174
 #, kde-format
 msgid "&Sort"
 msgstr "&Sırala"
 
 #. i18n: ectx: Menu (fileimport)
 #. i18n: ectx: Menu
-#: src/basketui.rc:28 src/basketui.rc:187 src/basketui.rc:198
+#: src/basketui.rc:28 src/basketui.rc:186 src/basketui.rc:197
 #, kde-format
 msgid "&Import"
 msgstr "&İçe Aktar"
@@ -1085,28 +1085,28 @@ msgid "&Help"
 msgstr "&Yardım"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: src/basketui.rc:123
+#: src/basketui.rc:122
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
 #. i18n: ectx: ToolBar (richTextEditToolBar)
-#: src/basketui.rc:141
+#: src/basketui.rc:140
 #, kde-format
 msgid "Text Formatting Toolbar"
 msgstr "Metin Biçimlendirme Araç Çubuğu"
 
-#: src/bnpview.cpp:166 src/bnpview.cpp:1246
+#: src/bnpview.cpp:166 src/bnpview.cpp:1228
 #, kde-format
 msgid "General"
 msgstr "Genel"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:216
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Pano içeriğini geçerli sepete yapıştır"
 
-#: src/bnpview.cpp:236
+#: src/bnpview.cpp:218
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
@@ -1114,12 +1114,12 @@ msgid ""
 msgstr ""
 "Ana pencereyi açmadan pano içeriğini geçerli sepete yapıştırmanızı sağlar."
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:223
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "Seçimi geçerli sepete yapıştır"
 
-#: src/bnpview.cpp:243
+#: src/bnpview.cpp:225
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
@@ -1127,12 +1127,12 @@ msgid ""
 msgstr ""
 "Ana pencereyi açmadan pano seçimini geçerli sepete yapıştırmanızı sağlar."
 
-#: src/bnpview.cpp:248
+#: src/bnpview.cpp:230
 #, kde-format
 msgid "Create a new basket"
 msgstr "Yeni bir sepet oluştur"
 
-#: src/bnpview.cpp:250
+#: src/bnpview.cpp:232
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1143,12 +1143,12 @@ msgstr ""
 "yeni sepete bir not ekle, panoyu ya da seçimi yapıştır gibi işlemler için "
 "genel kısayol atayabilirsiniz)."
 
-#: src/bnpview.cpp:255
+#: src/bnpview.cpp:237
 #, kde-format
 msgid "Go to previous basket"
 msgstr "Önceki sepete git"
 
-#: src/bnpview.cpp:257
+#: src/bnpview.cpp:239
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
@@ -1156,12 +1156,12 @@ msgid ""
 msgstr ""
 "Ana pencereyi açmadan geçerli sepet olarak önceki sepeti seçmenizi sağlar."
 
-#: src/bnpview.cpp:261
+#: src/bnpview.cpp:243
 #, kde-format
 msgid "Go to next basket"
 msgstr "Sonraki sepete git"
 
-#: src/bnpview.cpp:263
+#: src/bnpview.cpp:245
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
@@ -1169,23 +1169,23 @@ msgid ""
 msgstr ""
 "Ana pencereyi açmadan geçerli sepet olarak sonraki sepeti seçmenizi sağlar."
 
-#: src/bnpview.cpp:267
+#: src/bnpview.cpp:249
 #, kde-format
 msgid "Insert text note"
 msgstr "Metin notu ekle"
 
-#: src/bnpview.cpp:269
+#: src/bnpview.cpp:251
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr "Ana pencereyi açmadan geçerli sepete bir metin notu eklemenizi sağlar."
 
-#: src/bnpview.cpp:274 src/settings.cpp:566
+#: src/bnpview.cpp:256 src/settings.cpp:565
 #, kde-format
 msgid "Insert image note"
 msgstr "Görsel notu ekle"
 
-#: src/bnpview.cpp:276
+#: src/bnpview.cpp:258
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
@@ -1193,36 +1193,36 @@ msgid ""
 msgstr ""
 "Ana pencereyi açmadan geçerli sepete bir görsel notu eklemenizi sağlar."
 
-#: src/bnpview.cpp:280 src/settings.cpp:567
+#: src/bnpview.cpp:262 src/settings.cpp:566
 #, kde-format
 msgid "Insert link note"
 msgstr "Bağlantı notu ekle"
 
-#: src/bnpview.cpp:282
+#: src/bnpview.cpp:264
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr ""
 "Ana pencereyi açmadan geçerli sepete bir bağlantı notu eklemenizi sağlar."
 
-#: src/bnpview.cpp:286 src/settings.cpp:570
+#: src/bnpview.cpp:268 src/settings.cpp:569
 #, kde-format
 msgid "Insert color note"
 msgstr "Renk notu ekle"
 
-#: src/bnpview.cpp:288
+#: src/bnpview.cpp:270
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
 "window."
 msgstr "Ana pencereyi açmadan geçerli sepete bir renk notu eklemenizi sağlar."
 
-#: src/bnpview.cpp:292
+#: src/bnpview.cpp:274
 #, kde-format
 msgid "Pick color from screen"
 msgstr "Ekrandan renk al"
 
-#: src/bnpview.cpp:294
+#: src/bnpview.cpp:276
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1231,12 +1231,12 @@ msgstr ""
 "Ana pencereyi açmadan geçerli sepete ekranın bir pikselinden alınan bir renk "
 "notu eklemenizi sağlar."
 
-#: src/bnpview.cpp:299 src/settings.cpp:571
+#: src/bnpview.cpp:281 src/settings.cpp:570
 #, kde-format
 msgid "Grab screen zone"
 msgstr "Ekran görüntüsü yakala"
 
-#: src/bnpview.cpp:301
+#: src/bnpview.cpp:283
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
@@ -1245,12 +1245,12 @@ msgstr ""
 "Ana pencereyi açmadan geçerli sepete yakalanan bir ekran görüntüsü notu "
 "eklemenizi sağlar."
 
-#: src/bnpview.cpp:307
+#: src/bnpview.cpp:289
 #, kde-format
 msgid "Insert plain text note"
 msgstr "Düz metin notu ekle"
 
-#: src/bnpview.cpp:309
+#: src/bnpview.cpp:291
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
@@ -1259,12 +1259,12 @@ msgstr ""
 "Ana pencereyi açmanıza gerek kalmadan geçerli sepete bir düz metin notu "
 "ekleyin."
 
-#: src/bnpview.cpp:318
+#: src/bnpview.cpp:300
 #, kde-format
 msgid "Baskets"
 msgstr "Sepetler"
 
-#: src/bnpview.cpp:363
+#: src/bnpview.cpp:345
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1278,358 +1278,358 @@ msgstr ""
 "Sepetlerinize tıklayarak göz atabilirsiniz ya da sürükleyip bırakarak "
 "yeniden düzenleyebilirsiniz."
 
-#: src/bnpview.cpp:378 src/bnpview.cpp:384
+#: src/bnpview.cpp:360 src/bnpview.cpp:366
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "&Basket Arşivi…"
 
-#: src/bnpview.cpp:390
+#: src/bnpview.cpp:372
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "&HTML Web Sayfası…"
 
-#: src/bnpview.cpp:396
+#: src/bnpview.cpp:378
 #, kde-format
 msgid "Text &File..."
 msgstr "Metin &Dosyası…"
 
-#: src/bnpview.cpp:401
+#: src/bnpview.cpp:383
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&Yedekle ve Yedeği Geri Yükle…"
 
-#: src/bnpview.cpp:405
+#: src/bnpview.cpp:387
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&Denetle ve Temizle…"
 
-#: src/bnpview.cpp:416
+#: src/bnpview.cpp:398
 #, kde-format
 msgid "D&elete"
 msgstr "&Sil"
 
-#: src/bnpview.cpp:425
+#: src/bnpview.cpp:407
 #, kde-format
 msgid "Selects all notes"
 msgstr "Tüm notları seçer"
 
-#: src/bnpview.cpp:428
+#: src/bnpview.cpp:410
 #, kde-format
 msgid "U&nselect All"
 msgstr "&Tümünün Seçimini Kaldır"
 
-#: src/bnpview.cpp:430
+#: src/bnpview.cpp:412
 #, kde-format
 msgid "Unselects all selected notes"
 msgstr "Seçilen notların hiçbirisini seçme"
 
-#: src/bnpview.cpp:433
+#: src/bnpview.cpp:415
 #, kde-format
 msgid "&Invert Selection"
 msgstr "Seçimi Tersine &Çevir"
 
-#: src/bnpview.cpp:437
+#: src/bnpview.cpp:419
 #, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Şimdiki seçilen notların seçimini tersine çevirir"
 
-#: src/bnpview.cpp:440
+#: src/bnpview.cpp:422
 #, kde-format
 msgid "&Clear Formatting"
 msgstr "&Biçimlendirmeyi Temizle"
 
-#: src/bnpview.cpp:444
+#: src/bnpview.cpp:426
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "Dü&zenle…"
 
-#: src/bnpview.cpp:451
+#: src/bnpview.cpp:433
 #, kde-format
 msgid "&Open"
 msgstr "&Aç"
 
-#: src/bnpview.cpp:455
+#: src/bnpview.cpp:437
 #, kde-format
 msgid "Open &With..."
 msgstr "&Birlikte Aç…"
 
-#: src/bnpview.cpp:460
+#: src/bnpview.cpp:442
 #, kde-format
 msgid "&Save to File..."
 msgstr "Dosyaya Kay&det…"
 
-#: src/bnpview.cpp:464
+#: src/bnpview.cpp:446
 #, kde-format
 msgid "&Group"
 msgstr "&Grupla"
 
-#: src/bnpview.cpp:470
+#: src/bnpview.cpp:452
 #, kde-format
 msgid "U&ngroup"
 msgstr "Grubu Çö&z"
 
-#: src/bnpview.cpp:475
+#: src/bnpview.cpp:457
 #, kde-format
 msgid "Move on &Top"
 msgstr "En ü&ste Taşı"
 
-#: src/bnpview.cpp:481
+#: src/bnpview.cpp:463
 #, kde-format
 msgid "Move &Up"
 msgstr "&Yukarı Taşı"
 
-#: src/bnpview.cpp:487
+#: src/bnpview.cpp:469
 #, kde-format
 msgid "Move &Down"
 msgstr "A&şağı Taşı"
 
-#: src/bnpview.cpp:493
+#: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "En a&lta Taşı"
 
-#: src/bnpview.cpp:504
+#: src/bnpview.cpp:486
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Dü&z Metin"
 
-#: src/bnpview.cpp:511
+#: src/bnpview.cpp:493
 #, kde-format
 msgid "&Text"
 msgstr "&Metin"
 
-#: src/bnpview.cpp:517
+#: src/bnpview.cpp:499
 #, kde-format
 msgid "&Link"
 msgstr "Bağla&ntı"
 
-#: src/bnpview.cpp:523
+#: src/bnpview.cpp:505
 #, kde-format
 msgid "Cross &Reference"
 msgstr "Çapraz B&aşvuru"
 
-#: src/bnpview.cpp:528
+#: src/bnpview.cpp:510
 #, kde-format
 msgid "&Image"
 msgstr "Gö&rsel"
 
-#: src/bnpview.cpp:533
+#: src/bnpview.cpp:515
 #, kde-format
 msgid "&Color"
 msgstr "&Renk"
 
-#: src/bnpview.cpp:538
+#: src/bnpview.cpp:520
 #, kde-format
 msgid "L&auncher"
 msgstr "&Başlatıcı"
 
-#: src/bnpview.cpp:543
+#: src/bnpview.cpp:525
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Ma&saüstü uygulaması için çalıştırıcı içe aktar…"
 
-#: src/bnpview.cpp:548
+#: src/bnpview.cpp:530
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Simge İç&e Aktar…"
 
-#: src/bnpview.cpp:553 src/noteedit.cpp:545
+#: src/bnpview.cpp:535 src/noteedit.cpp:543
 #, kde-format
 msgid "Load From &File..."
 msgstr "Dosyadan &Yükle…"
 
-#: src/bnpview.cpp:589
+#: src/bnpview.cpp:571
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "E&krandan Renk"
 
-#: src/bnpview.cpp:597
+#: src/bnpview.cpp:579
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Ekran &Görüntüsü Yakala"
 
-#: src/bnpview.cpp:629
+#: src/bnpview.cpp:611
 #, kde-format
 msgid "&New Basket..."
 msgstr "&Yeni Sepet…"
 
-#: src/bnpview.cpp:635
+#: src/bnpview.cpp:617
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "Yeni &Alt Sepet…"
 
-#: src/bnpview.cpp:640
+#: src/bnpview.cpp:622
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Yeni &Kardeş Sepet…"
 
-#: src/bnpview.cpp:643
+#: src/bnpview.cpp:625
 #, kde-format
 msgid "&New"
 msgstr "&Yeni"
 
-#: src/bnpview.cpp:653
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "&Properties..."
 msgstr "&Özellikler…"
 
-#: src/bnpview.cpp:659
+#: src/bnpview.cpp:641
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Alt Ögeleri Artan Biçimde Sırala"
 
-#: src/bnpview.cpp:664
+#: src/bnpview.cpp:646
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Alt Ögeleri Azalan Biçimde Sırala"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:651
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Aynı Düzeydeki Ögeleri Artan Biçimde Sırala"
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:656
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Aynı Düzeydeki Ögeleri Azalan Biçimde Sırala"
 
-#: src/bnpview.cpp:679
+#: src/bnpview.cpp:661
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&Kaldır"
 
-#: src/bnpview.cpp:685
+#: src/bnpview.cpp:667
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "&Parola…"
 
-#: src/bnpview.cpp:690
+#: src/bnpview.cpp:672
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&Kilitle"
 
-#: src/bnpview.cpp:703
+#: src/bnpview.cpp:685
 #, kde-format
 msgid "&Filter"
 msgstr "S&üz"
 
-#: src/bnpview.cpp:715
+#: src/bnpview.cpp:697
 #, kde-format
 msgid "&Search All"
 msgstr "&Tümünü Ara"
 
-#: src/bnpview.cpp:723
+#: src/bnpview.cpp:705
 #, kde-format
 msgid "&Reset Filter"
 msgstr "Süzgeci &Kaldır"
 
-#: src/bnpview.cpp:731
+#: src/bnpview.cpp:713
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&Önceki Sepet"
 
-#: src/bnpview.cpp:737
+#: src/bnpview.cpp:719
 #, kde-format
 msgid "&Next Basket"
 msgstr "So&nraki Sepet"
 
-#: src/bnpview.cpp:743
+#: src/bnpview.cpp:725
 #, kde-format
 msgid "&Fold Basket"
 msgstr "Sepeti &Topla"
 
-#: src/bnpview.cpp:749
+#: src/bnpview.cpp:731
 #, kde-format
 msgid "&Expand Basket"
 msgstr "Sepeti &Genişlet"
 
-#: src/bnpview.cpp:757
+#: src/bnpview.cpp:739
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "Metin notlarını zengin metin notlarına dönüştür"
 
-#: src/bnpview.cpp:766
+#: src/bnpview.cpp:748
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&Hoş Geldin Sepetleri"
 
-#: src/bnpview.cpp:1031
+#: src/bnpview.cpp:1013
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Düz Metin Notları Dönüştürme"
 
-#: src/bnpview.cpp:1032
+#: src/bnpview.cpp:1014
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "Düz metin notları zengin metin notlarına dönüştürülüyor…"
 
-#: src/bnpview.cpp:1606
+#: src/bnpview.cpp:1588
 #, kde-format
 msgid "Locked"
 msgstr "Kilitli"
 
-#: src/bnpview.cpp:1610
+#: src/bnpview.cpp:1592
 #, kde-format
 msgid "No notes"
 msgstr "Not yok"
 
-#: src/bnpview.cpp:1612
+#: src/bnpview.cpp:1594
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 not"
 msgstr[1] "%1 not"
 
-#: src/bnpview.cpp:1613
+#: src/bnpview.cpp:1595
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 seçili"
 msgstr[1] "%1 seçili"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1596
 #, kde-format
 msgid "all matches"
 msgstr "tüm uyanlar"
 
-#: src/bnpview.cpp:1614
+#: src/bnpview.cpp:1596
 #, kde-format
 msgid "no filter"
 msgstr "süzgeç yok"
 
-#: src/bnpview.cpp:1616
+#: src/bnpview.cpp:1598
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 eşleşme"
 msgstr[1] "%1 eşleşme"
 
-#: src/bnpview.cpp:1617
+#: src/bnpview.cpp:1599
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1752
+#: src/bnpview.cpp:1734
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "Düz metin notları zengin metin notlarına dönüştürüldü."
 
-#: src/bnpview.cpp:1752 src/bnpview.cpp:1754
+#: src/bnpview.cpp:1734 src/bnpview.cpp:1736
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Düönüştürme İşlemi Bitti"
 
-#: src/bnpview.cpp:1754
+#: src/bnpview.cpp:1736
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Dönüştürülecek düz metin notu yok."
 
-#: src/bnpview.cpp:1771
+#: src/bnpview.cpp:1753
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1648,34 +1648,34 @@ msgstr ""
 "kurduğunuzdan eminseniz; ancak bir deneme sürümünü kullanıyorsanız "
 "%5basketui.rc dosyasını silmeyi deneyin.</p>"
 
-#: src/bnpview.cpp:1785
+#: src/bnpview.cpp:1767
 #, kde-format
 msgid "Resource not Found"
 msgstr "Kaynak Bulunamadı"
 
-#: src/bnpview.cpp:1814
+#: src/bnpview.cpp:1796
 #, kde-format
 msgid "Cannot add note."
 msgstr "Not eklenemez."
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1943
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr ""
 "<qt><b>%1</b> sepetini ve içeriğini silmek istediğinizden emin misiniz?</qt>"
 
-#: src/bnpview.cpp:1962
+#: src/bnpview.cpp:1944
 #, kde-format
 msgid "Remove Basket"
 msgstr "Sepeti Kaldır"
 
-#: src/bnpview.cpp:1963
+#: src/bnpview.cpp:1945
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Sepeti Kaldır"
 
-#: src/bnpview.cpp:1973
+#: src/bnpview.cpp:1955
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1684,38 +1684,38 @@ msgstr ""
 "<qt><b>%1</b> sepetinin alt sepetleri var.<br>Onları da silmek istiyor "
 "musunuz?</qt>"
 
-#: src/bnpview.cpp:1975
+#: src/bnpview.cpp:1957
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Alt Sepetleri Sil"
 
-#: src/bnpview.cpp:1976
+#: src/bnpview.cpp:1958
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "Alt Sepetleri &Kaldır"
 
-#: src/bnpview.cpp:2046 src/bnpview.cpp:2093
+#: src/bnpview.cpp:2028 src/bnpview.cpp:2075
 #, kde-format
 msgid "Basket Archives"
 msgstr "Basket Arşivleri"
 
-#: src/bnpview.cpp:2056 src/htmlexporter.cpp:67
+#: src/bnpview.cpp:2038 src/htmlexporter.cpp:66
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr ""
 "<b>%1</b> dosyası hâlihazırda var. Dosyanın üzerine yazmak ister misiniz?"
 
-#: src/bnpview.cpp:2057 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:2039 src/htmlexporter.cpp:67
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Dosyanın Üzerine Yazılsın mı?"
 
-#: src/bnpview.cpp:2478
+#: src/bnpview.cpp:2460
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "Yeni E&tiket Ata…"
 
-#: src/bnpview.cpp:2483
+#: src/bnpview.cpp:2465
 #, kde-format
 msgid "&Remove All"
 msgstr "&Tümünü Kaldır"
@@ -1740,7 +1740,7 @@ msgstr "Lütfen <b>%1</b> sepeti için bir parola atayın:"
 msgid "Error while saving: "
 msgstr "Kaydetme sırasında hata: "
 
-#: src/debugwindow.cpp:23
+#: src/debugwindow.cpp:22
 #, kde-format
 msgid "Debug Window"
 msgstr "Hata Ayıklama Penceresi"
@@ -1775,7 +1775,7 @@ msgstr "Örnek hızı"
 msgid "Track number"
 msgstr "Parça numarası"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2170
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2169
 #, kde-format
 msgid "Comment"
 msgstr "Yorum"
@@ -1790,7 +1790,7 @@ msgstr "Sanatçı"
 msgid "Album"
 msgstr "Albüm"
 
-#: src/file_metadata.cpp:27 src/tag.cpp:719
+#: src/file_metadata.cpp:27 src/tag.cpp:718
 #, kde-format
 msgid "Title"
 msgstr "Başlık"
@@ -1820,37 +1820,37 @@ msgstr "Tarih"
 msgid "Frame rate"
 msgstr "Kare hızı"
 
-#: src/filter.cpp:42
+#: src/filter.cpp:41
 #, kde-format
 msgid "Reset Filter"
 msgstr "Süzgeci Kaldır"
 
-#: src/filter.cpp:47
+#: src/filter.cpp:46
 #, kde-format
 msgid "&Filter: "
 msgstr "S&üz: "
 
-#: src/filter.cpp:51
+#: src/filter.cpp:50
 #, kde-format
 msgid "T&ag: "
 msgstr "E&tiket: "
 
-#: src/filter.cpp:55
+#: src/filter.cpp:54
 #, kde-format
 msgid "Filter All Baskets"
 msgstr "Tüm Sepetleri Süz"
 
-#: src/filter.cpp:132
+#: src/filter.cpp:131
 #, kde-format
 msgid "(Not tagged)"
 msgstr "(Etiketsiz)"
 
-#: src/filter.cpp:133
+#: src/filter.cpp:132
 #, kde-format
 msgid "(Tagged)"
 msgstr "(Etiketli)"
 
-#: src/formatimporter.cpp:119
+#: src/formatimporter.cpp:106
 #, kde-format
 msgid ""
 "<p>Folder mirroring is not possible anymore (see <a href='https://basket-"
@@ -1867,62 +1867,62 @@ msgstr ""
 "bunların artık ayrı varlıklar olduğunuzu göz önüne alarak, birini "
 "değiştirmenin diğerini etkilemeyeceğini unutmayın.</p>"
 
-#: src/formatimporter.cpp:125
+#: src/formatimporter.cpp:112
 #, kde-format
 msgid "Folder Mirror Import"
 msgstr "Klasör Yansısı İçe Aktar"
 
-#: src/history.cpp:19
+#: src/history.cpp:18
 #, kde-format
 msgid "Set current basket to %1"
 msgstr "Geçerli sepeti %1 olarak ayarla"
 
-#: src/htmlexporter.cpp:54
+#: src/htmlexporter.cpp:53
 #, kde-format
 msgid "HTML Documents"
 msgstr "HTML belgeleri"
 
-#: src/htmlexporter.cpp:58 src/htmlexporter.cpp:80
+#: src/htmlexporter.cpp:57 src/htmlexporter.cpp:79
 #, kde-format
 msgid "Export to HTML"
 msgstr "HTML Olarak Dışa Aktar"
 
-#: src/htmlexporter.cpp:81
+#: src/htmlexporter.cpp:80
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "HTML olarak dışa aktarılıyor. Lütfen bekleyin…"
 
-#: src/htmlexporter.cpp:116 src/htmlexporter.cpp:152 src/htmlexporter.cpp:162
+#: src/htmlexporter.cpp:115 src/htmlexporter.cpp:151 src/htmlexporter.cpp:161
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_dosya"
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:167
+#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:166
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "simgeler"
 
-#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:169
+#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:168
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "görseller"
 
-#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:165
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:164
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "sepetler"
 
-#: src/htmlexporter.cpp:157 src/htmlexporter.cpp:163 src/htmlexporter.cpp:164
+#: src/htmlexporter.cpp:156 src/htmlexporter.cpp:162 src/htmlexporter.cpp:163
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "veri"
 
-#: src/htmlexporter.cpp:404
+#: src/htmlexporter.cpp:403
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
@@ -1931,13 +1931,13 @@ msgstr ""
 "<a href=\"%1\">%2</a> %3, ile yapıldı; notlar almak ve bilgiyi elde tutmak "
 "için bir araç."
 
-#: src/kcolorcombo2.cpp:112 src/kcolorcombo2.cpp:614 src/tagsedit.cpp:503
-#: src/variouswidgets.cpp:404
+#: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
+#: src/variouswidgets.cpp:403
 #, kde-format
 msgid "(Default)"
 msgstr "(Öntanımlı)"
 
-#: src/kcolorcombo2.cpp:124
+#: src/kcolorcombo2.cpp:123
 #, kde-format
 msgid "Other..."
 msgstr "Diğer…"
@@ -1946,12 +1946,12 @@ msgstr "Diğer…"
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:638
+#: src/kcolorcombo2.cpp:637
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "R:%1, G:%2, B:%3"
 
-#: src/kcolorcombo2.cpp:638
+#: src/kcolorcombo2.cpp:637
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2002,88 +2002,88 @@ msgstr "Yanlış parola."
 msgid "Please enter a new password:"
 msgstr "Lütfen yeni bir parola girin:"
 
-#: src/linklabel.cpp:604
+#: src/linklabel.cpp:603
 #, kde-format
 msgid "I&talic"
 msgstr "&Yatık"
 
-#: src/linklabel.cpp:607
+#: src/linklabel.cpp:606
 #, kde-format
 msgid "&Bold"
 msgstr "&Kalın"
 
-#: src/linklabel.cpp:615
+#: src/linklabel.cpp:614
 #, kde-format
 msgid "Always"
 msgstr "Her zaman"
 
-#: src/linklabel.cpp:616
+#: src/linklabel.cpp:615
 #, kde-format
 msgid "Never"
 msgstr "Asla"
 
-#: src/linklabel.cpp:617
+#: src/linklabel.cpp:616
 #, kde-format
 msgid "On mouse hovering"
 msgstr "Fare üzerindeyken"
 
-#: src/linklabel.cpp:618
+#: src/linklabel.cpp:617
 #, kde-format
 msgid "When mouse is outside"
 msgstr "Fare dışardayken"
 
-#: src/linklabel.cpp:620
+#: src/linklabel.cpp:619
 #, kde-format
 msgid "&Underline:"
 msgstr "Altı &çizili:"
 
-#: src/linklabel.cpp:627
+#: src/linklabel.cpp:626
 #, kde-format
 msgid "Colo&r:"
 msgstr "&Renk:"
 
-#: src/linklabel.cpp:634
+#: src/linklabel.cpp:633
 #, kde-format
 msgid "&Mouse hover color:"
 msgstr "&Fare ile üzerine gelinince oluşan renk:"
 
-#: src/linklabel.cpp:643
+#: src/linklabel.cpp:642
 #, kde-format
 msgid "&Icon size:"
 msgstr "Simge boyutu:"
 
-#: src/linklabel.cpp:649
+#: src/linklabel.cpp:648
 #, kde-format
 msgid "None"
 msgstr "Hiçbiri"
 
-#: src/linklabel.cpp:650
+#: src/linklabel.cpp:649
 #, kde-format
 msgid "Icon size"
 msgstr "Simge boyutu"
 
-#: src/linklabel.cpp:651
+#: src/linklabel.cpp:650
 #, kde-format
 msgid "Twice the icon size"
 msgstr "Simgeyi iki kat büyült"
 
-#: src/linklabel.cpp:652
+#: src/linklabel.cpp:651
 #, kde-format
 msgid "Three times the icon size"
 msgstr "Simgeyi üç kat büyült"
 
-#: src/linklabel.cpp:654
+#: src/linklabel.cpp:653
 #, kde-format
 msgid "&Preview:"
 msgstr "&Önizleme:"
 
-#: src/linklabel.cpp:657
+#: src/linklabel.cpp:656
 #, kde-format
 msgid "You disabled preview but still see images?"
 msgstr ""
 "Önizlemeyi devre dışı bıraktınız; ancak hâlâ görselleri mi görüyorsanız?"
 
-#: src/linklabel.cpp:658
+#: src/linklabel.cpp:657
 #, kde-format
 msgid ""
 "<p>This is normal because there are several type of notes.<br>This setting "
@@ -2111,82 +2111,82 @@ msgstr ""
 "Tiplerinde Eklenen Dosyanın İçeriğini Göster” içindeki “Görsel veya "
 "canlandırma” grubunun işaretini kaldırın.</p>"
 
-#: src/linklabel.cpp:675
+#: src/linklabel.cpp:674
 #, kde-format
 msgid "Example"
 msgstr "Örnek"
 
-#: src/mainwindow.cpp:74
+#: src/mainwindow.cpp:73
 #, kde-format
 msgid "Minimize"
 msgstr "Küçült"
 
-#: src/mainwindow.cpp:254
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>%1 uygulamasından çıkmak istediğinizden emin misiniz?</p>"
 
-#: src/mainwindow.cpp:258
+#: src/mainwindow.cpp:257
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Çıkışı Onayla"
 
-#: src/newbasketdialog.cpp:77
+#: src/newbasketdialog.cpp:76
 #, kde-format
 msgid "New Basket"
 msgstr "Yeni Sepet"
 
-#: src/newbasketdialog.cpp:111
+#: src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Background color"
 msgstr "Arka plan rengi"
 
-#: src/newbasketdialog.cpp:119
+#: src/newbasketdialog.cpp:118
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "Şablonları &Yönet…"
 
-#: src/newbasketdialog.cpp:152 src/newbasketdialog.cpp:314
+#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
 #, kde-format
 msgid "One column"
 msgstr "Tek sütun"
 
-#: src/newbasketdialog.cpp:163 src/newbasketdialog.cpp:316
+#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
 #, kde-format
 msgid "Two columns"
 msgstr "İki sütun"
 
-#: src/newbasketdialog.cpp:175 src/newbasketdialog.cpp:318
+#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
 #, kde-format
 msgid "Three columns"
 msgstr "Üç sütun"
 
-#: src/newbasketdialog.cpp:187
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Free"
 msgstr "Boş"
 
-#: src/newbasketdialog.cpp:195
+#: src/newbasketdialog.cpp:194
 #, kde-format
 msgid "&Template:"
 msgstr "%Şablon:"
 
-#: src/newbasketdialog.cpp:205
+#: src/newbasketdialog.cpp:204
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Sepetler)"
 
-#: src/newbasketdialog.cpp:207
+#: src/newbasketdialog.cpp:206
 #, kde-format
 msgid "C&reate in:"
 msgstr "Burada &Oluştur:"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:208
 #, kde-format
 msgid "How is it useful?"
 msgstr "Neden kullanışlıdır?"
 
-#: src/newbasketdialog.cpp:210
+#: src/newbasketdialog.cpp:209
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2202,474 +2202,474 @@ msgstr ""
 "li><li>Sepetleri birlikte dışa aktarmak için gruplamak (örneğin birlikte e-"
 "posta gönderebilmek için).</li></ul>"
 
-#: src/newbasketdialog.cpp:320
+#: src/newbasketdialog.cpp:319
 #, kde-format
 msgid "Free-form"
 msgstr "Serbest Biçim"
 
-#: src/newbasketdialog.cpp:322
+#: src/newbasketdialog.cpp:321
 #, kde-format
 msgid "Mind map"
 msgstr "Zihin Haritası"
 
-#: src/notecontent.cpp:90
+#: src/notecontent.cpp:89
 #, kde-format
 msgid "Group"
 msgstr "Grupla"
 
-#: src/notecontent.cpp:92
+#: src/notecontent.cpp:91
 #, kde-format
 msgid "Plain Text"
 msgstr "Düz Metin"
 
-#: src/notecontent.cpp:94
+#: src/notecontent.cpp:93
 #, kde-format
 msgid "Text"
 msgstr "Metin"
 
-#: src/notecontent.cpp:96
+#: src/notecontent.cpp:95
 #, kde-format
 msgid "Image"
 msgstr "Görsel"
 
-#: src/notecontent.cpp:98
+#: src/notecontent.cpp:97
 #, kde-format
 msgid "Animation"
 msgstr "Canlandırma"
 
-#: src/notecontent.cpp:100
+#: src/notecontent.cpp:99
 #, kde-format
 msgid "Sound"
 msgstr "Ses"
 
-#: src/notecontent.cpp:102
+#: src/notecontent.cpp:101
 #, kde-format
 msgid "File"
 msgstr "Dosya"
 
-#: src/notecontent.cpp:104
+#: src/notecontent.cpp:103
 #, kde-format
 msgid "Link"
 msgstr "Bağlantı"
 
-#: src/notecontent.cpp:106
+#: src/notecontent.cpp:105
 #, kde-format
 msgid "Cross Reference"
 msgstr "Çapraz Başvuru"
 
-#: src/notecontent.cpp:108
+#: src/notecontent.cpp:107
 #, kde-format
 msgid "Launcher"
 msgstr "Başlatıcı"
 
-#: src/notecontent.cpp:110 src/noteedit.cpp:1204
+#: src/notecontent.cpp:109 src/noteedit.cpp:1202
 #, kde-format
 msgid "Color"
 msgstr "Renk"
 
-#: src/notecontent.cpp:112 src/notecontent.cpp:114
+#: src/notecontent.cpp:111 src/notecontent.cpp:113
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: src/notecontent.cpp:590
+#: src/notecontent.cpp:589
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Bu düz metni düzenle"
 
-#: src/notecontent.cpp:594
+#: src/notecontent.cpp:593
 #, kde-format
 msgid "Edit this text"
 msgstr "Bu metni düzenle"
 
-#: src/notecontent.cpp:598
+#: src/notecontent.cpp:597
 #, kde-format
 msgid "Edit this image"
 msgstr "Bu görseli düzenle"
 
-#: src/notecontent.cpp:602
+#: src/notecontent.cpp:601
 #, kde-format
 msgid "Edit this animation"
 msgstr "Bu canlandırmayı düzenle"
 
-#: src/notecontent.cpp:606
+#: src/notecontent.cpp:605
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Bu sesin dosya adını düzenle"
 
-#: src/notecontent.cpp:610
+#: src/notecontent.cpp:609
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "BU dosyanın adını düzenle"
 
-#: src/notecontent.cpp:614
+#: src/notecontent.cpp:613
 #, kde-format
 msgid "Edit this link"
 msgstr "Bu bağlantıyı düzenle"
 
-#: src/notecontent.cpp:618
+#: src/notecontent.cpp:617
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Bu çapraz başvuruyu düzenle"
 
-#: src/notecontent.cpp:622
+#: src/notecontent.cpp:621
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Bu başlatıcıyı düzenle"
 
-#: src/notecontent.cpp:626
+#: src/notecontent.cpp:625
 #, kde-format
 msgid "Edit this color"
 msgstr "Bu rengi düzenle"
 
-#: src/notecontent.cpp:630
+#: src/notecontent.cpp:629
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Bu bilinmeyen nesneyi düzenle"
 
-#: src/notecontent.cpp:992
+#: src/notecontent.cpp:991
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Düz metin açılıyor…"
 
-#: src/notecontent.cpp:994
+#: src/notecontent.cpp:993
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Düz metinler açılıyor…"
 
-#: src/notecontent.cpp:996
+#: src/notecontent.cpp:995
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Düz metin birlikte açılıyor…"
 
-#: src/notecontent.cpp:998
+#: src/notecontent.cpp:997
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "Düz metinler birlikte açılıyor…"
 
-#: src/notecontent.cpp:1000
+#: src/notecontent.cpp:999
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Düz metni birlikte aç:"
 
-#: src/notecontent.cpp:1002
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Düz metinleri birlikte aç:"
 
-#: src/notecontent.cpp:1113
+#: src/notecontent.cpp:1112
 #, kde-format
 msgid "Opening text..."
 msgstr "Metin açılıyor…"
 
-#: src/notecontent.cpp:1115
+#: src/notecontent.cpp:1114
 #, kde-format
 msgid "Opening texts..."
 msgstr "Metinler açılıyor…"
 
-#: src/notecontent.cpp:1117
+#: src/notecontent.cpp:1116
 #, kde-format
 msgid "Opening text with..."
 msgstr "Metin birlikte açılıyor…"
 
-#: src/notecontent.cpp:1119
+#: src/notecontent.cpp:1118
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Metinler birlikte açılıyor…"
 
-#: src/notecontent.cpp:1121
+#: src/notecontent.cpp:1120
 #, kde-format
 msgid "Open text with:"
 msgstr "Metni birlikte aç:"
 
-#: src/notecontent.cpp:1123
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Open texts with:"
 msgstr "Metinleri birlikte aç:"
 
-#: src/notecontent.cpp:1246 src/notecontent.cpp:1464
+#: src/notecontent.cpp:1245 src/notecontent.cpp:1463
 #, kde-format
 msgid "Size"
 msgstr "Boyut"
 
-#: src/notecontent.cpp:1246 src/variouswidgets.cpp:212
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 × %2 piksel"
 
-#: src/notecontent.cpp:1253
+#: src/notecontent.cpp:1252
 #, kde-format
 msgid "Opening image..."
 msgstr "Görsel açılıyor…"
 
-#: src/notecontent.cpp:1255
+#: src/notecontent.cpp:1254
 #, kde-format
 msgid "Opening images..."
 msgstr "Görseller açılıyor…"
 
-#: src/notecontent.cpp:1257
+#: src/notecontent.cpp:1256
 #, kde-format
 msgid "Opening image with..."
 msgstr "Görseller birlikte açılıyor…"
 
-#: src/notecontent.cpp:1259
+#: src/notecontent.cpp:1258
 #, kde-format
 msgid "Opening images with..."
 msgstr "Görseller birlikte açılıyor…"
 
-#: src/notecontent.cpp:1261
+#: src/notecontent.cpp:1260
 #, kde-format
 msgid "Open image with:"
 msgstr "Görseli birlikte aç:"
 
-#: src/notecontent.cpp:1263
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Open images with:"
 msgstr "Görselleri birlikte aç:"
 
-#: src/notecontent.cpp:1288
+#: src/notecontent.cpp:1287
 #, kde-format
 msgid "Click for full size view"
 msgstr "Tam boyutu görüntülemek için tıklayın"
 
-#: src/notecontent.cpp:1375
+#: src/notecontent.cpp:1374
 #, kde-format
 msgid "Opening animation..."
 msgstr "Canlandırma açılıyor…"
 
-#: src/notecontent.cpp:1377
+#: src/notecontent.cpp:1376
 #, kde-format
 msgid "Opening animations..."
 msgstr "Canlandırma açılıyor…"
 
-#: src/notecontent.cpp:1379
+#: src/notecontent.cpp:1378
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Canlandırma birlikte açılıyor…"
 
-#: src/notecontent.cpp:1381
+#: src/notecontent.cpp:1380
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Canlandırma birlikte açılıyor…"
 
-#: src/notecontent.cpp:1383
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Open animation with:"
 msgstr "Canlandırmayı birlikte aç:"
 
-#: src/notecontent.cpp:1385
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Open animations with:"
 msgstr "Canlandırmaları birlikte aç:"
 
-#: src/notecontent.cpp:1469
+#: src/notecontent.cpp:1468
 #, kde-format
 msgid "Type"
 msgstr "Tür"
 
-#: src/notecontent.cpp:1510
+#: src/notecontent.cpp:1509
 #, kde-format
 msgid "Open this file"
 msgstr "Bu dosyayı aç"
 
-#: src/notecontent.cpp:1529
+#: src/notecontent.cpp:1528
 #, kde-format
 msgid "Opening file..."
 msgstr "Dosya açılıyor…"
 
-#: src/notecontent.cpp:1531
+#: src/notecontent.cpp:1530
 #, kde-format
 msgid "Opening files..."
 msgstr "Dosyalar açılıyor…"
 
-#: src/notecontent.cpp:1533
+#: src/notecontent.cpp:1532
 #, kde-format
 msgid "Opening file with..."
 msgstr "Dosya birlikte açılıyor…"
 
-#: src/notecontent.cpp:1535
+#: src/notecontent.cpp:1534
 #, kde-format
 msgid "Opening files with..."
 msgstr "Dosyalar birlikte açılıyor…"
 
-#: src/notecontent.cpp:1537
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Open file with:"
 msgstr "Dosyayı birlikte aç:"
 
-#: src/notecontent.cpp:1539
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Open files with:"
 msgstr "Dosyaları birlikte aç:"
 
-#: src/notecontent.cpp:1640
+#: src/notecontent.cpp:1639
 #, kde-format
 msgid "Open this sound"
 msgstr "Bu sesi aç"
 
-#: src/notecontent.cpp:1666
+#: src/notecontent.cpp:1665
 #, kde-format
 msgid "Opening sound..."
 msgstr "Ses açılıyor…"
 
-#: src/notecontent.cpp:1668
+#: src/notecontent.cpp:1667
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Sesler açılıyor…"
 
-#: src/notecontent.cpp:1670
+#: src/notecontent.cpp:1669
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Ses birlikte açılıyor…"
 
-#: src/notecontent.cpp:1672
+#: src/notecontent.cpp:1671
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Sesler birlikte açılıyor…"
 
-#: src/notecontent.cpp:1674
+#: src/notecontent.cpp:1673
 #, kde-format
 msgid "Open sound with:"
 msgstr "Sesi birlikte aç:"
 
-#: src/notecontent.cpp:1676
+#: src/notecontent.cpp:1675
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Sesleri birlikte aç:"
 
-#: src/notecontent.cpp:1739 src/notecontent.cpp:2010
+#: src/notecontent.cpp:1738 src/notecontent.cpp:2009
 #, kde-format
 msgid "Target"
 msgstr "Hedef"
 
-#: src/notecontent.cpp:1761 src/notecontent.cpp:2032
+#: src/notecontent.cpp:1760 src/notecontent.cpp:2031
 #, kde-format
 msgid "Open this link"
 msgstr "Bu bağlantıyı aç"
 
-#: src/notecontent.cpp:1787
+#: src/notecontent.cpp:1786
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Bağlantıyı açmak için bir URL yok."
 
-#: src/notecontent.cpp:1791
+#: src/notecontent.cpp:1790
 #, kde-format
 msgid "Opening link target..."
 msgstr "Bağlantı hedefi açılıyor…"
 
-#: src/notecontent.cpp:1793
+#: src/notecontent.cpp:1792
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Bağlantı hedefleri açılıyor…"
 
-#: src/notecontent.cpp:1795
+#: src/notecontent.cpp:1794
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Bağlantı hedefi birlikte açılıyor…"
 
-#: src/notecontent.cpp:1797
+#: src/notecontent.cpp:1796
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Bağlantı hedefleri birlikte açılıyor…"
 
-#: src/notecontent.cpp:1799
+#: src/notecontent.cpp:1798
 #, kde-format
 msgid "Open link target with:"
 msgstr "Bağlantı hedefini birlikte aç:"
 
-#: src/notecontent.cpp:1801
+#: src/notecontent.cpp:1800
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Bağlantı hedeflerini birlikte aç:"
 
-#: src/notecontent.cpp:2045
+#: src/notecontent.cpp:2044
 #, kde-format
 msgid "Link to %1"
 msgstr "%1 Konumuna Bağlantıla"
 
-#: src/notecontent.cpp:2058
+#: src/notecontent.cpp:2057
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Bağlantının açacağı bir sepet yok."
 
-#: src/notecontent.cpp:2062
+#: src/notecontent.cpp:2061
 #, kde-format
 msgid "Opening basket..."
 msgstr "Sepet açılıyor…"
 
-#: src/notecontent.cpp:2167
+#: src/notecontent.cpp:2166
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(konsolda çalıştır)</i>"
 
-#: src/notecontent.cpp:2172
+#: src/notecontent.cpp:2171
 #, kde-format
 msgid "Command"
 msgstr "Komut"
 
-#: src/notecontent.cpp:2196
+#: src/notecontent.cpp:2195
 #, kde-format
 msgid "Launch this application"
 msgstr "Bu uygulamayı başlat"
 
-#: src/notecontent.cpp:2217
+#: src/notecontent.cpp:2216
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "Çalıştırmak için başlatıcıya ait bir komut yok."
 
-#: src/notecontent.cpp:2221
+#: src/notecontent.cpp:2220
 #, kde-format
 msgid "Launching application..."
 msgstr "Uygulama başlatılıyor…"
 
-#: src/notecontent.cpp:2223
+#: src/notecontent.cpp:2222
 #, kde-format
 msgid "Launching applications..."
 msgstr "Uygulamalar başlatılıyor…"
 
-#: src/notecontent.cpp:2343
+#: src/notecontent.cpp:2342
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2344
+#: src/notecontent.cpp:2343
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Kırmızı</i>: %1, <i>Yeşil</i>: %2, <i>Mavi</i>: %3,"
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2347
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2349
+#: src/notecontent.cpp:2348
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Ton</i>: %1, <i>Doygunluk</i>: %2, <i>Değer</i>: %3,"
 
-#: src/notecontent.cpp:2353
+#: src/notecontent.cpp:2352
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS Renk Adı"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "Is Web Color"
 msgstr "Web Rengi"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "Yes"
 msgstr "Evet"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2355
 #, kde-format
 msgid "No"
 msgstr "Hayır"
 
-#: src/noteedit.cpp:541
+#: src/noteedit.cpp:539
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2680,12 +2680,12 @@ msgstr ""
 "görsel düzenleyici de içerecek).\n"
 "Bu dosyayı açabilen bir uygulama ile açmak ister misiniz?"
 
-#: src/noteedit.cpp:543
+#: src/noteedit.cpp:541
 #, kde-format
 msgid "Edit Image Note"
 msgstr "Görsel Notunu Düzenle"
 
-#: src/noteedit.cpp:568
+#: src/noteedit.cpp:566
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
@@ -2694,17 +2694,17 @@ msgstr ""
 "Bu hareketli görsel burada düzenlenemez.\n"
 "Bu dosyayı açabilen bir uygulama ile açmak ister misiniz?"
 
-#: src/noteedit.cpp:570
+#: src/noteedit.cpp:568
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "Canlandırma Notunu Düzenle"
 
-#: src/noteedit.cpp:663
+#: src/noteedit.cpp:661
 #, kde-format
 msgid "Edit Color Note"
 msgstr "Renk Notunu Düzenle"
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:686
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2715,132 +2715,132 @@ msgstr ""
 "Bununla birlikte, bu notu açabilecek bir uygulamaya notu kopyalayabilir ya "
 "da sürükleyip bırakabilirsiniz."
 
-#: src/noteedit.cpp:690
+#: src/noteedit.cpp:688
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "Bilinmeyen Notu Düzenle"
 
-#: src/noteedit.cpp:702
+#: src/noteedit.cpp:700
 #, kde-format
 msgid "Edit Link Note"
 msgstr "Bağlantı Notunu Düzenle"
 
-#: src/noteedit.cpp:722 src/noteedit.cpp:755
+#: src/noteedit.cpp:720 src/noteedit.cpp:753
 #, kde-format
 msgid "Auto"
 msgstr "Otomatik"
 
-#: src/noteedit.cpp:734 src/noteedit.cpp:1060
+#: src/noteedit.cpp:732 src/noteedit.cpp:1058
 #, kde-format
 msgid "&Icon:"
 msgstr "&Simge:"
 
-#: src/noteedit.cpp:777 src/noteedit.cpp:948
+#: src/noteedit.cpp:775 src/noteedit.cpp:946
 #, kde-format
 msgid "Ta&rget:"
 msgstr "&Hedef:"
 
-#: src/noteedit.cpp:782
+#: src/noteedit.cpp:780
 #, kde-format
 msgid "&Title:"
 msgstr "&Başlık:"
 
-#: src/noteedit.cpp:915
+#: src/noteedit.cpp:913
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Çapraz Başvuruyu Düzenle"
 
-#: src/noteedit.cpp:1034
+#: src/noteedit.cpp:1032
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Başlatıcı Notunu Düzenle"
 
-#: src/noteedit.cpp:1048
+#: src/noteedit.cpp:1046
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Çalıştırmak için bir komut seçin:"
 
-#: src/noteedit.cpp:1065
+#: src/noteedit.cpp:1063
 #, kde-format
 msgid "&Guess"
 msgstr "&Tahmin Et"
 
-#: src/noteedit.cpp:1083
+#: src/noteedit.cpp:1081
 #, kde-format
 msgid "Comman&d:"
 msgstr "K&omut:"
 
-#: src/noteedit.cpp:1088 src/tagsedit.cpp:386
+#: src/noteedit.cpp:1086 src/tagsedit.cpp:385
 #, kde-format
 msgid "&Name:"
 msgstr "&Ad:"
 
-#: src/noteedit.cpp:1186
+#: src/noteedit.cpp:1184
 #, kde-format
 msgid "Font"
 msgstr "Yazıtipi"
 
-#: src/noteedit.cpp:1194
+#: src/noteedit.cpp:1192
 #, kde-format
 msgid "Font Size"
 msgstr "Yazıtipi Puntosu"
 
-#: src/noteedit.cpp:1209 src/tagsedit.cpp:468
+#: src/noteedit.cpp:1207 src/tagsedit.cpp:467
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: src/noteedit.cpp:1216 src/tagsedit.cpp:480
+#: src/noteedit.cpp:1214 src/tagsedit.cpp:479
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: src/noteedit.cpp:1223 src/tagsedit.cpp:474
+#: src/noteedit.cpp:1221 src/tagsedit.cpp:473
 #, kde-format
 msgid "Underline"
 msgstr "Altı Çizili"
 
-#: src/noteedit.cpp:1231
+#: src/noteedit.cpp:1229
 #, kde-format
 msgid "Superscript"
 msgstr "Üst Simge"
 
-#: src/noteedit.cpp:1237
+#: src/noteedit.cpp:1235
 #, kde-format
 msgid "Subscript"
 msgstr "Alt Simge"
 
-#: src/noteedit.cpp:1244
+#: src/noteedit.cpp:1242
 #, kde-format
 msgid "Align Left"
 msgstr "Sola Yasla"
 
-#: src/noteedit.cpp:1250
+#: src/noteedit.cpp:1248
 #, kde-format
 msgid "Centered"
 msgstr "Ortala"
 
-#: src/noteedit.cpp:1256
+#: src/noteedit.cpp:1254
 #, kde-format
 msgid "Align Right"
 msgstr "Sağa Yasla"
 
-#: src/noteedit.cpp:1262
+#: src/noteedit.cpp:1260
 #, kde-format
 msgid "Justified"
 msgstr "İki Yana Yasla"
 
-#: src/noteedit.cpp:1274
+#: src/noteedit.cpp:1272
 #, kde-format
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/noteedit.cpp:1280
+#: src/noteedit.cpp:1278
 #, kde-format
 msgid "Redo"
 msgstr "Yinele"
 
-#: src/notefactory.cpp:491
+#: src/notefactory.cpp:490
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2853,76 +2853,78 @@ msgstr ""
 "oluşturabilir.</p><p>Bu verinin desteklenmesini istiyorsanız geliştirici ile "
 "bağlantı kurun.</p>"
 
-#: src/notefactory.cpp:497
+#: src/notefactory.cpp:496
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "Desteklenmeyen MIME Türü"
 
-#: src/notefactory.cpp:553
+#: src/notefactory.cpp:552
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "&Buraya Taşı\tÜst Karakter"
 
-#: src/notefactory.cpp:554
+#: src/notefactory.cpp:553
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "Buraya Ko&pyala\tKontrol"
 
-#: src/notefactory.cpp:555
+#: src/notefactory.cpp:554
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "Buraya B&ağlantıla\tKontrol+Üst Karakter"
 
-#: src/notefactory.cpp:561
+#: src/notefactory.cpp:560
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "İ&ptal\tEscape"
 
-#: src/notefactory.cpp:1052
+#: src/notefactory.cpp:1051
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "Simgeyi Görsel Olarak İçe Aktar"
 
-#: src/notefactory.cpp:1053
+#: src/notefactory.cpp:1052
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "Görsel olarak içe aktarılacak simge için boyutu seçin:"
 
-#: src/notefactory.cpp:1069
+#: src/notefactory.cpp:1068
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "Dosya İçeriğini Bir Not İçine Yükle"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PasswordLayout)
-#: src/password.cpp:30 src/passwordlayout.ui:14 src/settings.cpp:589
-#, kde-format
-msgid "Password Protection"
-msgstr "Parola Koruması"
-
-#: src/password.cpp:59
+#: src/passworddialog.cpp:53
 #, kde-format
 msgid "No private key selected."
 msgstr "Özel anahtar seçilmedi."
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
+#: src/passworddialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Password Protection"
+msgctxt "@title:window"
+msgid "Password Protection"
+msgstr "Parola Koruması"
+
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
-#: src/passwordlayout.ui:29
+#: src/passworddialog.ui:29
 #, kde-format
 msgid "&No protection"
 msgstr "&Koruma yok"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
-#: src/passwordlayout.ui:36
+#: src/passworddialog.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
 msgstr "Sepeti bir pa&rola ile koru"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
-#: src/passwordlayout.ui:51
+#: src/passworddialog.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
 msgstr "Sepeti bir özel anahtar ile &koru:"
 
-#: src/regiongrabber.cpp:102
+#: src/regiongrabber.cpp:101
 #, kde-format
 msgid ""
 "Select a region using the mouse. To take the snapshot, press the Enter key. "
@@ -2931,83 +2933,83 @@ msgstr ""
 "Fare kullanarak bir bölge seçin. Ekran görüntüsü almak için Giriş’e basın. "
 "Çıkmak için Vazgeç’e basın."
 
-#: src/settings.cpp:432
+#: src/settings.cpp:431
 #, kde-format
 msgid "On left"
 msgstr "Solda"
 
-#: src/settings.cpp:433
+#: src/settings.cpp:432
 #, kde-format
 msgid "On right"
 msgstr "Sağda"
 
-#: src/settings.cpp:435
+#: src/settings.cpp:434
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&Sepet ağacı konumu:"
 
-#: src/settings.cpp:440 src/settings.cpp:698
+#: src/settings.cpp:439 src/settings.cpp:697
 #, kde-format
 msgid "On top"
 msgstr "Üstte"
 
-#: src/settings.cpp:441 src/settings.cpp:699
+#: src/settings.cpp:440 src/settings.cpp:698
 #, kde-format
 msgid "On bottom"
 msgstr "Altta"
 
-#: src/settings.cpp:443
+#: src/settings.cpp:442
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "S&üzgeç çubuğu konumu:"
 
-#: src/settings.cpp:489
+#: src/settings.cpp:488
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "&Sepetler içinde ipuçlarını göster"
 
-#: src/settings.cpp:493
+#: src/settings.cpp:492
 #, kde-format
 msgid "&Big notes"
 msgstr "&Büyük notlar"
 
-#: src/settings.cpp:499
+#: src/settings.cpp:498
 #, kde-format
 msgid "Behavior"
 msgstr "Davranış"
 
-#: src/settings.cpp:504
+#: src/settings.cpp:503
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
 "* veya - ile başlayan satırları &metin düzenleyicilerde listelere dönüştür"
 
-#: src/settings.cpp:508
+#: src/settings.cpp:507
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "Notları silmeden önce &kullanıcıya sor"
 
-#: src/settings.cpp:512
+#: src/settings.cpp:511
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "Yapıştırırken metin biçimlendirmesini tut"
 
-#: src/settings.cpp:516
+#: src/settings.cpp:515
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "Notun içeriğinden etiketleri kendiliğinden algıla"
 
-#: src/settings.cpp:523
+#: src/settings.cpp:522
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "Me&tinlerin içindeki etiketleri dışa aktar"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:526
 #, kde-format
 msgid "When does this apply?"
 msgstr "Bu ne zaman uygulanır?"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:527
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -3016,7 +3018,7 @@ msgstr ""
 "Bir notu bir metin düzenleyiciye kopyalayıp yapıştırdığınızda ya da tutup "
 "attığınızda uygulanır."
 
-#: src/settings.cpp:529
+#: src/settings.cpp:528
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
@@ -3025,7 +3027,7 @@ msgstr ""
 "yapıştırmanızı sağlar."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:530 src/tagsedit.cpp:524
+#: src/settings.cpp:529 src/tagsedit.cpp:523
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3036,17 +3038,17 @@ msgstr ""
 "dışa aktarılırken boş ve dolu onay kutularını temsil eden <b>[ ]</b> veya "
 "<b>[x]</b> olarak aktarılır."
 
-#: src/settings.cpp:542
+#: src/settings.cpp:541
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&Girdi satırının sağına tıklandığında yeni bir notu gruplandır"
 
-#: src/settings.cpp:544
+#: src/settings.cpp:543
 #, kde-format
 msgid "How to group a new note?"
 msgstr "Yeni bir not nasıl gruplanır?"
 
-#: src/settings.cpp:545
+#: src/settings.cpp:544
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3057,7 +3059,7 @@ msgstr ""
 "not girmenizi sağlamaz, bu yeni notu imlecin altındaki diğer not ile "
 "gruplamanıza da izin verir.</p>"
 
-#: src/settings.cpp:548
+#: src/settings.cpp:547
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3070,187 +3072,192 @@ msgstr ""
 "notu <b>ekleyin</b>.<br>Farenize <b>sağ</b> tıklayarak imlecin konumuna göre "
 "notu <b> üstteki ya da alttaki </b> bir not ile <b> gruplandırın</b>.</p>"
 
-#: src/settings.cpp:564
+#: src/settings.cpp:563
 #, kde-format
 msgid "Do nothing"
 msgstr "Hiçbir şey yapma"
 
-#: src/settings.cpp:565
+#: src/settings.cpp:564
 #, kde-format
 msgid "Paste clipboard"
 msgstr "Panoyu yapıştır"
 
-#: src/settings.cpp:568
+#: src/settings.cpp:567
 #, kde-format
 msgid "Insert cross reference"
 msgstr "Çapraz başvuru ekle"
 
-#: src/settings.cpp:569
+#: src/settings.cpp:568
 #, kde-format
 msgid "Insert launcher note"
 msgstr "Başlatıcı notu ekle"
 
-#: src/settings.cpp:572
+#: src/settings.cpp:571
 #, kde-format
 msgid "Insert color from screen"
 msgstr "Ekrandan renk ekle"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:572
 #, kde-format
 msgid "Load note from file"
 msgstr "Dosyadan not yükle"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:573
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "Masaüstü uygulama için çalıştırıcıyı içe aktar"
 
-#: src/settings.cpp:575
+#: src/settings.cpp:574
 #, kde-format
 msgid "Import icon"
 msgstr "Simge İçe Aktar"
 
-#: src/settings.cpp:578
+#: src/settings.cpp:577
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "Herhangi bir yerde &Üst Karakter+Orta Tık:"
 
-#: src/settings.cpp:583
+#: src/settings.cpp:582
 #, kde-format
 msgid "at cursor position"
 msgstr "imleç konumunda"
 
-#: src/settings.cpp:598
+#: src/settings.cpp:588
+#, kde-format
+msgid "Password Protection"
+msgstr "Parola Koruması"
+
+#: src/settings.cpp:597
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "Kilit korumalı sepetleri şu süre yaklaşınca otomatik olarak kilitle"
 
-#: src/settings.cpp:602
+#: src/settings.cpp:601
 #, kde-format
 msgid " minutes"
 msgstr " dakika"
 
-#: src/settings.cpp:613
+#: src/settings.cpp:612
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "Private/public key &korumalı sepetler için GnuPG kullan"
 
-#: src/settings.cpp:695
+#: src/settings.cpp:694
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&Yeni notların yeri:"
 
-#: src/settings.cpp:700
+#: src/settings.cpp:699
 #, kde-format
 msgid "At current note"
 msgstr "Geçerli notta"
 
-#: src/settings.cpp:719
+#: src/settings.cpp:718
 #, kde-format
 msgid "&New images size:"
 msgstr "&Yeni görsel boyutu:"
 
-#: src/settings.cpp:732
+#: src/settings.cpp:731
 #, kde-format
 msgid "&by"
 msgstr "&x"
 
-#: src/settings.cpp:737
+#: src/settings.cpp:736
 #, kde-format
 msgid "pixels"
 msgstr "piksel"
 
-#: src/settings.cpp:739
+#: src/settings.cpp:738
 #, kde-format
 msgid "&Visualize..."
 msgstr "&Görselleştir…"
 
-#: src/settings.cpp:747
+#: src/settings.cpp:746
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "Aşağıdaki Dosya Türlerinde Eklenen Dosyaların İçeriğini Göster"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:748
 #, kde-format
 msgid "&Plain text"
 msgstr "&Düz metin"
 
-#: src/settings.cpp:750
+#: src/settings.cpp:749
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML sayfası"
 
-#: src/settings.cpp:751
+#: src/settings.cpp:750
 #, kde-format
 msgid "&Image or animation"
 msgstr "Gö&rsel veya canlandırma"
 
-#: src/settings.cpp:752
+#: src/settings.cpp:751
 #, kde-format
 msgid "&Sound"
 msgstr "&Ses"
 
-#: src/settings.cpp:820
+#: src/settings.cpp:819
 #, kde-format
 msgid "Conference audio record"
 msgstr "Konferans ses kaydı"
 
-#: src/settings.cpp:821
+#: src/settings.cpp:820
 #, kde-format
 msgid "Annual report"
 msgstr "Yıllık rapor"
 
-#: src/settings.cpp:822
+#: src/settings.cpp:821
 #, kde-format
 msgid "Home folder"
 msgstr "Ana klasör"
 
-#: src/settings.cpp:824
+#: src/settings.cpp:823
 #, kde-format
 msgid "Launch %1"
 msgstr "Çalıştır %1"
 
-#: src/settings.cpp:825
+#: src/settings.cpp:824
 #, kde-format
 msgid "Another basket"
 msgstr "Başka bir sepet"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:826
 #, kde-format
 msgid "&Sounds"
 msgstr "&Sesler"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:827
 #, kde-format
 msgid "&Files"
 msgstr "&Dosyalar"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:828
 #, kde-format
 msgid "&Local Links"
 msgstr "&Yerel Bağlantılar"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:829
 #, kde-format
 msgid "&Network Links"
 msgstr "&Ağ Bağlantıları"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:830
 #, kde-format
 msgid "Launc&hers"
 msgstr "&Başlatıcılar"
 
-#: src/settings.cpp:832
+#: src/settings.cpp:831
 #, kde-format
 msgid "&Cross References"
 msgstr "Ç&apraz Başvurular"
 
-#: src/settings.cpp:873
+#: src/settings.cpp:872
 #, kde-format
 msgid "General Launch Associations"
 msgstr "Genel Başlatma İlişkilendirmeleri"
 
-#: src/settings.cpp:876
+#: src/settings.cpp:875
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3283,7 +3290,7 @@ msgstr ""
 "p><p>Daha ince ayar yapılmış yapılandırmalar için (örneğin, PDF dosyalarını "
 "Falkon ile açmak gibi) ikinci düğmenin araç ipucunu okuyun.</p>"
 
-#: src/settings.cpp:890
+#: src/settings.cpp:889
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3313,7 +3320,7 @@ msgstr ""
 "tüm adresler Web tarayıcınızla açılacaktır.</p><p>Daha ayrıntılı bir "
 "yapılandırma yardımı için üçüncü araç ipucunu okuyun.</p>"
 
-#: src/settings.cpp:904
+#: src/settings.cpp:903
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3345,77 +3352,77 @@ msgstr ""
 "girdi olarak ekleyin.</li><li> Aynı işlemi “application -> xhtml+xml” türü "
 "için de uygulayın.</li></ul>"
 
-#: src/settings.cpp:923
+#: src/settings.cpp:922
 #, kde-format
 msgid "Launch KDE Menu Editor"
 msgstr "KDE Menü Düzenleyicisi’ni Başlat"
 
-#: src/settings.cpp:932
+#: src/settings.cpp:931
 #, kde-format
 msgid "Default Applications"
 msgstr "Öntanımlı Uygulamalar"
 
-#: src/settings.cpp:941
+#: src/settings.cpp:940
 #, kde-format
 msgid "File Associations"
 msgstr "Dosya İlişkilendirmeleri"
 
-#: src/settings.cpp:952
+#: src/settings.cpp:951
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "Belirli Basket İlişkilendirmeleri"
 
-#: src/settings.cpp:954
+#: src/settings.cpp:953
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "M&etin notlarını özel bir uygulama ile aç:"
 
-#: src/settings.cpp:955
+#: src/settings.cpp:954
 #, kde-format
 msgid "Open text notes with:"
 msgstr "Metin notlarını birlikte aç:"
 
-#: src/settings.cpp:962
+#: src/settings.cpp:961
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "Gö&rsel notlarını özel bir uygulama ile aç:"
 
-#: src/settings.cpp:963
+#: src/settings.cpp:962
 #, kde-format
 msgid "Open image notes with:"
 msgstr "Görsel notlarını birlikte aç:"
 
-#: src/settings.cpp:970
+#: src/settings.cpp:969
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "Ca&nlandırma notlarını özel bir uygulama ile aç:"
 
-#: src/settings.cpp:971
+#: src/settings.cpp:970
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "Canlandırma notlarını birlikte aç:"
 
-#: src/settings.cpp:978
+#: src/settings.cpp:977
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "&Ses notlarını özel bir uygulama ile aç:"
 
-#: src/settings.cpp:979
+#: src/settings.cpp:978
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "Ses notlarını birlikte aç:"
 
-#: src/settings.cpp:986
+#: src/settings.cpp:985
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "HTTP bağlantısı notlarını özel bir uygulama ile aç:"
 
-#: src/settings.cpp:987
+#: src/settings.cpp:986
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "HTTP bağlantısı notlarını birlikte aç:"
 
-#: src/settings.cpp:995
+#: src/settings.cpp:994
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3426,7 +3433,7 @@ msgstr ""
 "kullanılır.</p><p>Aksi durumda, Konqueror yapılandırmasında seçtiğiniz "
 "uygulama kullanılacaktır.</p>"
 
-#: src/settings.cpp:1005
+#: src/settings.cpp:1004
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
@@ -3451,8 +3458,9 @@ msgid "Version Sync"
 msgstr "Sürüm Eşzamanlaması"
 
 #: src/settings_versionsync.cpp:92
-#, kde-format
-msgid "This will free %1 MB"
+#, fuzzy, kde-format
+#| msgid "This will free %1 MB"
+msgid "This will free %1"
 msgstr "Bu işlem, %1 MB yer açacaktır"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
@@ -3479,292 +3487,292 @@ msgstr "Denetle"
 msgid "Clear version history"
 msgstr "Sürüm geçmişini temizle"
 
-#: src/softwareimporters.cpp:49
+#: src/softwareimporters.cpp:47
 #, kde-format
 msgid "Import Hierarchy"
 msgstr "Hiyerarşi İçe Aktar"
 
-#: src/softwareimporters.cpp:59
+#: src/softwareimporters.cpp:57
 #, kde-format
 msgid "How to Import the Notes?"
 msgstr "Nasıl Yeni Not İçe Aktarılır?"
 
-#: src/softwareimporters.cpp:63
+#: src/softwareimporters.cpp:61
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
 msgstr "&Özgün hiyerarşiyi koru (tüm notlar farklı sepetlerde)"
 
-#: src/softwareimporters.cpp:64
+#: src/softwareimporters.cpp:62
 #, kde-format
 msgid "&First level notes in separate baskets"
 msgstr "&Birinci düzey notlar farklı sepetlerde"
 
-#: src/softwareimporters.cpp:65
+#: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&All notes in one basket"
 msgstr "&Tüm notlar bir sepet içinde"
 
-#: src/softwareimporters.cpp:109
+#: src/softwareimporters.cpp:107
 #, kde-format
 msgid "Import Text File"
 msgstr "Metin Dosyası İçe Aktar"
 
-#: src/softwareimporters.cpp:113
+#: src/softwareimporters.cpp:111
 #, kde-format
 msgid "Format of the Text File"
 msgstr "Metin Dosyasının Biçemi"
 
-#: src/softwareimporters.cpp:118
+#: src/softwareimporters.cpp:116
 #, kde-format
 msgid "Notes separated by an &empty line"
 msgstr "Boş &bir satır ile ayrılmış notlar"
 
-#: src/softwareimporters.cpp:119
+#: src/softwareimporters.cpp:117
 #, kde-format
 msgid "One &note per line"
 msgstr "Her &satıra bir not"
 
-#: src/softwareimporters.cpp:120
+#: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes begin with a &dash (-)"
 msgstr "(-) ile başlayan notlar"
 
-#: src/softwareimporters.cpp:121
+#: src/softwareimporters.cpp:119
 #, kde-format
 msgid "Notes begin with a &star (*)"
 msgstr "(*) ile başlayan notlar"
 
-#: src/softwareimporters.cpp:122
+#: src/softwareimporters.cpp:120
 #, kde-format
 msgid "&Use another separator:"
 msgstr "&Başka bir ayırıcı kullan:"
 
-#: src/softwareimporters.cpp:138
+#: src/softwareimporters.cpp:136
 #, kde-format
 msgid "&All in one note"
 msgstr "&Tümü bir not içinde"
 
-#: src/softwareimporters.cpp:217
+#: src/softwareimporters.cpp:215
 #, kde-format
 msgctxt "From TextFile.txt"
 msgid "From %1"
 msgstr "%1 dosyasından"
 
-#: src/tag.cpp:80
+#: src/tag.cpp:79
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "To Do"
 msgstr "Yapılacak İş"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "Unchecked"
 msgstr "İşaretsiz"
 
-#: src/tag.cpp:592
+#: src/tag.cpp:591
 #, kde-format
 msgid "Done"
 msgstr "Bitmiş"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "Progress"
 msgstr "İşlem"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "0 %"
 msgstr "%​0"
 
-#: src/tag.cpp:593
+#: src/tag.cpp:592
 #, kde-format
 msgid "25 %"
 msgstr "%​25"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "50 %"
 msgstr "%​50"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "75 %"
 msgstr "%​75"
 
-#: src/tag.cpp:594
+#: src/tag.cpp:593
 #, kde-format
 msgid "100 %"
 msgstr "%​100"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Priority"
 msgstr "Öncelik"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Low"
 msgstr "Düşük"
 
-#: src/tag.cpp:647
+#: src/tag.cpp:646
 #, kde-format
 msgid "Medium"
 msgstr "Orta"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "High"
 msgstr "Yüksek"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "Preference"
 msgstr "Seçenek"
 
-#: src/tag.cpp:648
+#: src/tag.cpp:647
 #, kde-format
 msgid "Bad"
 msgstr "Kötü"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Good"
 msgstr "İyi"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Excellent"
 msgstr "Mükemmel"
 
-#: src/tag.cpp:649
+#: src/tag.cpp:648
 #, kde-format
 msgid "Highlight"
 msgstr "Önem"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Important"
 msgstr "Önemli"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Very Important"
 msgstr "Çok Önemli"
 
-#: src/tag.cpp:718
+#: src/tag.cpp:717
 #, kde-format
 msgid "Information"
 msgstr "Bilgi"
 
-#: src/tag.cpp:719
+#: src/tag.cpp:718
 #, kde-format
 msgid "Idea"
 msgstr "Fikir"
 
-#: src/tag.cpp:719
+#: src/tag.cpp:718
 #, kde-format
 msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr "D."
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgid "Code"
 msgstr "Kod"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgid "Work"
 msgstr "İş"
 
-#: src/tag.cpp:720
+#: src/tag.cpp:719
 #, kde-format
 msgctxt "The initial of 'Work'"
 msgid "W."
 msgstr "İ."
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgid "Personal"
 msgstr "Kişisel"
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgctxt "The initial of 'Personal'"
 msgid "P."
 msgstr "K."
 
-#: src/tag.cpp:738
+#: src/tag.cpp:737
 #, kde-format
 msgid "Funny"
 msgstr "Neşeli"
 
-#: src/tagsedit.cpp:312
+#: src/tagsedit.cpp:311
 #, kde-format
 msgid "Customize Tags"
 msgstr "Etiketleri Özelleştir"
 
-#: src/tagsedit.cpp:331
+#: src/tagsedit.cpp:330
 #, kde-format
 msgid "Ne&w Tag"
 msgstr "Yeni &Etiket"
 
-#: src/tagsedit.cpp:332
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "New St&ate"
 msgstr "Yeni &İfade"
 
-#: src/tagsedit.cpp:353
+#: src/tagsedit.cpp:352
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "Yukarı Taşı (Kontrol+Üst Karakter+Yukarı Ok)"
 
-#: src/tagsedit.cpp:354
+#: src/tagsedit.cpp:353
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "Aşağı Taşı (Kontroll+Üst Karakter+Aşağı Ok)"
 
-#: src/tagsedit.cpp:355
+#: src/tagsedit.cpp:354
 #, kde-format
 msgid "Delete"
 msgstr "Sil"
 
-#: src/tagsedit.cpp:378
+#: src/tagsedit.cpp:377
 #, kde-format
 msgid "Tag"
 msgstr "Etiket"
 
-#: src/tagsedit.cpp:390
+#: src/tagsedit.cpp:389
 #, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "&Kaldır"
 
-#: src/tagsedit.cpp:391
+#: src/tagsedit.cpp:390
 #, kde-format
 msgid "S&hortcut:"
 msgstr "Kısa&yol:"
 
-#: src/tagsedit.cpp:396
+#: src/tagsedit.cpp:395
 #, kde-format
 msgid "&Inherited by new sibling notes"
 msgstr "&Yeni kardeş notlar tarafından miras bırakılmış"
 
-#: src/tagsedit.cpp:398
+#: src/tagsedit.cpp:397
 #, kde-format
 msgid "Allow Cross Reference Links"
 msgstr "Çapraz Başvurulu Bağlantılara İzin Ver"
 
-#: src/tagsedit.cpp:401
+#: src/tagsedit.cpp:400
 #, kde-format
 msgid "What does this do?"
 msgstr "Bu ne yapar?"
 
-#: src/tagsedit.cpp:403
+#: src/tagsedit.cpp:402
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3773,103 +3781,103 @@ msgstr ""
 "Bu seçenek, bir metin notuna doğrudan bir çapraz başvuru girebilmenize izin "
 "verir. Çapraz başvuru bağlantılarının sözdizimi şöyledir:"
 
-#: src/tagsedit.cpp:404
+#: src/tagsedit.cpp:403
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "Ağacın tepesinden (Mutlak yol):"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/üst düzey öge/alt öge|isteğe bağlı başlık]]"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "Geçerli sepete göreceli olarak:"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../aynı düzey|isteğe bağlı başlık]]"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[alt öge|isteğe bağlı başlık]]"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./alt öge|isteğe bağlı başlık]]"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr "Eşleşen sepetler BÜYÜK/küçük harf duyarsızdır."
 
-#: src/tagsedit.cpp:422 src/tagsedit.cpp:1101 src/tagsedit.cpp:1117
+#: src/tagsedit.cpp:421 src/tagsedit.cpp:1100 src/tagsedit.cpp:1116
 #, kde-format
 msgid "State"
 msgstr "İfade"
 
-#: src/tagsedit.cpp:430
+#: src/tagsedit.cpp:429
 #, kde-format
 msgid "Na&me:"
 msgstr "&Ad:"
 
-#: src/tagsedit.cpp:438
+#: src/tagsedit.cpp:437
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "&Kaldır"
 
-#: src/tagsedit.cpp:439
+#: src/tagsedit.cpp:438
 #, kde-format
 msgid "&Emblem:"
 msgstr "&Amblem:"
 
-#: src/tagsedit.cpp:456
+#: src/tagsedit.cpp:455
 #, kde-format
 msgid "&Background:"
 msgstr "&Arka plan:"
 
-#: src/tagsedit.cpp:486
+#: src/tagsedit.cpp:485
 #, kde-format
 msgid "Strike Through"
 msgstr "Üzeri Çizili"
 
-#: src/tagsedit.cpp:488
+#: src/tagsedit.cpp:487
 #, kde-format
 msgid "&Text:"
 msgstr "&Metin:"
 
-#: src/tagsedit.cpp:499
+#: src/tagsedit.cpp:498
 #, kde-format
 msgid "Co&lor:"
 msgstr "&Renk:"
 
-#: src/tagsedit.cpp:504
+#: src/tagsedit.cpp:503
 #, kde-format
 msgid "&Font:"
 msgstr "&Yazıtipi:"
 
-#: src/tagsedit.cpp:508
+#: src/tagsedit.cpp:507
 #, kde-format
 msgid "&Size:"
 msgstr "&Boyut:"
 
-#: src/tagsedit.cpp:512
+#: src/tagsedit.cpp:511
 #, kde-format
 msgid "Te&xt equivalent:"
 msgstr "Metin eşdeğeri:"
 
-#: src/tagsedit.cpp:519
+#: src/tagsedit.cpp:518
 #, kde-format
 msgid "What is this for?"
 msgstr "Bu ne için?"
 
-#: src/tagsedit.cpp:521
+#: src/tagsedit.cpp:520
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3878,17 +3886,17 @@ msgstr ""
 "Bir notu kopyalayıp yapıştırıp ve notları bir metin düzenleyiciye sürükleyip "
 "bıraktığınızda, etiketin metinsel bir dengi olarak bu metin eklenecektir."
 
-#: src/tagsedit.cpp:532
+#: src/tagsedit.cpp:531
 #, kde-format
 msgid "On ever&y line"
 msgstr "Her satır üz&erinde"
 
-#: src/tagsedit.cpp:535
+#: src/tagsedit.cpp:534
 #, kde-format
 msgid "What does this mean?"
 msgstr "Bu ne anlama gelir?"
 
-#: src/tagsedit.cpp:537
+#: src/tagsedit.cpp:536
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3897,7 +3905,7 @@ msgstr ""
 "Bir not birden fazla satırdan oluşuyorsa etiket ya da ifadeyi yalnızca ilk "
 "satıra ya da her satıra eklenecek şekilde dışa aktarmayı seçebilirsiniz."
 
-#: src/tagsedit.cpp:539
+#: src/tagsedit.cpp:538
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3907,24 +3915,24 @@ msgstr ""
 "dışa aktarılmıştır. Aşağıdaki notun etiketi ise her satıra eklenerek dışa "
 "aktarılmıştır."
 
-#: src/tagsedit.cpp:977
+#: src/tagsedit.cpp:976
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
 msgstr ""
 "Bir etiketi silmek onu kullanan tüm notlar üzerinden o etiketi kaldırır."
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:977
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Etiket Silmeyi Doğrula"
 
-#: src/tagsedit.cpp:979
+#: src/tagsedit.cpp:978
 #, kde-format
 msgid "Delete Tag"
 msgstr "&Etiketi Sil"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:981
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3932,44 +3940,44 @@ msgid ""
 msgstr ""
 "Bir ifadeyi silmek onu kullanan tüm notlar üzerinden o ifadeyi kaldırır."
 
-#: src/tagsedit.cpp:983
+#: src/tagsedit.cpp:982
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "İfade Silmeyi Doğrula"
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:983
 #, kde-format
 msgid "Delete State"
 msgstr "İfadeyi Sil"
 
-#: src/tools.cpp:804
+#: src/tools.cpp:773
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " — "
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:107
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Uygulama Başlatıcısı Seç…"
 
-#: src/variouswidgets.cpp:109
+#: src/variouswidgets.cpp:108
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Basket notlarınızı açmak için KDE Plasma uygulama başlatıcılarını kullanın"
 
-#: src/variouswidgets.cpp:135 src/variouswidgets.cpp:136
-#: src/variouswidgets.cpp:137 src/variouswidgets.cpp:138
-#: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
-#: src/variouswidgets.cpp:275 src/variouswidgets.cpp:276
-#: src/variouswidgets.cpp:277 src/variouswidgets.cpp:278
-#: src/variouswidgets.cpp:279 src/variouswidgets.cpp:280
+#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
+#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
+#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
+#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
+#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
+#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 × %1 piksel"
 
-#: src/variouswidgets.cpp:195
+#: src/variouswidgets.cpp:194
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
