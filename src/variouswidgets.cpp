@@ -76,8 +76,6 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
 {
     m_serviceLauncher = serviceLauncher;
 
-    QString name;
-    QString genericName;
     QString displayName;
     QString comment;
     QIcon buttonIcon;
@@ -104,11 +102,12 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
             buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
         }
 
-        name = service->name();
-        genericName = service->genericName();
-        displayName = name;
+        const QString name = service->name();
+        const QString genericName = service->genericName();
         if (!genericName.isEmpty())
-            displayName += QStringLiteral(" (") + genericName + QStringLiteral(")");
+            displayName = i18nc("'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'", "%1 (%2)", name, genericName);
+        else
+            displayName = name;
         comment = service->comment();
     } else {
         buttonIcon = QIcon::fromTheme(QStringLiteral("kde-symbolic"));
