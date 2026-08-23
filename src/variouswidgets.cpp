@@ -232,23 +232,6 @@ void HelpLabel::display()
 
 /** class IconSizeDialog: */
 
-class UndraggableKIconView : public QListWidget
-{
-public:
-    UndraggableKIconView(QWidget *parent = nullptr)
-        : QListWidget(parent)
-    {
-        this->setViewMode(QListView::IconMode);
-        this->setMovement(QListView::Static);
-        this->setSelectionMode(QAbstractItemView::SingleSelection);
-        this->setWrapping(false);
-    }
-    QDrag *dragObject()
-    {
-        return nullptr;
-    }
-};
-
 IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, const QString &icon, int iconSize, QWidget *parent)
     : QDialog(parent)
 {
@@ -268,7 +251,12 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     auto *label = new QLabel(message, page);
     topLayout->addWidget(label);
 
-    QListWidget *iconView = new UndraggableKIconView(page);
+    QListWidget *iconView = new QListWidget(page);
+    iconView->setViewMode(QListView::IconMode);
+    iconView->setMovement(QListView::Static);
+    iconView->setSelectionMode(QAbstractItemView::SingleSelection);
+    iconView->setWrapping(false);
+    iconView->setDragEnabled(false);
 
     QIcon desktopIcon = QIcon::fromTheme(icon);
     m_size16 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeSmall), i18n("%1 by %1 pixels", KIconLoader::SizeSmall), iconView);
