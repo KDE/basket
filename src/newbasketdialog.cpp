@@ -194,7 +194,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     painter.drawRect(icon.width() / 5, icon.width() / 5, icon.width() / 4, icon.height() / 8);
     painter.drawRect(icon.width() * 2 / 5, icon.width() * 2 / 5, icon.width() / 4, icon.height() / 8);
     painter.end();
-    lastTemplate = new QListWidgetItem(icon, i18n("Free"), m_templates);
+    lastTemplate = new QListWidgetItem(icon, i18n("Free-form"), m_templates);
     lastTemplate->setData(TemplateRole, QStringLiteral("free"));
     templateItems.insert(lastTemplate->data(TemplateRole).toString(), lastTemplate);
 
