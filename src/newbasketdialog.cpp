@@ -142,7 +142,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     m_templates->setSelectionMode(QAbstractItemView::SingleSelection);
     QListWidgetItem *lastTemplate = nullptr;
     QPixmap icon(40, 53);
-    const QRect iconBorderRect = icon.rect();
+    const QRect iconBorderRect = icon.rect().adjusted(0, 0, -1, -1);
 
     QPainter painter(&icon);
     painter.fillRect(iconBorderRect, palette().color(QPalette::Base));
