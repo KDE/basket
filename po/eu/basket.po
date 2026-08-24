@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
 "PO-Revision-Date: 2026-07-14 23:10+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -626,12 +626,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Saskiaren propietateak"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Ikonoa"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Izena"
@@ -1947,7 +1947,7 @@ msgstr ""
 "mantentzeko tresna bat."
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(lehenetsia)"
@@ -2146,62 +2146,62 @@ msgstr "<p>%1(e)tik benetan irten nahi duzu?</p>"
 msgid "Quit Confirm"
 msgstr "Irtetea baieztatu"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Saski berria"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Atzeko planoaren kolorea"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "&Kudeatu txantiloiak..."
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "Zutabe bat"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "Bi zutabe"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "Hiru zutabe"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
-msgstr "Aske"
+msgid "Free-form"
+msgstr "Era askea"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
 msgstr "&Txantiloia:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Saskiak)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
 msgstr "So&rtu hemen:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "Nola lagun dezake?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2216,16 +2216,6 @@ msgstr ""
 "</li><li>Kapituluak edo orrialdeak ordezkatzeko azpi-saskiekin atalak "
 "egitea; </li><li>Elkarrekin esportatzeko saski-talde bat egitea (adib. haiek "
 "jendeari e-posta bidez bidaltzeko).</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Era askea"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Adimen-mapa"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2407,7 +2397,7 @@ msgstr "Ireki testuak honekin:"
 msgid "Size"
 msgstr "Neurria"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 x %2 pixel"
@@ -3981,28 +3971,34 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Aukeratu aplikazio-abiarazle bat..."
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Erabili KDE Plamaren aplikazio-abiarazlea zure saskiko oharrak irekitzeko"
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 x %1 pixel"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -4010,6 +4006,12 @@ msgid ""
 msgstr ""
 "Aldatu leihoaren handiera irudiaren neurria hautatzeko\n"
 "eta itxi ezazu edo ihes sakatu aldaketak onartzeko."
+
+#~ msgid "Free"
+#~ msgstr "Aske"
+
+#~ msgid "Mind map"
+#~ msgstr "Adimen-mapa"
 
 #~ msgid "TextLabel"
 #~ msgstr "Testu-etiketa"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
 "PO-Revision-Date: 2026-01-12 16:22+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -617,12 +617,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Korin ominaisuudet"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Kuvake"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Nimi"
@@ -1921,7 +1921,7 @@ msgstr ""
 "tiedonjärjestelytyökalu"
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(Oletus)"
@@ -2120,62 +2120,62 @@ msgstr "<p>%1 – haluatko varmasti lopettaa?</p>"
 msgid "Quit Confirm"
 msgstr "Vahvista lopetus"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Uusi kori"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Taustaväri"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "Mallipohjien &hallinta…"
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "Yksi sarake"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "Kaksi saraketta"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "Kolme saraketta"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
-msgstr "Vapaa"
+msgid "Free-form"
+msgstr "Vapaamuotoinen"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
 msgstr "&Mallipohja:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Korit)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
 msgstr "Luo &kansioon:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "Mitä hyötyä tästä on?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2190,16 +2190,6 @@ msgstr ""
 "li><li>kokonaisuuden osat (luvut tai sivut) voi toteuttaa alikoreina</"
 "li><li>joukon koreja voi viedä kerralla (esim. sähköpostitse "
 "vastaanottajille).</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Vapaamuotoinen"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Miellekartta"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2381,7 +2371,7 @@ msgstr "Avaa tekstit ohjelmalla:"
 msgid "Size"
 msgstr "Koko"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 × %2 kuvapistettä"
@@ -3952,27 +3942,33 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr ""
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 × %1 kuvapistettä"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -3980,6 +3976,12 @@ msgid ""
 msgstr ""
 "Valitse kuvan koko muuttamalla ikkunan kokoa ja\n"
 "hyväksy muutokset sulkemalla ikkuna tai painamalla Esc."
+
+#~ msgid "Free"
+#~ msgstr "Vapaa"
+
+#~ msgid "Mind map"
+#~ msgstr "Miellekartta"
 
 #~ msgid "TextLabel"
 #~ msgstr "Tekstiselite"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
 "PO-Revision-Date: 2026-07-19 08:16+0200\n"
 "Last-Translator: Ewald Müller <EMuede@netscape.net>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -644,12 +644,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Eigenschaften des Korbes"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Symbol"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Name"
@@ -1979,7 +1979,7 @@ msgstr ""
 "und die Übersicht über Ihre Daten zu behalten."
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(Standard)"
@@ -2178,62 +2178,62 @@ msgstr "<p>Möchten Sie %1 wirklich beenden?</p>"
 msgid "Quit Confirm"
 msgstr "Verlassen der Anwendung bestätigen"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Neuer Korb"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Hintergrundfarbe"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "Vorlagen ver&walten …"
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "einspalting"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "zweispaltig"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "dreispaltig"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
+msgid "Free-form"
 msgstr "Frei"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
 msgstr "&Vorlage:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Körbe)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
 msgstr "&Erstellen in:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "Wofür ist dies gut?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2248,16 +2248,6 @@ msgstr ""
 "Ordner für unterschiedliche Projekte gruppieren</li> <li>Körbe zum "
 "unterteilen nach Kapiteln oder Seiten</li> <li>Körbe gruppieren um den "
 "Inhalt zu exportieren (z. B. um sie jemanden zu mailen).</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Frei"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Mindmap"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2439,7 +2429,7 @@ msgstr "Textelemente öffnen mit:"
 msgid "Size"
 msgstr "Größe"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 mal %2 Pixel"
@@ -4020,28 +4010,36 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, fuzzy, kde-format
+#| msgctxt "Tag name (shortcut)"
+#| msgid "%1 (%2)"
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Wählen Sie einen Anwendungsstarter …"
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Zum Öffnen Ihrer Basket Notizen verwenden Sie den KDE-Anwendungsstarter"
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 mal % Pixel"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -4049,6 +4047,12 @@ msgid ""
 msgstr ""
 "Verändern Sie die Größe des Fensters, um eine Bildgröße auszuwählen\n"
 "und schließen Sie es mit Escape um Ihre Auswahl zu bestätigen."
+
+#~ msgid "Free"
+#~ msgstr "Frei"
+
+#~ msgid "Mind map"
+#~ msgstr "Mindmap"
 
 #~ msgid "TextLabel"
 #~ msgstr "Textfeld"
@@ -4548,10 +4552,6 @@ msgstr ""
 
 #~ msgid "Docking in System Tray"
 #~ msgstr "An Kontrollleiste andocken"
-
-#~ msgctxt "Tag name (shortcut)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
 
 #~ msgid "Import Launcher from &KDE Menu..."
 #~ msgstr "&KDE Menu-Starter importieren ..."

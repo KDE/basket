@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
-"PO-Revision-Date: 2026-06-05 12:12+0300\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
+"PO-Revision-Date: 2026-08-23 18:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -621,12 +621,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Sepet Özellikleri"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Simge"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Ad"
@@ -1932,7 +1932,7 @@ msgstr ""
 "için bir araç."
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(Öntanımlı)"
@@ -2131,62 +2131,62 @@ msgstr "<p>%1 uygulamasından çıkmak istediğinizden emin misiniz?</p>"
 msgid "Quit Confirm"
 msgstr "Çıkışı Onayla"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Yeni Sepet"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Arka plan rengi"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "Şablonları &Yönet…"
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "Tek sütun"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "İki sütun"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "Üç sütun"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
-msgstr "Boş"
+msgid "Free-form"
+msgstr "Serbest Biçim"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
 msgstr "%Şablon:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Sepetler)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
 msgstr "Burada &Oluştur:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "Neden kullanışlıdır?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2201,16 +2201,6 @@ msgstr ""
 "li><li>Fasılları veya sayfaları temsil eden alt sepetler oluşturmak; </"
 "li><li>Sepetleri birlikte dışa aktarmak için gruplamak (örneğin birlikte e-"
 "posta gönderebilmek için).</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Serbest Biçim"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Zihin Haritası"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2392,7 +2382,7 @@ msgstr "Metinleri birlikte aç:"
 msgid "Size"
 msgstr "Boyut"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 × %2 piksel"
@@ -2900,11 +2890,10 @@ msgstr "Özel anahtar seçilmedi."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
-msgstr "Parola Koruması"
+msgstr "Parola ile Koruma"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passworddialog.ui:29
@@ -3458,10 +3447,9 @@ msgid "Version Sync"
 msgstr "Sürüm Eşzamanlaması"
 
 #: src/settings_versionsync.cpp:92
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Bu işlem, %1 MB yer açacaktır"
+msgstr "Bu işlem, %1 yer açacaktır"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3956,28 +3944,34 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " — "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Uygulama Başlatıcısı Seç…"
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Basket notlarınızı açmak için KDE Plasma uygulama başlatıcılarını kullanın"
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 × %1 piksel"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -3985,6 +3979,12 @@ msgid ""
 msgstr ""
 "Görsel boyutunu seçmek için pencereyi boyutlandırın ve kapatın\n"
 "ya da Esc düğmesine basarak değişiklikleri kabul edin."
+
+#~ msgid "Free"
+#~ msgstr "Boş"
+
+#~ msgid "Mind map"
+#~ msgstr "Zihin Haritası"
 
 #~ msgid "TextLabel"
 #~ msgstr "Metin Etiketi"

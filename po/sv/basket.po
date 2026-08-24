@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
-"PO-Revision-Date: 2026-07-05 17:20+0200\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
+"PO-Revision-Date: 2026-08-23 08:30+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -617,12 +617,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Korgegenskaper"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Ikon"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Namn"
@@ -1934,7 +1934,7 @@ msgstr ""
 "och hålla information tillgänglig."
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(förval)"
@@ -2132,62 +2132,62 @@ msgstr "<p>Vill du verkligen avsluta %1?</p>"
 msgid "Quit Confirm"
 msgstr "Bekräfta avslutning"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Ny korg"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Bakgrundsfärg"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "&Hantera mallar..."
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "En kolumn"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "Två kolumner"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "Tre kolumner"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
-msgstr "Ledig"
+msgid "Free-form"
+msgstr "Fri form"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
 msgstr "&Mall:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Korgar)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
 msgstr "S&kapa i:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "Hur är det användbart?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2202,16 +2202,6 @@ msgstr ""
 "li><li>Skapa ett urval med delkorgar som representerar kapitel eller sidor,</"
 "li><li>Skapa en korggrupp att exportera tillsammans (för att t.ex. skicka "
 "dem via e-post).</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Fri form"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Tankekarta"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2393,7 +2383,7 @@ msgstr "Öppna texter med:"
 msgid "Size"
 msgstr "Storlek"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 gånger %2 bildpunkter"
@@ -2899,8 +2889,7 @@ msgstr "Ingen privat nyckel vald."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Lösenordsskydd"
@@ -3458,10 +3447,9 @@ msgid "Version Sync"
 msgstr "Versionssynkronisering"
 
 #: src/settings_versionsync.cpp:92
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Det här frigör %1 MiB"
+msgstr "Det här frigör %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3958,27 +3946,33 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Välj ett startprogram..."
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr "Använd KDE:s Plasma startprogram för att öppna korganteckningar"
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 gånger %1 bildpunkter"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -3986,6 +3980,12 @@ msgid ""
 msgstr ""
 "Ändra storlek på fönstret för att välja bildstorlek\n"
 "och stäng det eller tryck på Esc för att acceptera ändringar."
+
+#~ msgid "Free"
+#~ msgstr "Ledig"
+
+#~ msgid "Mind map"
+#~ msgstr "Tankekarta"
 
 #~ msgid "TextLabel"
 #~ msgstr "Textetikett"

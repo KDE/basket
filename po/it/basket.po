@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
-"PO-Revision-Date: 2026-06-07 22:38+0200\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
+"PO-Revision-Date: 2026-08-23 20:41+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -630,12 +630,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Proprietà del cesto"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Icona"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Nome"
@@ -1954,7 +1954,7 @@ msgstr ""
 "averle sempre a portata di mano."
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(predefinito)"
@@ -2153,62 +2153,62 @@ msgstr "<p>Vuoi veramente uscire da %1?</p>"
 msgid "Quit Confirm"
 msgstr "Conferma chiusura"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Nuovo cesto"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Colore di sfondo"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "Gestisci &modelli..."
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "Una colonna"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "Due colonne"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "Tre colonne"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
+msgid "Free-form"
 msgstr "Senza vincoli"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
 msgstr "Mo&dello:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Cesti)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
 msgstr "C&rea in:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "In che modo è utile?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2223,16 +2223,6 @@ msgstr ""
 "progetti differenti;</li><li>Creando sezioni con sottocesti che "
 "rappresentano capitoli o pagine;</li><li>Creando gruppi di cesti da "
 "esportare insieme (ad esempio per inviarli ad altre persone).</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Senza vincoli"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Mappa mentale"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2414,7 +2404,7 @@ msgstr "Apri testi con:"
 msgid "Size"
 msgstr "Dimensione"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 per %2 pixel"
@@ -2922,8 +2912,7 @@ msgstr "Nessuna chiave privata selezionata."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Proteggi con password"
@@ -3489,10 +3478,9 @@ msgid "Version Sync"
 msgstr "Sincronizzazione versione"
 
 #: src/settings_versionsync.cpp:92
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Saranno liberati %1 MB"
+msgstr "Libererà %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3992,29 +3980,37 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, fuzzy, kde-format
+#| msgctxt "Tag name (shortcut)"
+#| msgid "%1 (%2)"
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Scegli un avviatore di applicazioni ..."
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Usa gli avviatori di applicazioni di KDE Plasma per aprire i tuoi appunti di "
 "Basket"
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 per %1 pixel"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -4022,6 +4018,12 @@ msgid ""
 msgstr ""
 "Ridimensiona la finestra per selezionare la dimensione dell'immagine\n"
 "e poi chiudila o premi Esc per rendere definitivi i cambiamenti."
+
+#~ msgid "Free"
+#~ msgstr "Senza vincoli"
+
+#~ msgid "Mind map"
+#~ msgstr "Mappa mentale"
 
 #~ msgid "TextLabel"
 #~ msgstr "EtichettaDiTesto"
@@ -4533,10 +4535,6 @@ msgstr ""
 
 #~ msgid "Form"
 #~ msgstr "Modulo"
-
-#~ msgctxt "Tag name (shortcut)"
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
 
 #~ msgid "Import Launcher from &KDE Menu..."
 #~ msgstr "Importa avviatore dal menu &KDE..."

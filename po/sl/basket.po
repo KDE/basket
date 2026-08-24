@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-23 00:48+0000\n"
-"PO-Revision-Date: 2026-06-05 05:51+0200\n"
+"POT-Creation-Date: 2026-08-24 00:48+0000\n"
+"PO-Revision-Date: 2026-08-23 08:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -315,7 +315,7 @@ msgstr "Vaše košare so trenutno shranjene v tej mapi:<br><b>%1</b>"
 #: src/backup.cpp:83
 #, kde-format
 msgid "&Move to Another Folder..."
-msgstr "&Premakni v drugo mapo ..."
+msgstr "Premakni v drugo mapo ..."
 
 #: src/backup.cpp:84
 #, kde-format
@@ -360,12 +360,12 @@ msgstr "Varnostne kopije"
 #: src/backup.cpp:114
 #, kde-format
 msgid "&Backup..."
-msgstr "&Varnostno kopiraj …"
+msgstr "Varnostno kopiraj …"
 
 #: src/backup.cpp:115
 #, kde-format
 msgid "&Restore a Backup..."
-msgstr "O&bnovi iz varnostne kopije …"
+msgstr "Obnovi iz varnostne kopije…"
 
 #: src/backup.cpp:138
 #, kde-format
@@ -395,7 +395,7 @@ msgstr "Ali želite prepisati mapo?"
 #: src/backup.cpp:162 src/bnpview.cpp:2040 src/htmlexporter.cpp:68
 #, kde-format
 msgid "&Overwrite"
-msgstr "&Prepiši"
+msgstr "Prepiši"
 
 #: src/backup.cpp:172
 #, kde-format
@@ -620,12 +620,12 @@ msgstr "%1+%2"
 msgid "Basket Properties"
 msgstr "Lastnosti košare"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:100
+#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
 #, kde-format
 msgid "Icon"
 msgstr "Ikona"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:105
+#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
 #, kde-format
 msgid "Name"
 msgstr "Ime"
@@ -678,7 +678,7 @@ msgstr "Videz"
 #: src/basketproperties.ui:48
 #, kde-format
 msgid "Background &image:"
-msgstr "Slika za &ozadje:"
+msgstr "Slika za ozadje:"
 
 #. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
 #: src/basketproperties.ui:58
@@ -690,7 +690,7 @@ msgstr "&Barva ozadja:"
 #: src/basketproperties.ui:65
 #, kde-format
 msgid "&Text color:"
-msgstr "Barva &besedila:"
+msgstr "Barva besedila:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
 #: src/basketproperties.ui:75
@@ -702,13 +702,13 @@ msgstr "Uredba"
 #: src/basketproperties.ui:81
 #, kde-format
 msgid "Col&umns:"
-msgstr "Sto&lpci:"
+msgstr "Stolpci:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
 #: src/basketproperties.ui:88
 #, kde-format
 msgid "&Free-form"
-msgstr "&Prostoročno"
+msgstr "Prostoročno"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mindMap)
 #: src/basketproperties.ui:114
@@ -726,19 +726,19 @@ msgstr "Tipka za bližnjico"
 #: src/basketproperties.ui:151
 #, kde-format
 msgid "S&how this basket"
-msgstr "Po&kaži to košaro"
+msgstr "Pokaži to košaro"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
 #: src/basketproperties.ui:158
 #, kde-format
 msgid "Show this basket (&global shortcut)"
-msgstr "Pokaži to košaro (&splošna bližnjica)"
+msgstr "Pokaži to košaro (splošna bližnjica)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
 #: src/basketproperties.ui:165
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
-msgstr "&Preklopi na to košaro (globalna bližnjica)"
+msgstr "Preklopi na to košaro (globalna bližnjica)"
 
 #: src/basketscene.cpp:302
 #, kde-format
@@ -887,7 +887,7 @@ msgstr "Kliknite levo, da vstavite namesto združite"
 #: src/basketscene.cpp:3016
 #, kde-format
 msgid "&Unlock"
-msgstr "&Odkleni"
+msgstr "Odkleni"
 
 #: src/basketscene.cpp:3021
 #, kde-format
@@ -926,7 +926,7 @@ msgstr "Odst&rani"
 #: src/basketscene.cpp:3233 src/basketscene.cpp:3276 src/bnpview.cpp:2471
 #, kde-format
 msgid "&Customize..."
-msgstr "Prila&godi ..."
+msgstr "Prilagodi..."
 
 #: src/basketscene.cpp:3239 src/basketscene.cpp:3282
 #, kde-format
@@ -1036,13 +1036,13 @@ msgstr "<p>Ta košara je <b>odklenjena</b>.<br>Kliknite, da jo zaklenete.</p>"
 #: src/basketui.rc:6
 #, kde-format
 msgid "&Basket"
-msgstr "&Košara"
+msgstr "Košara"
 
 #. i18n: ectx: Menu
 #: src/basketui.rc:11 src/basketui.rc:169
 #, kde-format
 msgid "&Export"
-msgstr "&Izvozi"
+msgstr "Izvozi"
 
 #. i18n: ectx: Menu
 #: src/basketui.rc:16 src/basketui.rc:174
@@ -1055,43 +1055,43 @@ msgstr "Razvr&sti"
 #: src/basketui.rc:28 src/basketui.rc:186 src/basketui.rc:197
 #, kde-format
 msgid "&Import"
-msgstr "&Uvozi"
+msgstr "Uvozi"
 
 #. i18n: ectx: Menu (go)
 #: src/basketui.rc:55
 #, kde-format
 msgid "&Go"
-msgstr "&Pojdi"
+msgstr "Pojdi"
 
 #. i18n: ectx: Menu (note)
 #: src/basketui.rc:62
 #, kde-format
 msgid "&Note"
-msgstr "&Opomba"
+msgstr "Opomba"
 
 #. i18n: ectx: Menu (tags)
 #: src/basketui.rc:78
 #, kde-format
 msgid "&Tags"
-msgstr "&Oznake"
+msgstr "Oznake"
 
 #. i18n: ectx: Menu (insert)
 #: src/basketui.rc:81
 #, kde-format
 msgid "&Insert"
-msgstr "&Vstavi"
+msgstr "Vstavi"
 
 #. i18n: ectx: Menu (settings)
 #: src/basketui.rc:97
 #, kde-format
 msgid "&Settings"
-msgstr "&Nastavitve"
+msgstr "Nastavitve"
 
 #. i18n: ectx: Menu (help)
 #: src/basketui.rc:108
 #, kde-format
 msgid "&Help"
-msgstr "Po&moč"
+msgstr "Pomoč"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/basketui.rc:122
@@ -1300,7 +1300,7 @@ msgstr ""
 #: src/bnpview.cpp:360 src/bnpview.cpp:366
 #, kde-format
 msgid "&Basket Archive..."
-msgstr "&Arhiv košare ..."
+msgstr "Arhiv košare ..."
 
 #: src/bnpview.cpp:372
 #, kde-format
@@ -1310,22 +1310,22 @@ msgstr "Spletna stran &HTML ..."
 #: src/bnpview.cpp:378
 #, kde-format
 msgid "Text &File..."
-msgstr "Besedilna &datoteka …"
+msgstr "Besedilna datoteka …"
 
 #: src/bnpview.cpp:383
 #, kde-format
 msgid "&Backup && Restore..."
-msgstr "&Varnostno kopiraj in obnovi …"
+msgstr "Varnostno kopiraj in obnovi …"
 
 #: src/bnpview.cpp:387
 #, kde-format
 msgid "&Check && Cleanup..."
-msgstr "&Preveri in počisti ..."
+msgstr "Preveri in počisti ..."
 
 #: src/bnpview.cpp:398
 #, kde-format
 msgid "D&elete"
-msgstr "I&zbriši"
+msgstr "Izbriši"
 
 #: src/bnpview.cpp:407
 #, kde-format
@@ -1335,7 +1335,7 @@ msgstr "Izbere vse opombe"
 #: src/bnpview.cpp:410
 #, kde-format
 msgid "U&nselect All"
-msgstr "&Prekliči izbor vseh"
+msgstr "Prekliči izbor vseh"
 
 #: src/bnpview.cpp:412
 #, kde-format
@@ -1345,7 +1345,7 @@ msgstr "Prekliče izbor vseh izbranih opomb"
 #: src/bnpview.cpp:415
 #, kde-format
 msgid "&Invert Selection"
-msgstr "Preo&brni izbor"
+msgstr "Preobrni izbor"
 
 #: src/bnpview.cpp:419
 #, kde-format
@@ -1355,13 +1355,13 @@ msgstr "Obrne trenutni izbor opomb"
 #: src/bnpview.cpp:422
 #, kde-format
 msgid "&Clear Formatting"
-msgstr "&Počisti oblikovanje"
+msgstr "Počisti oblikovanje"
 
 #: src/bnpview.cpp:426
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
-msgstr "&Uredi ..."
+msgstr "Ur&edi ..."
 
 #: src/bnpview.cpp:433
 #, kde-format
@@ -1371,7 +1371,7 @@ msgstr "&Odpri"
 #: src/bnpview.cpp:437
 #, kde-format
 msgid "Open &With..."
-msgstr "&Odpri z ..."
+msgstr "Odpri z ..."
 
 #: src/bnpview.cpp:442
 #, kde-format
@@ -1381,22 +1381,22 @@ msgstr "&Shrani v datoteko ..."
 #: src/bnpview.cpp:446
 #, kde-format
 msgid "&Group"
-msgstr "&Združi"
+msgstr "Združi"
 
 #: src/bnpview.cpp:452
 #, kde-format
 msgid "U&ngroup"
-msgstr "&Razdruži"
+msgstr "Razdruži"
 
 #: src/bnpview.cpp:457
 #, kde-format
 msgid "Move on &Top"
-msgstr "Pomakni na &vrh"
+msgstr "Pomakni na vrh"
 
 #: src/bnpview.cpp:463
 #, kde-format
 msgid "Move &Up"
-msgstr "Premakni &gor"
+msgstr "Premakni gor"
 
 #: src/bnpview.cpp:469
 #, kde-format
@@ -1406,22 +1406,22 @@ msgstr "Premakni &dol"
 #: src/bnpview.cpp:475
 #, kde-format
 msgid "Move on &Bottom"
-msgstr "Pomakni na &dno"
+msgstr "Pomakni na dno"
 
 #: src/bnpview.cpp:486
 #, kde-format
 msgid "Plai&n Text"
-msgstr "&Navadno besedilo"
+msgstr "Navadno besedilo"
 
 #: src/bnpview.cpp:493
 #, kde-format
 msgid "&Text"
-msgstr "&Besedilo"
+msgstr "Besedilo"
 
 #: src/bnpview.cpp:499
 #, kde-format
 msgid "&Link"
-msgstr "&Povezava"
+msgstr "Povezava"
 
 #: src/bnpview.cpp:505
 #, kde-format
@@ -1436,7 +1436,7 @@ msgstr "S&lika"
 #: src/bnpview.cpp:515
 #, kde-format
 msgid "&Color"
-msgstr "&Barva"
+msgstr "Barva"
 
 #: src/bnpview.cpp:520
 #, kde-format
@@ -1446,27 +1446,27 @@ msgstr "Z&aganjalnik"
 #: src/bnpview.cpp:525
 #, kde-format
 msgid "Import Launcher for &desktop application..."
-msgstr "Uvozi zaganjalnik za &namizni program ..."
+msgstr "Uvozi zaganjalnik za namizni program ..."
 
 #: src/bnpview.cpp:530
 #, kde-format
 msgid "Im&port Icon..."
-msgstr "&Uvozi ikono ..."
+msgstr "Uvozi ikono ..."
 
 #: src/bnpview.cpp:535 src/noteedit.cpp:543
 #, kde-format
 msgid "Load From &File..."
-msgstr "Naloži iz &datoteke ..."
+msgstr "Naloži iz datoteke ..."
 
 #: src/bnpview.cpp:571
 #, kde-format
 msgid "C&olor from Screen"
-msgstr "&Barva iz zaslona"
+msgstr "Barva iz zaslona"
 
 #: src/bnpview.cpp:579
 #, kde-format
 msgid "Grab Screen &Zone"
-msgstr "Zajemi &območje zaslona"
+msgstr "Zajemi območje zaslona"
 
 #: src/bnpview.cpp:611
 #, kde-format
@@ -1476,12 +1476,12 @@ msgstr "&Nova košara ..."
 #: src/bnpview.cpp:617
 #, kde-format
 msgid "New &Sub-Basket..."
-msgstr "Nova &pod-košara ..."
+msgstr "Nova pod-košara ..."
 
 #: src/bnpview.cpp:622
 #, kde-format
 msgid "New Si&bling Basket..."
-msgstr "Nova &enakovredna košara ..."
+msgstr "Nova enakovredna košara ..."
 
 #: src/bnpview.cpp:625
 #, kde-format
@@ -1491,7 +1491,7 @@ msgstr "&Novo"
 #: src/bnpview.cpp:635
 #, kde-format
 msgid "&Properties..."
-msgstr "&Lastnosti ..."
+msgstr "Lastnosti ..."
 
 #: src/bnpview.cpp:641
 #, kde-format
@@ -1523,13 +1523,13 @@ msgstr "Odst&rani"
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
-msgstr "Ge&slo ..."
+msgstr "Geslo ..."
 
 #: src/bnpview.cpp:672
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
-msgstr "&Zakleni"
+msgstr "Zakleni"
 
 #: src/bnpview.cpp:685
 #, kde-format
@@ -1539,12 +1539,12 @@ msgstr "&Filtriraj"
 #: src/bnpview.cpp:697
 #, kde-format
 msgid "&Search All"
-msgstr "&Išči vse"
+msgstr "Išči vse"
 
 #: src/bnpview.cpp:705
 #, kde-format
 msgid "&Reset Filter"
-msgstr "&Ponastavi filter"
+msgstr "Ponastavi filter"
 
 #: src/bnpview.cpp:713
 #, kde-format
@@ -1559,12 +1559,12 @@ msgstr "&Naslednja košara"
 #: src/bnpview.cpp:725
 #, kde-format
 msgid "&Fold Basket"
-msgstr "&Zloži košaro"
+msgstr "Zloži košaro"
 
 #: src/bnpview.cpp:731
 #, kde-format
 msgid "&Expand Basket"
-msgstr "&Razpostri košaro"
+msgstr "Razpostri košaro"
 
 #: src/bnpview.cpp:739
 #, kde-format
@@ -1574,7 +1574,7 @@ msgstr "Pretvori besedilne opombe v opombe z obogatenim besedilom"
 #: src/bnpview.cpp:748
 #, kde-format
 msgid "&Welcome Baskets"
-msgstr "Košare &dobrodošlice"
+msgstr "Košare dobrodošlice"
 
 #: src/bnpview.cpp:1013
 #, kde-format
@@ -1697,7 +1697,7 @@ msgstr "Odstrani košaro"
 #: src/bnpview.cpp:1945
 #, kde-format
 msgid "&Remove Basket"
-msgstr "&Odstrani košaro"
+msgstr "Odstrani košaro"
 
 #: src/bnpview.cpp:1955
 #, kde-format
@@ -1716,7 +1716,7 @@ msgstr "Odstrani podrejene košare"
 #: src/bnpview.cpp:1958
 #, kde-format
 msgid "&Remove Children Baskets"
-msgstr "&Odstrani podrejene košare"
+msgstr "Odstrani podrejene košare"
 
 #: src/bnpview.cpp:2028 src/bnpview.cpp:2075
 #, kde-format
@@ -1736,12 +1736,12 @@ msgstr "Ali želite prepisati datoteko?"
 #: src/bnpview.cpp:2460
 #, kde-format
 msgid "&Assign new Tag..."
-msgstr "&Dodeli novo oznako ..."
+msgstr "Dodeli novo oznako ..."
 
 #: src/bnpview.cpp:2465
 #, kde-format
 msgid "&Remove All"
-msgstr "Odstrani &vse"
+msgstr "Odstrani vse"
 
 #: src/common.cpp:56
 #, kde-format
@@ -1856,7 +1856,7 @@ msgstr "&Filter: "
 #: src/filter.cpp:50
 #, kde-format
 msgid "T&ag: "
-msgstr "&Oznaka: "
+msgstr "Oznaka: "
 
 #: src/filter.cpp:54
 #, kde-format
@@ -1954,7 +1954,7 @@ msgstr ""
 "informacij."
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:403
+#: src/variouswidgets.cpp:398
 #, kde-format
 msgid "(Default)"
 msgstr "(privzeto)"
@@ -2027,12 +2027,12 @@ msgstr "Vnesite novo geslo:"
 #: src/linklabel.cpp:603
 #, kde-format
 msgid "I&talic"
-msgstr "&Ležeče"
+msgstr "Ležeče"
 
 #: src/linklabel.cpp:606
 #, kde-format
 msgid "&Bold"
-msgstr "&Krepko"
+msgstr "Krepko"
 
 #: src/linklabel.cpp:614
 #, kde-format
@@ -2057,7 +2057,7 @@ msgstr "Ko je miška izven"
 #: src/linklabel.cpp:619
 #, kde-format
 msgid "&Underline:"
-msgstr "&Podčrtano:"
+msgstr "Podčrtano:"
 
 #: src/linklabel.cpp:626
 #, kde-format
@@ -2067,7 +2067,7 @@ msgstr "Ba&rva:"
 #: src/linklabel.cpp:633
 #, kde-format
 msgid "&Mouse hover color:"
-msgstr "&Barva ob prehodu z miško:"
+msgstr "Barva ob prehodu z miško:"
 
 #: src/linklabel.cpp:642
 #, kde-format
@@ -2152,62 +2152,62 @@ msgstr "<p>Ali res želite zapustiti %1?</p>"
 msgid "Quit Confirm"
 msgstr "Potrditev izhoda"
 
-#: src/newbasketdialog.cpp:76
+#: src/newbasketdialog.cpp:86
 #, kde-format
 msgid "New Basket"
 msgstr "Nova košara"
 
-#: src/newbasketdialog.cpp:110
+#: src/newbasketdialog.cpp:120
 #, kde-format
 msgid "Background color"
 msgstr "Barva ozadja"
 
-#: src/newbasketdialog.cpp:118
+#: src/newbasketdialog.cpp:128
 #, kde-format
 msgid "&Manage Templates..."
-msgstr "&Upravljaj predloge ..."
+msgstr "Upravljaj predloge ..."
 
-#: src/newbasketdialog.cpp:151 src/newbasketdialog.cpp:313
+#: src/newbasketdialog.cpp:165
 #, kde-format
 msgid "One column"
 msgstr "En stolpec"
 
-#: src/newbasketdialog.cpp:162 src/newbasketdialog.cpp:315
+#: src/newbasketdialog.cpp:175
 #, kde-format
 msgid "Two columns"
 msgstr "Dva stolpca"
 
-#: src/newbasketdialog.cpp:174 src/newbasketdialog.cpp:317
+#: src/newbasketdialog.cpp:186
 #, kde-format
 msgid "Three columns"
 msgstr "Trije stolpci"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:197
 #, kde-format
-msgid "Free"
-msgstr "Prosto"
+msgid "Free-form"
+msgstr "Prostoročno"
 
-#: src/newbasketdialog.cpp:194
+#: src/newbasketdialog.cpp:207
 #, kde-format
 msgid "&Template:"
-msgstr "Pre&dloga:"
+msgstr "Predloga:"
 
-#: src/newbasketdialog.cpp:204
+#: src/newbasketdialog.cpp:217
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Košare)"
 
-#: src/newbasketdialog.cpp:206
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "C&reate in:"
-msgstr "&Ustvari v:"
+msgstr "Ustvari v:"
 
-#: src/newbasketdialog.cpp:208
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "How is it useful?"
 msgstr "Kako je to uporabno?"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2222,16 +2222,6 @@ msgstr ""
 "li><li>izdelava odsekov s podkošarami, ki predstavljajo poglavja ali strani;"
 "</li><li>izdelava skupine košar za skupen izvoz (za npr. e-poštno sporočilo)."
 "</li></ul>"
-
-#: src/newbasketdialog.cpp:319
-#, kde-format
-msgid "Free-form"
-msgstr "Prostoročno"
-
-#: src/newbasketdialog.cpp:321
-#, kde-format
-msgid "Mind map"
-msgstr "Miselni vzorec"
 
 #: src/notecontent.cpp:89
 #, kde-format
@@ -2413,7 +2403,7 @@ msgstr "Odpri besedila z:"
 msgid "Size"
 msgstr "Velikost"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:211
+#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 x %2 sl. točk"
@@ -2758,12 +2748,12 @@ msgstr "&Ikona:"
 #: src/noteedit.cpp:775 src/noteedit.cpp:946
 #, kde-format
 msgid "Ta&rget:"
-msgstr "&Cilj:"
+msgstr "Cilj:"
 
 #: src/noteedit.cpp:780
 #, kde-format
 msgid "&Title:"
-msgstr "&Naslov:"
+msgstr "Naslov:"
 
 #: src/noteedit.cpp:913
 #, kde-format
@@ -2783,17 +2773,17 @@ msgstr "Izberite ukaz, ki ga želite zagnati:"
 #: src/noteedit.cpp:1063
 #, kde-format
 msgid "&Guess"
-msgstr "&Ugibaj"
+msgstr "Ugibaj"
 
 #: src/noteedit.cpp:1081
 #, kde-format
 msgid "Comman&d:"
-msgstr "Uka&z:"
+msgstr "Ukaz:"
 
 #: src/noteedit.cpp:1086 src/tagsedit.cpp:385
 #, kde-format
 msgid "&Name:"
-msgstr "&Ime:"
+msgstr "Ime:"
 
 #: src/noteedit.cpp:1184
 #, kde-format
@@ -2880,22 +2870,22 @@ msgstr "Nepodprte vrste MIME"
 #: src/notefactory.cpp:552
 #, kde-format
 msgid "&Move Here\tShift"
-msgstr "&Premakni sem\tDvigalka"
+msgstr "Premakni sem\tDvigalka"
 
 #: src/notefactory.cpp:553
 #, kde-format
 msgid "&Copy Here\tCtrl"
-msgstr "&Kopiraj sem\tKrmilka"
+msgstr "Kopiraj sem\tKrmilka"
 
 #: src/notefactory.cpp:554
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
-msgstr "&Poveži sem\tkrmilka+dvigalka"
+msgstr "Poveži sem\tkrmilka+dvigalka"
 
 #: src/notefactory.cpp:560
 #, kde-format
 msgid "C&ancel\tEscape"
-msgstr "Pre&kliči\tubežnica"
+msgstr "Prekliči\tubežnica"
 
 #: src/notefactory.cpp:1051
 #, kde-format
@@ -2919,8 +2909,7 @@ msgstr "Zasebni ključ ni izbran."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Zaščita z geslom"
@@ -2929,13 +2918,13 @@ msgstr "Zaščita z geslom"
 #: src/passworddialog.ui:29
 #, kde-format
 msgid "&No protection"
-msgstr "&Brez zaščite"
+msgstr "Brez zaščite"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
 #: src/passworddialog.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
-msgstr "Zaščiti košaro z &geslom"
+msgstr "Zaščiti košaro z geslom"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
 #: src/passworddialog.ui:51
@@ -2965,7 +2954,7 @@ msgstr "Na desni"
 #: src/settings.cpp:434
 #, kde-format
 msgid "&Basket tree position:"
-msgstr "&Položaj drevesa košare:"
+msgstr "Položaj drevesa košare:"
 
 #: src/settings.cpp:439 src/settings.cpp:697
 #, kde-format
@@ -2980,17 +2969,17 @@ msgstr "Na dnu"
 #: src/settings.cpp:442
 #, kde-format
 msgid "&Filter bar position:"
-msgstr "&Položaj vrstice za filtriranje:"
+msgstr "Položaj vrstice za filtriranje:"
 
 #: src/settings.cpp:488
 #, kde-format
 msgid "&Show tooltips in baskets"
-msgstr "&Pokaži namige v košarah"
+msgstr "Pokaži namige v košarah"
 
 #: src/settings.cpp:492
 #, kde-format
 msgid "&Big notes"
-msgstr "&Velike opombe"
+msgstr "Velike opombe"
 
 #: src/settings.cpp:498
 #, kde-format
@@ -3001,12 +2990,12 @@ msgstr "Vedenje"
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr ""
-"&Vrstice, ki se začnejo z * ali -, v urejevalnikih vrstic pretvori v sezname"
+"Vrstice, ki se začnejo z * ali -, v urejevalnikih vrstic pretvori v sezname"
 
 #: src/settings.cpp:507
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
-msgstr "Pred &brisanjem opomb vprašaj za potrditev"
+msgstr "Pred brisanjem opomb vprašaj za potrditev"
 
 #: src/settings.cpp:511
 #, kde-format
@@ -3021,7 +3010,7 @@ msgstr "Samodejno zaznaj oznake iz vsebine opombe"
 #: src/settings.cpp:522
 #, kde-format
 msgid "&Export tags in texts"
-msgstr "&Izvozi oznake v besedilih"
+msgstr "Izvozi oznake v besedilih"
 
 #: src/settings.cpp:526
 #, kde-format
@@ -3060,7 +3049,7 @@ msgstr ""
 #: src/settings.cpp:541
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
-msgstr "&Združi novo opombo pri kliku na desno stran vrstice za vstavljanje"
+msgstr "Združi novo opombo pri kliku na desno stran vrstice za vstavljanje"
 
 #: src/settings.cpp:543
 #, kde-format
@@ -3134,7 +3123,7 @@ msgstr "Uvozi ikono"
 #: src/settings.cpp:577
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
-msgstr "&Dvigalka+srednji klik kjerkoli:"
+msgstr "Dvigalka+srednji klik kjerkoli:"
 
 #: src/settings.cpp:582
 #, kde-format
@@ -3149,7 +3138,7 @@ msgstr "Zaščita z geslom"
 #: src/settings.cpp:597
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
-msgstr "&Samodejno zakleni zaščitene košare, ko so zaprte za"
+msgstr "Samodejno zakleni zaščitene košare, ko so zaprte za"
 
 #: src/settings.cpp:601
 #, kde-format
@@ -3159,12 +3148,12 @@ msgstr " minut"
 #: src/settings.cpp:612
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
-msgstr "Uporabi agenta GnuPG za košare, zaščitene z &zasebnim/javnim ključem"
+msgstr "Uporabi agenta GnuPG za košare, zaščitene z zasebnim/javnim ključem"
 
 #: src/settings.cpp:694
 #, kde-format
 msgid "&Place of new notes:"
-msgstr "&Mesto novih opomb:"
+msgstr "Mesto novih opomb:"
 
 #: src/settings.cpp:699
 #, kde-format
@@ -3179,7 +3168,7 @@ msgstr "&Nova velikost slik:"
 #: src/settings.cpp:731
 #, kde-format
 msgid "&by"
-msgstr "&krat"
+msgstr "krat"
 
 #: src/settings.cpp:736
 #, kde-format
@@ -3199,22 +3188,22 @@ msgstr "Pokaži vsebino dodanih datotek naslednjih vrst"
 #: src/settings.cpp:748
 #, kde-format
 msgid "&Plain text"
-msgstr "&Navadno besedilo"
+msgstr "Navadno besedilo"
 
 #: src/settings.cpp:749
 #, kde-format
 msgid "&HTML page"
-msgstr "&Stran HTML"
+msgstr "Stran &HTML"
 
 #: src/settings.cpp:750
 #, kde-format
 msgid "&Image or animation"
-msgstr "&Slika ali animacija"
+msgstr "Slika ali animacija"
 
 #: src/settings.cpp:751
 #, kde-format
 msgid "&Sound"
-msgstr "&Zvok"
+msgstr "Zvok"
 
 #: src/settings.cpp:819
 #, kde-format
@@ -3244,32 +3233,32 @@ msgstr "Še ena košara"
 #: src/settings.cpp:826
 #, kde-format
 msgid "&Sounds"
-msgstr "&Zvoki"
+msgstr "Zvoki"
 
 #: src/settings.cpp:827
 #, kde-format
 msgid "&Files"
-msgstr "&Datoteke"
+msgstr "Datoteke"
 
 #: src/settings.cpp:828
 #, kde-format
 msgid "&Local Links"
-msgstr "&Krajevne povezave"
+msgstr "Krajevne povezave"
 
 #: src/settings.cpp:829
 #, kde-format
 msgid "&Network Links"
-msgstr "&Omrežne povezave"
+msgstr "Omrežne povezave"
 
 #: src/settings.cpp:830
 #, kde-format
 msgid "Launc&hers"
-msgstr "&Zaganjalniki"
+msgstr "Zaganjalniki"
 
 #: src/settings.cpp:831
 #, kde-format
 msgid "&Cross References"
-msgstr "&Navzkrižni sklici"
+msgstr "Navzkrižni sklici"
 
 #: src/settings.cpp:872
 #, kde-format
@@ -3399,7 +3388,7 @@ msgstr "Specifične asociacije programa Basket"
 #: src/settings.cpp:953
 #, kde-format
 msgid "Open &text notes with a custom application:"
-msgstr "Odpri &besedilne opombe s programom po meri:"
+msgstr "Odpri besedilne opombe s programom po meri:"
 
 #: src/settings.cpp:954
 #, kde-format
@@ -3409,7 +3398,7 @@ msgstr "Odpri besedilne opombe z:"
 #: src/settings.cpp:961
 #, kde-format
 msgid "Open &image notes with a custom application:"
-msgstr "Odpri &slikovne opombe s programom po meri:"
+msgstr "Odpri slikovne opombe s programom po meri:"
 
 #: src/settings.cpp:962
 #, kde-format
@@ -3419,7 +3408,7 @@ msgstr "Odpri slikovne opombe z:"
 #: src/settings.cpp:969
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
-msgstr "Odpri opombe z &animacijo s programom po meri:"
+msgstr "Odpri opombe z a&nimacijo s programom po meri:"
 
 #: src/settings.cpp:970
 #, kde-format
@@ -3429,7 +3418,7 @@ msgstr "Odpri opombe animacije z:"
 #: src/settings.cpp:977
 #, kde-format
 msgid "Open so&und notes with a custom application:"
-msgstr "Odpri &zvočne opombe s programom po meri:"
+msgstr "Odpri zvočne opombe s programom po meri:"
 
 #: src/settings.cpp:978
 #, kde-format
@@ -3482,10 +3471,9 @@ msgid "Version Sync"
 msgstr "Usklajevanje različic"
 
 #: src/settings_versionsync.cpp:92
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "S tem bo sproščeno %1 MB"
+msgstr "S tem bo sproščeno %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3524,17 +3512,17 @@ msgstr "Kako uvoziti opombe?"
 #: src/softwareimporters.cpp:61
 #, kde-format
 msgid "&Keep original hierarchy (all notes in separate baskets)"
-msgstr "O&hrani izvirno hierarhijo (vse opombe v ločenih košarah)"
+msgstr "Ohrani izvirno hierarhijo (vse opombe v ločenih košarah)"
 
 #: src/softwareimporters.cpp:62
 #, kde-format
 msgid "&First level notes in separate baskets"
-msgstr "&Opombe prve stopnje v ločenih košarah"
+msgstr "Opombe prve stopnje v ločenih košarah"
 
 #: src/softwareimporters.cpp:63
 #, kde-format
 msgid "&All notes in one basket"
-msgstr "&Vse opombe v eni košari"
+msgstr "Vse opombe v eni košari"
 
 #: src/softwareimporters.cpp:107
 #, kde-format
@@ -3549,22 +3537,22 @@ msgstr "Oblika besedilne datoteke"
 #: src/softwareimporters.cpp:116
 #, kde-format
 msgid "Notes separated by an &empty line"
-msgstr "Opombe, ločene s pra&zno vrstico"
+msgstr "Opombe, ločene s prazno vrstico"
 
 #: src/softwareimporters.cpp:117
 #, kde-format
 msgid "One &note per line"
-msgstr "Ena &opomba na vrstico"
+msgstr "Ena opomba na vrstico"
 
 #: src/softwareimporters.cpp:118
 #, kde-format
 msgid "Notes begin with a &dash (-)"
-msgstr "Opombe se začnejo z &vezajem (-)"
+msgstr "Opombe se začnejo z vezajem (-)"
 
 #: src/softwareimporters.cpp:119
 #, kde-format
 msgid "Notes begin with a &star (*)"
-msgstr "Opombe se začnejo z &zvezdico (*)"
+msgstr "Opombe se začnejo z zvezdico (*)"
 
 #: src/softwareimporters.cpp:120
 #, kde-format
@@ -3574,7 +3562,7 @@ msgstr "&Uporabi drugo ločilo:"
 #: src/softwareimporters.cpp:136
 #, kde-format
 msgid "&All in one note"
-msgstr "&Vse v eni opombi"
+msgstr "Vse v eni opombi"
 
 #: src/softwareimporters.cpp:215
 #, kde-format
@@ -3743,7 +3731,7 @@ msgstr "Prilagodi oznake"
 #: src/tagsedit.cpp:330
 #, kde-format
 msgid "Ne&w Tag"
-msgstr "No&va oznaka"
+msgstr "Nova oznaka"
 
 #: src/tagsedit.cpp:331
 #, kde-format
@@ -3779,12 +3767,12 @@ msgstr "Odst&rani"
 #: src/tagsedit.cpp:390
 #, kde-format
 msgid "S&hortcut:"
-msgstr "&Bližnjica:"
+msgstr "Bližnjica:"
 
 #: src/tagsedit.cpp:395
 #, kde-format
 msgid "&Inherited by new sibling notes"
-msgstr "&Podedovano z novimi podrejenimi opombami"
+msgstr "Podedovano z novimi podrejenimi opombami"
 
 #: src/tagsedit.cpp:397
 #, kde-format
@@ -3855,7 +3843,7 @@ msgstr "I&me:"
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
-msgstr "O&dstrani"
+msgstr "Odstrani"
 
 #: src/tagsedit.cpp:438
 #, kde-format
@@ -3865,7 +3853,7 @@ msgstr "&Emblem:"
 #: src/tagsedit.cpp:455
 #, kde-format
 msgid "&Background:"
-msgstr "Oza&dje:"
+msgstr "Ozadje:"
 
 #: src/tagsedit.cpp:485
 #, kde-format
@@ -3875,27 +3863,27 @@ msgstr "Prečrtaj"
 #: src/tagsedit.cpp:487
 #, kde-format
 msgid "&Text:"
-msgstr "&Besedilo:"
+msgstr "Besedilo:"
 
 #: src/tagsedit.cpp:498
 #, kde-format
 msgid "Co&lor:"
-msgstr "Ba&rva:"
+msgstr "Barva:"
 
 #: src/tagsedit.cpp:503
 #, kde-format
 msgid "&Font:"
-msgstr "&Pisava:"
+msgstr "Pisava:"
 
 #: src/tagsedit.cpp:507
 #, kde-format
 msgid "&Size:"
-msgstr "&Velikost:"
+msgstr "Velikost:"
 
 #: src/tagsedit.cpp:511
 #, kde-format
 msgid "Te&xt equivalent:"
-msgstr "&Besedilni ekvivalent:"
+msgstr "Besedilni ekvivalent:"
 
 #: src/tagsedit.cpp:518
 #, kde-format
@@ -3914,7 +3902,7 @@ msgstr ""
 #: src/tagsedit.cpp:531
 #, kde-format
 msgid "On ever&y line"
-msgstr "V vsa&ki vrstici"
+msgstr "V vsaki vrstici"
 
 #: src/tagsedit.cpp:534
 #, kde-format
@@ -3982,28 +3970,34 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: src/variouswidgets.cpp:107
+#: src/variouswidgets.cpp:108
+#, kde-format
+msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/variouswidgets.cpp:114
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr "Izberite zaganjalnik aplikacij ..."
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:115
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 "Uporabit zaganjalnike aplikacij KDE Plasma za odpiranje zapiskov Basketa "
 
-#: src/variouswidgets.cpp:134 src/variouswidgets.cpp:135
-#: src/variouswidgets.cpp:136 src/variouswidgets.cpp:137
-#: src/variouswidgets.cpp:138 src/variouswidgets.cpp:139
-#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
-#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
-#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
+#: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
+#: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
+#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
+#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 x %1 sl. točk"
 
-#: src/variouswidgets.cpp:194
+#: src/variouswidgets.cpp:201
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
@@ -4011,6 +4005,12 @@ msgid ""
 msgstr ""
 "Spremenite velikost okna, da izberete velikost slike\n"
 "in ga zaprete, ali pritisnite ubežnico, da sprejmete spremembe."
+
+#~ msgid "Free"
+#~ msgstr "Prosto"
+
+#~ msgid "Mind map"
+#~ msgstr "Miselni vzorec"
 
 #~ msgid "TextLabel"
 #~ msgstr "BesedilnaOznaka"
