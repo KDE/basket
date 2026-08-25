@@ -3795,9 +3795,3 @@ msgid ""
 msgstr ""
 "调整窗口到选择图片大小\n"
 "关闭退出后会自动保存改变."
-
-#~ msgid "Free"
-#~ msgstr "Free"
-
-#~ msgid "Mind map"
-#~ msgstr "思维脑图"

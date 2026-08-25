@@ -3933,9 +3933,3 @@ msgid ""
 msgstr ""
 "Endra storleiken på vindauget for å velja biletstorleik, og\n"
 "lukk vindauget eller trykk «Escape» for å bruka endringane."
-
-#~ msgid "Free"
-#~ msgstr "Flytande"
-
-#~ msgid "Mind map"
-#~ msgstr "Tankekart"

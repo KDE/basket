@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-24 00:48+0000\n"
-"PO-Revision-Date: 2026-08-23 08:36+0200\n"
+"PO-Revision-Date: 2026-08-24 07:09+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3974,7 +3974,7 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/variouswidgets.cpp:114
 #, kde-format
@@ -3985,7 +3985,8 @@ msgstr "Izberite zaganjalnik aplikacij ..."
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
-"Uporabit zaganjalnike aplikacij KDE Plasma za odpiranje zapiskov Basketa "
+"Uporabit zaganjalnike aplikacij KDE Plasma za odpiranje vaših zapiskov "
+"Basketa"
 
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
 #: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-24 00:48+0000\n"
-"PO-Revision-Date: 2026-08-23 16:12+0100\n"
+"PO-Revision-Date: 2026-08-24 12:33+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3990,7 +3990,7 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/variouswidgets.cpp:114
 #, kde-format
@@ -4022,9 +4022,3 @@ msgid ""
 msgstr ""
 "Redimensione la ventana para escoger el tamaño de la imagen\n"
 "y ciérrela o pulse Escape para aceptar los cambios."
-
-#~ msgid "Free"
-#~ msgstr "Libre"
-
-#~ msgid "Mind map"
-#~ msgstr "Mapa mental"
