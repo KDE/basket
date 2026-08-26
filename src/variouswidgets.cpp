@@ -38,9 +38,13 @@ ServiceLaunchRequester::ServiceLaunchRequester(const QString serviceLauncher, co
     , m_message(message)
 {
     auto *layout = new QHBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
     m_serviceChooser = new QPushButton(this);
+    m_serviceChooser->setIconSize(QSize(24, 24));
     setServiceLauncher(serviceLauncher);
     layout->addWidget(m_serviceChooser);
+
+    setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     connect(m_serviceChooser, &QPushButton::clicked, this, &ServiceLaunchRequester::slotSelCommand);
 }
@@ -116,15 +120,9 @@ void ServiceLaunchRequester::setServiceLauncher(const QString &serviceLauncher)
     }
 
     m_serviceChooser->setIcon(buttonIcon);
-
-    // Optional: Adjust icon size if necessary
-    m_serviceChooser->setIconSize(QSize(24, 24)); // Set the icon size
-
-    // Optional: You can also set the button text alignment
     m_serviceChooser->setText(displayName);
     m_serviceChooser->setToolTip(comment);
 
-    m_serviceChooser->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     Q_EMIT launcherChanged();
 }
 
