@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-24 00:48+0000\n"
-"PO-Revision-Date: 2026-06-08 10:46+0200\n"
+"PO-Revision-Date: 2026-08-24 09:26+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2932,8 +2932,7 @@ msgstr "Aucune clé privée sélectionnée."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Protection par mot de passe"
@@ -3513,10 +3512,9 @@ msgid "Version Sync"
 msgstr "Synchronisation de versions"
 
 #: src/settings_versionsync.cpp:92
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Cela va libérer %1 Mo"
+msgstr "Cela va libérer %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
