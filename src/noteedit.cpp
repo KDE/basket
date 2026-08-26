@@ -12,6 +12,7 @@
 #include <QColorDialog>
 #include <QDialogButtonBox>
 #include <QFontComboBox>
+#include <QFormLayout>
 #include <QGraphicsProxyWidget>
 #include <QGridLayout>
 #include <QHBoxLayout>
@@ -698,94 +699,69 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
 {
     // QDialog options
     setWindowTitle(i18n("Edit Link Note"));
-
-    auto *mainWidget = new QWidget(this);
-    auto *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-    mainLayout->addWidget(mainWidget);
-
     setObjectName("EditLink");
     setModal(true);
 
-    auto *page = new QWidget(this);
-    mainLayout->addWidget(page);
-    // QGridLayout *layout = new QGridLayout(page, /*nRows=*/4, /*nCols=*/2, /*margin=*/0, spacingHint());
-    auto *layout = new QGridLayout(page);
+    auto *mainLayout = new QVBoxLayout(this);
+
+    auto *layout = new QFormLayout();
+    layout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addLayout(layout);
 
-    auto *wid1 = new QWidget(page);
-    mainLayout->addWidget(wid1);
-    auto *titleLay = new QHBoxLayout(wid1);
-    m_title = new QLineEdit(m_noteContent->title(), wid1);
-    m_autoTitle = new QPushButton(i18n("Auto"), wid1);
-    m_autoTitle->setCheckable(true);
-    m_autoTitle->setChecked(m_noteContent->autoTitle());
+    m_url = new KUrlRequester(this);
+    m_url->setMode(KFile::File | KFile::ExistingOnly);
+    m_url->lineEdit()->setMinimumWidth(m_url->lineEdit()->fontMetrics().maxWidth() * 20);
+    layout->addRow(i18n("Ta&rget:"), m_url);
+
+    auto *titleWidget = new QWidget(this);
+    auto *titleLay = new QHBoxLayout(titleWidget);
+    titleLay->setContentsMargins(0, 0, 0, 0);
+    m_title = new QLineEdit(titleWidget);
+    m_title->setMinimumWidth(m_title->fontMetrics().maxWidth() * 20);
     titleLay->addWidget(m_title);
+    m_autoTitle = new QPushButton(i18n("Auto"), titleWidget);
+    m_autoTitle->setCheckable(true);
     titleLay->addWidget(m_autoTitle);
+    layout->addRow(i18n("&Title:"), titleWidget);
 
-    auto *wid = new QWidget(page);
-    mainLayout->addWidget(wid);
-    auto *hLay = new QHBoxLayout(wid);
-    m_icon = new KIconButton(wid);
-    auto *label3 = new QLabel(page);
-    mainLayout->addWidget(label3);
-    label3->setText(i18n("&Icon:"));
-    label3->setBuddy(m_icon);
-
-    if (m_noteContent->url().isEmpty()) {
-        m_url = new KUrlRequester(QUrl(QString()), wid);
-        m_url->setMode(KFile::File | KFile::ExistingOnly);
-    } else {
-        m_url = new KUrlRequester(QUrl(m_noteContent->url().toDisplayString()), wid);
-        m_url->setMode(KFile::File | KFile::ExistingOnly);
-    }
-
-    if (m_noteContent->title().isEmpty()) {
-        m_title->setText(QString());
-    } else {
-        m_title->setText(m_noteContent->title());
-    }
-
-    QUrl filteredURL =
-        NoteFactory::filteredURL(QUrl::fromUserInput(m_url->lineEdit()->text())); // KURIFilter::self()->filteredURI(KUrl(m_url->lineEdit()->text()));
+    auto *iconWidget = new QWidget(this);
+    auto *iconLay = new QHBoxLayout(iconWidget);
+    iconLay->setContentsMargins(0, 0, 0, 0);
+    m_icon = new KIconButton(iconWidget);
     m_icon->setIconType(KIconLoader::NoGroup, KIconLoader::MimeType);
-    m_icon->setIconSize(LinkLook::lookForURL(filteredURL)->iconSize());
-    m_autoIcon = new QPushButton(i18n("Auto"), wid); // Create before to know size here:
-    /* Icon button: */
-    m_icon->setIcon(m_noteContent->icon());
-    int minSize = m_autoIcon->sizeHint().height();
+    iconLay->addWidget(m_icon);
+    m_autoIcon = new QPushButton(i18n("Auto"), iconWidget);
+    m_autoIcon->setCheckable(true);
+    iconLay->addWidget(m_autoIcon);
+    iconLay->addStretch();
+    const int minSize = m_autoIcon->sizeHint().height();
     // Make the icon button at least the same height than the other buttons for a better alignment (nicer to the eyes):
     if (m_icon->sizeHint().height() < minSize)
         m_icon->setFixedSize(minSize, minSize);
     else
         m_icon->setFixedSize(m_icon->sizeHint().height(), m_icon->sizeHint().height()); // Make it square
-    /* Auto button: */
-    m_autoIcon->setCheckable(true);
+    layout->addRow(i18n("&Icon:"), iconWidget);
+
+    mainLayout->addStretch();
+
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(okButton, &QAbstractButton::clicked, this, &LinkEditDialog::slotOk);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    mainLayout->addWidget(buttonBox);
+
+    if (!m_noteContent->url().isEmpty()) {
+        m_url->setUrl(QUrl(m_noteContent->url().toDisplayString()));
+    }
+    m_icon->setIcon(m_noteContent->icon());
+    m_title->setText(m_noteContent->title());
+    m_autoTitle->setChecked(m_noteContent->autoTitle());
     m_autoIcon->setChecked(m_noteContent->autoIcon());
-    hLay->addWidget(m_icon);
-    hLay->addWidget(m_autoIcon);
-    hLay->addStretch();
-
-    m_url->lineEdit()->setMinimumWidth(m_url->lineEdit()->fontMetrics().maxWidth() * 20);
-    m_title->setMinimumWidth(m_title->fontMetrics().maxWidth() * 20);
-
-    // m_url->setShowLocalProtocol(true);
-    auto *label1 = new QLabel(page);
-    mainLayout->addWidget(label1);
-    label1->setText(i18n("Ta&rget:"));
-    label1->setBuddy(m_url);
-
-    auto *label2 = new QLabel(page);
-    mainLayout->addWidget(label2);
-    label2->setText(i18n("&Title:"));
-    label2->setBuddy(m_title);
-
-    layout->addWidget(label1, 0, 0, Qt::AlignVCenter);
-    layout->addWidget(label2, 1, 0, Qt::AlignVCenter);
-    layout->addWidget(label3, 2, 0, Qt::AlignVCenter);
-    layout->addWidget(m_url, 0, 1, Qt::AlignVCenter);
-    layout->addWidget(wid1, 1, 1, Qt::AlignVCenter);
-    layout->addWidget(wid, 2, 1, Qt::AlignVCenter);
+    const QUrl filteredURL = NoteFactory::filteredURL(QUrl::fromUserInput(m_url->lineEdit()->text()));
+    m_icon->setIconSize(LinkLook::lookForURL(filteredURL)->iconSize());
 
     m_isAutoModified = false;
     connect(m_url, &KUrlRequester::textChanged, this, &LinkEditDialog::urlChanged);
@@ -797,28 +773,6 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
     connect(m_autoIcon, &QPushButton::clicked, this, [this](bool) {
         guessIcon();
     });
-
-    auto *stretchWidget = new QWidget(page);
-    mainLayout->addWidget(stretchWidget);
-    QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    policy.setHorizontalStretch(1);
-    policy.setVerticalStretch(255);
-    stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
-    layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
-
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(okButton, &QAbstractButton::clicked, this, &LinkEditDialog::slotOk);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    mainLayout->addWidget(buttonBox);
-
-    // urlChanged(QString());
-
-    //  if (ke)
-    //      qApp->postEvent(m_url->lineEdit(), ke);
 }
 
 LinkEditDialog::~LinkEditDialog() = default;
