@@ -121,7 +121,7 @@ void MainWindow::configureToolbars()
     KConfigGroup group = KSharedConfig::openConfig()->group(autoSaveGroup());
     saveMainWindowSettings(group);
 
-    KEditToolBar dlg(actionCollection());
+    KEditToolBar dlg(actionCollection(), this);
     connect(&dlg, &KEditToolBar::newToolBarConfig, this, &MainWindow::slotNewToolbarConfig);
     dlg.exec();
 }
