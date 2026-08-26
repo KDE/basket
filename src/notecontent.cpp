@@ -36,6 +36,8 @@
 #include <KLocalizedString>
 #include <KService>
 
+#include <functional>
+
 #include "basketscene.h"
 #include "common.h"
 #include "config.h"
@@ -766,7 +768,7 @@ void ColorContent::serialize(QDataStream &stream)
 QPixmap TextContent::feedbackPixmap(qreal width, qreal height)
 {
     QRectF textRect = QFontMetrics(note()->font()).boundingRect(0, 0, width, height, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, text());
-    QPixmap pixmap(qMin(width, textRect.width()), qMin(height, textRect.height()));
+    QPixmap pixmap(std::min(width, textRect.width()), std::min(height, textRect.height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
     painter.setPen(note()->textColor());
@@ -787,7 +789,7 @@ QPixmap HtmlContent::feedbackPixmap(qreal width, qreal height)
     palette = basket()->palette();
     palette.setColor(QPalette::Text, note()->textColor());
     palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
-    QPixmap pixmap(qMin(width, richText.idealWidth()), qMin(height, richText.size().height()));
+    QPixmap pixmap(std::min(width, richText.idealWidth()), std::min(height, richText.size().height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
     painter.setPen(note()->textColor());
@@ -869,7 +871,7 @@ QPixmap ColorContent::feedbackPixmap(qreal width, qreal height)
     palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
 
-    QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
+    QPixmap pixmap(std::min(width, boundingRect.width()), std::min(height, boundingRect.height()));
     pixmap.fill(note()->backgroundColor().darker(FEEDBACK_DARKING));
     QPainter painter(&pixmap);
     m_colorItem.paint(&painter,
@@ -907,7 +909,7 @@ QPixmap UnknownContent::feedbackPixmap(qreal width, qreal height)
     palette.setColor(QPalette::WindowText, note()->textColor());
     palette.setColor(QPalette::Base, note()->backgroundColor().darker(FEEDBACK_DARKING));
 
-    QPixmap pixmap(qMin(width, boundingRect.width()), qMin(height, boundingRect.height()));
+    QPixmap pixmap(std::min(width, boundingRect.width()), std::min(height, boundingRect.height()));
     QPainter painter(&pixmap);
     m_unknownItem.paint(&painter,
                         nullptr,

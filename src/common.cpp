@@ -13,6 +13,8 @@
 
 #include <KLocalizedString>
 
+#include <functional>
+
 #include "bnpview.h"
 #include "global.h"
 
@@ -149,7 +151,7 @@ bool FileStorage::safelySaveToFile(const QString &fullPath, const QByteArray &ar
             }
 
             // Double the retry delay, but don't go over the max.
-            retryDelay = qMin(maxDelay, retryDelay * 2); // ms
+            retryDelay = std::min(maxDelay, retryDelay * 2); // ms
         }
     } while (!success);
 

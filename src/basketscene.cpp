@@ -67,6 +67,7 @@
 #include <KIO/OpenUrlJob>
 
 #include <cstdlib> // rand() function
+#include <functional>
 
 #include "animation.h"
 #include "backgroundmanager.h"
@@ -4985,10 +4986,10 @@ void BasketScene::ensureNoteVisible(Note *note)
         return;
 
     m_view->ensureVisible(note);
-    /*//    int bottom = note->y() + qMin(note->height(),                                             visibleHeight());
-    //    int finalRight  = note->x() + qMin(note->width() + (note->hasResizer() ? Note::RESIZER_WIDTH : 0),  visibleWidth());
-        qreal bottom = note->y() + qMin(note->height(),                                             (qreal)m_view->viewport()->height());
-        qreal finalRight  = note->x() + qMin(note->width() + (note->hasResizer() ? Note::RESIZER_WIDTH : 0),  (qreal)m_view->viewport()->width());
+    /*//    int bottom = note->y() + std::min(note->height(),                                             visibleHeight());
+    //    int finalRight  = note->x() + std::min(note->width() + (note->hasResizer() ? Note::RESIZER_WIDTH : 0),  visibleWidth());
+        qreal bottom = note->y() + std::min(note->height(),                                             (qreal)m_view->viewport()->height());
+        qreal finalRight  = note->x() + std::min(note->width() + (note->hasResizer() ? Note::RESIZER_WIDTH : 0),  (qreal)m_view->viewport()->width());
         m_view->ensureVisible(finalRight,     bottom,    0, 0);
         m_view->ensureVisible(note->x(), note->y(), 0, 0);*/
 }

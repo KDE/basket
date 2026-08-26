@@ -29,6 +29,8 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
+#include <functional>
+
 #include "global.h"
 #include "htmlexporter.h"
 #include "kcolorcombo2.h"
@@ -500,8 +502,8 @@ void LinkDisplay::paint(QPainter *painter,
 
 QPixmap LinkDisplay::feedbackPixmap(qreal width, qreal height, const QPalette &palette, bool isDefaultColor)
 {
-    qreal theWidth = qMin(width, maxWidth());
-    qreal theHeight = qMin(height, heightForWidth(theWidth));
+    qreal theWidth = std::min(width, maxWidth());
+    qreal theHeight = std::min(height, heightForWidth(theWidth));
     QPixmap pixmap(theWidth, theHeight);
     pixmap.fill(palette.color(QPalette::Active, QPalette::Base));
     QPainter painter(&pixmap);

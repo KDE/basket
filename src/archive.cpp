@@ -41,6 +41,7 @@
 #include "xmlwork.h"
 
 #include <array>
+#include <functional>
 
 void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &destination)
 {
@@ -387,7 +388,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                     qint64 sizeRead = 0;
                     file.seek(stream.pos());
 
-                    while ((sizeRead = file.read(buffer.data(), qMin(BUFFER_SIZE, remainingBytes))) > 0) {
+                    while ((sizeRead = file.read(buffer.data(), std::min(BUFFER_SIZE, remainingBytes))) > 0) {
                         previewFile.write(buffer.data(), sizeRead);
                         remainingBytes -= sizeRead;
                     }
@@ -425,7 +426,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 if (archiveFile.open(QIODevice::WriteOnly)) {
                     char *buffer = new char[BUFFER_SIZE];
                     qint64 sizeRead;
-                    while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
+                    while ((sizeRead = file.read(buffer, std::min(BUFFER_SIZE, size))) > 0) {
                         archiveFile.write(buffer, sizeRead);
                         size -= sizeRead;
                     }
@@ -453,7 +454,7 @@ Archive::IOErrorCode Archive::extractArchive(const QString &path, const QString 
                 // Get the archive file:
                 char *buffer = new char[BUFFER_SIZE];
                 qint64 sizeRead;
-                while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
+                while ((sizeRead = file.read(buffer, std::min(BUFFER_SIZE, size))) > 0) {
                     size -= sizeRead;
                 }
                 delete[] buffer;

@@ -26,6 +26,8 @@
 #include <QTemporaryDir>
 #include <QTextStream>
 
+#include <functional>
+
 #include "basketthumbcreator.h"
 
 KIO::ThumbnailResult BasketThumbCreator::create(const KIO::ThumbnailRequest &request)
@@ -71,7 +73,7 @@ KIO::ThumbnailResult BasketThumbCreator::create(const KIO::ThumbnailRequest &req
                 if (previewFile.open(QIODevice::WriteOnly)) {
                     char *buffer = new char[BUFFER_SIZE];
                     long int sizeRead;
-                    while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
+                    while ((sizeRead = file.read(buffer, std::min(BUFFER_SIZE, size))) > 0) {
                         previewFile.write(buffer, sizeRead);
                         size -= sizeRead;
                     }
@@ -92,7 +94,7 @@ KIO::ThumbnailResult BasketThumbCreator::create(const KIO::ThumbnailRequest &req
                 // Get the archive file:
                 char *buffer = new char[BUFFER_SIZE];
                 long int sizeRead;
-                while ((sizeRead = file.read(buffer, qMin(BUFFER_SIZE, size))) > 0) {
+                while ((sizeRead = file.read(buffer, std::min(BUFFER_SIZE, size))) > 0) {
                     size -= sizeRead;
                 }
                 delete[] buffer;
