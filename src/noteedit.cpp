@@ -961,76 +961,43 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     : QDialog(parent)
     , m_noteContent(contentNote)
 {
-    auto *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-
     // QDialog options
     setWindowTitle(i18n("Edit Launcher Note"));
-
     setObjectName("EditLauncher");
     setModal(true);
 
-    auto *page = new QWidget(this);
-    mainLayout->addWidget(page);
+    const KService service(contentNote->fullPath());
 
-    // QGridLayout *layout = new QGridLayout(page, /*nRows=*/4, /*nCols=*/2, /*margin=*/0, spacingHint());
-    auto *layout = new QGridLayout(page);
+    auto *mainLayout = new QVBoxLayout(this);
+
+    auto *layout = new QFormLayout();
+    layout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addLayout(layout);
 
-    KService service(contentNote->fullPath());
+    m_command = new ServiceLaunchRequester(service.storageId(), i18n("Choose a command to run:"), this);
+    layout->addRow(i18n("Comman&d:"), m_command);
 
-    m_command = new ServiceLaunchRequester(service.storageId(), i18n("Choose a command to run:"), page);
-    mainLayout->addWidget(m_command);
-    m_name = new QLineEdit(service.name(), page);
-    mainLayout->addWidget(m_name);
+    m_name = new QLineEdit(service.name(), this);
+    layout->addRow(i18n("&Name:"), m_name);
 
-    auto *wid = new QWidget(page);
-    mainLayout->addWidget(wid);
-    auto *hLay = new QHBoxLayout(wid);
-    m_icon = new KIconButton(wid);
-
-    auto *label = new QLabel(page);
-    mainLayout->addWidget(label);
-    label->setText(i18n("&Icon:"));
-    label->setBuddy(m_icon);
-
+    auto *iconWidget = new QWidget(this);
+    auto *iconLay = new QHBoxLayout(iconWidget);
+    iconLay->setContentsMargins(0, 0, 0, 0);
+    m_icon = new KIconButton(iconWidget);
     m_icon->setIconType(KIconLoader::NoGroup, KIconLoader::Application);
-    m_icon->setIconSize(LinkLook::launcherLook->iconSize());
-    auto *guessButton = new QPushButton(i18n("&Guess"), wid);
-    /* Icon button: */
-    m_icon->setIcon(service.icon());
+    iconLay->addWidget(m_icon);
+    auto *guessButton = new QPushButton(i18n("&Guess"), this);
+    iconLay->addWidget(guessButton);
+    iconLay->addStretch();
     int minSize = guessButton->sizeHint().height();
     // Make the icon button at least the same height than the other buttons for a better alignment (nicer to the eyes):
     if (m_icon->sizeHint().height() < minSize)
         m_icon->setFixedSize(minSize, minSize);
     else
         m_icon->setFixedSize(m_icon->sizeHint().height(), m_icon->sizeHint().height()); // Make it square
-    /* Guess button: */
-    hLay->addWidget(m_icon);
-    hLay->addWidget(guessButton);
-    hLay->addStretch();
+    layout->addRow(i18n("&Icon:"), iconWidget);
 
-    // m_command->lineEdit()->setMinimumWidth(m_command->lineEdit()->fontMetrics().maxWidth() * 20);
-
-    auto *label1 = new QLabel(page);
-    mainLayout->addWidget(label1);
-    label1->setText(i18n("Comman&d:"));
-    // label1->setBuddy(m_command->lineEdit());
-
-    auto *label2 = new QLabel(page);
-    mainLayout->addWidget(label2);
-    label2->setText(i18n("&Name:"));
-    label2->setBuddy(m_name);
-
-    layout->addWidget(label1, 0, 0, Qt::AlignVCenter);
-    layout->addWidget(label2, 1, 0, Qt::AlignVCenter);
-    layout->addWidget(label, 2, 0, Qt::AlignVCenter);
-    layout->addWidget(m_command, 0, 1, Qt::AlignVCenter);
-    layout->addWidget(m_name, 1, 1, Qt::AlignVCenter);
-    layout->addWidget(wid, 2, 1, Qt::AlignVCenter);
-
-    auto *stretchWidget = new QWidget(page);
-    mainLayout->addWidget(stretchWidget);
+    mainLayout->addStretch();
 
     auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
@@ -1041,12 +1008,7 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     mainLayout->addWidget(buttonBox);
 
-    QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    policy.setHorizontalStretch(1);
-    policy.setVerticalStretch(255);
-    stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
-
-    layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
+    m_icon->setIcon(service.icon());
 
     connect(guessButton, &QAbstractButton::clicked, this, &LauncherEditDialog::guessIcon);
 }
