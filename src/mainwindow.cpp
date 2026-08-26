@@ -158,11 +158,7 @@ void MainWindow::showSettingsDialog()
 
 void MainWindow::showShortcutsSettingsDialog()
 {
-    KShortcutsDialog d;
-    d.addCollection(actionCollection());
-    d.configure();
-    //.setWindowTitle(..)
-    // actionCollection()->writeSettings();
+    KShortcutsDialog::showDialog(actionCollection(), KShortcutsEditor::LetterShortcutsAllowed, this);
 }
 
 void MainWindow::ensurePolished()
