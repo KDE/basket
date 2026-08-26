@@ -860,29 +860,38 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
     : QDialog(parent)
     , m_noteContent(contentNote)
 {
-    auto *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-
     // QDialog options
     setWindowTitle(i18n("Edit Cross Reference"));
+    setObjectName("EditCrossReference");
+    setModal(true);
 
-    auto *page = new QWidget(this);
-    mainLayout->addWidget(page);
-    auto *wid = new QWidget(page);
-    mainLayout->addWidget(wid);
+    auto *mainLayout = new QVBoxLayout(this);
 
-    auto *layout = new QGridLayout(page);
+    auto *layout = new QFormLayout();
+    layout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addLayout(layout);
 
-    m_targetBasket = new KComboBox(wid);
-    this->generateBasketList(m_targetBasket);
+    m_targetBasket = new KComboBox(this);
+    layout->addRow(i18n("Ta&rget:"), m_targetBasket);
 
+    mainLayout->addStretch();
+
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(okButton, &QAbstractButton::clicked, this, &CrossReferenceEditDialog::slotOk);
+    mainLayout->addWidget(buttonBox);
+
+    generateBasketList(m_targetBasket);
     if (m_noteContent->url().isEmpty()) {
         BasketListViewItem *item = Global::bnpView->topLevelItem(0);
         m_noteContent->setCrossReference(QUrl::fromUserInput(item->data(0, Qt::UserRole).toString()),
                                          m_targetBasket->currentText(),
                                          QStringLiteral("edit-copy"));
-        this->urlChanged(0);
+        urlChanged(0);
     } else {
         QString url = m_noteContent->url().url();
         // cannot use findData because I'm using a StringList and I don't have the second
@@ -895,34 +904,7 @@ CrossReferenceEditDialog::CrossReferenceEditDialog(CrossReferenceContent *conten
         }
     }
 
-    auto *label1 = new QLabel(page);
-    mainLayout->addWidget(label1);
-    label1->setText(i18n("Ta&rget:"));
-    label1->setBuddy(m_targetBasket);
-
-    layout->addWidget(label1, 0, 0, Qt::AlignVCenter);
-    layout->addWidget(m_targetBasket, 0, 1, Qt::AlignVCenter);
-
     connect(m_targetBasket, &QComboBox::activated, this, &CrossReferenceEditDialog::urlChanged);
-
-    auto *stretchWidget = new QWidget(page);
-    mainLayout->addWidget(stretchWidget);
-    QSizePolicy policy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    policy.setHorizontalStretch(1);
-    policy.setVerticalStretch(255);
-    stretchWidget->setSizePolicy(policy); // Make it fill ALL vertical space
-    layout->addWidget(stretchWidget, 3, 1, Qt::AlignVCenter);
-
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
-    mainLayout->addWidget(buttonBox);
-    setObjectName("EditCrossReference");
-    setModal(true);
-    connect(okButton, &QAbstractButton::clicked, this, &CrossReferenceEditDialog::slotOk);
 }
 
 CrossReferenceEditDialog::~CrossReferenceEditDialog() = default;
