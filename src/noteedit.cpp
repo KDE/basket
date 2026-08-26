@@ -1206,21 +1206,21 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     ac->addAction(QStringLiteral("richtext_bold"), ta);
     ta->setText(i18n("Bold"));
     ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-bold")));
-    ac->setDefaultShortcut(ta, QKeySequence(QStringLiteral("Ctrl+B")));
+    ac->setDefaultShortcut(ta, QKeySequence(Qt::CTRL | Qt::Key_B));
     richTextBold = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction(QStringLiteral("richtext_italic"), ta);
     ta->setText(i18n("Italic"));
     ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-italic")));
-    ac->setDefaultShortcut(ta, QKeySequence(QStringLiteral("Ctrl+I")));
+    ac->setDefaultShortcut(ta, QKeySequence(Qt::CTRL | Qt::Key_I));
     richTextItalic = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction(QStringLiteral("richtext_underline"), ta);
     ta->setText(i18n("Underline"));
     ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-underline")));
-    ac->setDefaultShortcut(ta, QKeySequence(QStringLiteral("Ctrl+U")));
+    ac->setDefaultShortcut(ta, QKeySequence(Qt::CTRL | Qt::Key_U));
     richTextUnderline = ta;
 
 #if 0

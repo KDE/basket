@@ -397,7 +397,7 @@ void BNPView::setupActions()
     a = ac->addAction(QStringLiteral("edit_delete"), this, &BNPView::delNote);
     a->setText(i18n("D&elete"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Delete")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::Key_Delete));
     m_actDelNote = a;
 
     m_actCutNote = KStandardAction::cut(this, &BNPView::cutNote, ac);
@@ -425,56 +425,56 @@ void BNPView::setupActions()
     a = ac->addAction(QStringLiteral("note_edit"), this, &BNPView::editNote);
     a->setText(i18nc("Verb; not Menu", "&Edit..."));
     // a->setIcon(QIcon::fromTheme("edit"));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Return")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::Key_Return));
     m_actEditNote = a;
 
     m_actOpenNote = ac->addAction(KStandardAction::Open, QStringLiteral("note_open"), this, &BNPView::openNote);
     m_actOpenNote->setIcon(QIcon::fromTheme(QStringLiteral("window-new")));
     m_actOpenNote->setText(i18n("&Open"));
-    m_actionCollection->setDefaultShortcut(m_actOpenNote, QKeySequence(QStringLiteral("F9")));
+    m_actionCollection->setDefaultShortcut(m_actOpenNote, QKeySequence(Qt::Key_F9));
 
     a = ac->addAction(QStringLiteral("note_open_with"), this, &BNPView::openNoteWith);
     a->setText(i18n("Open &With..."));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Shift+F9")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::SHIFT | Qt::Key_F9));
     m_actOpenNoteWith = a;
 
     m_actSaveNoteAs = ac->addAction(KStandardAction::SaveAs, QStringLiteral("note_save_to_file"), this, &BNPView::saveNoteAs);
     m_actSaveNoteAs->setText(i18n("&Save to File..."));
-    m_actionCollection->setDefaultShortcut(m_actSaveNoteAs, QKeySequence(QStringLiteral("F10")));
+    m_actionCollection->setDefaultShortcut(m_actSaveNoteAs, QKeySequence(Qt::Key_F10));
 
     a = ac->addAction(QStringLiteral("note_group"), this, &BNPView::noteGroup);
     a->setText(i18n("&Group"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("mail-attachment")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+G")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_G));
     m_actGroup = a;
 
     a = ac->addAction(QStringLiteral("note_ungroup"), this, &BNPView::noteUngroup);
     a->setText(i18n("U&ngroup"));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Shift+G")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_G));
     m_actUngroup = a;
 
     a = ac->addAction(QStringLiteral("note_move_top"), this, &BNPView::moveOnTop);
     a->setText(i18n("Move on &Top"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up-double")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Shift+Home")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Home));
     m_actMoveOnTop = a;
 
     a = ac->addAction(QStringLiteral("note_move_up"), this, &BNPView::moveNoteUp);
     a->setText(i18n("Move &Up"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("arrow-up")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Shift+Up")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Up));
     m_actMoveNoteUp = a;
 
     a = ac->addAction(QStringLiteral("note_move_down"), this, &BNPView::moveNoteDown);
     a->setText(i18n("Move &Down"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Shift+Down")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_Down));
     m_actMoveNoteDown = a;
 
     a = ac->addAction(QStringLiteral("note_move_bottom"), this, &BNPView::moveOnBottom);
     a->setText(i18n("Move on &Bottom"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("arrow-down-double")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Shift+End")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_End));
     m_actMoveOnBottom = a;
 
     m_actPaste = KStandardAction::paste(this, &BNPView::pasteInCurrentBasket, ac);
@@ -485,20 +485,20 @@ void BNPView::setupActions()
     a = ac->addAction("insert_text");
     a->setText(i18n("Plai&n Text"));
     a->setIcon(QIcon::fromTheme("text"));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence("Ctrl+T"));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_T));
     m_actInsertText = a;
 #endif
 
     a = ac->addAction(QStringLiteral("insert_html"));
     a->setText(i18n("&Text"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("text-html")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Insert")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::Key_Insert));
     m_actInsertHtml = a;
 
     a = ac->addAction(QStringLiteral("insert_link"));
     a->setText(i18n("&Link"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("insert-link")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Y")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_Y));
     m_actInsertLink = a;
 
     a = ac->addAction(QStringLiteral("insert_cross_reference"));
@@ -615,7 +615,7 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("basket_new_sub"), this, &BNPView::askNewSubBasket);
     a->setText(i18n("New &Sub-Basket..."));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+Shift+N")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_N));
     actNewSubBasket = a;
 
     a = ac->addAction(QStringLiteral("basket_new_sibling"), this, &BNPView::askNewSiblingBasket);
@@ -634,7 +634,7 @@ void BNPView::setupActions()
     a = ac->addAction(QStringLiteral("basket_properties"), this, &BNPView::propBasket);
     a->setText(i18n("&Properties..."));
     a->setIcon(QIcon::fromTheme(QStringLiteral("document-properties")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("F2")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::Key_F2));
     m_actPropBasket = a;
 
     a = ac->addAction(QStringLiteral("basket_sort_children_asc"), this, &BNPView::sortChildrenAsc);
@@ -670,7 +670,7 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("basket_lock"), this, &BNPView::lockBasket);
     a->setText(i18nc("Lock Basket", "&Lock"));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+L")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_L));
     m_actLockBasket = a;
 #endif
 
@@ -696,7 +696,7 @@ void BNPView::setupActions()
     ac->addAction(QStringLiteral("edit_filter_all_baskets"), toggleAct);
     toggleAct->setText(i18n("&Search All"));
     toggleAct->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
-    m_actionCollection->setDefaultShortcut(toggleAct, QKeySequence(QStringLiteral("Ctrl+Shift+F")));
+    m_actionCollection->setDefaultShortcut(toggleAct, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_F));
     m_actFilterAllBaskets = toggleAct;
 
     connect(m_actFilterAllBaskets, &KToggleAction::toggled, this, &BNPView::toggleFilterAllBaskets);
@@ -704,7 +704,7 @@ void BNPView::setupActions()
     a = ac->addAction(QStringLiteral("edit_filter_reset"), this, &BNPView::slotResetFilter);
     a->setText(i18n("&Reset Filter"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear-locationbar-rtl")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Ctrl+R")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_R));
     m_actResetFilter = a;
 
     /** Go : ******************************************************************/
@@ -712,25 +712,25 @@ void BNPView::setupActions()
     a = ac->addAction(QStringLiteral("go_basket_previous"), this, &BNPView::goToPreviousBasket);
     a->setText(i18n("&Previous Basket"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("go-previous")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Alt+Left")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::ALT | Qt::Key_Left));
     m_actPreviousBasket = a;
 
     a = ac->addAction(QStringLiteral("go_basket_next"), this, &BNPView::goToNextBasket);
     a->setText(i18n("&Next Basket"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("go-next")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Alt+Right")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::ALT | Qt::Key_Right));
     m_actNextBasket = a;
 
     a = ac->addAction(QStringLiteral("go_basket_fold"), this, &BNPView::foldBasket);
     a->setText(i18n("&Fold Basket"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Alt+Up")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::ALT | Qt::Key_Up));
     m_actFoldBasket = a;
 
     a = ac->addAction(QStringLiteral("go_basket_expand"), this, &BNPView::expandBasket);
     a->setText(i18n("&Expand Basket"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
-    m_actionCollection->setDefaultShortcut(a, QKeySequence(QStringLiteral("Alt+Down")));
+    m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::ALT | Qt::Key_Down));
     m_actExpandBasket = a;
 
 #if 0
