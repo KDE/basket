@@ -1169,7 +1169,7 @@ BasketScene::BasketScene(QWidget *parent, const QString &folderName)
     , m_button(nullptr)
     , m_encryptionType(NoEncryption)
 #ifdef HAVE_LIBGPGME
-    , m_gpg(0)
+    , m_gpg(nullptr)
 #endif
     , m_backgroundPixmap(nullptr)
     , m_opaqueBackgroundPixmap(nullptr)
