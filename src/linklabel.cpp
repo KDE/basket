@@ -413,7 +413,7 @@ void LinkDisplay::setLink(const QString &title, const QString &icon, const QPixm
 
     // Recompute m_minWidth:
     QRect textRect = QFontMetrics(labelFont(font, false)).boundingRect(0, 0, /*width=*/1, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_title);
-    int iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
+    int iconPreviewWidth = std::max(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
     m_minWidth = BUTTON_MARGIN - 1 + iconPreviewWidth + LINK_MARGIN + textRect.width();
     // Recompute m_maxWidth:
     textRect = QFontMetrics(labelFont(font, false)).boundingRect(0, 0, /*width=*/50000000, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_title);
@@ -468,7 +468,7 @@ void LinkDisplay::paint(QPainter *painter,
         KIconLoader::States iconState = (isIconButtonHovered ? KIconLoader::ActiveState : KIconLoader::DefaultState);
         pixmap = KIconLoader::global()->loadIcon(iconName, KIconLoader::Desktop, iconSize, iconState, QStringList(), nullptr, /*canReturnNull=*/false);
     }
-    qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
+    qreal iconPreviewWidth = std::max(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
     qreal pixmapX = (iconPreviewWidth - pixmap.width()) / 2;
     qreal pixmapY = (height - pixmap.height()) / 2;
     // Draw the button (if any) and the icon:
@@ -525,7 +525,7 @@ bool LinkDisplay::iconButtonAt(const QPointF &pos) const
 {
     qreal BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     //  int LINK_MARGIN      = BUTTON_MARGIN + 2;
-    qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
+    qreal iconPreviewWidth = std::max(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
 
     return pos.x() <= BUTTON_MARGIN - 1 + iconPreviewWidth + BUTTON_MARGIN;
 }
@@ -534,7 +534,7 @@ QRectF LinkDisplay::iconButtonRect() const
 {
     qreal BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     //  int LINK_MARGIN      = BUTTON_MARGIN + 2;
-    qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
+    qreal iconPreviewWidth = std::max(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
 
     return {0, 0, BUTTON_MARGIN - 1 + iconPreviewWidth + BUTTON_MARGIN, m_height};
 }
@@ -559,13 +559,13 @@ qreal LinkDisplay::heightForWidth(qreal width) const
 {
     qreal BUTTON_MARGIN = qApp->style()->pixelMetric(QStyle::PM_ButtonMargin);
     qreal LINK_MARGIN = BUTTON_MARGIN + 2;
-    qreal iconPreviewWidth = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
-    qreal iconPreviewHeight = qMax(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.height() : 0));
+    qreal iconPreviewWidth = std::max(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.width() : 0));
+    qreal iconPreviewHeight = std::max(m_look->iconSize(), (m_look->previewEnabled() ? m_preview.height() : 0));
 
     QRectF textRect =
         QFontMetrics(labelFont(m_font, false))
             .boundingRect(0, 0, width - BUTTON_MARGIN + 1 - iconPreviewWidth - LINK_MARGIN, 500000, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, m_title);
-    return qMax(textRect.height(), iconPreviewHeight + 2 * BUTTON_MARGIN - 2);
+    return std::max(textRect.height(), iconPreviewHeight + 2 * BUTTON_MARGIN - 2);
 }
 
 QString LinkDisplay::toHtml(const QString & /*imageName*/) const

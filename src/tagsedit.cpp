@@ -34,6 +34,8 @@
 #include <KSeparator>
 #include <KShortcutWidget>
 
+#include <functional>
+
 #include "bnpview.h"
 #include "global.h"
 #include "kcolorcombo2.h"
@@ -440,8 +442,8 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     connect(m_removeEmblem, &QPushButton::clicked, this, &TagsEditDialog::removeEmblem); // m_emblem.resetIcon() is not a slot!
 
     // Make the icon button and the remove button the same height:
-    int height = qMax(m_emblem->sizeHint().width(), m_emblem->sizeHint().height());
-    height = qMax(height, m_removeEmblem->sizeHint().height());
+    int height = std::max(m_emblem->sizeHint().width(), m_emblem->sizeHint().height());
+    height = std::max(height, m_removeEmblem->sizeHint().height());
     m_emblem->setFixedSize(height, height); // Make it square
     m_removeEmblem->setFixedHeight(height);
     m_emblem->resetIcon();
@@ -462,7 +464,7 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
     QIcon boldIconSet = QIcon::fromTheme(QStringLiteral("format-text-bold"));
     m_bold = new QPushButton(boldIconSet, QString(), stateWidget);
     m_bold->setCheckable(true);
-    int size = qMax(m_bold->sizeHint().width(), m_bold->sizeHint().height());
+    int size = std::max(m_bold->sizeHint().width(), m_bold->sizeHint().height());
     m_bold->setFixedSize(size, size); // Make it square!
     m_bold->setToolTip(i18n("Bold"));
 
@@ -580,13 +582,13 @@ TagsEditDialog::TagsEditDialog(QWidget *parent, State *stateToEdit, bool addNewT
 
     // Equalize the width of the first column of the two grids:
     int maxWidth = tagNameLabel->sizeHint().width();
-    maxWidth = qMax(maxWidth, shortcutLabel->sizeHint().width());
-    maxWidth = qMax(maxWidth, m_stateNameLabel->sizeHint().width());
-    maxWidth = qMax(maxWidth, emblemLabel->sizeHint().width());
-    maxWidth = qMax(maxWidth, textLabel->sizeHint().width());
-    maxWidth = qMax(maxWidth, fontLabel->sizeHint().width());
-    maxWidth = qMax(maxWidth, backgroundColorLabel->sizeHint().width());
-    maxWidth = qMax(maxWidth, textEquivalentLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, shortcutLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, m_stateNameLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, emblemLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, textLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, fontLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, backgroundColorLabel->sizeHint().width());
+    maxWidth = std::max(maxWidth, textEquivalentLabel->sizeHint().width());
 
     tagNameLabel->setFixedWidth(maxWidth);
     m_stateNameLabel->setFixedWidth(maxWidth);

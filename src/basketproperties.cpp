@@ -27,6 +27,8 @@
 #include <KLocalizedString>
 #include <KShortcutWidget>
 
+#include <functional>
+
 #include "backgroundmanager.h"
 #include "basketscene.h"
 #include "gitwrapper.h"
@@ -64,7 +66,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     propsUi->icon->setIconSize(16);
     propsUi->icon->setIcon(m_basket->icon());
 
-    int size = qMax(propsUi->icon->sizeHint().width(), propsUi->icon->sizeHint().height());
+    int size = std::max(propsUi->icon->sizeHint().width(), propsUi->icon->sizeHint().height());
     propsUi->icon->setFixedSize(size, size); // Make it square!
     propsUi->icon->setToolTip(i18n("Icon"));
     propsUi->name->setText(m_basket->basketName());
@@ -112,7 +114,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     columnCount->setValue(m_basket->columnsCount());
     connect(columnCount, &QSpinBox::valueChanged, this, &BasketPropertiesDialog::selectColumnsLayout);
 
-    int height = qMax(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equally-spaced!
+    int height = std::max(mindMap->sizeHint().height(), columnCount->sizeHint().height()); // Make all radioButtons vertically equally-spaced!
     mindMap->setMinimumSize(mindMap->sizeHint().width(),
                             height); // Because the m_columnCount can be higher, and make radio1 and radio2 more spaced than radio2 and radio3.
 

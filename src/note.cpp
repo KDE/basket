@@ -24,6 +24,7 @@
 
 #include <cmath> // sqrt() and pow() functions
 #include <cstdlib> // rand() function
+#include <functional>
 
 #include "animation.h"
 #include "basketscene.h"
@@ -993,7 +994,7 @@ qreal Note::minRight()
         bool first = true;
         while (child) {
             if ((showSubNotes() || first) && child->matching())
-                right = qMax(right, child->minRight());
+                right = std::max(right, child->minRight());
             child = child->next();
             first = false;
         }
@@ -1263,7 +1264,7 @@ qreal Note::groupWidth() const
 qreal Note::rightLimit() const
 {
     if (isColumn() && d->next == nullptr) // The last column
-        return qMax((x() + minWidth()), (qreal)basket()->graphicsView()->viewport()->width());
+        return std::max((x() + minWidth()), (qreal)basket()->graphicsView()->viewport()->width());
     else if (parentNote())
         return parentNote()->rightLimit();
     else
@@ -1273,7 +1274,7 @@ qreal Note::rightLimit() const
 qreal Note::finalRightLimit() const
 {
     if (isColumn() && d->next == nullptr) // The last column
-        return qMax(x() + minWidth(), (qreal)basket()->graphicsView()->viewport()->width());
+        return std::max(x() + minWidth(), (qreal)basket()->graphicsView()->viewport()->width());
     else if (parentNote())
         return parentNote()->finalRightLimit();
     else

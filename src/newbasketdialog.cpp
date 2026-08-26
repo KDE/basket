@@ -26,6 +26,8 @@
 #include <KMainWindow> //For Global::mainWindow()
 #include <KMessageBox>
 
+#include <functional>
+
 #include "basketfactory.h"
 #include "basketlistview.h"
 #include "basketscene.h"
@@ -104,7 +106,7 @@ NewBasketDialog::NewBasketDialog(BasketScene *parentBasket, const NewBasketDefau
     m_icon->setIconSize(16);
     m_icon->setIcon(m_defaultProperties.icon);
 
-    int size = qMax(m_icon->sizeHint().width(), m_icon->sizeHint().height());
+    int size = std::max(m_icon->sizeHint().width(), m_icon->sizeHint().height());
     m_icon->setFixedSize(size, size); // Make it square!
 
     m_icon->setToolTip(i18n("Icon"));

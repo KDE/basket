@@ -3205,7 +3205,7 @@ void BasketScene::relayoutNotes(bool animate)
     else
         tmpHeight += 15;
 
-    setSceneRect(0, 0, qMax((qreal)m_view->viewport()->width(), tmpWidth), qMax((qreal)m_view->viewport()->height(), tmpHeight));
+    setSceneRect(0, 0, std::max((qreal)m_view->viewport()->width(), tmpWidth), std::max((qreal)m_view->viewport()->height(), tmpHeight));
 
     recomputeBlankRects();
     placeEditor();
@@ -3613,7 +3613,7 @@ void BasketScene::placeEditor(bool /*andEnsureVisible*/ /*= false*/)
     qreal frameWidth = (editorQFrame ? editorQFrame->frameWidth() : 0);
     qreal x = note->x() + note->contentX() + note->content()->xEditorIndent() - frameWidth;
     qreal y;
-    qreal maxHeight = qMax((qreal)m_view->viewport()->height(), sceneRect().height());
+    qreal maxHeight = std::max((qreal)m_view->viewport()->height(), sceneRect().height());
     qreal height, width;
 
     if (textEdit) {
