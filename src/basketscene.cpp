@@ -3872,7 +3872,7 @@ void BasketScene::noteEdit(Note *note, bool justAdded, const QPointF &clickedPoi
 
     doHoverEffects(note, Note::Content); // Be sure (in the case Edit was triggered by menu or Enter key...): better feedback!
 
-    NoteEditor *editor = NoteEditor::editNoteContent(note->content(), nullptr);
+    NoteEditor *editor = NoteEditor::editNoteContent(note->content(), m_view);
     if (editor->graphicsWidget()) {
         m_editor = editor;
 
