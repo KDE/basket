@@ -1,54 +1,54 @@
 {
-   "id" : "org.kde.basket",
-   "branch" : "master",
-   "runtime" : "org.kde.Platform",
-   "runtime-version" : "6.9",
-   "sdk" : "org.kde.Sdk",
-   "command" : "basket",
-   "tags" : [
-      "nightly"
-   ],
-   "desktop-file-name-suffix" : " (Nightly)",
-   "finish-args" : [
-      "--share=ipc",
-      "--socket=fallback-x11",
-      "--socket=wayland",
-      "--device=dri",
-      "--own-name=local.basket"
-   ],
-   "modules" : [
-      {
-         "name": "libgit2",
-         "buildsystem": "cmake-ninja",
-         "config-opts": [
-            "-DCMAKE_BUILD_TYPE=Release",
-            "-DBUILD_CLI=OFF",
-            "-DBUILD_SHARED_LIBS=ON",
-            "-DBUILD_TESTS=OFF"
-         ],
-         "sources": [
-            {
-               "type": "git",
-               "url": "https://github.com/libgit2/libgit2.git",
-               "branch": "v1.9.2"
-            }
-         ]
-      },
-      {
-         "name" : "basket",
-         "buildsystem" : "cmake-ninja",
-         "config-opts": [
-            "-DBUILD_TESTING=OFF"
-         ],
-         "sources" : [
-            {
-               "path" : ".",
-               "skip" : [
-                  ".git"
-               ],
-               "type" : "dir"
-            }
-         ]
-      }
-   ]
+    "id": "org.kde.basket",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.9",
+    "sdk": "org.kde.Sdk",
+    "command": "basket",
+    "tags": [
+        "nightly"
+    ],
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--own-name=local.basket"
+    ],
+    "modules": [
+        {
+            "name": "libgit2",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_CLI=OFF",
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DBUILD_TESTS=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libgit2/libgit2.git",
+                    "branch": "v1.9.2"
+                }
+            ]
+        },
+        {
+            "name": "basket",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "path": ".",
+                    "skip": [
+                        ".git"
+                    ],
+                    "type": "dir"
+                }
+            ]
+        }
+    ]
 }
