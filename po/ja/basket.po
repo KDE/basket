@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket-ja\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-24 00:48+0000\n"
+"POT-Creation-Date: 2026-08-27 00:48+0000\n"
 "PO-Revision-Date: 2020-04-07 20:59-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -111,18 +111,18 @@ msgstr ""
 msgid "Could not open file."
 msgstr "ファイルからメモを読み込む"
 
-#: devtools/weaver/weaver.cpp:304 src/archive.cpp:263
+#: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
 #, fuzzy, kde-format
 #| msgid "Unable to open this note."
 msgid "Failed to open a file resource."
 msgstr "このメモを開けません。"
 
-#: devtools/weaver/weaver.cpp:307 src/archive.cpp:266
+#: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
 #, kde-format
 msgid "This file is not a basket archive."
 msgstr "このファイルはバスケットアーカイブではありません。"
 
-#: devtools/weaver/weaver.cpp:310 src/archive.cpp:269
+#: devtools/weaver/weaver.cpp:310 src/archive.cpp:270
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
 msgstr "このファイルは壊れています。開けません。"
@@ -250,28 +250,28 @@ msgstr ""
 msgid "BasKet Note Pads"
 msgstr "BasKet メモパッド"
 
-#: src/archive.cpp:49 src/bnpview.cpp:2031
+#: src/archive.cpp:50 src/bnpview.cpp:2031
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "バスケットアーカイブとして保存"
 
-#: src/archive.cpp:50
+#: src/archive.cpp:51
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
 msgstr "バスケットアーカイブとして保存しています。お待ちください..."
 
-#: src/archive.cpp:263 src/archive.cpp:266 src/archive.cpp:269
-#: src/archive.cpp:272 src/archive.cpp:279 src/archive.cpp:288
+#: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
+#: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
 #, kde-format
 msgid "Basket Archive Error"
 msgstr "バスケットアーカイブのエラー"
 
-#: src/archive.cpp:272
+#: src/archive.cpp:273
 #, kde-format
 msgid "Extraction path already exists."
 msgstr ""
 
-#: src/archive.cpp:276
+#: src/archive.cpp:277
 #, fuzzy, kde-format
 #| msgid ""
 #| "This file was created with a recent version of %1. Please upgrade to a "
@@ -283,7 +283,7 @@ msgstr ""
 "このファイルは最近のバージョンの %1で作成されています。ファイルを開くために"
 "は、新しいバージョンにアップグレードする必要があります。"
 
-#: src/archive.cpp:283
+#: src/archive.cpp:284
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1. It can be opened but not "
@@ -617,32 +617,32 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:45
+#: src/basketproperties.cpp:47
 #, kde-format
 msgid "Basket Properties"
 msgstr "バスケットのプロパティ"
 
-#: src/basketproperties.cpp:69 src/newbasketdialog.cpp:110
+#: src/basketproperties.cpp:71 src/newbasketdialog.cpp:112
 #, kde-format
 msgid "Icon"
 msgstr "アイコン"
 
-#: src/basketproperties.cpp:72 src/kgpgme.cpp:65 src/newbasketdialog.cpp:115
+#: src/basketproperties.cpp:74 src/kgpgme.cpp:65 src/newbasketdialog.cpp:117
 #, kde-format
 msgid "Name"
 msgstr "名前"
 
-#: src/basketproperties.cpp:88
+#: src/basketproperties.cpp:90
 #, kde-format
 msgid "(None)"
 msgstr "(なし)"
 
-#: src/basketproperties.cpp:133
+#: src/basketproperties.cpp:135
 #, kde-format
 msgid "Learn some tips..."
 msgstr "使用上のヒント..."
 
-#: src/basketproperties.cpp:134
+#: src/basketproperties.cpp:136
 #, fuzzy, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -672,7 +672,7 @@ msgstr ""
 "のバスケットに貼り付けるグローバルショートカットを使うときに役立ちます。</p>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1107
+#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1109
 #, kde-format
 msgid "Appearance"
 msgstr ""
@@ -743,39 +743,39 @@ msgstr "このバスケットを表示(&G) (グローバルショートカット
 msgid "S&witch to this basket (global shortcut)"
 msgstr "このバスケットに切り替え(&W) (グローバルショートカット)"
 
-#: src/basketscene.cpp:302
+#: src/basketscene.cpp:303
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "新しいメモはフィルタにマッチしないので表示されていません。"
 
-#: src/basketscene.cpp:304
+#: src/basketscene.cpp:305
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "新しいメモのひとつがフィルタにマッチしないので表示されていません。"
 
-#: src/basketscene.cpp:306
+#: src/basketscene.cpp:307
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "新しいメモのいくつかがフィルタにマッチしないので表示されていません。"
 
-#: src/basketscene.cpp:308
+#: src/basketscene.cpp:309
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "新しいメモはフィルタにマッチしないので表示されていません。"
 
-#: src/basketscene.cpp:1462
+#: src/basketscene.cpp:1463
 #, fuzzy, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "グループ化(&G)"
 
-#: src/basketscene.cpp:1464
+#: src/basketscene.cpp:1465
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr ""
 
-#: src/basketscene.cpp:2311
+#: src/basketscene.cpp:2312
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -784,7 +784,7 @@ msgstr ""
 "このメッセージは出てはならないものです。出たとしたら、このプログラムはバギー"
 "です! 開発者にバグを報告してください。"
 
-#: src/basketscene.cpp:2750 src/basketscene.cpp:2803 src/basketscene.cpp:2812
+#: src/basketscene.cpp:2751 src/basketscene.cpp:2804 src/basketscene.cpp:2813
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -793,57 +793,57 @@ msgstr ""
 "ここにメモを挿入\n"
 "右クリックでオプションを表示"
 
-#: src/basketscene.cpp:2769
+#: src/basketscene.cpp:2770
 #, kde-format
 msgid "Resize those columns"
 msgstr "列のサイズを変更"
 
-#: src/basketscene.cpp:2769
+#: src/basketscene.cpp:2770
 #, kde-format
 msgid "Resize this group"
 msgstr "このグループのサイズを変更"
 
-#: src/basketscene.cpp:2769
+#: src/basketscene.cpp:2770
 #, kde-format
 msgid "Resize this note"
 msgstr "このメモのサイズを変更"
 
-#: src/basketscene.cpp:2772
+#: src/basketscene.cpp:2773
 #, kde-format
 msgid "Select or move this note"
 msgstr "このメモを選択または移動"
 
-#: src/basketscene.cpp:2775
+#: src/basketscene.cpp:2776
 #, kde-format
 msgid "Select or move this group"
 msgstr "このグループを選択または移動"
 
-#: src/basketscene.cpp:2778
+#: src/basketscene.cpp:2779
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "このメモにタグを追加または削除"
 
-#: src/basketscene.cpp:2786
+#: src/basketscene.cpp:2787
 #, kde-format
 msgid "%1, %2"
 msgstr "%1、%2"
 
-#: src/basketscene.cpp:2788
+#: src/basketscene.cpp:2789
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>タグ</b>: %1"
 
-#: src/basketscene.cpp:2795
+#: src/basketscene.cpp:2796
 #, kde-format
 msgid "Expand this group"
 msgstr "このグループを展開"
 
-#: src/basketscene.cpp:2795
+#: src/basketscene.cpp:2796
 #, kde-format
 msgid "Collapse this group"
 msgstr "このグループをたたむ"
 
-#: src/basketscene.cpp:2806
+#: src/basketscene.cpp:2807
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -852,7 +852,7 @@ msgstr ""
 "メモを下のものとグループ化\n"
 "右クリックでオプションを表示"
 
-#: src/basketscene.cpp:2809
+#: src/basketscene.cpp:2810
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -861,53 +861,53 @@ msgstr ""
 "メモを上のものとグループ化\n"
 "右クリックでオプションを表示"
 
-#: src/basketscene.cpp:2827
+#: src/basketscene.cpp:2828
 #, kde-format
 msgid "Added"
 msgstr "追加"
 
-#: src/basketscene.cpp:2827
+#: src/basketscene.cpp:2828
 #, kde-format
 msgid "Last Modification"
 msgstr "最終更新"
 
-#: src/basketscene.cpp:2832
+#: src/basketscene.cpp:2833
 #, fuzzy, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "%1: %2"
 
-#: src/basketscene.cpp:2836
+#: src/basketscene.cpp:2837
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "単なる挿入ではなくグループ化するには右側をクリック"
 
-#: src/basketscene.cpp:2838
+#: src/basketscene.cpp:2839
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "グループ化せずに挿入するには左側をクリック"
 
-#: src/basketscene.cpp:3016
+#: src/basketscene.cpp:3017
 #, kde-format
 msgid "&Unlock"
 msgstr "ロック解除(&U)"
 
-#: src/basketscene.cpp:3021
+#: src/basketscene.cpp:3022
 #, kde-format
 msgid "Password protected basket."
 msgstr "バスケットはパスワードで保護されています。"
 
-#: src/basketscene.cpp:3023
+#: src/basketscene.cpp:3024
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "アクセスするには「ロック解除」を押してください。"
 
-#: src/basketscene.cpp:3025
+#: src/basketscene.cpp:3026
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "暗号化はこのバージョンの %1 では<br/>サポートしていません。"
 
-#: src/basketscene.cpp:3037
+#: src/basketscene.cpp:3038
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -916,83 +916,83 @@ msgstr ""
 "バスケットがロックされないようにするには、設定ダイアログの<br>「バスケット」"
 "のページで自動ロックの時間を変更してください。"
 
-#: src/basketscene.cpp:3064 src/basketstatusbar.cpp:88 src/bnpview.cpp:1590
+#: src/basketscene.cpp:3065 src/basketstatusbar.cpp:88 src/bnpview.cpp:1590
 #, kde-format
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/basketscene.cpp:3230 src/basketscene.cpp:3272
+#: src/basketscene.cpp:3231 src/basketscene.cpp:3273
 #, fuzzy, kde-format
 msgid "&Remove"
 msgstr "すべて削除(&R)"
 
-#: src/basketscene.cpp:3233 src/basketscene.cpp:3276 src/bnpview.cpp:2471
+#: src/basketscene.cpp:3234 src/basketscene.cpp:3277 src/bnpview.cpp:2471
 #, kde-format
 msgid "&Customize..."
 msgstr "カスタマイズ(&C)..."
 
-#: src/basketscene.cpp:3239 src/basketscene.cpp:3282
+#: src/basketscene.cpp:3240 src/basketscene.cpp:3283
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "このタグでフィルタ(&F)"
 
-#: src/basketscene.cpp:3285
+#: src/basketscene.cpp:3286
 #, kde-format
 msgid "Filter by this &State"
 msgstr "この状態でフィルタ(&S)"
 
-#: src/basketscene.cpp:3366
+#: src/basketscene.cpp:3367
 #, kde-format
 msgid "Tags"
 msgstr "タグ"
 
-#: src/basketscene.cpp:3943
+#: src/basketscene.cpp:3944
 #, fuzzy, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>本当にバスケット「%1」とその内容を削除しますか？</qt>"
 
-#: src/basketscene.cpp:3944
+#: src/basketscene.cpp:3945
 #, fuzzy, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "状態を削除"
 
-#: src/basketscene.cpp:4043
+#: src/basketscene.cpp:4044
 #, fuzzy, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "メモをクリップボードにコピーしました。"
 
-#: src/basketscene.cpp:4046
+#: src/basketscene.cpp:4047
 #, fuzzy, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "クリップボードを貼り付け"
 
-#: src/basketscene.cpp:4049
+#: src/basketscene.cpp:4050
 #, fuzzy, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "メモを選択にコピーしました。"
 
-#: src/basketscene.cpp:4113 src/basketscene.cpp:4188
+#: src/basketscene.cpp:4114 src/basketscene.cpp:4189
 #, kde-format
 msgid "Unable to open this note."
 msgstr "このメモを開けません。"
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4115 src/basketui.rc:40
+#: src/basketscene.cpp:4116 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr ""
 
-#: src/basketscene.cpp:4151
+#: src/basketscene.cpp:4152
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "このファイルを開く権限がありません。"
 
-#: src/basketscene.cpp:4209
+#: src/basketscene.cpp:4210
 #, kde-format
 msgid "Save to File"
 msgstr "ファイルに保存"
@@ -1438,7 +1438,7 @@ msgstr "KDE メニューからランチャーをインポート"
 msgid "Im&port Icon..."
 msgstr "アイコンをインポート(&P)..."
 
-#: src/bnpview.cpp:535 src/noteedit.cpp:543
+#: src/bnpview.cpp:535 src/noteedit.cpp:544
 #, kde-format
 msgid "Load From &File..."
 msgstr "ファイルから読み込む(&F)..."
@@ -1730,22 +1730,22 @@ msgstr "新しいタグを付ける(&A)..."
 msgid "&Remove All"
 msgstr "すべて削除(&R)"
 
-#: src/common.cpp:56
+#: src/common.cpp:58
 #, kde-format
 msgid "Please enter the password for the following private key:"
 msgstr "以下の秘密鍵のパスワードを入力してください:"
 
-#: src/common.cpp:58
+#: src/common.cpp:60
 #, kde-format
 msgid "Please enter the password for the basket <b>%1</b>:"
 msgstr "バスケット「%1」のパスワードを入力してください:"
 
-#: src/common.cpp:94
+#: src/common.cpp:96
 #, kde-format
 msgid "Please assign a password to the basket <b>%1</b>:"
 msgstr "バスケット「%1」のパスワードを設定してください:"
 
-#: src/common.cpp:144
+#: src/common.cpp:146
 #, kde-format
 msgid "Error while saving: "
 msgstr ""
@@ -1785,7 +1785,7 @@ msgstr ""
 msgid "Track number"
 msgstr ""
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2169
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2171
 #, kde-format
 msgid "Comment"
 msgstr "コメント"
@@ -1946,8 +1946,8 @@ msgid ""
 "information at hand."
 msgstr "%1 で作成 (メモをとって情報を手元に置いておくための KDE ツール)"
 
-#: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:502
-#: src/variouswidgets.cpp:398
+#: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:504
+#: src/variouswidgets.cpp:396
 #, kde-format
 msgid "(Default)"
 msgstr "(デフォルト)"
@@ -2017,87 +2017,87 @@ msgstr "不正なパスワード。"
 msgid "Please enter a new password:"
 msgstr "バスケットをパスワードで保護する(&P)"
 
-#: src/linklabel.cpp:603
+#: src/linklabel.cpp:605
 #, kde-format
 msgid "I&talic"
 msgstr "イタリック(&T)"
 
-#: src/linklabel.cpp:606
+#: src/linklabel.cpp:608
 #, kde-format
 msgid "&Bold"
 msgstr "ボールド(&B)"
 
-#: src/linklabel.cpp:614
+#: src/linklabel.cpp:616
 #, kde-format
 msgid "Always"
 msgstr "常に"
 
-#: src/linklabel.cpp:615
+#: src/linklabel.cpp:617
 #, kde-format
 msgid "Never"
 msgstr "なし"
 
-#: src/linklabel.cpp:616
+#: src/linklabel.cpp:618
 #, kde-format
 msgid "On mouse hovering"
 msgstr "マウスが上にあるとき"
 
-#: src/linklabel.cpp:617
+#: src/linklabel.cpp:619
 #, kde-format
 msgid "When mouse is outside"
 msgstr "マウスが離れているとき"
 
-#: src/linklabel.cpp:619
+#: src/linklabel.cpp:621
 #, kde-format
 msgid "&Underline:"
 msgstr "下線(&U):"
 
-#: src/linklabel.cpp:626
+#: src/linklabel.cpp:628
 #, kde-format
 msgid "Colo&r:"
 msgstr "色(&R):"
 
-#: src/linklabel.cpp:633
+#: src/linklabel.cpp:635
 #, kde-format
 msgid "&Mouse hover color:"
 msgstr "マウスが上にあるときの色(&M):"
 
-#: src/linklabel.cpp:642
+#: src/linklabel.cpp:644
 #, kde-format
 msgid "&Icon size:"
 msgstr "アイコンサイズ(&I):"
 
-#: src/linklabel.cpp:648
+#: src/linklabel.cpp:650
 #, kde-format
 msgid "None"
 msgstr "なし"
 
-#: src/linklabel.cpp:649
+#: src/linklabel.cpp:651
 #, kde-format
 msgid "Icon size"
 msgstr "アイコンサイズ"
 
-#: src/linklabel.cpp:650
+#: src/linklabel.cpp:652
 #, kde-format
 msgid "Twice the icon size"
 msgstr "アイコンサイズの二倍"
 
-#: src/linklabel.cpp:651
+#: src/linklabel.cpp:653
 #, kde-format
 msgid "Three times the icon size"
 msgstr "アイコンサイズの三倍"
 
-#: src/linklabel.cpp:653
+#: src/linklabel.cpp:655
 #, kde-format
 msgid "&Preview:"
 msgstr "プレビュー(&P):"
 
-#: src/linklabel.cpp:656
+#: src/linklabel.cpp:658
 #, kde-format
 msgid "You disabled preview but still see images?"
 msgstr "プレビューを無効にしたのに画像が表示されます..."
 
-#: src/linklabel.cpp:657
+#: src/linklabel.cpp:659
 #, kde-format
 msgid ""
 "<p>This is normal because there are several type of notes.<br>This setting "
@@ -2124,7 +2124,7 @@ msgstr ""
 "「新しいメモ」のページを開いて、「以下のファイルが追加されたらファイルの内容"
 "を表示する」で「画像とアニメーション」のチェックを外してください。</p>"
 
-#: src/linklabel.cpp:674
+#: src/linklabel.cpp:676
 #, kde-format
 msgid "Example"
 msgstr "例"
@@ -2144,62 +2144,62 @@ msgstr "<p>本当に %1を終了しますか？</p>"
 msgid "Quit Confirm"
 msgstr "終了の確認"
 
-#: src/newbasketdialog.cpp:86
+#: src/newbasketdialog.cpp:88
 #, kde-format
 msgid "New Basket"
 msgstr "新しいバスケット"
 
-#: src/newbasketdialog.cpp:120
+#: src/newbasketdialog.cpp:122
 #, kde-format
 msgid "Background color"
 msgstr "背景色"
 
-#: src/newbasketdialog.cpp:128
+#: src/newbasketdialog.cpp:130
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "テンプレートの管理(&M)..."
 
-#: src/newbasketdialog.cpp:165
+#: src/newbasketdialog.cpp:167
 #, kde-format
 msgid "One column"
 msgstr "一列"
 
-#: src/newbasketdialog.cpp:175
+#: src/newbasketdialog.cpp:177
 #, kde-format
 msgid "Two columns"
 msgstr "二列"
 
-#: src/newbasketdialog.cpp:186
+#: src/newbasketdialog.cpp:188
 #, kde-format
 msgid "Three columns"
 msgstr "三列"
 
-#: src/newbasketdialog.cpp:197
+#: src/newbasketdialog.cpp:199
 #, kde-format
 msgid "Free-form"
 msgstr "自由"
 
-#: src/newbasketdialog.cpp:207
+#: src/newbasketdialog.cpp:209
 #, kde-format
 msgid "&Template:"
 msgstr "テンプレート(&T):"
 
-#: src/newbasketdialog.cpp:217
+#: src/newbasketdialog.cpp:219
 #, kde-format
 msgid "(Baskets)"
 msgstr "(バスケット)"
 
-#: src/newbasketdialog.cpp:219
+#: src/newbasketdialog.cpp:221
 #, kde-format
 msgid "C&reate in:"
 msgstr "次のバスケットの中に作成(&R):"
 
-#: src/newbasketdialog.cpp:221
+#: src/newbasketdialog.cpp:223
 #, kde-format
 msgid "How is it useful?"
 msgstr "これは何のため？"
 
-#: src/newbasketdialog.cpp:222
+#: src/newbasketdialog.cpp:224
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2215,464 +2215,464 @@ msgstr ""
 "る。</li><li>他の人にメールで送る場合などに、バスケットをグループ化して一度に"
 "エクスポートする。</li></ul>"
 
-#: src/notecontent.cpp:89
+#: src/notecontent.cpp:91
 #, fuzzy, kde-format
 msgid "Group"
 msgstr "グループ化(&G)"
 
-#: src/notecontent.cpp:91
+#: src/notecontent.cpp:93
 #, kde-format
 msgid "Plain Text"
 msgstr "プレーンテキスト"
 
-#: src/notecontent.cpp:93
+#: src/notecontent.cpp:95
 #, kde-format
 msgid "Text"
 msgstr "テキスト"
 
-#: src/notecontent.cpp:95
+#: src/notecontent.cpp:97
 #, kde-format
 msgid "Image"
 msgstr "画像"
 
-#: src/notecontent.cpp:97
+#: src/notecontent.cpp:99
 #, kde-format
 msgid "Animation"
 msgstr "アニメーション"
 
-#: src/notecontent.cpp:99
+#: src/notecontent.cpp:101
 #, kde-format
 msgid "Sound"
 msgstr "サウンド"
 
-#: src/notecontent.cpp:101
+#: src/notecontent.cpp:103
 #, fuzzy, kde-format
 msgid "File"
 msgstr "ファイル(&F)"
 
-#: src/notecontent.cpp:103
+#: src/notecontent.cpp:105
 #, kde-format
 msgid "Link"
 msgstr "リンク"
 
-#: src/notecontent.cpp:105
+#: src/notecontent.cpp:107
 #, fuzzy, kde-format
 msgid "Cross Reference"
 msgstr "好み"
 
-#: src/notecontent.cpp:107
+#: src/notecontent.cpp:109
 #, kde-format
 msgid "Launcher"
 msgstr "ランチャー"
 
-#: src/notecontent.cpp:109 src/noteedit.cpp:1202
+#: src/notecontent.cpp:111 src/noteedit.cpp:1100
 #, kde-format
 msgid "Color"
 msgstr "色"
 
-#: src/notecontent.cpp:111 src/notecontent.cpp:113
+#: src/notecontent.cpp:113 src/notecontent.cpp:115
 #, kde-format
 msgid "Unknown"
 msgstr "不明"
 
-#: src/notecontent.cpp:589
+#: src/notecontent.cpp:591
 #, kde-format
 msgid "Edit this plain text"
 msgstr "このプレーンテキストを編集"
 
-#: src/notecontent.cpp:593
+#: src/notecontent.cpp:595
 #, kde-format
 msgid "Edit this text"
 msgstr "このテキストを編集"
 
-#: src/notecontent.cpp:597
+#: src/notecontent.cpp:599
 #, kde-format
 msgid "Edit this image"
 msgstr "この画像を編集"
 
-#: src/notecontent.cpp:601
+#: src/notecontent.cpp:603
 #, kde-format
 msgid "Edit this animation"
 msgstr "このアニメーションを編集"
 
-#: src/notecontent.cpp:605
+#: src/notecontent.cpp:607
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "このサウンドのファイル名を編集"
 
-#: src/notecontent.cpp:609
+#: src/notecontent.cpp:611
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "このファイルの名前を編集"
 
-#: src/notecontent.cpp:613
+#: src/notecontent.cpp:615
 #, kde-format
 msgid "Edit this link"
 msgstr "このリンクを編集"
 
-#: src/notecontent.cpp:617
+#: src/notecontent.cpp:619
 #, fuzzy, kde-format
 msgid "Edit this cross reference"
 msgstr "この色を編集"
 
-#: src/notecontent.cpp:621
+#: src/notecontent.cpp:623
 #, kde-format
 msgid "Edit this launcher"
 msgstr "このランチャーを編集"
 
-#: src/notecontent.cpp:625
+#: src/notecontent.cpp:627
 #, kde-format
 msgid "Edit this color"
 msgstr "この色を編集"
 
-#: src/notecontent.cpp:629
+#: src/notecontent.cpp:631
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "この不明なオブジェクトを編集"
 
-#: src/notecontent.cpp:991
+#: src/notecontent.cpp:993
 #, kde-format
 msgid "Opening plain text..."
 msgstr "プレーンテキストを開きます..."
 
-#: src/notecontent.cpp:993
+#: src/notecontent.cpp:995
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "プレーンテキストを開きます..."
 
-#: src/notecontent.cpp:995
+#: src/notecontent.cpp:997
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "プレーンテキストをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:997
+#: src/notecontent.cpp:999
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "プレーンテキストをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Open plain text with:"
 msgstr "プレーンテキストを以下で開く:"
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1003
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "プレーンテキストを以下で開く:"
 
-#: src/notecontent.cpp:1112
+#: src/notecontent.cpp:1114
 #, kde-format
 msgid "Opening text..."
 msgstr "テキストを開きます..."
 
-#: src/notecontent.cpp:1114
+#: src/notecontent.cpp:1116
 #, kde-format
 msgid "Opening texts..."
 msgstr "テキストを開きます..."
 
-#: src/notecontent.cpp:1116
+#: src/notecontent.cpp:1118
 #, kde-format
 msgid "Opening text with..."
 msgstr "テキストをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1118
+#: src/notecontent.cpp:1120
 #, kde-format
 msgid "Opening texts with..."
 msgstr "テキストをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Open text with:"
 msgstr "テキストを以下で開く:"
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1124
 #, kde-format
 msgid "Open texts with:"
 msgstr "テキストを以下で開く:"
 
-#: src/notecontent.cpp:1245 src/notecontent.cpp:1463
+#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
 #, kde-format
 msgid "Size"
 msgstr "サイズ"
 
-#: src/notecontent.cpp:1245 src/variouswidgets.cpp:218
+#: src/notecontent.cpp:1247 src/variouswidgets.cpp:216
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 x %2 ピクセル"
 
-#: src/notecontent.cpp:1252
+#: src/notecontent.cpp:1254
 #, kde-format
 msgid "Opening image..."
 msgstr "画像を開きます..."
 
-#: src/notecontent.cpp:1254
+#: src/notecontent.cpp:1256
 #, kde-format
 msgid "Opening images..."
 msgstr "画像を開きます..."
 
-#: src/notecontent.cpp:1256
+#: src/notecontent.cpp:1258
 #, kde-format
 msgid "Opening image with..."
 msgstr "画像をアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1258
+#: src/notecontent.cpp:1260
 #, kde-format
 msgid "Opening images with..."
 msgstr "画像をアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Open image with:"
 msgstr "画像を以下で開く:"
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1264
 #, kde-format
 msgid "Open images with:"
 msgstr "画像を以下で開く:"
 
-#: src/notecontent.cpp:1287
+#: src/notecontent.cpp:1289
 #, kde-format
 msgid "Click for full size view"
 msgstr "クリックして実際のサイズで表示"
 
-#: src/notecontent.cpp:1374
+#: src/notecontent.cpp:1376
 #, kde-format
 msgid "Opening animation..."
 msgstr "アニメーションを開きます..."
 
-#: src/notecontent.cpp:1376
+#: src/notecontent.cpp:1378
 #, kde-format
 msgid "Opening animations..."
 msgstr "アニメーションを開きます..."
 
-#: src/notecontent.cpp:1378
+#: src/notecontent.cpp:1380
 #, kde-format
 msgid "Opening animation with..."
 msgstr "アニメーションをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1380
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Opening animations with..."
 msgstr "アニメーションをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Open animation with:"
 msgstr "アニメーションを以下で開く:"
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Open animations with:"
 msgstr "アニメーションを以下で開く:"
 
-#: src/notecontent.cpp:1468
+#: src/notecontent.cpp:1470
 #, kde-format
 msgid "Type"
 msgstr "タイプ"
 
-#: src/notecontent.cpp:1509
+#: src/notecontent.cpp:1511
 #, kde-format
 msgid "Open this file"
 msgstr "このファイルを開く"
 
-#: src/notecontent.cpp:1528
+#: src/notecontent.cpp:1530
 #, kde-format
 msgid "Opening file..."
 msgstr "ファイルを開きます..."
 
-#: src/notecontent.cpp:1530
+#: src/notecontent.cpp:1532
 #, kde-format
 msgid "Opening files..."
 msgstr "ファイルを開きます..."
 
-#: src/notecontent.cpp:1532
+#: src/notecontent.cpp:1534
 #, kde-format
 msgid "Opening file with..."
 msgstr "ファイルをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1534
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Opening files with..."
 msgstr "ファイルをアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Open file with:"
 msgstr "ファイルを以下で開く:"
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1540
 #, kde-format
 msgid "Open files with:"
 msgstr "ファイルを以下で開く:"
 
-#: src/notecontent.cpp:1639
+#: src/notecontent.cpp:1641
 #, kde-format
 msgid "Open this sound"
 msgstr "このサウンドを再生"
 
-#: src/notecontent.cpp:1665
+#: src/notecontent.cpp:1667
 #, kde-format
 msgid "Opening sound..."
 msgstr "サウンドを再生します..."
 
-#: src/notecontent.cpp:1667
+#: src/notecontent.cpp:1669
 #, kde-format
 msgid "Opening sounds..."
 msgstr "サウンドを再生します..."
 
-#: src/notecontent.cpp:1669
+#: src/notecontent.cpp:1671
 #, kde-format
 msgid "Opening sound with..."
 msgstr "サウンドをアプリケーションで再生します..."
 
-#: src/notecontent.cpp:1671
+#: src/notecontent.cpp:1673
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "サウンドをアプリケーションで再生します..."
 
-#: src/notecontent.cpp:1673
+#: src/notecontent.cpp:1675
 #, kde-format
 msgid "Open sound with:"
 msgstr "サウンドを以下で再生:"
 
-#: src/notecontent.cpp:1675
+#: src/notecontent.cpp:1677
 #, kde-format
 msgid "Open sounds with:"
 msgstr "サウンドを以下で再生:"
 
-#: src/notecontent.cpp:1738 src/notecontent.cpp:2009
+#: src/notecontent.cpp:1740 src/notecontent.cpp:2011
 #, kde-format
 msgid "Target"
 msgstr "リンク先"
 
-#: src/notecontent.cpp:1760 src/notecontent.cpp:2031
+#: src/notecontent.cpp:1762 src/notecontent.cpp:2033
 #, kde-format
 msgid "Open this link"
 msgstr "このリンクを開く"
 
-#: src/notecontent.cpp:1786
+#: src/notecontent.cpp:1788
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "このリンクには開く URL がありません。"
 
-#: src/notecontent.cpp:1790
+#: src/notecontent.cpp:1792
 #, kde-format
 msgid "Opening link target..."
 msgstr "リンク先を開きます..."
 
-#: src/notecontent.cpp:1792
+#: src/notecontent.cpp:1794
 #, kde-format
 msgid "Opening link targets..."
 msgstr "リンク先を開きます..."
 
-#: src/notecontent.cpp:1794
+#: src/notecontent.cpp:1796
 #, kde-format
 msgid "Opening link target with..."
 msgstr "リンク先をアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1796
+#: src/notecontent.cpp:1798
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "リンク先をアプリケーションで開きます..."
 
-#: src/notecontent.cpp:1798
+#: src/notecontent.cpp:1800
 #, kde-format
 msgid "Open link target with:"
 msgstr "リンク先を以下で開く:"
 
-#: src/notecontent.cpp:1800
+#: src/notecontent.cpp:1802
 #, kde-format
 msgid "Open link targets with:"
 msgstr "リンク先を以下で開く:"
 
-#: src/notecontent.cpp:2044
+#: src/notecontent.cpp:2046
 #, kde-format
 msgid "Link to %1"
 msgstr ""
 
-#: src/notecontent.cpp:2057
+#: src/notecontent.cpp:2059
 #, fuzzy, kde-format
 msgid "Link has no basket to open."
 msgstr "このリンクには開く URL がありません。"
 
-#: src/notecontent.cpp:2061
+#: src/notecontent.cpp:2063
 #, fuzzy, kde-format
 msgid "Opening basket..."
 msgstr "テキストを開きます..."
 
-#: src/notecontent.cpp:2166
+#: src/notecontent.cpp:2168
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 (端末で実行)"
 
-#: src/notecontent.cpp:2171
+#: src/notecontent.cpp:2173
 #, kde-format
 msgid "Command"
 msgstr "コマンド"
 
-#: src/notecontent.cpp:2195
+#: src/notecontent.cpp:2197
 #, kde-format
 msgid "Launch this application"
 msgstr "このアプリケーションを起動"
 
-#: src/notecontent.cpp:2216
+#: src/notecontent.cpp:2218
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "このランチャーには実行するコマンドがありません。"
 
-#: src/notecontent.cpp:2220
+#: src/notecontent.cpp:2222
 #, kde-format
 msgid "Launching application..."
 msgstr "アプリケーションを起動..."
 
-#: src/notecontent.cpp:2222
+#: src/notecontent.cpp:2224
 #, kde-format
 msgid "Launching applications..."
 msgstr "アプリケーションを起動..."
 
-#: src/notecontent.cpp:2342
+#: src/notecontent.cpp:2344
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr ""
 
-#: src/notecontent.cpp:2343
+#: src/notecontent.cpp:2345
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "赤 (%1) 緑 (%2) 青 (%3) "
 
-#: src/notecontent.cpp:2347
+#: src/notecontent.cpp:2349
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr ""
 
-#: src/notecontent.cpp:2348
+#: src/notecontent.cpp:2350
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "色相 (%1) 彩度 (%2) 明度 (%3) "
 
-#: src/notecontent.cpp:2352
+#: src/notecontent.cpp:2354
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS 色名"
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, kde-format
 msgid "Is Web Color"
 msgstr "ウェブ色"
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, kde-format
 msgid "Yes"
 msgstr ""
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, fuzzy, kde-format
 msgid "No"
 msgstr "なし"
 
-#: src/noteedit.cpp:539
+#: src/noteedit.cpp:540
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2683,12 +2683,12 @@ msgstr ""
 "Basket ノートパッドの次のバージョンには画像エディタが含まれます。\n"
 "編集できる他のアプリケーションで開きますか？"
 
-#: src/noteedit.cpp:541
+#: src/noteedit.cpp:542
 #, kde-format
 msgid "Edit Image Note"
 msgstr "画像メモを編集"
 
-#: src/noteedit.cpp:566
+#: src/noteedit.cpp:567
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
@@ -2697,17 +2697,17 @@ msgstr ""
 "アニメーション画像をここで編集することはできません。\n"
 "編集できる他のアプリケーションで開きますか？"
 
-#: src/noteedit.cpp:568
+#: src/noteedit.cpp:569
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "アニメーションメモを編集"
 
-#: src/noteedit.cpp:661
+#: src/noteedit.cpp:662
 #, kde-format
 msgid "Edit Color Note"
 msgstr "色メモを編集"
 
-#: src/noteedit.cpp:686
+#: src/noteedit.cpp:687
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2717,127 +2717,127 @@ msgstr ""
 "このメモはタイプが不明なため、ここで編集することはできませんが、\n"
 "メモを認識する他のアプリケーションにドラッグまたはコピーできます。"
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:689
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "不明なメモを編集"
 
-#: src/noteedit.cpp:700
+#: src/noteedit.cpp:701
 #, kde-format
 msgid "Edit Link Note"
 msgstr "リンクメモを編集"
 
-#: src/noteedit.cpp:720 src/noteedit.cpp:753
-#, kde-format
-msgid "Auto"
-msgstr "自動"
-
-#: src/noteedit.cpp:732 src/noteedit.cpp:1058
-#, kde-format
-msgid "&Icon:"
-msgstr "アイコン(&I):"
-
-#: src/noteedit.cpp:775 src/noteedit.cpp:946
+#: src/noteedit.cpp:714 src/noteedit.cpp:875
 #, kde-format
 msgid "Ta&rget:"
 msgstr "リンク先(&R):"
 
-#: src/noteedit.cpp:780
+#: src/noteedit.cpp:722 src/noteedit.cpp:733
+#, kde-format
+msgid "Auto"
+msgstr "自動"
+
+#: src/noteedit.cpp:725
 #, kde-format
 msgid "&Title:"
 msgstr "タイトル(&T):"
 
-#: src/noteedit.cpp:913
+#: src/noteedit.cpp:743 src/noteedit.cpp:998
+#, kde-format
+msgid "&Icon:"
+msgstr "アイコン(&I):"
+
+#: src/noteedit.cpp:864
 #, fuzzy, kde-format
 msgid "Edit Cross Reference"
 msgstr "好み"
 
-#: src/noteedit.cpp:1032
+#: src/noteedit.cpp:965
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "ランチャーメモを編集"
 
-#: src/noteedit.cpp:1046
+#: src/noteedit.cpp:977
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "実行するコマンドを選択:"
 
-#: src/noteedit.cpp:1063
-#, kde-format
-msgid "&Guess"
-msgstr "推測(&G)"
-
-#: src/noteedit.cpp:1081
+#: src/noteedit.cpp:978
 #, kde-format
 msgid "Comman&d:"
 msgstr "コマンド(&D):"
 
-#: src/noteedit.cpp:1086 src/tagsedit.cpp:385
+#: src/noteedit.cpp:981 src/tagsedit.cpp:387
 #, kde-format
 msgid "&Name:"
 msgstr "名前(&N):"
 
-#: src/noteedit.cpp:1184
+#: src/noteedit.cpp:989
+#, kde-format
+msgid "&Guess"
+msgstr "推測(&G)"
+
+#: src/noteedit.cpp:1082
 #, fuzzy, kde-format
 msgid "Font"
 msgstr "フォント(&F):"
 
-#: src/noteedit.cpp:1192
+#: src/noteedit.cpp:1090
 #, fuzzy, kde-format
 msgid "Font Size"
 msgstr "アイコンサイズ"
 
-#: src/noteedit.cpp:1207 src/tagsedit.cpp:467
+#: src/noteedit.cpp:1105 src/tagsedit.cpp:469
 #, kde-format
 msgid "Bold"
 msgstr "ボールド"
 
-#: src/noteedit.cpp:1214 src/tagsedit.cpp:479
+#: src/noteedit.cpp:1112 src/tagsedit.cpp:481
 #, fuzzy, kde-format
 msgid "Italic"
 msgstr "イタリック(&T)"
 
-#: src/noteedit.cpp:1221 src/tagsedit.cpp:473
+#: src/noteedit.cpp:1119 src/tagsedit.cpp:475
 #, kde-format
 msgid "Underline"
 msgstr "下線"
 
-#: src/noteedit.cpp:1229
+#: src/noteedit.cpp:1127
 #, kde-format
 msgid "Superscript"
 msgstr ""
 
-#: src/noteedit.cpp:1235
+#: src/noteedit.cpp:1133
 #, kde-format
 msgid "Subscript"
 msgstr ""
 
-#: src/noteedit.cpp:1242
+#: src/noteedit.cpp:1140
 #, kde-format
 msgid "Align Left"
 msgstr "左揃え"
 
-#: src/noteedit.cpp:1248
+#: src/noteedit.cpp:1146
 #, kde-format
 msgid "Centered"
 msgstr "中央揃え"
 
-#: src/noteedit.cpp:1254
+#: src/noteedit.cpp:1152
 #, kde-format
 msgid "Align Right"
 msgstr "右揃え"
 
-#: src/noteedit.cpp:1260
+#: src/noteedit.cpp:1158
 #, kde-format
 msgid "Justified"
 msgstr "左右両端揃え"
 
-#: src/noteedit.cpp:1272
+#: src/noteedit.cpp:1170
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: src/noteedit.cpp:1278
+#: src/noteedit.cpp:1176
 #, kde-format
 msgid "Redo"
 msgstr ""
@@ -3027,7 +3027,7 @@ msgstr ""
 "ます。"
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:529 src/tagsedit.cpp:523
+#: src/settings.cpp:529 src/tagsedit.cpp:525
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3702,171 +3702,171 @@ msgstr ""
 msgid "Funny"
 msgstr "面白い"
 
-#: src/tagsedit.cpp:311
+#: src/tagsedit.cpp:313
 #, kde-format
 msgid "Customize Tags"
 msgstr "タグをカスタマイズ"
 
-#: src/tagsedit.cpp:330
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "Ne&w Tag"
 msgstr "新しいタグ(&W)"
 
-#: src/tagsedit.cpp:331
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "New St&ate"
 msgstr "新しい状態(&A)"
 
-#: src/tagsedit.cpp:352
+#: src/tagsedit.cpp:354
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "上に移動 (Ctrl+Shift+Up)"
 
-#: src/tagsedit.cpp:353
+#: src/tagsedit.cpp:355
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "下に移動 (Ctrl+Shift+Down)"
 
-#: src/tagsedit.cpp:354
+#: src/tagsedit.cpp:356
 #, fuzzy, kde-format
 msgid "Delete"
 msgstr "削除(&E)"
 
-#: src/tagsedit.cpp:377
+#: src/tagsedit.cpp:379
 #, kde-format
 msgid "Tag"
 msgstr "タグ"
 
-#: src/tagsedit.cpp:389
+#: src/tagsedit.cpp:391
 #, fuzzy, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "すべて削除(&R)"
 
-#: src/tagsedit.cpp:390
+#: src/tagsedit.cpp:392
 #, kde-format
 msgid "S&hortcut:"
 msgstr "ショートカット(&H):"
 
-#: src/tagsedit.cpp:395
+#: src/tagsedit.cpp:397
 #, kde-format
 msgid "&Inherited by new sibling notes"
 msgstr "新しい兄弟メモに継承する(&I)"
 
-#: src/tagsedit.cpp:397
+#: src/tagsedit.cpp:399
 #, kde-format
 msgid "Allow Cross Reference Links"
 msgstr ""
 
-#: src/tagsedit.cpp:400
+#: src/tagsedit.cpp:402
 #, fuzzy, kde-format
 msgid "What does this do?"
 msgstr "ということは..."
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
 "text note. Cross Reference links can have the following syntax:"
 msgstr ""
 
-#: src/tagsedit.cpp:403
+#: src/tagsedit.cpp:405
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr ""
 
-#: src/tagsedit.cpp:404
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:404
+#: src/tagsedit.cpp:406
 #, fuzzy, kde-format
 msgid "Relative to the current basket:"
 msgstr "選択を現在のバスケットに貼り付け"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:408
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr ""
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:409
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr ""
 
-#: src/tagsedit.cpp:421 src/tagsedit.cpp:1100 src/tagsedit.cpp:1116
+#: src/tagsedit.cpp:423 src/tagsedit.cpp:1102 src/tagsedit.cpp:1118
 #, kde-format
 msgid "State"
 msgstr "状態"
 
-#: src/tagsedit.cpp:429
+#: src/tagsedit.cpp:431
 #, kde-format
 msgid "Na&me:"
 msgstr "名前(&M):"
 
-#: src/tagsedit.cpp:437
+#: src/tagsedit.cpp:439
 #, fuzzy, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "すべて削除(&R)"
 
-#: src/tagsedit.cpp:438
+#: src/tagsedit.cpp:440
 #, kde-format
 msgid "&Emblem:"
 msgstr "エンブレム(&E):"
 
-#: src/tagsedit.cpp:455
+#: src/tagsedit.cpp:457
 #, kde-format
 msgid "&Background:"
 msgstr "背景(&B):"
 
-#: src/tagsedit.cpp:485
+#: src/tagsedit.cpp:487
 #, kde-format
 msgid "Strike Through"
 msgstr "取り消し線"
 
-#: src/tagsedit.cpp:487
+#: src/tagsedit.cpp:489
 #, kde-format
 msgid "&Text:"
 msgstr "テキスト(&T):"
 
-#: src/tagsedit.cpp:498
+#: src/tagsedit.cpp:500
 #, kde-format
 msgid "Co&lor:"
 msgstr "色(&L):"
 
-#: src/tagsedit.cpp:503
+#: src/tagsedit.cpp:505
 #, kde-format
 msgid "&Font:"
 msgstr "フォント(&F):"
 
-#: src/tagsedit.cpp:507
+#: src/tagsedit.cpp:509
 #, kde-format
 msgid "&Size:"
 msgstr "サイズ(&S):"
 
-#: src/tagsedit.cpp:511
+#: src/tagsedit.cpp:513
 #, kde-format
 msgid "Te&xt equivalent:"
 msgstr "次のテキストに置換(&X):"
 
-#: src/tagsedit.cpp:518
+#: src/tagsedit.cpp:520
 #, kde-format
 msgid "What is this for?"
 msgstr ""
 
-#: src/tagsedit.cpp:520
+#: src/tagsedit.cpp:522
 #, fuzzy, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3875,17 +3875,17 @@ msgstr ""
 "これはメモをテキストエディタに「コピー&ペースト」または「ドラッグ&ドロップ」"
 "したときに適用されます。"
 
-#: src/tagsedit.cpp:531
+#: src/tagsedit.cpp:533
 #, kde-format
 msgid "On ever&y line"
 msgstr "各行に付ける(&Y)"
 
-#: src/tagsedit.cpp:534
+#: src/tagsedit.cpp:536
 #, fuzzy, kde-format
 msgid "What does this mean?"
 msgstr "ということは..."
 
-#: src/tagsedit.cpp:536
+#: src/tagsedit.cpp:538
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3894,7 +3894,7 @@ msgstr ""
 "メモが数行ある場合、タグまたは状態を最初の行だけに付けるか、メモの各行に付け"
 "るかを選択できます。"
 
-#: src/tagsedit.cpp:538
+#: src/tagsedit.cpp:540
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3903,7 +3903,7 @@ msgstr ""
 "この例では、上のメモのタグは最初の行だけにエクスポートされているのに対して、"
 "下のメモのタグはメモの各行にエクスポートされています。"
 
-#: src/tagsedit.cpp:976
+#: src/tagsedit.cpp:978
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
@@ -3911,17 +3911,17 @@ msgstr ""
 "タグを削除すると、現在このタグが付けられているすべてのメモからも削除されま"
 "す。"
 
-#: src/tagsedit.cpp:977
+#: src/tagsedit.cpp:979
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "タグ削除の確認"
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:980
 #, kde-format
 msgid "Delete Tag"
 msgstr "タグを削除"
 
-#: src/tagsedit.cpp:981
+#: src/tagsedit.cpp:983
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3930,12 +3930,12 @@ msgstr ""
 "状態を削除すると、現在この状態が付けられているすべてのメモからも削除されま"
 "す。"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:984
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "状態削除の確認"
 
-#: src/tagsedit.cpp:983
+#: src/tagsedit.cpp:985
 #, kde-format
 msgid "Delete State"
 msgstr "状態を削除"
@@ -3946,34 +3946,34 @@ msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr ""
 
-#: src/variouswidgets.cpp:108
+#: src/variouswidgets.cpp:112
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
 msgstr ""
 
-#: src/variouswidgets.cpp:114
+#: src/variouswidgets.cpp:118
 #, kde-format
 msgid "Choose an Application Launcher ..."
 msgstr ""
 
-#: src/variouswidgets.cpp:115
+#: src/variouswidgets.cpp:119
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
 
+#: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
 #: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
-#: src/variouswidgets.cpp:145 src/variouswidgets.cpp:146
+#: src/variouswidgets.cpp:267 src/variouswidgets.cpp:268
 #: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
 #: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
-#: src/variouswidgets.cpp:273 src/variouswidgets.cpp:274
 #, fuzzy, kde-format
 #| msgid "%1 by %2 pixels"
 msgid "%1 by %1 pixels"
 msgstr "%1 x %2 ピクセル"
 
-#: src/variouswidgets.cpp:201
+#: src/variouswidgets.cpp:199
 #, kde-format
 msgid ""
 "Resize the window to select the image size\n"
