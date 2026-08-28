@@ -22,9 +22,9 @@
 
 #include <KIconLoader>
 
+#include <algorithm>
 #include <cmath> // sqrt() and pow() functions
 #include <cstdlib> // rand() function
-#include <functional>
 
 #include "animation.h"
 #include "basketscene.h"

@@ -26,7 +26,7 @@
 #include <KMainWindow> //For Global::mainWindow()
 #include <KMessageBox>
 
-#include <functional>
+#include <algorithm>
 
 #include "basketfactory.h"
 #include "basketlistview.h"

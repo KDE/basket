@@ -29,7 +29,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
-#include <functional>
+#include <algorithm>
 
 #include "global.h"
 #include "htmlexporter.h"

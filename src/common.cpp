@@ -13,7 +13,7 @@
 
 #include <KLocalizedString>
 
-#include <functional>
+#include <algorithm>
 
 #include "bnpview.h"
 #include "global.h"

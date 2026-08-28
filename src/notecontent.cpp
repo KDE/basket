@@ -36,7 +36,7 @@
 #include <KLocalizedString>
 #include <KService>
 
-#include <functional>
+#include <algorithm>
 
 #include "basketscene.h"
 #include "common.h"

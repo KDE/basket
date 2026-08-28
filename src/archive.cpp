@@ -40,8 +40,8 @@
 #include "tools.h"
 #include "xmlwork.h"
 
+#include <algorithm>
 #include <array>
-#include <functional>
 
 void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &destination)
 {

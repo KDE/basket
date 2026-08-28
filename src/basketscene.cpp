@@ -66,8 +66,8 @@
 #include <KIO/CopyJob>
 #include <KIO/OpenUrlJob>
 
+#include <algorithm>
 #include <cstdlib> // rand() function
-#include <functional>
 
 #include "animation.h"
 #include "backgroundmanager.h"

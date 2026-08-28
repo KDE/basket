@@ -34,7 +34,7 @@
 #include <KSeparator>
 #include <KShortcutWidget>
 
-#include <functional>
+#include <algorithm>
 
 #include "bnpview.h"
 #include "global.h"

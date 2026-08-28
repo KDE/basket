@@ -26,7 +26,7 @@
 #include <QTemporaryDir>
 #include <QTextStream>
 
-#include <functional>
+#include <algorithm>
 
 #include "basketthumbcreator.h"
 

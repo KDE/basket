@@ -27,7 +27,7 @@
 #include <KLocalizedString>
 #include <KShortcutWidget>
 
-#include <functional>
+#include <algorithm>
 
 #include "backgroundmanager.h"
 #include "basketscene.h"
