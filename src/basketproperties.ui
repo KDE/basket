@@ -1,73 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>BasketPropertiesUi</class>
- <widget class="QWidget" name="BasketPropertiesUi">
+ <widget class="QDialog" name="BasketPropertiesUi">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>568</width>
-    <height>358</height>
+    <height>372</height>
    </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Basket Properties</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="KIconButton" name="icon"/>
+      <widget class="KIconButton" name="icon">
+       <property name="toolTip">
+        <string>Icon</string>
+       </property>
+       <property name="iconSize">
+        <number>16</number>
+       </property>
+      </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="name"/>
+      <widget class="QLineEdit" name="name">
+       <property name="toolTip">
+        <string>Name</string>
+       </property>
+      </widget>
      </item>
     </layout>
-   </item>
-   <item row="1" column="0">
-    <widget class="QGroupBox" name="appearanceGroup">
-     <property name="title">
-      <string>Appearance</string>
-     </property>
-     <layout class="QGridLayout" name="appearanceLayout">
-      <property name="leftMargin">
-       <number>4</number>
-      </property>
-      <property name="topMargin">
-       <number>4</number>
-      </property>
-      <property name="rightMargin">
-       <number>4</number>
-      </property>
-      <property name="bottomMargin">
-       <number>4</number>
-      </property>
-      <item row="0" column="2">
-       <widget class="QComboBox" name="backgroundImage"/>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Background &amp;image:</string>
-        </property>
-        <property name="buddy">
-         <cstring>backgroundImage</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="bgColorLbl">
-        <property name="text">
-         <string>&amp;Background color:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="txtColorLbl">
-        <property name="text">
-         <string>&amp;Text color:</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
    </item>
    <item row="1" column="1">
     <widget class="QGroupBox" name="dispositionGroup">
@@ -90,15 +59,22 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QSpinBox" name="columnCount"/>
+       <widget class="QSpinBox" name="columnCount">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
        <spacer name="horizontalSpacer">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Preferred</enum>
+         <enum>QSizePolicy::Policy::Preferred</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -112,6 +88,66 @@
        <widget class="QRadioButton" name="mindMap">
         <property name="text">
          <string>&amp;Mind map</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="appearanceGroup">
+     <property name="title">
+      <string>Appearance</string>
+     </property>
+     <layout class="QGridLayout" name="appearanceLayout">
+      <property name="leftMargin">
+       <number>4</number>
+      </property>
+      <property name="topMargin">
+       <number>4</number>
+      </property>
+      <property name="rightMargin">
+       <number>4</number>
+      </property>
+      <property name="bottomMargin">
+       <number>4</number>
+      </property>
+      <item row="0" column="2">
+       <widget class="QComboBox" name="backgroundImage">
+        <property name="iconSize">
+         <size>
+          <width>100</width>
+          <height>75</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>(None)</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Background &amp;image:</string>
+        </property>
+        <property name="buddy">
+         <cstring>backgroundImage</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="bgColorLbl">
+        <property name="text">
+         <string>&amp;Background color:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="txtColorLbl">
+        <property name="text">
+         <string>&amp;Text color:</string>
         </property>
        </widget>
       </item>
@@ -171,6 +207,13 @@
      </layout>
     </widget>
    </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::StandardButton::Apply|QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
@@ -197,5 +240,38 @@
   <tabstop>switchButton</tabstop>
  </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>BasketPropertiesUi</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>283</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>283</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>BasketPropertiesUi</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>283</x>
+     <y>336</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>283</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

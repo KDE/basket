@@ -44,34 +44,21 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     , m_basket(basket)
 {
     // Set up dialog options
-    setWindowTitle(i18n("Basket Properties"));
-    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply, this);
-    auto *mainWidget = new QWidget(this);
-    setupUi(mainWidget);
-    auto *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-    mainLayout->addWidget(mainWidget);
+    setupUi(this);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &BasketPropertiesDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &BasketPropertiesDialog::reject);
-    mainLayout->addWidget(buttonBox);
     okButton->setDefault(true);
     setObjectName("BasketProperties");
-    setModal(true);
 
     auto *propsUi = dynamic_cast<Ui::BasketPropertiesUi *>(this); // cast to remove name ambiguity
     propsUi->icon->setIconType(KIconLoader::NoGroup, KIconLoader::Application);
-    propsUi->icon->setIconSize(16);
     propsUi->icon->setIcon(m_basket->icon());
 
     int size = std::max(propsUi->icon->sizeHint().width(), propsUi->icon->sizeHint().height());
     propsUi->icon->setFixedSize(size, size); // Make it square!
-    propsUi->icon->setToolTip(i18n("Icon"));
     propsUi->name->setText(m_basket->basketName());
     propsUi->name->setMinimumWidth(propsUi->name->fontMetrics().maxWidth() * 20);
-    propsUi->name->setToolTip(i18n("Name"));
 
     // Appearance:
     m_backgroundColor = new KColorCombo2(m_basket->backgroundColorSetting(), palette().color(QPalette::Base), appearanceGroup);
@@ -87,9 +74,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     setTabOrder(m_backgroundColor, m_textColor);
     setTabOrder(m_textColor, columnForm);
 
-    backgroundImage->addItem(i18n("(None)"));
     m_backgroundImagesMap.insert(0, QString());
-    backgroundImage->setIconSize(QSize(100, 75));
     QStringList backgrounds = Global::backgroundManager->imageNames();
     int index = 1;
     for (QStringList::Iterator it = backgrounds.begin(); it != backgrounds.end(); ++it) {
@@ -110,7 +95,6 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
 
     // Disposition:
 
-    columnCount->setRange(1, 20);
     columnCount->setValue(m_basket->columnsCount());
     connect(columnCount, &QSpinBox::valueChanged, this, &BasketPropertiesDialog::selectColumnsLayout);
 
