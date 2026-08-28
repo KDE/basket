@@ -53,19 +53,18 @@ OpaqueBackgroundEntry::~OpaqueBackgroundEntry()
 BackgroundManager::BackgroundManager()
 {
     /// qDebug() << "BackgroundManager: Found the following background images in  ";
-    QStringList directories = QStandardPaths::standardLocations(
-        QStandardPaths::GenericDataLocation) /* WARNING: no more trailing slashes */; // eg. { "/home/seb/.kde/share/apps/", "/usr/share/apps/" }
+    QStringList directories = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
     // For each folder:
     for (QStringList::Iterator it = directories.begin(); it != directories.end(); ++it) {
         // For each file in those directories:
-        QDir dir(*it + QStringLiteral("basket/backgrounds/"),
+        QDir dir(*it + QStringLiteral("/basket/backgrounds/"),
                  /*nameFilder=*/QStringLiteral("*.png"),
                  /*sortSpec=*/QDir::Name | QDir::IgnoreCase,
                  /*filterSpec=*/QDir::Files | QDir::NoSymLinks);
         ///     qDebug() << *it + "basket/backgrounds/  ";
         QStringList files = dir.entryList();
         for (QStringList::Iterator it2 = files.begin(); it2 != files.end(); ++it2) // TODO: If an image name is present in two folders?
-            addImage(*it + QStringLiteral("basket/backgrounds/") + *it2);
+            addImage(*it + QStringLiteral("/basket/backgrounds/") + *it2);
     }
 
     /// qDebug() << ":";
