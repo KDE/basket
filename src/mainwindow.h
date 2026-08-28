@@ -28,7 +28,6 @@ public:
     /** Constructor, initializer and destructor */
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
-    void ensurePolished();
 
 public Q_SLOTS:
     //  void toggleToolBar();
@@ -46,6 +45,7 @@ protected:
     bool queryClose() override;
     void resizeEvent(QResizeEvent *) override;
     void moveEvent(QMoveEvent *) override;
+    bool event(QEvent *event) override;
 
 private:
     bool askForQuit();

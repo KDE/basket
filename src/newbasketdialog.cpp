@@ -7,6 +7,7 @@
 #include "newbasketdialog.h"
 
 #include <QDialogButtonBox>
+#include <QEvent>
 #include <QHBoxLayout>
 #include <QHash>
 #include <QLabel>
@@ -308,10 +309,13 @@ int NewBasketDialog::populateBasketsList(QTreeWidgetItem *item, int indent, int 
 
 NewBasketDialog::~NewBasketDialog() = default;
 
-void NewBasketDialog::ensurePolished()
+bool NewBasketDialog::event(QEvent *event)
 {
-    QDialog::ensurePolished();
-    m_name->setFocus();
+    const bool result = QDialog::event(event);
+    if (event->type() == QEvent::Polish) {
+        m_name->setFocus();
+    }
+    return result;
 }
 
 void NewBasketDialog::nameChanged(const QString &newName)

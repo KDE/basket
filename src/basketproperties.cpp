@@ -160,10 +160,13 @@ BasketPropertiesDialog::~BasketPropertiesDialog()
     delete m_ui;
 }
 
-void BasketPropertiesDialog::ensurePolished()
+bool BasketPropertiesDialog::event(QEvent *event)
 {
-    QWidget::ensurePolished();
-    m_ui->name->setFocus();
+    const bool result = QDialog::event(event);
+    if (event->type() == QEvent::Polish) {
+        m_ui->name->setFocus();
+    }
+    return result;
 }
 
 void BasketPropertiesDialog::applyChanges()

@@ -161,29 +161,31 @@ void MainWindow::showShortcutsSettingsDialog()
     KShortcutsDialog::showDialog(actionCollection(), KShortcutsEditor::LetterShortcutsAllowed, this);
 }
 
-void MainWindow::ensurePolished()
+bool MainWindow::event(QEvent *event)
 {
     bool shouldSave = false;
 
-    // If position and size has never been set, set nice ones:
-    //  - Set size to sizeHint()
-    //  - Keep the window manager placing the window where it want and save this
-    if (Settings::mainWindowSize().isEmpty()) {
-        //      qDebug() << "Main Window Position: Initial Set in show()";
-        int defaultWidth = qApp->primaryScreen()->geometry().width() * 5 / 6;
-        int defaultHeight = qApp->primaryScreen()->geometry().height() * 5 / 6;
-        resize(defaultWidth, defaultHeight); // sizeHint() is bad (too small) and we want the user to have a good default area size
-        shouldSave = true;
-    } else {
-        //      qDebug() << "Main Window Position: Recall in show(x="
-        //                << Settings::mainWindowPosition().x() << ", y=" << Settings::mainWindowPosition().y()
-        //                << ", width=" << Settings::mainWindowSize().width() << ", height=" << Settings::mainWindowSize().height()
-        //                << ")";
-        // move(Settings::mainWindowPosition());
-        // resize(Settings::mainWindowSize());
+    if (event->type() == QEvent::Polish) {
+        // If position and size has never been set, set nice ones:
+        //  - Set size to sizeHint()
+        //  - Keep the window manager placing the window where it want and save this
+        if (Settings::mainWindowSize().isEmpty()) {
+            //      qDebug() << "Main Window Position: Initial Set in show()";
+            int defaultWidth = qApp->primaryScreen()->geometry().width() * 5 / 6;
+            int defaultHeight = qApp->primaryScreen()->geometry().height() * 5 / 6;
+            resize(defaultWidth, defaultHeight); // sizeHint() is bad (too small) and we want the user to have a good default area size
+            shouldSave = true;
+        } else {
+            //      qDebug() << "Main Window Position: Recall in show(x="
+            //                << Settings::mainWindowPosition().x() << ", y=" << Settings::mainWindowPosition().y()
+            //                << ", width=" << Settings::mainWindowSize().width() << ", height=" << Settings::mainWindowSize().height()
+            //                << ")";
+            // move(Settings::mainWindowPosition());
+            // resize(Settings::mainWindowSize());
+        }
     }
 
-    KXmlGuiWindow::ensurePolished();
+    const bool result = KXmlGuiWindow::event(event);
 
     if (shouldSave) {
         //      qDebug() << "Main Window Position: Save size and position in show(x="
@@ -194,6 +196,8 @@ void MainWindow::ensurePolished()
         Settings::setMainWindowSize(size());
         Settings::saveConfig();
     }
+
+    return result;
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)

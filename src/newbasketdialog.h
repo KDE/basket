@@ -48,12 +48,14 @@ class NewBasketDialog : public QDialog
 public:
     NewBasketDialog(BasketScene *parentBasket, const NewBasketDefaultProperties &defaultProperties, QWidget *parent = nullptr);
     ~NewBasketDialog() override;
-    void ensurePolished();
 protected Q_SLOTS:
     void slotOk();
     void returnPressed();
     void manageTemplates();
     void nameChanged(const QString &newName);
+
+protected:
+    bool event(QEvent *event) override;
 
 private:
     int populateBasketsList(QTreeWidgetItem *item, int indent, int index);

@@ -777,16 +777,19 @@ LinkEditDialog::LinkEditDialog(LinkContent *contentNote, QWidget *parent /*, QKe
 
 LinkEditDialog::~LinkEditDialog() = default;
 
-void LinkEditDialog::ensurePolished()
+bool LinkEditDialog::event(QEvent *event)
 {
-    QDialog::ensurePolished();
-    if (m_url->lineEdit()->text().isEmpty()) {
-        m_url->setFocus();
-        m_url->lineEdit()->end(false);
-    } else {
-        m_title->setFocus();
-        m_title->end(false);
+    const bool result = QDialog::event(event);
+    if (event->type() == QEvent::Polish) {
+        if (m_url->lineEdit()->text().isEmpty()) {
+            m_url->setFocus();
+            m_url->lineEdit()->end(false);
+        } else {
+            m_title->setFocus();
+            m_title->end(false);
+        }
     }
+    return result;
 }
 
 void LinkEditDialog::urlChanged(const QString &)
@@ -1015,15 +1018,18 @@ LauncherEditDialog::LauncherEditDialog(LauncherContent *contentNote, QWidget *pa
 
 LauncherEditDialog::~LauncherEditDialog() = default;
 
-void LauncherEditDialog::ensurePolished()
+bool LauncherEditDialog::event(QEvent *event)
 {
-    QDialog::ensurePolished();
-    if (m_command->serviceLauncher().isEmpty()) {
-        m_command->setFocus();
-    } else {
-        m_name->setFocus();
-        m_name->end(false);
+    const bool result = QDialog::event(event);
+    if (event->type() == QEvent::Polish) {
+        if (m_command->serviceLauncher().isEmpty()) {
+            m_command->setFocus();
+        } else {
+            m_name->setFocus();
+            m_name->end(false);
+        }
     }
+    return result;
 }
 
 void LauncherEditDialog::slotOk()

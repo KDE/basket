@@ -30,7 +30,6 @@ class BasketPropertiesDialog : public QDialog
 public:
     explicit BasketPropertiesDialog(BasketScene *basket, QWidget *parent = nullptr);
     ~BasketPropertiesDialog() override;
-    void ensurePolished();
 
 public Q_SLOTS:
     void applyChanges();
@@ -38,6 +37,9 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void capturedShortcut(const QList<QKeySequence> &shortcut);
     void selectColumnsLayout();
+
+protected:
+    bool event(QEvent *event) override;
 
 private:
     Ui::BasketPropertiesUi *m_ui;

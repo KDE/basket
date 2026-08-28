@@ -239,7 +239,6 @@ class LinkEditDialog : public QDialog
 public:
     explicit LinkEditDialog(LinkContent *contentNote, QWidget *parent = nullptr);
     ~LinkEditDialog() override;
-    void ensurePolished();
 
 protected Q_SLOTS:
     void slotOk();
@@ -248,6 +247,9 @@ protected Q_SLOTS:
     void doNotAutoIcon(QString);
     void guessTitle();
     void guessIcon();
+
+protected:
+    bool event(QEvent *event) override;
 
 private:
     LinkContent *m_noteContent;
@@ -290,10 +292,12 @@ class LauncherEditDialog : public QDialog
 public:
     explicit LauncherEditDialog(LauncherContent *contentNote, QWidget *parent = nullptr);
     ~LauncherEditDialog() override;
-    void ensurePolished();
 protected Q_SLOTS:
     void slotOk();
     void guessIcon();
+
+protected:
+    bool event(QEvent *event) override;
 
 private:
     LauncherContent *m_noteContent;
