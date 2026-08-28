@@ -140,9 +140,9 @@ bool Weaver::weave()
         destination += QFileInfo(m_in).baseName();
     }
 
-    const QString extenstion = QStringLiteral(".baskets");
-    if (!destination.endsWith(extenstion)) {
-        destination += extenstion;
+    const QString extension = QStringLiteral(".baskets");
+    if (!destination.endsWith(extension)) {
+        destination += extension;
     }
 
     Archive::IOErrorCode errorCode = Archive::createArchiveFromSource(m_in, m_preview, destination, !m_parser->isSet(m_force));
