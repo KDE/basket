@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:48+0000\n"
+"POT-Creation-Date: 2026-08-28 00:49+0000\n"
 "PO-Revision-Date: 2026-06-26 20:53+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -2131,12 +2131,12 @@ msgstr "Пример"
 msgid "Minimize"
 msgstr "Свернуть"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:249
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Выйти из %1?</p>"
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Подтвердите выход"

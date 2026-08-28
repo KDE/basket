@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:48+0000\n"
+"POT-Creation-Date: 2026-08-28 00:49+0000\n"
 "PO-Revision-Date: 2026-08-24 09:08+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2149,12 +2149,12 @@ msgstr "Exemple"
 msgid "Minimize"
 msgstr "Minimitza"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:249
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Segur que voleu eixir de %1?</p>"
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Confirma en eixir"

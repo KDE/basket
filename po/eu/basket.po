@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:48+0000\n"
+"POT-Creation-Date: 2026-08-28 00:49+0000\n"
 "PO-Revision-Date: 2026-07-14 23:10+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2136,12 +2136,12 @@ msgstr "Adibidea"
 msgid "Minimize"
 msgstr "Ikonotu"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:249
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>%1(e)tik benetan irten nahi duzu?</p>"
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Irtetea baieztatu"

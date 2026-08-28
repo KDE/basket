@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:48+0000\n"
+"POT-Creation-Date: 2026-08-28 00:49+0000\n"
 "PO-Revision-Date: 2026-05-28 17:15-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -1983,12 +1983,12 @@ msgstr "مىسال"
 msgid "Minimize"
 msgstr "كىچىكلەت"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:249
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr ""
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "Quit Confirm"
 msgstr ""
