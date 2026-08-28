@@ -6,11 +6,8 @@
 #ifndef BASKETPROPERTIES_H
 #define BASKETPROPERTIES_H
 
-#include <KIconTheme>
 #include <QDialog>
 #include <QMap>
-
-#include "ui_basketproperties.h"
 
 class QString;
 
@@ -19,10 +16,15 @@ class KColorCombo2;
 
 class BasketScene;
 
+namespace Ui
+{
+class BasketPropertiesUi;
+}
+
 /** The dialog that hold basket settings.
  * @author Sébastien Laoût
  */
-class BasketPropertiesDialog : public QDialog, private Ui::BasketPropertiesUi
+class BasketPropertiesDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -38,6 +40,7 @@ protected Q_SLOTS:
     void selectColumnsLayout();
 
 private:
+    Ui::BasketPropertiesUi *m_ui;
     BasketScene *m_basket;
     KColorCombo2 *m_backgroundColor;
     KColorCombo2 *m_textColor;
