@@ -32,7 +32,7 @@ public:
     static void open(const QString &path);
 
     /**
-     * @brief The IOErrorCode enum granularly indicates whether encoding or decoding of baskets archive succeded
+     * @brief The IOErrorCode enum granularly indicates whether encoding or decoding of baskets archive succeeded
      */
     enum class IOErrorCode : quint8 {
         NoError,
@@ -50,7 +50,7 @@ public:
      * @param destination into which the basket archive should be extracted
      * @param protectDestination decides whether the destination will be replaced if it has been present
      * \todo protectDestination likely should be an enum, too, to be more descriptive
-     * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
+     * @return NoError indicates a successful extraction. All other enum states indicate something went wrong
      */
     BASKET_EXPORT static IOErrorCode extractArchive(const QString &path, const QString &destination, const bool protectDestination = true);
 
@@ -64,7 +64,7 @@ public:
      * @param previewImage specifies an optional .png image
      * @param destination specifies where the encoded .basket file should be saved
      * @param protectDestination decides whether the destination will be replaced if it has been present
-     * @return NoError indicates a sucessful extraction. All other enum states indicate something went wrong
+     * @return NoError indicates a successful extraction. All other enum states indicate something went wrong
      */
     BASKET_EXPORT static IOErrorCode createArchiveFromSource(const QString &sourcePath,
                                                              const QString &previewImage,

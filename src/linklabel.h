@@ -128,7 +128,7 @@ public:
 };
 
 /** Used to represent links with icon and specific look
- * Note : This label will appear blank while LinkLook willn't be set
+ * Note : This label will appear blank while LinkLook won't be set
  * @author Sébastien Laoût
  */
 class LinkLabel : public QFrame

@@ -248,7 +248,7 @@ void NoteContent::contentChanged(qreal newMinWidth)
     m_minWidth = newMinWidth;
     if (note()) {
         //      note()->unbufferize();
-        note()->requestRelayout(); // TODO: It should re-set the width!  m_width = 0 ?   contentChanged: setWidth, geteight, if size havent changed, only
+        note()->requestRelayout(); // TODO: It should re-set the width!  m_width = 0 ?   contentChanged: setWidth, geteight, if size haven't changed, only
                                    // repaint and not relayout
     }
 }

@@ -52,7 +52,7 @@ QString Tools::textToHTML(const QString &text)
 
 QString Tools::textToHTMLWithoutP(const QString &text)
 {
-    // textToHTML(text) return "<p>HTMLizedText</p>". We remove the strating "<p>" and ending </p>"
+    // textToHTML(text) return "<p>HTMLizedText</p>". We remove the starting "<p>" and ending </p>"
     QString HTMLizedText = textToHTML(text);
     return HTMLizedText.mid(3, HTMLizedText.length() - 3 - 4);
 }

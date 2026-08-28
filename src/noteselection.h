@@ -39,7 +39,7 @@ public:
     NoteSelection *parent;
     NoteSelection *firstChild;
     NoteSelection *next;
-    QString fullPath; // Needeed for 'Cut' code to store temporary path of the cut note.
+    QString fullPath; // Needed for 'Cut' code to store temporary path of the cut note.
 
     NoteSelection *firstStacked();
     NoteSelection *nextStacked();

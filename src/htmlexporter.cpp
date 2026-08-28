@@ -591,7 +591,7 @@ QString HTMLExporter::copyIcon(const QString &iconName, int size)
 
 /** Done: Sometimes we can call two times copyFile() with the same srcPath and dataFolderPath
  *       (eg. when exporting basket to HTML with two links to same filename
- *            (but not necesary same path, as in "/home/foo.txt" and "/foo.txt") )
+ *            (but not necessary same path, as in "/home/foo.txt" and "/foo.txt") )
  *       The first copy isn't yet started, so the dest file isn't created and this method
  *       returns the same filename !!!!!!!!!!!!!!!!!!!!
  */
@@ -602,7 +602,7 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
 
     if (!currentBasket->isEncrypted()) {
         if (createIt) {
-            // We create the file to be sure another very near call to copyFile() willn't choose the same name:
+            // We create the file to be sure another very near call to copyFile() won't choose the same name:
             QFile file(QUrl::fromLocalFile(fullPath).path());
             if (file.open(QIODevice::WriteOnly))
                 file.close();

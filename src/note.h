@@ -436,7 +436,7 @@ public:
 
 public:
     // Values are provided here as info:
-    // Please see Settings::setBigNotes() to know whats values are assigned.
+    // Please see Settings::setBigNotes() to know which values are assigned.
     static qreal NOTE_MARGIN /*= 2*/;
     static qreal INSERTION_HEIGHT /*= 5*/;
     static qreal EXPANDER_WIDTH /*= 9*/;

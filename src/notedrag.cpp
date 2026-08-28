@@ -48,7 +48,7 @@ QDrag *NoteDrag::dragObject(NoteSelection *noteList, bool cutting, QWidget *sour
     auto *mimeData = new QMimeData;
 
     // Make sure the temporary folder exists and is empty (we delete previously moved file(s) (if exists)
-    // since we override the content of the clipboard and previous file willn't be accessable anymore):
+    // since we override the content of the clipboard and previous file won't be accessible anymore):
     createAndEmptyCuttingTmpFolder();
 
     // The "Native Format" Serialization:

@@ -57,7 +57,7 @@ protected:
 };
 
 /** Manage the list of background images.
- * BASIC FUNCTIONNING OF A BACKGROUND CHOOSER:
+ * BASIC FUNCTIONING OF A BACKGROUND CHOOSER:
  *   It get all image names with imageNames() to put them in eg. a QComboBox and then,
  *   when it's time to get the preview of an image it call preview() with the image name to get it.
  *   Preview are only computed on demand and then cached to fast the next demands (only the pointer will have to be returned).
@@ -84,7 +84,7 @@ private:
     using OpaqueBackgroundsList = QList<OpaqueBackgroundEntry *>;
 
 public:
-    /// CONTRUCTOR AND DESTRUCTOR:
+    /// CONSTRUCTOR AND DESTRUCTOR:
     BackgroundManager();
     ~BackgroundManager() override;
     /// SUBSCRIPTION TO IMAGES:

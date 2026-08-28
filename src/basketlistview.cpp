@@ -376,7 +376,7 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
     if (event->mimeData()->hasFormat(TREE_ITEM_MIME_STRING)) {
         event->setDropAction(Qt::MoveAction);
         QTreeWidget::dropEvent(event);
-    } else { // this handels application/x-basket-note drag events.
+    } else { // this handles application/x-basket-note drag events.
         qDebug() << "Forwarding dropped data to the basket";
         event->setDropAction(Qt::MoveAction);
         QTreeWidgetItem *item = itemAt(event->position().toPoint());
@@ -448,7 +448,7 @@ void BasketTreeListView::resizeEvent(QResizeEvent *event)
 }
 
 /** We should NEVER get focus (because of QWidget::NoFocus focusPolicy())
- * but QTreeView can programatically give us the focus.
+ * but QTreeView can programmatically give us the focus.
  * So we give it to the basket.
  */
 void BasketTreeListView::focusInEvent(QFocusEvent *)

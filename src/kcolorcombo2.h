@@ -39,7 +39,7 @@ class KColorPopup;
  *
  * @par Notes about default color:
  * If you set a default color using Qt or KDE standard colors, the user can change them in the KDE Control Center,
- * but this widget willn't be update and will still show the old one.\n
+ * but this widget won't be update and will still show the old one.\n
  * To be noticed of such color change and then update the widget with the new standard color, you can use one of those two methods:
  * @code
  * void QWidgetDerivate::paletteChange(const QPalette &oldPalette) { // QWidgetDerivate is a parent or near custom widget
@@ -83,7 +83,7 @@ public Q_SLOTS:
 
     /**
      * Change the default color.
-     * @param color The color to return if the user choose the default one. If it is not valid, the user willn't be allowed to choose a default one.
+     * @param color The color to return if the user choose the default one. If it is not valid, the user won't be allowed to choose a default one.
      * @see defaultColor() to get it.
      */
     void setDefaultColor(const QColor &color);
@@ -107,7 +107,7 @@ public:
      * Constructs a color combobox with parent @p parent.
      * @param color         The initial selected color. If it is not valid, the default one will then be selected.\n
      *                      But if @p color is invalid and there is no default color, the result is undefined.
-     * @param defaultColor  The color to return if the user choose the default one. If it is not valid, the user willn't be allowed to choose a default one.
+     * @param defaultColor  The color to return if the user choose the default one. If it is not valid, the user won't be allowed to choose a default one.
      */
     KColorCombo2(const QColor &color, const QColor &defaultColor, QWidget *parent = nullptr);
 

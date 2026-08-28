@@ -816,7 +816,7 @@ void BasketScene::setDisposition(int disposition, int columnCount)
         Note *column = firstNote();
         m_columnsCount = 0; // Now, so relayoutNotes() will not relayout the free notes as if they were columns!
         while (column) {
-            // Move all childs on the first level:
+            // Move all children on the first level:
             Note *nextColumn = column->next();
             ungroupNote(column);
             column = nextColumn;
@@ -2628,14 +2628,14 @@ void BasketScene::doHoverEffects(const QPointF &pos)
     }
 
     // enterEvent() (mouse enter in the widget) set m_underMouse to true, and leaveEvent() make it false.
-    // But some times the enterEvent() is not trigerred: eg. when dragging the scrollbar:
+    // But some times the enterEvent() is not triggered: eg. when dragging the scrollbar:
     // Ending the drag INSIDE the basket area will make NO hoverEffects() because m_underMouse is false.
     // User need to leave the area and re-enter it to get effects.
     // This hack solve that by dismissing the m_underMouse variable:
 
     // Don't do hover effects when a popup menu is opened.
-    // Primarily because the basket area will only receive mouseEnterEvent and mouveLeaveEvent.
-    // It willn't be noticed of mouseMoveEvent, which would result in a apparently broken application state:
+    // Primarily because the basket area will only receive mouseEnterEvent and mouseLeaveEvent.
+    // It won't be noticed of mouseMoveEvent, which would result in a apparently broken application state:
     bool underMouse = !qApp->activePopupWidget();
     // if (qApp->activePopupWidget())
     //    underMouse = false;
@@ -3705,7 +3705,7 @@ bool BasketScene::closeEditor(bool deleteEmptyNote /* =true*/)
 
     Note *note = m_editor->note();
 
-    // Delete the editor BEFORE unselecting the note because unselecting the note would trigger closeEditor() recursivly:
+    // Delete the editor BEFORE unselecting the note because unselecting the note would trigger closeEditor() recursively:
     bool isEmpty = m_editor->isEmpty();
     delete m_editor;
 

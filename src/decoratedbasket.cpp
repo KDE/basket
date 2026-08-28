@@ -69,7 +69,7 @@ void DecoratedBasket::setFilterBarVisible(bool show, bool switchFocus)
     // In this order (m_basket and then m_filter) because setShown(false)
     //  will call resetFilter() that will update actions, and then check the
     //  Ctrl+F action whereas it should be unchecked
-    //  FIXME: It's very uggly all those things
+    //  FIXME: It's very ugly all those things
     m_filter->setVisible(show);
     if (show) {
         if (switchFocus)

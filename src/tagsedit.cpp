@@ -813,7 +813,7 @@ void TagsEditDialog::newState()
 
 void TagsEditDialog::moveUp()
 {
-    if (!m_moveUp->isEnabled()) // Trggered by keyboard shortcut
+    if (!m_moveUp->isEnabled()) // Triggered by keyboard shortcut
         return;
 
     TagListViewItem *tagItem = m_tags->currentItem();
@@ -874,7 +874,7 @@ void TagsEditDialog::moveUp()
 
 void TagsEditDialog::moveDown()
 {
-    if (!m_moveDown->isEnabled()) // Trggered by keyboard shortcut
+    if (!m_moveDown->isEnabled()) // Triggered by keyboard shortcut
         return;
 
     TagListViewItem *tagItem = m_tags->currentItem();

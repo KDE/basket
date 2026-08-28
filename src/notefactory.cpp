@@ -853,7 +853,7 @@ QString NoteFactory::fileNameForNewNote(BasketScene *parent, const QString &want
 
 // Create a file to store a new note in Basket parent and with extension extension.
 // If wantedName is provided, the function will first try to use this file name, or derive it if it's impossible
-//  (extension willn't be used for that case)
+//  (extension won't be used for that case)
 QString NoteFactory::createFileForNewNote(BasketScene *parent, const QString &extension, const QString &wantedName)
 {
     QString fileName;

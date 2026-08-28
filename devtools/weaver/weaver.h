@@ -49,20 +49,20 @@ private:
      * Superficially tests whether @p basketsDirectory has a valid source structure.
      * @param basketsDirectory
      * @return @c true if the directory structure seems valid
-     * @return @c false if the directory does not seem to be a baskets source, or an IO error occured.
+     * @return @c false if the directory does not seem to be a baskets source, or an IO error occurred.
      */
     static bool isBasketSourceValid(const QString &basketsDirectory);
 
     /**
      * Superficially tests whether @p basketsFile is a valid @c .baskets format.
      *
-     * It tests for a correctly formated file header, whether the preview image and archive body have the specified
+     * It tests for a correctly formatted file header, whether the preview image and archive body have the specified
      * length, respectively. The calling method should make sure that @p basketsFile exists.
      *
      * modeled after Archive::extractArchive
      * @param basketsFile is the path to the .baskets file to be tested.
      * @return @c true if a valid file structure was found
-     * @return @c false if the file structure was not valid, or any other IO error occured.
+     * @return @c false if the file structure was not valid, or any other IO error occurred.
      */
     static bool isBasketFile(const QString &basketsFile);
 

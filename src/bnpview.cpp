@@ -1184,7 +1184,7 @@ void BNPView::setCurrentBasket(BasketScene *basket)
         item->ensureVisible();
         m_stack->setCurrentWidget(basket->decoration());
         // If the window has changed size, only the current basket receive the event,
-        // the others will receive ony one just before they are shown.
+        // the others will receive only one just before they are shown.
         // But this triggers unwanted animations, so we eliminate it:
         basket->relayoutNotes();
         basket->openBasket();

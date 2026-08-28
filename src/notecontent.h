@@ -776,7 +776,7 @@ public:
     {
         return m_exec;
     } /// << @return the execute command line of the launcher note-content.
-    // TODO: KService *service() ??? And store everything in thta service ?
+    // TODO: KService *service() ??? And store everything in that service ?
 
     QGraphicsItem *graphicsItem() override
     {

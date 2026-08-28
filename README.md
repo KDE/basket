@@ -16,7 +16,7 @@ Basket is build with the Qt6 and KDE Frameworks 6.
 ## Contact
 
 If you have any questions, or would like to contribute (always welcome!) please
-send me an email to the generall KDE development mailing list at
+send me an email to the general KDE development mailing list at
 kde-devel@kde.org.
 
 ## Building/Installation

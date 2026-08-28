@@ -43,7 +43,7 @@ void ArchiveTest::testExtractArchive()
     QString testPath = QDir::currentPath() + QDir::separator() + QStringLiteral("sample/");
     Archive::IOErrorCode ioCode = Archive::extractArchive(testArchive, testPath, false);
 
-    QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occured while extracting .baskets archive");
+    QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occurred while extracting .baskets archive");
     QVERIFY2(compareDirTree(testPath, referenceSource), "Extracted .baskets archive is not identical with the reference source");
     QVERIFY2(compareDirHashes(testPath, referenceSource), "Extracted .baskets archive content is not identical with the reference source (hashes different)");
 
@@ -85,7 +85,7 @@ void ArchiveTest::testCreateArchive()
     QString testSourcePath = QDir::currentPath() + QDir::separator() + QStringLiteral("sample_source/");
     Archive::IOErrorCode ioCode = Archive::createArchiveFromSource(testSourcePath, testSourcePath + QStringLiteral("preview.png"), testArchive);
 
-    QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occured while creating a .baskets archive");
+    QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occurred while creating a .baskets archive");
 
     /// \todo find a simple way to compare created archive. KTar could write specific meta data...
 
