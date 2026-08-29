@@ -23,6 +23,8 @@ extern "C" {
 
 #include "global.h"
 
+#include <basket_debug.h>
+
 #define GIT_RETURN_IF_DISABLED()                                                                                                                               \
     if (!Settings::versionSyncEnabled())                                                                                                                       \
         return;
@@ -42,7 +44,7 @@ void GitWrapper::initializeGitRepository(QString folder)
     int error = git_repository_init(&repo, cString, false);
     if (error < 0) {
         const git_error *e = giterr_last();
-        qDebug() << e->message;
+        qCDebug(BASKET_LOG) << e->message;
     }
 
     git_signature *sig = nullptr;
@@ -412,7 +414,7 @@ QDateTime GitWrapper::getLastCommitDate(git_repository *repo)
 void GitWrapper::gitErrorHandling()
 {
     const git_error *e = giterr_last();
-    qDebug() << "Error in git (error,class,message)" << e->klass << e->message;
+    qCDebug(BASKET_LOG) << "Error in git (error,class,message)" << e->klass << e->message;
 }
 
 #else // HAVE_LIBGIT2

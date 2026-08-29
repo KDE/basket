@@ -55,6 +55,8 @@
 
 #include "debugwindow.h"
 
+#include <basket_debug.h>
+
 /** Create notes from scratch (just a content) */
 
 Note *NoteFactory::createNoteText(const QString &text, BasketScene *parent, bool reallyPlainText /* = false*/)
@@ -245,7 +247,7 @@ Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
 
             // If we got a new note, insert it in a linked list (we will return the first note of that list):
             if (note) {
-                //              qDebug() << "Drop URL: " << (*it).toDisplayString();
+                //              qCDebug(BASKET_LOG) << "Drop URL: " << (*it).toDisplayString();
                 if (!firstNote)
                     firstNote = note;
                 else {

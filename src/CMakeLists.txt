@@ -53,6 +53,12 @@ qt_add_dbus_adaptor(libbasket_SRCS org.kde.basket.BNPView.xml bnpview.h BNPView)
 
 qt_add_resources(basket_RESOURCES ../basket.qrc)
 
+ecm_qt_declare_logging_category(libbasket_SRCS
+    HEADER basket_debug.h
+    IDENTIFIER BASKET_LOG
+    CATEGORY_NAME org.kde.basket
+)
+
 add_library(LibBasket SHARED ${libbasket_SRCS} ${basket_FORM_HDRS} ${basket_RESOURCES})
 
 generate_export_header(LibBasket BASE_NAME "basket")

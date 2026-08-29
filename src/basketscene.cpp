@@ -95,6 +95,7 @@
 #include "xmlwork.h"
 
 #include "config.h"
+#include <basket_debug.h>
 
 #ifdef HAVE_LIBGPGME
 #include "kgpgme.h"
@@ -152,7 +153,7 @@ void debugZone(int zone)
             s = QStringLiteral("Emblem0+") + QString::number(zone - Note::Emblem0);
         break;
     }
-    qDebug() << s;
+    qCDebug(BASKET_LOG) << s;
 }
 
 #define FOR_EACH_NOTE(noteVar) for (Note *noteVar = firstNote(); noteVar; noteVar = noteVar->next())
@@ -551,7 +552,7 @@ void BasketScene::loadNotes(const QDomElement &notes, Note *parent)
             if (note->isFree()) {
                 int x = e.attribute(QStringLiteral("x")).toInt();
                 int y = e.attribute(QStringLiteral("y")).toInt();
-                qDebug() << "Free Note Properties";
+                qCDebug(BASKET_LOG) << "Free Note Properties";
                 note->setX(x < 0 ? 0 : x);
                 note->setY(y < 0 ? 0 : y);
             }
@@ -1656,11 +1657,11 @@ void BasketScene::removedStates(const QList<State *> &deletedStates)
 void BasketScene::insertNote(Note *note, Note *clicked, int zone, const QPointF &pos, bool animate)
 {
     if (!note) {
-        qDebug() << "Wanted to insert NO note";
+        qCDebug(BASKET_LOG) << "Wanted to insert NO note";
         return;
     }
 
-    qDebug() << "BasketScene::insertNote: animate? " << animate;
+    qCDebug(BASKET_LOG) << "BasketScene::insertNote: animate? " << animate;
     if (clicked && zone == Note::BottomColumn) {
         // When inserting at the bottom of a column, it's obvious the new note SHOULD inherit tags.
         // We ensure that by changing the insertion point after the last note of the column:
@@ -1812,7 +1813,7 @@ void BasketScene::dragLeaveEvent(QGraphicsSceneDragDropEvent *)
 void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
 {
     QPointF pos = event->scenePos();
-    qDebug() << "Drop Event at position " << pos.x() << ":" << pos.y();
+    qCDebug(BASKET_LOG) << "Drop Event at position " << pos.x() << ":" << pos.y();
 
     m_isDuringDrag = false;
     Q_EMIT resetStatusBarText();
@@ -1844,7 +1845,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
                 n->setOnTop(true);
         }
 
-        qDebug() << "animate? " << animateNewPosition;
+        qCDebug(BASKET_LOG) << "animate? " << animateNewPosition;
         insertNote(note, clicked, zone, pos, animateNewPosition);
 
         // If moved a note on bottom, contentsHeight has been diminished, then view scrolled up, and we should re-scroll the view down:
@@ -1871,7 +1872,7 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
         KTextEdit *editor = m_editor->textEdit();
         editor->setTextCursor(m_textCursor);
     }
-    qDebug() << "Drop Event done" << pos.x() << ":" << pos.y();
+    qCDebug(BASKET_LOG) << "Drop Event done" << pos.x() << ":" << pos.y();
 }
 
 // handles dropping of a note to basket that is not shown
@@ -2254,7 +2255,7 @@ void BasketScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         // We select note on mousePress if it was unselected or Ctrl is pressed.
         // But the user can want to drag select_s_ notes, so it the note is selected, we only select it alone on mouseRelease:
         if (event->buttons() == 0) {
-            qDebug() << "EXEC";
+            qCDebug(BASKET_LOG) << "EXEC";
             if (!(event->modifiers() & Qt::ControlModifier) && clicked->allSelected())
                 unselectAllBut(clicked);
             if (zone == Note::Handle && isDuringEdit() && editedNote() == clicked) {
@@ -3185,7 +3186,7 @@ void BasketScene::relayoutNotes(bool animate)
 {
     if (Global::bnpView->currentBasket() != this)
         return; // Optimize load time, and basket will be relaid out when activated, anyway
-    qDebug() << "relayoutNotes";
+    qCDebug(BASKET_LOG) << "relayoutNotes";
     int h = 0;
     tmpWidth = 0;
     tmpHeight = 0;
@@ -3387,7 +3388,7 @@ void BasketScene::unlockHovering()
 void BasketScene::toggledTagInMenu(QAction *act)
 {
     int id = act->data().toInt();
-    qDebug() << "toggled " << id;
+    qCDebug(BASKET_LOG) << "toggled " << id;
     if (id == 1) { // Assign new Tag...
         TagsEditDialog dialog(m_view, /*stateToEdit=*/nullptr, /*addNewTag=*/true);
         dialog.exec();
@@ -3783,7 +3784,7 @@ void BasketScene::openBasket()
 Note *BasketScene::theSelectedNote()
 {
     if (countSelecteds() != 1) {
-        qDebug() << "NO SELECTED NOTE !!!!";
+        qCDebug(BASKET_LOG) << "NO SELECTED NOTE !!!!";
         return nullptr;
     }
 
@@ -3795,7 +3796,7 @@ Note *BasketScene::theSelectedNote()
             return selectedOne;
     }
 
-    qDebug() << "One selected note, BUT NOT FOUND !!!!";
+    qCDebug(BASKET_LOG) << "One selected note, BUT NOT FOUND !!!!";
 
     return nullptr;
 }

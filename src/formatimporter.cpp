@@ -24,6 +24,8 @@
 #include "tools.h"
 #include "xmlwork.h"
 
+#include <basket_debug.h>
+
 bool FormatImporter::shouldImportBaskets()
 {
     // We should import if the application have not successfully loaded any basket...
@@ -54,7 +56,7 @@ void FormatImporter::moveFolder(const QString &folder, const QString &newFolder)
 
 void FormatImporter::importBaskets()
 {
-    qDebug() << "Import Baskets: Preparing...";
+    qCDebug(BASKET_LOG) << "Import Baskets: Preparing...";
 
     // Some preliminary preparations (create the destination folders and the basket tree file):
     QDir dirPrep;
@@ -91,13 +93,13 @@ void FormatImporter::importBaskets()
                 if (!(baskets.contains((*it) + QLatin1Char('/'))) && baskets.contains(*it)) // And if it is not already in the imported baskets list
                     baskets.append(*it);
 
-    qDebug() << "Import Baskets: Found " << baskets.count() << " baskets to import.";
+    qCDebug(BASKET_LOG) << "Import Baskets: Found " << baskets.count() << " baskets to import.";
 
     // Import every baskets:
     int i = 0;
     for (QStringList::iterator it = baskets.begin(); it != baskets.end(); ++it) {
         ++i;
-        qDebug() << "Import Baskets: Importing basket " << i << " of " << baskets.count() << "...";
+        qCDebug(BASKET_LOG) << "Import Baskets: Importing basket " << i << " of " << baskets.count() << "...";
 
         // Move the folder to the new repository (normal basket) or copy the folder (mirrored folder):
         QString folderName = *it;
@@ -135,7 +137,7 @@ void FormatImporter::importBaskets()
     }
 
     // Finalize (write to disk and delete now useless files):
-    qDebug() << "Import Baskets: Finalizing...";
+    qCDebug(BASKET_LOG) << "Import Baskets: Finalizing...";
 
     QFile file(Global::basketsFolder() + QStringLiteral("baskets.xml"));
     if (file.open(QIODevice::WriteOnly)) {
@@ -149,7 +151,7 @@ void FormatImporter::importBaskets()
     Tools::deleteRecursively(Global::savesFolder() + QStringLiteral(".tmp"));
     dir.remove(Global::savesFolder() + QStringLiteral("container.baskets"));
 
-    qDebug() << "Import Baskets: Finished.";
+    qCDebug(BASKET_LOG) << "Import Baskets: Finished.";
 }
 
 QDomElement FormatImporter::importBasket(const QString &folderName)
@@ -157,7 +159,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
     // Load the XML file:
     QDomDocument *document = XMLWork::openFile(QStringLiteral("basket"), Global::basketsFolder() + folderName + QStringLiteral("/.basket"));
     if (!document) {
-        qDebug() << "Import Baskets: Failed to read the basket file!";
+        qCDebug(BASKET_LOG) << "Import Baskets: Failed to read the basket file!";
         return {};
     }
     QDomElement docElem = document->documentElement();
@@ -277,7 +279,7 @@ QDomElement FormatImporter::importBasket(const QString &folderName)
         stream << document->toString(); // Document is ALREADY using UTF-8
         file.close();
     } else
-        qDebug() << "Import Baskets: Failed to save the basket file!";
+        qCDebug(BASKET_LOG) << "Import Baskets: Failed to save the basket file!";
 
     // Return the newly created properties (to put in the basket tree):
     return properties;

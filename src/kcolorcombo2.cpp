@@ -27,6 +27,8 @@
 #include <KLocalizedString>
 #include <KStandardShortcut>
 
+#include <basket_debug.h>
+
 // #define DEBUG_COLOR_ARRAY
 // #define OUTPUT_GIMP_PALETTE
 
@@ -431,22 +433,22 @@ void KColorCombo2::setRainbowPreset(int colorColumnCount, int lightRowCount, int
     }
 
 #ifdef DEBUG_COLOR_ARRAY
-    qDebug() << "KColorCombo2::setColorPreset";
+    qCDebug(BASKET_LOG) << "KColorCombo2::setColorPreset";
     for (int j = 0; j < rowCount; ++j) {
         for (int i = 0; i < columnCount; ++i) {
             int h, s, v;
             m_colorArray[i][j].getHsv(&h, &s, &v);
-            qDebug() << QString("(%1,%2,%3)").arg(h, 3).arg(s, 3).arg(v, 3);
-            // qDebug() << colorArray[i][j].name() << " ";
+            qCDebug(BASKET_LOG) << QString("(%1,%2,%3)").arg(h, 3).arg(s, 3).arg(v, 3);
+            // qCDebug(BASKET_LOG) << colorArray[i][j].name() << " ";
         }
-        qDebug();
+        qCDebug(BASKET_LOG);
     }
 #endif
 #ifdef OUTPUT_GIMP_PALETTE
-    qDebug() << "GIMP Palette";
+    qCDebug(BASKET_LOG) << "GIMP Palette";
     for (int j = 0; j < rowCount; ++j) {
         for (int i = 0; i < columnCount; ++i) {
-            qDebug() << QString("(%1,%2,%3)").arg(m_colorArray[i][j].red(), 3).arg(m_colorArray[i][j].green(), 3).arg(m_colorArray[i][j].blue(), 3);
+            qCDebug(BASKET_LOG) << QString("(%1,%2,%3)").arg(m_colorArray[i][j].red(), 3).arg(m_colorArray[i][j].green(), 3).arg(m_colorArray[i][j].blue(), 3);
         }
     }
 #endif

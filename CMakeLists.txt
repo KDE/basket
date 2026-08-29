@@ -39,6 +39,7 @@ include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(ECMFeatureSummary)
 include(GenerateExportHeader)
+include(ECMQtDeclareLoggingCategory)
 
 ecm_setup_version(
     PROJECT

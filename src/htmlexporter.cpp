@@ -38,6 +38,7 @@
 #include <QProgressDialog>
 #include <QTextStream>
 
+#include <basket_debug.h>
 #include <basket_version.h>
 
 HTMLExporter::HTMLExporter(BasketScene *basket)
@@ -169,19 +170,19 @@ void HTMLExporter::exportBasket(BasketScene *basket, bool isSubBasket)
     imagesFolderName = (isSubBasket ? QStringLiteral("../") : filesFolderName) + i18nc("HTML export folder (images)", "images")
         + QLatin1Char('/'); // eg.: "foo.html_files/images/"  or "../images/"
 
-    qDebug() << "Exporting ================================================";
-    qDebug() << "  filePath:" << filePath;
-    qDebug() << "  basketFilePath:" << basketFilePath;
-    qDebug() << "  filesFolderPath:" << filesFolderPath;
-    qDebug() << "  filesFolderName:" << filesFolderName;
-    qDebug() << "  iconsFolderPath:" << iconsFolderPath;
-    qDebug() << "  iconsFolderName:" << iconsFolderName;
-    qDebug() << "  imagesFolderPath:" << imagesFolderPath;
-    qDebug() << "  imagesFolderName:" << imagesFolderName;
-    qDebug() << "  dataFolderPath:" << dataFolderPath;
-    qDebug() << "  dataFolderName:" << dataFolderName;
-    qDebug() << "  basketsFolderPath:" << basketsFolderPath;
-    qDebug() << "  basketsFolderName:" << basketsFolderName;
+    qCDebug(BASKET_LOG) << "Exporting ================================================";
+    qCDebug(BASKET_LOG) << "  filePath:" << filePath;
+    qCDebug(BASKET_LOG) << "  basketFilePath:" << basketFilePath;
+    qCDebug(BASKET_LOG) << "  filesFolderPath:" << filesFolderPath;
+    qCDebug(BASKET_LOG) << "  filesFolderName:" << filesFolderName;
+    qCDebug(BASKET_LOG) << "  iconsFolderPath:" << iconsFolderPath;
+    qCDebug(BASKET_LOG) << "  iconsFolderName:" << iconsFolderName;
+    qCDebug(BASKET_LOG) << "  imagesFolderPath:" << imagesFolderPath;
+    qCDebug(BASKET_LOG) << "  imagesFolderName:" << imagesFolderName;
+    qCDebug(BASKET_LOG) << "  dataFolderPath:" << dataFolderPath;
+    qCDebug(BASKET_LOG) << "  dataFolderName:" << dataFolderName;
+    qCDebug(BASKET_LOG) << "  basketsFolderPath:" << basketsFolderPath;
+    qCDebug(BASKET_LOG) << "  basketsFolderName:" << basketsFolderName;
 
     // Create the data folder for this basket:
     QDir dir;
@@ -619,7 +620,7 @@ QString HTMLExporter::copyFile(const QString &srcPath, bool createIt)
         if (success) {
             saveToFile(fullPath, array);
         } else {
-            qDebug() << "Unable to load encrypted file " << srcPath;
+            qCDebug(BASKET_LOG) << "Unable to load encrypted file " << srcPath;
         }
     }
 
@@ -633,6 +634,6 @@ void HTMLExporter::saveToFile(const QString &fullPath, const QByteArray &array)
         file.write(array.toStdString().c_str(), array.size());
         file.close();
     } else {
-        qDebug() << "Unable to open file for writing: " << fullPath;
+        qCDebug(BASKET_LOG) << "Unable to open file for writing: " << fullPath;
     }
 }

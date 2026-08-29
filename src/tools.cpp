@@ -37,6 +37,8 @@
 #include "htmlexporter.h"
 #include "linklabel.h"
 
+#include <basket_debug.h>
+
 QString Tools::textToHTML(const QString &text)
 {
     if (text.isEmpty())
@@ -761,7 +763,7 @@ bool Tools::isAFileCut(const QMimeData *source)
 void Tools::printChildren(QObject *parent)
 {
     for (const auto &obj : parent->children()) {
-        qDebug() << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << Qt::endl;
+        qCDebug(BASKET_LOG) << Q_FUNC_INFO << obj->metaObject()->className() << ": " << obj->objectName() << Qt::endl;
     }
 }
 

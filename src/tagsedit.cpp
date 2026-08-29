@@ -42,6 +42,8 @@
 #include "tag.h"
 #include "variouswidgets.h" //For FontSizeCombo
 
+#include <basket_debug.h>
+
 /** class StateCopy: */
 
 StateCopy::StateCopy(State *old /* = 0*/)
@@ -1299,7 +1301,7 @@ void TagsEditDialog::accept()
 void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     //    TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
-    //    qDebug() << "Pointer is: " << thisItem << endl;
+    //    qCDebug(BASKET_LOG) << "Pointer is: " << thisItem << endl;
     QItemDelegate::paint(painter, option, index);
 }
 

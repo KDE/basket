@@ -18,6 +18,8 @@
 #include <QDBusPendingReply>
 #include <QDebug>
 
+#include <basket_debug.h>
+
 QDBusArgument &operator<<(QDBusArgument &arg, const QColor &color)
 {
     arg.beginStructure();
@@ -58,8 +60,8 @@ void ColorPicker::grabColor()
     connect(watcher, &QDBusPendingCallWatcher::finished, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QDBusObjectPath> reply = *watcher;
         if (reply.isError()) {
-            qWarning() << "Couldn't get reply";
-            qWarning() << "Error: " << reply.error().message();
+            qCWarning(BASKET_LOG) << "Couldn't get reply";
+            qCWarning(BASKET_LOG) << "Error: " << reply.error().message();
         } else {
             QDBusConnection::sessionBus().connect(QString(),
                                                   reply.value().path(),
@@ -79,7 +81,7 @@ void ColorPicker::gotColorResponse(uint response, const QVariantMap &results)
             Q_EMIT colorGrabbed(color);
         }
     } else {
-        qWarning() << "Failed to take screenshot";
+        qCWarning(BASKET_LOG) << "Failed to take screenshot";
     }
 }
 

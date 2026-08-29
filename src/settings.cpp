@@ -40,6 +40,7 @@
 #include "linklabel.h"
 #include "variouswidgets.h"
 
+#include <basket_debug.h>
 #include <config.h>
 
 /** Settings */
@@ -366,9 +367,9 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     : KCMultiDialog(parent)
 {
     const QList<KPluginMetaData> availablePlugins = KPluginMetaData::findPlugins(QStringLiteral("pim/kcms/basket"));
-    qInfo() << "SettingsDialog" << availablePlugins.size();
+    qCInfo(BASKET_LOG) << "SettingsDialog" << availablePlugins.size();
     for (const KPluginMetaData &metaData : availablePlugins) {
-        qInfo() << "SettingsDialog" << metaData.pluginId() << metaData.fileName() << metaData.name();
+        qCInfo(BASKET_LOG) << "SettingsDialog" << metaData.pluginId() << metaData.fileName() << metaData.name();
         addModule(metaData);
     }
 

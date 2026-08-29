@@ -11,6 +11,8 @@
 #include "note.h"
 #include "notecontent.h"
 
+#include <basket_debug.h>
+
 /** Class NoteSelection: */
 
 NoteSelection *NoteSelection::nextStacked()
@@ -103,8 +105,8 @@ void debugSel(NoteSelection *sel, int n = 0)
 {
     for (NoteSelection *node = sel; node; node = node->next) {
         for (int i = 0; i < n; i++)
-            qDebug() << "-";
-        qDebug() << (node->firstChild ? QStringLiteral("Group") : node->note->content()->toText(QString()));
+            qCDebug(BASKET_LOG) << "-";
+        qCDebug(BASKET_LOG) << (node->firstChild ? QStringLiteral("Group") : node->note->content()->toText(QString()));
         if (node->firstChild)
             debugSel(node->firstChild, n + 1);
     }

@@ -52,6 +52,8 @@
 #include "tools.h"
 #include "variouswidgets.h"
 
+#include <basket_debug.h>
+
 /** class NoteEditor: */
 
 NoteEditor::NoteEditor(NoteContent *noteContent)
@@ -459,7 +461,7 @@ void HtmlEditor::onFontSelectionChanged(const QFont &font)
 
 void HtmlEditor::setBold(bool isChecked)
 {
-    qWarning() << "setBold " << isChecked;
+    qCWarning(BASKET_LOG) << "setBold " << isChecked;
     textEdit()->setFontWeight(isChecked ? QFont::Bold : QFont::Normal);
 }
 

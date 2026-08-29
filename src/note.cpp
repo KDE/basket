@@ -37,6 +37,8 @@
 #include "tag.h"
 #include "tools.h"
 
+#include <basket_debug.h>
+
 /** class Note: */
 
 #define FOR_EACH_CHILD(childVar) for (Note *childVar = firstChild(); childVar; childVar = childVar->next())
@@ -1142,7 +1144,7 @@ void Note::relayoutAt(qreal ax, qreal ay, bool animate)
 {
     if (!matching())
         return;
-    qDebug() << "Note::relayoutAt: " << ax << ", " << ay << " : " << animate;
+    qCDebug(BASKET_LOG) << "Note::relayoutAt: " << ax << ", " << ay << " : " << animate;
     m_computedAreas = false;
     m_areas.clear();
 
@@ -1189,7 +1191,7 @@ void Note::setX(qreal x, bool animate)
     if (!animate || !isAnimated()) {
         QGraphicsItemGroup::setX(x);
     } else {
-        qDebug() << "Note::setX: " << x << " : " << animate;
+        qCDebug(BASKET_LOG) << "Note::setX: " << x << " : " << animate;
         m_target_x = x;
         m_animX->setEndValue(x);
         m_animX->start();
@@ -1201,7 +1203,7 @@ void Note::setY(qreal y, bool animate)
     if (!animate || !isAnimated()) {
         QGraphicsItemGroup::setY(y);
     } else {
-        qDebug() << "Note::setY: " << y << " : " << animate;
+        qCDebug(BASKET_LOG) << "Note::setY: " << y << " : " << animate;
         m_target_y = y;
         m_animY->setEndValue(y);
         m_animY->start();
@@ -1210,26 +1212,26 @@ void Note::setY(qreal y, bool animate)
 
 void Note::setXRecursively(qreal x, bool animate)
 {
-    qDebug() << "Note::setXRecursively: " << x << " : " << animate;
+    qCDebug(BASKET_LOG) << "Note::setXRecursively: " << x << " : " << animate;
     setX(x, animate);
 
     FOR_EACH_CHILD(child)
     {
         child->setXRecursively(x + width(), animate);
     }
-    qDebug() << "Xrecursive done";
+    qCDebug(BASKET_LOG) << "Xrecursive done";
 }
 
 void Note::setYRecursively(qreal y, bool animate)
 {
-    qDebug() << "Note::setYRecursively: " << y << " : " << animate;
+    qCDebug(BASKET_LOG) << "Note::setYRecursively: " << y << " : " << animate;
     setY(y, animate);
 
     FOR_EACH_CHILD(child)
     {
         child->setYRecursively(y, animate);
     }
-    qDebug() << "Yrecursive done";
+    qCDebug(BASKET_LOG) << "Yrecursive done";
 }
 
 void Note::xAnimated(const QVariant &x)
@@ -2383,19 +2385,19 @@ bool Note::isShown()
 
 void Note::debug()
 {
-    qDebug() << "Note@" << (quint64)this;
+    qCDebug(BASKET_LOG) << "Note@" << (quint64)this;
     if (!this) {
-        qDebug();
+        qCDebug(BASKET_LOG);
         return;
     }
 
     if (isColumn())
-        qDebug() << ": Column";
+        qCDebug(BASKET_LOG) << ": Column";
     else if (isGroup())
-        qDebug() << ": Group";
+        qCDebug(BASKET_LOG) << ": Group";
     else
-        qDebug() << ": Content[" << content()->lowerTypeName() << "]: " << toText(QString());
-    qDebug();
+        qCDebug(BASKET_LOG) << ": Content[" << content()->lowerTypeName() << "]: " << toText(QString());
+    qCDebug(BASKET_LOG);
 }
 
 Note *Note::firstSelected()

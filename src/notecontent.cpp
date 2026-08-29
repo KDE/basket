@@ -55,6 +55,8 @@
 #include "tools.h"
 #include "xmlwork.h"
 
+#include <basket_debug.h>
+
 /**
  * LinkDisplayItem definition
  *
@@ -965,7 +967,7 @@ bool TextContent::loadFromFile(bool lazyLoad)
     if (success)
         setText(content, lazyLoad);
     else {
-        qDebug() << "FAILED TO LOAD TextContent: " << fullPath();
+        qCDebug(BASKET_LOG) << "FAILED TO LOAD TextContent: " << fullPath();
         setText(QString(), lazyLoad);
         if (!QFile::exists(fullPath()))
             TextContent::saveToFile(); // Reserve the fileName so no new note will have the same name!
@@ -1225,7 +1227,7 @@ bool ImageContent::finishLazyLoad()
         }
     }
 
-    qDebug() << "FAILED TO LOAD ImageContent: " << fullPath();
+    qCDebug(BASKET_LOG) << "FAILED TO LOAD ImageContent: " << fullPath();
     m_format = "PNG"; // If the image is set later, it should be saved without destruction, so we use PNG by default.
     pixmap = QPixmap(1, 1); // Create a 1x1 pixels image instead of an undefined one.
     pixmap.fill();
@@ -1626,7 +1628,7 @@ SoundContent::SoundContent(Note *parent, const QString &fileName)
 
 void SoundContent::stateChanged(int newState)
 {
-    qDebug() << "stateChanged to " << newState;
+    qCDebug(BASKET_LOG) << "stateChanged to " << newState;
 }
 
 bool SoundContent::loadFromFile(bool lazyLoad)
@@ -2566,7 +2568,7 @@ void LinkContent::decodeHtmlTitle()
     // todo: this should probably strip odd html tags like &nbsp; etc
     QRegularExpression reg(QStringLiteral("<title>[\\s]*(&nbsp;)?([^<]+)[\\s]*</title>"), QRegularExpression::CaseInsensitiveOption);
 
-    // qDebug() << *m_httpBuff << " bytes: " << bytes_read;
+    // qCDebug(BASKET_LOG) << *m_httpBuff << " bytes: " << bytes_read;
 
     if (httpBuff.indexOf(reg) >= 0) {
         QRegularExpressionMatch m = reg.match(httpBuff);

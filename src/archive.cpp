@@ -44,6 +44,8 @@
 #include <algorithm>
 #include <array>
 
+#include <basket_debug.h>
+
 void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &destination)
 {
     QDir dir;
@@ -71,7 +73,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
 
     dialog.setValue(dialog.value() + 1); // Preparation finished
 
-    qDebug() << "Preparation finished out of " << dialog.maximum();
+    qCDebug(BASKET_LOG) << "Preparation finished out of " << dialog.maximum();
 
     // Copy the baskets data into the archive:
     QStringList backgrounds;
@@ -177,7 +179,7 @@ void Archive::save(BasketScene *basket, bool withSubBaskets, const QString &dest
     }
 
     dialog.setValue(dialog.value() + 1); // Finishing finished
-    qDebug() << "Finishing finished";
+    qCDebug(BASKET_LOG) << "Finishing finished";
 
     // Clean Up Everything:
     dir.remove(tempFolder + QStringLiteral("preview.png"));
@@ -233,7 +235,7 @@ void Archive::saveBasketToArchive(BasketScene *basket,
     }
 
     progress->setValue(progress->value() + 1); // Basket exportation finished
-    qDebug() << basket->basketName() << " finished";
+    qCDebug(BASKET_LOG) << basket->basketName() << " finished";
 
     // Recursively save child baskets:
     BasketListViewItem *item = Global::bnpView->listViewItemForBasket(basket);

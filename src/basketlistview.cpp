@@ -34,6 +34,8 @@
 #include "settings.h"
 #include "tools.h"
 
+#include <basket_debug.h>
+
 /** class BasketListViewItem: */
 
 BasketListViewItem::BasketListViewItem(QTreeWidget *parent, BasketScene *basket)
@@ -363,7 +365,7 @@ void BasketTreeListView::removeExpands()
 
 void BasketTreeListView::dragLeaveEvent(QDragLeaveEvent *event)
 {
-    qDebug() << "BasketTreeListView::dragLeaveEvent";
+    qCDebug(BASKET_LOG) << "BasketTreeListView::dragLeaveEvent";
     m_autoOpenItem = nullptr;
     m_autoOpenTimer.stop();
     setItemUnderDrag(nullptr);
@@ -377,14 +379,14 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
         event->setDropAction(Qt::MoveAction);
         QTreeWidget::dropEvent(event);
     } else { // this handles application/x-basket-note drag events.
-        qDebug() << "Forwarding dropped data to the basket";
+        qCDebug(BASKET_LOG) << "Forwarding dropped data to the basket";
         event->setDropAction(Qt::MoveAction);
         QTreeWidgetItem *item = itemAt(event->position().toPoint());
         auto *bitem = dynamic_cast<BasketListViewItem *>(item);
         if (bitem) {
             bitem->basket()->blindDrop(event->mimeData(), event->dropAction(), event->source());
         } else {
-            qDebug() << "Forwarding failed: no bitem found";
+            qCDebug(BASKET_LOG) << "Forwarding failed: no bitem found";
         }
     }
 
@@ -398,7 +400,7 @@ void BasketTreeListView::dropEvent(QDropEvent *event)
 
 void BasketTreeListView::dragMoveEvent(QDragMoveEvent *event)
 {
-    // qDebug() << "BasketTreeListView::dragMoveEvent";
+    // qCDebug(BASKET_LOG) << "BasketTreeListView::dragMoveEvent";
 
     if (!event->mimeData()->hasFormat(TREE_ITEM_MIME_STRING)) {
         QTreeWidgetItem *item = itemAt(event->position().toPoint());
