@@ -310,6 +310,22 @@ void Settings::saveLinkLook(LinkLook *look, const QString &name)
     config.writeEntry("preview", previewString);
 }
 
+void Settings::setTreeOnLeft(bool onLeft)
+{
+    s_treeOnLeft = onLeft;
+    if (Global::bnpView)
+        Global::bnpView->setTreePlacement(onLeft);
+}
+
+void Settings::setFilterOnTop(bool onTop)
+{
+    if (s_filterOnTop != onTop) {
+        s_filterOnTop = onTop;
+        if (Global::bnpView)
+            Global::bnpView->filterPlacementChanged(onTop);
+    }
+}
+
 void Settings::setBigNotes(bool big)
 {
     if (big == s_bigNotes)

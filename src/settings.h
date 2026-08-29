@@ -292,20 +292,8 @@ public: /* And the following methods are just getter / setters */
     }
 
     /** App settings SET */
-    static void setTreeOnLeft(bool onLeft)
-    {
-        s_treeOnLeft = onLeft;
-        if (Global::bnpView)
-            Global::bnpView->setTreePlacement(onLeft);
-    }
-    static void setFilterOnTop(bool onTop)
-    {
-        if (s_filterOnTop != onTop) {
-            s_filterOnTop = onTop;
-            if (Global::bnpView)
-                Global::bnpView->filterPlacementChanged(onTop);
-        }
-    }
+    static void setTreeOnLeft(bool onLeft);
+    static void setFilterOnTop(bool onTop);
     static void setShowNotesToolTip(bool show)
     {
         s_showNotesToolTip = show;
