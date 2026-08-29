@@ -286,21 +286,6 @@ private:
     int m_columnCount;
     int m_rowCount;
     QPoint m_dragStartPos;
-
-protected:
-    /**
-     * Keep place for future improvements without having to break binary compatibility.\n
-     * Does nothing for the moment.
-     */
-    void virtual_hook(int id, void *data) override;
-
-private:
-    /**
-     * Keep place for future improvements without having to break binary compatibility.
-     */
-    class KColorCombo2Private;
-
-    KColorCombo2Private *d;
 };
 
 // TODO: setColorArray(QColor **, int, int) and use signals/slots ??

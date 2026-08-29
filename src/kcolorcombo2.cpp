@@ -311,12 +311,6 @@ QColor Tool_mixColors(const QColor &color1, const QColor &color2)
     return mixedColor;
 }
 
-/** class KColorCombo2Private */
-
-class KColorCombo2::KColorCombo2Private
-{
-};
-
 /** class KColorCombo2: */
 
 /* All code for the popup management (including the constructor, popup() and eventFilter())
@@ -346,7 +340,6 @@ KColorCombo2::KColorCombo2(const QColor &color, QWidget *parent)
 void KColorCombo2::init()
 {
     m_colorArray = nullptr;
-    d = new KColorCombo2Private();
 
     setDefaultColor(m_defaultColor);
     insertItem(/*index=*/0, QString());
@@ -741,11 +734,6 @@ void KColorCombo2::fontChange(const QFont &)
 {
     // Since the color-rectangle is the same height of the text, we should resize it if the font change:
     updateComboBox();
-}
-
-void KColorCombo2::virtual_hook(int /*id*/, void * /*data*/)
-{
-    /* KBASE::virtual_hook(id, data); */
 }
 
 void KColorCombo2::popupClosed()
