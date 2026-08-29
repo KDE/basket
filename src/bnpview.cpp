@@ -24,6 +24,7 @@
 #include <QShowEvent>
 #include <QStackedWidget>
 #include <QUndoStack>
+#include <QXmlStreamWriter>
 #include <QtXml/QDomDocument>
 
 #include <KAboutData>
@@ -40,6 +41,7 @@
 #include <KStandardShortcut>
 #include <KToggleAction>
 #include <KWindowSystem>
+#include <KXMLGUIClient>
 #include <KXMLGUIFactory>
 
 #include <cstdlib>
@@ -58,6 +60,7 @@
 #include "decoratedbasket.h"
 #include "formatimporter.h"
 #include "gitwrapper.h"
+#include "global.h"
 #include "history.h"
 #include "htmlexporter.h"
 #include "newbasketdialog.h"
@@ -76,6 +79,7 @@
 #include <QStandardPaths>
 #include <qdbusconnection.h>
 
+#include <config.h>
 // #include "bnpviewadaptor.h"
 
 using namespace std::chrono_literals;

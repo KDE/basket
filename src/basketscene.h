@@ -12,9 +12,7 @@
 #include <QSet>
 #include <QTextCursor>
 #include <QTimer>
-#include <QXmlStreamWriter>
 
-#include "animation.h"
 #include "config.h"
 #include "note.h" // For Note::Zone
 
@@ -32,14 +30,17 @@ class QAction;
 class KDirWatch;
 class QKeySequence;
 class QUrl;
+class QXmlStreamWriter;
 
 namespace KIO
 {
 class Job;
 }
 
+class BasketAnimations;
 class DecoratedBasket;
 class Note;
+class NoteAnimation;
 class NoteEditor;
 class Tag;
 

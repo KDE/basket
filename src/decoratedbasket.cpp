@@ -11,7 +11,9 @@
 #include <QVBoxLayout>
 
 #include "basketscene.h"
+#include "bnpview.h"
 #include "filter.h"
+#include "global.h"
 #include "settings.h"
 
 /** Class DecoratedBasket: */

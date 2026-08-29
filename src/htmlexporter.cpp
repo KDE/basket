@@ -11,6 +11,7 @@
 #include "bnpview.h"
 #include "common.h"
 #include "config.h"
+#include "global.h"
 #include "linklabel.h"
 #include "note.h"
 #include "notecontent.h"

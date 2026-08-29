@@ -9,10 +9,8 @@
 
 #include <QGraphicsItem>
 #include <QMap>
-#include <QNetworkAccessManager>
 #include <QObject>
 #include <QUrl>
-#include <QXmlStreamWriter>
 
 #include "basket_export.h"
 #include "linklabel.h"
@@ -22,12 +20,15 @@ class QColor;
 class QMediaPlayer;
 class QMimeData;
 class QMovie;
+class QNetworkAccessManager;
+class QNetworkReply;
 class QPainter;
 class QPixmap;
 class QPoint;
 class QRect;
 class QString;
 class QTextDocument;
+class QXmlStreamWriter;
 class QWidget;
 
 class KFileItem;

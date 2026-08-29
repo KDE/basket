@@ -6,6 +6,7 @@
 #include "settings_versionsync.h"
 #include "aboutdata.h"
 #include "config.h"
+#include "global.h"
 #include "settings.h"
 #include "tools.h"
 #include "ui_settings_versionsync.h"

@@ -7,10 +7,6 @@
 #define DEBUGWINDOW_H
 
 #include <QDebug>
-#include <QFile>
-#include <QLatin1String>
-#include <QStringLiteral>
-#include <QTextStream>
 #include <QWidget>
 
 #include "global.h"

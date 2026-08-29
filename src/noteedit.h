@@ -9,9 +9,6 @@
 
 #include <QClipboard>
 #include <QDialog>
-#include <QLineEdit>
-
-#include "notecontent.h"
 
 class QGraphicsProxyWidget;
 class QWidget;
@@ -19,6 +16,7 @@ class QPushButton;
 class QFontComboBox;
 class QTextCharFormat;
 class QAction;
+class QLineEdit;
 
 class KIconButton;
 class KUrlRequester;
@@ -29,11 +27,23 @@ class KActionCollection;
 class KComboBox;
 class KColorCombo;
 
+class BasketScene;
 class FontSizeCombo;
 class Note;
 class ServiceLaunchRequester;
 class FocusWidgetFilter;
 class BasketListViewItem;
+class NoteContent;
+class TextContent;
+class HtmlContent;
+class ImageContent;
+class AnimationContent;
+class FileContent;
+class LinkContent;
+class CrossReferenceContent;
+class LauncherContent;
+class ColorContent;
+class UnknownContent;
 
 /** The base class for every note editor.
  * Scenario:

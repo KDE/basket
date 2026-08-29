@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QString>
 #include <QStringList>
+#include <QXmlStreamWriter>
 #include <QtXml/QDomDocument>
 
 QDomDocument *XMLWork::openFile(const QString &name, const QString &filePath)

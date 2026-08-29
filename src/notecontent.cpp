@@ -21,11 +21,13 @@
 #include <QFileInfo>
 #include <QFontMetrics>
 #include <QMovie>
+#include <QNetworkAccessManager>
 #include <QPainter>
 #include <QPixmap>
 #include <QRegularExpression>
 #include <QStringList>
 #include <QWidget>
+#include <QXmlStreamWriter>
 #include <QtNetwork/QNetworkReply>
 #include <QtXml/QDomElement>
 
@@ -39,6 +41,7 @@
 #include <algorithm>
 
 #include "basketscene.h"
+#include "bnpview.h"
 #include "common.h"
 #include "config.h"
 #include "debugwindow.h"

@@ -19,6 +19,7 @@
 #include <QStringList>
 #include <QTemporaryDir>
 #include <QTextStream>
+#include <QXmlStreamWriter>
 #include <QtXml/QDomDocument>
 
 #include <KAboutData>

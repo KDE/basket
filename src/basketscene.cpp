@@ -26,6 +26,10 @@
 #include <QFocusEvent>
 #include <QFrame>
 #include <QGraphicsProxyWidget>
+#include <QGraphicsSceneContextMenuEvent>
+#include <QGraphicsSceneDragDropEvent>
+#include <QGraphicsSceneHelpEvent>
+#include <QGraphicsSceneMouseEvent>
 #include <QGridLayout>
 #include <QInputDialog>
 #include <QKeyEvent>
@@ -45,6 +49,7 @@
 #include <QTimeLine>
 #include <QToolTip>
 #include <QWheelEvent>
+#include <QXmlStreamWriter>
 #include <QtXml/QDomDocument>
 
 #include <KAboutData>
@@ -72,6 +77,7 @@
 #include "animation.h"
 #include "backgroundmanager.h"
 #include "basketview.h"
+#include "bnpview.h"
 #include "common.h"
 #include "debugwindow.h"
 #include "decoratedbasket.h"

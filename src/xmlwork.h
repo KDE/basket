@@ -8,10 +8,10 @@
 #define XMLWORKXMLWORK_H
 
 #include <QString>
-#include <QXmlStreamWriter>
 
 class QDomDocument;
 class QDomElement;
+class QXmlStreamWriter;
 
 /** All related functions to manage XML files and trees
  * @author Sébastien Laoût

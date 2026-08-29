@@ -7,15 +7,10 @@
 #define BNPVIEW_H
 
 #include <QSplitter>
-#include <QXmlStreamWriter>
 #include <QtCore/QList>
 #include <QtGui/QClipboard>
 
-#include <KXMLGUIClient>
-
 #include "basket_export.h"
-#include "global.h"
-#include <memory>
 
 class QDomElement;
 
@@ -30,6 +25,9 @@ class QShowEvent;
 class QAction;
 class KToggleAction;
 class QMenu;
+class QXmlStreamWriter;
+class KActionCollection;
+class KXMLGUIClient;
 
 class ColorPicker;
 class RegionGrabber;

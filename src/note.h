@@ -12,13 +12,13 @@
 #include <QList>
 #include <QSet>
 
-#include "animation.h"
 #include "basket_export.h"
 #include "tag.h"
 
 class BasketScene;
 struct FilterData;
 
+class NoteAnimation;
 class NoteContent;
 class NoteSelection;
 

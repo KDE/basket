@@ -8,10 +8,10 @@
 #define NOTEDRAG_H
 
 #include <QDrag>
-#include <QGraphicsSceneDragDropEvent>
 #include <QList>
 
 class QDataStream;
+class QGraphicsSceneDragDropEvent;
 class QPixmap;
 class QString;
 

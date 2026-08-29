@@ -10,12 +10,9 @@
 #include <KCModule>
 #include <KCMultiDialog>
 
-#include <QAction> //For UseSysTray
 #include <QDate>
 
 #include "basket_export.h"
-#include "bnpview.h"
-#include "debugwindow.h"
 
 class KComboBox;
 

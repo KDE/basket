@@ -6,7 +6,10 @@
 #include "debugwindow.h"
 
 #include <QCloseEvent>
+#include <QFile>
 #include <QString>
+#include <QStringLiteral>
+#include <QTextStream>
 #include <QVBoxLayout>
 
 #include <QTextBrowser>

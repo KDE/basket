@@ -42,7 +42,9 @@
 
 #include "basketlistview.h"
 #include "basketscene.h"
+#include "bnpview.h"
 #include "focusedwidgets.h"
+#include "global.h"
 #include "note.h"
 #include "notecontent.h"
 #include "notefactory.h"

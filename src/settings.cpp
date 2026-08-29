@@ -33,9 +33,14 @@
 
 #include "aboutdata.h"
 #include "basketscene.h"
+#include "bnpview.h"
+#include "debugwindow.h"
+#include "global.h"
 #include "kgpgme.h"
 #include "linklabel.h"
 #include "variouswidgets.h"
+
+#include <config.h>
 
 /** Settings */
 

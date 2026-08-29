@@ -10,6 +10,7 @@
 #include <QBuffer>
 #include <QDir>
 #include <QDragEnterEvent>
+#include <QGraphicsSceneDragDropEvent>
 #include <QList>
 #include <QMimeData>
 #include <QPainter>

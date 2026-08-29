@@ -15,6 +15,7 @@
 
 #include "application.h"
 #include "backup.h"
+#include "bnpview.h"
 #include "global.h"
 #include "mainwindow.h"
 #ifdef DEBUG_PIPE
