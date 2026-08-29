@@ -22,8 +22,6 @@ void setupCmdLineOptions(QCommandLineParser *opts)
                                        i18nc("Command line help: --data-folder <FOLDER>", "folder")));
     opts->addOption(QCommandLineOption(QStringLiteral("start-hidden"),
                                        i18n("Automatically hide the main window in the system tray on startup."))); //
-    opts->addOption(QCommandLineOption(QStringList() << QStringLiteral("k") << QStringLiteral("use-drkonqi"),
-                                       i18n("On crash, use the standard KDE crash handler rather than send an email.")));
 
     opts->addPositionalArgument(QStringLiteral("file"), i18n("Open a basket archive or template."));
 }
