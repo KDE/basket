@@ -9,7 +9,7 @@
 
 #include <KCModule>
 #include <KCMultiDialog>
-#include <KMainWindow> //For Global::mainWindow()
+#include <KMainWindow>
 
 #include <QAction> //For UseSysTray
 #include <QDate>

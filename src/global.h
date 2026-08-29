@@ -19,8 +19,6 @@ class BackgroundManager;
 class BNPView;
 class QCommandLineParser;
 
-class MainWindow;
-
 /** Handle all global variables of the application.
  * This file only declare classes : developer should include
  * the .h files of variables he use.
@@ -38,7 +36,6 @@ public:
     static BNPView *bnpView;
     static KSharedConfig::Ptr basketConfig;
     static QCommandLineParser *commandLineOpts;
-    static MainWindow *mainWnd;
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
@@ -55,7 +52,6 @@ public:
     static void initializeGitIfNeeded(QString savesFolder);
     static QString openNoteIcon(); /// << @return the icon used for the "Open" action on notes.
     static KMainWindow *activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
-    static MainWindow *mainWindow(); /// << @returns Main window (always not NULL after it has been actually created)
     static KConfig *config();
 };
 

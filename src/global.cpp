@@ -26,7 +26,6 @@ BackgroundManager *Global::backgroundManager = nullptr;
 BNPView *Global::bnpView = nullptr;
 KSharedConfig::Ptr Global::basketConfig;
 QCommandLineParser *Global::commandLineOpts = nullptr;
-MainWindow *Global::mainWnd = nullptr;
 
 void Global::setCustomSavesFolder(const QString &folder)
 {
@@ -93,11 +92,6 @@ KMainWindow *Global::activeMainWindow()
         return static_cast<KMainWindow *>(res);
     }
     return nullptr;
-}
-
-MainWindow *Global::mainWindow()
-{
-    return mainWnd;
 }
 
 KConfig *Global::config()

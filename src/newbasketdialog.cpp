@@ -24,7 +24,7 @@
 #include <KIconButton>
 #include <KIconLoader>
 #include <KLocalizedString>
-#include <KMainWindow> //For Global::mainWindow()
+#include <KMainWindow>
 #include <KMessageBox>
 
 #include <algorithm>
