@@ -12,16 +12,22 @@
 #include <QXmlStreamWriter>
 #include <QtXml/QDomDocument>
 
+#include <basket_debug.h>
+
 QDomDocument *XMLWork::openFile(const QString &name, const QString &filePath)
 {
     auto *doc = new QDomDocument(name);
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
+        qCWarning(BASKET_LOG) << "XMLWork::openFile: failed to open" << filePath << ":" << file.errorString();
         // QMessageBox::information(this, "Load an XML file", "Error : un-openable file");
         delete doc;
         return nullptr;
     }
-    if (!doc->setContent(&file)) {
+    const QDomDocument::ParseResult result = doc->setContent(&file);
+    if (!result) {
+        qCWarning(BASKET_LOG) << "XMLWork::openFile: failed to parse" << filePath << " at line/column" << result.errorLine << result.errorColumn << ":"
+                              << result.errorMessage;
         // QMessageBox::information(this, "Load an XML file", "Error : malformed content");
         file.close();
         delete doc;
