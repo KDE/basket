@@ -126,7 +126,7 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
 
 BNPView::~BNPView()
 {
-    int treeWidth = Global::bnpView->sizes()[Settings::treeOnLeft() ? 0 : 1];
+    int treeWidth = sizes()[Settings::treeOnLeft() ? 0 : 1];
 
     Settings::setBasketTreeWidth(treeWidth);
 
@@ -216,79 +216,79 @@ void BNPView::setupGlobalShortcuts()
 
     const Qt::Modifiers modifier = Qt::CTRL | Qt::ALT | Qt::SHIFT;
 
-    a = ac->addAction(QStringLiteral("global_paste"), Global::bnpView, &BNPView::globalPasteInCurrentBasket);
+    a = ac->addAction(QStringLiteral("global_paste"), this, &BNPView::globalPasteInCurrentBasket);
     a->setText(i18n("Paste clipboard contents in current basket"));
     a->setStatusTip(
         i18n("Allows you to paste clipboard contents in the current basket "
              "without having to open the main window."));
     KGlobalAccel::setGlobalShortcut(a, QKeySequence(modifier | Qt::Key_V));
 
-    a = ac->addAction(QStringLiteral("global_paste_selection"), Global::bnpView, &BNPView::pasteSelInCurrentBasket);
+    a = ac->addAction(QStringLiteral("global_paste_selection"), this, &BNPView::pasteSelInCurrentBasket);
     a->setText(i18n("Paste selection in current basket"));
     a->setStatusTip(
         i18n("Allows you to paste clipboard selection in the current basket "
              "without having to open the main window."));
     KGlobalAccel::setGlobalShortcut(a, (QKeySequence(Qt::CTRL | Qt::ALT | Qt::SHIFT | Qt::Key_S)));
 
-    a = ac->addAction(QStringLiteral("global_new_basket"), Global::bnpView, qOverload<>(&BNPView::askNewBasket));
+    a = ac->addAction(QStringLiteral("global_new_basket"), this, qOverload<>(&BNPView::askNewBasket));
     a->setText(i18n("Create a new basket"));
     a->setStatusTip(
         i18n("Allows you to create a new basket without having to open the "
              "main window (you then can use the other global shortcuts to add "
              "a note, paste clipboard or paste selection in this new basket)."));
 
-    a = ac->addAction(QStringLiteral("global_previous_basket"), Global::bnpView, &BNPView::goToPreviousBasket);
+    a = ac->addAction(QStringLiteral("global_previous_basket"), this, &BNPView::goToPreviousBasket);
     a->setText(i18n("Go to previous basket"));
     a->setStatusTip(
         i18n("Allows you to change current basket to the previous one without "
              "having to open the main window."));
 
-    a = ac->addAction(QStringLiteral("global_next_basket"), Global::bnpView, &BNPView::goToNextBasket);
+    a = ac->addAction(QStringLiteral("global_next_basket"), this, &BNPView::goToNextBasket);
     a->setText(i18n("Go to next basket"));
     a->setStatusTip(
         i18n("Allows you to change current basket to the next one "
              "without having to open the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_add_html"), Global::bnpView, &BNPView::addNoteHtml);
+    a = ac->addAction(QStringLiteral("global_note_add_html"), this, &BNPView::addNoteHtml);
     a->setText(i18n("Insert text note"));
     a->setStatusTip(
         i18n("Add a text note to the current basket without having to open "
              "the main window."));
     KGlobalAccel::setGlobalShortcut(a, (QKeySequence(modifier | Qt::Key_T)));
 
-    a = ac->addAction(QStringLiteral("global_note_add_image"), Global::bnpView, &BNPView::addNoteImage);
+    a = ac->addAction(QStringLiteral("global_note_add_image"), this, &BNPView::addNoteImage);
     a->setText(i18n("Insert image note"));
     a->setStatusTip(
         i18n("Add an image note to the current basket without having to open "
              "the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_add_link"), Global::bnpView, &BNPView::addNoteLink);
+    a = ac->addAction(QStringLiteral("global_note_add_link"), this, &BNPView::addNoteLink);
     a->setText(i18n("Insert link note"));
     a->setStatusTip(
         i18n("Add a link note to the current basket without having "
              "to open the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_add_color"), Global::bnpView, &BNPView::addNoteColor);
+    a = ac->addAction(QStringLiteral("global_note_add_color"), this, &BNPView::addNoteColor);
     a->setText(i18n("Insert color note"));
     a->setStatusTip(
         i18n("Add a color note to the current basket without having to open "
              "the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_pick_color"), Global::bnpView, &BNPView::slotColorFromScreenGlobal);
+    a = ac->addAction(QStringLiteral("global_note_pick_color"), this, &BNPView::slotColorFromScreenGlobal);
     a->setText(i18n("Pick color from screen"));
     a->setStatusTip(
         i18n("Add a color note picked from one pixel on screen to the current "
              "basket without "
              "having to open the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_grab_screenshot"), Global::bnpView, &BNPView::grabScreenshotGlobal);
+    a = ac->addAction(QStringLiteral("global_note_grab_screenshot"), this, &BNPView::grabScreenshotGlobal);
     a->setText(i18n("Grab screen zone"));
     a->setStatusTip(
         i18n("Grab a screen zone as an image in the current basket without "
              "having to open the main window."));
 
 #if 0
-    a = ac->addAction("global_note_add_text", Global::bnpView,
+    a = ac->addAction("global_note_add_text", this,
                       &BNPView::addNoteText);
     a->setText(i18n("Insert plain text note"));
     a->setStatusTip(
@@ -1467,7 +1467,7 @@ void checkNote(Note *note, QList<QString> &fileList)
     }
 }
 
-void checkBasket(BasketListViewItem *item, QList<QString> &dirList, QList<QString> &fileList)
+void checkBasket(BasketScene *currentBasket, BasketListViewItem *item, QList<QString> &dirList, QList<QString> &fileList)
 {
     BasketScene *basket = ((BasketListViewItem *)item)->basket();
     QString basketFolderName = basket->folderName();
@@ -1497,9 +1497,9 @@ void checkBasket(BasketListViewItem *item, QList<QString> &dirList, QList<QStrin
     basket->save();
     qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 100);
     for (int i = 0; i < item->childCount(); i++) {
-        checkBasket((BasketListViewItem *)item->child(i), dirList, fileList);
+        checkBasket(currentBasket, (BasketListViewItem *)item->child(i), dirList, fileList);
     }
-    if (basket != Global::bnpView->currentBasket()) {
+    if (basket != currentBasket) {
         DEBUG_WIN << basket->basketName() << QStringLiteral("(") << basketFolderName << QStringLiteral(") unloading...");
         DEBUG_WIN << QStringLiteral("\t********************************************************************************");
         basket->unbufferizeAll();
@@ -1543,7 +1543,7 @@ void BNPView::checkCleanup()
 
     DEBUG_WIN << QStringLiteral("Checking Baskets:");
     for (int i = 0; i < topLevelItemCount(); i++) {
-        checkBasket(topLevelItem(i), dirList, fileList);
+        checkBasket(currentBasket(), topLevelItem(i), dirList, fileList);
     }
     DEBUG_WIN << QStringLiteral("Baskets checked.");
     DEBUG_WIN << QStringLiteral("Directories remaining (not in any basket): ") + QString::number(dirList.count());
