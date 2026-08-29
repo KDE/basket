@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl_PL\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:49+0000\n"
+"POT-Creation-Date: 2026-08-29 00:48+0000\n"
 "PO-Revision-Date: 2026-04-11 08:49+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -619,32 +619,12 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:47
-#, kde-format
-msgid "Basket Properties"
-msgstr "Właściwości koszyka"
-
-#: src/basketproperties.cpp:71 src/newbasketdialog.cpp:112
-#, kde-format
-msgid "Icon"
-msgstr "Ikona"
-
-#: src/basketproperties.cpp:74 src/kgpgme.cpp:65 src/newbasketdialog.cpp:117
-#, kde-format
-msgid "Name"
-msgstr "Nazwa"
-
-#: src/basketproperties.cpp:90
-#, kde-format
-msgid "(None)"
-msgstr "(Brak)"
-
-#: src/basketproperties.cpp:135
+#: src/basketproperties.cpp:118
 #, kde-format
 msgid "Learn some tips..."
 msgstr "Trochę wskazówek..."
 
-#: src/basketproperties.cpp:136
+#: src/basketproperties.cpp:119
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -674,74 +654,98 @@ msgstr ""
 "zawartości schowka lub zaznaczenia do bieżącego koszyka z każdego programu.</"
 "p>"
 
-#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1109
+#. i18n: ectx: property (windowTitle), widget (QDialog, BasketPropertiesUi)
+#: src/basketproperties.ui:14
 #, kde-format
-msgid "Appearance"
-msgstr "Wygląd"
+msgid "Basket Properties"
+msgstr "Właściwości koszyka"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/basketproperties.ui:48
+#. i18n: ectx: property (toolTip), widget (KIconButton, icon)
+#: src/basketproperties.ui:25 src/newbasketdialog.cpp:113
 #, kde-format
-msgid "Background &image:"
-msgstr "&Obraz tła:"
+msgid "Icon"
+msgstr "Ikona"
 
-#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
-#: src/basketproperties.ui:58
+#. i18n: ectx: property (toolTip), widget (QLineEdit, name)
+#: src/basketproperties.ui:35 src/kgpgme.cpp:65 src/newbasketdialog.cpp:118
 #, kde-format
-msgid "&Background color:"
-msgstr "&Kolor tła:"
-
-#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: src/basketproperties.ui:65
-#, kde-format
-msgid "&Text color:"
-msgstr "Kolor &tekstu:"
+msgid "Name"
+msgstr "Nazwa"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
-#: src/basketproperties.ui:75
+#: src/basketproperties.ui:44
 #, kde-format
 msgid "Disposition"
 msgstr "Dyspozycja"
 
 #. i18n: ectx: property (text), widget (QRadioButton, columnForm)
-#: src/basketproperties.ui:81
+#: src/basketproperties.ui:50
 #, kde-format
 msgid "Col&umns:"
 msgstr "Kol&umny:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
-#: src/basketproperties.ui:88
+#: src/basketproperties.ui:57
 #, kde-format
 msgid "&Free-form"
 msgstr "&Swobodny"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mindMap)
-#: src/basketproperties.ui:114
+#: src/basketproperties.ui:90
 #, kde-format
 msgid "&Mind map"
 msgstr "&Mapa umysłu"
 
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: src/basketproperties.ui:100 src/settings.cpp:483 src/tagsedit.cpp:1109
+#, kde-format
+msgid "Appearance"
+msgstr "Wygląd"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, backgroundImage)
+#: src/basketproperties.ui:125
+#, kde-format
+msgid "(None)"
+msgstr "(Brak)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/basketproperties.ui:133
+#, kde-format
+msgid "Background &image:"
+msgstr "&Obraz tła:"
+
+#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
+#: src/basketproperties.ui:143
+#, kde-format
+msgid "&Background color:"
+msgstr "&Kolor tła:"
+
+#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
+#: src/basketproperties.ui:150
+#, kde-format
+msgid "&Text color:"
+msgstr "Kolor &tekstu:"
+
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: src/basketproperties.ui:124
+#: src/basketproperties.ui:160
 #, kde-format
 msgid "Keyboard Shortcut"
 msgstr "Skrót klawiszowy"
 
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: src/basketproperties.ui:151
+#: src/basketproperties.ui:187
 #, kde-format
 msgid "S&how this basket"
 msgstr "&Pokaż ten koszyk"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: src/basketproperties.ui:158
+#: src/basketproperties.ui:194
 #, kde-format
 msgid "Show this basket (&global shortcut)"
 msgstr "Pokaż ten koszyk (skrót &globalny)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: src/basketproperties.ui:165
+#: src/basketproperties.ui:201
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
 msgstr "Przełącz &do tego koszyka (skrót globalny)"
@@ -2136,72 +2140,72 @@ msgstr "Przykład"
 msgid "Minimize"
 msgstr "Minimalizuj"
 
-#: src/mainwindow.cpp:249
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>Czy na pewno chcesz zamknąć %1?</p>"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:257
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Potwierdź zakończenie"
 
-#: src/newbasketdialog.cpp:88
+#: src/newbasketdialog.cpp:89
 #, kde-format
 msgid "New Basket"
 msgstr "Nowy koszyk"
 
-#: src/newbasketdialog.cpp:122
+#: src/newbasketdialog.cpp:123
 #, kde-format
 msgid "Background color"
 msgstr "Kolor tła"
 
-#: src/newbasketdialog.cpp:130
+#: src/newbasketdialog.cpp:131
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "&Zarządzaj szablonami..."
 
-#: src/newbasketdialog.cpp:167
+#: src/newbasketdialog.cpp:168
 #, kde-format
 msgid "One column"
 msgstr "Jedna kolumna"
 
-#: src/newbasketdialog.cpp:177
+#: src/newbasketdialog.cpp:178
 #, kde-format
 msgid "Two columns"
 msgstr "Dwie kolumny"
 
-#: src/newbasketdialog.cpp:188
+#: src/newbasketdialog.cpp:189
 #, kde-format
 msgid "Three columns"
 msgstr "Trzy kolumny"
 
-#: src/newbasketdialog.cpp:199
+#: src/newbasketdialog.cpp:200
 #, kde-format
 msgid "Free-form"
 msgstr "Swobodny"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:210
 #, kde-format
 msgid "&Template:"
 msgstr "&Szablon:"
 
-#: src/newbasketdialog.cpp:219
+#: src/newbasketdialog.cpp:220
 #, kde-format
 msgid "(Baskets)"
 msgstr "(Koszyki)"
 
-#: src/newbasketdialog.cpp:221
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid "C&reate in:"
 msgstr "Utwo&rzony w:"
 
-#: src/newbasketdialog.cpp:223
+#: src/newbasketdialog.cpp:224
 #, kde-format
 msgid "How is it useful?"
 msgstr "Do czego to służy?"
 
-#: src/newbasketdialog.cpp:224
+#: src/newbasketdialog.cpp:225
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2267,7 +2271,7 @@ msgstr "Odsyłacz"
 msgid "Launcher"
 msgstr "Uruchamianie programu"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1100
+#: src/notecontent.cpp:111 src/noteedit.cpp:1106
 #, kde-format
 msgid "Color"
 msgstr "Kolor"
@@ -2730,7 +2734,7 @@ msgstr "Zmień nieznaną notatkę"
 msgid "Edit Link Note"
 msgstr "Zmień odnośnik"
 
-#: src/noteedit.cpp:714 src/noteedit.cpp:875
+#: src/noteedit.cpp:714 src/noteedit.cpp:878
 #, kde-format
 msgid "Ta&rget:"
 msgstr "&Cel:"
@@ -2745,102 +2749,102 @@ msgstr "Automatycznie"
 msgid "&Title:"
 msgstr "&Tytuł:"
 
-#: src/noteedit.cpp:743 src/noteedit.cpp:998
+#: src/noteedit.cpp:743 src/noteedit.cpp:1001
 #, kde-format
 msgid "&Icon:"
 msgstr "&Ikona:"
 
-#: src/noteedit.cpp:864
+#: src/noteedit.cpp:867
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Edytuj odniesienie bibliograficzne"
 
-#: src/noteedit.cpp:965
+#: src/noteedit.cpp:968
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Zmień uruchamianie programu"
 
-#: src/noteedit.cpp:977
+#: src/noteedit.cpp:980
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Wybierz polecenie do uruchomienia:"
 
-#: src/noteedit.cpp:978
+#: src/noteedit.cpp:981
 #, kde-format
 msgid "Comman&d:"
 msgstr "P&olecenie:"
 
-#: src/noteedit.cpp:981 src/tagsedit.cpp:387
+#: src/noteedit.cpp:984 src/tagsedit.cpp:387
 #, kde-format
 msgid "&Name:"
 msgstr "&Nazwa:"
 
-#: src/noteedit.cpp:989
+#: src/noteedit.cpp:992
 #, kde-format
 msgid "&Guess"
 msgstr "Od&gadnij"
 
-#: src/noteedit.cpp:1082
+#: src/noteedit.cpp:1088
 #, kde-format
 msgid "Font"
 msgstr "Czcionka"
 
-#: src/noteedit.cpp:1090
+#: src/noteedit.cpp:1096
 #, kde-format
 msgid "Font Size"
 msgstr "Rozmiar czcionki"
 
-#: src/noteedit.cpp:1105 src/tagsedit.cpp:469
+#: src/noteedit.cpp:1111 src/tagsedit.cpp:469
 #, kde-format
 msgid "Bold"
 msgstr "Pogrubienie"
 
-#: src/noteedit.cpp:1112 src/tagsedit.cpp:481
+#: src/noteedit.cpp:1118 src/tagsedit.cpp:481
 #, kde-format
 msgid "Italic"
 msgstr "Kursywa"
 
-#: src/noteedit.cpp:1119 src/tagsedit.cpp:475
+#: src/noteedit.cpp:1125 src/tagsedit.cpp:475
 #, kde-format
 msgid "Underline"
 msgstr "Podkreślenie"
 
-#: src/noteedit.cpp:1127
+#: src/noteedit.cpp:1133
 #, kde-format
 msgid "Superscript"
 msgstr "Indeks górny"
 
-#: src/noteedit.cpp:1133
+#: src/noteedit.cpp:1139
 #, kde-format
 msgid "Subscript"
 msgstr "Indeks dolny"
 
-#: src/noteedit.cpp:1140
+#: src/noteedit.cpp:1146
 #, kde-format
 msgid "Align Left"
 msgstr "Wyrównaj do lewej"
 
-#: src/noteedit.cpp:1146
+#: src/noteedit.cpp:1152
 #, kde-format
 msgid "Centered"
 msgstr "Wyśrodkowanie"
 
-#: src/noteedit.cpp:1152
+#: src/noteedit.cpp:1158
 #, kde-format
 msgid "Align Right"
 msgstr "Do prawej"
 
-#: src/noteedit.cpp:1158
+#: src/noteedit.cpp:1164
 #, kde-format
 msgid "Justified"
 msgstr "Wyjustowanie"
 
-#: src/noteedit.cpp:1170
+#: src/noteedit.cpp:1176
 #, kde-format
 msgid "Undo"
 msgstr "Cofnij"
 
-#: src/noteedit.cpp:1176
+#: src/noteedit.cpp:1182
 #, kde-format
 msgid "Redo"
 msgstr "Przywróć"

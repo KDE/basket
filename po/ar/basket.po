@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:49+0000\n"
+"POT-Creation-Date: 2026-08-29 00:48+0000\n"
 "PO-Revision-Date: 2026-06-08 21:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -602,32 +602,12 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:47
-#, kde-format
-msgid "Basket Properties"
-msgstr "خصائص السلة"
-
-#: src/basketproperties.cpp:71 src/newbasketdialog.cpp:112
-#, kde-format
-msgid "Icon"
-msgstr "الأيقونة"
-
-#: src/basketproperties.cpp:74 src/kgpgme.cpp:65 src/newbasketdialog.cpp:117
-#, kde-format
-msgid "Name"
-msgstr "الاسم"
-
-#: src/basketproperties.cpp:90
-#, kde-format
-msgid "(None)"
-msgstr "(لاشيء)"
-
-#: src/basketproperties.cpp:135
+#: src/basketproperties.cpp:118
 #, kde-format
 msgid "Learn some tips..."
 msgstr "تعلم بعض النصائح..."
 
-#: src/basketproperties.cpp:136
+#: src/basketproperties.cpp:119
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -655,74 +635,98 @@ msgstr ""
 "العامة القابلة للتخصيص، على سبيل المثال، لصق الحافظة أو التحديد في السلة "
 "الحالية من أي مكان.</p>"
 
-#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:27 src/settings.cpp:483 src/tagsedit.cpp:1109
+#. i18n: ectx: property (windowTitle), widget (QDialog, BasketPropertiesUi)
+#: src/basketproperties.ui:14
 #, kde-format
-msgid "Appearance"
-msgstr "المظهر"
+msgid "Basket Properties"
+msgstr "خصائص السلة"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/basketproperties.ui:48
+#. i18n: ectx: property (toolTip), widget (KIconButton, icon)
+#: src/basketproperties.ui:25 src/newbasketdialog.cpp:113
 #, kde-format
-msgid "Background &image:"
-msgstr "&صورة الخلفية:"
+msgid "Icon"
+msgstr "الأيقونة"
 
-#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
-#: src/basketproperties.ui:58
+#. i18n: ectx: property (toolTip), widget (QLineEdit, name)
+#: src/basketproperties.ui:35 src/kgpgme.cpp:65 src/newbasketdialog.cpp:118
 #, kde-format
-msgid "&Background color:"
-msgstr "لون ال&خلفية:"
-
-#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: src/basketproperties.ui:65
-#, kde-format
-msgid "&Text color:"
-msgstr "لون ال&نّصّ:"
+msgid "Name"
+msgstr "الاسم"
 
 #. i18n: ectx: property (title), widget (QGroupBox, dispositionGroup)
-#: src/basketproperties.ui:75
+#: src/basketproperties.ui:44
 #, kde-format
 msgid "Disposition"
 msgstr "الترتيب"
 
 #. i18n: ectx: property (text), widget (QRadioButton, columnForm)
-#: src/basketproperties.ui:81
+#: src/basketproperties.ui:50
 #, kde-format
 msgid "Col&umns:"
 msgstr "الأ&عمدة:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, freeForm)
-#: src/basketproperties.ui:88
+#: src/basketproperties.ui:57
 #, kde-format
 msgid "&Free-form"
 msgstr "شكل &حر"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mindMap)
-#: src/basketproperties.ui:114
+#: src/basketproperties.ui:90
 #, kde-format
 msgid "&Mind map"
 msgstr "&خارطة ذهنية"
 
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: src/basketproperties.ui:100 src/settings.cpp:483 src/tagsedit.cpp:1109
+#, kde-format
+msgid "Appearance"
+msgstr "المظهر"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, backgroundImage)
+#: src/basketproperties.ui:125
+#, kde-format
+msgid "(None)"
+msgstr "(لاشيء)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/basketproperties.ui:133
+#, kde-format
+msgid "Background &image:"
+msgstr "&صورة الخلفية:"
+
+#. i18n: ectx: property (text), widget (QLabel, bgColorLbl)
+#: src/basketproperties.ui:143
+#, kde-format
+msgid "&Background color:"
+msgstr "لون ال&خلفية:"
+
+#. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
+#: src/basketproperties.ui:150
+#, kde-format
+msgid "&Text color:"
+msgstr "لون ال&نّصّ:"
+
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: src/basketproperties.ui:124
+#: src/basketproperties.ui:160
 #, kde-format
 msgid "Keyboard Shortcut"
 msgstr "اختصار لوحة المفاتيح"
 
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: src/basketproperties.ui:151
+#: src/basketproperties.ui:187
 #, kde-format
 msgid "S&how this basket"
 msgstr "أ&ظهر هذه السلة"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: src/basketproperties.ui:158
+#: src/basketproperties.ui:194
 #, kde-format
 msgid "Show this basket (&global shortcut)"
 msgstr "أظهر هذه السلة (اختصار &عام)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: src/basketproperties.ui:165
+#: src/basketproperties.ui:201
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
 msgstr "ا&بدل إلى هذه السلة (اختصار عام)"
@@ -2124,72 +2128,72 @@ msgstr "مثال"
 msgid "Minimize"
 msgstr "صغّر"
 
-#: src/mainwindow.cpp:249
+#: src/mainwindow.cpp:253
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>هل تريد حقًا الخروج من %1؟</p>"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:257
 #, kde-format
 msgid "Quit Confirm"
 msgstr "تأكيد الخروج"
 
-#: src/newbasketdialog.cpp:88
+#: src/newbasketdialog.cpp:89
 #, kde-format
 msgid "New Basket"
 msgstr "سلة جديدة"
 
-#: src/newbasketdialog.cpp:122
+#: src/newbasketdialog.cpp:123
 #, kde-format
 msgid "Background color"
 msgstr "لون الخلفية"
 
-#: src/newbasketdialog.cpp:130
+#: src/newbasketdialog.cpp:131
 #, kde-format
 msgid "&Manage Templates..."
 msgstr "أدِر ال&قوالب ..."
 
-#: src/newbasketdialog.cpp:167
+#: src/newbasketdialog.cpp:168
 #, kde-format
 msgid "One column"
 msgstr "عمود واحد"
 
-#: src/newbasketdialog.cpp:177
+#: src/newbasketdialog.cpp:178
 #, kde-format
 msgid "Two columns"
 msgstr "عمودان"
 
-#: src/newbasketdialog.cpp:188
+#: src/newbasketdialog.cpp:189
 #, kde-format
 msgid "Three columns"
 msgstr "ثلاث أعمدة"
 
-#: src/newbasketdialog.cpp:199
+#: src/newbasketdialog.cpp:200
 #, kde-format
 msgid "Free-form"
 msgstr "شكل حر"
 
-#: src/newbasketdialog.cpp:209
+#: src/newbasketdialog.cpp:210
 #, kde-format
 msgid "&Template:"
 msgstr "ال&قالب:"
 
-#: src/newbasketdialog.cpp:219
+#: src/newbasketdialog.cpp:220
 #, kde-format
 msgid "(Baskets)"
 msgstr "(سلال)"
 
-#: src/newbasketdialog.cpp:221
+#: src/newbasketdialog.cpp:222
 #, kde-format
 msgid "C&reate in:"
 msgstr "أ&نشئ في:"
 
-#: src/newbasketdialog.cpp:223
+#: src/newbasketdialog.cpp:224
 #, kde-format
 msgid "How is it useful?"
 msgstr "كيف هو مفيد؟"
 
-#: src/newbasketdialog.cpp:224
+#: src/newbasketdialog.cpp:225
 #, kde-format
 msgid ""
 "<p>Creating baskets inside of other baskets to form a hierarchy allows you "
@@ -2254,7 +2258,7 @@ msgstr "إسناد ترافقي"
 msgid "Launcher"
 msgstr "مطلق"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1100
+#: src/notecontent.cpp:111 src/noteedit.cpp:1106
 #, kde-format
 msgid "Color"
 msgstr "لون"
@@ -2716,7 +2720,7 @@ msgstr "حرر ملاحظة مجهولة"
 msgid "Edit Link Note"
 msgstr "حرر ملاحظة الرابط"
 
-#: src/noteedit.cpp:714 src/noteedit.cpp:875
+#: src/noteedit.cpp:714 src/noteedit.cpp:878
 #, kde-format
 msgid "Ta&rget:"
 msgstr "ال&هدف:"
@@ -2731,102 +2735,102 @@ msgstr "آليّ"
 msgid "&Title:"
 msgstr "ال&عنوان:"
 
-#: src/noteedit.cpp:743 src/noteedit.cpp:998
+#: src/noteedit.cpp:743 src/noteedit.cpp:1001
 #, kde-format
 msgid "&Icon:"
 msgstr "الأي&قونة:"
 
-#: src/noteedit.cpp:864
+#: src/noteedit.cpp:867
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "حرر المرجع المتبادل"
 
-#: src/noteedit.cpp:965
+#: src/noteedit.cpp:968
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "حرر ملاحظة المشغل"
 
-#: src/noteedit.cpp:977
+#: src/noteedit.cpp:980
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "اختر أمرًا للتشغيل:"
 
-#: src/noteedit.cpp:978
+#: src/noteedit.cpp:981
 #, kde-format
 msgid "Comman&d:"
 msgstr "الأ&مر:"
 
-#: src/noteedit.cpp:981 src/tagsedit.cpp:387
+#: src/noteedit.cpp:984 src/tagsedit.cpp:387
 #, kde-format
 msgid "&Name:"
 msgstr "الا&سم:"
 
-#: src/noteedit.cpp:989
+#: src/noteedit.cpp:992
 #, kde-format
 msgid "&Guess"
 msgstr "&خمّن"
 
-#: src/noteedit.cpp:1082
+#: src/noteedit.cpp:1088
 #, kde-format
 msgid "Font"
 msgstr "الخط"
 
-#: src/noteedit.cpp:1090
+#: src/noteedit.cpp:1096
 #, kde-format
 msgid "Font Size"
 msgstr "حجم الخط"
 
-#: src/noteedit.cpp:1105 src/tagsedit.cpp:469
+#: src/noteedit.cpp:1111 src/tagsedit.cpp:469
 #, kde-format
 msgid "Bold"
 msgstr "ثخين"
 
-#: src/noteedit.cpp:1112 src/tagsedit.cpp:481
+#: src/noteedit.cpp:1118 src/tagsedit.cpp:481
 #, kde-format
 msgid "Italic"
 msgstr "مائل"
 
-#: src/noteedit.cpp:1119 src/tagsedit.cpp:475
+#: src/noteedit.cpp:1125 src/tagsedit.cpp:475
 #, kde-format
 msgid "Underline"
 msgstr "تسطير"
 
-#: src/noteedit.cpp:1127
+#: src/noteedit.cpp:1133
 #, kde-format
 msgid "Superscript"
 msgstr "مرتفع"
 
-#: src/noteedit.cpp:1133
+#: src/noteedit.cpp:1139
 #, kde-format
 msgid "Subscript"
 msgstr "منخفض"
 
-#: src/noteedit.cpp:1140
+#: src/noteedit.cpp:1146
 #, kde-format
 msgid "Align Left"
 msgstr "حاذِ يسارًا"
 
-#: src/noteedit.cpp:1146
+#: src/noteedit.cpp:1152
 #, kde-format
 msgid "Centered"
 msgstr "موسّطة"
 
-#: src/noteedit.cpp:1152
+#: src/noteedit.cpp:1158
 #, kde-format
 msgid "Align Right"
 msgstr "حاذِ يمينًا"
 
-#: src/noteedit.cpp:1158
+#: src/noteedit.cpp:1164
 #, kde-format
 msgid "Justified"
 msgstr "مساوً"
 
-#: src/noteedit.cpp:1170
+#: src/noteedit.cpp:1176
 #, kde-format
 msgid "Undo"
 msgstr "تراجع"
 
-#: src/noteedit.cpp:1176
+#: src/noteedit.cpp:1182
 #, kde-format
 msgid "Redo"
 msgstr "كرّر"
