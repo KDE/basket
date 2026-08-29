@@ -95,8 +95,8 @@ Note::Note(BasketScene *parent)
 {
     m_target_x = x();
     m_target_y = y();
-    m_animX = new NoteAnimation(this, "x");
-    m_animY = new NoteAnimation(this, "y");
+    m_animX = new NoteAnimation(this, "x", this);
+    m_animY = new NoteAnimation(this, "y", this);
     // m_animX->setEasingCurve(QEasingCurve::InOutQuad);
     // m_animY->setEasingCurve(QEasingCurve::InOutQuad);
 
@@ -123,6 +123,7 @@ Note::~Note()
     }
     delete m_content;
     deleteChilds();
+    delete d;
 }
 
 void Note::setNext(Note *next)
