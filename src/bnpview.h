@@ -50,7 +50,7 @@ class BASKET_EXPORT BNPView : public QSplitter
 
 public:
     /// CONSTRUCTOR AND DESTRUCTOR:
-    BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, KActionCollection *actionCollection, BasketStatusBar *bar);
+    BNPView(QWidget *parent, KXMLGUIClient *aGUIClient, KActionCollection *actionCollection, BasketStatusBar *bar);
     ~BNPView() override;
     /// MANAGE CONFIGURATION EVENTS!:
     void setTreePlacement(bool onLeft);

@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_quit(false)
 {
     auto *bar = new BasketStatusBar(statusBar());
-    m_baskets = new BNPView(this, "BNPViewApp", this, actionCollection(), bar);
+    m_baskets = new BNPView(this, this, actionCollection(), bar);
     setCentralWidget(m_baskets);
 
     setupActions();

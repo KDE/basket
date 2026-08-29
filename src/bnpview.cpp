@@ -88,7 +88,7 @@ using namespace std::chrono_literals;
 
 const int BNPView::c_delayTooltipTime = 275;
 
-BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, KActionCollection *actionCollection, BasketStatusBar *bar)
+BNPView::BNPView(QWidget *parent, KXMLGUIClient *aGUIClient, KActionCollection *actionCollection, BasketStatusBar *bar)
     : QSplitter(Qt::Horizontal, parent)
     , m_actLockBasket(nullptr)
     , m_actPassBasket(nullptr)
@@ -108,7 +108,7 @@ BNPView::BNPView(QWidget *parent, const char *name, KXMLGUIClient *aGUIClient, K
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject(QStringLiteral("/BNPView"), this);
 
-    setObjectName(name);
+    setObjectName(QStringLiteral("BNPViewApp"));
 
     /* Settings */
     Settings::loadConfig();
