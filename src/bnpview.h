@@ -76,6 +76,7 @@ public:
     bool canFold();
     bool canExpand();
     void enableActions();
+    void enableDebugMode();
 
 private:
     //! Create <basket> element with <properties>
@@ -285,7 +286,6 @@ public:
     // TODO: dcop calls -- dbus these
 public Q_SLOTS:
     Q_SCRIPTABLE void newBasket();
-    Q_SCRIPTABLE void handleCommandLine();
     Q_SCRIPTABLE void reloadBasket(const QString &folderName);
     Q_SCRIPTABLE bool createNoteHtml(const QString content, const QString basket);
     Q_SCRIPTABLE QStringList listBaskets();

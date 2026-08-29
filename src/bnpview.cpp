@@ -8,7 +8,6 @@
 
 #include <QAction>
 #include <QApplication>
-#include <QCommandLineParser>
 #include <QDir>
 #include <QEvent>
 #include <QGraphicsView>
@@ -387,11 +386,7 @@ void BNPView::setupActions()
     a = ac->addAction(QStringLiteral("check_cleanup"), this, &BNPView::checkCleanup);
     a->setText(i18n("&Check && Cleanup..."));
     a->setShortcut(0);
-    if (Global::commandLineOpts->isSet(QStringLiteral("debug"))) {
-        a->setEnabled(true);
-    } else {
-        a->setEnabled(false);
-    }
+    a->setEnabled(false);
 
     /** Note : ****************************************************************/
 
@@ -2329,15 +2324,11 @@ QStringList BNPView::listBaskets()
     return basketList;
 }
 
-void BNPView::handleCommandLine()
+void BNPView::enableDebugMode()
 {
-    QCommandLineParser *parser = Global::commandLineOpts;
-
-    /* Debug window */
-    if (parser->isSet(QStringLiteral("debug"))) {
-        new DebugWindow();
-        Global::debugWindow->show();
-    }
+    new DebugWindow();
+    Global::debugWindow->show();
+    actionCollection()->action(QStringLiteral("check_cleanup"))->setEnabled(true);
 }
 
 void BNPView::reloadBasket(const QString &folderName)

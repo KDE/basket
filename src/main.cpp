@@ -53,7 +53,9 @@ int main(int argc, char *argv[])
     /* Main Window */
     auto *win = new MainWindow();
     app.setMainWindow(win);
-    Global::bnpView->handleCommandLine();
+    /* Debug mode */
+    if (opts->isSet(QStringLiteral("debug")))
+        Global::bnpView->enableDebugMode();
     app.setActiveWindow(win);
 
     win->show();
