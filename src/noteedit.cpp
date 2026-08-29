@@ -186,6 +186,10 @@ void NoteEditor::setInlineEditor(QWidget *inlineEditor)
 {
     if (!m_widget) {
         m_widget = new QGraphicsProxyWidget();
+    } else if (m_widget->widget() != inlineEditor) {
+        QWidget *w = m_widget->widget();
+        m_widget->setWidget(nullptr);
+        delete w;
     }
     m_widget->setWidget(inlineEditor);
     m_widget->setZValue(500);
@@ -207,11 +211,11 @@ void NoteEditor::setInlineEditor(QWidget *inlineEditor)
 
 /** class TextEditor: */
 
-TextEditor::TextEditor(TextContent *textContent, QWidget *parent)
+TextEditor::TextEditor(TextContent *textContent, QWidget * /*parent*/)
     : NoteEditor(textContent)
     , m_textContent(textContent)
 {
-    auto *textEdit = new FocusedTextEdit(/*disableUpdatesOnKeyPress=*/true, parent);
+    auto *textEdit = new FocusedTextEdit(/*disableUpdatesOnKeyPress=*/true, nullptr);
     textEdit->setLineWidth(0);
     textEdit->setMidLineWidth(0);
     textEdit->setFrameStyle(QFrame::Box);
@@ -240,10 +244,7 @@ TextEditor::TextEditor(TextContent *textContent, QWidget *parent)
     QTimer::singleShot(0, textContent->note()->basket(), &BasketScene::editorCursorPositionChanged);
 }
 
-TextEditor::~TextEditor()
-{
-    delete graphicsWidget()->widget(); // TODO: delete that in validate(), so we can remove one method
-}
+TextEditor::~TextEditor() = default;
 
 void TextEditor::autoSave(bool toFileToo)
 {
@@ -286,11 +287,11 @@ void TextEditor::validate()
 
 /** class HtmlEditor: */
 
-HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget *parent)
+HtmlEditor::HtmlEditor(HtmlContent *htmlContent, QWidget * /*parent*/)
     : NoteEditor(htmlContent)
     , m_htmlContent(htmlContent)
 {
-    auto *textEdit = new FocusedTextEdit(/*disableUpdatesOnKeyPress=*/true, parent);
+    auto *textEdit = new FocusedTextEdit(/*disableUpdatesOnKeyPress=*/true, nullptr);
     textEdit->setLineWidth(0);
     textEdit->setMidLineWidth(0);
     textEdit->setFrameStyle(QFrame::Box);
@@ -460,10 +461,7 @@ void HtmlEditor::setBold(bool isChecked)
     textEdit()->setFontWeight(isChecked ? QFont::Bold : QFont::Normal);
 }
 
-HtmlEditor::~HtmlEditor()
-{
-    // delete graphicsWidget()->widget();
-}
+HtmlEditor::~HtmlEditor() = default;
 
 void HtmlEditor::autoSave(bool toFileToo)
 {
@@ -500,7 +498,6 @@ void HtmlEditor::validate()
 
     if (graphicsWidget()) {
         note()->setZValue(1);
-        delete graphicsWidget()->widget();
         setInlineEditor(nullptr);
     }
 }
@@ -577,11 +574,11 @@ AnimationEditor::AnimationEditor(AnimationContent *animationContent, QWidget *pa
 
 /** class FileEditor: */
 
-FileEditor::FileEditor(FileContent *fileContent, QWidget *parent)
+FileEditor::FileEditor(FileContent *fileContent, QWidget * /*parent*/)
     : NoteEditor(fileContent)
     , m_fileContent(fileContent)
 {
-    auto *lineEdit = new QLineEdit(parent);
+    auto *lineEdit = new QLineEdit(nullptr);
     auto *filter = new FocusWidgetFilter(lineEdit);
 
     QPalette palette;
@@ -598,10 +595,7 @@ FileEditor::FileEditor(FileContent *fileContent, QWidget *parent)
     connect(filter, &FocusWidgetFilter::mouseEntered, this, &FileEditor::mouseEnteredEditorWidget);
 }
 
-FileEditor::~FileEditor()
-{
-    delete graphicsWidget()->widget();
-}
+FileEditor::~FileEditor() = default;
 
 void FileEditor::autoSave(bool toFileToo)
 {
