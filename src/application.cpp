@@ -31,6 +31,7 @@ using namespace std::chrono_literals;
 Application::Application(int &argc, char **argv)
     : QApplication(argc, argv)
     , m_service(KDBusService::Unique)
+    , m_mainWindow(nullptr)
 {
     KLocalizedString::setApplicationDomain("basket");
     setWindowIcon(QIcon::fromTheme(QStringLiteral("basket")));
@@ -76,14 +77,19 @@ void Application::tryLoadFile(const QStringList &args, const QString &workingDir
     }
 }
 
+void Application::setMainWindow(MainWindow *mainWindown)
+{
+    m_mainWindow = mainWindown;
+}
+
 void Application::onActivateRequested(const QStringList &args, const QString &workingDir)
 {
-    if (MainWindow *wnd = Global::mainWindow()) {
+    if (m_mainWindow) {
         // Restore window:
-        wnd->show(); // from tray
-        wnd->setWindowState(Qt::WindowActive); // from minimized
+        m_mainWindow->show(); // from tray
+        m_mainWindow->setWindowState(Qt::WindowActive); // from minimized
         // Raise to the top
-        wnd->raise();
+        m_mainWindow->raise();
     }
     tryLoadFile(args, workingDir);
 }

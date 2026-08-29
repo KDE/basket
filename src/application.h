@@ -9,6 +9,8 @@
 #include <KDBusService>
 #include <QApplication>
 
+class MainWindow;
+
 /**
  * @class Application
  * @brief Base application
@@ -20,12 +22,14 @@ public:
     Application(int &argc, char **argv);
     ~Application() override;
     void tryLoadFile(const QStringList &args, const QString &workingDir); //!< Open a file passed as command line argument
+    void setMainWindow(MainWindow *mainWindown);
 private Q_SLOTS:
     /// Activate program window if duplicate instance is started, load file from args
     void onActivateRequested(const QStringList &args, const QString &workingDir);
 
 private:
     KDBusService m_service;
+    MainWindow *m_mainWindow;
 };
 
 #endif // APPLICATION_H

@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
     /* Main Window */
     auto *win = new MainWindow();
-    Global::mainWnd = win;
+    app.setMainWindow(win);
     Global::bnpView->handleCommandLine();
     app.setActiveWindow(win);
 
@@ -62,5 +62,6 @@ int main(int argc, char *argv[])
 
     /* Go */
     int result = app.exec();
+    app.setMainWindow(nullptr);
     exit(result); // Do not clean up memory to not crash while deleting the QApplication, or do not hang up on session exit
 }
