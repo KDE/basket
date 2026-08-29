@@ -14,7 +14,6 @@
 #include <QStandardPaths>
 #include <QString>
 
-#include "bnpview.h"
 #include "gitwrapper.h"
 #include "settings.h"
 
@@ -76,11 +75,6 @@ void Global::initializeGitIfNeeded(QString savesFolder)
     if (!QDir(savesFolder + QStringLiteral(".git/")).exists()) {
         GitWrapper::initializeGitRepository(savesFolder);
     }
-}
-
-QString Global::openNoteIcon() // FIXME: Now an edit icon
-{
-    return QVariant(Global::bnpView->m_actEditNote->icon()).toString();
 }
 
 KMainWindow *Global::activeMainWindow()

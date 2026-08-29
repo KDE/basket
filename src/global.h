@@ -48,7 +48,6 @@ public:
     /** Initialize git repository if Version sync is enabled
         @param savesFolder Path returned by savesFolder()  */
     static void initializeGitIfNeeded(QString savesFolder);
-    static QString openNoteIcon(); /// << @return the icon used for the "Open" action on notes.
     static KMainWindow *activeMainWindow(); /// << @returns Main window if it has focus (is active), otherwise NULL
     static KConfig *config();
 };
