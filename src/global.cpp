@@ -25,7 +25,6 @@ DebugWindow *Global::debugWindow = nullptr;
 BackgroundManager *Global::backgroundManager = nullptr;
 BNPView *Global::bnpView = nullptr;
 KSharedConfig::Ptr Global::basketConfig;
-QCommandLineParser *Global::commandLineOpts = nullptr;
 
 void Global::setCustomSavesFolder(const QString &folder)
 {

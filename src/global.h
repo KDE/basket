@@ -17,7 +17,6 @@ class KMainWindow;
 class DebugWindow;
 class BackgroundManager;
 class BNPView;
-class QCommandLineParser;
 
 /** Handle all global variables of the application.
  * This file only declare classes : developer should include
@@ -35,7 +34,6 @@ public:
     static BackgroundManager *backgroundManager;
     static BNPView *bnpView;
     static KSharedConfig::Ptr basketConfig;
-    static QCommandLineParser *commandLineOpts;
 
     // Application Folders:
     static void setCustomSavesFolder(const QString &folder);
