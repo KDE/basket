@@ -2333,11 +2333,6 @@ void BNPView::handleCommandLine()
 {
     QCommandLineParser *parser = Global::commandLineOpts;
 
-    /* Custom data folder */
-    QString customDataFolder = parser->value(QStringLiteral("data-folder"));
-    if (!customDataFolder.isNull() && !customDataFolder.isEmpty()) {
-        Global::setCustomSavesFolder(customDataFolder);
-    }
     /* Debug window */
     if (parser->isSet(QStringLiteral("debug"))) {
         new DebugWindow();

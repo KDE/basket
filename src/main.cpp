@@ -35,6 +35,14 @@ int main(int argc, char *argv[])
     setupCmdLineOptions(opts);
     opts->process(app);
     KAboutData::applicationData().processCommandLine(opts); // show author, license information and exit
+    // Custom data folder;
+    // the own block is to to not keep variables live for the whole application lifetime
+    {
+        const QString customDataFolder = opts->value(QStringLiteral("data-folder"));
+        if (!customDataFolder.isEmpty()) {
+            Global::setCustomSavesFolder(customDataFolder);
+        }
+    }
     app.tryLoadFile(opts->positionalArguments(), QDir::currentPath());
 
     // Initialize the config file
