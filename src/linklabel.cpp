@@ -464,7 +464,7 @@ void LinkDisplay::paint(QPainter *painter,
     // ... Or the icon (if no preview or if the "Open" icon should be shown):
     else {
         qreal iconSize = m_look->iconSize();
-        QString iconName = (isHovered ? Global::openNoteIcon() : m_icon);
+        QString iconName = (isHovered ? QStringLiteral("document-edit") : m_icon);
         KIconLoader::States iconState = (isIconButtonHovered ? KIconLoader::ActiveState : KIconLoader::DefaultState);
         pixmap = KIconLoader::global()->loadIcon(iconName, KIconLoader::Desktop, iconSize, iconState, QStringList(), nullptr, /*canReturnNull=*/false);
     }
