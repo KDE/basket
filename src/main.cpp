@@ -4,8 +4,9 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#include "basket_options.h"
+#include <KAboutData>
 #include <KCrash>
+#include <KLocalizedString>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDir>
@@ -25,25 +26,31 @@ int main(int argc, char *argv[])
 {
     const char *argv0 = (argc >= 1 ? argv[0] : "");
 
-    Global::commandLineOpts = new QCommandLineParser();
     Application app(argc, argv);
 
     KCrash::initialize();
 
-    QCommandLineParser *opts = Global::commandLineOpts;
-    KAboutData::applicationData().setupCommandLine(opts); //--author, --license
-    setupCmdLineOptions(opts);
-    opts->process(app);
-    KAboutData::applicationData().processCommandLine(opts); // show author, license information and exit
+    QCommandLineParser opts;
+    opts.addOption(QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("debug"), i18n("Show the debug window")));
+    opts.addOption(QCommandLineOption(QStringList() << QStringLiteral("f") << QStringLiteral("data-folder"),
+                                      i18n("Custom folder to load and save baskets and other application data."),
+                                      i18nc("Command line help: --data-folder <FOLDER>", "folder")));
+    opts.addOption(QCommandLineOption(QStringLiteral("start-hidden"),
+                                      i18n("Automatically hide the main window in the system tray on startup."))); //
+
+    opts.addPositionalArgument(QStringLiteral("file"), i18n("Open a basket archive or template."));
+    KAboutData::applicationData().setupCommandLine(&opts); //--author, --license
+    opts.process(app);
+    KAboutData::applicationData().processCommandLine(&opts); // show author, license information and exit
     // Custom data folder;
     // the own block is to to not keep variables live for the whole application lifetime
     {
-        const QString customDataFolder = opts->value(QStringLiteral("data-folder"));
+        const QString customDataFolder = opts.value(QStringLiteral("data-folder"));
         if (!customDataFolder.isEmpty()) {
             Global::setCustomSavesFolder(customDataFolder);
         }
     }
-    app.tryLoadFile(opts->positionalArguments(), QDir::currentPath());
+    app.tryLoadFile(opts.positionalArguments(), QDir::currentPath());
 
     // Initialize the config file
     Global::basketConfig = KSharedConfig::openConfig(QStringLiteral("basketrc"));
@@ -54,7 +61,7 @@ int main(int argc, char *argv[])
     auto *win = new MainWindow();
     app.setMainWindow(win);
     /* Debug mode */
-    if (opts->isSet(QStringLiteral("debug")))
+    if (opts.isSet(QStringLiteral("debug")))
         Global::bnpView->enableDebugMode();
     app.setActiveWindow(win);
 
