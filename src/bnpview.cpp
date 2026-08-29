@@ -444,12 +444,13 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("note_group"), this, &BNPView::noteGroup);
     a->setText(i18n("&Group"));
-    a->setIcon(QIcon::fromTheme(QStringLiteral("mail-attachment")));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("object-group")));
     m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_G));
     m_actGroup = a;
 
     a = ac->addAction(QStringLiteral("note_ungroup"), this, &BNPView::noteUngroup);
     a->setText(i18n("U&ngroup"));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("object-ungroup")));
     m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_G));
     m_actUngroup = a;
 
@@ -569,7 +570,7 @@ void BNPView::setupActions()
 #ifndef _WIN32
     a = ac->addAction(QStringLiteral("insert_screen_color"), this, &BNPView::slotColorFromScreen);
     a->setText(i18n("C&olor from Screen"));
-    a->setIcon(QIcon::fromTheme(QStringLiteral("kcolorchooser")));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("color-picker")));
     m_actColorPicker = a;
 
     connect(m_colorPicker, &ColorPicker::colorGrabbed, this, &BNPView::colorPicked);
@@ -659,6 +660,7 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("basket_remove"), this, &BNPView::delBasket);
     a->setText(i18nc("Remove Basket", "&Remove"));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("edit-delete")));
     a->setShortcut(0);
     m_actDelBasket = a;
 
@@ -670,6 +672,7 @@ void BNPView::setupActions()
 
     a = ac->addAction(QStringLiteral("basket_lock"), this, &BNPView::lockBasket);
     a->setText(i18nc("Lock Basket", "&Lock"));
+    newBasketMenu->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     m_actionCollection->setDefaultShortcut(a, QKeySequence(Qt::CTRL | Qt::Key_L));
     m_actLockBasket = a;
 #endif

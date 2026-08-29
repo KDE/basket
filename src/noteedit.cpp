@@ -1130,13 +1130,13 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     ta = new KToggleAction(ac);
     ac->addAction("richtext_super", ta);
     ta->setText(i18n("Superscript"));
-    ta->setIcon(QIcon::fromTheme("text_super"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-superscript")));
     richTextSuper = ta;
 
     ta = new KToggleAction(ac);
     ac->addAction("richtext_sub", ta);
     ta->setText(i18n("Subscript"));
-    ta->setIcon(QIcon::fromTheme("text_sub"));
+    ta->setIcon(QIcon::fromTheme(QStringLiteral("format-text-subscript")));
     richTextSub = ta;
 #endif
 
