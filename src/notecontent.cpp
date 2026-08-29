@@ -184,6 +184,7 @@ const int NoteContent::FEEDBACK_DARKING = 105;
 NoteContent::NoteContent(Note *parent, const NoteType::Id type, const QString &fileName)
     : m_type(type)
     , m_note(parent)
+    , m_minWidth(0.0)
 {
     if (parent) {
         parent->setContent(this);
