@@ -33,6 +33,7 @@
 #include <KIconButton>
 #include <KLineEdit>
 #include <KLocalizedString>
+#include <KMainWindow>
 #include <KMessageBox>
 #include <KService>
 #include <KToggleAction>

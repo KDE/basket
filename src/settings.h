@@ -9,7 +9,6 @@
 
 #include <KCModule>
 #include <KCMultiDialog>
-#include <KMainWindow>
 
 #include <QAction> //For UseSysTray
 #include <QDate>

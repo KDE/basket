@@ -34,6 +34,7 @@
 #include <KGlobalAccel>
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <KMainWindow>
 #include <KMessageBox>
 // #include <KPassivePopup>
 #include <KMessageWidget>
