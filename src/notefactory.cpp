@@ -522,7 +522,7 @@ Note *NoteFactory::createNoteUnknown(const QMimeData *source, BasketScene *paren
     for (int i = 0; i < formats.size(); ++i) {
         QByteArray data = source->data(formats[i]);
         stream << (quint32)data.size();
-        stream.writeRawData(data.data(), data.count());
+        stream.writeRawData(data.data(), data.size());
     }
     file.close();
 
