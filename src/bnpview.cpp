@@ -596,21 +596,9 @@ void BNPView::setupActions()
 
     /** Basket : **************************************************************/
 
-    // At this stage, main.cpp has not set qApp->mainWidget(), so Global::runInsideKontact()
-    // returns true. We do it ourself:
-    bool runInsideKontact = true;
-    auto *parentWidget = (QWidget *)parent();
-    while (parentWidget) {
-        if (parentWidget->inherits("MainWindow"))
-            runInsideKontact = false;
-        parentWidget = (QWidget *)parentWidget->parent();
-    }
-
-    // Use the "basket" icon in Kontact so it is consistent with the Kontact "New..." icon
-
     a = ac->addAction(QStringLiteral("basket_new"), this, qOverload<>(&BNPView::askNewBasket));
     a->setText(i18n("&New Basket..."));
-    a->setIcon(QIcon::fromTheme((runInsideKontact ? QStringLiteral("basket") : QStringLiteral("document-new"))));
+    a->setIcon(QIcon::fromTheme(QStringLiteral("document-new")));
     m_actionCollection->setDefaultShortcuts(a, KStandardShortcut::shortcut(KStandardShortcut::New));
     actNewBasket = a;
 
