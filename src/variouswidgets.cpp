@@ -402,8 +402,7 @@ FontSizeCombo::FontSizeCombo(bool rw, bool withDefault, QWidget *parent)
     if (m_withDefault)
         addItem(i18n("(Default)"));
 
-    QFontDatabase fontDB;
-    QList<int> sizes = fontDB.standardSizes();
+    QList<int> sizes = QFontDatabase::standardSizes();
     for (QList<int>::Iterator it = sizes.begin(); it != sizes.end(); ++it)
         addItem(QString::number(*it));
 
