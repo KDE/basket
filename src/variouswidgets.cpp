@@ -228,11 +228,18 @@ HelpLabel::HelpLabel(const QString &text, const QString &message, QWidget *paren
     connect(this, &HelpLabel::leftClickedUrl, this, &HelpLabel::display);
 }
 
+HelpLabel::HelpLabel(QWidget *parent)
+    : KUrlLabel(parent)
+{
+    connect(this, &HelpLabel::leftClickedUrl, this, &HelpLabel::display);
+}
+
 HelpLabel::~HelpLabel() = default;
 
 void HelpLabel::display()
 {
-    QWhatsThis::showText(mapToGlobal(QPoint(width() / 2, height())), m_message);
+    if (!m_message.isEmpty())
+        QWhatsThis::showText(mapToGlobal(QPoint(width() / 2, height())), m_message);
 }
 
 /** class IconSizeDialog: */

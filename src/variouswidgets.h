@@ -83,6 +83,7 @@ class HelpLabel : public KUrlLabel
     Q_OBJECT
 public:
     HelpLabel(const QString &text, const QString &message, QWidget *parent);
+    explicit HelpLabel(QWidget *parent = nullptr);
     ~HelpLabel() override;
     QString message()
     {
@@ -92,6 +93,7 @@ public Q_SLOTS:
     void setMessage(const QString &message)
     {
         m_message = message;
+        setWhatsThis(m_message);
     }
     void display();
 
