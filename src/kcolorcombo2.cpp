@@ -339,6 +339,15 @@ KColorCombo2::KColorCombo2(const QColor &color, QWidget *parent)
     init();
 }
 
+KColorCombo2::KColorCombo2(QWidget *parent)
+    : KComboBox(parent)
+    , m_color()
+    , m_defaultColor()
+{
+    setEditable(false);
+    init();
+}
+
 void KColorCombo2::init()
 {
     m_colorArray = nullptr;

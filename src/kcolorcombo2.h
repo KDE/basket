@@ -119,6 +119,13 @@ public:
     explicit KColorCombo2(const QColor &color, QWidget *parent = nullptr);
 
     /**
+     * Constructs a color combobox with parent @p parent.\n
+     * There is no color set, which has to be set using setColor() later.\n
+     * The user is not allowed to choose a default color, unless you call setDefaultColor() later.
+     */
+    explicit KColorCombo2(QWidget *parent = nullptr);
+
+    /**
      * Destroys the combobox.
      */
     ~KColorCombo2() override;
