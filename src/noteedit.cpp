@@ -656,25 +656,15 @@ LauncherEditor::LauncherEditor(LauncherContent *launcherContent, QWidget *parent
 ColorEditor::ColorEditor(ColorContent *colorContent, QWidget *parent)
     : NoteEditor(colorContent)
 {
-    QPointer<QColorDialog> dialog = new QColorDialog(parent);
-    dialog->setCurrentColor(colorContent->color());
-    dialog->setWindowTitle(i18n("Edit Color Note"));
-    // dialog->setButtons(QDialog::Ok | QDialog::Cancel);
-    if (dialog->exec() == QDialog::Accepted) {
-        if (dialog->currentColor() != colorContent->color()) {
-            colorContent->setColor(dialog->currentColor());
+    const QColor oldColor = colorContent->color();
+    const QColor result = QColorDialog::getColor(oldColor, parent, i18n("Edit Color Note"));
+    if (result.isValid()) {
+        if (result != oldColor) {
+            colorContent->setColor(result);
             colorContent->setEdited();
         }
     } else
         cancel();
-
-    /* This code don't allow to set a caption to the dialog:
-    QColor color = colorContent()->color();
-    color = QColorDialog::getColor(parent)==QDialog::Accepted&&color!=m_color);
-    if ( color.isValid() ) {
-        colorContent()->setColor(color);
-        setEdited();
-    }*/
 }
 
 /** class UnknownEditor: */
