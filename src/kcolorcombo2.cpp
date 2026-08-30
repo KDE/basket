@@ -647,7 +647,7 @@ void KColorCombo2::showPopup()
         setRainbowPreset();
 
     // Compute where to show the popup:
-    QRect desk = qApp->primaryScreen()->geometry();
+    QRect desk = screen()->geometry();
 
     QPoint popupPoint = mapToGlobal(QPoint(0, 0));
 
