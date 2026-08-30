@@ -925,17 +925,14 @@ void TagsEditDialog::ensureCurrentItemVisible()
     // ensure the tag is still visible, even if the last states are not...
     m_ui->tags->scrollToItem(tagItem);
 
-    int idx = 0;
-
-    if (tagItem->parent()) {
-        idx = ((QTreeWidgetItem *)tagItem->parent())->indexOfChild(tagItem);
-        m_ui->moveDown->setEnabled(idx < ((QTreeWidgetItem *)tagItem->parent())->childCount());
-    } else {
-        idx = m_ui->tags->indexOfTopLevelItem(tagItem);
-        m_ui->moveDown->setEnabled(idx < m_ui->tags->topLevelItemCount());
+    QTreeWidgetItem *parent = tagItem->parent();
+    if (!parent) {
+        parent = m_ui->tags->invisibleRootItem();
     }
+    const int idx = parent->indexOfChild(tagItem);
 
     m_ui->moveUp->setEnabled(idx > 0);
+    m_ui->moveDown->setEnabled(idx + 1 < parent->childCount());
 }
 
 void TagsEditDialog::loadBlankState()
