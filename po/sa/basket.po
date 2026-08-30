@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:48+0000\n"
+"POT-Creation-Date: 2026-08-30 00:50+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -115,17 +115,17 @@ msgstr "स्रोतः असिद्धः इव दृश्यते।
 msgid "Could not open file."
 msgstr "सञ्चिकां उद्घाटयितुं न शक्तवान्।"
 
-#: devtools/weaver/weaver.cpp:304 src/archive.cpp:264
+#: devtools/weaver/weaver.cpp:304 src/archive.cpp:267
 #, kde-format
 msgid "Failed to open a file resource."
 msgstr "सञ्चिकासंसाधनं उद्घाटयितुं असफलम् ।"
 
-#: devtools/weaver/weaver.cpp:307 src/archive.cpp:267
+#: devtools/weaver/weaver.cpp:307 src/archive.cpp:270
 #, kde-format
 msgid "This file is not a basket archive."
 msgstr "इयं सञ्चिका टोकरीसंग्रहः नास्ति ।"
 
-#: devtools/weaver/weaver.cpp:310 src/archive.cpp:270
+#: devtools/weaver/weaver.cpp:310 src/archive.cpp:273
 #, kde-format
 msgid "This file is corrupted. It can not be opened."
 msgstr "एषा सञ्चिका दूषिता अस्ति । न उद्घाटयितुं शक्यते।"
@@ -252,28 +252,28 @@ msgstr "मूल चिह्न"
 msgid "BasKet Note Pads"
 msgstr "बास्केट नोट पैड्स"
 
-#: src/archive.cpp:50 src/bnpview.cpp:2031
+#: src/archive.cpp:53 src/bnpview.cpp:2034
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Basket Archive इति रूपेण रक्षन्तु"
 
-#: src/archive.cpp:51
+#: src/archive.cpp:54
 #, kde-format
 msgid "Saving as basket archive. Please wait..."
 msgstr "टोकरीसंग्रहरूपेण रक्षणम्। कृपया प्रतीक्षां कुर्वन्तु..."
 
-#: src/archive.cpp:264 src/archive.cpp:267 src/archive.cpp:270
-#: src/archive.cpp:273 src/archive.cpp:280 src/archive.cpp:289
+#: src/archive.cpp:267 src/archive.cpp:270 src/archive.cpp:273
+#: src/archive.cpp:276 src/archive.cpp:283 src/archive.cpp:292
 #, kde-format
 msgid "Basket Archive Error"
 msgstr "टोकरी संग्रह त्रुटि"
 
-#: src/archive.cpp:273
+#: src/archive.cpp:276
 #, kde-format
 msgid "Extraction path already exists."
 msgstr "निष्कर्षणमार्गः पूर्वमेव अस्ति ।"
 
-#: src/archive.cpp:277
+#: src/archive.cpp:280
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1.Please upgrade to a newer "
@@ -282,7 +282,7 @@ msgstr ""
 "एषा सञ्चिका %1 इत्यस्य अद्यतनसंस्करणेन सह निर्मितवती ।कृपया तां सञ्चिकां उद्घाटयितुं शक्नुवन् "
 "नूतनतरसंस्करणं प्रति उन्नयनं कुर्वन्तु ।"
 
-#: src/archive.cpp:284
+#: src/archive.cpp:287
 #, kde-format
 msgid ""
 "This file was created with a recent version of %1. It can be opened but not "
@@ -387,7 +387,7 @@ msgstr "<b>%1</b> इति पुटं रिक्तं नास्ति �
 msgid "Overwrite Folder?"
 msgstr "पुटं अधिलेखयतु?"
 
-#: src/backup.cpp:162 src/bnpview.cpp:2040 src/htmlexporter.cpp:68
+#: src/backup.cpp:162 src/bnpview.cpp:2043 src/htmlexporter.cpp:70
 #, kde-format
 msgid "&Overwrite"
 msgstr "&अतिलेखनम्"
@@ -421,8 +421,8 @@ msgstr "टोकरी_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar अभिलेखागार Gzip द्वारा संपीडित"
 
-#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2028
-#: src/bnpview.cpp:2075 src/htmlexporter.cpp:53
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2031
+#: src/bnpview.cpp:2078 src/htmlexporter.cpp:55
 #, kde-format
 msgid "All Files"
 msgstr "सर्वाणि सञ्चिकाः"
@@ -437,7 +437,7 @@ msgstr "बैकअप टोकरी"
 msgid "Backing up baskets. Please wait..."
 msgstr "टोकरीणां बैकअप करणम्। कृपया प्रतीक्षां कुर्वन्तु..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2076
+#: src/backup.cpp:255 src/bnpview.cpp:2079
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "ओपन बास्केट आर्काइव"
@@ -539,37 +539,6 @@ msgctxt "Safety folder name before restoring a basket data archive"
 msgid "Baskets Before Restoration (%1)"
 msgstr "पुनर्स्थापनात् पूर्वं टोकरीः (%1) ."
 
-#: src/basket_options.h:19
-#, kde-format
-msgid "Show the debug window"
-msgstr "त्रुटिनिवारणविण्डो दर्शयतु"
-
-#: src/basket_options.h:21
-#, kde-format
-msgid "Custom folder to load and save baskets and other application data."
-msgstr "टोकरीः अन्ये च अनुप्रयोगदत्तांशः लोड् कर्तुं रक्षितुं च कस्टम् समुच्चय ।"
-
-#: src/basket_options.h:22
-#, kde-format
-msgctxt "Command line help: --data-folder <FOLDER>"
-msgid "folder"
-msgstr "समुच्चय"
-
-#: src/basket_options.h:24
-#, kde-format
-msgid "Automatically hide the main window in the system tray on startup."
-msgstr "प्रारम्भे सिस्टम् ट्रे मध्ये मुख्यविण्डो स्वयमेव गोपयन्तु ।"
-
-#: src/basket_options.h:26
-#, kde-format
-msgid "On crash, use the standard KDE crash handler rather than send an email."
-msgstr "क्रैश-समये, ईमेल-प्रेषणस्य अपेक्षया मानक-KDE-क्रैश-सञ्चालकस्य उपयोगं कुर्वन्तु ।"
-
-#: src/basket_options.h:28
-#, kde-format
-msgid "Open a basket archive or template."
-msgstr "टोकरीसंग्रहालयं वा टेम्पलेट् वा उद्घाटयन्तु।"
-
 #: src/basketfactory.cpp:53
 #, kde-format
 msgid "Sorry, but the folder creation for this new basket has failed."
@@ -590,17 +559,17 @@ msgstr "क्षम्यतां, परन्तु अस्य नूत�
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr "क्षम्यतां, परन्तु अस्य नूतनस्य टोकरीयाः टेम्पलेट् अनुकूलनं विफलम् अभवत् ।"
 
-#: src/basketlistview.cpp:629
+#: src/basketlistview.cpp:631
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:633
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:634
+#: src/basketlistview.cpp:636
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -680,7 +649,7 @@ msgid "&Mind map"
 msgstr "&मनः मानचित्र"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:100 src/settings.cpp:483 src/tagsedit.cpp:1109
+#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:1111
 #, kde-format
 msgid "Appearance"
 msgstr "स्वरूपम्‌"
@@ -733,41 +702,41 @@ msgstr "एतत् टोकरीं दर्शयतु (&global shortcut)
 msgid "S&witch to this basket (global shortcut)"
 msgstr "S&witch to this basket (वैश्विकशॉर्टकट्)"
 
-#: src/basketscene.cpp:303
+#: src/basketscene.cpp:310
 #, kde-format
 msgid "The new note does not match the filter and is hidden."
 msgstr "नूतनः टिप्पणः फ़िल्टरेन सह न मेलति, गुप्तः च अस्ति ।"
 
-#: src/basketscene.cpp:305
+#: src/basketscene.cpp:312
 #, kde-format
 msgid "A new note does not match the filter and is hidden."
 msgstr "नूतनः टिप्पणः फ़िल्टरेन सह न मेलति, गुप्तः च अस्ति ।"
 
-#: src/basketscene.cpp:307
+#: src/basketscene.cpp:314
 #, kde-format
 msgid "Some new notes do not match the filter and are hidden."
 msgstr "केचन नूतनाः स्वराः फ़िल्टरेन सह न मेलन्ति, गुप्ताः च सन्ति ।"
 
-#: src/basketscene.cpp:309
+#: src/basketscene.cpp:316
 #, kde-format
 msgid "The new notes do not match the filter and are hidden."
 msgstr "नवीनाः स्वराः फ़िल्टरेन सह न मेलन्ति, गुप्ताः च सन्ति ।"
 
-#: src/basketscene.cpp:1463
+#: src/basketscene.cpp:1470
 #, fuzzy, kde-format
 #| msgid "Group"
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "समूह"
 
-#: src/basketscene.cpp:1465
+#: src/basketscene.cpp:1472
 #, fuzzy, kde-format
 #| msgid "Insert"
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "युज्"
 
-#: src/basketscene.cpp:2312
+#: src/basketscene.cpp:2319
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -776,212 +745,212 @@ msgstr ""
 "एषः सन्देशः कदापि न प्रादुर्भूतः । यदि भवति तर्हि एषः कार्यक्रमः बग्गी अस्ति! कृपया "
 "विकासकं प्रति दोषं निवेदयन्तु।"
 
-#: src/basketscene.cpp:2751 src/basketscene.cpp:2804 src/basketscene.cpp:2813
+#: src/basketscene.cpp:2758 src/basketscene.cpp:2811 src/basketscene.cpp:2820
 #, kde-format
 msgid ""
 "Insert note here\n"
 "Right click for more options"
 msgstr "Insert note here अधिकविकल्पानां कृते राइट् क्लिक् कुर्वन्तु"
 
-#: src/basketscene.cpp:2770
+#: src/basketscene.cpp:2777
 #, kde-format
 msgid "Resize those columns"
 msgstr "तान् स्तम्भान् आकारं परिवर्तयन्तु"
 
-#: src/basketscene.cpp:2770
+#: src/basketscene.cpp:2777
 #, kde-format
 msgid "Resize this group"
 msgstr "अस्य समूहस्य आकारं परिवर्तयन्तु"
 
-#: src/basketscene.cpp:2770
+#: src/basketscene.cpp:2777
 #, kde-format
 msgid "Resize this note"
 msgstr "अस्य टिप्पण्याः आकारं परिवर्तयन्तु"
 
-#: src/basketscene.cpp:2773
+#: src/basketscene.cpp:2780
 #, kde-format
 msgid "Select or move this note"
 msgstr "एतत् टिप्पणं चिनोतु वा चालयन्तु वा"
 
-#: src/basketscene.cpp:2776
+#: src/basketscene.cpp:2783
 #, kde-format
 msgid "Select or move this group"
 msgstr "एतत् समूहं चिनोतु वा चालयन्तु वा"
 
-#: src/basketscene.cpp:2779
+#: src/basketscene.cpp:2786
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "अस्मात् टिप्पण्याः टैग्स् नियुक्तं कुर्वन्तु अथवा निष्कासयन्तु"
 
-#: src/basketscene.cpp:2787
+#: src/basketscene.cpp:2794
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2789
+#: src/basketscene.cpp:2796
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>नियुक्तानि टैग्स्</b>: %1"
 
-#: src/basketscene.cpp:2796
+#: src/basketscene.cpp:2803
 #, kde-format
 msgid "Expand this group"
 msgstr "अस्य समूहस्य विस्तारं कुर्वन्तु"
 
-#: src/basketscene.cpp:2796
+#: src/basketscene.cpp:2803
 #, kde-format
 msgid "Collapse this group"
 msgstr "एतत् समूहं ध्वंसयन्तु"
 
-#: src/basketscene.cpp:2807
+#: src/basketscene.cpp:2814
 #, kde-format
 msgid ""
 "Group note with the one below\n"
 "Right click for more options"
 msgstr "अधोलिखितेन सह समूहटिप्पणी अधिकविकल्पानां कृते राइट् क्लिक् कुर्वन्तु"
 
-#: src/basketscene.cpp:2810
+#: src/basketscene.cpp:2817
 #, kde-format
 msgid ""
 "Group note with the one above\n"
 "Right click for more options"
 msgstr "उपरि विद्यमानेन सह समूहटिप्पणी अधिकविकल्पानां कृते राइट् क्लिक् कुर्वन्तु"
 
-#: src/basketscene.cpp:2828
+#: src/basketscene.cpp:2835
 #, kde-format
 msgid "Added"
 msgstr "योजितम्"
 
-#: src/basketscene.cpp:2828
+#: src/basketscene.cpp:2835
 #, kde-format
 msgid "Last Modification"
 msgstr "अन्तिम परिवर्तन"
 
-#: src/basketscene.cpp:2833
+#: src/basketscene.cpp:2840
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2837
+#: src/basketscene.cpp:2844
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "insert इत्यस्य स्थाने group कर्तुं दक्षिणभागे क्लिक् कुर्वन्तु"
 
-#: src/basketscene.cpp:2839
+#: src/basketscene.cpp:2846
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "समूहस्य स्थाने सम्मिलितुं वामभागे नुदन्तु"
 
-#: src/basketscene.cpp:3017
+#: src/basketscene.cpp:3024
 #, kde-format
 msgid "&Unlock"
 msgstr "&अनलॉक"
 
-#: src/basketscene.cpp:3022
+#: src/basketscene.cpp:3029
 #, kde-format
 msgid "Password protected basket."
 msgstr "पासवर्ड संरक्षित टोकरी।"
 
-#: src/basketscene.cpp:3024
+#: src/basketscene.cpp:3031
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "तत् प्राप्तुं Unlock नुदन्तु ।"
 
-#: src/basketscene.cpp:3026
+#: src/basketscene.cpp:3033
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "एन्क्रिप्शनं समर्थितं नास्ति<br/>%1 इत्यस्य एतत् संस्करणम् ।"
 
-#: src/basketscene.cpp:3038
+#: src/basketscene.cpp:3045
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
 msgstr "टोकरीः अनलॉक्ड् स्थातुं, अनुप्रयोगसेटिंग्स् मध्ये स्वचालित<br>लॉकिंग् अवधिं परिवर्तयन्तु ।"
 
-#: src/basketscene.cpp:3065 src/basketstatusbar.cpp:88 src/bnpview.cpp:1590
+#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1593
 #, kde-format
 msgid "Loading..."
 msgstr "लोडिंग..."
 
-#: src/basketscene.cpp:3231 src/basketscene.cpp:3273
+#: src/basketscene.cpp:3238 src/basketscene.cpp:3280
 #, kde-format
 msgid "&Remove"
 msgstr "&अपाकरोति"
 
-#: src/basketscene.cpp:3234 src/basketscene.cpp:3277 src/bnpview.cpp:2471
+#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2465
 #, kde-format
 msgid "&Customize..."
 msgstr "&अनुकूलित करें..."
 
-#: src/basketscene.cpp:3240 src/basketscene.cpp:3283
+#: src/basketscene.cpp:3247 src/basketscene.cpp:3290
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "&अस्मिन् Tag द्वारा छानतु"
 
-#: src/basketscene.cpp:3286
+#: src/basketscene.cpp:3293
 #, kde-format
 msgid "Filter by this &State"
 msgstr "एतेन &State द्वारा फ़िल्टर कुर्वन्तु"
 
-#: src/basketscene.cpp:3367
+#: src/basketscene.cpp:3374
 #, kde-format
 msgid "Tags"
 msgstr "टैग्स"
 
-#: src/basketscene.cpp:3944
+#: src/basketscene.cpp:3951
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>किं भवान् वास्तवमेव एतत् टिप्पणं विलोपयितुम् इच्छति?</qt>"
 msgstr[1] "<qt>किं भवान् वास्तवमेव एतानि <b>%1</b> टिप्पण्यानि विलोपयितुम् इच्छति?</qt>"
 
-#: src/basketscene.cpp:3945
+#: src/basketscene.cpp:3952
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "टिप्पणीं विलोपयन्तु"
 msgstr[1] "टिप्पण्यानि विलोपयन्तु"
 
-#: src/basketscene.cpp:4044
+#: src/basketscene.cpp:4051
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "क्लिप्बोर्ड् मध्ये टिप्पणी प्रतिलिपिकृतम्।"
 msgstr[1] "क्लिप्बोर्ड् मध्ये टिप्पणीः प्रतिलिपिकृताः।"
 
-#: src/basketscene.cpp:4047
+#: src/basketscene.cpp:4054
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "क्लिप्बोर्डं प्रति टिप्पणीं कटयन्तु।"
 msgstr[1] "क्लिप्बोर्ड् मध्ये नोट्स् कटयन्तु।"
 
-#: src/basketscene.cpp:4050
+#: src/basketscene.cpp:4057
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "चयनं प्रति प्रतिलिपितः टिप्पणी।"
 msgstr[1] "चयनार्थं प्रतिलिपिकृतानि टिप्पण्यानि।"
 
-#: src/basketscene.cpp:4114 src/basketscene.cpp:4189
+#: src/basketscene.cpp:4121 src/basketscene.cpp:4196
 #, kde-format
 msgid "Unable to open this note."
 msgstr "एतत् टिप्पणं उद्घाटयितुं असमर्थः।"
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4116 src/basketui.rc:40
+#: src/basketscene.cpp:4123 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "&सम्पादन"
 
-#: src/basketscene.cpp:4152
+#: src/basketscene.cpp:4159
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "एतां सञ्चिकां उद्घाटयितुं भवान् अधिकृतः नास्ति ।"
 
-#: src/basketscene.cpp:4210
+#: src/basketscene.cpp:4217
 #, kde-format
 msgid "Save to File"
 msgstr "सञ्चिकायां रक्षतु"
@@ -1079,41 +1048,41 @@ msgstr "मुख्य साधनपट्टी"
 msgid "Text Formatting Toolbar"
 msgstr "पाठस्वरूपणसाधनपट्टिका"
 
-#: src/bnpview.cpp:166 src/bnpview.cpp:1228
+#: src/bnpview.cpp:170 src/bnpview.cpp:1231
 #, kde-format
 msgid "General"
 msgstr "सामान्य"
 
-#: src/bnpview.cpp:216
+#: src/bnpview.cpp:220
 #, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "वर्तमान टोकरीयां क्लिप्बोर्डसामग्री चिनोतु"
 
-#: src/bnpview.cpp:218
+#: src/bnpview.cpp:222
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
 "to open the main window."
 msgstr "मुख्यविण्डो उद्घाटनं विना वर्तमानटोपले क्लिप्बोर्डसामग्री चिनोतुम् अनुमन्यते ।"
 
-#: src/bnpview.cpp:223
+#: src/bnpview.cpp:227
 #, kde-format
 msgid "Paste selection in current basket"
 msgstr "वर्तमान टोपले चयनं चिनोतु"
 
-#: src/bnpview.cpp:225
+#: src/bnpview.cpp:229
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
 "to open the main window."
 msgstr "मुख्यविण्डो उद्घाटनं विना वर्तमानटोकरीयां क्लिप्बोर्डचयनं चिनोतुं शक्नोति ।"
 
-#: src/bnpview.cpp:230
+#: src/bnpview.cpp:234
 #, kde-format
 msgid "Create a new basket"
 msgstr "नूतनं टोकरीं रचयन्तु"
 
-#: src/bnpview.cpp:232
+#: src/bnpview.cpp:236
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1124,82 +1093,82 @@ msgstr ""
 "टिप्पणीं योजयितुं, क्लिप्बोर्डं पेस्ट् कर्तुं वा चयनं पेस्ट् कर्तुं वा अन्येषां वैश्विकशॉर्टकट्-उपयोगं "
 "कर्तुं शक्नोति)"
 
-#: src/bnpview.cpp:237
+#: src/bnpview.cpp:241
 #, kde-format
 msgid "Go to previous basket"
 msgstr "पूर्वपुटं गच्छतु"
 
-#: src/bnpview.cpp:239
+#: src/bnpview.cpp:243
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
 "open the main window."
 msgstr "मुख्यविण्डो उद्घाट्य वर्तमानटोकरीं पूर्वस्मिन् परिवर्तयितुं शक्नोति ।"
 
-#: src/bnpview.cpp:243
+#: src/bnpview.cpp:247
 #, kde-format
 msgid "Go to next basket"
 msgstr "अग्रिमः टोकरीं गच्छतु"
 
-#: src/bnpview.cpp:245
+#: src/bnpview.cpp:249
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
 "the main window."
 msgstr "मुख्यविण्डो उद्घाटनं विना वर्तमानं टोकरीं अग्रिमे परिवर्तनं कर्तुं शक्नोति ।"
 
-#: src/bnpview.cpp:249
+#: src/bnpview.cpp:253
 #, kde-format
 msgid "Insert text note"
 msgstr "पाठटिप्पणीं सम्मिलितं कुर्वन्तु"
 
-#: src/bnpview.cpp:251
+#: src/bnpview.cpp:255
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr "मुख्यविण्डो उद्घाट्य वर्तमानटोकरीयां पाठटिप्पणीं योजयन्तु ।"
 
-#: src/bnpview.cpp:256 src/settings.cpp:565
+#: src/bnpview.cpp:260 src/settings.cpp:587
 #, kde-format
 msgid "Insert image note"
 msgstr "इमेज नोट् सम्मिलितं कुर्वन्तु"
 
-#: src/bnpview.cpp:258
+#: src/bnpview.cpp:262
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
 "window."
 msgstr "मुख्यविण्डो उद्घाट्य वर्तमानटोकरीयां चित्रटिप्पणं योजयन्तु ।"
 
-#: src/bnpview.cpp:262 src/settings.cpp:566
+#: src/bnpview.cpp:266 src/settings.cpp:588
 #, kde-format
 msgid "Insert link note"
 msgstr "लिङ्क नोट् सम्मिलितं कुर्वन्तु"
 
-#: src/bnpview.cpp:264
+#: src/bnpview.cpp:268
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr "मुख्यविण्डो उद्घाट्य वर्तमानटोकरीयां लिङ्क् नोट् योजयन्तु ।"
 
-#: src/bnpview.cpp:268 src/settings.cpp:569
+#: src/bnpview.cpp:272 src/settings.cpp:591
 #, kde-format
 msgid "Insert color note"
 msgstr "वर्णटिप्पणीं सम्मिलितं कुर्वन्तु"
 
-#: src/bnpview.cpp:270
+#: src/bnpview.cpp:274
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
 "window."
 msgstr "मुख्यविण्डो उद्घाटनं विना वर्तमानटोपले वर्णटिप्पणीं योजयन्तु ।"
 
-#: src/bnpview.cpp:274
+#: src/bnpview.cpp:278
 #, kde-format
 msgid "Pick color from screen"
 msgstr "स्क्रीनतः वर्णं चिनुत"
 
-#: src/bnpview.cpp:276
+#: src/bnpview.cpp:280
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
@@ -1207,36 +1176,36 @@ msgid ""
 msgstr ""
 "पर्दायां एकस्मात् पिक्सेलतः उद्धृतं वर्णटिप्पणीं मुख्यविण्डो उद्घाट्य वर्तमानटोकरीयां योजयन्तु ।"
 
-#: src/bnpview.cpp:281 src/settings.cpp:570
+#: src/bnpview.cpp:285 src/settings.cpp:592
 #, kde-format
 msgid "Grab screen zone"
 msgstr "स्क्रीन क्षेत्रं गृह्यताम्"
 
-#: src/bnpview.cpp:283
+#: src/bnpview.cpp:287
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
 "the main window."
 msgstr "मुख्यविण्डो उद्घाट्य वर्तमानटोकरीयां चित्ररूपेण स्क्रीनक्षेत्रं गृह्यताम् ।"
 
-#: src/bnpview.cpp:289
+#: src/bnpview.cpp:293
 #, kde-format
 msgid "Insert plain text note"
 msgstr "साधारणपाठटिप्पणीं सम्मिलितं कुर्वन्तु"
 
-#: src/bnpview.cpp:291
+#: src/bnpview.cpp:295
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
 "window."
 msgstr "मुख्यविण्डो उद्घाट्य वर्तमानटोकरीयां साधारणपाठटिप्पणीं योजयन्तु ।"
 
-#: src/bnpview.cpp:300
+#: src/bnpview.cpp:304
 #, kde-format
 msgid "Baskets"
 msgstr "टोकरी"
 
-#: src/bnpview.cpp:345
+#: src/bnpview.cpp:349
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1249,27 +1218,27 @@ msgstr ""
 "टोकरीं समूहयितुं शक्नुवन्ति । भवन्तः तयोः मध्ये एकं टोकरीं नुत्वा तत् उद्घाटयितुं ब्राउज् कर्तुं "
 "शक्नुवन्ति, अथवा drag and drop इत्यस्य उपयोगेन पुनः व्यवस्थितुं शक्नुवन्ति ।"
 
-#: src/bnpview.cpp:360 src/bnpview.cpp:366
+#: src/bnpview.cpp:364 src/bnpview.cpp:370
 #, kde-format
 msgid "&Basket Archive..."
 msgstr "&टोकरी अभिलेखागार..."
 
-#: src/bnpview.cpp:372
+#: src/bnpview.cpp:376
 #, kde-format
 msgid "&HTML Web Page..."
 msgstr "&HTML जालपुटम्..."
 
-#: src/bnpview.cpp:378
+#: src/bnpview.cpp:382
 #, kde-format
 msgid "Text &File..."
 msgstr "पाठ &सञ्चिका..."
 
-#: src/bnpview.cpp:383
+#: src/bnpview.cpp:387
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "&बैकअप && पुनर्स्थापन..."
 
-#: src/bnpview.cpp:387
+#: src/bnpview.cpp:391
 #, kde-format
 msgid "&Check && Cleanup..."
 msgstr "&चेक && सफाई..."
@@ -1340,267 +1309,267 @@ msgstr "&समूह"
 msgid "U&ngroup"
 msgstr "उ&समूहः"
 
-#: src/bnpview.cpp:457
+#: src/bnpview.cpp:458
 #, kde-format
 msgid "Move on &Top"
 msgstr "&Top इत्यत्र गच्छन्तु"
 
-#: src/bnpview.cpp:463
+#: src/bnpview.cpp:464
 #, kde-format
 msgid "Move &Up"
 msgstr "चाल & ऊपर"
 
-#: src/bnpview.cpp:469
+#: src/bnpview.cpp:470
 #, kde-format
 msgid "Move &Down"
 msgstr "चालय &अधः"
 
-#: src/bnpview.cpp:475
+#: src/bnpview.cpp:476
 #, kde-format
 msgid "Move on &Bottom"
 msgstr "&Bottom इत्यत्र गच्छन्तु"
 
-#: src/bnpview.cpp:486
+#: src/bnpview.cpp:487
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Plai&n पाठः"
 
-#: src/bnpview.cpp:493
+#: src/bnpview.cpp:494
 #, kde-format
 msgid "&Text"
 msgstr "&पाठ"
 
-#: src/bnpview.cpp:499
+#: src/bnpview.cpp:500
 #, kde-format
 msgid "&Link"
 msgstr "&सम्बन्ध"
 
-#: src/bnpview.cpp:505
+#: src/bnpview.cpp:506
 #, kde-format
 msgid "Cross &Reference"
 msgstr "क्रॉस & सन्दर्भ"
 
-#: src/bnpview.cpp:510
+#: src/bnpview.cpp:511
 #, kde-format
 msgid "&Image"
 msgstr "&छवि"
 
-#: src/bnpview.cpp:515
+#: src/bnpview.cpp:516
 #, kde-format
 msgid "&Color"
 msgstr "&वर्ण"
 
-#: src/bnpview.cpp:520
+#: src/bnpview.cpp:521
 #, kde-format
 msgid "L&auncher"
 msgstr "L&auncher"
 
-#: src/bnpview.cpp:525
+#: src/bnpview.cpp:526
 #, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "&desktop अनुप्रयोगस्य कृते Import Launcher..."
 
-#: src/bnpview.cpp:530
+#: src/bnpview.cpp:531
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Im&port चिह्न..."
 
-#: src/bnpview.cpp:535 src/noteedit.cpp:544
+#: src/bnpview.cpp:536 src/noteedit.cpp:546
 #, kde-format
 msgid "Load From &File..."
 msgstr "Load From &File..."
 
-#: src/bnpview.cpp:571
+#: src/bnpview.cpp:572
 #, kde-format
 msgid "C&olor from Screen"
 msgstr "C&olor from स्क्रीन"
 
-#: src/bnpview.cpp:579
+#: src/bnpview.cpp:580
 #, kde-format
 msgid "Grab Screen &Zone"
 msgstr "स्क्रीन &जोन हड़प"
 
-#: src/bnpview.cpp:611
+#: src/bnpview.cpp:612
 #, kde-format
 msgid "&New Basket..."
 msgstr "&नवीन टोकरी..."
 
-#: src/bnpview.cpp:617
+#: src/bnpview.cpp:618
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "नवीन &उप-टोकरी..."
 
-#: src/bnpview.cpp:622
+#: src/bnpview.cpp:623
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "नवीन Si&bling टोकरी..."
 
-#: src/bnpview.cpp:625
+#: src/bnpview.cpp:626
 #, kde-format
 msgid "&New"
 msgstr "&नूतनम्‌"
 
-#: src/bnpview.cpp:635
+#: src/bnpview.cpp:636
 #, kde-format
 msgid "&Properties..."
 msgstr "&गुणाः..."
 
-#: src/bnpview.cpp:641
+#: src/bnpview.cpp:642
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "क्रमेण बालकाः आरोहन्तः"
 
-#: src/bnpview.cpp:646
+#: src/bnpview.cpp:647
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "क्रमेण बालकाः अवतरन्ति"
 
-#: src/bnpview.cpp:651
+#: src/bnpview.cpp:652
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "क्रमबद्धं भ्रातरः आरोहणम्"
 
-#: src/bnpview.cpp:656
+#: src/bnpview.cpp:657
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "क्रमबद्धाः भ्रातरः अवतरन्तः"
 
-#: src/bnpview.cpp:661
+#: src/bnpview.cpp:662
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&अपाकरोति"
 
-#: src/bnpview.cpp:667
+#: src/bnpview.cpp:669
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "समाभाष्..."
 
-#: src/bnpview.cpp:672
+#: src/bnpview.cpp:674
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&ताल"
 
-#: src/bnpview.cpp:685
+#: src/bnpview.cpp:688
 #, kde-format
 msgid "&Filter"
 msgstr "&फ़िल्टर"
 
-#: src/bnpview.cpp:697
+#: src/bnpview.cpp:700
 #, kde-format
 msgid "&Search All"
 msgstr "&सर्वं अन्वेष्टुम्"
 
-#: src/bnpview.cpp:705
+#: src/bnpview.cpp:708
 #, kde-format
 msgid "&Reset Filter"
 msgstr "&Reset फ़िल्टर"
 
-#: src/bnpview.cpp:713
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&पूर्व टोकरी"
 
-#: src/bnpview.cpp:719
+#: src/bnpview.cpp:722
 #, kde-format
 msgid "&Next Basket"
 msgstr "&अगला टोकरी"
 
-#: src/bnpview.cpp:725
+#: src/bnpview.cpp:728
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&फोल्ड बास्केट"
 
-#: src/bnpview.cpp:731
+#: src/bnpview.cpp:734
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&विस्तार टोकरी"
 
-#: src/bnpview.cpp:739
+#: src/bnpview.cpp:742
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "पाठटिप्पणीं समृद्धपाठटिप्पण्यां परिवर्तयन्तु"
 
-#: src/bnpview.cpp:748
+#: src/bnpview.cpp:751
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&स्वागत टोकरी"
 
-#: src/bnpview.cpp:1013
+#: src/bnpview.cpp:1016
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "सादा पाठ नोट्स् रूपान्तरणम्"
 
-#: src/bnpview.cpp:1014
+#: src/bnpview.cpp:1017
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "साधारणपाठटिप्पणीनां समृद्धपाठटिप्पणीनां परिवर्तनं..."
 
-#: src/bnpview.cpp:1588
+#: src/bnpview.cpp:1591
 #, kde-format
 msgid "Locked"
 msgstr "तालाबद्धः"
 
-#: src/bnpview.cpp:1592
+#: src/bnpview.cpp:1595
 #, kde-format
 msgid "No notes"
 msgstr "न टिप्पणीः"
 
-#: src/bnpview.cpp:1594
+#: src/bnpview.cpp:1597
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 टिप्पणी"
 msgstr[1] "%1 टिप्पणी"
 
-#: src/bnpview.cpp:1595
+#: src/bnpview.cpp:1598
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 चयनितम्"
 msgstr[1] "%1 चयनितम्"
 
-#: src/bnpview.cpp:1596
+#: src/bnpview.cpp:1599
 #, kde-format
 msgid "all matches"
 msgstr "सर्वे मेलनं कुर्वन्ति"
 
-#: src/bnpview.cpp:1596
+#: src/bnpview.cpp:1599
 #, kde-format
 msgid "no filter"
 msgstr "न फ़िल्टर"
 
-#: src/bnpview.cpp:1598
+#: src/bnpview.cpp:1601
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 मेलनं भवति"
 msgstr[1] "%1 मेलति"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1602
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1734
+#: src/bnpview.cpp:1737
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "साधारणपाठटिप्पणयः समृद्धपाठे परिवर्तिताः सन्ति ।"
 
-#: src/bnpview.cpp:1734 src/bnpview.cpp:1736
+#: src/bnpview.cpp:1737 src/bnpview.cpp:1739
 #, kde-format
 msgid "Conversion Finished"
 msgstr "परिवर्तनं समाप्तम्"
 
-#: src/bnpview.cpp:1736
+#: src/bnpview.cpp:1739
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "परिवर्तनार्थं साधारणपाठटिप्पण्यानि नास्ति ।"
 
-#: src/bnpview.cpp:1753
+#: src/bnpview.cpp:1756
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1619,33 +1588,33 @@ msgstr ""
 "अनुप्रयोगः सम्यक् संस्थापितः अस्ति परन्तु भवतां कृते तस्य पूर्वावलोकनसंस्करणं आसीत् तर्हि "
 "निष्कासयितुं प्रयतस्व %5basketui.rc</p> इति सञ्चिका"
 
-#: src/bnpview.cpp:1767
+#: src/bnpview.cpp:1770
 #, kde-format
 msgid "Resource not Found"
 msgstr "संसाधनं न लब्धम्"
 
-#: src/bnpview.cpp:1796
+#: src/bnpview.cpp:1799
 #, kde-format
 msgid "Cannot add note."
 msgstr "टिप्पणीं योजयितुं न शक्यते।"
 
-#: src/bnpview.cpp:1943
+#: src/bnpview.cpp:1946
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt>किं भवान् वास्तवमेव टोकरीं <b>%1</b> तस्य सामग्रीं च हर्तुं इच्छति?</qt>"
 
-#: src/bnpview.cpp:1944
+#: src/bnpview.cpp:1947
 #, kde-format
 msgid "Remove Basket"
 msgstr "टोकरी निकालें"
 
-#: src/bnpview.cpp:1945
+#: src/bnpview.cpp:1948
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&टोकरी निकालें"
 
-#: src/bnpview.cpp:1955
+#: src/bnpview.cpp:1958
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1654,37 +1623,37 @@ msgstr ""
 "<qt><b>%1</b> इत्यत्र निम्नलिखितबालटोकराः सन्ति।<br>किं भवान् तान् अपि निष्कासयितुम् "
 "इच्छति?</qt>"
 
-#: src/bnpview.cpp:1957
+#: src/bnpview.cpp:1960
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "बालटोकरीं निष्कासयन्तु"
 
-#: src/bnpview.cpp:1958
+#: src/bnpview.cpp:1961
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&बालटोकरीं निष्कासयन्तु"
 
-#: src/bnpview.cpp:2028 src/bnpview.cpp:2075
+#: src/bnpview.cpp:2031 src/bnpview.cpp:2078
 #, kde-format
 msgid "Basket Archives"
 msgstr "टोकरी अभिलेखागार"
 
-#: src/bnpview.cpp:2038 src/htmlexporter.cpp:66
+#: src/bnpview.cpp:2041 src/htmlexporter.cpp:68
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "<b>%1</b> इति सञ्चिका पूर्वमेव अस्ति । किं भवन्तः तस्य अधिलेखनं कर्तुम् इच्छन्ति वा ?"
 
-#: src/bnpview.cpp:2039 src/htmlexporter.cpp:67
+#: src/bnpview.cpp:2042 src/htmlexporter.cpp:69
 #, kde-format
 msgid "Overwrite File?"
 msgstr "सञ्चिकां अधिलेखयतु?"
 
-#: src/bnpview.cpp:2460
+#: src/bnpview.cpp:2454
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&नव टैग नियुक्त करें..."
 
-#: src/bnpview.cpp:2465
+#: src/bnpview.cpp:2459
 #, kde-format
 msgid "&Remove All"
 msgstr "&सर्वं निष्कासयतु"
@@ -1709,7 +1678,7 @@ msgstr "कृपया टोकरीं प्रति गुप्तशब
 msgid "Error while saving: "
 msgstr "रक्षणकाले त्रुटिः :"
 
-#: src/debugwindow.cpp:22
+#: src/debugwindow.cpp:25
 #, kde-format
 msgid "Debug Window"
 msgstr "त्रुटिनिवारणविण्डो"
@@ -1744,7 +1713,7 @@ msgstr "नमूना दर"
 msgid "Track number"
 msgstr "पटल संख्या"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2171
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2177
 #, kde-format
 msgid "Comment"
 msgstr "टिप्पणी"
@@ -1819,7 +1788,7 @@ msgstr "(टैग् न कृतम्)"
 msgid "(Tagged)"
 msgstr "(टैग्ड्)"
 
-#: src/formatimporter.cpp:106
+#: src/formatimporter.cpp:108
 #, kde-format
 msgid ""
 "<p>Folder mirroring is not possible anymore (see <a href='https://basket-"
@@ -1835,7 +1804,7 @@ msgstr ""
 "टोकरीं विलोपयितुं वा शक्नोति, अथवा उभयस्य उपयोगं कर्तुं शक्नोति । परन्तु एकस्य परिवर्तनेन "
 "अन्यस्य परिवर्तनं न भविष्यति यतः ते इदानीं पृथक् सत्ताः सन्ति इति स्मर्यताम् ।</p>"
 
-#: src/formatimporter.cpp:112
+#: src/formatimporter.cpp:114
 #, kde-format
 msgid "Folder Mirror Import"
 msgstr "फोल्डर दर्पण आयात"
@@ -1845,52 +1814,52 @@ msgstr "फोल्डर दर्पण आयात"
 msgid "Set current basket to %1"
 msgstr "वर्तमानं टोकरीं %1 इति सेट् कुर्वन्तु"
 
-#: src/htmlexporter.cpp:53
+#: src/htmlexporter.cpp:55
 #, kde-format
 msgid "HTML Documents"
 msgstr "HTML दस्तावेजाः"
 
-#: src/htmlexporter.cpp:57 src/htmlexporter.cpp:79
+#: src/htmlexporter.cpp:59 src/htmlexporter.cpp:81
 #, kde-format
 msgid "Export to HTML"
 msgstr "HTML मध्ये निर्यातं कुर्वन्तु"
 
-#: src/htmlexporter.cpp:80
+#: src/htmlexporter.cpp:82
 #, kde-format
 msgid "Exporting to HTML. Please wait..."
 msgstr "HTML मध्ये निर्यातयति। कृपया प्रतीक्षां कुर्वन्तु..."
 
-#: src/htmlexporter.cpp:115 src/htmlexporter.cpp:151 src/htmlexporter.cpp:161
+#: src/htmlexporter.cpp:117 src/htmlexporter.cpp:153 src/htmlexporter.cpp:163
 #, kde-format
 msgctxt "HTML export folder (files)"
 msgid "%1_files"
 msgstr "%1_सञ्चिकाः"
 
-#: src/htmlexporter.cpp:121 src/htmlexporter.cpp:166
+#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:168
 #, kde-format
 msgctxt "HTML export folder (icons)"
 msgid "icons"
 msgstr "चिह्नानि"
 
-#: src/htmlexporter.cpp:122 src/htmlexporter.cpp:168
+#: src/htmlexporter.cpp:124 src/htmlexporter.cpp:170
 #, kde-format
 msgctxt "HTML export folder (images)"
 msgid "images"
 msgstr "बिम्बाः"
 
-#: src/htmlexporter.cpp:123 src/htmlexporter.cpp:164
+#: src/htmlexporter.cpp:125 src/htmlexporter.cpp:166
 #, kde-format
 msgctxt "HTML export folder (baskets)"
 msgid "baskets"
 msgstr "टोकरी"
 
-#: src/htmlexporter.cpp:156 src/htmlexporter.cpp:162 src/htmlexporter.cpp:163
+#: src/htmlexporter.cpp:158 src/htmlexporter.cpp:164 src/htmlexporter.cpp:165
 #, kde-format
 msgctxt "HTML export folder (data)"
 msgid "data"
 msgstr "दत्तांश"
 
-#: src/htmlexporter.cpp:403
+#: src/htmlexporter.cpp:405
 #, kde-format
 msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
@@ -1899,13 +1868,13 @@ msgstr ""
 "<a href=\"%1\">%2</a> %3 इत्यनेन सह निर्मितम्, टिप्पणीं ग्रहीतुं सूचनां हस्ते स्थापयितुं च "
 "साधनम् ।"
 
-#: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:613 src/tagsedit.cpp:504
+#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:608 src/tagsedit.cpp:506
 #: src/variouswidgets.cpp:396
 #, kde-format
 msgid "(Default)"
 msgstr "(मूलभूतम्‌)"
 
-#: src/kcolorcombo2.cpp:123
+#: src/kcolorcombo2.cpp:125
 #, kde-format
 msgid "Other..."
 msgstr "इतर..."
@@ -1914,12 +1883,12 @@ msgstr "इतर..."
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:637
+#: src/kcolorcombo2.cpp:632
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "र:%1, जी:%2, ख:%3"
 
-#: src/kcolorcombo2.cpp:637
+#: src/kcolorcombo2.cpp:632
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2082,17 +2051,43 @@ msgstr ""
 msgid "Example"
 msgstr "उदाहरण"
 
-#: src/mainwindow.cpp:73
+#: src/main.cpp:35
+#, kde-format
+msgid "Show the debug window"
+msgstr "त्रुटिनिवारणविण्डो दर्शयतु"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Custom folder to load and save baskets and other application data."
+msgstr "टोकरीः अन्ये च अनुप्रयोगदत्तांशः लोड् कर्तुं रक्षितुं च कस्टम् समुच्चय ।"
+
+#: src/main.cpp:38
+#, kde-format
+msgctxt "Command line help: --data-folder <FOLDER>"
+msgid "folder"
+msgstr "समुच्चय"
+
+#: src/main.cpp:40
+#, kde-format
+msgid "Automatically hide the main window in the system tray on startup."
+msgstr "प्रारम्भे सिस्टम् ट्रे मध्ये मुख्यविण्डो स्वयमेव गोपयन्तु ।"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Open a basket archive or template."
+msgstr "टोकरीसंग्रहालयं वा टेम्पलेट् वा उद्घाटयन्तु।"
+
+#: src/mainwindow.cpp:75
 #, kde-format
 msgid "Minimize"
 msgstr "न्यूनतमं कुरुत"
 
-#: src/mainwindow.cpp:253
+#: src/mainwindow.cpp:255
 #, kde-format
 msgid "<p>Do you really want to quit %1?</p>"
 msgstr "<p>किं भवान् वास्तवमेव %1 त्यक्तुम् इच्छति?</p>"
 
-#: src/mainwindow.cpp:257
+#: src/mainwindow.cpp:259
 #, kde-format
 msgid "Quit Confirm"
 msgstr "Quit Confirm इति त्यजतु"
@@ -2165,464 +2160,464 @@ msgstr ""
 "उप-टोकरीभिः सह विभागान् निर्मातुं;</li><li>टोकरी-समूहं कृत्वा... एकत्र निर्यातयन्तु "
 "(उदा. जनानां कृते तान् ईमेल कृत्वा)।</li></ul>"
 
-#: src/notecontent.cpp:91
+#: src/notecontent.cpp:96
 #, kde-format
 msgid "Group"
 msgstr "समूह"
 
-#: src/notecontent.cpp:93
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Plain Text"
 msgstr "सादा पाठः"
 
-#: src/notecontent.cpp:95
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Text"
 msgstr "पाठ"
 
-#: src/notecontent.cpp:97
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "Image"
 msgstr "छवि"
 
-#: src/notecontent.cpp:99
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Animation"
 msgstr "एनिमेशन"
 
-#: src/notecontent.cpp:101
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Sound"
 msgstr "ध्वनि"
 
-#: src/notecontent.cpp:103
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "File"
 msgstr "सञ्चिका"
 
-#: src/notecontent.cpp:105
+#: src/notecontent.cpp:110
 #, kde-format
 msgid "Link"
 msgstr "सम्बन्ध"
 
-#: src/notecontent.cpp:107
+#: src/notecontent.cpp:112
 #, kde-format
 msgid "Cross Reference"
 msgstr "क्रॉस सन्दर्भ"
 
-#: src/notecontent.cpp:109
+#: src/notecontent.cpp:114
 #, kde-format
 msgid "Launcher"
 msgstr "प्रक्षेपक"
 
-#: src/notecontent.cpp:111 src/noteedit.cpp:1106
+#: src/notecontent.cpp:116 src/noteedit.cpp:1105
 #, kde-format
 msgid "Color"
 msgstr "वर्ण"
 
-#: src/notecontent.cpp:113 src/notecontent.cpp:115
+#: src/notecontent.cpp:118 src/notecontent.cpp:120
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: src/notecontent.cpp:591
+#: src/notecontent.cpp:597
 #, kde-format
 msgid "Edit this plain text"
 msgstr "एतत् साधारणं पाठं सम्पादयतु"
 
-#: src/notecontent.cpp:595
+#: src/notecontent.cpp:601
 #, kde-format
 msgid "Edit this text"
 msgstr "एतत् पाठं सम्पादयतु"
 
-#: src/notecontent.cpp:599
+#: src/notecontent.cpp:605
 #, kde-format
 msgid "Edit this image"
 msgstr "एतत् चित्रं सम्पादयन्तु"
 
-#: src/notecontent.cpp:603
+#: src/notecontent.cpp:609
 #, kde-format
 msgid "Edit this animation"
 msgstr "एतत् एनिमेशनं सम्पादयन्तु"
 
-#: src/notecontent.cpp:607
+#: src/notecontent.cpp:613
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "अस्य ध्वनिस्य सञ्चिकानाम सम्पादयन्तु"
 
-#: src/notecontent.cpp:611
+#: src/notecontent.cpp:617
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "अस्याः सञ्चिकायाः नाम सम्पादयन्तु"
 
-#: src/notecontent.cpp:615
+#: src/notecontent.cpp:621
 #, kde-format
 msgid "Edit this link"
 msgstr "एतत् लिङ्कं सम्पादयन्तु"
 
-#: src/notecontent.cpp:619
+#: src/notecontent.cpp:625
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "एतत् क्रॉस् सन्दर्भं सम्पादयन्तु"
 
-#: src/notecontent.cpp:623
+#: src/notecontent.cpp:629
 #, kde-format
 msgid "Edit this launcher"
 msgstr "एतत् प्रक्षेपकं सम्पादयन्तु"
 
-#: src/notecontent.cpp:627
+#: src/notecontent.cpp:633
 #, kde-format
 msgid "Edit this color"
 msgstr "एतत् वर्णं सम्पादयतु"
 
-#: src/notecontent.cpp:631
+#: src/notecontent.cpp:637
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "एतत् अज्ञातवस्तु सम्पादयतु"
 
-#: src/notecontent.cpp:993
+#: src/notecontent.cpp:999
 #, kde-format
 msgid "Opening plain text..."
 msgstr "सादा पाठं उद्घाटयन्..."
 
-#: src/notecontent.cpp:995
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "सादे ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:997
+#: src/notecontent.cpp:1003
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "सादा पाठं उद्घाटयन्..."
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:1005
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "सादे ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1007
 #, kde-format
 msgid "Open plain text with:"
 msgstr "साधारणं पाठं उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1009
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "साधारणग्रन्थान् उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1114
+#: src/notecontent.cpp:1120
 #, kde-format
 msgid "Opening text..."
 msgstr "पाठः उद्घाटितः..."
 
-#: src/notecontent.cpp:1116
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Opening texts..."
 msgstr "ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:1118
+#: src/notecontent.cpp:1124
 #, kde-format
 msgid "Opening text with..."
 msgstr "पाठं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1126
 #, kde-format
 msgid "Opening texts with..."
 msgstr "ग्रन्थान् उद्घाटयन्..."
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1128
 #, kde-format
 msgid "Open text with:"
 msgstr "पाठं उद्घाटयतु :"
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1130
 #, kde-format
 msgid "Open texts with:"
 msgstr "ग्रन्थान् उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1247 src/notecontent.cpp:1465
+#: src/notecontent.cpp:1253 src/notecontent.cpp:1471
 #, kde-format
 msgid "Size"
 msgstr "आकृति"
 
-#: src/notecontent.cpp:1247 src/variouswidgets.cpp:216
+#: src/notecontent.cpp:1253 src/variouswidgets.cpp:216
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 द्वारा %2 पिक्सेल"
 
-#: src/notecontent.cpp:1254
+#: src/notecontent.cpp:1260
 #, kde-format
 msgid "Opening image..."
 msgstr "उद्घाटन चित्रम्..."
 
-#: src/notecontent.cpp:1256
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Opening images..."
 msgstr "चित्राणि उद्घाटयन्..."
 
-#: src/notecontent.cpp:1258
+#: src/notecontent.cpp:1264
 #, kde-format
 msgid "Opening image with..."
 msgstr "सह चित्रं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1266
 #, kde-format
 msgid "Opening images with..."
 msgstr "चित्राणि उद्घाटयन्..."
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1268
 #, kde-format
 msgid "Open image with:"
 msgstr "सह चित्रं उद्घाटयन्तु:"
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1270
 #, kde-format
 msgid "Open images with:"
 msgstr "चित्राणि उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1289
+#: src/notecontent.cpp:1295
 #, kde-format
 msgid "Click for full size view"
 msgstr "पूर्ण आकारदर्शनार्थं क्लिक् कुर्वन्तु"
 
-#: src/notecontent.cpp:1376
+#: src/notecontent.cpp:1382
 #, kde-format
 msgid "Opening animation..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1378
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Opening animations..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1380
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Opening animation with..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1388
 #, kde-format
 msgid "Opening animations with..."
 msgstr "एनिमेशनं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1390
 #, kde-format
 msgid "Open animation with:"
 msgstr "एनिमेशनं उद्घाटयतु :"
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1392
 #, kde-format
 msgid "Open animations with:"
 msgstr "एनिमेशनं उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1470
+#: src/notecontent.cpp:1476
 #, kde-format
 msgid "Type"
 msgstr "प्रकारः"
 
-#: src/notecontent.cpp:1511
+#: src/notecontent.cpp:1517
 #, kde-format
 msgid "Open this file"
 msgstr "एतां सञ्चिकां उद्घाटयन्तु"
 
-#: src/notecontent.cpp:1530
+#: src/notecontent.cpp:1536
 #, kde-format
 msgid "Opening file..."
 msgstr "सञ्चिकां उद्घाटयति..."
 
-#: src/notecontent.cpp:1532
+#: src/notecontent.cpp:1538
 #, kde-format
 msgid "Opening files..."
 msgstr "सञ्चिकाः उद्घाटयन्..."
 
-#: src/notecontent.cpp:1534
+#: src/notecontent.cpp:1540
 #, kde-format
 msgid "Opening file with..."
 msgstr "सञ्चिकां उद्घाटयन्..."
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1542
 #, kde-format
 msgid "Opening files with..."
 msgstr "सञ्चिकाः उद्घाटयन्..."
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1544
 #, kde-format
 msgid "Open file with:"
 msgstr "सञ्चिकां उद्घाटयन्तु यत्र:"
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1546
 #, kde-format
 msgid "Open files with:"
 msgstr "सञ्चिकाः उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1641
+#: src/notecontent.cpp:1647
 #, kde-format
 msgid "Open this sound"
 msgstr "एषः शब्दः उद्घाटयतु"
 
-#: src/notecontent.cpp:1667
+#: src/notecontent.cpp:1673
 #, kde-format
 msgid "Opening sound..."
 msgstr "उद्घाटन ध्वनि..."
 
-#: src/notecontent.cpp:1669
+#: src/notecontent.cpp:1675
 #, kde-format
 msgid "Opening sounds..."
 msgstr "उद्घाटन ध्वनयः..."
 
-#: src/notecontent.cpp:1671
+#: src/notecontent.cpp:1677
 #, kde-format
 msgid "Opening sound with..."
 msgstr "ध्वनिं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1673
+#: src/notecontent.cpp:1679
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "ध्वनयः उद्घाटयन्..."
 
-#: src/notecontent.cpp:1675
+#: src/notecontent.cpp:1681
 #, kde-format
 msgid "Open sound with:"
 msgstr "मुक्तध्वनिः सह :"
 
-#: src/notecontent.cpp:1677
+#: src/notecontent.cpp:1683
 #, kde-format
 msgid "Open sounds with:"
 msgstr "मुक्तध्वनयः सह :"
 
-#: src/notecontent.cpp:1740 src/notecontent.cpp:2011
+#: src/notecontent.cpp:1746 src/notecontent.cpp:2017
 #, kde-format
 msgid "Target"
 msgstr "लक्ष्य"
 
-#: src/notecontent.cpp:1762 src/notecontent.cpp:2033
+#: src/notecontent.cpp:1768 src/notecontent.cpp:2039
 #, kde-format
 msgid "Open this link"
 msgstr "एतत् लिङ्क् उद्घाटयन्तु"
 
-#: src/notecontent.cpp:1788
+#: src/notecontent.cpp:1794
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "लिङ्कस्य उद्घाटनार्थं URL नास्ति ।"
 
-#: src/notecontent.cpp:1792
+#: src/notecontent.cpp:1798
 #, kde-format
 msgid "Opening link target..."
 msgstr "लिङ्क लक्ष्यं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1794
+#: src/notecontent.cpp:1800
 #, kde-format
 msgid "Opening link targets..."
 msgstr "लिङ्क लक्ष्यं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1796
+#: src/notecontent.cpp:1802
 #, kde-format
 msgid "Opening link target with..."
 msgstr "लिङ्क लक्ष्यं उद्घाटयन्..."
 
-#: src/notecontent.cpp:1798
+#: src/notecontent.cpp:1804
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "सह लिङ्क् लक्ष्याणि उद्घाटयन्..."
 
-#: src/notecontent.cpp:1800
+#: src/notecontent.cpp:1806
 #, kde-format
 msgid "Open link target with:"
 msgstr "लिङ्क् लक्ष्यं उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:1802
+#: src/notecontent.cpp:1808
 #, kde-format
 msgid "Open link targets with:"
 msgstr "लिङ्क् लक्ष्याणि उद्घाटयन्तु :"
 
-#: src/notecontent.cpp:2046
+#: src/notecontent.cpp:2052
 #, kde-format
 msgid "Link to %1"
 msgstr "%1 इत्यस्य लिङ्क्"
 
-#: src/notecontent.cpp:2059
+#: src/notecontent.cpp:2065
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "लिङ्कस्य उद्घाटनार्थं टोकरी नास्ति।"
 
-#: src/notecontent.cpp:2063
+#: src/notecontent.cpp:2069
 #, kde-format
 msgid "Opening basket..."
 msgstr "उद्घाटन टोकरी..."
 
-#: src/notecontent.cpp:2168
+#: src/notecontent.cpp:2174
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(टर्मिनल् मध्ये चालयन्तु)</i>"
 
-#: src/notecontent.cpp:2173
+#: src/notecontent.cpp:2179
 #, kde-format
 msgid "Command"
 msgstr "आदेश"
 
-#: src/notecontent.cpp:2197
+#: src/notecontent.cpp:2203
 #, kde-format
 msgid "Launch this application"
 msgstr "एतत् अनुप्रयोगं प्रारम्भं कुर्वन्तु"
 
-#: src/notecontent.cpp:2218
+#: src/notecontent.cpp:2224
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "प्रक्षेपकस्य चालनार्थं कोऽपि आदेशः नास्ति ।"
 
-#: src/notecontent.cpp:2222
+#: src/notecontent.cpp:2228
 #, kde-format
 msgid "Launching application..."
 msgstr "एप्लिकेशनं प्रारम्भं कुर्वन्..."
 
-#: src/notecontent.cpp:2224
+#: src/notecontent.cpp:2230
 #, kde-format
 msgid "Launching applications..."
 msgstr "अनुप्रयोगानाम् आरम्भः..."
 
-#: src/notecontent.cpp:2344
+#: src/notecontent.cpp:2350
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "आरजीबी"
 
-#: src/notecontent.cpp:2345
+#: src/notecontent.cpp:2351
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>लाल</i>: %1, <i>हरिद्रा</i>: %2, <i>नील</i>: %3, 10."
 
-#: src/notecontent.cpp:2349
+#: src/notecontent.cpp:2355
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "एच.एस.वी"
 
-#: src/notecontent.cpp:2350
+#: src/notecontent.cpp:2356
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Hue</i>: %1, <i>संतृप्ति</i>: %2, <i>मूल्य</i>: %3, 10."
 
-#: src/notecontent.cpp:2354
+#: src/notecontent.cpp:2360
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS रङ्ग नाम"
 
-#: src/notecontent.cpp:2357
+#: src/notecontent.cpp:2363
 #, kde-format
 msgid "Is Web Color"
 msgstr "जालवर्णः अस्ति"
 
-#: src/notecontent.cpp:2357
+#: src/notecontent.cpp:2363
 #, kde-format
 msgid "Yes"
 msgstr "आम्‌"
 
-#: src/notecontent.cpp:2357
+#: src/notecontent.cpp:2363
 #, kde-format
 msgid "No"
 msgstr "नहि"
 
-#: src/noteedit.cpp:540
+#: src/noteedit.cpp:542
 #, kde-format
 msgid ""
 "Images can not be edited here at the moment (the next version of BasKet Note "
@@ -2633,12 +2628,12 @@ msgstr ""
 "चित्रसम्पादकं समाविष्टं भविष्यति) । किं भवन्तः तत् अवगच्छन्त्याः अनुप्रयोगेन उद्घाटयितुम् "
 "इच्छन्ति?"
 
-#: src/noteedit.cpp:542
+#: src/noteedit.cpp:544
 #, kde-format
 msgid "Edit Image Note"
 msgstr "प्रतिबिम्बं सम्पादयतु टिप्पणी"
 
-#: src/noteedit.cpp:567
+#: src/noteedit.cpp:569
 #, kde-format
 msgid ""
 "This animated image can not be edited here.\n"
@@ -2647,17 +2642,17 @@ msgstr ""
 "एतत् एनिमेटेड् इमेज् अत्र सम्पादयितुं न शक्यते । किं भवन्तः तत् अवगच्छन्त्याः अनुप्रयोगेन "
 "उद्घाटयितुम् इच्छन्ति?"
 
-#: src/noteedit.cpp:569
+#: src/noteedit.cpp:571
 #, kde-format
 msgid "Edit Animation Note"
 msgstr "एनिमेशन नोट सम्पादयतु"
 
-#: src/noteedit.cpp:662
+#: src/noteedit.cpp:661
 #, kde-format
 msgid "Edit Color Note"
 msgstr "रङ्ग टिप्पणी सम्पादयतु"
 
-#: src/noteedit.cpp:687
+#: src/noteedit.cpp:686
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2667,132 +2662,132 @@ msgstr ""
 "अस्य टिप्पण्याः प्रकारः अज्ञातः अस्ति, अत्र सम्पादयितुं न शक्यते । भवान् तथापि टिप्पणीं "
 "कर्षितुं वा प्रतिलिपिं कर्तुं वा शक्नोति यत् तत् अवगच्छति अनुप्रयोगे ।"
 
-#: src/noteedit.cpp:689
+#: src/noteedit.cpp:688
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "अज्ञात टिप्पणी सम्पादयतु"
 
-#: src/noteedit.cpp:701
+#: src/noteedit.cpp:700
 #, kde-format
 msgid "Edit Link Note"
 msgstr "सम्पादयतु लिङ्क टिप्पणी"
 
-#: src/noteedit.cpp:714 src/noteedit.cpp:878
+#: src/noteedit.cpp:713 src/noteedit.cpp:877
 #, kde-format
 msgid "Ta&rget:"
 msgstr "लक्ष्य:"
 
-#: src/noteedit.cpp:722 src/noteedit.cpp:733
+#: src/noteedit.cpp:721 src/noteedit.cpp:732
 #, kde-format
 msgid "Auto"
 msgstr "ऑटो"
 
-#: src/noteedit.cpp:725
+#: src/noteedit.cpp:724
 #, kde-format
 msgid "&Title:"
 msgstr "&शीर्षक:"
 
-#: src/noteedit.cpp:743 src/noteedit.cpp:1001
+#: src/noteedit.cpp:742 src/noteedit.cpp:1000
 #, kde-format
 msgid "&Icon:"
 msgstr "&चिह्नम् :"
 
-#: src/noteedit.cpp:867
+#: src/noteedit.cpp:866
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "क्रॉस सन्दर्भ सम्पादयतु"
 
-#: src/noteedit.cpp:968
+#: src/noteedit.cpp:967
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "सम्पादयतु प्रक्षेपक टिप्पणी"
 
-#: src/noteedit.cpp:980
+#: src/noteedit.cpp:979
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "चालयितुं आदेशं चिनोतु:"
 
-#: src/noteedit.cpp:981
+#: src/noteedit.cpp:980
 #, kde-format
 msgid "Comman&d:"
 msgstr "आदेश:"
 
-#: src/noteedit.cpp:984 src/tagsedit.cpp:387
+#: src/noteedit.cpp:983 src/tagsedit.cpp:389
 #, kde-format
 msgid "&Name:"
 msgstr "&नामः:"
 
-#: src/noteedit.cpp:992
+#: src/noteedit.cpp:991
 #, kde-format
 msgid "&Guess"
 msgstr "&अनुमानम्‌"
 
-#: src/noteedit.cpp:1088
+#: src/noteedit.cpp:1087
 #, kde-format
 msgid "Font"
 msgstr "फॉन्ट्"
 
-#: src/noteedit.cpp:1096
+#: src/noteedit.cpp:1095
 #, kde-format
 msgid "Font Size"
 msgstr "फ़ॉन्ट आकार"
 
-#: src/noteedit.cpp:1111 src/tagsedit.cpp:469
+#: src/noteedit.cpp:1110 src/tagsedit.cpp:471
 #, kde-format
 msgid "Bold"
 msgstr "विक्रान्तः"
 
-#: src/noteedit.cpp:1118 src/tagsedit.cpp:481
+#: src/noteedit.cpp:1117 src/tagsedit.cpp:483
 #, kde-format
 msgid "Italic"
 msgstr "इटालिक"
 
-#: src/noteedit.cpp:1125 src/tagsedit.cpp:475
+#: src/noteedit.cpp:1124 src/tagsedit.cpp:477
 #, kde-format
 msgid "Underline"
 msgstr "रेखांकनम्"
 
-#: src/noteedit.cpp:1133
+#: src/noteedit.cpp:1132
 #, kde-format
 msgid "Superscript"
 msgstr "अधिलिपि"
 
-#: src/noteedit.cpp:1139
+#: src/noteedit.cpp:1138
 #, kde-format
 msgid "Subscript"
 msgstr "उपलिपिः"
 
-#: src/noteedit.cpp:1146
+#: src/noteedit.cpp:1145
 #, kde-format
 msgid "Align Left"
 msgstr "Align Left इति"
 
-#: src/noteedit.cpp:1152
+#: src/noteedit.cpp:1151
 #, kde-format
 msgid "Centered"
 msgstr "केन्द्रित"
 
-#: src/noteedit.cpp:1158
+#: src/noteedit.cpp:1157
 #, kde-format
 msgid "Align Right"
 msgstr "Align Right इति"
 
-#: src/noteedit.cpp:1164
+#: src/noteedit.cpp:1163
 #, kde-format
 msgid "Justified"
 msgstr "न्याय्यम्"
 
-#: src/noteedit.cpp:1176
+#: src/noteedit.cpp:1175
 #, kde-format
 msgid "Undo"
 msgstr "पूर्ववत"
 
-#: src/noteedit.cpp:1182
+#: src/noteedit.cpp:1181
 #, kde-format
 msgid "Redo"
 msgstr "पुनः करो"
 
-#: src/notefactory.cpp:490
+#: src/notefactory.cpp:492
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2804,42 +2799,42 @@ msgstr ""
 "भवन्तं तत् अवगच्छन्तं अनुप्रयोगं प्रति कर्षितुं वा प्रतिलिपिं कर्तुं वा शक्नोति।</p><p>यदि भवान् "
 "इच्छति एतेषां दत्तांशस्य समर्थनं, कृपया विकासकेन सह सम्पर्कं कुर्वन्तु।</p>"
 
-#: src/notefactory.cpp:496
+#: src/notefactory.cpp:498
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "असमर्थितः MIME प्रकारः (प्रकाराः) ."
 
-#: src/notefactory.cpp:552
+#: src/notefactory.cpp:554
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "&अत्र गच्छतु Shift"
 
-#: src/notefactory.cpp:553
+#: src/notefactory.cpp:555
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "&प्रतिलिपि अत्र Ctrl"
 
-#: src/notefactory.cpp:554
+#: src/notefactory.cpp:556
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "&Link Here Ctrl+Shift इति"
 
-#: src/notefactory.cpp:560
+#: src/notefactory.cpp:562
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "C&ancel पलायन"
 
-#: src/notefactory.cpp:1051
+#: src/notefactory.cpp:1053
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "Import Icon इत्येतत् Image इति रूपेण आयातयन्तु"
 
-#: src/notefactory.cpp:1052
+#: src/notefactory.cpp:1054
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "चित्ररूपेण आयातयितुं चिह्नस्य आकारं चिनोतु:"
 
-#: src/notefactory.cpp:1068
+#: src/notefactory.cpp:1070
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "सञ्चिकासामग्रीम् एकस्मिन् टिप्पण्यां लोड् कुर्वन्तु"
@@ -2883,82 +2878,82 @@ msgid ""
 msgstr ""
 "मूषकस्य उपयोगेन क्षेत्रं चिनोतु । स्नैपशॉट् ग्रहीतुं Enter कीलम् नुदन्तु । त्यक्तुं Esc नुदन्तु ।"
 
-#: src/settings.cpp:431
+#: src/settings.cpp:453
 #, kde-format
 msgid "On left"
 msgstr "वामे"
 
-#: src/settings.cpp:432
+#: src/settings.cpp:454
 #, kde-format
 msgid "On right"
 msgstr "दक्षिणे"
 
-#: src/settings.cpp:434
+#: src/settings.cpp:456
 #, kde-format
 msgid "&Basket tree position:"
 msgstr "&टोकरी वृक्षस्य स्थितिः :"
 
-#: src/settings.cpp:439 src/settings.cpp:697
+#: src/settings.cpp:461 src/settings.cpp:719
 #, kde-format
 msgid "On top"
 msgstr "उपरि"
 
-#: src/settings.cpp:440 src/settings.cpp:698
+#: src/settings.cpp:462 src/settings.cpp:720
 #, kde-format
 msgid "On bottom"
 msgstr "अधः"
 
-#: src/settings.cpp:442
+#: src/settings.cpp:464
 #, kde-format
 msgid "&Filter bar position:"
 msgstr "&फ़िल्टर बार स्थिति: 1.1."
 
-#: src/settings.cpp:488
+#: src/settings.cpp:510
 #, kde-format
 msgid "&Show tooltips in baskets"
 msgstr "&टोकरीषु टूलटिप्स दर्शयतु"
 
-#: src/settings.cpp:492
+#: src/settings.cpp:514
 #, kde-format
 msgid "&Big notes"
 msgstr "&बृहत् टिप्पणियाँ"
 
-#: src/settings.cpp:498
+#: src/settings.cpp:520
 #, kde-format
 msgid "Behavior"
 msgstr "व्यवहार"
 
-#: src/settings.cpp:503
+#: src/settings.cpp:525
 #, kde-format
 msgid "&Transform lines starting with * or - to lists in text editors"
 msgstr "&* अथवा - इत्यनेन आरभ्यमाणानि पङ्क्तयः पाठसम्पादकेषु सूचीषु परिवर्तयन्तु"
 
-#: src/settings.cpp:507
+#: src/settings.cpp:529
 #, kde-format
 msgid "Ask confirmation before &deleting notes"
 msgstr "&टिप्पणीनां विलोपनात् पूर्वं पुष्टिकरणं पृच्छन्तु"
 
-#: src/settings.cpp:511
+#: src/settings.cpp:533
 #, kde-format
 msgid "Keep text formatting when pasting"
 msgstr "पेस्टिंग् कुर्वन् पाठस्वरूपणं कुर्वन्तु"
 
-#: src/settings.cpp:515
+#: src/settings.cpp:537
 #, kde-format
 msgid "Automatically detect tags from note's content"
 msgstr "नोटस्य सामग्रीतः स्वयमेव टैग्स् अन्वेष्टुम्"
 
-#: src/settings.cpp:522
+#: src/settings.cpp:544
 #, kde-format
 msgid "&Export tags in texts"
 msgstr "&पाठेषु टैग्स् निर्यातयन्तु"
 
-#: src/settings.cpp:526
+#: src/settings.cpp:548
 #, kde-format
 msgid "When does this apply?"
 msgstr "एतत् कदा प्रवर्तते ?"
 
-#: src/settings.cpp:527
+#: src/settings.cpp:549
 #, kde-format
 msgid ""
 "It does apply when you copy and paste, or drag and drop notes to a text "
@@ -2967,14 +2962,14 @@ msgstr ""
 "यदा भवान् प्रतिलिपिं कृत्वा चिनोति, अथवा पाठसम्पादके टिप्पणीं कर्षति, पातयति च तदा एतत् "
 "प्रवर्तते एव ।"
 
-#: src/settings.cpp:528
+#: src/settings.cpp:550
 #, kde-format
 msgid ""
 "If enabled, this property lets you paste the tags as textual equivalents."
 msgstr "यदि सक्षमम् अस्ति तर्हि एषः गुणः भवन्तं टैग्-इत्येतत् पाठसमतुल्यरूपेण चिनोतुम् अर्हति ।"
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:529 src/tagsedit.cpp:525
+#: src/settings.cpp:551 src/tagsedit.cpp:527
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -2985,17 +2980,17 @@ msgstr ""
 "<b>[x] इत्यनेन पूर्वपङ्क्तिरूपेण निर्यातिता भवति । </b>, रिक्तं चेकबॉक्सं चेक्ड् बॉक्सं च "
 "प्रतिनिधियति ।"
 
-#: src/settings.cpp:541
+#: src/settings.cpp:563
 #, kde-format
 msgid "&Group a new note when clicking on the right of the insertion line"
 msgstr "&निवेशरेखायाः दक्षिणभागे क्लिक् कुर्वन् नूतनं टिप्पणं समूहयन्तु"
 
-#: src/settings.cpp:543
+#: src/settings.cpp:565
 #, kde-format
 msgid "How to group a new note?"
 msgstr "नूतनं टिप्पणं कथं समूहीकृत्य ?"
 
-#: src/settings.cpp:544
+#: src/settings.cpp:566
 #, kde-format
 msgid ""
 "<p>When this option is enabled, the insertion-line not only allows you to "
@@ -3005,7 +3000,7 @@ msgstr ""
 "<p>यदा एषः विकल्पः सक्षमः भवति तदा निवेशन-रेखा न केवलं कर्सरस्थाने टिप्पणीं सम्मिलितुं "
 "शक्नोति, अपितु कर्सरस्य अधः विद्यमानेन सह नूतनं टिप्पणं समूहयितुं शक्नोति:</p>"
 
-#: src/settings.cpp:547
+#: src/settings.cpp:569
 #, kde-format
 msgid ""
 "<p>Place your mouse between notes, where you want to add a new one.<br>Click "
@@ -3016,192 +3011,192 @@ msgstr ""
 "note.<br>टिप्पणीं <b>समूहं</b> कर्तुं <b>दक्षिणे</b> नुदन्तु, <b>अधः उपरि वा</b> इत्यनेन "
 "सह, भवतः मूषकः कुत्र अस्ति इति अवलम्ब्य।< /प>"
 
-#: src/settings.cpp:563
+#: src/settings.cpp:585
 #, kde-format
 msgid "Do nothing"
 msgstr "किमपि न कुरु"
 
-#: src/settings.cpp:564
+#: src/settings.cpp:586
 #, kde-format
 msgid "Paste clipboard"
 msgstr "क्लिपबोर्डं चिनोतु"
 
-#: src/settings.cpp:567
+#: src/settings.cpp:589
 #, kde-format
 msgid "Insert cross reference"
 msgstr "क्रॉस सन्दर्भ सम्मिलित करें"
 
-#: src/settings.cpp:568
+#: src/settings.cpp:590
 #, kde-format
 msgid "Insert launcher note"
 msgstr "प्रक्षेपकटिप्पणी सम्मिलितं कुर्वन्तु"
 
-#: src/settings.cpp:571
+#: src/settings.cpp:593
 #, kde-format
 msgid "Insert color from screen"
 msgstr "स्क्रीनतः वर्णं सम्मिलितं कुर्वन्तु"
 
-#: src/settings.cpp:572
+#: src/settings.cpp:594
 #, kde-format
 msgid "Load note from file"
 msgstr "सञ्चिकातः नोट् लोड् कुर्वन्तु"
 
-#: src/settings.cpp:573
+#: src/settings.cpp:595
 #, kde-format
 msgid "Import Launcher for desktop application"
 msgstr "डेस्कटॉप् अनुप्रयोगाय Launcher आयातयन्तु"
 
-#: src/settings.cpp:574
+#: src/settings.cpp:596
 #, kde-format
 msgid "Import icon"
 msgstr "आयात चिह्न"
 
-#: src/settings.cpp:577
+#: src/settings.cpp:599
 #, kde-format
 msgid "&Shift+middle-click anywhere:"
 msgstr "&Shift+middle-कुत्रापि क्लिक् कुर्वन्तु:"
 
-#: src/settings.cpp:582
+#: src/settings.cpp:604
 #, kde-format
 msgid "at cursor position"
 msgstr "कर्सरस्थाने"
 
-#: src/settings.cpp:588
+#: src/settings.cpp:610
 #, kde-format
 msgid "Password Protection"
 msgstr "गुप्तशब्दसंरक्षणम्"
 
-#: src/settings.cpp:597
+#: src/settings.cpp:619
 #, kde-format
 msgid "A&utomatically lock protected baskets when closed for"
 msgstr "A&utomatically lock protected baskets when closed for"
 
-#: src/settings.cpp:601
+#: src/settings.cpp:623
 #, kde-format
 msgid " minutes"
 msgstr "पन्चनिमेषः"
 
-#: src/settings.cpp:612
+#: src/settings.cpp:634
 #, kde-format
 msgid "Use GnuPG agent for &private/public key protected baskets"
 msgstr "&private/public कुञ्जी संरक्षितानां टोकरीणां कृते GnuPG एजेण्टस्य उपयोगं कुर्वन्तु"
 
-#: src/settings.cpp:694
+#: src/settings.cpp:716
 #, kde-format
 msgid "&Place of new notes:"
 msgstr "&नवीनटिप्पणीनां स्थानम् :"
 
-#: src/settings.cpp:699
+#: src/settings.cpp:721
 #, kde-format
 msgid "At current note"
 msgstr "वर्तमान टिप्पण्यां"
 
-#: src/settings.cpp:718
+#: src/settings.cpp:740
 #, kde-format
 msgid "&New images size:"
 msgstr "&नवीनचित्रस्य आकारः :"
 
-#: src/settings.cpp:731
+#: src/settings.cpp:753
 #, kde-format
 msgid "&by"
 msgstr "&इत्यनेन"
 
-#: src/settings.cpp:736
+#: src/settings.cpp:758
 #, kde-format
 msgid "pixels"
 msgstr "पिक्सेल्"
 
-#: src/settings.cpp:738
+#: src/settings.cpp:760
 #, kde-format
 msgid "&Visualize..."
 msgstr "&विजुअलाइज..."
 
-#: src/settings.cpp:746
+#: src/settings.cpp:768
 #, kde-format
 msgid "View Content of Added Files for the Following Types"
 msgstr "निम्नलिखितप्रकारस्य कृते योजितसञ्चिकानां सामग्रीं पश्यन्तु"
 
-#: src/settings.cpp:748
+#: src/settings.cpp:770
 #, kde-format
 msgid "&Plain text"
 msgstr "&सादा पाठः"
 
-#: src/settings.cpp:749
+#: src/settings.cpp:771
 #, kde-format
 msgid "&HTML page"
 msgstr "&HTML पृष्ठ"
 
-#: src/settings.cpp:750
+#: src/settings.cpp:772
 #, kde-format
 msgid "&Image or animation"
 msgstr "&प्रतिबिम्बं वा एनिमेशनं वा"
 
-#: src/settings.cpp:751
+#: src/settings.cpp:773
 #, kde-format
 msgid "&Sound"
 msgstr "&ध्वनि"
 
-#: src/settings.cpp:819
+#: src/settings.cpp:841
 #, kde-format
 msgid "Conference audio record"
 msgstr "सम्मेलनस्य श्रव्य अभिलेखः"
 
-#: src/settings.cpp:820
+#: src/settings.cpp:842
 #, kde-format
 msgid "Annual report"
 msgstr "वार्षिक प्रतिवेदन"
 
-#: src/settings.cpp:821
+#: src/settings.cpp:843
 #, kde-format
 msgid "Home folder"
 msgstr "गृहपुटम्"
 
-#: src/settings.cpp:823
+#: src/settings.cpp:845
 #, kde-format
 msgid "Launch %1"
 msgstr "%1 प्रारम्भं कुर्वन्तु"
 
-#: src/settings.cpp:824
+#: src/settings.cpp:846
 #, kde-format
 msgid "Another basket"
 msgstr "अन्यत् टोकरी"
 
-#: src/settings.cpp:826
+#: src/settings.cpp:848
 #, kde-format
 msgid "&Sounds"
 msgstr "&ध्वनयः"
 
-#: src/settings.cpp:827
+#: src/settings.cpp:849
 #, kde-format
 msgid "&Files"
 msgstr "&सञ्चिकाः"
 
-#: src/settings.cpp:828
+#: src/settings.cpp:850
 #, kde-format
 msgid "&Local Links"
 msgstr "&स्थानीय लिंक्स"
 
-#: src/settings.cpp:829
+#: src/settings.cpp:851
 #, kde-format
 msgid "&Network Links"
 msgstr "&जाललिङ्काः"
 
-#: src/settings.cpp:830
+#: src/settings.cpp:852
 #, kde-format
 msgid "Launc&hers"
 msgstr "Launc&hers इति"
 
-#: src/settings.cpp:831
+#: src/settings.cpp:853
 #, kde-format
 msgid "&Cross References"
 msgstr "&क्रॉस सन्दर्भ"
 
-#: src/settings.cpp:872
+#: src/settings.cpp:894
 #, kde-format
 msgid "General Launch Associations"
 msgstr "सामान्य प्रक्षेपण संघ"
 
-#: src/settings.cpp:875
+#: src/settings.cpp:897
 #, kde-format
 msgid ""
 "<p>On modern desktop environments, launcher configurations provide "
@@ -3233,7 +3228,7 @@ msgstr ""
 "सह HTTP लिङ्क् उद्घाटयिष्यति</p><p>अधिकसूक्ष्म-कणिका-विन्यासार्थं (यथा pdf दस्तावेजान् "
 "उद्घाटयितुं प्राधान्येन Falkon इत्यनेन), द्वितीयं बटन-उपकरणं पठन्तु .</p> इति"
 
-#: src/settings.cpp:889
+#: src/settings.cpp:911
 #, kde-format
 msgid ""
 "<p>When opening Web links, they are opened in different applications, "
@@ -3265,7 +3260,7 @@ msgstr ""
 "p><p>अधिकसूक्ष्म-कणिका-विन्यासार्थं (यथा भवतः जालपुटे केवलं जालपुटानि उद्घाटयितुं ), तृतीयं "
 "बटनं पठन्तु tooltip.</p> इति"
 
-#: src/settings.cpp:903
+#: src/settings.cpp:925
 #, kde-format
 msgid ""
 "<p>Here is how to set the application to be used for each type of file. This "
@@ -3296,79 +3291,79 @@ msgstr ""
 "प्रथमप्रविष्टिरूपेण भवतः जालपुटं;</li><li>\"अनुप्रयोग -> xhtml+xml\" इति प्रकारस्य कृते "
 "अपि तथैव कुर्वन्तु ।</li></ul>"
 
-#: src/settings.cpp:922
+#: src/settings.cpp:944
 #, kde-format
 msgid "Launch KDE Menu Editor"
 msgstr ""
 
-#: src/settings.cpp:931
+#: src/settings.cpp:953
 #, fuzzy, kde-format
 #| msgid "Launch this application"
 msgid "Default Applications"
 msgstr "एतत् अनुप्रयोगं प्रारम्भं कुर्वन्तु"
 
-#: src/settings.cpp:940
+#: src/settings.cpp:962
 #, fuzzy, kde-format
 #| msgid "Specific Basket Associations"
 msgid "File Associations"
 msgstr "विशिष्ट टोकरी संघ"
 
-#: src/settings.cpp:951
+#: src/settings.cpp:973
 #, kde-format
 msgid "Specific Basket Associations"
 msgstr "विशिष्ट टोकरी संघ"
 
-#: src/settings.cpp:953
+#: src/settings.cpp:975
 #, kde-format
 msgid "Open &text notes with a custom application:"
 msgstr "कस्टम् एप्लिकेशनेन सह &text नोट्स् उद्घाटयन्तु:"
 
-#: src/settings.cpp:954
+#: src/settings.cpp:976
 #, kde-format
 msgid "Open text notes with:"
 msgstr "पाठटिप्पणीं उद्घाटयन्तु :"
 
-#: src/settings.cpp:961
+#: src/settings.cpp:983
 #, kde-format
 msgid "Open &image notes with a custom application:"
 msgstr "कस्टम् एप्लिकेशनेन सह &image नोट्स् उद्घाटयन्तु:"
 
-#: src/settings.cpp:962
+#: src/settings.cpp:984
 #, kde-format
 msgid "Open image notes with:"
 msgstr "चित्रटिप्पणीं उद्घाटयन्तु यथा:"
 
-#: src/settings.cpp:969
+#: src/settings.cpp:991
 #, kde-format
 msgid "Open a&nimation notes with a custom application:"
 msgstr "कस्टम् एप्लिकेशनेन सह a&nimation नोट्स् उद्घाटयन्तु:"
 
-#: src/settings.cpp:970
+#: src/settings.cpp:992
 #, kde-format
 msgid "Open animation notes with:"
 msgstr "एनिमेशन नोट्स् इत्येतत् सह उद्घाटयन्तु:"
 
-#: src/settings.cpp:977
+#: src/settings.cpp:999
 #, kde-format
 msgid "Open so&und notes with a custom application:"
 msgstr "कस्टम् एप्लिकेशनेन सह so&und नोट्स् उद्घाटयन्तु:"
 
-#: src/settings.cpp:978
+#: src/settings.cpp:1000
 #, kde-format
 msgid "Open sound notes with:"
 msgstr "ध्वनिस्वराणि उद्घाटयन्तु :"
 
-#: src/settings.cpp:985
+#: src/settings.cpp:1007
 #, kde-format
 msgid "Open http link notes with a custom application:"
 msgstr "कस्टम् एप्लिकेशनेन सह http लिङ्क् टिप्पण्यानि उद्घाटयन्तु:"
 
-#: src/settings.cpp:986
+#: src/settings.cpp:1008
 #, kde-format
 msgid "Open http link notes with:"
 msgstr "http लिङ्क् टिप्पण्यानि अत्र उद्घाटयन्तु:"
 
-#: src/settings.cpp:994
+#: src/settings.cpp:1016
 #, kde-format
 msgid ""
 "<p>If checked, the application defined below will be used when opening that "
@@ -3378,7 +3373,7 @@ msgstr ""
 "<p>यदि परीक्षितम् अस्ति तर्हि तत्प्रकारस्य टिप्पणं उद्घाटयन्ते सति अधः परिभाषितं अनुप्रयोगं "
 "उपयुज्यते ।</p><p>अन्यथा भवता Konqueror मध्ये विन्यस्तं अनुप्रयोगं उपयुज्यते ।</p>"
 
-#: src/settings.cpp:1004
+#: src/settings.cpp:1026
 #, kde-format
 msgid ""
 "<p>Define the application to use for opening that type of note instead of "
@@ -3387,22 +3382,22 @@ msgstr ""
 "<p>Konqueror मध्ये विन्यस्तस्य अनुप्रयोगस्य स्थाने तत्प्रकारस्य टिप्पणीं उद्घाटयितुं उपयोक्तुं "
 "अनुप्रयोगं परिभाषयन्तु ।</p>"
 
-#: src/settings_versionsync.cpp:77
+#: src/settings_versionsync.cpp:78
 #, kde-format
 msgid "Do you really want to remove old versions for all baskets?"
 msgstr "किं भवान् वास्तवमेव सर्वेषां टोकरीणां कृते पुरातनसंस्करणं हर्तुं इच्छति?"
 
-#: src/settings_versionsync.cpp:78
+#: src/settings_versionsync.cpp:79
 #, kde-format
 msgid "Remove old Baskets"
 msgstr "पुरातनं टोकरीं निष्कासयन्तु"
 
-#: src/settings_versionsync.cpp:79
+#: src/settings_versionsync.cpp:80
 #, kde-format
 msgid "Version Sync"
 msgstr "संस्करण समन्वयनम्"
 
-#: src/settings_versionsync.cpp:92
+#: src/settings_versionsync.cpp:93
 #, fuzzy, kde-format
 #| msgid "This will free %1 MB"
 msgid "This will free %1"
@@ -3656,68 +3651,68 @@ msgstr "पु."
 msgid "Funny"
 msgstr "विलक्षणम्‌"
 
-#: src/tagsedit.cpp:313
+#: src/tagsedit.cpp:315
 #, kde-format
 msgid "Customize Tags"
 msgstr "टैग्स अनुकूलित करें"
 
-#: src/tagsedit.cpp:332
+#: src/tagsedit.cpp:334
 #, kde-format
 msgid "Ne&w Tag"
 msgstr "नव&w टैग"
 
-#: src/tagsedit.cpp:333
+#: src/tagsedit.cpp:335
 #, kde-format
 msgid "New St&ate"
 msgstr "New St&ate"
 
-#: src/tagsedit.cpp:354
+#: src/tagsedit.cpp:356
 #, kde-format
 msgid "Move Up (Ctrl+Shift+Up)"
 msgstr "उपरि गच्छतु (Ctrl+Shift+Up)"
 
-#: src/tagsedit.cpp:355
+#: src/tagsedit.cpp:357
 #, kde-format
 msgid "Move Down (Ctrl+Shift+Down)"
 msgstr "अधः गच्छन्तु (Ctrl+Shift+Down)"
 
-#: src/tagsedit.cpp:356
+#: src/tagsedit.cpp:358
 #, kde-format
 msgid "Delete"
 msgstr "लुप्"
 
-#: src/tagsedit.cpp:379
+#: src/tagsedit.cpp:381
 #, kde-format
 msgid "Tag"
 msgstr "सूचकपत्त्र"
 
-#: src/tagsedit.cpp:391
+#: src/tagsedit.cpp:393
 #, kde-format
 msgctxt "Remove tag shortcut"
 msgid "&Remove"
 msgstr "&अपाकरोति"
 
-#: src/tagsedit.cpp:392
+#: src/tagsedit.cpp:394
 #, kde-format
 msgid "S&hortcut:"
 msgstr "S&hortcut: ."
 
-#: src/tagsedit.cpp:397
+#: src/tagsedit.cpp:399
 #, kde-format
 msgid "&Inherited by new sibling notes"
 msgstr "&नवभ्रातृटिप्पणीभिः उत्तराधिकारः"
 
-#: src/tagsedit.cpp:399
+#: src/tagsedit.cpp:401
 #, kde-format
 msgid "Allow Cross Reference Links"
 msgstr "क्रॉस् रेफरेंस लिङ्क्स् इत्यस्य अनुमतिं ददातु"
 
-#: src/tagsedit.cpp:402
+#: src/tagsedit.cpp:404
 #, kde-format
 msgid "What does this do?"
 msgstr "एतत् किं करोति ?"
 
-#: src/tagsedit.cpp:404
+#: src/tagsedit.cpp:406
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3726,103 +3721,103 @@ msgstr ""
 "एषः विकल्पः भवन्तं प्रत्यक्षतया पाठटिप्पण्यां क्रॉस् सन्दर्भलिङ्कं टङ्कयितुं समर्थं करिष्यति । "
 "क्रॉस् रेफरेंस लिङ्क्स् इत्यस्य वाक्यविन्यासः निम्नलिखितरूपेण भवितुम् अर्हति ।"
 
-#: src/tagsedit.cpp:405
+#: src/tagsedit.cpp:407
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "वृक्षस्य शिखरात् (Absolute path): ."
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:408
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/शीर्ष स्तरीय मद/बाल|वैकल्पिक शीर्षक]]"
 
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:408
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "वर्तमान टोकरीयाः सापेक्षम् :"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:409
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../भगिनी|वैकल्पिक उपाधि]]।"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:409
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[बाल|वैकल्पिक उपाधि]] ।"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:410
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./बाल|वैकल्पिक उपाधि]]।"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:411
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr "टोकरीमेलनं cAse inSEnsItive अस्ति।"
 
-#: src/tagsedit.cpp:423 src/tagsedit.cpp:1102 src/tagsedit.cpp:1118
+#: src/tagsedit.cpp:425 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
 #, kde-format
 msgid "State"
 msgstr "राज्यम्‌"
 
-#: src/tagsedit.cpp:431
+#: src/tagsedit.cpp:433
 #, kde-format
 msgid "Na&me:"
 msgstr "नामः:"
 
-#: src/tagsedit.cpp:439
+#: src/tagsedit.cpp:441
 #, kde-format
 msgctxt "Remove tag emblem"
 msgid "Remo&ve"
 msgstr "अपाकरोति"
 
-#: src/tagsedit.cpp:440
+#: src/tagsedit.cpp:442
 #, kde-format
 msgid "&Emblem:"
 msgstr "&चिह्नम् :"
 
-#: src/tagsedit.cpp:457
+#: src/tagsedit.cpp:459
 #, kde-format
 msgid "&Background:"
 msgstr "&पृष्ठभूमि:"
 
-#: src/tagsedit.cpp:487
+#: src/tagsedit.cpp:489
 #, kde-format
 msgid "Strike Through"
 msgstr "Strike Through इति"
 
-#: src/tagsedit.cpp:489
+#: src/tagsedit.cpp:491
 #, kde-format
 msgid "&Text:"
 msgstr "&पाठ:"
 
-#: src/tagsedit.cpp:500
+#: src/tagsedit.cpp:502
 #, kde-format
 msgid "Co&lor:"
 msgstr "वर्ण:"
 
-#: src/tagsedit.cpp:505
+#: src/tagsedit.cpp:507
 #, kde-format
 msgid "&Font:"
 msgstr "&फॉन्टः :"
 
-#: src/tagsedit.cpp:509
+#: src/tagsedit.cpp:511
 #, kde-format
 msgid "&Size:"
 msgstr "&आकृति:"
 
-#: src/tagsedit.cpp:513
+#: src/tagsedit.cpp:515
 #, kde-format
 msgid "Te&xt equivalent:"
 msgstr "ते&xt समतुल्यः :"
 
-#: src/tagsedit.cpp:520
+#: src/tagsedit.cpp:522
 #, kde-format
 msgid "What is this for?"
 msgstr "किमर्थमिदम् ?"
 
-#: src/tagsedit.cpp:522
+#: src/tagsedit.cpp:524
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3831,17 +3826,17 @@ msgstr ""
 "यदा भवान् पाठसम्पादके टिप्पणीनां प्रतिलिपिं चिनोति वा कर्षति च पातयति तदा एषः पाठः "
 "टैग् इत्यस्य पाठसमतुल्यरूपेण सम्मिलितः भविष्यति ।"
 
-#: src/tagsedit.cpp:533
+#: src/tagsedit.cpp:535
 #, kde-format
 msgid "On ever&y line"
 msgstr "नित्य&y रेखायां"
 
-#: src/tagsedit.cpp:536
+#: src/tagsedit.cpp:538
 #, kde-format
 msgid "What does this mean?"
 msgstr "एतस्य किम् अर्थः ?"
 
-#: src/tagsedit.cpp:538
+#: src/tagsedit.cpp:540
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3850,7 +3845,7 @@ msgstr ""
 "यदा टिप्पणीयाः अनेकाः पङ्क्तयः सन्ति तदा प्रथमपङ्क्तौ वा टिप्पणीयाः प्रत्येकपङ्क्तौ वा टैग् "
 "अथवा राज्यं निर्यातयितुं चयनं कर्तुं शक्नुवन्ति ।"
 
-#: src/tagsedit.cpp:540
+#: src/tagsedit.cpp:542
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3859,7 +3854,7 @@ msgstr ""
 "उपरिष्टाद् उदाहरणे उपरितनस्वरस्य टैग् केवलं प्रथमपङ्क्तौ निर्यातितः भवति, यदा तु टिप्पण्याः "
 "प्रत्येकपङ्क्तौ अधः टिप्पणीयाः टैग् निर्यातितः भवति ।"
 
-#: src/tagsedit.cpp:978
+#: src/tagsedit.cpp:980
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
@@ -3867,34 +3862,34 @@ msgstr ""
 "टैग् विलोपनेन सम्प्रति यस्मिन् टिप्पण्यां नियुक्तं भवति तस्मात् प्रत्येकस्मात् टिप्पण्याः निष्कासनं "
 "भविष्यति ।"
 
-#: src/tagsedit.cpp:979
+#: src/tagsedit.cpp:981
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Delete Tag इत्यस्य पुष्टिः कुर्वन्तु"
 
-#: src/tagsedit.cpp:980
+#: src/tagsedit.cpp:982
 #, kde-format
 msgid "Delete Tag"
 msgstr "टैगं विलोपयन्तु"
 
-#: src/tagsedit.cpp:983
+#: src/tagsedit.cpp:985
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
 msgstr "राज्यं विलोपनेन राज्यं वर्तमानं नियुक्तं प्रत्येकं टिप्पणं टैग् अपसारयिष्यति ।"
 
-#: src/tagsedit.cpp:984
+#: src/tagsedit.cpp:986
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "Delete State इत्यस्य पुष्टिं कुर्वन्तु"
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:987
 #, kde-format
 msgid "Delete State"
 msgstr "राज्यं विलोपयन्तु"
 
-#: src/tools.cpp:773
+#: src/tools.cpp:775
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
@@ -3934,6 +3929,10 @@ msgid ""
 msgstr ""
 "चित्रस्य आकारं चिन्वितुं विण्डो इत्यस्य आकारं परिवर्त्य तत् पिधातु अथवा परिवर्तनं स्वीकुर्वितुं "
 "Escape नुदन्तु ।"
+
+#~ msgid ""
+#~ "On crash, use the standard KDE crash handler rather than send an email."
+#~ msgstr "क्रैश-समये, ईमेल-प्रेषणस्य अपेक्षया मानक-KDE-क्रैश-सञ्चालकस्य उपयोगं कुर्वन्तु ।"
 
 #~ msgid "Free"
 #~ msgstr "निःशुल्कः"
