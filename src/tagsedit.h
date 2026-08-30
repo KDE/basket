@@ -8,7 +8,6 @@
 #define TAGEDIT_H
 
 #include <QDialog>
-#include <QItemDelegate>
 #include <QList>
 #include <QTreeWidgetItem>
 
@@ -59,8 +58,6 @@ public:
 
 class TagListViewItem : public QTreeWidgetItem
 {
-    friend class TagListDelegate;
-
 public:
     TagListViewItem(QTreeWidget *parent, TagCopy *tagCopy);
     TagListViewItem(QTreeWidgetItem *parent, TagCopy *tagCopy);
@@ -192,18 +189,6 @@ private:
     State::List m_addedStates;
 
     bool m_loading;
-};
-
-class TagListDelegate : public QItemDelegate
-{
-    Q_OBJECT
-
-public:
-    explicit TagListDelegate(QWidget *parent = nullptr)
-        : QItemDelegate(parent)
-    {
-    }
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 #endif // TAGEDIT_H

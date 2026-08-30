@@ -249,7 +249,6 @@ void TagListViewItem::setup()
 TagListView::TagListView(QWidget *parent)
     : QTreeWidget(parent)
 {
-    setItemDelegate(new TagListDelegate);
 }
 
 TagListView::~TagListView() = default;
@@ -1296,13 +1295,6 @@ void TagsEditDialog::accept()
     Global::bnpView->recomputeAllStyles();
 
     QDialog::accept();
-}
-
-void TagListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    //    TagListViewItem* thisItem  = qvariant_cast<TagListViewItem*>(index.data());
-    //    qCDebug(BASKET_LOG) << "Pointer is: " << thisItem << endl;
-    QItemDelegate::paint(painter, option, index);
 }
 
 #include "moc_tagsedit.cpp"
