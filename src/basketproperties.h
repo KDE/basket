@@ -12,7 +12,6 @@
 class QString;
 
 class QKeySequence;
-class KColorCombo2;
 
 class BasketScene;
 
@@ -44,8 +43,6 @@ protected:
 private:
     Ui::BasketPropertiesUi *m_ui;
     BasketScene *m_basket;
-    KColorCombo2 *m_backgroundColor;
-    KColorCombo2 *m_textColor;
 
     QMap<int, QString> m_backgroundImagesMap;
 };

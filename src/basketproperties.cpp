@@ -59,19 +59,10 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     m_ui->name->setText(m_basket->basketName());
     m_ui->name->setMinimumWidth(m_ui->name->fontMetrics().maxWidth() * 20);
 
-    // Appearance:
-    m_backgroundColor = new KColorCombo2(m_basket->backgroundColorSetting(), palette().color(QPalette::Base), m_ui->appearanceGroup);
-    m_textColor = new KColorCombo2(m_basket->textColorSetting(), palette().color(QPalette::Text), m_ui->appearanceGroup);
-
-    m_ui->bgColorLbl->setBuddy(m_backgroundColor);
-    m_ui->txtColorLbl->setBuddy(m_textColor);
-
-    m_ui->appearanceLayout->addWidget(m_backgroundColor, 1, 2);
-    m_ui->appearanceLayout->addWidget(m_textColor, 2, 2);
-
-    setTabOrder(m_ui->backgroundImage, m_backgroundColor);
-    setTabOrder(m_backgroundColor, m_textColor);
-    setTabOrder(m_textColor, m_ui->columnForm);
+    m_ui->backgroundColor->setDefaultColor(palette().color(QPalette::Base));
+    m_ui->backgroundColor->setColor(m_basket->backgroundColorSetting());
+    m_ui->textColor->setDefaultColor(palette().color(QPalette::Text));
+    m_ui->textColor->setColor(m_basket->textColorSetting());
 
     m_backgroundImagesMap.insert(0, QString());
     QStringList backgrounds = Global::backgroundManager->imageNames();
@@ -114,8 +105,7 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
     QList<QKeySequence> shortcuts{m_basket->shortcut()};
     m_ui->shortcut->setShortcut(shortcuts);
 
-    auto *helpLabel = new HelpLabel(
-        i18n("Learn some tips..."),
+    m_ui->helpLabel->setMessage(
         i18n("<p><strong>Easily Remember your Shortcuts</strong>:<br>"
              "With the first option, giving the basket a shortcut of the form <strong>Alt+Letter</strong> will underline that letter in the basket tree.<br>"
              "For instance, if you are assigning the shortcut <i>Alt+T</i> to a basket named <i>Tips</i>, the basket will be displayed as <i><u>T</u>ips</i> "
@@ -127,15 +117,9 @@ BasketPropertiesDialog::BasketPropertiesDialog(BasketScene *basket, QWidget *par
              "<p><strong>Show vs Switch</strong>:<br>"
              "The last option makes this basket the current one without opening the main window. "
              "It is useful in addition to the configurable global shortcuts, eg. to paste the clipboard or the selection into the current basket from "
-             "anywhere.</p>"),
-        nullptr);
+             "anywhere.</p>"));
 
-    m_ui->shortcutLayout->addWidget(helpLabel);
     connect(m_ui->shortcut, &KShortcutWidget::shortcutChanged, this, &BasketPropertiesDialog::capturedShortcut);
-
-    setTabOrder(m_ui->columnCount, m_ui->shortcut);
-    setTabOrder(m_ui->shortcut, helpLabel);
-    setTabOrder(helpLabel, m_ui->showBasket);
 
     switch (m_basket->shortcutAction()) {
     default:
@@ -191,8 +175,8 @@ void BasketPropertiesDialog::applyChanges()
     m_basket->setAppearance(m_ui->icon->icon(),
                             m_ui->name->text(),
                             m_backgroundImagesMap[m_ui->backgroundImage->currentIndex()],
-                            m_backgroundColor->color(),
-                            m_textColor->color());
+                            m_ui->backgroundColor->color(),
+                            m_ui->textColor->color());
     GitWrapper::commitBasket(m_basket);
     m_basket->save();
 }

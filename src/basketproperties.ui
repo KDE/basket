@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>568</width>
-    <height>372</height>
+    <height>424</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -142,6 +142,9 @@
         <property name="text">
          <string>&amp;Background color:</string>
         </property>
+        <property name="buddy">
+         <cstring>backgroundColor</cstring>
+        </property>
        </widget>
       </item>
       <item row="2" column="1">
@@ -149,7 +152,16 @@
         <property name="text">
          <string>&amp;Text color:</string>
         </property>
+        <property name="buddy">
+         <cstring>textColor</cstring>
+        </property>
        </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="KColorCombo2" name="backgroundColor"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="KColorCombo2" name="textColor"/>
       </item>
      </layout>
     </widget>
@@ -176,6 +188,13 @@
        <layout class="QHBoxLayout" name="shortcutLayout">
         <item>
          <widget class="KShortcutWidget" name="shortcut"/>
+        </item>
+        <item>
+         <widget class="HelpLabel" name="helpLabel">
+          <property name="text">
+           <string>Learn some tips...</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -227,14 +246,27 @@
    <extends>QWidget</extends>
    <header>kshortcutwidget.h</header>
   </customwidget>
+  <customwidget>
+   <class>KColorCombo2</class>
+   <extends>QComboBox</extends>
+   <header>kcolorcombo2.h</header>
+  </customwidget>
+  <customwidget>
+   <class>HelpLabel</class>
+   <extends>QLabel</extends>
+   <header>variouswidgets.h</header>
+  </customwidget>
  </customwidgets>
  <tabstops>
+  <tabstop>icon</tabstop>
   <tabstop>name</tabstop>
   <tabstop>backgroundImage</tabstop>
+  <tabstop>backgroundColor</tabstop>
+  <tabstop>textColor</tabstop>
   <tabstop>columnForm</tabstop>
+  <tabstop>columnCount</tabstop>
   <tabstop>freeForm</tabstop>
   <tabstop>mindMap</tabstop>
-  <tabstop>columnCount</tabstop>
   <tabstop>showBasket</tabstop>
   <tabstop>globalButton</tabstop>
   <tabstop>switchButton</tabstop>
@@ -248,8 +280,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>283</x>
-     <y>336</y>
+     <x>289</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>283</x>
@@ -264,8 +296,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>283</x>
-     <y>336</y>
+     <x>289</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>283</x>
