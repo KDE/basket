@@ -112,8 +112,8 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
 add_definitions(-DTRANSLATION_DOMAIN=\"basket\")
 add_definitions(-DQT_NO_KEYWORDS)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.0
-    KF 6.10.0
+ecm_set_disabled_deprecation_versions(QT 6.4.0
+    KF 6.28.0
 )
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
