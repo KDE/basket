@@ -13,24 +13,19 @@
 
 #include "tag.h"
 
-class QCheckBox;
-class QFontComboBox;
-class QGroupBox;
-class QHBoxLayout;
-class QLabel;
-class QLineEdit;
 class QTreeWidget;
 
 class QKeyEvent;
 class QMouseEvent;
 
-class KIconButton;
-class QPushButton;
 class QKeySequence;
-class KShortcutWidget;
 
 class FontSizeCombo;
-class KColorCombo2;
+
+namespace Ui
+{
+class TagsEditDialog;
+}
 
 class StateCopy
 {
@@ -156,33 +151,8 @@ private:
     void saveStateTo(State *state);
     void saveTagTo(Tag *tag);
     void ensureCurrentItemVisible();
-    TagListView *m_tags;
-    QPushButton *m_moveUp;
-    QPushButton *m_moveDown;
-    QPushButton *m_deleteTag;
-    QLineEdit *m_tagName;
-    KShortcutWidget *m_shortcut;
-    QPushButton *m_removeShortcut;
-    QCheckBox *m_inherit;
-    QGroupBox *m_tagBox;
-    QHBoxLayout *m_tagBoxLayout;
-    QGroupBox *m_stateBox;
-    QHBoxLayout *m_stateBoxLayout;
-    QLabel *m_stateNameLabel;
-    QLineEdit *m_stateName;
-    KIconButton *m_emblem;
-    QPushButton *m_removeEmblem;
-    QPushButton *m_bold;
-    QPushButton *m_underline;
-    QPushButton *m_italic;
-    QPushButton *m_strike;
-    KColorCombo2 *m_textColor;
-    QFontComboBox *m_font;
+    Ui::TagsEditDialog *m_ui;
     FontSizeCombo *m_fontSize;
-    KColorCombo2 *m_backgroundColor;
-    QLineEdit *m_textEquivalent;
-    QCheckBox *m_onEveryLines;
-    QCheckBox *m_allowCrossRefernce;
 
     TagCopy::List m_tagCopies;
     State::List m_deletedStates;

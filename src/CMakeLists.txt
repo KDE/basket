@@ -47,7 +47,7 @@ set(libbasket_SRCS
     xmlwork.cpp xmlwork.h
 )
 
-ki18n_wrap_ui(basket_FORM_HDRS passworddialog.ui basketproperties.ui settings_versionsync.ui)
+ki18n_wrap_ui(basket_FORM_HDRS passworddialog.ui basketproperties.ui settings_versionsync.ui tagsedit.ui)
 
 qt_add_dbus_adaptor(libbasket_SRCS org.kde.basket.BNPView.xml bnpview.h BNPView)
 
