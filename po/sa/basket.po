@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-30 00:50+0000\n"
+"POT-Creation-Date: 2026-08-31 00:47+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -252,7 +252,7 @@ msgstr "मूल चिह्न"
 msgid "BasKet Note Pads"
 msgstr "बास्केट नोट पैड्स"
 
-#: src/archive.cpp:53 src/bnpview.cpp:2034
+#: src/archive.cpp:53 src/bnpview.cpp:2022
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Basket Archive इति रूपेण रक्षन्तु"
@@ -387,7 +387,7 @@ msgstr "<b>%1</b> इति पुटं रिक्तं नास्ति �
 msgid "Overwrite Folder?"
 msgstr "पुटं अधिलेखयतु?"
 
-#: src/backup.cpp:162 src/bnpview.cpp:2043 src/htmlexporter.cpp:70
+#: src/backup.cpp:162 src/bnpview.cpp:2031 src/htmlexporter.cpp:70
 #, kde-format
 msgid "&Overwrite"
 msgstr "&अतिलेखनम्"
@@ -421,8 +421,8 @@ msgstr "टोकरी_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar अभिलेखागार Gzip द्वारा संपीडित"
 
-#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2031
-#: src/bnpview.cpp:2078 src/htmlexporter.cpp:55
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2019
+#: src/bnpview.cpp:2066 src/htmlexporter.cpp:55
 #, kde-format
 msgid "All Files"
 msgstr "सर्वाणि सञ्चिकाः"
@@ -437,7 +437,7 @@ msgstr "बैकअप टोकरी"
 msgid "Backing up baskets. Please wait..."
 msgstr "टोकरीणां बैकअप करणम्। कृपया प्रतीक्षां कुर्वन्तु..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2079
+#: src/backup.cpp:255 src/bnpview.cpp:2067
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "ओपन बास्केट आर्काइव"
@@ -574,12 +574,7 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:118
-#, kde-format
-msgid "Learn some tips..."
-msgstr "केचन युक्तयः ज्ञातव्याः..."
-
-#: src/basketproperties.cpp:119
+#: src/basketproperties.cpp:109
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -649,7 +644,7 @@ msgid "&Mind map"
 msgstr "&मनः मानचित्र"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:1111
+#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:901
 #, kde-format
 msgid "Appearance"
 msgstr "स्वरूपम्‌"
@@ -673,31 +668,37 @@ msgid "&Background color:"
 msgstr "&पृष्ठभूमि रंगः :"
 
 #. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: src/basketproperties.ui:150
+#: src/basketproperties.ui:153
 #, kde-format
 msgid "&Text color:"
 msgstr "&पाठवर्णः :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: src/basketproperties.ui:160
+#: src/basketproperties.ui:172
 #, kde-format
 msgid "Keyboard Shortcut"
 msgstr "कीबोर्ड शॉर्टकट"
 
+#. i18n: ectx: property (text), widget (HelpLabel, helpLabel)
+#: src/basketproperties.ui:195
+#, kde-format
+msgid "Learn some tips..."
+msgstr "केचन युक्तयः ज्ञातव्याः..."
+
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: src/basketproperties.ui:187
+#: src/basketproperties.ui:206
 #, kde-format
 msgid "S&how this basket"
 msgstr "S&how एतत् टोकरी"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: src/basketproperties.ui:194
+#: src/basketproperties.ui:213
 #, kde-format
 msgid "Show this basket (&global shortcut)"
 msgstr "एतत् टोकरीं दर्शयतु (&global shortcut)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: src/basketproperties.ui:201
+#: src/basketproperties.ui:220
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
 msgstr "S&witch to this basket (वैश्विकशॉर्टकट्)"
@@ -869,7 +870,7 @@ msgid ""
 "the application settings."
 msgstr "टोकरीः अनलॉक्ड् स्थातुं, अनुप्रयोगसेटिंग्स् मध्ये स्वचालित<br>लॉकिंग् अवधिं परिवर्तयन्तु ।"
 
-#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1593
+#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1581
 #, kde-format
 msgid "Loading..."
 msgstr "लोडिंग..."
@@ -879,7 +880,7 @@ msgstr "लोडिंग..."
 msgid "&Remove"
 msgstr "&अपाकरोति"
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2465
+#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2453
 #, kde-format
 msgid "&Customize..."
 msgstr "&अनुकूलित करें..."
@@ -1048,7 +1049,7 @@ msgstr "मुख्य साधनपट्टी"
 msgid "Text Formatting Toolbar"
 msgstr "पाठस्वरूपणसाधनपट्टिका"
 
-#: src/bnpview.cpp:170 src/bnpview.cpp:1231
+#: src/bnpview.cpp:170 src/bnpview.cpp:1219
 #, kde-format
 msgid "General"
 msgstr "सामान्य"
@@ -1389,187 +1390,187 @@ msgstr "C&olor from स्क्रीन"
 msgid "Grab Screen &Zone"
 msgstr "स्क्रीन &जोन हड़प"
 
-#: src/bnpview.cpp:612
+#: src/bnpview.cpp:600
 #, kde-format
 msgid "&New Basket..."
 msgstr "&नवीन टोकरी..."
 
-#: src/bnpview.cpp:618
+#: src/bnpview.cpp:606
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "नवीन &उप-टोकरी..."
 
-#: src/bnpview.cpp:623
+#: src/bnpview.cpp:611
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "नवीन Si&bling टोकरी..."
 
-#: src/bnpview.cpp:626
+#: src/bnpview.cpp:614
 #, kde-format
 msgid "&New"
 msgstr "&नूतनम्‌"
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:624
 #, kde-format
 msgid "&Properties..."
 msgstr "&गुणाः..."
 
-#: src/bnpview.cpp:642
+#: src/bnpview.cpp:630
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "क्रमेण बालकाः आरोहन्तः"
 
-#: src/bnpview.cpp:647
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "क्रमेण बालकाः अवतरन्ति"
 
-#: src/bnpview.cpp:652
+#: src/bnpview.cpp:640
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "क्रमबद्धं भ्रातरः आरोहणम्"
 
-#: src/bnpview.cpp:657
+#: src/bnpview.cpp:645
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "क्रमबद्धाः भ्रातरः अवतरन्तः"
 
-#: src/bnpview.cpp:662
+#: src/bnpview.cpp:650
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&अपाकरोति"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:657
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "समाभाष्..."
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:662
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&ताल"
 
-#: src/bnpview.cpp:688
+#: src/bnpview.cpp:676
 #, kde-format
 msgid "&Filter"
 msgstr "&फ़िल्टर"
 
-#: src/bnpview.cpp:700
+#: src/bnpview.cpp:688
 #, kde-format
 msgid "&Search All"
 msgstr "&सर्वं अन्वेष्टुम्"
 
-#: src/bnpview.cpp:708
+#: src/bnpview.cpp:696
 #, kde-format
 msgid "&Reset Filter"
 msgstr "&Reset फ़िल्टर"
 
-#: src/bnpview.cpp:716
+#: src/bnpview.cpp:704
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&पूर्व टोकरी"
 
-#: src/bnpview.cpp:722
+#: src/bnpview.cpp:710
 #, kde-format
 msgid "&Next Basket"
 msgstr "&अगला टोकरी"
 
-#: src/bnpview.cpp:728
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&फोल्ड बास्केट"
 
-#: src/bnpview.cpp:734
+#: src/bnpview.cpp:722
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&विस्तार टोकरी"
 
-#: src/bnpview.cpp:742
+#: src/bnpview.cpp:730
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "पाठटिप्पणीं समृद्धपाठटिप्पण्यां परिवर्तयन्तु"
 
-#: src/bnpview.cpp:751
+#: src/bnpview.cpp:739
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "&स्वागत टोकरी"
 
-#: src/bnpview.cpp:1016
+#: src/bnpview.cpp:1004
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "सादा पाठ नोट्स् रूपान्तरणम्"
 
-#: src/bnpview.cpp:1017
+#: src/bnpview.cpp:1005
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "साधारणपाठटिप्पणीनां समृद्धपाठटिप्पणीनां परिवर्तनं..."
 
-#: src/bnpview.cpp:1591
+#: src/bnpview.cpp:1579
 #, kde-format
 msgid "Locked"
 msgstr "तालाबद्धः"
 
-#: src/bnpview.cpp:1595
+#: src/bnpview.cpp:1583
 #, kde-format
 msgid "No notes"
 msgstr "न टिप्पणीः"
 
-#: src/bnpview.cpp:1597
+#: src/bnpview.cpp:1585
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 टिप्पणी"
 msgstr[1] "%1 टिप्पणी"
 
-#: src/bnpview.cpp:1598
+#: src/bnpview.cpp:1586
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 चयनितम्"
 msgstr[1] "%1 चयनितम्"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "all matches"
 msgstr "सर्वे मेलनं कुर्वन्ति"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "no filter"
 msgstr "न फ़िल्टर"
 
-#: src/bnpview.cpp:1601
+#: src/bnpview.cpp:1589
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 मेलनं भवति"
 msgstr[1] "%1 मेलति"
 
-#: src/bnpview.cpp:1602
+#: src/bnpview.cpp:1590
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1737
+#: src/bnpview.cpp:1725
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "साधारणपाठटिप्पणयः समृद्धपाठे परिवर्तिताः सन्ति ।"
 
-#: src/bnpview.cpp:1737 src/bnpview.cpp:1739
+#: src/bnpview.cpp:1725 src/bnpview.cpp:1727
 #, kde-format
 msgid "Conversion Finished"
 msgstr "परिवर्तनं समाप्तम्"
 
-#: src/bnpview.cpp:1739
+#: src/bnpview.cpp:1727
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "परिवर्तनार्थं साधारणपाठटिप्पण्यानि नास्ति ।"
 
-#: src/bnpview.cpp:1756
+#: src/bnpview.cpp:1744
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1588,33 +1589,33 @@ msgstr ""
 "अनुप्रयोगः सम्यक् संस्थापितः अस्ति परन्तु भवतां कृते तस्य पूर्वावलोकनसंस्करणं आसीत् तर्हि "
 "निष्कासयितुं प्रयतस्व %5basketui.rc</p> इति सञ्चिका"
 
-#: src/bnpview.cpp:1770
+#: src/bnpview.cpp:1758
 #, kde-format
 msgid "Resource not Found"
 msgstr "संसाधनं न लब्धम्"
 
-#: src/bnpview.cpp:1799
+#: src/bnpview.cpp:1787
 #, kde-format
 msgid "Cannot add note."
 msgstr "टिप्पणीं योजयितुं न शक्यते।"
 
-#: src/bnpview.cpp:1946
+#: src/bnpview.cpp:1934
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt>किं भवान् वास्तवमेव टोकरीं <b>%1</b> तस्य सामग्रीं च हर्तुं इच्छति?</qt>"
 
-#: src/bnpview.cpp:1947
+#: src/bnpview.cpp:1935
 #, kde-format
 msgid "Remove Basket"
 msgstr "टोकरी निकालें"
 
-#: src/bnpview.cpp:1948
+#: src/bnpview.cpp:1936
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&टोकरी निकालें"
 
-#: src/bnpview.cpp:1958
+#: src/bnpview.cpp:1946
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1623,37 +1624,37 @@ msgstr ""
 "<qt><b>%1</b> इत्यत्र निम्नलिखितबालटोकराः सन्ति।<br>किं भवान् तान् अपि निष्कासयितुम् "
 "इच्छति?</qt>"
 
-#: src/bnpview.cpp:1960
+#: src/bnpview.cpp:1948
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "बालटोकरीं निष्कासयन्तु"
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1949
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&बालटोकरीं निष्कासयन्तु"
 
-#: src/bnpview.cpp:2031 src/bnpview.cpp:2078
+#: src/bnpview.cpp:2019 src/bnpview.cpp:2066
 #, kde-format
 msgid "Basket Archives"
 msgstr "टोकरी अभिलेखागार"
 
-#: src/bnpview.cpp:2041 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:2029 src/htmlexporter.cpp:68
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "<b>%1</b> इति सञ्चिका पूर्वमेव अस्ति । किं भवन्तः तस्य अधिलेखनं कर्तुम् इच्छन्ति वा ?"
 
-#: src/bnpview.cpp:2042 src/htmlexporter.cpp:69
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:69
 #, kde-format
 msgid "Overwrite File?"
 msgstr "सञ्चिकां अधिलेखयतु?"
 
-#: src/bnpview.cpp:2454
+#: src/bnpview.cpp:2442
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&नव टैग नियुक्त करें..."
 
-#: src/bnpview.cpp:2459
+#: src/bnpview.cpp:2447
 #, kde-format
 msgid "&Remove All"
 msgstr "&सर्वं निष्कासयतु"
@@ -1868,8 +1869,8 @@ msgstr ""
 "<a href=\"%1\">%2</a> %3 इत्यनेन सह निर्मितम्, टिप्पणीं ग्रहीतुं सूचनां हस्ते स्थापयितुं च "
 "साधनम् ।"
 
-#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:608 src/tagsedit.cpp:506
-#: src/variouswidgets.cpp:396
+#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:617 src/tagsedit.cpp:357
+#: src/variouswidgets.cpp:403
 #, kde-format
 msgid "(Default)"
 msgstr "(मूलभूतम्‌)"
@@ -1883,12 +1884,12 @@ msgstr "इतर..."
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:632
+#: src/kcolorcombo2.cpp:641
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "र:%1, जी:%2, ख:%3"
 
-#: src/kcolorcombo2.cpp:632
+#: src/kcolorcombo2.cpp:641
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2210,7 +2211,7 @@ msgstr "क्रॉस सन्दर्भ"
 msgid "Launcher"
 msgstr "प्रक्षेपक"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1105
+#: src/notecontent.cpp:116 src/noteedit.cpp:1095
 #, kde-format
 msgid "Color"
 msgstr "वर्ण"
@@ -2647,12 +2648,12 @@ msgstr ""
 msgid "Edit Animation Note"
 msgstr "एनिमेशन नोट सम्पादयतु"
 
-#: src/noteedit.cpp:661
+#: src/noteedit.cpp:660
 #, kde-format
 msgid "Edit Color Note"
 msgstr "रङ्ग टिप्पणी सम्पादयतु"
 
-#: src/noteedit.cpp:686
+#: src/noteedit.cpp:676
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2662,127 +2663,131 @@ msgstr ""
 "अस्य टिप्पण्याः प्रकारः अज्ञातः अस्ति, अत्र सम्पादयितुं न शक्यते । भवान् तथापि टिप्पणीं "
 "कर्षितुं वा प्रतिलिपिं कर्तुं वा शक्नोति यत् तत् अवगच्छति अनुप्रयोगे ।"
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:678
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "अज्ञात टिप्पणी सम्पादयतु"
 
-#: src/noteedit.cpp:700
+#: src/noteedit.cpp:690
 #, kde-format
 msgid "Edit Link Note"
 msgstr "सम्पादयतु लिङ्क टिप्पणी"
 
-#: src/noteedit.cpp:713 src/noteedit.cpp:877
+#: src/noteedit.cpp:703 src/noteedit.cpp:867
 #, kde-format
 msgid "Ta&rget:"
 msgstr "लक्ष्य:"
 
-#: src/noteedit.cpp:721 src/noteedit.cpp:732
+#: src/noteedit.cpp:711 src/noteedit.cpp:722
 #, kde-format
 msgid "Auto"
 msgstr "ऑटो"
 
-#: src/noteedit.cpp:724
+#: src/noteedit.cpp:714
 #, kde-format
 msgid "&Title:"
 msgstr "&शीर्षक:"
 
-#: src/noteedit.cpp:742 src/noteedit.cpp:1000
+#: src/noteedit.cpp:732 src/noteedit.cpp:990
 #, kde-format
 msgid "&Icon:"
 msgstr "&चिह्नम् :"
 
-#: src/noteedit.cpp:866
+#: src/noteedit.cpp:856
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "क्रॉस सन्दर्भ सम्पादयतु"
 
-#: src/noteedit.cpp:967
+#: src/noteedit.cpp:957
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "सम्पादयतु प्रक्षेपक टिप्पणी"
 
-#: src/noteedit.cpp:979
+#: src/noteedit.cpp:969
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "चालयितुं आदेशं चिनोतु:"
 
-#: src/noteedit.cpp:980
+#: src/noteedit.cpp:970
 #, kde-format
 msgid "Comman&d:"
 msgstr "आदेश:"
 
-#: src/noteedit.cpp:983 src/tagsedit.cpp:389
+#. i18n: ectx: property (text), widget (QLabel, tagNameLabel)
+#: src/noteedit.cpp:973 src/tagsedit.ui:97
 #, kde-format
 msgid "&Name:"
 msgstr "&नामः:"
 
-#: src/noteedit.cpp:991
+#: src/noteedit.cpp:981
 #, kde-format
 msgid "&Guess"
 msgstr "&अनुमानम्‌"
 
-#: src/noteedit.cpp:1087
+#: src/noteedit.cpp:1077
 #, kde-format
 msgid "Font"
 msgstr "फॉन्ट्"
 
-#: src/noteedit.cpp:1095
+#: src/noteedit.cpp:1085
 #, kde-format
 msgid "Font Size"
 msgstr "फ़ॉन्ट आकार"
 
-#: src/noteedit.cpp:1110 src/tagsedit.cpp:471
+#. i18n: ectx: property (toolTip), widget (QPushButton, bold)
+#: src/noteedit.cpp:1100 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "विक्रान्तः"
 
-#: src/noteedit.cpp:1117 src/tagsedit.cpp:483
+#. i18n: ectx: property (toolTip), widget (QPushButton, italic)
+#: src/noteedit.cpp:1107 src/tagsedit.ui:228
 #, kde-format
 msgid "Italic"
 msgstr "इटालिक"
 
-#: src/noteedit.cpp:1124 src/tagsedit.cpp:477
+#. i18n: ectx: property (toolTip), widget (QPushButton, underline)
+#: src/noteedit.cpp:1114 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "रेखांकनम्"
 
-#: src/noteedit.cpp:1132
+#: src/noteedit.cpp:1122
 #, kde-format
 msgid "Superscript"
 msgstr "अधिलिपि"
 
-#: src/noteedit.cpp:1138
+#: src/noteedit.cpp:1128
 #, kde-format
 msgid "Subscript"
 msgstr "उपलिपिः"
 
-#: src/noteedit.cpp:1145
+#: src/noteedit.cpp:1135
 #, kde-format
 msgid "Align Left"
 msgstr "Align Left इति"
 
-#: src/noteedit.cpp:1151
+#: src/noteedit.cpp:1141
 #, kde-format
 msgid "Centered"
 msgstr "केन्द्रित"
 
-#: src/noteedit.cpp:1157
+#: src/noteedit.cpp:1147
 #, kde-format
 msgid "Align Right"
 msgstr "Align Right इति"
 
-#: src/noteedit.cpp:1163
+#: src/noteedit.cpp:1153
 #, kde-format
 msgid "Justified"
 msgstr "न्याय्यम्"
 
-#: src/noteedit.cpp:1175
+#: src/noteedit.cpp:1165
 #, kde-format
 msgid "Undo"
 msgstr "पूर्ववत"
 
-#: src/noteedit.cpp:1181
+#: src/noteedit.cpp:1171
 #, kde-format
 msgid "Redo"
 msgstr "पुनः करो"
@@ -2969,7 +2974,7 @@ msgid ""
 msgstr "यदि सक्षमम् अस्ति तर्हि एषः गुणः भवन्तं टैग्-इत्येतत् पाठसमतुल्यरूपेण चिनोतुम् अर्हति ।"
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:551 src/tagsedit.cpp:527
+#: src/settings.cpp:551 src/tagsedit.cpp:375
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3651,68 +3656,7 @@ msgstr "पु."
 msgid "Funny"
 msgstr "विलक्षणम्‌"
 
-#: src/tagsedit.cpp:315
-#, kde-format
-msgid "Customize Tags"
-msgstr "टैग्स अनुकूलित करें"
-
-#: src/tagsedit.cpp:334
-#, kde-format
-msgid "Ne&w Tag"
-msgstr "नव&w टैग"
-
-#: src/tagsedit.cpp:335
-#, kde-format
-msgid "New St&ate"
-msgstr "New St&ate"
-
-#: src/tagsedit.cpp:356
-#, kde-format
-msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "उपरि गच्छतु (Ctrl+Shift+Up)"
-
-#: src/tagsedit.cpp:357
-#, kde-format
-msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "अधः गच्छन्तु (Ctrl+Shift+Down)"
-
-#: src/tagsedit.cpp:358
-#, kde-format
-msgid "Delete"
-msgstr "लुप्"
-
-#: src/tagsedit.cpp:381
-#, kde-format
-msgid "Tag"
-msgstr "सूचकपत्त्र"
-
-#: src/tagsedit.cpp:393
-#, kde-format
-msgctxt "Remove tag shortcut"
-msgid "&Remove"
-msgstr "&अपाकरोति"
-
-#: src/tagsedit.cpp:394
-#, kde-format
-msgid "S&hortcut:"
-msgstr "S&hortcut: ."
-
-#: src/tagsedit.cpp:399
-#, kde-format
-msgid "&Inherited by new sibling notes"
-msgstr "&नवभ्रातृटिप्पणीभिः उत्तराधिकारः"
-
-#: src/tagsedit.cpp:401
-#, kde-format
-msgid "Allow Cross Reference Links"
-msgstr "क्रॉस् रेफरेंस लिङ्क्स् इत्यस्य अनुमतिं ददातु"
-
-#: src/tagsedit.cpp:404
-#, kde-format
-msgid "What does this do?"
-msgstr "एतत् किं करोति ?"
-
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:330
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3721,103 +3665,42 @@ msgstr ""
 "एषः विकल्पः भवन्तं प्रत्यक्षतया पाठटिप्पण्यां क्रॉस् सन्दर्भलिङ्कं टङ्कयितुं समर्थं करिष्यति । "
 "क्रॉस् रेफरेंस लिङ्क्स् इत्यस्य वाक्यविन्यासः निम्नलिखितरूपेण भवितुम् अर्हति ।"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "वृक्षस्य शिखरात् (Absolute path): ."
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/शीर्ष स्तरीय मद/बाल|वैकल्पिक शीर्षक]]"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "वर्तमान टोकरीयाः सापेक्षम् :"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../भगिनी|वैकल्पिक उपाधि]]।"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[बाल|वैकल्पिक उपाधि]] ।"
 
-#: src/tagsedit.cpp:410
+#: src/tagsedit.cpp:334
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./बाल|वैकल्पिक उपाधि]]।"
 
-#: src/tagsedit.cpp:411
+#: src/tagsedit.cpp:335
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr "टोकरीमेलनं cAse inSEnsItive अस्ति।"
 
-#: src/tagsedit.cpp:425 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
-#, kde-format
-msgid "State"
-msgstr "राज्यम्‌"
-
-#: src/tagsedit.cpp:433
-#, kde-format
-msgid "Na&me:"
-msgstr "नामः:"
-
-#: src/tagsedit.cpp:441
-#, kde-format
-msgctxt "Remove tag emblem"
-msgid "Remo&ve"
-msgstr "अपाकरोति"
-
-#: src/tagsedit.cpp:442
-#, kde-format
-msgid "&Emblem:"
-msgstr "&चिह्नम् :"
-
-#: src/tagsedit.cpp:459
-#, kde-format
-msgid "&Background:"
-msgstr "&पृष्ठभूमि:"
-
-#: src/tagsedit.cpp:489
-#, kde-format
-msgid "Strike Through"
-msgstr "Strike Through इति"
-
-#: src/tagsedit.cpp:491
-#, kde-format
-msgid "&Text:"
-msgstr "&पाठ:"
-
-#: src/tagsedit.cpp:502
-#, kde-format
-msgid "Co&lor:"
-msgstr "वर्ण:"
-
-#: src/tagsedit.cpp:507
-#, kde-format
-msgid "&Font:"
-msgstr "&फॉन्टः :"
-
-#: src/tagsedit.cpp:511
-#, kde-format
-msgid "&Size:"
-msgstr "&आकृति:"
-
-#: src/tagsedit.cpp:515
-#, kde-format
-msgid "Te&xt equivalent:"
-msgstr "ते&xt समतुल्यः :"
-
-#: src/tagsedit.cpp:522
-#, kde-format
-msgid "What is this for?"
-msgstr "किमर्थमिदम् ?"
-
-#: src/tagsedit.cpp:524
+#: src/tagsedit.cpp:372
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3826,17 +3709,7 @@ msgstr ""
 "यदा भवान् पाठसम्पादके टिप्पणीनां प्रतिलिपिं चिनोति वा कर्षति च पातयति तदा एषः पाठः "
 "टैग् इत्यस्य पाठसमतुल्यरूपेण सम्मिलितः भविष्यति ।"
 
-#: src/tagsedit.cpp:535
-#, kde-format
-msgid "On ever&y line"
-msgstr "नित्य&y रेखायां"
-
-#: src/tagsedit.cpp:538
-#, kde-format
-msgid "What does this mean?"
-msgstr "एतस्य किम् अर्थः ?"
-
-#: src/tagsedit.cpp:540
+#: src/tagsedit.cpp:381
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3845,7 +3718,7 @@ msgstr ""
 "यदा टिप्पणीयाः अनेकाः पङ्क्तयः सन्ति तदा प्रथमपङ्क्तौ वा टिप्पणीयाः प्रत्येकपङ्क्तौ वा टैग् "
 "अथवा राज्यं निर्यातयितुं चयनं कर्तुं शक्नुवन्ति ।"
 
-#: src/tagsedit.cpp:542
+#: src/tagsedit.cpp:383
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3854,7 +3727,7 @@ msgstr ""
 "उपरिष्टाद् उदाहरणे उपरितनस्वरस्य टैग् केवलं प्रथमपङ्क्तौ निर्यातितः भवति, यदा तु टिप्पण्याः "
 "प्रत्येकपङ्क्तौ अधः टिप्पणीयाः टैग् निर्यातितः भवति ।"
 
-#: src/tagsedit.cpp:980
+#: src/tagsedit.cpp:770
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
@@ -3862,32 +3735,196 @@ msgstr ""
 "टैग् विलोपनेन सम्प्रति यस्मिन् टिप्पण्यां नियुक्तं भवति तस्मात् प्रत्येकस्मात् टिप्पण्याः निष्कासनं "
 "भविष्यति ।"
 
-#: src/tagsedit.cpp:981
+#: src/tagsedit.cpp:771
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Delete Tag इत्यस्य पुष्टिः कुर्वन्तु"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:772
 #, kde-format
 msgid "Delete Tag"
 msgstr "टैगं विलोपयन्तु"
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:775
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
 msgstr "राज्यं विलोपनेन राज्यं वर्तमानं नियुक्तं प्रत्येकं टिप्पणं टैग् अपसारयिष्यति ।"
 
-#: src/tagsedit.cpp:986
+#: src/tagsedit.cpp:776
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "Delete State इत्यस्य पुष्टिं कुर्वन्तु"
 
-#: src/tagsedit.cpp:987
+#: src/tagsedit.cpp:777
 #, kde-format
 msgid "Delete State"
 msgstr "राज्यं विलोपयन्तु"
+
+#. i18n: ectx: property (title), widget (QGroupBox, stateBox)
+#: src/tagsedit.cpp:894 src/tagsedit.cpp:910 src/tagsedit.ui:161
+#, kde-format
+msgid "State"
+msgstr "राज्यम्‌"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagsEditDialog)
+#: src/tagsedit.ui:14
+#, kde-format
+msgid "Customize Tags"
+msgstr "टैग्स अनुकूलित करें"
+
+#. i18n: ectx: property (text), widget (QPushButton, newTag)
+#: src/tagsedit.ui:24
+#, kde-format
+msgid "Ne&w Tag"
+msgstr "नव&w टैग"
+
+#. i18n: ectx: property (text), widget (QPushButton, newState)
+#: src/tagsedit.ui:31
+#, kde-format
+msgid "New St&ate"
+msgstr "New St&ate"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, moveUp)
+#: src/tagsedit.ui:55
+#, kde-format
+msgid "Move Up (Ctrl+Shift+Up)"
+msgstr "उपरि गच्छतु (Ctrl+Shift+Up)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, moveDown)
+#: src/tagsedit.ui:65
+#, kde-format
+msgid "Move Down (Ctrl+Shift+Down)"
+msgstr "अधः गच्छन्तु (Ctrl+Shift+Down)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, deleteTag)
+#: src/tagsedit.ui:75
+#, kde-format
+msgid "Delete"
+msgstr "लुप्"
+
+#. i18n: ectx: property (title), widget (QGroupBox, tagBox)
+#: src/tagsedit.ui:91
+#, kde-format
+msgid "Tag"
+msgstr "सूचकपत्त्र"
+
+#. i18n: ectx: property (text), widget (QLabel, shortcutLabel)
+#: src/tagsedit.ui:110
+#, kde-format
+msgid "S&hortcut:"
+msgstr "S&hortcut: ."
+
+#. i18n: ectx: property (text), widget (QPushButton, removeShortcut)
+#: src/tagsedit.ui:120
+#, kde-format
+msgctxt "Remove tag shortcut"
+msgid "&Remove"
+msgstr "&अपाकरोति"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inherit)
+#: src/tagsedit.ui:127
+#, kde-format
+msgid "&Inherited by new sibling notes"
+msgstr "&नवभ्रातृटिप्पणीभिः उत्तराधिकारः"
+
+#. i18n: ectx: property (text), widget (QCheckBox, allowCrossRefernce)
+#: src/tagsedit.ui:136
+#, kde-format
+msgid "Allow Cross Reference Links"
+msgstr "क्रॉस् रेफरेंस लिङ्क्स् इत्यस्य अनुमतिं ददातु"
+
+#. i18n: ectx: property (text), widget (HelpLabel, allowCrossReferenceHelp)
+#: src/tagsedit.ui:149
+#, kde-format
+msgid "What does this do?"
+msgstr "एतत् किं करोति ?"
+
+#. i18n: ectx: property (text), widget (QLabel, fontLabel)
+#: src/tagsedit.ui:170
+#, kde-format
+msgid "&Font:"
+msgstr "&फॉन्टः :"
+
+#. i18n: ectx: property (text), widget (QLabel, fontSizeLabel)
+#: src/tagsedit.ui:180
+#, kde-format
+msgid "&Size:"
+msgstr "&आकृति:"
+
+#. i18n: ectx: property (text), widget (QLabel, stateNameLabel)
+#: src/tagsedit.ui:190
+#, kde-format
+msgid "Na&me:"
+msgstr "नामः:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, strike)
+#: src/tagsedit.ui:241
+#, kde-format
+msgid "Strike Through"
+msgstr "Strike Through इति"
+
+#. i18n: ectx: property (text), widget (HelpLabel, textEquivalentHelp)
+#: src/tagsedit.ui:269
+#, kde-format
+msgid "What is this for?"
+msgstr "किमर्थमिदम् ?"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
+#: src/tagsedit.ui:276
+#, kde-format
+msgid "&Background:"
+msgstr "&पृष्ठभूमि:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, onEveryLines)
+#: src/tagsedit.ui:286
+#, kde-format
+msgid "On ever&y line"
+msgstr "नित्य&y रेखायां"
+
+#. i18n: ectx: property (text), widget (QLabel, textColorLabel)
+#: src/tagsedit.ui:296
+#, kde-format
+msgid "Co&lor:"
+msgstr "वर्ण:"
+
+#. i18n: ectx: property (text), widget (QLabel, textEquivalentLabel)
+#: src/tagsedit.ui:309
+#, kde-format
+msgid "Te&xt equivalent:"
+msgstr "ते&xt समतुल्यः :"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/tagsedit.ui:322
+#, kde-format
+msgid "&Text:"
+msgstr "&पाठ:"
+
+#. i18n: ectx: property (icon), widget (KIconButton, emblem)
+#: src/tagsedit.ui:337
+#, kde-format
+msgid "edit-delete"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
+#: src/tagsedit.ui:347
+#, kde-format
+msgctxt "Remove tag emblem"
+msgid "Remo&ve"
+msgstr "अपाकरोति"
+
+#. i18n: ectx: property (text), widget (HelpLabel, onEveryLinesHelp)
+#: src/tagsedit.ui:379
+#, kde-format
+msgid "What does this mean?"
+msgstr "एतस्य किम् अर्थः ?"
+
+#. i18n: ectx: property (text), widget (QLabel, emblemLabel)
+#: src/tagsedit.ui:386
+#, kde-format
+msgid "&Emblem:"
+msgstr "&चिह्नम् :"
 
 #: src/tools.cpp:775
 #, kde-format
@@ -3914,9 +3951,9 @@ msgstr ""
 #: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
 #: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
-#: src/variouswidgets.cpp:267 src/variouswidgets.cpp:268
-#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
-#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
+#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
+#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 द्वारा %1 पिक्सेल"

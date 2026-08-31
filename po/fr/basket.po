@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket_fr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-30 00:50+0000\n"
+"POT-Creation-Date: 2026-08-31 00:47+0000\n"
 "PO-Revision-Date: 2026-08-25 10:44+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -260,7 +260,7 @@ msgstr "Icône originelle"
 msgid "BasKet Note Pads"
 msgstr "Blocs notes BasKet"
 
-#: src/archive.cpp:53 src/bnpview.cpp:2034
+#: src/archive.cpp:53 src/bnpview.cpp:2022
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Enregistrer en tant qu'archive de paniers"
@@ -403,7 +403,7 @@ msgstr "Le dossier <b>%1</b> n'est pas vide. Voulez-vous vraiment l'écraser ?"
 msgid "Overwrite Folder?"
 msgstr "Écraser le dossier ?"
 
-#: src/backup.cpp:162 src/bnpview.cpp:2043 src/htmlexporter.cpp:70
+#: src/backup.cpp:162 src/bnpview.cpp:2031 src/htmlexporter.cpp:70
 #, kde-format
 msgid "&Overwrite"
 msgstr "Écras&er"
@@ -437,8 +437,8 @@ msgstr "Paniers_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Archive « tar » compressée par Gzip"
 
-#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2031
-#: src/bnpview.cpp:2078 src/htmlexporter.cpp:55
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2019
+#: src/bnpview.cpp:2066 src/htmlexporter.cpp:55
 #, kde-format
 msgid "All Files"
 msgstr "Tous les fichiers"
@@ -453,7 +453,7 @@ msgstr "Enregistrer les paniers"
 msgid "Backing up baskets. Please wait..."
 msgstr "Enregistrement des paniers en cours. Veuillez patienter..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2079
+#: src/backup.cpp:255 src/bnpview.cpp:2067
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Ouvrir une archive de paniers"
@@ -596,12 +596,7 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:118
-#, kde-format
-msgid "Learn some tips..."
-msgstr "Apprendre quelques astuces..."
-
-#: src/basketproperties.cpp:119
+#: src/basketproperties.cpp:109
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -675,7 +670,7 @@ msgid "&Mind map"
 msgstr "Carte &mentale"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:1111
+#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:901
 #, kde-format
 msgid "Appearance"
 msgstr "Apparence"
@@ -699,31 +694,37 @@ msgid "&Background color:"
 msgstr "&Couleur d'arrière-plan :"
 
 #. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: src/basketproperties.ui:150
+#: src/basketproperties.ui:153
 #, kde-format
 msgid "&Text color:"
 msgstr "Couleur du &texte :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: src/basketproperties.ui:160
+#: src/basketproperties.ui:172
 #, kde-format
 msgid "Keyboard Shortcut"
 msgstr "Raccourci clavier"
 
+#. i18n: ectx: property (text), widget (HelpLabel, helpLabel)
+#: src/basketproperties.ui:195
+#, kde-format
+msgid "Learn some tips..."
+msgstr "Apprendre quelques astuces..."
+
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: src/basketproperties.ui:187
+#: src/basketproperties.ui:206
 #, kde-format
 msgid "S&how this basket"
 msgstr "Affic&her ce panier"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: src/basketproperties.ui:194
+#: src/basketproperties.ui:213
 #, kde-format
 msgid "Show this basket (&global shortcut)"
 msgstr "Afficher ce panier (raccourci &global)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: src/basketproperties.ui:201
+#: src/basketproperties.ui:220
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
 msgstr "&Basculer vers ce panier (raccourci global)"
@@ -903,7 +904,7 @@ msgstr ""
 "<small>Pour que les paniers restent déverrouillés, changez le temps<br>de "
 "verrouillage automatique dans les options de l'application.</small>"
 
-#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1593
+#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1581
 #, kde-format
 msgid "Loading..."
 msgstr "Chargement..."
@@ -913,7 +914,7 @@ msgstr "Chargement..."
 msgid "&Remove"
 msgstr "Supp&rimer"
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2465
+#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2453
 #, kde-format
 msgid "&Customize..."
 msgstr "&Personnaliser..."
@@ -1088,7 +1089,7 @@ msgstr "Barre principale"
 msgid "Text Formatting Toolbar"
 msgstr "Barre de mise en forme de texte"
 
-#: src/bnpview.cpp:170 src/bnpview.cpp:1231
+#: src/bnpview.cpp:170 src/bnpview.cpp:1219
 #, kde-format
 msgid "General"
 msgstr "Général"
@@ -1450,191 +1451,191 @@ msgstr "C&ouleur sur l'écran"
 msgid "Grab Screen &Zone"
 msgstr "Capturer une &zone de l'écran"
 
-#: src/bnpview.cpp:612
+#: src/bnpview.cpp:600
 #, kde-format
 msgid "&New Basket..."
 msgstr "&Nouveau panier..."
 
-#: src/bnpview.cpp:618
+#: src/bnpview.cpp:606
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "Nouveau &sous-panier..."
 
-#: src/bnpview.cpp:623
+#: src/bnpview.cpp:611
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "Nouveau panier &voisin..."
 
-#: src/bnpview.cpp:626
+#: src/bnpview.cpp:614
 #, kde-format
 msgid "&New"
 msgstr "&Nouveau"
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:624
 #, kde-format
 msgid "&Properties..."
 msgstr "&Propriétés..."
 
-#: src/bnpview.cpp:642
+#: src/bnpview.cpp:630
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "Trier les enfants de façon ascendante"
 
-#: src/bnpview.cpp:647
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "Trier les enfants de façon descendante"
 
-#: src/bnpview.cpp:652
+#: src/bnpview.cpp:640
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Trier les fratries de façon ascendante"
 
-#: src/bnpview.cpp:657
+#: src/bnpview.cpp:645
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Trier les fratries de façon descendante"
 
-#: src/bnpview.cpp:662
+#: src/bnpview.cpp:650
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "Supp&rimer"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:657
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Mot de pa&sse..."
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:662
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "&Verrouillé"
 
-#: src/bnpview.cpp:688
+#: src/bnpview.cpp:676
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtrer"
 
-#: src/bnpview.cpp:700
+#: src/bnpview.cpp:688
 #, kde-format
 msgid "&Search All"
 msgstr "Tout &rechercher"
 
-#: src/bnpview.cpp:708
+#: src/bnpview.cpp:696
 #, kde-format
 msgid "&Reset Filter"
 msgstr "Vider le filt&re"
 
-#: src/bnpview.cpp:716
+#: src/bnpview.cpp:704
 #, kde-format
 msgid "&Previous Basket"
 msgstr "&Panier précédent"
 
-#: src/bnpview.cpp:722
+#: src/bnpview.cpp:710
 #, kde-format
 msgid "&Next Basket"
 msgstr "Panier &suivant"
 
-#: src/bnpview.cpp:728
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Fold Basket"
 msgstr "&Replier ce panier"
 
-#: src/bnpview.cpp:734
+#: src/bnpview.cpp:722
 #, kde-format
 msgid "&Expand Basket"
 msgstr "&Développer ce panier"
 
-#: src/bnpview.cpp:742
+#: src/bnpview.cpp:730
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr ""
 "Conversion de notes au format texte simple en notes au format texte enrichi"
 
-#: src/bnpview.cpp:751
+#: src/bnpview.cpp:739
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "Paniers de &bienvenue"
 
-#: src/bnpview.cpp:1016
+#: src/bnpview.cpp:1004
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Conversion des notes au format texte brut"
 
-#: src/bnpview.cpp:1017
+#: src/bnpview.cpp:1005
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr ""
 "Conversion des notes au format texte brut en notes au format texte enrichi..."
 
-#: src/bnpview.cpp:1591
+#: src/bnpview.cpp:1579
 #, kde-format
 msgid "Locked"
 msgstr "Verrouillé"
 
-#: src/bnpview.cpp:1595
+#: src/bnpview.cpp:1583
 #, kde-format
 msgid "No notes"
 msgstr "Pas de note"
 
-#: src/bnpview.cpp:1597
+#: src/bnpview.cpp:1585
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 note"
 msgstr[1] "%1 notes"
 
-#: src/bnpview.cpp:1598
+#: src/bnpview.cpp:1586
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 sélectionné"
 msgstr[1] "%1 sélectionnés"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "all matches"
 msgstr "toutes correspondent"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "no filter"
 msgstr "pas de filtre"
 
-#: src/bnpview.cpp:1601
+#: src/bnpview.cpp:1589
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 correspondance"
 msgstr[1] "%1 correspondances"
 
-#: src/bnpview.cpp:1602
+#: src/bnpview.cpp:1590
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1737
+#: src/bnpview.cpp:1725
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr ""
 "Les notes au format texte brut ont été converties en notes au format texte "
 "enrichi."
 
-#: src/bnpview.cpp:1737 src/bnpview.cpp:1739
+#: src/bnpview.cpp:1725 src/bnpview.cpp:1727
 #, kde-format
 msgid "Conversion Finished"
 msgstr "Conversion terminée"
 
-#: src/bnpview.cpp:1739
+#: src/bnpview.cpp:1727
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Il n'y a pas de notes au format texte brut à convertir."
 
-#: src/bnpview.cpp:1756
+#: src/bnpview.cpp:1744
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1654,17 +1655,17 @@ msgstr ""
 "vous êtes sûr que l'application est correctement installée mais avec une "
 "version précédente, essayez de supprimer le fichier %5basketui.rc</p>"
 
-#: src/bnpview.cpp:1770
+#: src/bnpview.cpp:1758
 #, kde-format
 msgid "Resource not Found"
 msgstr "Impossible de trouver la ressource"
 
-#: src/bnpview.cpp:1799
+#: src/bnpview.cpp:1787
 #, kde-format
 msgid "Cannot add note."
 msgstr "Impossible d'ajouter une note."
 
-#: src/bnpview.cpp:1946
+#: src/bnpview.cpp:1934
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
@@ -1672,17 +1673,17 @@ msgstr ""
 "<qt>Voulez-vous réellement supprimer le panier <b>%1</b> et son contenu ?</"
 "qt>"
 
-#: src/bnpview.cpp:1947
+#: src/bnpview.cpp:1935
 #, kde-format
 msgid "Remove Basket"
 msgstr "Supprimer le panier"
 
-#: src/bnpview.cpp:1948
+#: src/bnpview.cpp:1936
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Supprimer le panier"
 
-#: src/bnpview.cpp:1958
+#: src/bnpview.cpp:1946
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1691,37 +1692,37 @@ msgstr ""
 "<qt><b>%1</b> possède les paniers fils suivants.<br>Voulez-vous les "
 "supprimer aussi ?</qt>"
 
-#: src/bnpview.cpp:1960
+#: src/bnpview.cpp:1948
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "Supprimer les paniers fils"
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1949
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "&Supprimer les paniers fils"
 
-#: src/bnpview.cpp:2031 src/bnpview.cpp:2078
+#: src/bnpview.cpp:2019 src/bnpview.cpp:2066
 #, kde-format
 msgid "Basket Archives"
 msgstr "Archives de paniers"
 
-#: src/bnpview.cpp:2041 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:2029 src/htmlexporter.cpp:68
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr "Un fichier <b>%1</b> existe déjà. Voulez-vous vraiment l'écraser ?"
 
-#: src/bnpview.cpp:2042 src/htmlexporter.cpp:69
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:69
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Écraser le fichier ?"
 
-#: src/bnpview.cpp:2454
+#: src/bnpview.cpp:2442
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "&Attribuer une nouvelle marque..."
 
-#: src/bnpview.cpp:2459
+#: src/bnpview.cpp:2447
 #, kde-format
 msgid "&Remove All"
 msgstr "&Tout supprimer"
@@ -1938,8 +1939,8 @@ msgstr ""
 "Réalisé avec <a href=\"%1\">%2</a> %3, un outil pour prendre des notes et "
 "conserver ses informations sous la main."
 
-#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:608 src/tagsedit.cpp:506
-#: src/variouswidgets.cpp:396
+#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:617 src/tagsedit.cpp:357
+#: src/variouswidgets.cpp:403
 #, kde-format
 msgid "(Default)"
 msgstr "(Par défaut)"
@@ -1953,12 +1954,12 @@ msgstr "Autre..."
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:632
+#: src/kcolorcombo2.cpp:641
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "R :%1, G :%2, B :%3"
 
-#: src/kcolorcombo2.cpp:632
+#: src/kcolorcombo2.cpp:641
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2291,7 +2292,7 @@ msgstr "Référence croisée"
 msgid "Launcher"
 msgstr "Lanceur"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1105
+#: src/notecontent.cpp:116 src/noteedit.cpp:1095
 #, kde-format
 msgid "Color"
 msgstr "Couleur"
@@ -2728,12 +2729,12 @@ msgstr ""
 msgid "Edit Animation Note"
 msgstr "Édition de la note animation"
 
-#: src/noteedit.cpp:661
+#: src/noteedit.cpp:660
 #, kde-format
 msgid "Edit Color Note"
 msgstr "Édition de la note couleur"
 
-#: src/noteedit.cpp:686
+#: src/noteedit.cpp:676
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2744,127 +2745,131 @@ msgstr ""
 "Vous pouvez par contre glisser ou copier cette note dans une application qui "
 "la comprend."
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:678
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "Édition de la note inconnue"
 
-#: src/noteedit.cpp:700
+#: src/noteedit.cpp:690
 #, kde-format
 msgid "Edit Link Note"
 msgstr "Édition de la note lien"
 
-#: src/noteedit.cpp:713 src/noteedit.cpp:877
+#: src/noteedit.cpp:703 src/noteedit.cpp:867
 #, kde-format
 msgid "Ta&rget:"
 msgstr "&Cible :"
 
-#: src/noteedit.cpp:721 src/noteedit.cpp:732
+#: src/noteedit.cpp:711 src/noteedit.cpp:722
 #, kde-format
 msgid "Auto"
 msgstr "Auto"
 
-#: src/noteedit.cpp:724
+#: src/noteedit.cpp:714
 #, kde-format
 msgid "&Title:"
 msgstr "&Titre :"
 
-#: src/noteedit.cpp:742 src/noteedit.cpp:1000
+#: src/noteedit.cpp:732 src/noteedit.cpp:990
 #, kde-format
 msgid "&Icon:"
 msgstr "&Icône :"
 
-#: src/noteedit.cpp:866
+#: src/noteedit.cpp:856
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "Modifier une référence croisée"
 
-#: src/noteedit.cpp:967
+#: src/noteedit.cpp:957
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "Édition de la note lanceur"
 
-#: src/noteedit.cpp:979
+#: src/noteedit.cpp:969
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "Choisissez une commande à exécuter :"
 
-#: src/noteedit.cpp:980
+#: src/noteedit.cpp:970
 #, kde-format
 msgid "Comman&d:"
 msgstr "&Commande :"
 
-#: src/noteedit.cpp:983 src/tagsedit.cpp:389
+#. i18n: ectx: property (text), widget (QLabel, tagNameLabel)
+#: src/noteedit.cpp:973 src/tagsedit.ui:97
 #, kde-format
 msgid "&Name:"
 msgstr "&Nom :"
 
-#: src/noteedit.cpp:991
+#: src/noteedit.cpp:981
 #, kde-format
 msgid "&Guess"
 msgstr "&Deviner"
 
-#: src/noteedit.cpp:1087
+#: src/noteedit.cpp:1077
 #, kde-format
 msgid "Font"
 msgstr "Police"
 
-#: src/noteedit.cpp:1095
+#: src/noteedit.cpp:1085
 #, kde-format
 msgid "Font Size"
 msgstr "Taille de police"
 
-#: src/noteedit.cpp:1110 src/tagsedit.cpp:471
+#. i18n: ectx: property (toolTip), widget (QPushButton, bold)
+#: src/noteedit.cpp:1100 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "Gras"
 
-#: src/noteedit.cpp:1117 src/tagsedit.cpp:483
+#. i18n: ectx: property (toolTip), widget (QPushButton, italic)
+#: src/noteedit.cpp:1107 src/tagsedit.ui:228
 #, kde-format
 msgid "Italic"
 msgstr "Italique"
 
-#: src/noteedit.cpp:1124 src/tagsedit.cpp:477
+#. i18n: ectx: property (toolTip), widget (QPushButton, underline)
+#: src/noteedit.cpp:1114 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "Souligné"
 
-#: src/noteedit.cpp:1132
+#: src/noteedit.cpp:1122
 #, kde-format
 msgid "Superscript"
 msgstr "Superscript"
 
-#: src/noteedit.cpp:1138
+#: src/noteedit.cpp:1128
 #, kde-format
 msgid "Subscript"
 msgstr "Sous-script"
 
-#: src/noteedit.cpp:1145
+#: src/noteedit.cpp:1135
 #, kde-format
 msgid "Align Left"
 msgstr "Aligner à gauche"
 
-#: src/noteedit.cpp:1151
+#: src/noteedit.cpp:1141
 #, kde-format
 msgid "Centered"
 msgstr "Centrer"
 
-#: src/noteedit.cpp:1157
+#: src/noteedit.cpp:1147
 #, kde-format
 msgid "Align Right"
 msgstr "Aligner à droite"
 
-#: src/noteedit.cpp:1163
+#: src/noteedit.cpp:1153
 #, kde-format
 msgid "Justified"
 msgstr "Justifier"
 
-#: src/noteedit.cpp:1175
+#: src/noteedit.cpp:1165
 #, kde-format
 msgid "Undo"
 msgstr "Annuler"
 
-#: src/noteedit.cpp:1181
+#: src/noteedit.cpp:1171
 #, kde-format
 msgid "Redo"
 msgstr "Refaire"
@@ -3057,7 +3062,7 @@ msgstr ""
 "tant qu'équivalents texte."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:551 src/tagsedit.cpp:527
+#: src/settings.cpp:551 src/tagsedit.cpp:375
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3765,68 +3770,7 @@ msgstr "P."
 msgid "Funny"
 msgstr "Amusant"
 
-#: src/tagsedit.cpp:315
-#, kde-format
-msgid "Customize Tags"
-msgstr "Personnaliser les marques"
-
-#: src/tagsedit.cpp:334
-#, kde-format
-msgid "Ne&w Tag"
-msgstr "Nouvelle &marque"
-
-#: src/tagsedit.cpp:335
-#, kde-format
-msgid "New St&ate"
-msgstr "Nouvel &état"
-
-#: src/tagsedit.cpp:356
-#, kde-format
-msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "Déplacer au-dessus (Ctrl+Maj+Haut)"
-
-#: src/tagsedit.cpp:357
-#, kde-format
-msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "Déplacer en dessous (Ctrl+Maj+Bas)"
-
-#: src/tagsedit.cpp:358
-#, kde-format
-msgid "Delete"
-msgstr "Supprimer"
-
-#: src/tagsedit.cpp:381
-#, kde-format
-msgid "Tag"
-msgstr "Marque"
-
-#: src/tagsedit.cpp:393
-#, kde-format
-msgctxt "Remove tag shortcut"
-msgid "&Remove"
-msgstr "Supp&rimer"
-
-#: src/tagsedit.cpp:394
-#, kde-format
-msgid "S&hortcut:"
-msgstr "&Raccourci :"
-
-#: src/tagsedit.cpp:399
-#, kde-format
-msgid "&Inherited by new sibling notes"
-msgstr "&Hérité par les nouvelles notes voisines"
-
-#: src/tagsedit.cpp:401
-#, kde-format
-msgid "Allow Cross Reference Links"
-msgstr "Autoriser les liens de références croisées"
-
-#: src/tagsedit.cpp:404
-#, kde-format
-msgid "What does this do?"
-msgstr "Qu'est-ce que cela peut faire ?"
-
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:330
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3836,103 +3780,42 @@ msgstr ""
 "croisée dans un zone de texte. Les liens de références croisées peuvent "
 "avoir la syntaxe suivante :"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "A partir du sommet de l'arborescence (Emplacement absolu) :"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/élément de haut niveau/enfant|titre optionnel]]"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "Concernant le panier courant :"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../fratrie|titre optionnel]]"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[enfant|titre optionnel]]"
 
-#: src/tagsedit.cpp:410
+#: src/tagsedit.cpp:334
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./enfant|titre optionnel]]"
 
-#: src/tagsedit.cpp:411
+#: src/tagsedit.cpp:335
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr "La correspondance de Basket est sensible à la casse."
 
-#: src/tagsedit.cpp:425 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
-#, kde-format
-msgid "State"
-msgstr "État"
-
-#: src/tagsedit.cpp:433
-#, kde-format
-msgid "Na&me:"
-msgstr "&Nom :"
-
-#: src/tagsedit.cpp:441
-#, kde-format
-msgctxt "Remove tag emblem"
-msgid "Remo&ve"
-msgstr "Supp&rimer"
-
-#: src/tagsedit.cpp:442
-#, kde-format
-msgid "&Emblem:"
-msgstr "&Emblème :"
-
-#: src/tagsedit.cpp:459
-#, kde-format
-msgid "&Background:"
-msgstr "&Arrière-plan :"
-
-#: src/tagsedit.cpp:489
-#, kde-format
-msgid "Strike Through"
-msgstr "Barré"
-
-#: src/tagsedit.cpp:491
-#, kde-format
-msgid "&Text:"
-msgstr "&Texte :"
-
-#: src/tagsedit.cpp:502
-#, kde-format
-msgid "Co&lor:"
-msgstr "&Couleur :"
-
-#: src/tagsedit.cpp:507
-#, kde-format
-msgid "&Font:"
-msgstr "&Police :"
-
-#: src/tagsedit.cpp:511
-#, kde-format
-msgid "&Size:"
-msgstr "&Taille :"
-
-#: src/tagsedit.cpp:515
-#, kde-format
-msgid "Te&xt equivalent:"
-msgstr "Équivalent te&xte :"
-
-#: src/tagsedit.cpp:522
-#, kde-format
-msgid "What is this for?"
-msgstr "A quoi ceci sert-il ?"
-
-#: src/tagsedit.cpp:524
+#: src/tagsedit.cpp:372
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3941,17 +3824,7 @@ msgstr ""
 "Quand vous copiez-collez ou glissez-déposez des notes dans un éditeur de "
 "texte, ce texte sera inséré comme équivalent textuel de la marque."
 
-#: src/tagsedit.cpp:535
-#, kde-format
-msgid "On ever&y line"
-msgstr "Sur cha&que ligne"
-
-#: src/tagsedit.cpp:538
-#, kde-format
-msgid "What does this mean?"
-msgstr "Qu'est-ce que cela signifie ?"
-
-#: src/tagsedit.cpp:540
+#: src/tagsedit.cpp:381
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3960,7 +3833,7 @@ msgstr ""
 "Lorsqu'une note a plusieurs lignes, vous pouvez choisir d'exporter la marque "
 "ou l'état sur la première ligne ou sur chaque ligne de la note."
 
-#: src/tagsedit.cpp:542
+#: src/tagsedit.cpp:383
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3970,23 +3843,23 @@ msgstr ""
 "exportée sur la première ligne, alors que la marque de la note du bas est "
 "exportée sur chaque ligne de la note."
 
-#: src/tagsedit.cpp:980
+#: src/tagsedit.cpp:770
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
 msgstr "Supprimer cette marque l'enlèvera de chaque note où elle est assignée."
 
-#: src/tagsedit.cpp:981
+#: src/tagsedit.cpp:771
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "Confirmer la suppression d'une marque"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:772
 #, kde-format
 msgid "Delete Tag"
 msgstr "Supprimer la marque"
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:775
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
@@ -3994,15 +3867,179 @@ msgid ""
 msgstr ""
 "Supprimer cet état enlèvera la marque de chaque note où cet état est assigné."
 
-#: src/tagsedit.cpp:986
+#: src/tagsedit.cpp:776
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "Confirmer la suppression d'un état"
 
-#: src/tagsedit.cpp:987
+#: src/tagsedit.cpp:777
 #, kde-format
 msgid "Delete State"
 msgstr "Supprimer l'état"
+
+#. i18n: ectx: property (title), widget (QGroupBox, stateBox)
+#: src/tagsedit.cpp:894 src/tagsedit.cpp:910 src/tagsedit.ui:161
+#, kde-format
+msgid "State"
+msgstr "État"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagsEditDialog)
+#: src/tagsedit.ui:14
+#, kde-format
+msgid "Customize Tags"
+msgstr "Personnaliser les marques"
+
+#. i18n: ectx: property (text), widget (QPushButton, newTag)
+#: src/tagsedit.ui:24
+#, kde-format
+msgid "Ne&w Tag"
+msgstr "Nouvelle &marque"
+
+#. i18n: ectx: property (text), widget (QPushButton, newState)
+#: src/tagsedit.ui:31
+#, kde-format
+msgid "New St&ate"
+msgstr "Nouvel &état"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, moveUp)
+#: src/tagsedit.ui:55
+#, kde-format
+msgid "Move Up (Ctrl+Shift+Up)"
+msgstr "Déplacer au-dessus (Ctrl+Maj+Haut)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, moveDown)
+#: src/tagsedit.ui:65
+#, kde-format
+msgid "Move Down (Ctrl+Shift+Down)"
+msgstr "Déplacer en dessous (Ctrl+Maj+Bas)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, deleteTag)
+#: src/tagsedit.ui:75
+#, kde-format
+msgid "Delete"
+msgstr "Supprimer"
+
+#. i18n: ectx: property (title), widget (QGroupBox, tagBox)
+#: src/tagsedit.ui:91
+#, kde-format
+msgid "Tag"
+msgstr "Marque"
+
+#. i18n: ectx: property (text), widget (QLabel, shortcutLabel)
+#: src/tagsedit.ui:110
+#, kde-format
+msgid "S&hortcut:"
+msgstr "&Raccourci :"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeShortcut)
+#: src/tagsedit.ui:120
+#, kde-format
+msgctxt "Remove tag shortcut"
+msgid "&Remove"
+msgstr "Supp&rimer"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inherit)
+#: src/tagsedit.ui:127
+#, kde-format
+msgid "&Inherited by new sibling notes"
+msgstr "&Hérité par les nouvelles notes voisines"
+
+#. i18n: ectx: property (text), widget (QCheckBox, allowCrossRefernce)
+#: src/tagsedit.ui:136
+#, kde-format
+msgid "Allow Cross Reference Links"
+msgstr "Autoriser les liens de références croisées"
+
+#. i18n: ectx: property (text), widget (HelpLabel, allowCrossReferenceHelp)
+#: src/tagsedit.ui:149
+#, kde-format
+msgid "What does this do?"
+msgstr "Qu'est-ce que cela peut faire ?"
+
+#. i18n: ectx: property (text), widget (QLabel, fontLabel)
+#: src/tagsedit.ui:170
+#, kde-format
+msgid "&Font:"
+msgstr "&Police :"
+
+#. i18n: ectx: property (text), widget (QLabel, fontSizeLabel)
+#: src/tagsedit.ui:180
+#, kde-format
+msgid "&Size:"
+msgstr "&Taille :"
+
+#. i18n: ectx: property (text), widget (QLabel, stateNameLabel)
+#: src/tagsedit.ui:190
+#, kde-format
+msgid "Na&me:"
+msgstr "&Nom :"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, strike)
+#: src/tagsedit.ui:241
+#, kde-format
+msgid "Strike Through"
+msgstr "Barré"
+
+#. i18n: ectx: property (text), widget (HelpLabel, textEquivalentHelp)
+#: src/tagsedit.ui:269
+#, kde-format
+msgid "What is this for?"
+msgstr "A quoi ceci sert-il ?"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
+#: src/tagsedit.ui:276
+#, kde-format
+msgid "&Background:"
+msgstr "&Arrière-plan :"
+
+#. i18n: ectx: property (text), widget (QCheckBox, onEveryLines)
+#: src/tagsedit.ui:286
+#, kde-format
+msgid "On ever&y line"
+msgstr "Sur cha&que ligne"
+
+#. i18n: ectx: property (text), widget (QLabel, textColorLabel)
+#: src/tagsedit.ui:296
+#, kde-format
+msgid "Co&lor:"
+msgstr "&Couleur :"
+
+#. i18n: ectx: property (text), widget (QLabel, textEquivalentLabel)
+#: src/tagsedit.ui:309
+#, kde-format
+msgid "Te&xt equivalent:"
+msgstr "Équivalent te&xte :"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/tagsedit.ui:322
+#, kde-format
+msgid "&Text:"
+msgstr "&Texte :"
+
+#. i18n: ectx: property (icon), widget (KIconButton, emblem)
+#: src/tagsedit.ui:337
+#, kde-format
+msgid "edit-delete"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
+#: src/tagsedit.ui:347
+#, kde-format
+msgctxt "Remove tag emblem"
+msgid "Remo&ve"
+msgstr "Supp&rimer"
+
+#. i18n: ectx: property (text), widget (HelpLabel, onEveryLinesHelp)
+#: src/tagsedit.ui:379
+#, kde-format
+msgid "What does this mean?"
+msgstr "Qu'est-ce que cela signifie ?"
+
+#. i18n: ectx: property (text), widget (QLabel, emblemLabel)
+#: src/tagsedit.ui:386
+#, kde-format
+msgid "&Emblem:"
+msgstr "&Emblème :"
 
 #: src/tools.cpp:775
 #, kde-format
@@ -4031,9 +4068,9 @@ msgstr ""
 #: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
 #: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
-#: src/variouswidgets.cpp:267 src/variouswidgets.cpp:268
-#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
-#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
+#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
+#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1 par %1 pixels"

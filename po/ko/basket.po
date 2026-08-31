@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-30 00:50+0000\n"
+"POT-Creation-Date: 2026-08-31 00:47+0000\n"
 "PO-Revision-Date: 2026-06-06 11:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -248,7 +248,7 @@ msgstr "원본 아이콘"
 msgid "BasKet Note Pads"
 msgstr "BasKet 메모판"
 
-#: src/archive.cpp:53 src/bnpview.cpp:2034
+#: src/archive.cpp:53 src/bnpview.cpp:2022
 #, kde-format
 msgid "Save as Basket Archive"
 msgstr "Basket 압축 파일로 저장"
@@ -385,7 +385,7 @@ msgstr "<b>%1</b> 폴더가 비어 있지 않습니다. 덮어쓰시겠습니까
 msgid "Overwrite Folder?"
 msgstr "폴더를 덮어쓰시겠습니까?"
 
-#: src/backup.cpp:162 src/bnpview.cpp:2043 src/htmlexporter.cpp:70
+#: src/backup.cpp:162 src/bnpview.cpp:2031 src/htmlexporter.cpp:70
 #, kde-format
 msgid "&Overwrite"
 msgstr "덮어쓰기(&O)"
@@ -419,8 +419,8 @@ msgstr "Baskets_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "GZip으로 압축한 TAR 파일"
 
-#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2031
-#: src/bnpview.cpp:2078 src/htmlexporter.cpp:55
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:2019
+#: src/bnpview.cpp:2066 src/htmlexporter.cpp:55
 #, kde-format
 msgid "All Files"
 msgstr "모든 파일"
@@ -435,7 +435,7 @@ msgstr "바구니 백업"
 msgid "Backing up baskets. Please wait..."
 msgstr "바구니를 백업하고 있습니다. 기다려 주십시오..."
 
-#: src/backup.cpp:255 src/bnpview.cpp:2079
+#: src/backup.cpp:255 src/bnpview.cpp:2067
 #, kde-format
 msgid "Open Basket Archive"
 msgstr "Basket 압축 파일 열기"
@@ -570,12 +570,7 @@ msgstr "%1+"
 msgid "%1+%2"
 msgstr "%1+%2"
 
-#: src/basketproperties.cpp:118
-#, kde-format
-msgid "Learn some tips..."
-msgstr "팁 알아보기..."
-
-#: src/basketproperties.cpp:119
+#: src/basketproperties.cpp:109
 #, kde-format
 msgid ""
 "<p><strong>Easily Remember your Shortcuts</strong>:<br>With the first "
@@ -645,7 +640,7 @@ msgid "&Mind map"
 msgstr "마인드맵(&M)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
-#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:1111
+#: src/basketproperties.ui:100 src/settings.cpp:505 src/tagsedit.cpp:901
 #, kde-format
 msgid "Appearance"
 msgstr "모양"
@@ -669,31 +664,37 @@ msgid "&Background color:"
 msgstr "배경색(&B):"
 
 #. i18n: ectx: property (text), widget (QLabel, txtColorLbl)
-#: src/basketproperties.ui:150
+#: src/basketproperties.ui:153
 #, kde-format
 msgid "&Text color:"
 msgstr "글자색(&T):"
 
 #. i18n: ectx: property (title), widget (QGroupBox, shortcutGroup)
-#: src/basketproperties.ui:160
+#: src/basketproperties.ui:172
 #, kde-format
 msgid "Keyboard Shortcut"
 msgstr "키보드 단축키"
 
+#. i18n: ectx: property (text), widget (HelpLabel, helpLabel)
+#: src/basketproperties.ui:195
+#, kde-format
+msgid "Learn some tips..."
+msgstr "팁 알아보기..."
+
 #. i18n: ectx: property (text), widget (QRadioButton, showBasket)
-#: src/basketproperties.ui:187
+#: src/basketproperties.ui:206
 #, kde-format
 msgid "S&how this basket"
 msgstr "이 바구니 표시(&H)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, globalButton)
-#: src/basketproperties.ui:194
+#: src/basketproperties.ui:213
 #, kde-format
 msgid "Show this basket (&global shortcut)"
 msgstr "이 바구니 표시(전역 단축키)(&G)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, switchButton)
-#: src/basketproperties.ui:201
+#: src/basketproperties.ui:220
 #, kde-format
 msgid "S&witch to this basket (global shortcut)"
 msgstr "이 바구니로 전환(전역 단축키)(&W)"
@@ -871,7 +872,7 @@ msgstr ""
 "바구니를 잠금 해제된 상태로 두려면 앱 설정에서<br>자동 잠금 시간을 변경하십시"
 "오."
 
-#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1593
+#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1581
 #, kde-format
 msgid "Loading..."
 msgstr "불러오는 중..."
@@ -881,7 +882,7 @@ msgstr "불러오는 중..."
 msgid "&Remove"
 msgstr "삭제(&R)"
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2465
+#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2453
 #, kde-format
 msgid "&Customize..."
 msgstr "사용자 정의(&C)..."
@@ -1046,7 +1047,7 @@ msgstr "주 도구 모음"
 msgid "Text Formatting Toolbar"
 msgstr "텍스트 서식 도구 모음"
 
-#: src/bnpview.cpp:170 src/bnpview.cpp:1231
+#: src/bnpview.cpp:170 src/bnpview.cpp:1219
 #, kde-format
 msgid "General"
 msgstr "일반"
@@ -1389,184 +1390,184 @@ msgstr "화면의 색상(&O)"
 msgid "Grab Screen &Zone"
 msgstr "화면 영역 캡처(&Z)"
 
-#: src/bnpview.cpp:612
+#: src/bnpview.cpp:600
 #, kde-format
 msgid "&New Basket..."
 msgstr "새 바구니(&N)..."
 
-#: src/bnpview.cpp:618
+#: src/bnpview.cpp:606
 #, kde-format
 msgid "New &Sub-Basket..."
 msgstr "새 하위 바구니(&S)..."
 
-#: src/bnpview.cpp:623
+#: src/bnpview.cpp:611
 #, kde-format
 msgid "New Si&bling Basket..."
 msgstr "새 자매 바구니(&B)..."
 
-#: src/bnpview.cpp:626
+#: src/bnpview.cpp:614
 #, kde-format
 msgid "&New"
 msgstr "새로 만들기(&N)"
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:624
 #, kde-format
 msgid "&Properties..."
 msgstr "속성(&P)..."
 
-#: src/bnpview.cpp:642
+#: src/bnpview.cpp:630
 #, kde-format
 msgid "Sort Children Ascending"
 msgstr "하위 항목 오름차순으로 정렬"
 
-#: src/bnpview.cpp:647
+#: src/bnpview.cpp:635
 #, kde-format
 msgid "Sort Children Descending"
 msgstr "하위 항목 내림차순으로 정렬"
 
-#: src/bnpview.cpp:652
+#: src/bnpview.cpp:640
 #, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "자매 항목 오름차순으로 정렬"
 
-#: src/bnpview.cpp:657
+#: src/bnpview.cpp:645
 #, kde-format
 msgid "Sort Siblings Descending"
 msgstr "자매 항목 내림차순으로 정렬"
 
-#: src/bnpview.cpp:662
+#: src/bnpview.cpp:650
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "삭제(&R)"
 
-#: src/bnpview.cpp:669
+#: src/bnpview.cpp:657
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "암호(&W)..."
 
-#: src/bnpview.cpp:674
+#: src/bnpview.cpp:662
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "잠금(&L)"
 
-#: src/bnpview.cpp:688
+#: src/bnpview.cpp:676
 #, kde-format
 msgid "&Filter"
 msgstr "필터(&F)"
 
-#: src/bnpview.cpp:700
+#: src/bnpview.cpp:688
 #, kde-format
 msgid "&Search All"
 msgstr "모두 검색(&S)"
 
-#: src/bnpview.cpp:708
+#: src/bnpview.cpp:696
 #, kde-format
 msgid "&Reset Filter"
 msgstr "필터 초기화(&R)"
 
-#: src/bnpview.cpp:716
+#: src/bnpview.cpp:704
 #, kde-format
 msgid "&Previous Basket"
 msgstr "이전 바구니(&P)"
 
-#: src/bnpview.cpp:722
+#: src/bnpview.cpp:710
 #, kde-format
 msgid "&Next Basket"
 msgstr "다음 바구니(&N)"
 
-#: src/bnpview.cpp:728
+#: src/bnpview.cpp:716
 #, kde-format
 msgid "&Fold Basket"
 msgstr "바구니 접기(&F)"
 
-#: src/bnpview.cpp:734
+#: src/bnpview.cpp:722
 #, kde-format
 msgid "&Expand Basket"
 msgstr "바구니 펴기(&E)"
 
-#: src/bnpview.cpp:742
+#: src/bnpview.cpp:730
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr "일반 텍스트 메모를 서식 있는 텍스트 메모로 변환"
 
-#: src/bnpview.cpp:751
+#: src/bnpview.cpp:739
 #, kde-format
 msgid "&Welcome Baskets"
 msgstr "환영 바구니(&W)"
 
-#: src/bnpview.cpp:1016
+#: src/bnpview.cpp:1004
 #, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "일반 텍스트 메모 변환"
 
-#: src/bnpview.cpp:1017
+#: src/bnpview.cpp:1005
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr "일반 텍스트 메모를 서식 있는 텍스트 메모로 변환 중..."
 
-#: src/bnpview.cpp:1591
+#: src/bnpview.cpp:1579
 #, kde-format
 msgid "Locked"
 msgstr "잠김"
 
-#: src/bnpview.cpp:1595
+#: src/bnpview.cpp:1583
 #, kde-format
 msgid "No notes"
 msgstr "메모 없음"
 
-#: src/bnpview.cpp:1597
+#: src/bnpview.cpp:1585
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "메모 %1개"
 
-#: src/bnpview.cpp:1598
+#: src/bnpview.cpp:1586
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1개 선택됨"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "all matches"
 msgstr "모두 일치함"
 
-#: src/bnpview.cpp:1599
+#: src/bnpview.cpp:1587
 #, kde-format
 msgid "no filter"
 msgstr "필터 없음"
 
-#: src/bnpview.cpp:1601
+#: src/bnpview.cpp:1589
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1개 일치함"
 
-#: src/bnpview.cpp:1602
+#: src/bnpview.cpp:1590
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1737
+#: src/bnpview.cpp:1725
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr "일반 텍스트 메모를 서식 있는 텍스트 메모로 변환했습니다."
 
-#: src/bnpview.cpp:1737 src/bnpview.cpp:1739
+#: src/bnpview.cpp:1725 src/bnpview.cpp:1727
 #, kde-format
 msgid "Conversion Finished"
 msgstr "변환 완료됨"
 
-#: src/bnpview.cpp:1739
+#: src/bnpview.cpp:1727
 #, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "변환할 일반 텍스트 메모가 없습니다."
 
-#: src/bnpview.cpp:1756
+#: src/bnpview.cpp:1744
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1584,33 +1585,33 @@ msgstr ""
 "<p>마지막 방법으로, 앱이 올바르게 설치되었지만 미리 보기 버전을 설치했다면 "
 "%5basketui.rc 파일을 삭제해 보십시오.</p>"
 
-#: src/bnpview.cpp:1770
+#: src/bnpview.cpp:1758
 #, kde-format
 msgid "Resource not Found"
 msgstr "리소스를 찾을 수 없음"
 
-#: src/bnpview.cpp:1799
+#: src/bnpview.cpp:1787
 #, kde-format
 msgid "Cannot add note."
 msgstr "메모를 추가할 수 없습니다."
 
-#: src/bnpview.cpp:1946
+#: src/bnpview.cpp:1934
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr "<qt><b>%1</b> 바구니와 포함된 모든 내용을 삭제하시겠습니까?</qt>"
 
-#: src/bnpview.cpp:1947
+#: src/bnpview.cpp:1935
 #, kde-format
 msgid "Remove Basket"
 msgstr "바구니 삭제"
 
-#: src/bnpview.cpp:1948
+#: src/bnpview.cpp:1936
 #, kde-format
 msgid "&Remove Basket"
 msgstr "바구니 삭제(&B)"
 
-#: src/bnpview.cpp:1958
+#: src/bnpview.cpp:1946
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
@@ -1619,39 +1620,39 @@ msgstr ""
 "<qt><b>%1</b> 바구니에 다음 하위 바구니가 있습니다.<br>하위 바구니도 삭제하시"
 "겠습니까?</qt>"
 
-#: src/bnpview.cpp:1960
+#: src/bnpview.cpp:1948
 #, kde-format
 msgid "Remove Children Baskets"
 msgstr "하위 바구니 삭제"
 
-#: src/bnpview.cpp:1961
+#: src/bnpview.cpp:1949
 #, kde-format
 msgid "&Remove Children Baskets"
 msgstr "하위 바구니 삭제(&R)"
 
-#: src/bnpview.cpp:2031 src/bnpview.cpp:2078
+#: src/bnpview.cpp:2019 src/bnpview.cpp:2066
 #, kde-format
 msgid "Basket Archives"
 msgstr "바구니 압축 파일"
 
-#: src/bnpview.cpp:2041 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:2029 src/htmlexporter.cpp:68
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr ""
 "파일 <b>%1</b>이(가) 이미 존재합니다. 덮어쓰시겠습니까?|/|파일 <b>%1</b>$[이"
 "가 %1] 이미 존재합니다. 덮어쓰시겠습니까?"
 
-#: src/bnpview.cpp:2042 src/htmlexporter.cpp:69
+#: src/bnpview.cpp:2030 src/htmlexporter.cpp:69
 #, kde-format
 msgid "Overwrite File?"
 msgstr "파일을 덮어쓰시겠습니까?"
 
-#: src/bnpview.cpp:2454
+#: src/bnpview.cpp:2442
 #, kde-format
 msgid "&Assign new Tag..."
 msgstr "새 태그 할당(&A)..."
 
-#: src/bnpview.cpp:2459
+#: src/bnpview.cpp:2447
 #, kde-format
 msgid "&Remove All"
 msgstr "모두 삭제(&R)"
@@ -1866,8 +1867,8 @@ msgid ""
 msgstr ""
 "메모와 정보를 관리할 수 있는 <a href=\"%1\">%2</a>%3으로 제작되었습니다."
 
-#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:608 src/tagsedit.cpp:506
-#: src/variouswidgets.cpp:396
+#: src/kcolorcombo2.cpp:113 src/kcolorcombo2.cpp:617 src/tagsedit.cpp:357
+#: src/variouswidgets.cpp:403
 #, kde-format
 msgid "(Default)"
 msgstr "(기본값)"
@@ -1881,12 +1882,12 @@ msgstr "기타..."
 #. TODO: isDefaultColorSelected()
 #. index=
 #. index=
-#: src/kcolorcombo2.cpp:632
+#: src/kcolorcombo2.cpp:641
 #, kde-format
 msgid "R:%1, G:%2, B:%3"
 msgstr "R:%1, G:%2, B:%3"
 
-#: src/kcolorcombo2.cpp:632
+#: src/kcolorcombo2.cpp:641
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
@@ -2208,7 +2209,7 @@ msgstr "상호 참조"
 msgid "Launcher"
 msgstr "실행기"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1105
+#: src/notecontent.cpp:116 src/noteedit.cpp:1095
 #, kde-format
 msgid "Color"
 msgstr "색상"
@@ -2645,12 +2646,12 @@ msgstr ""
 msgid "Edit Animation Note"
 msgstr "애니메이션 메모  편집"
 
-#: src/noteedit.cpp:661
+#: src/noteedit.cpp:660
 #, kde-format
 msgid "Edit Color Note"
 msgstr "색상 메모 편집"
 
-#: src/noteedit.cpp:686
+#: src/noteedit.cpp:676
 #, kde-format
 msgid ""
 "The type of this note is unknown and can not be edited here.\n"
@@ -2660,127 +2661,131 @@ msgstr ""
 "메모 형식을 알 수 없으며 여기에서 바로 편집할 수 없습니다.\n"
 "해당 형식을 편집할 수 있는 앱으로 메모를 끌어다 놓을 수 있습니다."
 
-#: src/noteedit.cpp:688
+#: src/noteedit.cpp:678
 #, kde-format
 msgid "Edit Unknown Note"
 msgstr "알 수 없는 메모 편집"
 
-#: src/noteedit.cpp:700
+#: src/noteedit.cpp:690
 #, kde-format
 msgid "Edit Link Note"
 msgstr "링크 메모 편집"
 
-#: src/noteedit.cpp:713 src/noteedit.cpp:877
+#: src/noteedit.cpp:703 src/noteedit.cpp:867
 #, kde-format
 msgid "Ta&rget:"
 msgstr "대상(&R):"
 
-#: src/noteedit.cpp:721 src/noteedit.cpp:732
+#: src/noteedit.cpp:711 src/noteedit.cpp:722
 #, kde-format
 msgid "Auto"
 msgstr "자동"
 
-#: src/noteedit.cpp:724
+#: src/noteedit.cpp:714
 #, kde-format
 msgid "&Title:"
 msgstr "제목(&T):"
 
-#: src/noteedit.cpp:742 src/noteedit.cpp:1000
+#: src/noteedit.cpp:732 src/noteedit.cpp:990
 #, kde-format
 msgid "&Icon:"
 msgstr "아이콘(&I):"
 
-#: src/noteedit.cpp:866
+#: src/noteedit.cpp:856
 #, kde-format
 msgid "Edit Cross Reference"
 msgstr "상호 참조 편집"
 
-#: src/noteedit.cpp:967
+#: src/noteedit.cpp:957
 #, kde-format
 msgid "Edit Launcher Note"
 msgstr "실행기 메모 편집"
 
-#: src/noteedit.cpp:979
+#: src/noteedit.cpp:969
 #, kde-format
 msgid "Choose a command to run:"
 msgstr "실행할 명령 선택:"
 
-#: src/noteedit.cpp:980
+#: src/noteedit.cpp:970
 #, kde-format
 msgid "Comman&d:"
 msgstr "명령(&D):"
 
-#: src/noteedit.cpp:983 src/tagsedit.cpp:389
+#. i18n: ectx: property (text), widget (QLabel, tagNameLabel)
+#: src/noteedit.cpp:973 src/tagsedit.ui:97
 #, kde-format
 msgid "&Name:"
 msgstr "이름(&N):"
 
-#: src/noteedit.cpp:991
+#: src/noteedit.cpp:981
 #, kde-format
 msgid "&Guess"
 msgstr "추측(&G)"
 
-#: src/noteedit.cpp:1087
+#: src/noteedit.cpp:1077
 #, kde-format
 msgid "Font"
 msgstr "글꼴"
 
-#: src/noteedit.cpp:1095
+#: src/noteedit.cpp:1085
 #, kde-format
 msgid "Font Size"
 msgstr "글꼴 크기"
 
-#: src/noteedit.cpp:1110 src/tagsedit.cpp:471
+#. i18n: ectx: property (toolTip), widget (QPushButton, bold)
+#: src/noteedit.cpp:1100 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "굵게"
 
-#: src/noteedit.cpp:1117 src/tagsedit.cpp:483
+#. i18n: ectx: property (toolTip), widget (QPushButton, italic)
+#: src/noteedit.cpp:1107 src/tagsedit.ui:228
 #, kde-format
 msgid "Italic"
 msgstr "이탤릭"
 
-#: src/noteedit.cpp:1124 src/tagsedit.cpp:477
+#. i18n: ectx: property (toolTip), widget (QPushButton, underline)
+#: src/noteedit.cpp:1114 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "밑줄"
 
-#: src/noteedit.cpp:1132
+#: src/noteedit.cpp:1122
 #, kde-format
 msgid "Superscript"
 msgstr "위 첨자"
 
-#: src/noteedit.cpp:1138
+#: src/noteedit.cpp:1128
 #, kde-format
 msgid "Subscript"
 msgstr "아래 첨자"
 
-#: src/noteedit.cpp:1145
+#: src/noteedit.cpp:1135
 #, kde-format
 msgid "Align Left"
 msgstr "왼쪽 정렬"
 
-#: src/noteedit.cpp:1151
+#: src/noteedit.cpp:1141
 #, kde-format
 msgid "Centered"
 msgstr "가운데 정렬"
 
-#: src/noteedit.cpp:1157
+#: src/noteedit.cpp:1147
 #, kde-format
 msgid "Align Right"
 msgstr "오른쪽 정렬"
 
-#: src/noteedit.cpp:1163
+#: src/noteedit.cpp:1153
 #, kde-format
 msgid "Justified"
 msgstr "양쪽 맞춤"
 
-#: src/noteedit.cpp:1175
+#: src/noteedit.cpp:1165
 #, kde-format
 msgid "Undo"
 msgstr "실행 취소"
 
-#: src/noteedit.cpp:1181
+#: src/noteedit.cpp:1171
 #, kde-format
 msgid "Redo"
 msgstr "다시 실행"
@@ -2967,7 +2972,7 @@ msgstr ""
 "이 옵션을 사용하면 이 속성을 사용하여 텍스트처럼 태그를 붙여넣을 수 있습니다."
 
 #. i18n("If filled, this property lets you paste this tag or this state as textual equivalent.") + "<br>" +
-#: src/settings.cpp:551 src/tagsedit.cpp:527
+#: src/settings.cpp:551 src/tagsedit.cpp:375
 #, kde-format
 msgid ""
 "For instance, a list of notes with the <b>To Do</b> and <b>Done</b> tags are "
@@ -3645,68 +3650,7 @@ msgstr "P."
 msgid "Funny"
 msgstr "재미있음"
 
-#: src/tagsedit.cpp:315
-#, kde-format
-msgid "Customize Tags"
-msgstr "태그 사용자 정의"
-
-#: src/tagsedit.cpp:334
-#, kde-format
-msgid "Ne&w Tag"
-msgstr "새 태그(&W)"
-
-#: src/tagsedit.cpp:335
-#, kde-format
-msgid "New St&ate"
-msgstr "새 상태(&A)"
-
-#: src/tagsedit.cpp:356
-#, kde-format
-msgid "Move Up (Ctrl+Shift+Up)"
-msgstr "위로 이동(Ctrl+Shift+Up)"
-
-#: src/tagsedit.cpp:357
-#, kde-format
-msgid "Move Down (Ctrl+Shift+Down)"
-msgstr "아래로 이동(Ctrl+Shift+Down)"
-
-#: src/tagsedit.cpp:358
-#, kde-format
-msgid "Delete"
-msgstr "삭제"
-
-#: src/tagsedit.cpp:381
-#, kde-format
-msgid "Tag"
-msgstr "태그"
-
-#: src/tagsedit.cpp:393
-#, kde-format
-msgctxt "Remove tag shortcut"
-msgid "&Remove"
-msgstr "태그 삭제(&R)"
-
-#: src/tagsedit.cpp:394
-#, kde-format
-msgid "S&hortcut:"
-msgstr "단축키(&H):"
-
-#: src/tagsedit.cpp:399
-#, kde-format
-msgid "&Inherited by new sibling notes"
-msgstr "새 자매 메모에서 상속함(&I)"
-
-#: src/tagsedit.cpp:401
-#, kde-format
-msgid "Allow Cross Reference Links"
-msgstr "상호 참조 링크 허용"
-
-#: src/tagsedit.cpp:404
-#, kde-format
-msgid "What does this do?"
-msgstr "무엇을 하나요?"
-
-#: src/tagsedit.cpp:406
+#: src/tagsedit.cpp:330
 #, kde-format
 msgid ""
 "This option will enable you to type a cross reference link directly into a "
@@ -3715,103 +3659,42 @@ msgstr ""
 "이 옵션은 다른 텍스트 메모로 바로 링크하는 상호 참조를 활성화합니다. 다음 문"
 "법을 사용하여 상호 참조 링크를 정의할 수 있습니다:"
 
-#: src/tagsedit.cpp:407
+#: src/tagsedit.cpp:331
 #, kde-format
 msgid "From the top of the tree (Absolute path):"
 msgstr "트리 최상위 경로에서(절대 경로):"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "[[/top level item/child|optional title]]"
 msgstr "[[/최상위 단계 항목/자식|선택 사항 제목]]"
 
-#: src/tagsedit.cpp:408
+#: src/tagsedit.cpp:332
 #, kde-format
 msgid "Relative to the current basket:"
 msgstr "현재 바구니에 상대적:"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "[[../sibling|optional title]]"
 msgstr "[[../자매|선택 사항 제목]]"
 
-#: src/tagsedit.cpp:409
+#: src/tagsedit.cpp:333
 #, kde-format
 msgid "[[child|optional title]]"
 msgstr "[[자식|선택 사항 제목]]"
 
-#: src/tagsedit.cpp:410
+#: src/tagsedit.cpp:334
 #, kde-format
 msgid "[[./child|optional title]]"
 msgstr "[[./자식|선택 사항 제목]]"
 
-#: src/tagsedit.cpp:411
+#: src/tagsedit.cpp:335
 #, kde-format
 msgid "Baskets matching is cAse inSEnsItive."
 msgstr "바구니 일치는 대소문자를 구분하지 않습니다."
 
-#: src/tagsedit.cpp:425 src/tagsedit.cpp:1104 src/tagsedit.cpp:1120
-#, kde-format
-msgid "State"
-msgstr "상태"
-
-#: src/tagsedit.cpp:433
-#, kde-format
-msgid "Na&me:"
-msgstr "이름(&M):"
-
-#: src/tagsedit.cpp:441
-#, kde-format
-msgctxt "Remove tag emblem"
-msgid "Remo&ve"
-msgstr "삭제(&V)"
-
-#: src/tagsedit.cpp:442
-#, kde-format
-msgid "&Emblem:"
-msgstr "엠블럼(&E):"
-
-#: src/tagsedit.cpp:459
-#, kde-format
-msgid "&Background:"
-msgstr "배경(&B):"
-
-#: src/tagsedit.cpp:489
-#, kde-format
-msgid "Strike Through"
-msgstr "취소선"
-
-#: src/tagsedit.cpp:491
-#, kde-format
-msgid "&Text:"
-msgstr "텍스트(&T):"
-
-#: src/tagsedit.cpp:502
-#, kde-format
-msgid "Co&lor:"
-msgstr "색상(&L):"
-
-#: src/tagsedit.cpp:507
-#, kde-format
-msgid "&Font:"
-msgstr "글꼴(&F):"
-
-#: src/tagsedit.cpp:511
-#, kde-format
-msgid "&Size:"
-msgstr "크기(&S):"
-
-#: src/tagsedit.cpp:515
-#, kde-format
-msgid "Te&xt equivalent:"
-msgstr "동등한 텍스트(&X):"
-
-#: src/tagsedit.cpp:522
-#, kde-format
-msgid "What is this for?"
-msgstr "언제 사용하나요?"
-
-#: src/tagsedit.cpp:524
+#: src/tagsedit.cpp:372
 #, kde-format
 msgid ""
 "When you copy and paste or drag and drop notes to a text editor, this text "
@@ -3820,17 +3703,7 @@ msgstr ""
 "텍스트 편집기로 메모를 복사, 붙여넣기, 끌어다 놓을 때 태그 위치에 이 텍스트"
 "를 삽입합니다."
 
-#: src/tagsedit.cpp:535
-#, kde-format
-msgid "On ever&y line"
-msgstr "매 줄마다(&Y)"
-
-#: src/tagsedit.cpp:538
-#, kde-format
-msgid "What does this mean?"
-msgstr "무엇을 뜻하나요?"
-
-#: src/tagsedit.cpp:540
+#: src/tagsedit.cpp:381
 #, kde-format
 msgid ""
 "When a note has several lines, you can choose to export the tag or the state "
@@ -3839,7 +3712,7 @@ msgstr ""
 "메모가 여러 줄일 때 태그나 상태를 메모의 첫 번째 줄만 또는 매 줄마다 내보낼 "
 "수 있습니다."
 
-#: src/tagsedit.cpp:542
+#: src/tagsedit.cpp:383
 #, kde-format
 msgid ""
 "In the example above, the tag of the top note is only exported on the first "
@@ -3848,38 +3721,202 @@ msgstr ""
 "위에 있는 예제에서는 위쪽에 있는 메모의 태그는 첫 번째 줄에만 내보내며, 아래"
 "쪽에 있는 메모의 태그는 매 줄마다 내보냅니다."
 
-#: src/tagsedit.cpp:980
+#: src/tagsedit.cpp:770
 #, kde-format
 msgid ""
 "Deleting the tag will remove it from every note it is currently assigned to."
 msgstr "태그를 삭제하면 태그가 할당된 모든 메모에서 삭제됩니다."
 
-#: src/tagsedit.cpp:981
+#: src/tagsedit.cpp:771
 #, kde-format
 msgid "Confirm Delete Tag"
 msgstr "태그 삭제 확인"
 
-#: src/tagsedit.cpp:982
+#: src/tagsedit.cpp:772
 #, kde-format
 msgid "Delete Tag"
 msgstr "태그 삭제"
 
-#: src/tagsedit.cpp:985
+#: src/tagsedit.cpp:775
 #, kde-format
 msgid ""
 "Deleting the state will remove the tag from every note the state is "
 "currently assigned to."
 msgstr "상태를 삭제하면 상태가 할당된 모든 메모에서 삭제됩니다."
 
-#: src/tagsedit.cpp:986
+#: src/tagsedit.cpp:776
 #, kde-format
 msgid "Confirm Delete State"
 msgstr "상태 삭제 확인"
 
-#: src/tagsedit.cpp:987
+#: src/tagsedit.cpp:777
 #, kde-format
 msgid "Delete State"
 msgstr "상태 삭제"
+
+#. i18n: ectx: property (title), widget (QGroupBox, stateBox)
+#: src/tagsedit.cpp:894 src/tagsedit.cpp:910 src/tagsedit.ui:161
+#, kde-format
+msgid "State"
+msgstr "상태"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, TagsEditDialog)
+#: src/tagsedit.ui:14
+#, kde-format
+msgid "Customize Tags"
+msgstr "태그 사용자 정의"
+
+#. i18n: ectx: property (text), widget (QPushButton, newTag)
+#: src/tagsedit.ui:24
+#, kde-format
+msgid "Ne&w Tag"
+msgstr "새 태그(&W)"
+
+#. i18n: ectx: property (text), widget (QPushButton, newState)
+#: src/tagsedit.ui:31
+#, kde-format
+msgid "New St&ate"
+msgstr "새 상태(&A)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, moveUp)
+#: src/tagsedit.ui:55
+#, kde-format
+msgid "Move Up (Ctrl+Shift+Up)"
+msgstr "위로 이동(Ctrl+Shift+Up)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, moveDown)
+#: src/tagsedit.ui:65
+#, kde-format
+msgid "Move Down (Ctrl+Shift+Down)"
+msgstr "아래로 이동(Ctrl+Shift+Down)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, deleteTag)
+#: src/tagsedit.ui:75
+#, kde-format
+msgid "Delete"
+msgstr "삭제"
+
+#. i18n: ectx: property (title), widget (QGroupBox, tagBox)
+#: src/tagsedit.ui:91
+#, kde-format
+msgid "Tag"
+msgstr "태그"
+
+#. i18n: ectx: property (text), widget (QLabel, shortcutLabel)
+#: src/tagsedit.ui:110
+#, kde-format
+msgid "S&hortcut:"
+msgstr "단축키(&H):"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeShortcut)
+#: src/tagsedit.ui:120
+#, kde-format
+msgctxt "Remove tag shortcut"
+msgid "&Remove"
+msgstr "태그 삭제(&R)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inherit)
+#: src/tagsedit.ui:127
+#, kde-format
+msgid "&Inherited by new sibling notes"
+msgstr "새 자매 메모에서 상속함(&I)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, allowCrossRefernce)
+#: src/tagsedit.ui:136
+#, kde-format
+msgid "Allow Cross Reference Links"
+msgstr "상호 참조 링크 허용"
+
+#. i18n: ectx: property (text), widget (HelpLabel, allowCrossReferenceHelp)
+#: src/tagsedit.ui:149
+#, kde-format
+msgid "What does this do?"
+msgstr "무엇을 하나요?"
+
+#. i18n: ectx: property (text), widget (QLabel, fontLabel)
+#: src/tagsedit.ui:170
+#, kde-format
+msgid "&Font:"
+msgstr "글꼴(&F):"
+
+#. i18n: ectx: property (text), widget (QLabel, fontSizeLabel)
+#: src/tagsedit.ui:180
+#, kde-format
+msgid "&Size:"
+msgstr "크기(&S):"
+
+#. i18n: ectx: property (text), widget (QLabel, stateNameLabel)
+#: src/tagsedit.ui:190
+#, kde-format
+msgid "Na&me:"
+msgstr "이름(&M):"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, strike)
+#: src/tagsedit.ui:241
+#, kde-format
+msgid "Strike Through"
+msgstr "취소선"
+
+#. i18n: ectx: property (text), widget (HelpLabel, textEquivalentHelp)
+#: src/tagsedit.ui:269
+#, kde-format
+msgid "What is this for?"
+msgstr "언제 사용하나요?"
+
+#. i18n: ectx: property (text), widget (QLabel, backgroundColorLabel)
+#: src/tagsedit.ui:276
+#, kde-format
+msgid "&Background:"
+msgstr "배경(&B):"
+
+#. i18n: ectx: property (text), widget (QCheckBox, onEveryLines)
+#: src/tagsedit.ui:286
+#, kde-format
+msgid "On ever&y line"
+msgstr "매 줄마다(&Y)"
+
+#. i18n: ectx: property (text), widget (QLabel, textColorLabel)
+#: src/tagsedit.ui:296
+#, kde-format
+msgid "Co&lor:"
+msgstr "색상(&L):"
+
+#. i18n: ectx: property (text), widget (QLabel, textEquivalentLabel)
+#: src/tagsedit.ui:309
+#, kde-format
+msgid "Te&xt equivalent:"
+msgstr "동등한 텍스트(&X):"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel)
+#: src/tagsedit.ui:322
+#, kde-format
+msgid "&Text:"
+msgstr "텍스트(&T):"
+
+#. i18n: ectx: property (icon), widget (KIconButton, emblem)
+#: src/tagsedit.ui:337
+#, kde-format
+msgid "edit-delete"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
+#: src/tagsedit.ui:347
+#, kde-format
+msgctxt "Remove tag emblem"
+msgid "Remo&ve"
+msgstr "삭제(&V)"
+
+#. i18n: ectx: property (text), widget (HelpLabel, onEveryLinesHelp)
+#: src/tagsedit.ui:379
+#, kde-format
+msgid "What does this mean?"
+msgstr "무엇을 뜻하나요?"
+
+#. i18n: ectx: property (text), widget (QLabel, emblemLabel)
+#: src/tagsedit.ui:386
+#, kde-format
+msgid "&Emblem:"
+msgstr "엠블럼(&E):"
 
 #: src/tools.cpp:775
 #, kde-format
@@ -3906,9 +3943,9 @@ msgstr "KDE Plasma 앱 실행기를 사용하여 내 Basket 노트 열기"
 #: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
 #: src/variouswidgets.cpp:143 src/variouswidgets.cpp:144
-#: src/variouswidgets.cpp:267 src/variouswidgets.cpp:268
-#: src/variouswidgets.cpp:269 src/variouswidgets.cpp:270
-#: src/variouswidgets.cpp:271 src/variouswidgets.cpp:272
+#: src/variouswidgets.cpp:274 src/variouswidgets.cpp:275
+#: src/variouswidgets.cpp:276 src/variouswidgets.cpp:277
+#: src/variouswidgets.cpp:278 src/variouswidgets.cpp:279
 #, kde-format
 msgid "%1 by %1 pixels"
 msgstr "%1x%1픽셀"
