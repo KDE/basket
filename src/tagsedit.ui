@@ -334,7 +334,7 @@
             <item>
              <widget class="KIconButton" name="emblem">
               <property name="icon">
-               <string>edit-delete</string>
+               <string notr="true">edit-delete</string>
               </property>
               <property name="iconSize">
                <number>16</number>
