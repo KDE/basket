@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
-"PO-Revision-Date: 2026-08-24 12:21+0300\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"PO-Revision-Date: 2026-08-31 15:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -4008,12 +4008,6 @@ msgstr "Те&кстовий еквівалент:"
 msgid "&Text:"
 msgstr "&Текст:"
 
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347
 #, kde-format
@@ -4075,6 +4069,9 @@ msgid ""
 msgstr ""
 "Змініть розміри вікна, щоб вибрати розмір зображення,\n"
 "закрийте його або натисніть клавішу Escape, щоб підтвердити зміни."
+
+#~ msgid "edit-delete"
+#~ msgstr "edit-delete"
 
 #~ msgid ""
 #~ "On crash, use the standard KDE crash handler rather than send an email."

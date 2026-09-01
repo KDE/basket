@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
 "PO-Revision-Date: 2026-07-14 23:10+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3974,12 +3974,6 @@ msgstr "Te&stu-baliokidea:"
 #, kde-format
 msgid "&Text:"
 msgstr "&Testua:"
-
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347

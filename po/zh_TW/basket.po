@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
 "PO-Revision-Date: 2026-06-11 17:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3846,12 +3846,6 @@ msgstr "替換為文字(&X)："
 #, kde-format
 msgid "&Text:"
 msgstr "文字(&T)："
-
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347

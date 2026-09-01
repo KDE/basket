@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
-"PO-Revision-Date: 2026-08-24 21:41+0200\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"PO-Revision-Date: 2026-08-31 18:22+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -3949,12 +3949,6 @@ msgstr "Te&xtekvivalent:"
 msgid "&Text:"
 msgstr "&Text:"
 
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347
 #, kde-format
@@ -4014,6 +4008,9 @@ msgid ""
 msgstr ""
 "Ändra storlek på fönstret för att välja bildstorlek\n"
 "och stäng det eller tryck på Esc för att acceptera ändringar."
+
+#~ msgid "edit-delete"
+#~ msgstr "redigera-ta-bort"
 
 #~ msgid ""
 #~ "On crash, use the standard KDE crash handler rather than send an email."

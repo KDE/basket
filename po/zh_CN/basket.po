@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3765,12 +3765,6 @@ msgstr "同义文本(&x):"
 #, kde-format
 msgid "&Text:"
 msgstr "文本(&T)"
-
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
-"PO-Revision-Date: 2026-08-24 06:31+0200\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"PO-Revision-Date: 2026-08-31 06:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3953,12 +3953,6 @@ msgstr "&ტექსტის ეკვივალენტი:"
 msgid "&Text:"
 msgstr "&ტექსტი:"
 
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347
 #, kde-format
@@ -4020,6 +4014,9 @@ msgid ""
 msgstr ""
 "შეცვალეთ ფანჯრის ზომა, რომ აირჩიოთ გამოსახულების ზომა\n"
 "და დახურეთ ის, ან დააჭირეთ ღილაკს Escape, რომ ცვლილებები მიიღოთ."
+
+#~ msgid "edit-delete"
+#~ msgstr "ჩასწორება-წაშლა"
 
 #~ msgid ""
 #~ "On crash, use the standard KDE crash handler rather than send an email."

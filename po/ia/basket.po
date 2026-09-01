@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
-"PO-Revision-Date: 2026-02-20 11:45+0100\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"PO-Revision-Date: 2026-08-31 12:19+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1157,7 +1157,7 @@ msgstr ""
 #: src/bnpview.cpp:364 src/bnpview.cpp:370
 #, kde-format
 msgid "&Basket Archive..."
-msgstr ""
+msgstr "Archivo de &Basket..."
 
 #: src/bnpview.cpp:376
 #, kde-format
@@ -2746,8 +2746,7 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Protection de Contrasigno"
@@ -3150,12 +3149,12 @@ msgstr ""
 #: src/settings.cpp:953
 #, kde-format
 msgid "Default Applications"
-msgstr ""
+msgstr "Applicationes predefinite"
 
 #: src/settings.cpp:962
 #, kde-format
 msgid "File Associations"
-msgstr ""
+msgstr "Associationes de file"
 
 #: src/settings.cpp:973
 #, kde-format
@@ -3245,7 +3244,7 @@ msgstr "Sync de version"
 #: src/settings_versionsync.cpp:93
 #, kde-format
 msgid "This will free %1"
-msgstr ""
+msgstr "Isto liberera %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3730,12 +3729,6 @@ msgstr ""
 msgid "&Text:"
 msgstr "&Texto"
 
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347
 #, kde-format
@@ -3765,7 +3758,7 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/variouswidgets.cpp:118
 #, kde-format

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
-"PO-Revision-Date: 2026-08-24 19:59+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"PO-Revision-Date: 2026-08-31 11:58+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -3956,12 +3956,6 @@ msgstr "Te&xtový ekvivalent:"
 msgid "&Text:"
 msgstr "&Text:"
 
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347
 #, kde-format
@@ -4022,6 +4016,9 @@ msgstr ""
 "Změňte velikost okna pro vybrání\n"
 "velikosti obrázku a zavřete ho\n"
 "nebo stiskněte Esc pro uložení změny."
+
+#~ msgid "edit-delete"
+#~ msgstr "upravit-smazat"
 
 #~ msgid ""
 #~ "On crash, use the standard KDE crash handler rather than send an email."

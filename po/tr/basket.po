@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-31 00:47+0000\n"
-"PO-Revision-Date: 2026-08-24 19:47+0300\n"
+"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"PO-Revision-Date: 2026-08-31 20:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -3947,12 +3947,6 @@ msgstr "Metin eşdeğeri:"
 msgid "&Text:"
 msgstr "&Metin:"
 
-#. i18n: ectx: property (icon), widget (KIconButton, emblem)
-#: src/tagsedit.ui:337
-#, kde-format
-msgid "edit-delete"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QPushButton, removeEmblem)
 #: src/tagsedit.ui:347
 #, kde-format
@@ -4013,6 +4007,9 @@ msgid ""
 msgstr ""
 "Görsel boyutunu seçmek için pencereyi boyutlandırın ve kapatın\n"
 "ya da Esc düğmesine basarak değişiklikleri kabul edin."
+
+#~ msgid "edit-delete"
+#~ msgstr "edit-delete"
 
 #~ msgid ""
 #~ "On crash, use the standard KDE crash handler rather than send an email."
