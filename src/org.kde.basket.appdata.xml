@@ -181,11 +181,14 @@
   </description>
   <url type="homepage">https://invent.kde.org/utilities/basket</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=basket</url>
-  <url type="help">https://docs.kde.org/?application=kdevelop</url>
+  <url type="help">https://docs.kde.org/?application=basket</url>
   <url type="donation">https://www.kde.org/community/donations/?app=basket</url>
   <categories>
     <category>Office</category>
   </categories>
   <project_group>KDE</project_group>
+  <provides>
+    <binary>basket</binary>
+  </provides>
   <content_rating type="oars-1.1"/>
 </component>
