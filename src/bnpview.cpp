@@ -79,8 +79,8 @@
 #include <QStandardPaths>
 #include <qdbusconnection.h>
 
+#include <bnpviewadaptor.h>
 #include <config.h>
-// #include "bnpviewadaptor.h"
 
 using namespace std::chrono_literals;
 
@@ -104,7 +104,7 @@ BNPView::BNPView(QWidget *parent, KXMLGUIClient *aGUIClient, KActionCollection *
     , m_guiClient(aGUIClient)
     , m_statusbar(bar)
 {
-    // new BNPViewAdaptor(this);
+    new BNPViewAdaptor(this);
     QDBusConnection dbus = QDBusConnection::sessionBus();
     dbus.registerObject(QStringLiteral("/BNPView"), this);
 
