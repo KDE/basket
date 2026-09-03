@@ -30,7 +30,6 @@ using namespace std::chrono_literals;
 
 Application::Application(int &argc, char **argv)
     : QApplication(argc, argv)
-    , m_service(KDBusService::Unique)
     , m_mainWindow(nullptr)
 {
     KLocalizedString::setApplicationDomain("basket");
@@ -38,8 +37,6 @@ Application::Application(int &argc, char **argv)
 
     KAboutData::setApplicationData(AboutData());
     // BasketPart::createAboutData();
-
-    connect(&m_service, &KDBusService::activateRequested, this, &Application::onActivateRequested);
 
 #if HAVE_LIBGIT2
     git_libgit2_init();

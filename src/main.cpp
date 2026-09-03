@@ -6,6 +6,7 @@
 
 #include <KAboutData>
 #include <KCrash>
+#include <KDBusService>
 #include <KLocalizedString>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -43,6 +44,8 @@ int main(int argc, char *argv[])
     KAboutData::applicationData().setupCommandLine(&opts); //--author, --license
     opts.process(app);
     KAboutData::applicationData().processCommandLine(&opts); // show author, license information and exit
+    KDBusService service(KDBusService::Unique);
+    QObject::connect(&service, &KDBusService::activateRequested, &app, &Application::onActivateRequested);
     // Custom data folder;
     // the own block is to to not keep variables live for the whole application lifetime
     {
