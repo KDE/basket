@@ -75,13 +75,22 @@ void ColorPicker::grabColor()
 
 void ColorPicker::gotColorResponse(uint response, const QVariantMap &results)
 {
-    if (!response) {
+    switch (response) {
+    // 0: Success, the request is carried out
+    case 0:
         if (results.contains(QStringLiteral("color"))) {
             const auto color = qdbus_cast<QColor>(results.value(QStringLiteral("color")));
             Q_EMIT colorGrabbed(color);
         }
-    } else {
-        qCWarning(BASKET_LOG) << "Failed to take screenshot";
+        break;
+    // 1: The user cancelled the interaction
+    case 1:
+        qCDebug(BASKET_LOG) << "PickColor operation cancelled by the user";
+        break;
+    // 2: The user interaction was ended in some other way
+    // (also covering any other response code for safety)
+    default:
+        qCWarning(BASKET_LOG) << "PickColor failed:" << response << results;
     }
 }
 
