@@ -14,7 +14,7 @@
       "--socket=fallback-x11",
       "--socket=wayland",
       "--device=dri",
-      "--own-name=local.basket"
+      "--own-name=org.kde.basket"
    ],
    "modules" : [
       {
