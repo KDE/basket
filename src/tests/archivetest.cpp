@@ -7,6 +7,7 @@
 
 #include <QDir>
 #include <QObject>
+#include <QTemporaryDir>
 #include <QtTest/QtTest>
 
 #include <algorithm>
@@ -29,26 +30,28 @@ private:
     bool compareDirHashes(const QString &toTestPath, const QString &referencePath);
     QStringList createDirTree(const QString &path, bool returnRelativePaths);
     //    QByteArray fileHash(const QString &path, QCryptographicHash::Algorithm hashAlgorithm);
+
+    QTemporaryDir m_sampleSourceDir;
 };
 
 QTEST_MAIN(ArchiveTest)
 
 void ArchiveTest::testExtractArchive()
 {
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
     const QString referencePath = QFINDTESTDATA("archive/");
 
     // Test the Archive::extractArchive function
-    QString referenceSource = QDir::currentPath() + QDir::separator() + QStringLiteral("sample_source");
+    QString referenceSource = m_sampleSourceDir.filePath(QStringLiteral("sample_source"));
     QString testArchive = referencePath + QStringLiteral("sample.baskets");
-    QString testPath = QDir::currentPath() + QDir::separator() + QStringLiteral("sample/");
+    QString testPath = tempDir.filePath(QStringLiteral("sample"));
     Archive::IOErrorCode ioCode = Archive::extractArchive(testArchive, testPath, false);
 
     QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occurred while extracting .baskets archive");
     QVERIFY2(compareDirTree(testPath, referenceSource), "Extracted .baskets archive is not identical with the reference source");
     QVERIFY2(compareDirHashes(testPath, referenceSource), "Extracted .baskets archive content is not identical with the reference source (hashes different)");
-
-    QDir dir(testPath);
-    dir.removeRecursively();
 
     // Test the Archive::extractArchive function with incompatible file
     testArchive = referencePath + QStringLiteral("notABasket.baskets");
@@ -73,16 +76,17 @@ void ArchiveTest::testExtractArchive()
 
 void ArchiveTest::testCreateArchive()
 {
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+
     const QString referencePath = QFINDTESTDATA("archive/");
 
     // Test the Archive::createArchiveFromSource function
 
     QString referenceSource = referencePath + QStringLiteral("sample.baskets");
-    QString testArchive = QStringLiteral("test.baskets");
+    QString testArchive = tempDir.filePath(QStringLiteral("test.baskets"));
 
-    QFile(testArchive).remove();
-
-    QString testSourcePath = QDir::currentPath() + QDir::separator() + QStringLiteral("sample_source/");
+    QString testSourcePath = m_sampleSourceDir.filePath(QStringLiteral("sample_source"));
     Archive::IOErrorCode ioCode = Archive::createArchiveFromSource(testSourcePath, testSourcePath + QStringLiteral("preview.png"), testArchive);
 
     QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occurred while creating a .baskets archive");
@@ -92,40 +96,26 @@ void ArchiveTest::testCreateArchive()
     //    auto hashRef = fileHash(referenceSource, QCryptographicHash::Sha256);
     //    auto hashTest = fileHash(testArchive, QCryptographicHash::Sha256);
 
-    QFile testArchiveFile(testArchive);
-    testArchiveFile.remove();
-
     //    QVERIFY2(hashRef == hashTest, "Created .baskets archive is not identical with the reference (hashes different)");
 }
 
 void ArchiveTest::initTestCase()
 {
+    QVERIFY(m_sampleSourceDir.isValid());
+
     const QString referenceData = QFINDTESTDATA("archive/sample_source.tar.gz");
 
     KTar archive(referenceData, QStringLiteral("application/x-gzip"));
 
     // Open the archive
     QVERIFY(archive.open(QIODevice::ReadOnly));
-    QString destination = QDir::currentPath();
+    QString destination = m_sampleSourceDir.path();
     archive.directory()->copyTo(destination, true);
     archive.close();
 }
 
 void ArchiveTest::cleanupTestCase()
 {
-    QStringList toDeleteDirectories{QStringLiteral("sample_source"), QStringLiteral("sample"), QStringLiteral("notABasket"), QStringLiteral("incompatible")};
-
-    std::for_each(toDeleteDirectories.begin(), toDeleteDirectories.end(), [](const QString &path) {
-        QDir dir(path);
-        dir.removeRecursively();
-    });
-
-    QStringList toDeleteFiles{QStringLiteral("test.baskets")};
-
-    std::for_each(toDeleteDirectories.begin(), toDeleteDirectories.end(), [](const QString &path) {
-        QFile file(path);
-        file.remove();
-    });
 }
 
 bool ArchiveTest::compareDirTree(const QString &toTestPath, const QString &referencePath)
