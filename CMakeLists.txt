@@ -112,7 +112,7 @@ set_package_properties(KF6DocTools PROPERTIES DESCRIPTION
 add_definitions(-DTRANSLATION_DOMAIN=\"basket\")
 add_definitions(-DQT_NO_KEYWORDS)
 
-ecm_set_disabled_deprecation_versions(QT 6.4.0
+ecm_set_disabled_deprecation_versions(QT 6.5.0
     KF 6.28.0
 )
 
