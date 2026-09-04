@@ -52,14 +52,11 @@ public:
     int countHiddenChildsFound();
 
     void setUnderDrag(bool);
-    bool isAbbreviated();
-    void setAbbreviated(bool b);
 
 private:
     BasketScene *m_basket;
     int m_width;
     bool m_isUnderDrag;
-    bool m_isAbbreviated;
 };
 
 Q_DECLARE_METATYPE(BasketListViewItem *);
@@ -87,7 +84,6 @@ public:
 protected:
     QStringList mimeTypes() const override;
     QMimeData *mimeData(const QList<QTreeWidgetItem *> &items) const override;
-    bool event(QEvent *e) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void focusInEvent(QFocusEvent *) override;

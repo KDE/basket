@@ -42,7 +42,6 @@ BasketListViewItem::BasketListViewItem(QTreeWidget *parent, BasketScene *basket)
     : QTreeWidgetItem(parent)
     , m_basket(basket)
     , m_isUnderDrag(false)
-    , m_isAbbreviated(false)
 {
 }
 
@@ -50,7 +49,6 @@ BasketListViewItem::BasketListViewItem(QTreeWidgetItem *parent, BasketScene *bas
     : QTreeWidgetItem(parent)
     , m_basket(basket)
     , m_isUnderDrag(false)
-    , m_isAbbreviated(false)
 {
 }
 
@@ -58,7 +56,6 @@ BasketListViewItem::BasketListViewItem(QTreeWidget *parent, QTreeWidgetItem *aft
     : QTreeWidgetItem(parent, after)
     , m_basket(basket)
     , m_isUnderDrag(false)
-    , m_isAbbreviated(false)
 {
 }
 
@@ -66,7 +63,6 @@ BasketListViewItem::BasketListViewItem(QTreeWidgetItem *parent, QTreeWidgetItem 
     : QTreeWidgetItem(parent, after)
     , m_basket(basket)
     , m_isUnderDrag(false)
-    , m_isAbbreviated(false)
 {
 }
 
@@ -246,16 +242,6 @@ void BasketListViewItem::setUnderDrag(bool underDrag)
     m_isUnderDrag = underDrag;
 }
 
-bool BasketListViewItem::isAbbreviated()
-{
-    return m_isAbbreviated;
-}
-
-void BasketListViewItem::setAbbreviated(bool b)
-{
-    m_isAbbreviated = b;
-}
-
 /** class BasketTreeListView: */
 QString BasketTreeListView::TREE_ITEM_MIME_STRING = QStringLiteral("application/x-basket-item");
 
@@ -300,21 +286,6 @@ QMimeData *BasketTreeListView::mimeData(const QList<QTreeWidgetItem *> &items) c
 
     mimeData->setData(mimeType, data);
     return mimeData;
-}
-
-bool BasketTreeListView::event(QEvent *e)
-{
-    if (e->type() == QEvent::ToolTip) {
-        auto *he = static_cast<QHelpEvent *>(e);
-        QTreeWidgetItem *item = itemAt(he->pos());
-        auto *bitem = dynamic_cast<BasketListViewItem *>(item);
-        if (bitem && bitem->isAbbreviated()) {
-            QRect rect = visualItemRect(bitem);
-            QToolTip::showText(rect.topLeft(), bitem->basket()->basketName(), viewport(), rect);
-        }
-        return true;
-    }
-    return QTreeWidget::event(e);
 }
 
 void BasketTreeListView::mousePressEvent(QMouseEvent *event)
