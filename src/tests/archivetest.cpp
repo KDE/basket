@@ -86,7 +86,7 @@ void ArchiveTest::testCreateArchive()
     QString referenceSource = referencePath + QStringLiteral("sample.baskets");
     QString testArchive = tempDir.filePath(QStringLiteral("test.baskets"));
 
-    QString testSourcePath = m_sampleSourceDir.filePath(QStringLiteral("sample_source"));
+    QString testSourcePath = m_sampleSourceDir.filePath(QStringLiteral("sample_source/"));
     Archive::IOErrorCode ioCode = Archive::createArchiveFromSource(testSourcePath, testSourcePath + QStringLiteral("preview.png"), testArchive);
 
     QVERIFY2(ioCode == Archive::IOErrorCode::NoError, "An issue occurred while creating a .baskets archive");
