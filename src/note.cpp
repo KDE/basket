@@ -122,6 +122,9 @@ Note::~Note()
         }
         m_basket->removeAnimation(m_animX);
         m_basket->removeAnimation(m_animY);
+        // QAnimationGroup gives up the ownership, so they need to be deleted manually
+        delete m_animX;
+        delete m_animY;
     }
     delete m_content;
     delete d;
