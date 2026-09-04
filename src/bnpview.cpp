@@ -331,7 +331,7 @@ void BNPView::initialize()
 
     connect(m_tree, &BasketTreeListView::itemExpanded, this, &BNPView::needSave);
     connect(m_tree, &BasketTreeListView::itemCollapsed, this, &BNPView::needSave);
-    connect(m_tree, &BasketTreeListView::contextMenuRequested, this, &BNPView::slotContextMenu);
+    connect(m_tree, &BasketTreeListView::customContextMenuRequested, this, &BNPView::slotContextMenu);
     connect(m_tree, &BasketTreeListView::itemDoubleClicked, this, &BNPView::slotShowProperties);
 
     connect(m_tree, &BasketTreeListView::itemExpanded, this, &BNPView::basketChanged);

@@ -252,11 +252,8 @@ BasketTreeListView::BasketTreeListView(QWidget *parent)
 {
     connect(&m_autoOpenTimer, &QTimer::timeout, this, &BasketTreeListView::autoOpen);
     setItemDelegate(new FoundCountIcon(this));
-}
-
-void BasketTreeListView::contextMenuEvent(QContextMenuEvent *e)
-{
-    Q_EMIT contextMenuRequested(e->pos());
+    // Let this widget emit customContextMenuRequested()
+    setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
 QStringList BasketTreeListView::mimeTypes() const

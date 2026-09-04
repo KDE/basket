@@ -72,7 +72,6 @@ public:
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
-    void contextMenuEvent(QContextMenuEvent *event) override;
     Qt::DropActions supportedDropActions() const override;
 
     /*! Retrieve a basket from the tree
@@ -91,8 +90,6 @@ protected:
 private:
     QTimer m_autoOpenTimer;
     QTreeWidgetItem *m_autoOpenItem;
-Q_SIGNALS:
-    void contextMenuRequested(const QPoint &);
 private Q_SLOTS:
     void autoOpen();
 
