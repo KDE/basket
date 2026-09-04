@@ -115,16 +115,15 @@ Note::Note(BasketScene *parent)
 
 Note::~Note()
 {
+    deleteChilds();
     if (m_basket) {
         if (m_content && m_content->graphicsItem()) {
             m_basket->removeItem(m_content->graphicsItem());
         }
         m_basket->removeAnimation(m_animX);
         m_basket->removeAnimation(m_animY);
-        m_basket->removeItem(this);
     }
     delete m_content;
-    deleteChilds();
     delete d;
 }
 
