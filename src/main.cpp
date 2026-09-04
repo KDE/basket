@@ -67,7 +67,6 @@ int main(int argc, char *argv[])
     /* Debug mode */
     if (opts.isSet(QStringLiteral("debug")))
         Global::bnpView->enableDebugMode();
-    app.setActiveWindow(win);
 
     win->show();
 
