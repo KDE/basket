@@ -18,7 +18,6 @@
 #include <QPixmap>
 #include <QPixmapCache>
 #include <QRegularExpression>
-#include <QResizeEvent>
 #include <QStandardItemModel>
 #include <QToolTip>
 
@@ -399,11 +398,6 @@ void BasketTreeListView::autoOpen()
     auto *item = (BasketListViewItem *)m_autoOpenItem;
     if (item)
         Global::bnpView->setCurrentBasket(item->basket());
-}
-
-void BasketTreeListView::resizeEvent(QResizeEvent *event)
-{
-    QTreeWidget::resizeEvent(event);
 }
 
 /** We should NEVER get focus (because of QWidget::NoFocus focusPolicy())

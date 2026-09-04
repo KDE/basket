@@ -11,7 +11,6 @@
 #include <QTreeWidget>
 
 class QPixmap;
-class QResizeEvent;
 class QDragEnterEvent;
 class QDropEvent;
 class QDragMoveEvent;
@@ -70,7 +69,6 @@ public:
     void dragLeaveEvent(QDragLeaveEvent *event) override;
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
-    void resizeEvent(QResizeEvent *event) override;
     Qt::DropActions supportedDropActions() const override;
 
     /*! Retrieve a basket from the tree
