@@ -160,17 +160,6 @@ void BasketListViewItem::ensureVisible()
     }
 }
 
-bool BasketListViewItem::isShown()
-{
-    QTreeWidgetItem *item = parent();
-    while (item) {
-        if (!item->isExpanded())
-            return false;
-        item = item->parent();
-    }
-    return true;
-}
-
 bool BasketListViewItem::isCurrentBasket()
 {
     return basket() == Global::bnpView->currentBasket();

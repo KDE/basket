@@ -39,7 +39,6 @@ public:
     QStringList childNamesTree(int deep = 0);
     void moveChildsBaskets();
     void ensureVisible();
-    bool isShown();
     bool isCurrentBasket();
     bool isUnderDrag();
     QString escapedName(const QString &string);
