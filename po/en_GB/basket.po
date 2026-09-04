@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"POT-Creation-Date: 2026-09-04 00:48+0000\n"
 "PO-Revision-Date: 2021-02-14 15:06+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -2087,28 +2087,28 @@ msgstr ""
 msgid "Example"
 msgstr "Example"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Show the debug window"
 msgstr "Show the debug window"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
 msgstr "Custom folder to load and save baskets and other application data."
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
 msgstr "folder"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
 msgstr "Automatically hide the main window in the system tray on startup."
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, kde-format
 msgid "Open a basket archive or template."
 msgstr "Open a basket archive or template."

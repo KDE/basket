@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"POT-Creation-Date: 2026-09-04 00:48+0000\n"
 "PO-Revision-Date: 2026-08-31 09:58+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2108,29 +2108,29 @@ msgstr ""
 msgid "Example"
 msgstr "Primer"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Show the debug window"
 msgstr "Pokaži okno za razhroščevanje"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
 msgstr ""
 "Mapa po meri za nalaganje in shranjevanje košar in drugih podatkov programa."
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
 msgstr "mapa"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
 msgstr "Samodejno skrij glavno okno v sistemskem pladnju ob zagonu."
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, kde-format
 msgid "Open a basket archive or template."
 msgstr "Odprite arhiv košare ali predlogo."

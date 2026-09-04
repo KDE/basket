@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"POT-Creation-Date: 2026-09-04 00:48+0000\n"
 "PO-Revision-Date: 2026-08-29 17:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2091,28 +2091,28 @@ msgstr ""
 msgid "Example"
 msgstr "مثال"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Show the debug window"
 msgstr "أظهر نافذة التصحيح"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
 msgstr "مجلد مخصص لتحميل وحفظ السلال وبيانات التطبيق الأخرى."
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
 msgstr "مجلّد"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
 msgstr "اخف النافذة الرئيسة آليًا في صينية النظام عند البدء."
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, kde-format
 msgid "Open a basket archive or template."
 msgstr "افتح أرشيف سلة أو قالب."

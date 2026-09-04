@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket-ja\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"POT-Creation-Date: 2026-09-04 00:48+0000\n"
 "PO-Revision-Date: 2020-04-07 20:59-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2103,28 +2103,28 @@ msgstr ""
 msgid "Example"
 msgstr "例"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, fuzzy, kde-format
 msgid "Show the debug window"
 msgstr "メインウィンドウを表示/隠す"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
 msgstr ""
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, fuzzy, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
 msgstr "ホームフォルダ"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
 msgstr ""
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, fuzzy, kde-format
 msgid "Open a basket archive or template."
 msgstr "バスケットアーカイブを開く"

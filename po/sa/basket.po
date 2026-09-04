@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-01 00:49+0000\n"
+"POT-Creation-Date: 2026-09-04 00:48+0000\n"
 "PO-Revision-Date: 2024-12-25 19:45+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2052,28 +2052,28 @@ msgstr ""
 msgid "Example"
 msgstr "उदाहरण"
 
-#: src/main.cpp:35
+#: src/main.cpp:36
 #, kde-format
 msgid "Show the debug window"
 msgstr "त्रुटिनिवारणविण्डो दर्शयतु"
 
-#: src/main.cpp:37
+#: src/main.cpp:38
 #, kde-format
 msgid "Custom folder to load and save baskets and other application data."
 msgstr "टोकरीः अन्ये च अनुप्रयोगदत्तांशः लोड् कर्तुं रक्षितुं च कस्टम् समुच्चय ।"
 
-#: src/main.cpp:38
+#: src/main.cpp:39
 #, kde-format
 msgctxt "Command line help: --data-folder <FOLDER>"
 msgid "folder"
 msgstr "समुच्चय"
 
-#: src/main.cpp:40
+#: src/main.cpp:41
 #, kde-format
 msgid "Automatically hide the main window in the system tray on startup."
 msgstr "प्रारम्भे सिस्टम् ट्रे मध्ये मुख्यविण्डो स्वयमेव गोपयन्तु ।"
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, kde-format
 msgid "Open a basket archive or template."
 msgstr "टोकरीसंग्रहालयं वा टेम्पलेट् वा उद्घाटयन्तु।"
