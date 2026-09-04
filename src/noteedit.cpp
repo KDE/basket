@@ -1062,34 +1062,31 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     QFont defaultFont;
     QColor textColor = (Global::bnpView && Global::bnpView->currentBasket() ? Global::bnpView->currentBasket()->textColor() : palette().color(QPalette::Text));
 
-    // NOTE: currently it is NULL since initToolBars is called early. Could use different way to get MainWindow pointer from main
-    KMainWindow *parent = Global::activeMainWindow();
-
     // Init the RichTextEditor Toolbar:
-    richTextFont = new QFontComboBox(Global::activeMainWindow());
+    richTextFont = new QFontComboBox();
     focusWidgetFilter = new FocusWidgetFilter(richTextFont);
     richTextFont->setFixedWidth(richTextFont->sizeHint().width() * 2 / 3);
     richTextFont->setCurrentFont(defaultFont.family());
 
-    auto *action = new QWidgetAction(parent);
+    auto *action = new QWidgetAction(ac);
     ac->addAction(QStringLiteral("richtext_font"), action);
     action->setDefaultWidget(richTextFont);
     action->setText(i18n("Font"));
     ac->setDefaultShortcut(action, Qt::Key_F6);
 
-    richTextFontSize = new FontSizeCombo(/*rw=*/true, Global::activeMainWindow());
+    richTextFontSize = new FontSizeCombo(/*rw=*/true, /*withDefault=*/false);
     richTextFontSize->setFontSize(defaultFont.pointSize());
-    action = new QWidgetAction(parent);
+    action = new QWidgetAction(ac);
     ac->addAction(QStringLiteral("richtext_font_size"), action);
     action->setDefaultWidget(richTextFontSize);
     action->setText(i18n("Font Size"));
     ac->setDefaultShortcut(action, Qt::Key_F7);
 
-    richTextColor = new KColorCombo(Global::activeMainWindow());
+    richTextColor = new KColorCombo();
     richTextColor->installEventFilter(focusWidgetFilter);
     richTextColor->setFixedWidth(richTextColor->sizeHint().height() * 2);
     richTextColor->setColor(textColor);
-    action = new QWidgetAction(parent);
+    action = new QWidgetAction(ac);
     ac->addAction(QStringLiteral("richtext_color"), action);
     action->setDefaultWidget(richTextColor);
     action->setText(i18n("Color"));
@@ -1154,7 +1151,7 @@ void InlineEditors::initToolBars(KActionCollection *ac)
     ta->setIcon(QIcon::fromTheme(QStringLiteral("format-justify-fill")));
     richTextJustified = ta;
 
-    auto *alignmentGroup = new QActionGroup(this);
+    auto *alignmentGroup = new QActionGroup(ac);
     alignmentGroup->addAction(richTextLeft);
     alignmentGroup->addAction(richTextCenter);
     alignmentGroup->addAction(richTextRight);
