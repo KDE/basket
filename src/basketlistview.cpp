@@ -240,7 +240,7 @@ BasketTreeListView::BasketTreeListView(QWidget *parent)
     , m_itemUnderDrag(nullptr)
 {
     connect(&m_autoOpenTimer, &QTimer::timeout, this, &BasketTreeListView::autoOpen);
-    setItemDelegate(new FoundCountIcon(this));
+    setItemDelegate(new FoundCountIcon(this, this));
     // Let this widget emit customContextMenuRequested()
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
