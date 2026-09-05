@@ -6,8 +6,6 @@
 
 #include "kcolorcombo2.h"
 
-#ifndef USE_OLD_KCOLORCOMBO
-
 #include <QApplication>
 #include <QBitmap>
 #include <QPainter>
@@ -753,5 +751,3 @@ void KColorCombo2::popupClosed()
 }
 
 #include "moc_kcolorcombo2.cpp"
-
-#endif // USE_OLD_KCOLORCOMBO
