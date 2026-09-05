@@ -272,7 +272,7 @@ void BNPView::setupGlobalShortcuts()
         i18n("Add a color note to the current basket without having to open "
              "the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_pick_color"), this, &BNPView::slotColorFromScreenGlobal);
+    a = ac->addAction(QStringLiteral("global_note_pick_color"), this, &BNPView::slotColorFromScreen);
     a->setText(i18n("Pick color from screen"));
     a->setStatusTip(
         i18n("Add a color note picked from one pixel on screen to the current "
@@ -1667,7 +1667,7 @@ void BNPView::updateNotesActions()
 
 /* Activate the mode
  */
-void BNPView::slotColorFromScreen(bool global)
+void BNPView::slotColorFromScreen()
 {
 #ifndef _WIN32
     if (!m_colorPicker) {
@@ -1678,11 +1678,6 @@ void BNPView::slotColorFromScreen(bool global)
     currentBasket()->saveInsertionData();
     m_colorPicker->grabColor();
 #endif
-}
-
-void BNPView::slotColorFromScreenGlobal()
-{
-    slotColorFromScreen(true);
 }
 
 void BNPView::colorPicked(const QColor &color)

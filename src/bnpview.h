@@ -128,8 +128,7 @@ public Q_SLOTS:
     void slotInvertSelection();
     void slotResetFilter();
 
-    void slotColorFromScreen(bool global = false);
-    void slotColorFromScreenGlobal();
+    void slotColorFromScreen();
     void colorPicked(const QColor &color);
     void slotConvertTexts();
 
