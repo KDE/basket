@@ -279,7 +279,7 @@ void BNPView::setupGlobalShortcuts()
              "basket without "
              "having to open the main window."));
 
-    a = ac->addAction(QStringLiteral("global_note_grab_screenshot"), this, &BNPView::grabScreenshotGlobal);
+    a = ac->addAction(QStringLiteral("global_note_grab_screenshot"), this, &BNPView::grabScreenshot);
     a->setText(i18n("Grab screen zone"));
     a->setStatusTip(
         i18n("Grab a screen zone as an image in the current basket without "
@@ -1785,7 +1785,7 @@ void BNPView::insertWizard(int type)
 }
 
 // BEGIN Screen Grabbing:
-void BNPView::grabScreenshot(bool global)
+void BNPView::grabScreenshot()
 {
 #ifndef _WIN32
     if (!m_regionGrabber) {
@@ -1808,11 +1808,6 @@ void BNPView::hideMainWindow()
         m_colorPickWasShown = true;
     } else
         m_colorPickWasShown = false;
-}
-
-void BNPView::grabScreenshotGlobal()
-{
-    grabScreenshot(true);
 }
 
 void BNPView::screenshotGrabbed(const QPixmap &pixmap)

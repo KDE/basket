@@ -153,8 +153,7 @@ public Q_SLOTS:
     /** Insert **/
     void insertEmpty(int type);
     void insertWizard(int type);
-    void grabScreenshot(bool global = false);
-    void grabScreenshotGlobal();
+    void grabScreenshot();
     void screenshotGrabbed(const QPixmap &pixmap);
     /** BasketScene */
     void askNewBasket();
