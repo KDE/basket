@@ -249,21 +249,14 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
 {
     // QDialog options
     setWindowTitle(caption);
-
-    auto *mainWidget = new QWidget(this);
-    auto *mainLayout = new QVBoxLayout;
-    setLayout(mainLayout);
-    mainLayout->addWidget(mainWidget);
-
     setModal(true);
 
-    auto *page = new QWidget(this);
-    auto *topLayout = new QVBoxLayout(page);
+    auto *mainLayout = new QVBoxLayout(this);
 
-    auto *label = new QLabel(message, page);
-    topLayout->addWidget(label);
+    auto *label = new QLabel(message, this);
+    mainLayout->addWidget(label);
 
-    QListWidget *iconView = new QListWidget(page);
+    QListWidget *iconView = new QListWidget(this);
     iconView->setViewMode(QListView::IconMode);
     iconView->setMovement(QListView::Static);
     iconView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -279,7 +272,7 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
     m_size128 = new QListWidgetItem(desktopIcon.pixmap(KIconLoader::SizeEnormous), i18n("%1 by %1 pixels", KIconLoader::SizeEnormous), iconView);
     iconView->setIconSize(QSize(KIconLoader::SizeEnormous, KIconLoader::SizeEnormous)); // 128x128
     iconView->setMinimumSize(QSize(128 * 6 + (6 + 2) * iconView->spacing() + 20, m_size128->sizeHint().height() + 2 * iconView->spacing() + 20));
-    topLayout->addWidget(iconView);
+    mainLayout->addWidget(iconView);
     switch (iconSize) {
     case KIconLoader::SizeSmall:
         m_size16->setSelected(true);
@@ -310,8 +303,6 @@ IconSizeDialog::IconSizeDialog(const QString &caption, const QString &message, c
 
     connect(iconView, &QListWidget::itemActivated, this, &IconSizeDialog::choose);
     connect(iconView, &QListWidget::itemSelectionChanged, this, &IconSizeDialog::slotSelectionChanged);
-
-    mainLayout->addWidget(page);
 
     auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     okButton = buttonBox->button(QDialogButtonBox::Ok);
