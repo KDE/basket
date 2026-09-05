@@ -2413,11 +2413,9 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
         currentTag = *it;
         currentState = currentTag->states().first();
 
-        QKeySequence sequence;
-        if (!currentTag->shortcut().isEmpty())
-            sequence = currentTag->shortcut();
+        const QKeySequence sequence = currentTag->shortcut();
 
-        auto *mi = new StateAction(currentState, QKeySequence(sequence), this, true);
+        auto *mi = new StateAction(currentState, sequence, this, true);
         mi->setShortcutContext(Qt::WidgetShortcut);
 
         // The previously set ID will be set in the actions themselves as data.
@@ -2428,7 +2426,7 @@ void BNPView::populateTagsMenu(QMenu &menu, Note *referenceNote)
 
         menu.addAction(mi);
 
-        if (!currentTag->shortcut().isEmpty())
+        if (!sequence.isEmpty())
             m_actionCollection->setDefaultShortcut(mi, sequence);
 
         mi->setEnabled(enable);
