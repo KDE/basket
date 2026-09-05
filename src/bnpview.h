@@ -338,9 +338,7 @@ private:
     bool m_loading;
     bool m_newBasketPopup;
     bool m_firstShow;
-#ifndef _WIN32
     ColorPicker *m_colorPicker;
-#endif
     bool m_colorPickWasShown;
     RegionGrabber *m_regionGrabber;
     QString m_passiveDroppedTitle;

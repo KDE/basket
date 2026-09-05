@@ -95,9 +95,7 @@ BNPView::BNPView(QWidget *parent, KXMLGUIClient *aGUIClient, KActionCollection *
     , m_loading(true)
     , m_newBasketPopup(false)
     , m_firstShow(true)
-#ifndef _WIN32
-    , m_colorPicker(new ColorPicker(this))
-#endif
+    , m_colorPicker(nullptr)
     , m_regionGrabber(nullptr)
     , m_passiveDroppedSelection(nullptr)
     , m_actionCollection(actionCollection)
@@ -572,8 +570,6 @@ void BNPView::setupActions()
     a->setText(i18n("C&olor from Screen"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("color-picker")));
     m_actColorPicker = a;
-
-    connect(m_colorPicker, &ColorPicker::colorGrabbed, this, &BNPView::colorPicked);
 #endif
 
     a = ac->addAction(QStringLiteral("insert_screen_capture"), this, &BNPView::grabScreenshot);
@@ -1674,6 +1670,11 @@ void BNPView::updateNotesActions()
 void BNPView::slotColorFromScreen(bool global)
 {
 #ifndef _WIN32
+    if (!m_colorPicker) {
+        m_colorPicker = new ColorPicker(this);
+        connect(m_colorPicker, &ColorPicker::colorGrabbed, this, &BNPView::colorPicked);
+    }
+
     currentBasket()->saveInsertionData();
     m_colorPicker->grabColor();
 #endif
