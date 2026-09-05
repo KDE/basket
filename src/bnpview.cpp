@@ -570,12 +570,12 @@ void BNPView::setupActions()
     a->setText(i18n("C&olor from Screen"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("color-picker")));
     m_actColorPicker = a;
-#endif
 
     a = ac->addAction(QStringLiteral("insert_screen_capture"), this, &BNPView::grabScreenshot);
     a->setText(i18n("Grab Screen &Zone"));
     a->setIcon(QIcon::fromTheme(QStringLiteral("ksnapshot")));
     m_actGrabScreenshot = a;
+#endif
 
     //  m_insertActions.append( m_actInsertText     );
     m_insertActions.append(m_actInsertHtml);
@@ -1787,25 +1787,15 @@ void BNPView::insertWizard(int type)
 // BEGIN Screen Grabbing:
 void BNPView::grabScreenshot(bool global)
 {
-    if (m_regionGrabber) {
-        KWindowSystem::activateWindow(m_regionGrabber->windowHandle());
-        return;
+#ifndef _WIN32
+    if (!m_regionGrabber) {
+        m_regionGrabber = new RegionGrabber(this);
+        connect(m_regionGrabber, &RegionGrabber::regionGrabbed, this, &BNPView::screenshotGrabbed);
     }
 
-    // Delay before to take a screenshot because if we hide the main window OR the systray popup menu,
-    // we should wait the windows below to be repainted!!!
-    // A special case is where the action is triggered with the global keyboard shortcut.
-    // In this case, global is true, and we don't wait.
-    // In the future, if global is also defined for other cases, check for
-    // enum QAction::ActivationReason { UnknownActivation, EmulatedActivation, AccelActivation, PopupMenuActivation, ToolBarActivation };
-    int delay = (isMainWindowActive() ? 500 : (global /*qApp->activePopupWidget()*/ ? 0 : 200));
-
-    hideMainWindow();
-
     currentBasket()->saveInsertionData();
-    usleep(delay * 1000);
-    m_regionGrabber = new RegionGrabber;
-    connect(m_regionGrabber, &RegionGrabber::regionGrabbed, this, &BNPView::screenshotGrabbed);
+    m_regionGrabber->grabRegion();
+#endif
 }
 
 void BNPView::hideMainWindow()
@@ -1827,23 +1817,10 @@ void BNPView::grabScreenshotGlobal()
 
 void BNPView::screenshotGrabbed(const QPixmap &pixmap)
 {
-    delete m_regionGrabber;
-    m_regionGrabber = nullptr;
-
-    // Cancelled (pressed Escape):
-    if (pixmap.isNull()) {
-        if (m_colorPickWasShown)
-            showMainWindow();
-        return;
-    }
-
     if (!currentBasket()->isLoaded()) {
         currentBasket()->load();
     }
     currentBasket()->insertImage(pixmap);
-
-    if (m_colorPickWasShown)
-        showMainWindow();
 }
 
 BasketScene *BNPView::basketForFolderName(const QString &folderName)

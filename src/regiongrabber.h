@@ -1,70 +1,47 @@
 /**
- * SPDX-FileCopyrightText: (C) 2007 Luca Gugelmann <lucag@student.ethz.ch>
+ * SPDX-FileCopyrightText: (C) 2003 Sébastien Laoût <slaout@linux62.org>
+ * SPDX-FileCopyrightText: (C) 2020 Carl Schwan <carl@carlschwan.eu>
+ * SPDX-FileCopyrightText: (C) 2026 Pino Toscano <pino@kde.org>
  *
- * SPDX-License-Identifier: LGPL-2.0-only
+ * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#ifndef REGIONGRABBER_H
-#define REGIONGRABBER_H
+#pragma once
 
-#include <QTimer>
-#include <QVector>
-#include <QWidget>
+#ifndef _WIN32
 
-class QPoint;
-class QRect;
-class QRegion;
-class QPaintEvent;
-class QResizeEvent;
-class QMouseEvent;
+#include <QObject>
+#include <QPixmap>
 
-class RegionGrabber : public QWidget
+/**
+ * @brief This class allows to grab a region of the screen.
+ *
+ * Internally this class wrap the Screenshot function from the
+ * Screenshot xdg-portal and should work on X and wayland.
+ */
+class RegionGrabber : public QObject
 {
     Q_OBJECT
 public:
-    RegionGrabber();
-    ~RegionGrabber() override;
+    explicit RegionGrabber(QObject *parent = nullptr);
+    ~RegionGrabber() override = default;
 
-protected Q_SLOTS:
-    void init();
-    void displayHelp();
+public Q_SLOTS:
+    /**
+     * Begin screenshot grabbing.
+     * This function returns immediately, and regionGrabbed() is emitted if user
+     * selected a region to grab, and not canceled the process (by pressing Escape).
+     */
+    void grabRegion();
 
 Q_SIGNALS:
-    void regionGrabbed(const QPixmap &);
+    /**
+     * When user picked a color, this signal is emitted.
+     */
+    void regionGrabbed(const QPixmap &pixmap);
 
-protected:
-    void paintEvent(QPaintEvent *e) override;
-    void resizeEvent(QResizeEvent *e) override;
-    void mousePressEvent(QMouseEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
-    void mouseDoubleClickEvent(QMouseEvent *) override;
-    void keyPressEvent(QKeyEvent *e) override;
-    void updateHandles();
-    QRegion handleMask() const;
-    QPoint limitPointToRect(const QPoint &p, const QRect &r) const;
-    void grabRect();
-
-    QRect selection;
-    bool mouseDown;
-    bool newSelection;
-    const int handleSize;
-    QRect *mouseOverHandle;
-    QPoint dragStartPoint;
-    QRect selectionBeforeDrag;
-    QTimer idleTimer;
-    bool showHelp;
-    bool grabbing;
-
-    // naming convention for handles
-    // T top, B bottom, R Right, L left
-    // 2 letters: a corner
-    // 1 letter: the handle on the middle of the corresponding side
-    QRect TLHandle, TRHandle, BLHandle, BRHandle;
-    QRect LHandle, THandle, RHandle, BHandle;
-
-    QVector<QRect *> handles;
-    QPixmap pixmap;
+protected Q_SLOTS:
+    void gotScreenshotResponse(uint response, const QVariantMap &results);
 };
 
 #endif
