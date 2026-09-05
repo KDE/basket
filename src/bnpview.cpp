@@ -1674,8 +1674,6 @@ void BNPView::updateNotesActions()
 void BNPView::slotColorFromScreen(bool global)
 {
 #ifndef _WIN32
-    m_colorPickWasGlobal = global;
-
     currentBasket()->saveInsertionData();
     m_colorPicker->grabColor();
 #endif
@@ -1806,7 +1804,6 @@ void BNPView::grabScreenshot(bool global)
     // enum QAction::ActivationReason { UnknownActivation, EmulatedActivation, AccelActivation, PopupMenuActivation, ToolBarActivation };
     int delay = (isMainWindowActive() ? 500 : (global /*qApp->activePopupWidget()*/ ? 0 : 200));
 
-    m_colorPickWasGlobal = global;
     hideMainWindow();
 
     currentBasket()->saveInsertionData();

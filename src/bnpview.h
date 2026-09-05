@@ -342,7 +342,6 @@ private:
     ColorPicker *m_colorPicker;
 #endif
     bool m_colorPickWasShown;
-    bool m_colorPickWasGlobal;
     RegionGrabber *m_regionGrabber;
     QString m_passiveDroppedTitle;
     NoteSelection *m_passiveDroppedSelection;
