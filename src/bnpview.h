@@ -337,7 +337,6 @@ private:
     bool m_newBasketPopup;
     bool m_firstShow;
     ColorPicker *m_colorPicker;
-    bool m_colorPickWasShown;
     RegionGrabber *m_regionGrabber;
     QString m_passiveDroppedTitle;
     NoteSelection *m_passiveDroppedSelection;

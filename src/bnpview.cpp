@@ -1805,9 +1805,7 @@ void BNPView::hideMainWindow()
             m_HiddenMainWindow = Global::activeMainWindow();
             m_HiddenMainWindow->hide();
         }
-        m_colorPickWasShown = true;
-    } else
-        m_colorPickWasShown = false;
+    }
 }
 
 void BNPView::screenshotGrabbed(const QPixmap &pixmap)
