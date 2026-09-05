@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:48+0000\n"
+"POT-Creation-Date: 2026-09-05 00:49+0000\n"
 "PO-Revision-Date: 2026-01-12 16:22+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -563,17 +563,17 @@ msgstr "Mallipohjan kopiointi uuteen koriin valitettavasti epäonnistui."
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr "Mallipohjan mukautus uuteen koriin valitettavasti epäonnistui."
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:582
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:584
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:587
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -2239,7 +2239,7 @@ msgstr "Viite"
 msgid "Launcher"
 msgstr "Käynnistin"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1095
+#: src/notecontent.cpp:116 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "Väri"
@@ -2752,70 +2752,70 @@ msgstr "&Nimi:"
 msgid "&Guess"
 msgstr "&Arvaa"
 
-#: src/noteedit.cpp:1077
+#: src/noteedit.cpp:1074
 #, kde-format
 msgid "Font"
 msgstr "Fontti"
 
-#: src/noteedit.cpp:1085
+#: src/noteedit.cpp:1082
 #, kde-format
 msgid "Font Size"
 msgstr "Fonttikoko:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, bold)
-#: src/noteedit.cpp:1100 src/tagsedit.ui:202
+#: src/noteedit.cpp:1097 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "Lihavoitu"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, italic)
-#: src/noteedit.cpp:1107 src/tagsedit.ui:228
+#: src/noteedit.cpp:1104 src/tagsedit.ui:228
 #, kde-format
 msgid "Italic"
 msgstr "Kursivoitu"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, underline)
-#: src/noteedit.cpp:1114 src/tagsedit.ui:215
+#: src/noteedit.cpp:1111 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "Alleviivattu"
 
-#: src/noteedit.cpp:1122
+#: src/noteedit.cpp:1119
 #, kde-format
 msgid "Superscript"
 msgstr "Yläindeksoitu"
 
-#: src/noteedit.cpp:1128
+#: src/noteedit.cpp:1125
 #, kde-format
 msgid "Subscript"
 msgstr "Alaindeksoitu"
 
-#: src/noteedit.cpp:1135
+#: src/noteedit.cpp:1132
 #, kde-format
 msgid "Align Left"
 msgstr "Vasensuora"
 
-#: src/noteedit.cpp:1141
+#: src/noteedit.cpp:1138
 #, kde-format
 msgid "Centered"
 msgstr "Keskitetty"
 
-#: src/noteedit.cpp:1147
+#: src/noteedit.cpp:1144
 #, kde-format
 msgid "Align Right"
 msgstr "Oikeasuora"
 
-#: src/noteedit.cpp:1153
+#: src/noteedit.cpp:1150
 #, kde-format
 msgid "Justified"
 msgstr "Tasattu"
 
-#: src/noteedit.cpp:1165
+#: src/noteedit.cpp:1162
 #, kde-format
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/noteedit.cpp:1171
+#: src/noteedit.cpp:1168
 #, kde-format
 msgid "Redo"
 msgstr "Tee uudelleen"

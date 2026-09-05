@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:48+0000\n"
+"POT-Creation-Date: 2026-09-05 00:49+0000\n"
 "PO-Revision-Date: 2026-08-31 06:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -564,17 +564,17 @@ msgstr "უკაცრავად, ამ ახალი კალათი�
 msgid "Sorry, but the template customization for this new basket has failed."
 msgstr "უკაცრავად, ამ ახალი კალათისთვის ნიმუშის მორგება შეუძლებელია."
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:582
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:584
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:587
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -2252,7 +2252,7 @@ msgstr "ჯვარედინი დამოწმება"
 msgid "Launcher"
 msgstr "გამშვები"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1095
+#: src/notecontent.cpp:116 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "ფერი"
@@ -2766,70 +2766,70 @@ msgstr "&სახელი:"
 msgid "&Guess"
 msgstr "&ავტომატურად"
 
-#: src/noteedit.cpp:1077
+#: src/noteedit.cpp:1074
 #, kde-format
 msgid "Font"
 msgstr "ფონტი"
 
-#: src/noteedit.cpp:1085
+#: src/noteedit.cpp:1082
 #, kde-format
 msgid "Font Size"
 msgstr "ფონტის ზომა"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, bold)
-#: src/noteedit.cpp:1100 src/tagsedit.ui:202
+#: src/noteedit.cpp:1097 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "გასქელება"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, italic)
-#: src/noteedit.cpp:1107 src/tagsedit.ui:228
+#: src/noteedit.cpp:1104 src/tagsedit.ui:228
 #, kde-format
 msgid "Italic"
 msgstr "დახრა"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, underline)
-#: src/noteedit.cpp:1114 src/tagsedit.ui:215
+#: src/noteedit.cpp:1111 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "ქვედა ტირე"
 
-#: src/noteedit.cpp:1122
+#: src/noteedit.cpp:1119
 #, kde-format
 msgid "Superscript"
 msgstr "ზედა ხაზზე"
 
-#: src/noteedit.cpp:1128
+#: src/noteedit.cpp:1125
 #, kde-format
 msgid "Subscript"
 msgstr "ქვედა ხაზზე"
 
-#: src/noteedit.cpp:1135
+#: src/noteedit.cpp:1132
 #, kde-format
 msgid "Align Left"
 msgstr "მარცხნივ სწორება"
 
-#: src/noteedit.cpp:1141
+#: src/noteedit.cpp:1138
 #, kde-format
 msgid "Centered"
 msgstr "შუაზე გასწორებული"
 
-#: src/noteedit.cpp:1147
+#: src/noteedit.cpp:1144
 #, kde-format
 msgid "Align Right"
 msgstr "მარჯვნივ სწორება"
 
-#: src/noteedit.cpp:1153
+#: src/noteedit.cpp:1150
 #, kde-format
 msgid "Justified"
 msgstr "გასწორებული"
 
-#: src/noteedit.cpp:1165
+#: src/noteedit.cpp:1162
 #, kde-format
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/noteedit.cpp:1171
+#: src/noteedit.cpp:1168
 #, kde-format
 msgid "Redo"
 msgstr "თავიდან"

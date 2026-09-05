@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:48+0000\n"
+"POT-Creation-Date: 2026-09-05 00:49+0000\n"
 "PO-Revision-Date: 2026-08-31 18:12+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -577,17 +577,17 @@ msgstr ""
 "Disculpe, pero la personalización de la plantilla para esta nueva cesta ha "
 "fallado."
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:582
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:584
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:587
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -2277,7 +2277,7 @@ msgstr "Referencia cruzada"
 msgid "Launcher"
 msgstr "Lanzador"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1095
+#: src/notecontent.cpp:116 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "Color"
@@ -2791,70 +2791,70 @@ msgstr "&Nombre:"
 msgid "&Guess"
 msgstr "A&divinar"
 
-#: src/noteedit.cpp:1077
+#: src/noteedit.cpp:1074
 #, kde-format
 msgid "Font"
 msgstr "Tipo de letra"
 
-#: src/noteedit.cpp:1085
+#: src/noteedit.cpp:1082
 #, kde-format
 msgid "Font Size"
 msgstr "Tamaño del tipo de letra"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, bold)
-#: src/noteedit.cpp:1100 src/tagsedit.ui:202
+#: src/noteedit.cpp:1097 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "Negrita"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, italic)
-#: src/noteedit.cpp:1107 src/tagsedit.ui:228
+#: src/noteedit.cpp:1104 src/tagsedit.ui:228
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, underline)
-#: src/noteedit.cpp:1114 src/tagsedit.ui:215
+#: src/noteedit.cpp:1111 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "Subrayado"
 
-#: src/noteedit.cpp:1122
+#: src/noteedit.cpp:1119
 #, kde-format
 msgid "Superscript"
 msgstr "Superíndice"
 
-#: src/noteedit.cpp:1128
+#: src/noteedit.cpp:1125
 #, kde-format
 msgid "Subscript"
 msgstr "Subíndice"
 
-#: src/noteedit.cpp:1135
+#: src/noteedit.cpp:1132
 #, kde-format
 msgid "Align Left"
 msgstr "Alinear a la izquierda"
 
-#: src/noteedit.cpp:1141
+#: src/noteedit.cpp:1138
 #, kde-format
 msgid "Centered"
 msgstr "Centrado"
 
-#: src/noteedit.cpp:1147
+#: src/noteedit.cpp:1144
 #, kde-format
 msgid "Align Right"
 msgstr "Alinear a la derecha"
 
-#: src/noteedit.cpp:1153
+#: src/noteedit.cpp:1150
 #, kde-format
 msgid "Justified"
 msgstr "Justificado"
 
-#: src/noteedit.cpp:1165
+#: src/noteedit.cpp:1162
 #, kde-format
 msgid "Undo"
 msgstr "Deshacer"
 
-#: src/noteedit.cpp:1171
+#: src/noteedit.cpp:1168
 #, kde-format
 msgid "Redo"
 msgstr "Rehacer"

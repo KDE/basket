@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket-ja\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:48+0000\n"
+"POT-Creation-Date: 2026-09-05 00:49+0000\n"
 "PO-Revision-Date: 2020-04-07 20:59-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -571,17 +571,17 @@ msgstr ""
 "ごめんなさい、この新しいバスケットのためにテンプレートをカスタマイズできませ"
 "んでした。"
 
-#: src/basketlistview.cpp:631
+#: src/basketlistview.cpp:582
 #, kde-format
 msgid "%1+%2+"
 msgstr "%1+%2+"
 
-#: src/basketlistview.cpp:633
+#: src/basketlistview.cpp:584
 #, kde-format
 msgid "%1+"
 msgstr "%1+"
 
-#: src/basketlistview.cpp:636
+#: src/basketlistview.cpp:587
 #, kde-format
 msgid "%1+%2"
 msgstr "%1+%2"
@@ -2265,7 +2265,7 @@ msgstr "好み"
 msgid "Launcher"
 msgstr "ランチャー"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1095
+#: src/notecontent.cpp:116 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "色"
@@ -2778,70 +2778,70 @@ msgstr "名前(&N):"
 msgid "&Guess"
 msgstr "推測(&G)"
 
-#: src/noteedit.cpp:1077
+#: src/noteedit.cpp:1074
 #, fuzzy, kde-format
 msgid "Font"
 msgstr "フォント(&F):"
 
-#: src/noteedit.cpp:1085
+#: src/noteedit.cpp:1082
 #, fuzzy, kde-format
 msgid "Font Size"
 msgstr "アイコンサイズ"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, bold)
-#: src/noteedit.cpp:1100 src/tagsedit.ui:202
+#: src/noteedit.cpp:1097 src/tagsedit.ui:202
 #, kde-format
 msgid "Bold"
 msgstr "ボールド"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, italic)
-#: src/noteedit.cpp:1107 src/tagsedit.ui:228
+#: src/noteedit.cpp:1104 src/tagsedit.ui:228
 #, fuzzy, kde-format
 msgid "Italic"
 msgstr "イタリック(&T)"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, underline)
-#: src/noteedit.cpp:1114 src/tagsedit.ui:215
+#: src/noteedit.cpp:1111 src/tagsedit.ui:215
 #, kde-format
 msgid "Underline"
 msgstr "下線"
 
-#: src/noteedit.cpp:1122
+#: src/noteedit.cpp:1119
 #, kde-format
 msgid "Superscript"
 msgstr ""
 
-#: src/noteedit.cpp:1128
+#: src/noteedit.cpp:1125
 #, kde-format
 msgid "Subscript"
 msgstr ""
 
-#: src/noteedit.cpp:1135
+#: src/noteedit.cpp:1132
 #, kde-format
 msgid "Align Left"
 msgstr "左揃え"
 
-#: src/noteedit.cpp:1141
+#: src/noteedit.cpp:1138
 #, kde-format
 msgid "Centered"
 msgstr "中央揃え"
 
-#: src/noteedit.cpp:1147
+#: src/noteedit.cpp:1144
 #, kde-format
 msgid "Align Right"
 msgstr "右揃え"
 
-#: src/noteedit.cpp:1153
+#: src/noteedit.cpp:1150
 #, kde-format
 msgid "Justified"
 msgstr "左右両端揃え"
 
-#: src/noteedit.cpp:1165
+#: src/noteedit.cpp:1162
 #, kde-format
 msgid "Undo"
 msgstr ""
 
-#: src/noteedit.cpp:1171
+#: src/noteedit.cpp:1168
 #, kde-format
 msgid "Redo"
 msgstr ""
