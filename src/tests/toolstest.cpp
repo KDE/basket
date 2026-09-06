@@ -19,7 +19,7 @@ private:
     bool readAll(QString fileName, QString &text);
 };
 
-QTEST_MAIN(ToolsTest)
+QTEST_APPLESS_MAIN(ToolsTest)
 
 void ToolsTest::testHtmlToText_data()
 {
