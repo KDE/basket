@@ -409,57 +409,6 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         return dropURLs(urls, parent, action, fromDrop);
     }
 
-    // FIXME: use dropURLs() also from Mozilla?
-
-    /*
-     * Mozilla's stuff sometimes uses utf-16-le - little-endian UTF-16.
-     *
-     * This has the property that for the ASCII subset case (And indeed, the
-     * ISO-8859-1 subset, I think), if you treat it as a C-style string,
-     * it'll come out to one character long in most cases, since it looks
-     * like:
-     *
-     * "<\0H\0T\0M\0L\0>\0"
-     *
-     * A strlen() call on that will give you 1, which simply isn't correct.
-     * That might, I suppose, be the answer, or something close.
-     *
-     * Also, Mozilla's drag/drop code predates the use of MIME types in XDnD
-     * - hence it'll throw about STRING and UTF8_STRING quite happily, hence
-     * the odd named types.
-     *
-     * Thanks to Dave Cridland for having said me that.
-     */
-    if (source->hasFormat(QStringLiteral("text/x-moz-url"))) { // FOR MOZILLA
-        // Get the array and create a QChar array of 1/2 of the size
-        QByteArray mozilla = source->data(QStringLiteral("text/x-moz-url"));
-        QVector<QChar> chars(mozilla.size() / 2);
-        // A small debug work to know the value of each bytes
-        if (Global::debugWindow)
-            for (int i = 0; i < mozilla.size(); i++)
-                *Global::debugWindow << QStringLiteral("'") + QLatin1Char(mozilla[i]) + QStringLiteral("' ") + QString::number(int(mozilla[i]));
-        // text/x-moz-url give the URL followed by the link title and separated by OxOA (10 decimal: new line?)
-        uint size = 0;
-        QChar *name = nullptr;
-        // For each little endian mozilla chars, copy it to the array of QChars
-        for (int i = 0; i < mozilla.size(); i += 2) {
-            chars[i / 2] = QChar(mozilla[i], mozilla[i + 1]);
-            if (mozilla.at(i) == 0x0A) {
-                size = i / 2;
-                name = &(chars[i / 2 + 1]);
-            }
-        }
-        // Create a QString that take the address of the first QChar and a length
-        if (name == nullptr) { // We haven't found name (FIXME: Is it possible ?)
-            QString normalHtml(&(chars[0]), chars.size());
-            return createNoteLink(QUrl(normalHtml), parent);
-        } else {
-            QString normalHtml(&(chars[0]), size);
-            QString normalTitle(name, chars.size() - size - 1);
-            return createNoteLink(QUrl(normalHtml), normalTitle, parent);
-        }
-    }
-
     if (source->hasFormat(QStringLiteral("text/html"))) {
         QString html;
         QString subtype(QStringLiteral("html"));
