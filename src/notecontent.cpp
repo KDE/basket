@@ -2529,7 +2529,7 @@ void UnknownContent::addAlternateDragObjects(QMimeData *dragObject)
             }
         } while (!line.isEmpty() && !stream.atEnd());
         // Add the streams:
-        quint64 size; // TODO: It was quint32 in version 0.5.0 !
+        quint32 size;
         QByteArray *array;
         for (int i = 0; i < mimes.count(); ++i) {
             // Get the size:
