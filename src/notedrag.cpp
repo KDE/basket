@@ -551,12 +551,12 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
 {
     // Get the string:
     bool ok;
-    QString mime = e->text();
+    str = e->text();
     ok = !str.isNull();
 
     // Test if it was a UTF-16 string (from eg. Mozilla):
     if (str.length() >= 2) {
-        if ((mime[0] == QLatin1Char(0xFF) && mime[1] == QLatin1Char(0xFE)) || (mime[0] == QLatin1Char(0xFE) && mime[1] == QLatin1Char(0xFF))) {
+        if ((str[0] == QLatin1Char(0xFF) && str[1] == QLatin1Char(0xFE)) || (str[0] == QLatin1Char(0xFE) && str[1] == QLatin1Char(0xFF))) {
             auto fromUtf16 = QStringEncoder(QStringEncoder::Utf8);
             QByteArray encodedString = fromUtf16(str);
             str = QString::fromUtf8(encodedString);
