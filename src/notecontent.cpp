@@ -1987,8 +1987,10 @@ CrossReferenceContent::CrossReferenceContent(Note *parent, const QUrl &url, cons
     , m_linkDisplayItem(parent)
 {
     this->setCrossReference(url, title, icon);
-    if (parent)
+    if (parent) {
         parent->addToGroup(&m_linkDisplayItem);
+        m_linkDisplayItem.setPos(parent->contentX(), Note::NOTE_MARGIN);
+    }
 }
 
 CrossReferenceContent::~CrossReferenceContent()
