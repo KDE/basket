@@ -977,13 +977,13 @@ Note *NoteFactory::importKMenuLauncher(BasketScene *parent)
 
 Note *NoteFactory::importIcon(BasketScene *parent)
 {
-    QString iconName = KIconDialog::getIcon(KIconLoader::Desktop, KIconLoader::Application, false, Settings::defIconSize());
+    QString iconName = KIconDialog::getIcon(KIconLoader::Desktop, KIconLoader::Application, false, Settings::defIconSize(), false, parent->graphicsView());
     if (!iconName.isEmpty()) {
         QPointer<IconSizeDialog> dialog = new IconSizeDialog(i18n("Import Icon as Image"),
                                                              i18n("Choose the size of the icon to import as an image:"),
                                                              iconName,
                                                              Settings::defIconSize(),
-                                                             nullptr);
+                                                             parent->graphicsView());
         dialog->exec();
         if (dialog->iconSize() > 0) {
             Settings::setDefIconSize(dialog->iconSize());
