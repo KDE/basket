@@ -380,9 +380,11 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
 
     /* Else : Drop object to note */
 
-    auto image = qvariant_cast<QImage>(source->imageData());
-    if (!image.isNull())
-        return createNoteImage(QPixmap::fromImage(image), parent);
+    if (source->hasImage()) {
+        auto image = qvariant_cast<QImage>(source->imageData());
+        if (!image.isNull())
+            return createNoteImage(QPixmap::fromImage(image), parent);
+    }
 
     if (source->hasColor()) {
         return createNoteColor(qvariant_cast<QColor>(source->colorData()), parent);
@@ -392,7 +394,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
     QString hack;
     QRegularExpression exp(QRegularExpression::anchoredPattern(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$")));
     hack = source->text();
-    if (source->hasFormat(QStringLiteral("application/x-color")) || (!hack.isNull() && hack.indexOf(exp) != -1)) {
+    if (!hack.isNull() && hack.indexOf(exp) != -1) {
         auto color = qvariant_cast<QColor>(source->colorData());
         if (color.isValid())
             return createNoteColor(color, parent);
@@ -409,7 +411,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         return dropURLs(urls, parent, action, fromDrop);
     }
 
-    if (source->hasFormat(QStringLiteral("text/html"))) {
+    if (source->hasHtml()) {
         QString html;
         QString subtype(QStringLiteral("html"));
         // If the text/html comes from Mozilla or GNOME it can be UTF-16 encoded: we need ExtendedTextDrag to check that
@@ -417,10 +419,12 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         return createNoteHtml(html, parent);
     }
 
-    QString text;
-    // If the text/plain comes from GEdit or GNOME it can be empty: we need ExtendedTextDrag to check other MIME types
-    if (ExtendedTextDrag::decode(source, text))
-        return createNoteFromText(text, parent);
+    if (source->hasText()) {
+        QString text;
+        // If the text/plain comes from GEdit or GNOME it can be empty: we need ExtendedTextDrag to check other MIME types
+        if (ExtendedTextDrag::decode(source, text))
+            return createNoteFromText(text, parent);
+    }
 
     /* Create a cross reference note */
 
