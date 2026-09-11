@@ -23,7 +23,6 @@
 #include <QMimeType>
 #include <QMovie>
 #include <QPixmap>
-#include <QRegularExpression>
 #include <QString>
 #include <QTextDocument> //For Qt::mightBeRichText(...)
 #include <QTextStream>
@@ -213,9 +212,11 @@ QStringList NoteFactory::textToURLList(const QString &text)
 Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
 {
     /* Search for a color (#RGB , #RRGGBB , #RRRGGGBBB , #RRRRGGGGBBBB) and create a color note */
-    QRegularExpression exp(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$"));
-    if (text.indexOf(exp) != -1)
-        return createNoteColor(QColor(text), parent);
+    if (text.startsWith(QLatin1Char('#'))) {
+        const QColor color = QColor::fromString(text);
+        if (color.isValid())
+            return createNoteColor(color, parent);
+    }
 
     /* Try to convert the text as a URL or a list of URLs */
     QStringList uriList = textToURLList(text);
