@@ -177,7 +177,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
 
         /* Search for mail address ("*@*.*" ; "*" can contain '_', '-', or '.') and add protocol to it */
         QString mailExpString = QStringLiteral("[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+");
-        QRegularExpression mailExp(QRegularExpression::anchoredPattern(QStringLiteral("^") + mailExpString + QLatin1Char('$')));
+        QRegularExpression mailExp(QStringLiteral("^") + mailExpString + QLatin1Char('$'));
 
         if (ltext.indexOf(mailExp) != -1) {
             ltext.insert(0, QStringLiteral("mailto:"));
@@ -188,7 +188,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
         // TODO: Replace " at " by "@" and " dot " by "." to look for e-mail addresses
 
         /* Search for mail address like "Name <address@provider.net>" */
-        QRegularExpression namedMailExp(QRegularExpression::anchoredPattern(QStringLiteral("^([\\w\\s]+)\\s<(") + mailExpString + QStringLiteral(")>$")));
+        QRegularExpression namedMailExp(QStringLiteral("^([\\w\\s]+)\\s<(") + mailExpString + QStringLiteral(")>$"));
         // namedMailExp.setCaseSensitive(true); // For the name to be keeped with uppercases // DOESN'T WORK !
         if (ltext.indexOf(namedMailExp) != -1) {
             QRegularExpressionMatch m = namedMailExp.match(ltext);
@@ -225,7 +225,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
 Note *NoteFactory::createNoteFromText(const QString &text, BasketScene *parent)
 {
     /* Search for a color (#RGB , #RRGGBB , #RRRGGGBBB , #RRRRGGGGBBBB) and create a color note */
-    QRegularExpression exp(QRegularExpression::anchoredPattern(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$")));
+    QRegularExpression exp(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$"));
     if (text.indexOf(exp) != -1)
         return createNoteColor(QColor(text), parent);
 
@@ -392,7 +392,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
 
     // And then the hack (if provide color MIME type or a text that contains color), using createNote Color RegExp:
     QString hack;
-    QRegularExpression exp(QRegularExpression::anchoredPattern(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$")));
+    QRegularExpression exp(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$"));
     hack = source->text();
     if (!hack.isNull() && hack.indexOf(exp) != -1) {
         auto color = qvariant_cast<QColor>(source->colorData());
