@@ -38,6 +38,7 @@
 #include <KMessageBox>
 #include <KModifierKeyInfo>
 #include <KOpenWithDialog>
+#include <KProtocolInfo>
 #include <KUriFilter>
 
 #include <KIO/CopyJob>
@@ -889,6 +890,10 @@ QString NoteFactory::titleForURL(const QUrl &url)
 
 QString NoteFactory::iconForURL(const QUrl &url)
 {
+    const QString icon = KProtocolInfo::icon(url.scheme());
+    if (!icon.isEmpty()) {
+        return icon;
+    }
     if (url.scheme() == QStringLiteral("mailto")) {
         return QStringLiteral("message");
     } else if (url.scheme() == QStringLiteral("http") || url.scheme() == QStringLiteral("https")) {
