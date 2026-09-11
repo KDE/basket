@@ -34,7 +34,7 @@ void NoteFactoryTest::testTextToURLList_data()
     // valid emails or URLs only
     QTest::newRow("valid-email") << QStringLiteral("email@example.org") << QStringList{QStringLiteral("mailto:email@example.org"), QString()};
     QTest::newRow("valid-email+name") << QStringLiteral("Some nice Example <email@example.org>")
-                                      << QStringList{QStringLiteral("mailto:email@example.org"), QStringLiteral("some nice example")};
+                                      << QStringList{QStringLiteral("mailto:email@example.org"), QStringLiteral("Some nice Example")};
     QTest::newRow("valid-https") << QStringLiteral("https://kde.org") << QStringList{QStringLiteral("https://kde.org"), QString()};
     QTest::newRow("mixed-email-https") << QStringLiteral("email@example.org\nhttps://kde.org")
                                        << QStringList{QStringLiteral("mailto:email@example.org"), QString(), QStringLiteral("https://kde.org"), QString()};

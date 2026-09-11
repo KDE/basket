@@ -32,6 +32,7 @@
 #include <qnamespace.h>
 
 #include <KAboutData> //For KGlobal::mainComponent().aboutData(...)
+#include <KEmailAddress>
 #include <KIconDialog>
 #include <KIconLoader>
 #include <KLocalizedString>
@@ -172,33 +173,20 @@ QStringList NoteFactory::textToURLList(const QString &text)
         if ((*it).isEmpty())
             continue;
 
-        // Compute lower case equivalent:
-        QString ltext = (*it).toLower();
-
-        /* Search for mail address ("*@*.*" ; "*" can contain '_', '-', or '.') and add protocol to it */
-        QString mailExpString = QStringLiteral("[-\\w\\.]+@[-\\w\\.]+\\.[\\w]+");
-        QRegularExpression mailExp(QStringLiteral("^") + mailExpString + QLatin1Char('$'));
-
-        if (ltext.indexOf(mailExp) != -1) {
-            ltext.insert(0, QStringLiteral("mailto:"));
-            (*it).insert(0, QStringLiteral("mailto:"));
-        }
-
-        // TODO: Recognize "<link>" (link between '<' and '>')
-        // TODO: Replace " at " by "@" and " dot " by "." to look for e-mail addresses
-
-        /* Search for mail address like "Name <address@provider.net>" */
-        QRegularExpression namedMailExp(QStringLiteral("^([\\w\\s]+)\\s<(") + mailExpString + QStringLiteral(")>$"));
-        // namedMailExp.setCaseSensitive(true); // For the name to be keeped with uppercases // DOESN'T WORK !
-        if (ltext.indexOf(namedMailExp) != -1) {
-            QRegularExpressionMatch m = namedMailExp.match(ltext);
-            QString name = m.captured(1);
-            QString address = QStringLiteral("mailto:") + m.captured(2);
-            // Threat it NOW, as it's an exception (it have a title):
-            list.append(address);
-            list.append(name);
+        /* Search for email address, both as "address@provider.net" and "Name <address@provider.net>" */
+        QString email;
+        QString emailName;
+        KEmailAddress::extractEmailAddressAndName(*it, email, emailName);
+        if (!email.isEmpty() && KEmailAddress::isValidSimpleAddress(email)) {
+            email.insert(0, QStringLiteral("mailto:"));
+            // Valid email, shortcut things
+            list.append(email);
+            list.append(emailName);
             continue;
         }
+
+        // Compute lower case equivalent:
+        QString ltext = (*it).toLower();
 
         /* Search for an url and create an URL note */
         if ((ltext.startsWith(QLatin1Char('/')) && ltext[1] != QLatin1Char('/') && ltext[1] != QLatin1Char('*')) || // Take files but not C/C++/... comments !
