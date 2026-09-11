@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:49+0000\n"
+"POT-Creation-Date: 2026-09-11 00:49+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1655,7 +1655,7 @@ msgstr "采样率"
 msgid "Track number"
 msgstr "音轨编号"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2177
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
 #, kde-format
 msgid "Comment"
 msgstr "备注"
@@ -2406,12 +2406,12 @@ msgstr "打开声音方式："
 msgid "Open sounds with:"
 msgstr "打开声音 (多个) 方式："
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2017
+#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
 #, kde-format
 msgid "Target"
 msgstr "目标"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2039
+#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
 #, kde-format
 msgid "Open this link"
 msgstr "打开此链接"
@@ -2451,89 +2451,89 @@ msgstr "打开目标链接方式："
 msgid "Open link targets with:"
 msgstr "打开目标链接 (多个) 方式："
 
-#: src/notecontent.cpp:2052
+#: src/notecontent.cpp:2054
 #, kde-format
 msgid "Link to %1"
 msgstr ""
 
-#: src/notecontent.cpp:2065
+#: src/notecontent.cpp:2067
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "链接中没有可以打开的记事贴。"
 
-#: src/notecontent.cpp:2069
+#: src/notecontent.cpp:2071
 #, kde-format
 msgid "Opening basket..."
 msgstr "打开笔记篮..."
 
-#: src/notecontent.cpp:2174
+#: src/notecontent.cpp:2176
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(在终端中运行)</i>"
 
-#: src/notecontent.cpp:2179
+#: src/notecontent.cpp:2181
 #, kde-format
 msgid "Command"
 msgstr "命令"
 
-#: src/notecontent.cpp:2203
+#: src/notecontent.cpp:2205
 #, kde-format
 msgid "Launch this application"
 msgstr "启动此应用程序"
 
-#: src/notecontent.cpp:2224
+#: src/notecontent.cpp:2226
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "此程序启动器没有可以运行的命令。"
 
-#: src/notecontent.cpp:2228
+#: src/notecontent.cpp:2230
 #, kde-format
 msgid "Launching application..."
 msgstr "运行应用程序..."
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2232
 #, kde-format
 msgid "Launching applications..."
 msgstr "运行应用程序 (多个)..."
 
-#: src/notecontent.cpp:2350
+#: src/notecontent.cpp:2352
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2351
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>红</i>：%1，<i>绿</i>：%2，<i>蓝</i>：%3，"
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2358
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>色相</i>：%1，<i>饱和度</i>：%2，<i>值</i>：%3，"
 
-#: src/notecontent.cpp:2360
+#: src/notecontent.cpp:2362
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS 颜色名称"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Is Web Color"
 msgstr "属于网络标准颜色"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Yes"
 msgstr "是"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "No"
 msgstr "否"

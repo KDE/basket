@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:49+0000\n"
+"POT-Creation-Date: 2026-09-11 00:49+0000\n"
 "PO-Revision-Date: 2026-06-11 17:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -1685,7 +1685,7 @@ msgstr "取樣率"
 msgid "Track number"
 msgstr "曲目編號"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2177
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
 #, kde-format
 msgid "Comment"
 msgstr "註解"
@@ -2454,12 +2454,12 @@ msgstr "聲音開啟方式："
 msgid "Open sounds with:"
 msgstr "聲音開啟方式："
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2017
+#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
 #, kde-format
 msgid "Target"
 msgstr "目標"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2039
+#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
 #, kde-format
 msgid "Open this link"
 msgstr "開啟這個連結"
@@ -2499,89 +2499,89 @@ msgstr "連結目標開啟方式："
 msgid "Open link targets with:"
 msgstr "連結目標開啟方式："
 
-#: src/notecontent.cpp:2052
+#: src/notecontent.cpp:2054
 #, kde-format
 msgid "Link to %1"
 msgstr "連結到 %1"
 
-#: src/notecontent.cpp:2065
+#: src/notecontent.cpp:2067
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "連結沒有能開啟的筆記本。"
 
-#: src/notecontent.cpp:2069
+#: src/notecontent.cpp:2071
 #, kde-format
 msgid "Opening basket..."
 msgstr "正在開啟筆記本…"
 
-#: src/notecontent.cpp:2174
+#: src/notecontent.cpp:2176
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(於終端機執行)</i>"
 
-#: src/notecontent.cpp:2179
+#: src/notecontent.cpp:2181
 #, kde-format
 msgid "Command"
 msgstr "指令"
 
-#: src/notecontent.cpp:2203
+#: src/notecontent.cpp:2205
 #, kde-format
 msgid "Launch this application"
 msgstr "啟動這個應用程式"
 
-#: src/notecontent.cpp:2224
+#: src/notecontent.cpp:2226
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "啟動器沒有能執行的指令。"
 
-#: src/notecontent.cpp:2228
+#: src/notecontent.cpp:2230
 #, kde-format
 msgid "Launching application..."
 msgstr "正在啟動應用程式..."
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2232
 #, kde-format
 msgid "Launching applications..."
 msgstr "正在啟動應用程式..."
 
-#: src/notecontent.cpp:2350
+#: src/notecontent.cpp:2352
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2351
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>紅</i>: %1, <i>綠</i>: %2, <i>藍</i>: %3,"
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2358
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>色相</i>: %1, <i>飽和</i>: %2, <i>明度</i>: %3,"
 
-#: src/notecontent.cpp:2360
+#: src/notecontent.cpp:2362
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS 顏色名稱"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Is Web Color"
 msgstr "是網頁顏色"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Yes"
 msgstr "是"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "No"
 msgstr "否"

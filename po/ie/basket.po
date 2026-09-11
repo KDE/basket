@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:49+0000\n"
+"POT-Creation-Date: 2026-09-11 00:49+0000\n"
 "PO-Revision-Date: 2022-12-04 23:21+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -1658,7 +1658,7 @@ msgstr "&Rapidore:"
 msgid "Track number"
 msgstr "Nró del track"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2177
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
 #, kde-format
 msgid "Comment"
 msgstr "Comenta"
@@ -2409,12 +2409,12 @@ msgstr "Audioexeada OSS"
 msgid "Open sounds with:"
 msgstr "Null sones"
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2017
+#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
 #, kde-format
 msgid "Target"
 msgstr "Destination"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2039
+#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
 #, fuzzy, kde-format
 msgid "Open this link"
 msgstr "Ne posset aperter li ligament extern"
@@ -2454,47 +2454,47 @@ msgstr "<b>Ad_resse de ligament:</b>"
 msgid "Open link targets with:"
 msgstr "Aperter li ligament"
 
-#: src/notecontent.cpp:2052
+#: src/notecontent.cpp:2054
 #, kde-format
 msgid "Link to %1"
 msgstr "Ligament a %1"
 
-#: src/notecontent.cpp:2065
+#: src/notecontent.cpp:2067
 #, fuzzy, kde-format
 msgid "Link has no basket to open."
 msgstr "Aperter ligament in un nov carte"
 
-#: src/notecontent.cpp:2069
+#: src/notecontent.cpp:2071
 #, fuzzy, kde-format
 msgid "Opening basket..."
 msgstr "&Corb"
 
-#: src/notecontent.cpp:2174
+#: src/notecontent.cpp:2176
 #, fuzzy, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "<i>[Ti missage esset removet: %1]</i>"
 
-#: src/notecontent.cpp:2179
+#: src/notecontent.cpp:2181
 #, kde-format
 msgid "Command"
 msgstr "Comande"
 
-#: src/notecontent.cpp:2203
+#: src/notecontent.cpp:2205
 #, fuzzy, kde-format
 msgid "Launch this application"
 msgstr "Ne successat lansar li application predefinit por «%s»"
 
-#: src/notecontent.cpp:2224
+#: src/notecontent.cpp:2226
 #, fuzzy, kde-format
 msgid "The launcher have no command to run."
 msgstr "Li comande del lansator ne es assignat."
 
-#: src/notecontent.cpp:2228
+#: src/notecontent.cpp:2230
 #, fuzzy, kde-format
 msgid "Launching application..."
 msgstr "Un errore evenit lansante li application."
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2232
 #, fuzzy, kde-format
 msgid "Launching applications..."
 msgstr ""
@@ -2505,44 +2505,44 @@ msgstr ""
 "con un sistema de plugines, quel es similar a li de GNOME Nautilus, un fork "
 "de quel Caja es. </p>"
 
-#: src/notecontent.cpp:2350
+#: src/notecontent.cpp:2352
 #, fuzzy, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2351
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr ""
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr ""
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2358
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr ""
 
-#: src/notecontent.cpp:2360
+#: src/notecontent.cpp:2362
 #, fuzzy, kde-format
 msgid "CSS Color Name"
 msgstr "CSS"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Is Web Color"
 msgstr "Es un color web"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Yes"
 msgstr "Yes"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "No"
 msgstr "No"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:49+0000\n"
+"POT-Creation-Date: 2026-09-11 00:49+0000\n"
 "PO-Revision-Date: 2020-03-10 15:07+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1754,7 +1754,7 @@ msgstr "Vzorkovacia frekvencia"
 msgid "Track number"
 msgstr "Číslo skladby"
 
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2177
+#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
 #, kde-format
 msgid "Comment"
 msgstr "Komentár"
@@ -2533,12 +2533,12 @@ msgstr "Otvoriť zvuk pomocou:"
 msgid "Open sounds with:"
 msgstr "Otvoriť zvuky pomocou:"
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2017
+#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
 #, kde-format
 msgid "Target"
 msgstr "Cieľ"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2039
+#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
 #, kde-format
 msgid "Open this link"
 msgstr "Otvoriť tento odkaz"
@@ -2578,89 +2578,89 @@ msgstr "Otvoriť cieľ odkazu pomocou:"
 msgid "Open link targets with:"
 msgstr "Otvoriť ciele odkazov pomocou:"
 
-#: src/notecontent.cpp:2052
+#: src/notecontent.cpp:2054
 #, kde-format
 msgid "Link to %1"
 msgstr "Odkaz na %1"
 
-#: src/notecontent.cpp:2065
+#: src/notecontent.cpp:2067
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Odkaz nemá žiadny košík na otvorenie."
 
-#: src/notecontent.cpp:2069
+#: src/notecontent.cpp:2071
 #, kde-format
 msgid "Opening basket..."
 msgstr "Otváranie košíka..."
 
-#: src/notecontent.cpp:2174
+#: src/notecontent.cpp:2176
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(spustiť v termináli)</i>"
 
-#: src/notecontent.cpp:2179
+#: src/notecontent.cpp:2181
 #, kde-format
 msgid "Command"
 msgstr "Príkaz"
 
-#: src/notecontent.cpp:2203
+#: src/notecontent.cpp:2205
 #, kde-format
 msgid "Launch this application"
 msgstr "Spustiť túto aplikáciu"
 
-#: src/notecontent.cpp:2224
+#: src/notecontent.cpp:2226
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "Spúšťač nemá žiadny príkaz na spustenie."
 
-#: src/notecontent.cpp:2228
+#: src/notecontent.cpp:2230
 #, kde-format
 msgid "Launching application..."
 msgstr "Spúšťanie aplikácie..."
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2232
 #, kde-format
 msgid "Launching applications..."
 msgstr "Spúšťanie aplikácií..."
 
-#: src/notecontent.cpp:2350
+#: src/notecontent.cpp:2352
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2351
+#: src/notecontent.cpp:2353
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Červená</i>: %1, <i>Zelená</i>: %2, <i>Modrá</i>: %3,"
 
-#: src/notecontent.cpp:2355
+#: src/notecontent.cpp:2357
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2356
+#: src/notecontent.cpp:2358
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Odtieň</i>: %1, <i>Sýtosť</i>: %2, <i>Hodnota</i>: %3,"
 
-#: src/notecontent.cpp:2360
+#: src/notecontent.cpp:2362
 #, kde-format
 msgid "CSS Color Name"
 msgstr "Názov farby CSS"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Is Web Color"
 msgstr "Is Web Color"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "Yes"
 msgstr "Áno"
 
-#: src/notecontent.cpp:2363
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "No"
 msgstr "Nie"
