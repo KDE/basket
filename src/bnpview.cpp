@@ -40,7 +40,6 @@
 #include <KMessageWidget>
 #include <KStandardShortcut>
 #include <KToggleAction>
-#include <KWindowSystem>
 #include <KXMLGUIClient>
 #include <KXMLGUIFactory>
 

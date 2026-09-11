@@ -99,7 +99,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Service
     TextWidgets
     WidgetsAddons
-    WindowSystem
     XmlGui
 )
 find_package(KF6DocTools ${KF_MIN_VERSION})
