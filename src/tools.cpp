@@ -301,7 +301,7 @@ QString Tools::htmlToText(const QString &html)
     QList<bool> ul; // true if current list is a <ul> one, false if it's an <ol> one
     QList<int> lines; // The line number if it is an <ol> list
     // We're removing every other tags, or replace them in the case of li:
-    while ((pos = text.indexOf(QStringLiteral("<")), pos) != -1) {
+    while ((pos = text.indexOf(QStringLiteral("<"), pos)) != -1) {
         // What is the current tag?
         tag = text.mid(pos + 1, 2);
         tag3 = text.mid(pos + 1, 3);
@@ -320,7 +320,7 @@ QString Tools::htmlToText(const QString &html)
             lines.pop_back();
         }
         // Where the tag closes?
-        pos2 = text.indexOf(QStringLiteral(">"));
+        pos2 = text.indexOf(QStringLiteral(">"), pos);
         if (pos2 != -1) {
             // Remove the tag:
             text.remove(pos, pos2 - pos + 1);
@@ -342,8 +342,9 @@ QString Tools::htmlToText(const QString &html)
             }
             if ((tag3 == QStringLiteral("/ul") || tag3 == QStringLiteral("/ol")) && deep == 0)
                 text.insert(pos, QStringLiteral("\n")); // Empty line before and after a set of lists
+        } else {
+            ++pos;
         }
-        ++pos;
     }
 
     text.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
