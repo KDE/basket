@@ -1466,7 +1466,7 @@ QMap<QString, QString> FileContent::toolTipInfos()
     QMap<QString, QString> toolTip;
 
     // Get the size of the file:
-    uint size = QFileInfo(fullPath()).size();
+    qint64 size = QFileInfo(fullPath()).size();
     QString humanFileSize = KIO::convertSize((KIO::filesize_t)size);
     toolTip.insert(i18n("Size"), humanFileSize);
 
