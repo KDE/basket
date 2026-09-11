@@ -176,7 +176,7 @@ QStringList NoteFactory::textToURLList(const QString &text)
         QString ltext = (*it).toLower();
 
         /* Search for mail address ("*@*.*" ; "*" can contain '_', '-', or '.') and add protocol to it */
-        QString mailExpString = QStringLiteral("[\\w-\\.]+@[\\w-\\.]+\\.[\\w]+");
+        QString mailExpString = QStringLiteral("[-\\w\\.]+@[-\\w\\.]+\\.[\\w]+");
         QRegularExpression mailExp(QStringLiteral("^") + mailExpString + QLatin1Char('$'));
 
         if (ltext.indexOf(mailExp) != -1) {
