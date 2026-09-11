@@ -378,19 +378,6 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
         return createNoteColor(qvariant_cast<QColor>(source->colorData()), parent);
     }
 
-    // And then the hack (if provide color MIME type or a text that contains color), using createNote Color RegExp:
-    QString hack;
-    QRegularExpression exp(QStringLiteral("^#(?:[a-fA-F\\d]{3}){1,4}$"));
-    hack = source->text();
-    if (!hack.isNull() && hack.indexOf(exp) != -1) {
-        auto color = qvariant_cast<QColor>(source->colorData());
-        if (color.isValid())
-            return createNoteColor(color, parent);
-        //          if ( (note = createNoteColor(color, parent)) )
-        //              return note;
-        //          // Theoretically it should be returned. If not, continue by dropping other things
-    }
-
     QList<QUrl> urls = source->urls();
     if (!urls.isEmpty()) {
         // If it's a Paste, we should know if files should be copied (copy&paste) or moved (cut&paste):
