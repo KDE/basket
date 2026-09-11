@@ -10,6 +10,7 @@ set(BASKET_TEST_SRC
     basketviewtest.cpp
     toolstest.cpp
     archivetest.cpp
+    notefactorytest.cpp
 )
 
 ecm_add_tests(${BASKET_TEST_SRC} LINK_LIBRARIES LibBasket Qt::Test)
