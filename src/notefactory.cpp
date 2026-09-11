@@ -936,17 +936,17 @@ bool NoteFactory::isIconExist(const QString &icon)
 
 Note *NoteFactory::createEmptyNote(NoteType::Id type, BasketScene *parent)
 {
-    QPixmap *pixmap;
     switch (type) {
     case NoteType::Text:
         return NoteFactory::createNoteText(QString(), parent, /*reallyPlainText=*/true);
     case NoteType::Html:
         return NoteFactory::createNoteHtml(QString(), parent);
-    case NoteType::Image:
-        pixmap = new QPixmap(QSize(Settings::defImageX(), Settings::defImageY()));
-        pixmap->fill();
-        pixmap->setMask(pixmap->createHeuristicMask());
-        return NoteFactory::createNoteImage(*pixmap, parent);
+    case NoteType::Image: {
+        QPixmap pixmap(QSize(Settings::defImageX(), Settings::defImageY()));
+        pixmap.fill();
+        pixmap.setMask(pixmap.createHeuristicMask());
+        return NoteFactory::createNoteImage(pixmap, parent);
+    }
     case NoteType::Link:
         return NoteFactory::createNoteLink(QUrl(), parent);
     case NoteType::CrossReference:
