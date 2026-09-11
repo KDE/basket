@@ -10,6 +10,8 @@
 #include "notecontent.h" //For NoteType::Id
 #include <QDomElement>
 
+#include <basket_export.h>
+
 class QColor;
 class QPixmap;
 class QString;
@@ -76,7 +78,7 @@ QString titleForURL(const QUrl &url);
 QString iconForURL(const QUrl &url);
 QString iconForCommand(const QString &command);
 bool isIconExist(const QString &icon);
-QStringList textToURLList(const QString &text); // @Return { url1, title1, url2, title2, url3, title3... }
+BASKET_EXPORT QStringList textToURLList(const QString &text); // @Return { url1, title1, url2, title2, url3, title3... }
 /** Insert GUI menu */
 Note *createEmptyNote(NoteType::Id type, BasketScene *parent); // Insert empty if of type Note::Type
 Note *importKMenuLauncher(BasketScene *parent);
