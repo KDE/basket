@@ -34,6 +34,9 @@
 #include <KEncodingProber>
 #include <KFileItem>
 #include <KFileMetaData/Extractor>
+#include <KFileMetaData/ExtractorCollection>
+#include <KFileMetaData/PropertyInfo>
+#include <KFileMetaData/SimpleExtractionResult>
 #include <KIO/PreviewJob> //For KIO::file_preview(...)
 #include <KLocalizedString>
 #include <KService>
@@ -45,7 +48,6 @@
 #include "common.h"
 #include "config.h"
 #include "debugwindow.h"
-#include "file_metadata.h"
 #include "filter.h"
 #include "global.h"
 #include "htmlexporter.h"
@@ -1476,19 +1478,24 @@ QMap<QString, QString> FileContent::toolTipInfos()
         toolTip.insert(i18n("Type"), mime.comment());
     }
 
-    MetaDataExtractionResult result(fullPath(), mime.name());
+    KFileMetaData::SimpleExtractionResult result(fullPath(), mime.name(), KFileMetaData::ExtractionResult::ExtractMetaData);
 
     KFileMetaData::ExtractorCollection extractorCollection;
     const QList<KFileMetaData::Extractor *> exList = extractorCollection.fetchExtractors(mime.name());
     for (KFileMetaData::Extractor *ex : exList) {
         ex->extract(&result);
-        const auto groups = result.preferredGroups();
-        DEBUG_WIN << QStringLiteral("Metadata Extractor result has ") << QString::number(groups.count()) << QStringLiteral(" groups");
+        const auto props = result.properties();
+        DEBUG_WIN << QStringLiteral("Metadata Extractor result has ") << QString::number(props.count()) << QStringLiteral(" properties");
 
-        for (const auto &group : groups) {
-            if (!group.second.isEmpty()) {
-                toolTip.insert(group.first, group.second);
+        for (auto it = props.cbegin(), end = props.cend(); it != end; ++it) {
+            const QVariant value = it.value();
+            if (value.isNull()) {
+                continue;
             }
+            const KFileMetaData::PropertyInfo pi(it.key());
+            // TODO: handle multiple values for the same property key;
+            //       only one is returned
+            toolTip.insert(pi.displayName(), pi.formatAsDisplayString(value));
         }
     }
 

@@ -17,7 +17,6 @@ set(libbasket_SRCS
     common.cpp common.h
     debugwindow.cpp debugwindow.h
     decoratedbasket.cpp decoratedbasket.h
-    file_metadata.cpp file_metadata.h
     filter.cpp filter.h
     focusedwidgets.cpp focusedwidgets.h
     formatimporter.cpp formatimporter.h
