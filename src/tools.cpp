@@ -15,7 +15,6 @@
 #include <QGuiApplication>
 #include <QImage>
 #include <QList>
-#include <QMimeData>
 #include <QObject>
 #include <QPixmap>
 #include <QRegularExpression>
@@ -737,16 +736,6 @@ qint64 Tools::computeSizeRecursively(const QString &path)
         icon = "message";
     return icon;
 }*/
-
-bool Tools::isAFileCut(const QMimeData *source)
-{
-    if (source->hasFormat(QStringLiteral("application/x-kde-cutselection"))) {
-        QByteArray array = source->data(QStringLiteral("application/x-kde-cutselection"));
-        return !array.isEmpty() && QByteArray(array.data(), array.size() + 1).at(0) == '1';
-    }
-
-    return false;
-}
 
 void Tools::printChildren(QObject *parent)
 {

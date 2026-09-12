@@ -14,7 +14,6 @@
 class State;
 class QColor;
 class QFont;
-class QMimeData;
 class QObject;
 class QPixmap;
 class QString;
@@ -105,10 +104,6 @@ BASKET_EXPORT qint64 computeSizeRecursively(const QString &path);
 
 // Other:
 // void iconForURL(const QUrl &url);
-/** @Return true if the source is from a file cutting in Konqueror.
- * @Return false if it was just a copy or if it was a drag.
- */
-BASKET_EXPORT bool isAFileCut(const QMimeData *source);
 
 // Debug
 BASKET_EXPORT void printChildren(QObject *parent);
