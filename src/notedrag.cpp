@@ -567,15 +567,14 @@ bool ExtendedTextDrag::decode(const QMimeData *e, QString &str, QString &subtype
     // Test if it was empty (sometimes, from GNOME or Mozilla)
     if (str.length() == 0 && subtype == QStringLiteral("plain")) {
         if (e->hasFormat(QStringLiteral("UTF8_STRING"))) {
-            auto fromUtf8 = QStringEncoder(QStringEncoder::Utf16);
-            QByteArray encodedString = fromUtf8(str);
-            str = QString::fromUtf8(encodedString);
+            QByteArray utf8 = e->data(QStringLiteral("UTF8_STRING"));
+            str = QString::fromUtf8(utf8);
             return true;
         }
         if (e->hasFormat(QStringLiteral("text/unicode"))) { // FIXME: It's UTF-16 without order bytes!!!
-            auto fromUtf16 = QStringEncoder(QStringEncoder::Utf8);
-            QByteArray encodedString = fromUtf16(str);
-            str = QString::fromUtf8(encodedString);
+            QByteArray utf16 = e->data(QStringLiteral("text/unicode"));
+            auto fromUtf16 = QStringDecoder(QStringEncoder::Utf16);
+            str = fromUtf16(utf16);
             return true;
         }
         if (e->hasFormat(QStringLiteral("TEXT"))) { // local encoding
