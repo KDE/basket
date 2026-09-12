@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:49+0000\n"
+"POT-Creation-Date: 2026-09-12 00:48+0000\n"
 "PO-Revision-Date: 2022-12-04 23:21+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -237,7 +237,7 @@ msgstr "Restituer li dimension original del icone"
 msgid "BasKet Note Pads"
 msgstr "&Corb"
 
-#: src/archive.cpp:53 src/bnpview.cpp:1985
+#: src/archive.cpp:53 src/bnpview.cpp:1984
 #, fuzzy, kde-format
 msgid "Save as Basket Archive"
 msgstr "Ne posset salvar li archive «%s»"
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Overwrite Folder?"
 msgstr "_Superscrir"
 
-#: src/backup.cpp:162 src/bnpview.cpp:1994 src/htmlexporter.cpp:70
+#: src/backup.cpp:162 src/bnpview.cpp:1993 src/htmlexporter.cpp:70
 #, fuzzy, kde-format
 msgid "&Overwrite"
 msgstr "_Superscrir"
@@ -396,8 +396,8 @@ msgstr "Corbes_%1"
 msgid "Tar Archives Compressed by Gzip"
 msgstr "Tar compresset med gzip"
 
-#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:1982
-#: src/bnpview.cpp:2029 src/htmlexporter.cpp:55
+#: src/backup.cpp:203 src/backup.cpp:252 src/bnpview.cpp:1981
+#: src/bnpview.cpp:2028 src/htmlexporter.cpp:55
 #, kde-format
 msgid "All Files"
 msgstr "Omni files"
@@ -412,7 +412,7 @@ msgstr "(Corbes)"
 msgid "Backing up baskets. Please wait..."
 msgstr ""
 
-#: src/backup.cpp:255 src/bnpview.cpp:2030
+#: src/backup.cpp:255 src/bnpview.cpp:2029
 #, fuzzy, kde-format
 msgid "Open Basket Archive"
 msgstr "Aperter un archive..."
@@ -822,7 +822,7 @@ msgid ""
 "the application settings."
 msgstr ""
 
-#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1577
+#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1576
 #, kde-format
 msgid "Loading..."
 msgstr "Carga..."
@@ -832,7 +832,7 @@ msgstr "Carga..."
 msgid "&Remove"
 msgstr "&Remover"
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2414
+#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2413
 #, fuzzy, kde-format
 msgid "&Customize..."
 msgstr "Personalisar..."
@@ -1001,41 +1001,41 @@ msgstr "Panel de instrumentarium"
 msgid "Text Formatting Toolbar"
 msgstr "Formatante..."
 
-#: src/bnpview.cpp:168 src/bnpview.cpp:1215
+#: src/bnpview.cpp:167 src/bnpview.cpp:1214
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: src/bnpview.cpp:218
+#: src/bnpview.cpp:217
 #, fuzzy, kde-format
 msgid "Paste clipboard contents in current basket"
 msgstr "Collar li contenete del Paperiere"
 
-#: src/bnpview.cpp:220
+#: src/bnpview.cpp:219
 #, kde-format
 msgid ""
 "Allows you to paste clipboard contents in the current basket without having "
 "to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:225
+#: src/bnpview.cpp:224
 #, fuzzy, kde-format
 msgid "Paste selection in current basket"
 msgstr "Adjunter nodes de un fólder de Basket al actual árbor"
 
-#: src/bnpview.cpp:227
+#: src/bnpview.cpp:226
 #, kde-format
 msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
 "to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:232
+#: src/bnpview.cpp:231
 #, fuzzy, kde-format
 msgid "Create a new basket"
 msgstr "Crear un nov"
 
-#: src/bnpview.cpp:234
+#: src/bnpview.cpp:233
 #, kde-format
 msgid ""
 "Allows you to create a new basket without having to open the main window "
@@ -1043,118 +1043,118 @@ msgid ""
 "or paste selection in this new basket)."
 msgstr ""
 
-#: src/bnpview.cpp:239
+#: src/bnpview.cpp:238
 #, fuzzy, kde-format
 msgid "Go to previous basket"
 msgstr "Ear al sequent corb"
 
-#: src/bnpview.cpp:241
+#: src/bnpview.cpp:240
 #, kde-format
 msgid ""
 "Allows you to change current basket to the previous one without having to "
 "open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:245
+#: src/bnpview.cpp:244
 #, kde-format
 msgid "Go to next basket"
 msgstr "Ear al sequent corb"
 
-#: src/bnpview.cpp:247
+#: src/bnpview.cpp:246
 #, kde-format
 msgid ""
 "Allows you to change current basket to the next one without having to open "
 "the main window."
 msgstr ""
 
-#: src/bnpview.cpp:251
+#: src/bnpview.cpp:250
 #, kde-format
 msgid "Insert text note"
 msgstr "Inserter un textual note"
 
-#: src/bnpview.cpp:253
+#: src/bnpview.cpp:252
 #, kde-format
 msgid ""
 "Add a text note to the current basket without having to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:258 src/settings.cpp:587
+#: src/bnpview.cpp:257 src/settings.cpp:587
 #, kde-format
 msgid "Insert image note"
 msgstr "Inserter un image-note"
 
-#: src/bnpview.cpp:260
+#: src/bnpview.cpp:259
 #, kde-format
 msgid ""
 "Add an image note to the current basket without having to open the main "
 "window."
 msgstr ""
 
-#: src/bnpview.cpp:264 src/settings.cpp:588
+#: src/bnpview.cpp:263 src/settings.cpp:588
 #, kde-format
 msgid "Insert link note"
 msgstr "Inserter un ligament-note"
 
-#: src/bnpview.cpp:266
+#: src/bnpview.cpp:265
 #, kde-format
 msgid ""
 "Add a link note to the current basket without having to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:270 src/settings.cpp:591
+#: src/bnpview.cpp:269 src/settings.cpp:591
 #, fuzzy, kde-format
 msgid "Insert color note"
 msgstr "Inserter un textual note"
 
-#: src/bnpview.cpp:272
+#: src/bnpview.cpp:271
 #, kde-format
 msgid ""
 "Add a color note to the current basket without having to open the main "
 "window."
 msgstr ""
 
-#: src/bnpview.cpp:276
+#: src/bnpview.cpp:275
 #, fuzzy, kde-format
 msgid "Pick color from screen"
 msgstr "Selecte un color del ecran"
 
-#: src/bnpview.cpp:278
+#: src/bnpview.cpp:277
 #, kde-format
 msgid ""
 "Add a color note picked from one pixel on screen to the current basket "
 "without having to open the main window."
 msgstr ""
 
-#: src/bnpview.cpp:283 src/settings.cpp:592
+#: src/bnpview.cpp:282 src/settings.cpp:592
 #, fuzzy, kde-format
 msgid "Grab screen zone"
 msgstr "Capturar un fenestre in vice del tot ecran"
 
-#: src/bnpview.cpp:285
+#: src/bnpview.cpp:284
 #, kde-format
 msgid ""
 "Grab a screen zone as an image in the current basket without having to open "
 "the main window."
 msgstr ""
 
-#: src/bnpview.cpp:291
+#: src/bnpview.cpp:290
 #, fuzzy, kde-format
 msgid "Insert plain text note"
 msgstr "Inserter un textual note"
 
-#: src/bnpview.cpp:293
+#: src/bnpview.cpp:292
 #, kde-format
 msgid ""
 "Add a plain text note to the current basket without having to open the main "
 "window."
 msgstr ""
 
-#: src/bnpview.cpp:302
+#: src/bnpview.cpp:301
 #, kde-format
 msgid "Baskets"
 msgstr "Corbes"
 
-#: src/bnpview.cpp:347
+#: src/bnpview.cpp:346
 #, kde-format
 msgid ""
 "<h2>Basket Tree</h2>Here is the list of your baskets. You can organize your "
@@ -1163,163 +1163,163 @@ msgid ""
 "clicking a basket to open it, or reorganize them using drag and drop."
 msgstr ""
 
-#: src/bnpview.cpp:362 src/bnpview.cpp:368
+#: src/bnpview.cpp:361 src/bnpview.cpp:367
 #, fuzzy, kde-format
 msgid "&Basket Archive..."
 msgstr "&Corb"
 
-#: src/bnpview.cpp:374
+#: src/bnpview.cpp:373
 #, fuzzy, kde-format
 msgid "&HTML Web Page..."
 msgstr "Págine Web"
 
-#: src/bnpview.cpp:380
+#: src/bnpview.cpp:379
 #, kde-format
 msgid "Text &File..."
 msgstr "&File textual..."
 
-#: src/bnpview.cpp:385
+#: src/bnpview.cpp:384
 #, kde-format
 msgid "&Backup && Restore..."
 msgstr "Archivar o restituer..."
 
-#: src/bnpview.cpp:389
+#: src/bnpview.cpp:388
 #, fuzzy, kde-format
 msgid "&Check && Cleanup..."
 msgstr "Nettation:"
 
-#: src/bnpview.cpp:396
+#: src/bnpview.cpp:395
 #, kde-format
 msgid "D&elete"
 msgstr "R&emover"
 
-#: src/bnpview.cpp:405
+#: src/bnpview.cpp:404
 #, kde-format
 msgid "Selects all notes"
 msgstr "Selecter omni notes"
 
-#: src/bnpview.cpp:408
+#: src/bnpview.cpp:407
 #, fuzzy, kde-format
 msgid "U&nselect All"
 msgstr "_Omni"
 
-#: src/bnpview.cpp:410
+#: src/bnpview.cpp:409
 #, fuzzy, kde-format
 msgid "Unselects all selected notes"
 msgstr "Selecter omni notes"
 
-#: src/bnpview.cpp:413
+#: src/bnpview.cpp:412
 #, kde-format
 msgid "&Invert Selection"
 msgstr "&Inverter li selection"
 
-#: src/bnpview.cpp:417
+#: src/bnpview.cpp:416
 #, fuzzy, kde-format
 msgid "Inverts the current selection of notes"
 msgstr "Exciser li actual selection"
 
-#: src/bnpview.cpp:420
+#: src/bnpview.cpp:419
 #, fuzzy, kde-format
 msgid "&Clear Formatting"
 msgstr "Formatante..."
 
-#: src/bnpview.cpp:424
+#: src/bnpview.cpp:423
 #, kde-format
 msgctxt "Verb; not Menu"
 msgid "&Edit..."
 msgstr "&Modificar..."
 
-#: src/bnpview.cpp:431
+#: src/bnpview.cpp:430
 #, kde-format
 msgid "&Open"
 msgstr "&Aperter"
 
-#: src/bnpview.cpp:435
+#: src/bnpview.cpp:434
 #, fuzzy, kde-format
 msgid "Open &With..."
 msgstr "Aperter _per..."
 
-#: src/bnpview.cpp:440
+#: src/bnpview.cpp:439
 #, fuzzy, kde-format
 msgid "&Save to File..."
 msgstr "_Salvar ad-in file..."
 
-#: src/bnpview.cpp:444
+#: src/bnpview.cpp:443
 #, kde-format
 msgid "&Group"
 msgstr "&Gruppar"
 
-#: src/bnpview.cpp:450
+#: src/bnpview.cpp:449
 #, kde-format
 msgid "U&ngroup"
 msgstr "De&gruppar"
 
-#: src/bnpview.cpp:456
+#: src/bnpview.cpp:455
 #, fuzzy, kde-format
 msgid "Move on &Top"
 msgstr "Mover ad _alt"
 
-#: src/bnpview.cpp:462
+#: src/bnpview.cpp:461
 #, fuzzy, kde-format
 msgid "Move &Up"
 msgstr "Mover ad-_up"
 
-#: src/bnpview.cpp:468
+#: src/bnpview.cpp:467
 #, fuzzy, kde-format
 msgid "Move &Down"
 msgstr "Mover a-bass"
 
-#: src/bnpview.cpp:474
+#: src/bnpview.cpp:473
 #, fuzzy, kde-format
 msgid "Move on &Bottom"
 msgstr "Mover ad _infra"
 
-#: src/bnpview.cpp:485
+#: src/bnpview.cpp:484
 #, kde-format
 msgid "Plai&n Text"
 msgstr "Si&mplic textu"
 
-#: src/bnpview.cpp:492
+#: src/bnpview.cpp:491
 #, kde-format
 msgid "&Text"
 msgstr "&Textu"
 
-#: src/bnpview.cpp:498
+#: src/bnpview.cpp:497
 #, kde-format
 msgid "&Link"
 msgstr "&Ligament"
 
-#: src/bnpview.cpp:504
+#: src/bnpview.cpp:503
 #, fuzzy, kde-format
 msgid "Cross &Reference"
 msgstr "Quam &referentie"
 
-#: src/bnpview.cpp:509
+#: src/bnpview.cpp:508
 #, kde-format
 msgid "&Image"
 msgstr "&Image"
 
-#: src/bnpview.cpp:514
+#: src/bnpview.cpp:513
 #, kde-format
 msgid "&Color"
 msgstr "&Color"
 
-#: src/bnpview.cpp:519
+#: src/bnpview.cpp:518
 #, kde-format
 msgid "L&auncher"
 msgstr "L&ansator"
 
-#: src/bnpview.cpp:524
+#: src/bnpview.cpp:523
 #, fuzzy, kde-format
 msgid "Import Launcher for &desktop application..."
 msgstr "Ne successat adjunter un lansator al Pupitre."
 
-#: src/bnpview.cpp:529
+#: src/bnpview.cpp:528
 #, kde-format
 msgid "Im&port Icon..."
 msgstr "Im&portar un icone..."
 
-#: src/bnpview.cpp:534 src/noteedit.cpp:546
+#: src/bnpview.cpp:533 src/noteedit.cpp:546
 #, fuzzy, kde-format
 msgid "Load From &File..."
 msgstr ""
@@ -1333,197 +1333,197 @@ msgstr ""
 "  -n, --notray        Ne lansar icewmtray.\n"
 "  -s, --sound         Lansar anc icesound.\n"
 
-#: src/bnpview.cpp:570
+#: src/bnpview.cpp:569
 #, fuzzy, kde-format
 msgid "C&olor from Screen"
 msgstr "_Konfiguration vom Anmeldebildschirm aus erlauben"
 
-#: src/bnpview.cpp:575
+#: src/bnpview.cpp:574
 #, fuzzy, kde-format
 msgid "Grab Screen &Zone"
 msgstr "Capturar un fenestre in vice del tot ecran"
 
-#: src/bnpview.cpp:596
+#: src/bnpview.cpp:595
 #, fuzzy, kde-format
 msgid "&New Basket..."
 msgstr "&Corb"
 
-#: src/bnpview.cpp:602
+#: src/bnpview.cpp:601
 #, fuzzy, kde-format
 msgid "New &Sub-Basket..."
 msgstr "&Corb"
 
-#: src/bnpview.cpp:607
+#: src/bnpview.cpp:606
 #, fuzzy, kde-format
 msgid "New Si&bling Basket..."
 msgstr "&Corb"
 
-#: src/bnpview.cpp:610
+#: src/bnpview.cpp:609
 #, fuzzy, kde-format
 msgid "&New"
 msgstr "_Creation"
 
-#: src/bnpview.cpp:620
+#: src/bnpview.cpp:619
 #, fuzzy, kde-format
 msgid "&Properties..."
 msgstr "&Proprietás..."
 
-#: src/bnpview.cpp:626
+#: src/bnpview.cpp:625
 #, fuzzy, kde-format
 msgid "Sort Children Ascending"
 msgstr "Ordinar elementes secun ascension"
 
-#: src/bnpview.cpp:631
+#: src/bnpview.cpp:630
 #, fuzzy, kde-format
 msgid "Sort Children Descending"
 msgstr "Ordinar elementes secun descension"
 
-#: src/bnpview.cpp:636
+#: src/bnpview.cpp:635
 #, fuzzy, kde-format
 msgid "Sort Siblings Ascending"
 msgstr "Ordinar elementes secun ascension"
 
-#: src/bnpview.cpp:641
+#: src/bnpview.cpp:640
 #, fuzzy, kde-format
 msgid "Sort Siblings Descending"
 msgstr "Ordinar elementes secun descension"
 
-#: src/bnpview.cpp:646
+#: src/bnpview.cpp:645
 #, kde-format
 msgctxt "Remove Basket"
 msgid "&Remove"
 msgstr "&Remover"
 
-#: src/bnpview.cpp:653
+#: src/bnpview.cpp:652
 #, kde-format
 msgctxt "Password protection"
 msgid "Pass&word..."
 msgstr "Contra&signe..."
 
-#: src/bnpview.cpp:658
+#: src/bnpview.cpp:657
 #, kde-format
 msgctxt "Lock Basket"
 msgid "&Lock"
 msgstr "S&errar"
 
-#: src/bnpview.cpp:672
+#: src/bnpview.cpp:671
 #, kde-format
 msgid "&Filter"
 msgstr "&Filtre"
 
-#: src/bnpview.cpp:684
+#: src/bnpview.cpp:683
 #, fuzzy, kde-format
 msgid "&Search All"
 msgstr "Serchar omni camps"
 
-#: src/bnpview.cpp:692
+#: src/bnpview.cpp:691
 #, fuzzy, kde-format
 msgid "&Reset Filter"
 msgstr "Reverter li filtre"
 
-#: src/bnpview.cpp:700
+#: src/bnpview.cpp:699
 #, fuzzy, kde-format
 msgid "&Previous Basket"
 msgstr "&Corb"
 
-#: src/bnpview.cpp:706
+#: src/bnpview.cpp:705
 #, fuzzy, kde-format
 msgid "&Next Basket"
 msgstr "Ear al sequent corb"
 
-#: src/bnpview.cpp:712
+#: src/bnpview.cpp:711
 #, fuzzy, kde-format
 msgid "&Fold Basket"
 msgstr "&Corb"
 
-#: src/bnpview.cpp:718
+#: src/bnpview.cpp:717
 #, fuzzy, kde-format
 msgid "&Expand Basket"
 msgstr "&Corb"
 
-#: src/bnpview.cpp:726
+#: src/bnpview.cpp:725
 #, kde-format
 msgid "Convert text notes to rich text notes"
 msgstr ""
 
-#: src/bnpview.cpp:735
+#: src/bnpview.cpp:734
 #, fuzzy, kde-format
 msgid "&Welcome Baskets"
 msgstr "(Corbes)"
 
-#: src/bnpview.cpp:1000
+#: src/bnpview.cpp:999
 #, fuzzy, kde-format
 msgid "Plain Text Notes Conversion"
 msgstr "Exportar quam simplic textu"
 
-#: src/bnpview.cpp:1001
+#: src/bnpview.cpp:1000
 #, kde-format
 msgid "Converting plain text notes to rich text ones..."
 msgstr ""
 
-#: src/bnpview.cpp:1575
+#: src/bnpview.cpp:1574
 #, kde-format
 msgid "Locked"
 msgstr "Serrat"
 
-#: src/bnpview.cpp:1579
+#: src/bnpview.cpp:1578
 #, kde-format
 msgid "No notes"
 msgstr "Null notes"
 
-#: src/bnpview.cpp:1581
+#: src/bnpview.cpp:1580
 #, kde-format
 msgid "%1 note"
 msgid_plural "%1 notes"
 msgstr[0] "%1 note"
 msgstr[1] "%1 notes"
 
-#: src/bnpview.cpp:1582
+#: src/bnpview.cpp:1581
 #, kde-format
 msgid "%1 selected"
 msgid_plural "%1 selected"
 msgstr[0] "%1 selectet"
 msgstr[1] "%1 selectet"
 
-#: src/bnpview.cpp:1583
+#: src/bnpview.cpp:1582
 #, fuzzy, kde-format
 msgid "all matches"
 msgstr "Colorar omni corespondenties"
 
-#: src/bnpview.cpp:1583
+#: src/bnpview.cpp:1582
 #, kde-format
 msgid "no filter"
 msgstr "sin filtre"
 
-#: src/bnpview.cpp:1585
+#: src/bnpview.cpp:1584
 #, kde-format
 msgid "%1 match"
 msgid_plural "%1 matches"
 msgstr[0] "%1 correspondentie"
 msgstr[1] "%1 correspondenties"
 
-#: src/bnpview.cpp:1586
+#: src/bnpview.cpp:1585
 #, kde-format
 msgctxt "e.g. '18 notes, 10 matches, 5 selected'"
 msgid "%1, %2, %3"
 msgstr "%1, %2, %3"
 
-#: src/bnpview.cpp:1719
+#: src/bnpview.cpp:1718
 #, kde-format
 msgid "The plain text notes have been converted to rich text."
 msgstr ""
 
-#: src/bnpview.cpp:1719 src/bnpview.cpp:1721
+#: src/bnpview.cpp:1718 src/bnpview.cpp:1720
 #, fuzzy, kde-format
 msgid "Conversion Finished"
 msgstr "Compleet:"
 
-#: src/bnpview.cpp:1721
+#: src/bnpview.cpp:1720
 #, fuzzy, kde-format
 msgid "There are no plain text notes to convert."
 msgstr "Exportar quam simplic textu"
 
-#: src/bnpview.cpp:1738
+#: src/bnpview.cpp:1737
 #, kde-format
 msgid ""
 "<p><b>The file basketui.rc seems to not exist or is too old.<br>%1 cannot "
@@ -1535,70 +1535,70 @@ msgid ""
 "it, try to remove the file %5basketui.rc</p>"
 msgstr ""
 
-#: src/bnpview.cpp:1752
+#: src/bnpview.cpp:1751
 #, fuzzy, kde-format
 msgid "Resource not Found"
 msgstr "ressurse"
 
-#: src/bnpview.cpp:1781
+#: src/bnpview.cpp:1780
 #, fuzzy, kde-format
 msgid "Cannot add note."
 msgstr "Adjunter un note"
 
-#: src/bnpview.cpp:1897
+#: src/bnpview.cpp:1896
 #, kde-format
 msgid ""
 "<qt>Do you really want to remove the basket <b>%1</b> and its contents?</qt>"
 msgstr ""
 
-#: src/bnpview.cpp:1898
+#: src/bnpview.cpp:1897
 #, kde-format
 msgid "Remove Basket"
 msgstr "Remover li corb"
 
-#: src/bnpview.cpp:1899
+#: src/bnpview.cpp:1898
 #, kde-format
 msgid "&Remove Basket"
 msgstr "&Remover li corb"
 
-#: src/bnpview.cpp:1909
+#: src/bnpview.cpp:1908
 #, kde-format
 msgid ""
 "<qt><b>%1</b> has the following children baskets.<br>Do you want to remove "
 "them too?</qt>"
 msgstr ""
 
-#: src/bnpview.cpp:1911
+#: src/bnpview.cpp:1910
 #, fuzzy, kde-format
 msgid "Remove Children Baskets"
 msgstr "(Corbes)"
 
-#: src/bnpview.cpp:1912
+#: src/bnpview.cpp:1911
 #, fuzzy, kde-format
 msgid "&Remove Children Baskets"
 msgstr "Infantes"
 
-#: src/bnpview.cpp:1982 src/bnpview.cpp:2029
+#: src/bnpview.cpp:1981 src/bnpview.cpp:2028
 #, fuzzy, kde-format
 msgid "Basket Archives"
 msgstr "&Corb"
 
-#: src/bnpview.cpp:1992 src/htmlexporter.cpp:68
+#: src/bnpview.cpp:1991 src/htmlexporter.cpp:68
 #, kde-format
 msgid "The file <b>%1</b> already exists. Do you really want to overwrite it?"
 msgstr ""
 
-#: src/bnpview.cpp:1993 src/htmlexporter.cpp:69
+#: src/bnpview.cpp:1992 src/htmlexporter.cpp:69
 #, fuzzy, kde-format
 msgid "Overwrite File?"
 msgstr "Substituer li file?"
 
-#: src/bnpview.cpp:2403
+#: src/bnpview.cpp:2402
 #, fuzzy, kde-format
 msgid "&Assign new Tag..."
 msgstr "Crear un tag..."
 
-#: src/bnpview.cpp:2408
+#: src/bnpview.cpp:2407
 #, kde-format
 msgid "&Remove All"
 msgstr "&Remover omni"
@@ -2714,7 +2714,7 @@ msgstr "Defar"
 msgid "Redo"
 msgstr "Refar"
 
-#: src/notefactory.cpp:492
+#: src/notefactory.cpp:422
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2723,42 +2723,42 @@ msgid ""
 "developer.</p>"
 msgstr ""
 
-#: src/notefactory.cpp:498
+#: src/notefactory.cpp:428
 #, fuzzy, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "Ne es un MIME-tip de novelle dessinat: %s"
 
-#: src/notefactory.cpp:554
+#: src/notefactory.cpp:484
 #, fuzzy, kde-format
 msgid "&Move Here\tShift"
 msgstr "Mover ad ci"
 
-#: src/notefactory.cpp:555
+#: src/notefactory.cpp:485
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "&Copiar ad ci\tCtrl"
 
-#: src/notefactory.cpp:556
+#: src/notefactory.cpp:486
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "&Ligar ad ci\tCtrl+Shift"
 
-#: src/notefactory.cpp:562
+#: src/notefactory.cpp:492
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "&Anullar\tEsc"
 
-#: src/notefactory.cpp:1053
+#: src/notefactory.cpp:987
 #, fuzzy, kde-format
 msgid "Import Icon as Image"
 msgstr "Importar un icone"
 
-#: src/notefactory.cpp:1054
+#: src/notefactory.cpp:988
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr ""
 
-#: src/notefactory.cpp:1070
+#: src/notefactory.cpp:1004
 #, fuzzy, kde-format
 msgid "Load File Content into a Note"
 msgstr "Ne posset salvar li nota in file."
@@ -3772,7 +3772,7 @@ msgstr "Medie:"
 msgid "&Emblem:"
 msgstr "&Emblema:"
 
-#: src/tools.cpp:775
+#: src/tools.cpp:776
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
