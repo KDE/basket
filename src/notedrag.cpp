@@ -19,6 +19,7 @@
 #include <QTextStream>
 
 #include <KIO/CopyJob>
+#include <KIO/Paste>
 
 #include "basketscene.h"
 #include "global.h"
@@ -229,11 +230,7 @@ void NoteDrag::serializeLinks(NoteSelection *noteList, QMimeData *mimeData, bool
         mimeData->setData(QStringLiteral("text/x-moz-url"), baMozUrl);
 
         if (cutting) {
-            QByteArray arrayCut;
-            arrayCut.resize(2);
-            arrayCut[0] = '1';
-            arrayCut[1] = 0;
-            mimeData->setData(QStringLiteral("application/x-kde-cutselection"), arrayCut);
+            KIO::setClipboardDataCut(mimeData, true);
         }
     }
 }

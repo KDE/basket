@@ -42,6 +42,7 @@
 #include <KUriFilter>
 
 #include <KIO/CopyJob>
+#include <KIO/Paste>
 
 #include "basketlistview.h"
 #include "basketscene.h"
@@ -383,7 +384,7 @@ Note *NoteFactory::dropNote(const QMimeData *source, BasketScene *parent, bool f
     QList<QUrl> urls = source->urls();
     if (!urls.isEmpty()) {
         // If it's a Paste, we should know if files should be copied (copy&paste) or moved (cut&paste):
-        if (!fromDrop && Tools::isAFileCut(source))
+        if (!fromDrop && KIO::isClipboardDataCut(source))
             action = Qt::MoveAction;
         return dropURLs(urls, parent, action, fromDrop);
     }
