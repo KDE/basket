@@ -60,7 +60,6 @@ BASKET_EXPORT QString crossReferenceForHtml(const QStringList &linkParts, HTMLEx
 BASKET_EXPORT QString crossReferenceForConversion(const QStringList &linkParts);
 
 // String Manipulations:
-BASKET_EXPORT QString stripEndWhiteSpaces(const QString &string);
 BASKET_EXPORT QString makeStandardCaption(const QString &userCaption); //!< Replacement for KDialog::makeStandardCaption
 
 // Pixmap Manipulations:

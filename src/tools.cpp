@@ -410,19 +410,6 @@ QString Tools::cssFontDefinition(const QFont &font, bool onlyFontFamily)
     return definition + fontDefinition;
 }
 
-QString Tools::stripEndWhiteSpaces(const QString &string)
-{
-    uint length = string.length();
-    uint i;
-    for (i = length; i > 0; --i)
-        if (!string[i - 1].isSpace())
-            break;
-    if (i == 0)
-        return {};
-    else
-        return string.left(i);
-}
-
 QString Tools::cssColorName(const QString &colorHex)
 {
     static const QMap<QString, QString> cssColors = {{QStringLiteral("#00ffff"), QStringLiteral("aqua")},
