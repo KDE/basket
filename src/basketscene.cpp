@@ -956,7 +956,9 @@ void BasketScene::aboutToBeActivated()
 {
     if (m_finishLoadOnFirstShow) {
         FOR_EACH_NOTE(note)
-        note->finishLazyLoad();
+        {
+            note->finishLazyLoad();
+        }
 
         relayoutNotes(/*animate=*/true);
         setFocusedNote(nullptr); // So that during the focusInEvent that will come shortly, the FIRST note is focused.
@@ -1639,7 +1641,9 @@ void BasketScene::disableNextClick()
 void BasketScene::recomputeAllStyles()
 {
     FOR_EACH_NOTE(note)
-    note->recomputeAllStyles();
+    {
+        note->recomputeAllStyles();
+    }
 }
 
 void BasketScene::removedStates(const QList<State *> &deletedStates)
@@ -1647,8 +1651,10 @@ void BasketScene::removedStates(const QList<State *> &deletedStates)
     bool modifiedBasket = false;
 
     FOR_EACH_NOTE(note)
-    if (note->removedStates(deletedStates))
-        modifiedBasket = true;
+    {
+        if (note->removedStates(deletedStates))
+            modifiedBasket = true;
+    }
 
     if (modifiedBasket)
         save();
@@ -1839,7 +1845,9 @@ void BasketScene::dropEvent(QGraphicsSceneDragDropEvent *event)
         bool animateNewPosition = NoteFactory::movingNotesInTheSameBasket(event->mimeData(), this, event->dropAction());
         if (animateNewPosition) {
             FOR_EACH_NOTE(n)
-            n->setOnTop(false);
+            {
+                n->setOnTop(false);
+            }
 
             for (Note *n = note; n; n = n->next())
                 n->setOnTop(true);
@@ -2525,7 +2533,9 @@ void BasketScene::selectAll()
         }
         // Then, select all:
         FOR_EACH_NOTE(note)
-        note->setSelectedRecursively(true);
+        {
+            note->setSelectedRecursively(true);
+        }
     }
 }
 
@@ -2542,32 +2552,42 @@ void BasketScene::unselectAll()
     } else {
         if (countSelecteds() > 0) // Optimization
             FOR_EACH_NOTE(note)
-        note->setSelectedRecursively(false);
+            {
+                note->setSelectedRecursively(false);
+            }
     }
 }
 
 void BasketScene::invertSelection()
 {
     FOR_EACH_NOTE(note)
-    note->invertSelectionRecursively();
+    {
+        note->invertSelectionRecursively();
+    }
 }
 
 void BasketScene::unselectAllBut(Note *toSelect)
 {
     FOR_EACH_NOTE(note)
-    note->unselectAllBut(toSelect);
+    {
+        note->unselectAllBut(toSelect);
+    }
 }
 
 void BasketScene::invertSelectionOf(Note *toSelect)
 {
     FOR_EACH_NOTE(note)
-    note->invertSelectionOf(toSelect);
+    {
+        note->invertSelectionOf(toSelect);
+    }
 }
 
 void BasketScene::selectNotesIn(const QRectF &rect, bool invertSelection, bool unselectOthers /*= true*/)
 {
     FOR_EACH_NOTE(note)
-    note->selectIn(rect, invertSelection, unselectOthers);
+    {
+        note->selectIn(rect, invertSelection, unselectOthers);
+    }
 }
 
 void BasketScene::doHoverEffects()
@@ -3140,7 +3160,9 @@ void BasketScene::recomputeBlankRects()
     m_blankAreas.append(QRectF(0, 0, sceneRect().width(), sceneRect().height()));
 
     FOR_EACH_NOTE(note)
-    note->recomputeBlankRects(m_blankAreas);
+    {
+        note->recomputeBlankRects(m_blankAreas);
+    }
 
     // See the drawing of blank areas in BasketScene::drawContents()
     if (hasBackgroundImage() && !isTiledBackground())
@@ -3340,8 +3362,10 @@ State *BasketScene::stateForTagFromSelectedNotes(Tag *tag)
     State *state = nullptr;
 
     FOR_EACH_NOTE(note)
-    if (note->stateForTagFromSelectedNotes(tag, &state) && state == nullptr)
-        return nullptr;
+    {
+        if (note->stateForTagFromSelectedNotes(tag, &state) && state == nullptr)
+            return nullptr;
+    }
     return state;
 }
 
@@ -3357,7 +3381,9 @@ void BasketScene::activatedTagShortcut(Tag *tag)
     // Set or unset it:
     if (state) {
         FOR_EACH_NOTE(note)
-        note->addStateToSelectedNotes(state, /*orReplace=*/true);
+        {
+            note->addStateToSelectedNotes(state, /*orReplace=*/true);
+        }
         updateEditorAppearance();
     } else
         removeTagFromSelectedNotes(tag);
@@ -3396,7 +3422,9 @@ void BasketScene::toggledTagInMenu(QAction *act)
             State::List states = dialog.addedStates();
             for (State::List::iterator itState = states.begin(); itState != states.end(); ++itState)
                 FOR_EACH_NOTE(note)
-            note->addStateToSelectedNotes(*itState);
+                {
+                    note->addStateToSelectedNotes(*itState);
+                }
             updateEditorAppearance();
             filterAgain();
             save();
@@ -3431,21 +3459,27 @@ void BasketScene::toggledTagInMenu(QAction *act)
 void BasketScene::addTagToSelectedNotes(Tag *tag)
 {
     FOR_EACH_NOTE(note)
-    note->addTagToSelectedNotes(tag);
+    {
+        note->addTagToSelectedNotes(tag);
+    }
     updateEditorAppearance();
 }
 
 void BasketScene::removeTagFromSelectedNotes(Tag *tag)
 {
     FOR_EACH_NOTE(note)
-    note->removeTagFromSelectedNotes(tag);
+    {
+        note->removeTagFromSelectedNotes(tag);
+    }
     updateEditorAppearance();
 }
 
 void BasketScene::addStateToSelectedNotes(State *state)
 {
     FOR_EACH_NOTE(note)
-    note->addStateToSelectedNotes(state);
+    {
+        note->addStateToSelectedNotes(state);
+    }
     updateEditorAppearance();
 }
 
@@ -3486,22 +3520,28 @@ void BasketScene::editorPropertiesChanged()
 void BasketScene::changeStateOfSelectedNotes(State *state)
 {
     FOR_EACH_NOTE(note)
-    note->changeStateOfSelectedNotes(state);
+    {
+        note->changeStateOfSelectedNotes(state);
+    }
     updateEditorAppearance();
 }
 
 void BasketScene::removeAllTagsFromSelectedNotes()
 {
     FOR_EACH_NOTE(note)
-    note->removeAllTagsFromSelectedNotes();
+    {
+        note->removeAllTagsFromSelectedNotes();
+    }
     updateEditorAppearance();
 }
 
 bool BasketScene::selectedNotesHaveTags()
 {
     FOR_EACH_NOTE(note)
-    if (note->selectedNotesHaveTags())
-        return true;
+    {
+        if (note->selectedNotesHaveTags())
+            return true;
+    }
     return false;
 }
 
@@ -3524,7 +3564,9 @@ QColor BasketScene::textColor() const
 void BasketScene::unbufferizeAll()
 {
     FOR_EACH_NOTE(note)
-    note->unbufferizeAll();
+    {
+        note->unbufferizeAll();
+    }
 }
 
 Note *BasketScene::editedNote()
@@ -3806,7 +3848,9 @@ NoteSelection *BasketScene::selectedNotes()
     NoteSelection selection;
 
     FOR_EACH_NOTE(note)
-    selection.append(note->selectedNotes());
+    {
+        selection.append(note->selectedNotes());
+    }
 
     if (!selection.firstChild)
         return nullptr;
@@ -4278,8 +4322,10 @@ bool BasketScene::convertTexts()
         load();
 
     FOR_EACH_NOTE(note)
-    if (note->convertTexts())
-        convertedNotes = true;
+    {
+        if (note->convertTexts())
+            convertedNotes = true;
+    }
 
     if (convertedNotes)
         save();
@@ -4542,7 +4588,9 @@ QList<State *> BasketScene::usedStates()
 {
     QList<State *> states;
     FOR_EACH_NOTE(note)
-    note->usedStates(states);
+    {
+        note->usedStates(states);
+    }
     return states;
 }
 
@@ -4553,7 +4601,9 @@ void BasketScene::listUsedTags(QList<Tag *> &list)
     }
 
     FOR_EACH_NOTE(child)
-    child->listUsedTags(list);
+    {
+        child->listUsedTags(list);
+    }
 }
 
 /** Unfocus the previously focused note (unless it was null)
