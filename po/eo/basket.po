@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:48+0000\n"
+"POT-Creation-Date: 2026-09-13 00:48+0000\n"
 "PO-Revision-Date: 2024-12-26 21:43+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
@@ -1613,81 +1613,6 @@ msgstr "Eraro dum konservado:"
 msgid "Debug Window"
 msgstr "Sencimiga Fenestro"
 
-#: src/file_metadata.cpp:18
-#, kde-format
-msgid "Bit rate"
-msgstr "Bitrapideco"
-
-#: src/file_metadata.cpp:19
-#, kde-format
-msgid "Channels"
-msgstr "Kanaloj"
-
-#: src/file_metadata.cpp:20
-#, kde-format
-msgid "Duration"
-msgstr "Daŭro"
-
-#: src/file_metadata.cpp:21
-#, kde-format
-msgid "Genre"
-msgstr "Ĝenro"
-
-#: src/file_metadata.cpp:22
-#, kde-format
-msgid "Sample rate"
-msgstr "Ekzempla indico"
-
-#: src/file_metadata.cpp:23
-#, kde-format
-msgid "Track number"
-msgstr "Trako nombro"
-
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
-#, kde-format
-msgid "Comment"
-msgstr "Komento"
-
-#: src/file_metadata.cpp:25
-#, kde-format
-msgid "Artist"
-msgstr "Artisto"
-
-#: src/file_metadata.cpp:26
-#, kde-format
-msgid "Album"
-msgstr "Albumo"
-
-#: src/file_metadata.cpp:27 src/tag.cpp:718
-#, kde-format
-msgid "Title"
-msgstr "Titolo"
-
-#: src/file_metadata.cpp:28
-#, kde-format
-msgid "Word count"
-msgstr "Sumo da vortoj"
-
-#: src/file_metadata.cpp:29
-#, kde-format
-msgid "Line count"
-msgstr "Linia kalkulo"
-
-#: src/file_metadata.cpp:30
-#, kde-format
-msgid "Copyright"
-msgstr "Kopirajto"
-
-#: src/file_metadata.cpp:31
-#, kde-format
-msgid "Date"
-msgstr "Dato"
-
-#: src/file_metadata.cpp:32
-#, kde-format
-msgid "Frame rate"
-msgstr "Framfrekvenco"
-
 #: src/filter.cpp:41
 #, kde-format
 msgid "Reset Filter"
@@ -2071,459 +1996,464 @@ msgid ""
 "group of baskets to export together (to eg. email them to people).</li></ul>"
 msgstr ""
 
-#: src/notecontent.cpp:96
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Group"
 msgstr "Grupo"
 
-#: src/notecontent.cpp:98
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Plain Text"
 msgstr "Klara Teksto"
 
-#: src/notecontent.cpp:100
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "Text"
 msgstr "Teksto"
 
-#: src/notecontent.cpp:102
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Image"
 msgstr "Bildo"
 
-#: src/notecontent.cpp:104
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Animation"
 msgstr "Animacio"
 
-#: src/notecontent.cpp:106
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Sound"
 msgstr "Sono"
 
-#: src/notecontent.cpp:108
+#: src/notecontent.cpp:110
 #, kde-format
 msgid "File"
 msgstr "Dosiero"
 
-#: src/notecontent.cpp:110
+#: src/notecontent.cpp:112
 #, kde-format
 msgid "Link"
 msgstr "Ligo"
 
-#: src/notecontent.cpp:112
+#: src/notecontent.cpp:114
 #, kde-format
 msgid "Cross Reference"
 msgstr "Kruc-referenco"
 
-#: src/notecontent.cpp:114
+#: src/notecontent.cpp:116
 #, kde-format
 msgid "Launcher"
 msgstr "Lanĉilo"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1092
+#: src/notecontent.cpp:118 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "Koloro"
 
-#: src/notecontent.cpp:118 src/notecontent.cpp:120
+#: src/notecontent.cpp:120 src/notecontent.cpp:122
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: src/notecontent.cpp:597
+#: src/notecontent.cpp:599
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Redakti ĉi tiun simplan tekston"
 
-#: src/notecontent.cpp:601
+#: src/notecontent.cpp:603
 #, kde-format
 msgid "Edit this text"
 msgstr "Redakti ĉi tiun tekston"
 
-#: src/notecontent.cpp:605
+#: src/notecontent.cpp:607
 #, kde-format
 msgid "Edit this image"
 msgstr "Redakti ĉi tiun bildon"
 
-#: src/notecontent.cpp:609
+#: src/notecontent.cpp:611
 #, kde-format
 msgid "Edit this animation"
 msgstr "Redakti ĉi tiun animacion"
 
-#: src/notecontent.cpp:613
+#: src/notecontent.cpp:615
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Redakti la dosiernomon de ĉi tiu sono"
 
-#: src/notecontent.cpp:617
+#: src/notecontent.cpp:619
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "Redakti la nomon de ĉi tiu dosiero"
 
-#: src/notecontent.cpp:621
+#: src/notecontent.cpp:623
 #, kde-format
 msgid "Edit this link"
 msgstr "Redakti ĉi tiun ligon"
 
-#: src/notecontent.cpp:625
+#: src/notecontent.cpp:627
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Redakti ĉi tiun krucreferencon"
 
-#: src/notecontent.cpp:629
+#: src/notecontent.cpp:631
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Redakti ĉi tiun lanĉilon"
 
-#: src/notecontent.cpp:633
+#: src/notecontent.cpp:635
 #, kde-format
 msgid "Edit this color"
 msgstr "Redakti ĉi tiun koloron"
 
-#: src/notecontent.cpp:637
+#: src/notecontent.cpp:639
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Redakti ĉi tiun nekonatan objekton"
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Malferma teksto..."
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1003
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Malfermante simplajn tekstojn..."
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1005
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Malfermante simplan tekston per..."
 
-#: src/notecontent.cpp:1005
+#: src/notecontent.cpp:1007
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "Malfermante simplajn tekstojn kun..."
 
-#: src/notecontent.cpp:1007
+#: src/notecontent.cpp:1009
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Malfermi simplan tekston kun:"
 
-#: src/notecontent.cpp:1009
+#: src/notecontent.cpp:1011
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Malfermi simplajn tekstojn kun:"
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Opening text..."
 msgstr "Malferma teksto..."
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1124
 #, kde-format
 msgid "Opening texts..."
 msgstr "Malfermante tekstojn..."
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1126
 #, kde-format
 msgid "Opening text with..."
 msgstr "Malfermante tekston per..."
 
-#: src/notecontent.cpp:1126
+#: src/notecontent.cpp:1128
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Malfermante tekstojn kun..."
 
-#: src/notecontent.cpp:1128
+#: src/notecontent.cpp:1130
 #, kde-format
 msgid "Open text with:"
 msgstr "Malfermi tekston kun:"
 
-#: src/notecontent.cpp:1130
+#: src/notecontent.cpp:1132
 #, kde-format
 msgid "Open texts with:"
 msgstr "Malfermi tekstojn kun:"
 
-#: src/notecontent.cpp:1253 src/notecontent.cpp:1471
+#: src/notecontent.cpp:1255 src/notecontent.cpp:1473
 #, kde-format
 msgid "Size"
 msgstr "Grandeco"
 
-#: src/notecontent.cpp:1253 src/variouswidgets.cpp:216
+#: src/notecontent.cpp:1255 src/variouswidgets.cpp:216
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 je %2 rastrumeroj"
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Opening image..."
 msgstr "Malferma bildo..."
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1264
 #, kde-format
 msgid "Opening images..."
 msgstr "Malfermante bildojn..."
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1266
 #, kde-format
 msgid "Opening image with..."
 msgstr "Malferma bildo kun..."
 
-#: src/notecontent.cpp:1266
+#: src/notecontent.cpp:1268
 #, kde-format
 msgid "Opening images with..."
 msgstr "Malfermante bildojn kun..."
 
-#: src/notecontent.cpp:1268
+#: src/notecontent.cpp:1270
 #, kde-format
 msgid "Open image with:"
 msgstr "Malfermi bildon kun:"
 
-#: src/notecontent.cpp:1270
+#: src/notecontent.cpp:1272
 #, kde-format
 msgid "Open images with:"
 msgstr "Malfermi bildojn kun:"
 
-#: src/notecontent.cpp:1295
+#: src/notecontent.cpp:1297
 #, kde-format
 msgid "Click for full size view"
 msgstr "Klaku por plengranda vido"
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Opening animation..."
 msgstr "Malferma animacio..."
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Opening animations..."
 msgstr "Malferma animacioj..."
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1388
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Malferma animacio kun..."
 
-#: src/notecontent.cpp:1388
+#: src/notecontent.cpp:1390
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Malfermante animaciojn kun..."
 
-#: src/notecontent.cpp:1390
+#: src/notecontent.cpp:1392
 #, kde-format
 msgid "Open animation with:"
 msgstr "Malfermi animacion kun:"
 
-#: src/notecontent.cpp:1392
+#: src/notecontent.cpp:1394
 #, kde-format
 msgid "Open animations with:"
 msgstr "Malfermi animaciojn kun:"
 
-#: src/notecontent.cpp:1476
+#: src/notecontent.cpp:1478
 #, kde-format
 msgid "Type"
 msgstr "Tipo"
 
-#: src/notecontent.cpp:1517
+#: src/notecontent.cpp:1524
 #, kde-format
 msgid "Open this file"
 msgstr "Malfermi ĉi tiun dosieron"
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1543
 #, kde-format
 msgid "Opening file..."
 msgstr "Malfermante dosieron..."
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1545
 #, kde-format
 msgid "Opening files..."
 msgstr "Malfermante dosierojn..."
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1547
 #, kde-format
 msgid "Opening file with..."
 msgstr "Malfermante dosieron kun..."
 
-#: src/notecontent.cpp:1542
+#: src/notecontent.cpp:1549
 #, kde-format
 msgid "Opening files with..."
 msgstr "Malfermante dosierojn kun..."
 
-#: src/notecontent.cpp:1544
+#: src/notecontent.cpp:1551
 #, kde-format
 msgid "Open file with:"
 msgstr "Malfermi dosieron kun:"
 
-#: src/notecontent.cpp:1546
+#: src/notecontent.cpp:1553
 #, kde-format
 msgid "Open files with:"
 msgstr "Malfermi dosierojn kun:"
 
-#: src/notecontent.cpp:1647
+#: src/notecontent.cpp:1654
 #, kde-format
 msgid "Open this sound"
 msgstr "Malfermi ĉi tiun sonon"
 
-#: src/notecontent.cpp:1673
+#: src/notecontent.cpp:1680
 #, kde-format
 msgid "Opening sound..."
 msgstr "Malferma sono..."
 
-#: src/notecontent.cpp:1675
+#: src/notecontent.cpp:1682
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Malfermaj sonoj..."
 
-#: src/notecontent.cpp:1677
+#: src/notecontent.cpp:1684
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Malferma sono kun..."
 
-#: src/notecontent.cpp:1679
+#: src/notecontent.cpp:1686
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Malfermaj sonoj kun..."
 
-#: src/notecontent.cpp:1681
+#: src/notecontent.cpp:1688
 #, kde-format
 msgid "Open sound with:"
 msgstr "Malfermi sonon kun:"
 
-#: src/notecontent.cpp:1683
+#: src/notecontent.cpp:1690
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Malfermi sonojn kun:"
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
+#: src/notecontent.cpp:1753 src/notecontent.cpp:2026
 #, kde-format
 msgid "Target"
 msgstr "Celo"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
+#: src/notecontent.cpp:1775 src/notecontent.cpp:2048
 #, kde-format
 msgid "Open this link"
 msgstr "Malfermi ĉi tiun ligon"
 
-#: src/notecontent.cpp:1794
+#: src/notecontent.cpp:1801
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "Ligo ne havas URL por malfermi."
 
-#: src/notecontent.cpp:1798
+#: src/notecontent.cpp:1805
 #, kde-format
 msgid "Opening link target..."
 msgstr "Malferma celo de ligilo..."
 
-#: src/notecontent.cpp:1800
+#: src/notecontent.cpp:1807
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Malfermante ligajn celojn..."
 
-#: src/notecontent.cpp:1802
+#: src/notecontent.cpp:1809
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Malfermante ligilon kun..."
 
-#: src/notecontent.cpp:1804
+#: src/notecontent.cpp:1811
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Malfermante ligajn celojn kun..."
 
-#: src/notecontent.cpp:1806
+#: src/notecontent.cpp:1813
 #, kde-format
 msgid "Open link target with:"
 msgstr "Malfermi ligilon kun:"
 
-#: src/notecontent.cpp:1808
+#: src/notecontent.cpp:1815
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Malfermi ligajn celojn kun:"
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2061
 #, kde-format
 msgid "Link to %1"
 msgstr "Ligo al %1"
 
-#: src/notecontent.cpp:2067
+#: src/notecontent.cpp:2074
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Ligilo ne havas korbon por malfermi."
 
-#: src/notecontent.cpp:2071
+#: src/notecontent.cpp:2078
 #, kde-format
 msgid "Opening basket..."
 msgstr "Malferma korbo..."
 
-#: src/notecontent.cpp:2176
+#: src/notecontent.cpp:2183
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(kuri en terminalo)</i>"
 
-#: src/notecontent.cpp:2181
+#: src/notecontent.cpp:2186
+#, kde-format
+msgid "Comment"
+msgstr "Komento"
+
+#: src/notecontent.cpp:2188
 #, kde-format
 msgid "Command"
 msgstr "Komando"
 
-#: src/notecontent.cpp:2205
+#: src/notecontent.cpp:2212
 #, kde-format
 msgid "Launch this application"
 msgstr "Lanĉi ĉi tiun aplikaĵon"
 
-#: src/notecontent.cpp:2226
+#: src/notecontent.cpp:2233
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "La lanĉilo ne havas komandon por ruli."
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2237
 #, kde-format
 msgid "Launching application..."
 msgstr "Lanĉante aplikaĵon..."
 
-#: src/notecontent.cpp:2232
+#: src/notecontent.cpp:2239
 #, kde-format
 msgid "Launching applications..."
 msgstr "Lanĉante aplikaĵojn..."
 
-#: src/notecontent.cpp:2352
+#: src/notecontent.cpp:2359
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RVB"
 
-#: src/notecontent.cpp:2353
+#: src/notecontent.cpp:2360
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Ruĝa</i>: %1, <i>Verda</i>: %2, <i>Blua</i>: %3,"
 
-#: src/notecontent.cpp:2357
+#: src/notecontent.cpp:2364
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2358
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Nuanco</i>: %1, <i>Saturiĝo</i>: %2, <i>Valoro</i>: %3,"
 
-#: src/notecontent.cpp:2362
+#: src/notecontent.cpp:2369
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS Kolora Nomo"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "Is Web Color"
 msgstr "Ĉu Reteja Koloro"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "Yes"
 msgstr "Jes"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "No"
 msgstr "Ne"
@@ -2695,7 +2625,7 @@ msgstr "Malfari"
 msgid "Redo"
 msgstr "Refari"
 
-#: src/notefactory.cpp:422
+#: src/notefactory.cpp:423
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2704,42 +2634,42 @@ msgid ""
 "developer.</p>"
 msgstr ""
 
-#: src/notefactory.cpp:428
+#: src/notefactory.cpp:429
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "Nesubtena(j) MIME(j) Tipo(j)"
 
-#: src/notefactory.cpp:484
+#: src/notefactory.cpp:485
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "&Movi Ĉi tien\tShift"
 
-#: src/notefactory.cpp:485
+#: src/notefactory.cpp:486
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "&Kopii ĉi tien\tCtrl"
 
-#: src/notefactory.cpp:486
+#: src/notefactory.cpp:487
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "&Ligi Ĉi tien\tCtrl+Shift"
 
-#: src/notefactory.cpp:492
+#: src/notefactory.cpp:493
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "Nuligi\tEsc&ape"
 
-#: src/notefactory.cpp:987
+#: src/notefactory.cpp:988
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "Importi Piktogramon kiel Bildon"
 
-#: src/notefactory.cpp:988
+#: src/notefactory.cpp:989
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "Elektu la grandecon de la piktogramo por importi kiel bildo:"
 
-#: src/notefactory.cpp:1004
+#: src/notefactory.cpp:1005
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "Ŝargi Dosieran Enhavon en Noton"
@@ -3464,6 +3394,11 @@ msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr "I."
 
+#: src/tag.cpp:718
+#, kde-format
+msgid "Title"
+msgstr "Titolo"
+
 #: src/tag.cpp:719
 #, kde-format
 msgid "Code"
@@ -3750,7 +3685,7 @@ msgstr "Kion ĉi tio signifas?"
 msgid "&Emblem:"
 msgstr "&Emblemo:"
 
-#: src/tools.cpp:776
+#: src/tools.cpp:752
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
@@ -3788,6 +3723,45 @@ msgid ""
 "Resize the window to select the image size\n"
 "and close it or press Escape to accept changes."
 msgstr ""
+
+#~ msgid "Bit rate"
+#~ msgstr "Bitrapideco"
+
+#~ msgid "Channels"
+#~ msgstr "Kanaloj"
+
+#~ msgid "Duration"
+#~ msgstr "Daŭro"
+
+#~ msgid "Genre"
+#~ msgstr "Ĝenro"
+
+#~ msgid "Sample rate"
+#~ msgstr "Ekzempla indico"
+
+#~ msgid "Track number"
+#~ msgstr "Trako nombro"
+
+#~ msgid "Artist"
+#~ msgstr "Artisto"
+
+#~ msgid "Album"
+#~ msgstr "Albumo"
+
+#~ msgid "Word count"
+#~ msgstr "Sumo da vortoj"
+
+#~ msgid "Line count"
+#~ msgstr "Linia kalkulo"
+
+#~ msgid "Copyright"
+#~ msgstr "Kopirajto"
+
+#~ msgid "Date"
+#~ msgstr "Dato"
+
+#~ msgid "Frame rate"
+#~ msgstr "Framfrekvenco"
 
 #~ msgid ""
 #~ "Select a region using the mouse. To take the snapshot, press the Enter "

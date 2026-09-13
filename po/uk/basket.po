@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:48+0000\n"
+"POT-Creation-Date: 2026-09-13 00:48+0000\n"
 "PO-Revision-Date: 2026-08-31 15:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -1757,81 +1757,6 @@ msgstr "Помилка під час спроби зберегти:"
 msgid "Debug Window"
 msgstr "Вікно діагностики"
 
-#: src/file_metadata.cpp:18
-#, kde-format
-msgid "Bit rate"
-msgstr "Бітова швидкість"
-
-#: src/file_metadata.cpp:19
-#, kde-format
-msgid "Channels"
-msgstr "Канали"
-
-#: src/file_metadata.cpp:20
-#, kde-format
-msgid "Duration"
-msgstr "Тривалість"
-
-#: src/file_metadata.cpp:21
-#, kde-format
-msgid "Genre"
-msgstr "Жанр"
-
-#: src/file_metadata.cpp:22
-#, kde-format
-msgid "Sample rate"
-msgstr "Частота дискретизації"
-
-#: src/file_metadata.cpp:23
-#, kde-format
-msgid "Track number"
-msgstr "Номер доріжки"
-
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
-#, kde-format
-msgid "Comment"
-msgstr "Коментар"
-
-#: src/file_metadata.cpp:25
-#, kde-format
-msgid "Artist"
-msgstr "Виконавець"
-
-#: src/file_metadata.cpp:26
-#, kde-format
-msgid "Album"
-msgstr "Альбом"
-
-#: src/file_metadata.cpp:27 src/tag.cpp:718
-#, kde-format
-msgid "Title"
-msgstr "Заголовок"
-
-#: src/file_metadata.cpp:28
-#, kde-format
-msgid "Word count"
-msgstr "Кількість слів"
-
-#: src/file_metadata.cpp:29
-#, kde-format
-msgid "Line count"
-msgstr "Кількість рядків"
-
-#: src/file_metadata.cpp:30
-#, kde-format
-msgid "Copyright"
-msgstr "Авторські права"
-
-#: src/file_metadata.cpp:31
-#, kde-format
-msgid "Date"
-msgstr "Дата"
-
-#: src/file_metadata.cpp:32
-#, kde-format
-msgid "Frame rate"
-msgstr "Частота кадрів"
-
 #: src/filter.cpp:41
 #, kde-format
 msgid "Reset Filter"
@@ -2242,460 +2167,465 @@ msgstr ""
 "сторінкам роботи;</li><li>можна створювати групи кошиків для спільного "
 "експортування (наприклад, для надсилання електронною поштою).</li></ul>"
 
-#: src/notecontent.cpp:96
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Group"
 msgstr "Згрупувати"
 
-#: src/notecontent.cpp:98
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Plain Text"
 msgstr "Звичайний текст"
 
-#: src/notecontent.cpp:100
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "Text"
 msgstr "Текст"
 
-#: src/notecontent.cpp:102
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Image"
 msgstr "Зображення"
 
-#: src/notecontent.cpp:104
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Animation"
 msgstr "Анімація"
 
-#: src/notecontent.cpp:106
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Sound"
 msgstr "Звук"
 
-#: src/notecontent.cpp:108
+#: src/notecontent.cpp:110
 #, kde-format
 msgid "File"
 msgstr "Файл"
 
-#: src/notecontent.cpp:110
+#: src/notecontent.cpp:112
 #, kde-format
 msgid "Link"
 msgstr "Посилання"
 
-#: src/notecontent.cpp:112
+#: src/notecontent.cpp:114
 #, kde-format
 msgid "Cross Reference"
 msgstr "Перехресне посилання"
 
-#: src/notecontent.cpp:114
+#: src/notecontent.cpp:116
 #, kde-format
 msgid "Launcher"
 msgstr "Засіб запуску"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1092
+#: src/notecontent.cpp:118 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "Колір"
 
-#: src/notecontent.cpp:118 src/notecontent.cpp:120
+#: src/notecontent.cpp:120 src/notecontent.cpp:122
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: src/notecontent.cpp:597
+#: src/notecontent.cpp:599
 #, kde-format
 msgid "Edit this plain text"
 msgstr "Редагувати цей звичайний текст"
 
-#: src/notecontent.cpp:601
+#: src/notecontent.cpp:603
 #, kde-format
 msgid "Edit this text"
 msgstr "Редагувати цей текст"
 
-#: src/notecontent.cpp:605
+#: src/notecontent.cpp:607
 #, kde-format
 msgid "Edit this image"
 msgstr "Редагувати це зображення"
 
-#: src/notecontent.cpp:609
+#: src/notecontent.cpp:611
 #, kde-format
 msgid "Edit this animation"
 msgstr "Редагувати цю анімацію"
 
-#: src/notecontent.cpp:613
+#: src/notecontent.cpp:615
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "Редагувати назву файла цього звуку"
 
-#: src/notecontent.cpp:617
+#: src/notecontent.cpp:619
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "Редагувати назву цього файла"
 
-#: src/notecontent.cpp:621
+#: src/notecontent.cpp:623
 #, kde-format
 msgid "Edit this link"
 msgstr "Редагувати це посилання"
 
-#: src/notecontent.cpp:625
+#: src/notecontent.cpp:627
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "Редагувати це перехресне посилання"
 
-#: src/notecontent.cpp:629
+#: src/notecontent.cpp:631
 #, kde-format
 msgid "Edit this launcher"
 msgstr "Редагувати цей засіб запуску"
 
-#: src/notecontent.cpp:633
+#: src/notecontent.cpp:635
 #, kde-format
 msgid "Edit this color"
 msgstr "Змінити цей колір"
 
-#: src/notecontent.cpp:637
+#: src/notecontent.cpp:639
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "Редагувати цей невідомий об'єкт"
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Opening plain text..."
 msgstr "Відкриваємо звичайний текст…"
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1003
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "Відкриватиме звичайні текстові фрагменти…"
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1005
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "Відкриваємо звичайний текст за допомогою сторонньої програмою…"
 
-#: src/notecontent.cpp:1005
+#: src/notecontent.cpp:1007
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr ""
 "Відкриваємо звичайні текстові фрагменти за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1007
+#: src/notecontent.cpp:1009
 #, kde-format
 msgid "Open plain text with:"
 msgstr "Відкрити звичайний текст за допомогою:"
 
-#: src/notecontent.cpp:1009
+#: src/notecontent.cpp:1011
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "Відкрити звичайні текстові фрагменти за допомогою:"
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Opening text..."
 msgstr "Відкриваємо текст…"
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1124
 #, kde-format
 msgid "Opening texts..."
 msgstr "Відкриваємо фрагменти тексту…"
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1126
 #, kde-format
 msgid "Opening text with..."
 msgstr "Відкриваємо текст за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1126
+#: src/notecontent.cpp:1128
 #, kde-format
 msgid "Opening texts with..."
 msgstr "Відкриваємо текстові фрагменти за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1128
+#: src/notecontent.cpp:1130
 #, kde-format
 msgid "Open text with:"
 msgstr "Відкрити текст за допомогою:"
 
-#: src/notecontent.cpp:1130
+#: src/notecontent.cpp:1132
 #, kde-format
 msgid "Open texts with:"
 msgstr "Відкрити текстові фрагменти за допомогою:"
 
-#: src/notecontent.cpp:1253 src/notecontent.cpp:1471
+#: src/notecontent.cpp:1255 src/notecontent.cpp:1473
 #, kde-format
 msgid "Size"
 msgstr "Розмір"
 
-#: src/notecontent.cpp:1253 src/variouswidgets.cpp:216
+#: src/notecontent.cpp:1255 src/variouswidgets.cpp:216
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 на %2 пікселів"
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Opening image..."
 msgstr "Відкриваємо зображення…"
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1264
 #, kde-format
 msgid "Opening images..."
 msgstr "Відкриваємо зображення…"
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1266
 #, kde-format
 msgid "Opening image with..."
 msgstr "Відкриваємо зображення за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1266
+#: src/notecontent.cpp:1268
 #, kde-format
 msgid "Opening images with..."
 msgstr "Відкриваємо зображення за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1268
+#: src/notecontent.cpp:1270
 #, kde-format
 msgid "Open image with:"
 msgstr "Відкрити зображення за допомогою:"
 
-#: src/notecontent.cpp:1270
+#: src/notecontent.cpp:1272
 #, kde-format
 msgid "Open images with:"
 msgstr "Відкрити зображення за допомогою:"
 
-#: src/notecontent.cpp:1295
+#: src/notecontent.cpp:1297
 #, kde-format
 msgid "Click for full size view"
 msgstr "Натисніть, щоб переглянути у повному розмірі"
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Opening animation..."
 msgstr "Відкриваємо анімацію…"
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Opening animations..."
 msgstr "Відкриваємо анімації…"
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1388
 #, kde-format
 msgid "Opening animation with..."
 msgstr "Відкриваємо анімацію за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1388
+#: src/notecontent.cpp:1390
 #, kde-format
 msgid "Opening animations with..."
 msgstr "Відкриваємо анімації за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1390
+#: src/notecontent.cpp:1392
 #, kde-format
 msgid "Open animation with:"
 msgstr "Відкрити анімацію за допомогою:"
 
-#: src/notecontent.cpp:1392
+#: src/notecontent.cpp:1394
 #, kde-format
 msgid "Open animations with:"
 msgstr "Відкрити анімації за допомогою:"
 
-#: src/notecontent.cpp:1476
+#: src/notecontent.cpp:1478
 #, kde-format
 msgid "Type"
 msgstr "Тип"
 
-#: src/notecontent.cpp:1517
+#: src/notecontent.cpp:1524
 #, kde-format
 msgid "Open this file"
 msgstr "Відкрити цей файл"
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1543
 #, kde-format
 msgid "Opening file..."
 msgstr "Відкривається файл…"
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1545
 #, kde-format
 msgid "Opening files..."
 msgstr "Відкриття файлів…"
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1547
 #, kde-format
 msgid "Opening file with..."
 msgstr "Відкриваємо файл за допомогою…"
 
-#: src/notecontent.cpp:1542
+#: src/notecontent.cpp:1549
 #, kde-format
 msgid "Opening files with..."
 msgstr "Відкриваємо файли за допомогою…"
 
-#: src/notecontent.cpp:1544
+#: src/notecontent.cpp:1551
 #, kde-format
 msgid "Open file with:"
 msgstr "Відкрити файл за допомогою:"
 
-#: src/notecontent.cpp:1546
+#: src/notecontent.cpp:1553
 #, kde-format
 msgid "Open files with:"
 msgstr "Відкрити файли за допомогою:"
 
-#: src/notecontent.cpp:1647
+#: src/notecontent.cpp:1654
 #, kde-format
 msgid "Open this sound"
 msgstr "Відкрити цей звуковий файл"
 
-#: src/notecontent.cpp:1673
+#: src/notecontent.cpp:1680
 #, kde-format
 msgid "Opening sound..."
 msgstr "Відкриваємо звуковий файл…"
 
-#: src/notecontent.cpp:1675
+#: src/notecontent.cpp:1682
 #, kde-format
 msgid "Opening sounds..."
 msgstr "Відкриваємо звукові файли…"
 
-#: src/notecontent.cpp:1677
+#: src/notecontent.cpp:1684
 #, kde-format
 msgid "Opening sound with..."
 msgstr "Відкриваємо звукові дані за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1679
+#: src/notecontent.cpp:1686
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "Відкриваємо звукові дані за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1681
+#: src/notecontent.cpp:1688
 #, kde-format
 msgid "Open sound with:"
 msgstr "Відкрити звук за допомогою:"
 
-#: src/notecontent.cpp:1683
+#: src/notecontent.cpp:1690
 #, kde-format
 msgid "Open sounds with:"
 msgstr "Відкрити звуки за допомогою:"
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
+#: src/notecontent.cpp:1753 src/notecontent.cpp:2026
 #, kde-format
 msgid "Target"
 msgstr "Ціль"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
+#: src/notecontent.cpp:1775 src/notecontent.cpp:2048
 #, kde-format
 msgid "Open this link"
 msgstr "Відкрити це посилання"
 
-#: src/notecontent.cpp:1794
+#: src/notecontent.cpp:1801
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "У посиланні не міститься адреси для відкриття."
 
-#: src/notecontent.cpp:1798
+#: src/notecontent.cpp:1805
 #, kde-format
 msgid "Opening link target..."
 msgstr "Відкриваємо призначення посилання…"
 
-#: src/notecontent.cpp:1800
+#: src/notecontent.cpp:1807
 #, kde-format
 msgid "Opening link targets..."
 msgstr "Відкриваємо призначення посилань…"
 
-#: src/notecontent.cpp:1802
+#: src/notecontent.cpp:1809
 #, kde-format
 msgid "Opening link target with..."
 msgstr "Відкриваємо призначення посилання за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1804
+#: src/notecontent.cpp:1811
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "Відкриваємо призначення посилань за допомогою сторонньої програми…"
 
-#: src/notecontent.cpp:1806
+#: src/notecontent.cpp:1813
 #, kde-format
 msgid "Open link target with:"
 msgstr "Відкрити призначення посилання за допомогою:"
 
-#: src/notecontent.cpp:1808
+#: src/notecontent.cpp:1815
 #, kde-format
 msgid "Open link targets with:"
 msgstr "Відкрити призначення посилань за допомогою:"
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2061
 #, kde-format
 msgid "Link to %1"
 msgstr "Створити посилання до %1"
 
-#: src/notecontent.cpp:2067
+#: src/notecontent.cpp:2074
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "Посилання не містить кошика для відкриття."
 
-#: src/notecontent.cpp:2071
+#: src/notecontent.cpp:2078
 #, kde-format
 msgid "Opening basket..."
 msgstr "Відкриваємо кошик…"
 
-#: src/notecontent.cpp:2176
+#: src/notecontent.cpp:2183
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(запустити у терміналі)</i>"
 
-#: src/notecontent.cpp:2181
+#: src/notecontent.cpp:2186
+#, kde-format
+msgid "Comment"
+msgstr "Коментар"
+
+#: src/notecontent.cpp:2188
 #, kde-format
 msgid "Command"
 msgstr "Команда"
 
-#: src/notecontent.cpp:2205
+#: src/notecontent.cpp:2212
 #, kde-format
 msgid "Launch this application"
 msgstr "Запустити цю програму"
 
-#: src/notecontent.cpp:2226
+#: src/notecontent.cpp:2233
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "У засобі запуску немає команди для виконання."
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2237
 #, kde-format
 msgid "Launching application..."
 msgstr "Запускаємо програму…"
 
-#: src/notecontent.cpp:2232
+#: src/notecontent.cpp:2239
 #, kde-format
 msgid "Launching applications..."
 msgstr "Запускаємо програми…"
 
-#: src/notecontent.cpp:2352
+#: src/notecontent.cpp:2359
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2353
+#: src/notecontent.cpp:2360
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>Червоний</i>: %1, <i>Зелений</i>: %2, <i>Синій</i>: %3,"
 
-#: src/notecontent.cpp:2357
+#: src/notecontent.cpp:2364
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2358
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>Відтінок</i>: %1, <i>Насиченість</i>: %2, <i>Значення</i>: %3,"
 
-#: src/notecontent.cpp:2362
+#: src/notecontent.cpp:2369
 #, kde-format
 msgid "CSS Color Name"
 msgstr "Назва кольору CSS"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "Is Web Color"
 msgstr "Є вебкольором"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "Yes"
 msgstr "Так"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "No"
 msgstr "Ні"
@@ -2876,7 +2806,7 @@ msgstr "Скасувати"
 msgid "Redo"
 msgstr "Повторити"
 
-#: src/notefactory.cpp:422
+#: src/notefactory.cpp:423
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2889,42 +2819,42 @@ msgstr ""
 "вікна програми, яка може обробляти ці дані.</p><p>Якщо вам конче потрібна "
 "підтримка цих даних у програмі, будь ласка, зв'яжіться із розробниками.</p>"
 
-#: src/notefactory.cpp:428
+#: src/notefactory.cpp:429
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "Непідтримувані типи MIME"
 
-#: src/notefactory.cpp:484
+#: src/notefactory.cpp:485
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "П&ересунути сюди\tShift"
 
-#: src/notefactory.cpp:485
+#: src/notefactory.cpp:486
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "&Копіювати сюди\tCtrl"
 
-#: src/notefactory.cpp:486
+#: src/notefactory.cpp:487
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "Пос&илання сюди\tCtrl+Shift"
 
-#: src/notefactory.cpp:492
+#: src/notefactory.cpp:493
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "&Скасувати\tEscape"
 
-#: src/notefactory.cpp:987
+#: src/notefactory.cpp:988
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "Імпортування піктограми як зображення"
 
-#: src/notefactory.cpp:988
+#: src/notefactory.cpp:989
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "Виберіть розмір піктограми для імпортування як зображення:"
 
-#: src/notefactory.cpp:1004
+#: src/notefactory.cpp:1005
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "Завантажити вміст файла до нотатки"
@@ -3717,6 +3647,11 @@ msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr "I."
 
+#: src/tag.cpp:718
+#, kde-format
+msgid "Title"
+msgstr "Заголовок"
+
 #: src/tag.cpp:719
 #, kde-format
 msgid "Code"
@@ -4018,7 +3953,7 @@ msgstr "Що це значить?"
 msgid "&Emblem:"
 msgstr "&Емблема:"
 
-#: src/tools.cpp:776
+#: src/tools.cpp:752
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
@@ -4060,6 +3995,45 @@ msgid ""
 msgstr ""
 "Змініть розміри вікна, щоб вибрати розмір зображення,\n"
 "закрийте його або натисніть клавішу Escape, щоб підтвердити зміни."
+
+#~ msgid "Bit rate"
+#~ msgstr "Бітова швидкість"
+
+#~ msgid "Channels"
+#~ msgstr "Канали"
+
+#~ msgid "Duration"
+#~ msgstr "Тривалість"
+
+#~ msgid "Genre"
+#~ msgstr "Жанр"
+
+#~ msgid "Sample rate"
+#~ msgstr "Частота дискретизації"
+
+#~ msgid "Track number"
+#~ msgstr "Номер доріжки"
+
+#~ msgid "Artist"
+#~ msgstr "Виконавець"
+
+#~ msgid "Album"
+#~ msgstr "Альбом"
+
+#~ msgid "Word count"
+#~ msgstr "Кількість слів"
+
+#~ msgid "Line count"
+#~ msgstr "Кількість рядків"
+
+#~ msgid "Copyright"
+#~ msgstr "Авторські права"
+
+#~ msgid "Date"
+#~ msgstr "Дата"
+
+#~ msgid "Frame rate"
+#~ msgstr "Частота кадрів"
 
 #~ msgid ""
 #~ "Select a region using the mouse. To take the snapshot, press the Enter "

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:48+0000\n"
+"POT-Creation-Date: 2026-09-13 00:48+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1625,81 +1625,6 @@ msgstr ""
 msgid "Debug Window"
 msgstr "窗体调整"
 
-#: src/file_metadata.cpp:18
-#, kde-format
-msgid "Bit rate"
-msgstr ""
-
-#: src/file_metadata.cpp:19
-#, kde-format
-msgid "Channels"
-msgstr ""
-
-#: src/file_metadata.cpp:20
-#, kde-format
-msgid "Duration"
-msgstr ""
-
-#: src/file_metadata.cpp:21
-#, kde-format
-msgid "Genre"
-msgstr ""
-
-#: src/file_metadata.cpp:22
-#, kde-format
-msgid "Sample rate"
-msgstr "采样率"
-
-#: src/file_metadata.cpp:23
-#, kde-format
-msgid "Track number"
-msgstr "音轨编号"
-
-#: src/file_metadata.cpp:24 src/notecontent.cpp:2179
-#, kde-format
-msgid "Comment"
-msgstr "备注"
-
-#: src/file_metadata.cpp:25
-#, kde-format
-msgid "Artist"
-msgstr "艺人"
-
-#: src/file_metadata.cpp:26
-#, kde-format
-msgid "Album"
-msgstr "专辑"
-
-#: src/file_metadata.cpp:27 src/tag.cpp:718
-#, kde-format
-msgid "Title"
-msgstr "标题"
-
-#: src/file_metadata.cpp:28
-#, kde-format
-msgid "Word count"
-msgstr "单词计数"
-
-#: src/file_metadata.cpp:29
-#, kde-format
-msgid "Line count"
-msgstr "行数"
-
-#: src/file_metadata.cpp:30
-#, kde-format
-msgid "Copyright"
-msgstr "版权"
-
-#: src/file_metadata.cpp:31
-#, kde-format
-msgid "Date"
-msgstr "日期"
-
-#: src/file_metadata.cpp:32
-#, kde-format
-msgid "Frame rate"
-msgstr "帧率"
-
 #: src/filter.cpp:41
 #, kde-format
 msgid "Reset Filter"
@@ -2081,459 +2006,464 @@ msgid ""
 "group of baskets to export together (to eg. email them to people).</li></ul>"
 msgstr ""
 
-#: src/notecontent.cpp:96
+#: src/notecontent.cpp:98
 #, kde-format
 msgid "Group"
 msgstr "编组"
 
-#: src/notecontent.cpp:98
+#: src/notecontent.cpp:100
 #, kde-format
 msgid "Plain Text"
 msgstr "纯文本"
 
-#: src/notecontent.cpp:100
+#: src/notecontent.cpp:102
 #, kde-format
 msgid "Text"
 msgstr "文本"
 
-#: src/notecontent.cpp:102
+#: src/notecontent.cpp:104
 #, kde-format
 msgid "Image"
 msgstr "图像"
 
-#: src/notecontent.cpp:104
+#: src/notecontent.cpp:106
 #, kde-format
 msgid "Animation"
 msgstr "动画"
 
-#: src/notecontent.cpp:106
+#: src/notecontent.cpp:108
 #, kde-format
 msgid "Sound"
 msgstr "声音"
 
-#: src/notecontent.cpp:108
+#: src/notecontent.cpp:110
 #, kde-format
 msgid "File"
 msgstr "文件"
 
-#: src/notecontent.cpp:110
+#: src/notecontent.cpp:112
 #, kde-format
 msgid "Link"
 msgstr "链接"
 
-#: src/notecontent.cpp:112
+#: src/notecontent.cpp:114
 #, kde-format
 msgid "Cross Reference"
 msgstr "交叉引用"
 
-#: src/notecontent.cpp:114
+#: src/notecontent.cpp:116
 #, kde-format
 msgid "Launcher"
 msgstr "程序启动器"
 
-#: src/notecontent.cpp:116 src/noteedit.cpp:1092
+#: src/notecontent.cpp:118 src/noteedit.cpp:1092
 #, kde-format
 msgid "Color"
 msgstr "颜色"
 
-#: src/notecontent.cpp:118 src/notecontent.cpp:120
+#: src/notecontent.cpp:120 src/notecontent.cpp:122
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: src/notecontent.cpp:597
+#: src/notecontent.cpp:599
 #, kde-format
 msgid "Edit this plain text"
 msgstr "编辑此纯文本"
 
-#: src/notecontent.cpp:601
+#: src/notecontent.cpp:603
 #, kde-format
 msgid "Edit this text"
 msgstr "编辑此文本"
 
-#: src/notecontent.cpp:605
+#: src/notecontent.cpp:607
 #, kde-format
 msgid "Edit this image"
 msgstr "编辑此图像"
 
-#: src/notecontent.cpp:609
+#: src/notecontent.cpp:611
 #, kde-format
 msgid "Edit this animation"
 msgstr "编辑此动画"
 
-#: src/notecontent.cpp:613
+#: src/notecontent.cpp:615
 #, kde-format
 msgid "Edit the file name of this sound"
 msgstr "编辑此声音的文件名"
 
-#: src/notecontent.cpp:617
+#: src/notecontent.cpp:619
 #, kde-format
 msgid "Edit the name of this file"
 msgstr "编辑此文件的文件名"
 
-#: src/notecontent.cpp:621
+#: src/notecontent.cpp:623
 #, kde-format
 msgid "Edit this link"
 msgstr "编辑此链接"
 
-#: src/notecontent.cpp:625
+#: src/notecontent.cpp:627
 #, kde-format
 msgid "Edit this cross reference"
 msgstr "编辑此交叉引用"
 
-#: src/notecontent.cpp:629
+#: src/notecontent.cpp:631
 #, kde-format
 msgid "Edit this launcher"
 msgstr "编辑此程序启动器"
 
-#: src/notecontent.cpp:633
+#: src/notecontent.cpp:635
 #, kde-format
 msgid "Edit this color"
 msgstr "编辑此颜色"
 
-#: src/notecontent.cpp:637
+#: src/notecontent.cpp:639
 #, kde-format
 msgid "Edit this unknown object"
 msgstr "编辑此未知对象"
 
-#: src/notecontent.cpp:999
+#: src/notecontent.cpp:1001
 #, kde-format
 msgid "Opening plain text..."
 msgstr "打开纯文本文件..."
 
-#: src/notecontent.cpp:1001
+#: src/notecontent.cpp:1003
 #, kde-format
 msgid "Opening plain texts..."
 msgstr "打开纯文本文件 (多个)..."
 
-#: src/notecontent.cpp:1003
+#: src/notecontent.cpp:1005
 #, kde-format
 msgid "Opening plain text with..."
 msgstr "打开纯文本文件方式..."
 
-#: src/notecontent.cpp:1005
+#: src/notecontent.cpp:1007
 #, kde-format
 msgid "Opening plain texts with..."
 msgstr "打开纯文本文件方式 (多个)..."
 
-#: src/notecontent.cpp:1007
+#: src/notecontent.cpp:1009
 #, kde-format
 msgid "Open plain text with:"
 msgstr "打开纯文本方式："
 
-#: src/notecontent.cpp:1009
+#: src/notecontent.cpp:1011
 #, kde-format
 msgid "Open plain texts with:"
 msgstr "打开纯文本 (多个) 方式："
 
-#: src/notecontent.cpp:1120
+#: src/notecontent.cpp:1122
 #, kde-format
 msgid "Opening text..."
 msgstr "打开文本..."
 
-#: src/notecontent.cpp:1122
+#: src/notecontent.cpp:1124
 #, kde-format
 msgid "Opening texts..."
 msgstr "打开文本 (多个)..."
 
-#: src/notecontent.cpp:1124
+#: src/notecontent.cpp:1126
 #, kde-format
 msgid "Opening text with..."
 msgstr "打开文本方式..."
 
-#: src/notecontent.cpp:1126
+#: src/notecontent.cpp:1128
 #, kde-format
 msgid "Opening texts with..."
 msgstr "打开文本 (多个) 方式..."
 
-#: src/notecontent.cpp:1128
+#: src/notecontent.cpp:1130
 #, kde-format
 msgid "Open text with:"
 msgstr "打开文本方式："
 
-#: src/notecontent.cpp:1130
+#: src/notecontent.cpp:1132
 #, kde-format
 msgid "Open texts with:"
 msgstr "打开文本 (多个) 方式："
 
-#: src/notecontent.cpp:1253 src/notecontent.cpp:1471
+#: src/notecontent.cpp:1255 src/notecontent.cpp:1473
 #, kde-format
 msgid "Size"
 msgstr "大小"
 
-#: src/notecontent.cpp:1253 src/variouswidgets.cpp:216
+#: src/notecontent.cpp:1255 src/variouswidgets.cpp:216
 #, kde-format
 msgid "%1 by %2 pixels"
 msgstr "%1 x %2 像素"
 
-#: src/notecontent.cpp:1260
+#: src/notecontent.cpp:1262
 #, kde-format
 msgid "Opening image..."
 msgstr "打开图像..."
 
-#: src/notecontent.cpp:1262
+#: src/notecontent.cpp:1264
 #, kde-format
 msgid "Opening images..."
 msgstr "打开图像 (多个)..."
 
-#: src/notecontent.cpp:1264
+#: src/notecontent.cpp:1266
 #, kde-format
 msgid "Opening image with..."
 msgstr "打开图像方式..."
 
-#: src/notecontent.cpp:1266
+#: src/notecontent.cpp:1268
 #, kde-format
 msgid "Opening images with..."
 msgstr "打开图像 (多个) 方式..."
 
-#: src/notecontent.cpp:1268
+#: src/notecontent.cpp:1270
 #, kde-format
 msgid "Open image with:"
 msgstr "打开图像方式："
 
-#: src/notecontent.cpp:1270
+#: src/notecontent.cpp:1272
 #, kde-format
 msgid "Open images with:"
 msgstr "打开图像 (多个) 方式："
 
-#: src/notecontent.cpp:1295
+#: src/notecontent.cpp:1297
 #, kde-format
 msgid "Click for full size view"
 msgstr "点击显示完整视图"
 
-#: src/notecontent.cpp:1382
+#: src/notecontent.cpp:1384
 #, kde-format
 msgid "Opening animation..."
 msgstr "打开动画..."
 
-#: src/notecontent.cpp:1384
+#: src/notecontent.cpp:1386
 #, kde-format
 msgid "Opening animations..."
 msgstr "打开动画 (多个)..."
 
-#: src/notecontent.cpp:1386
+#: src/notecontent.cpp:1388
 #, kde-format
 msgid "Opening animation with..."
 msgstr "打开动画方式..."
 
-#: src/notecontent.cpp:1388
+#: src/notecontent.cpp:1390
 #, kde-format
 msgid "Opening animations with..."
 msgstr "打开动画 (多个) 方式..."
 
-#: src/notecontent.cpp:1390
+#: src/notecontent.cpp:1392
 #, kde-format
 msgid "Open animation with:"
 msgstr "打开动画方式："
 
-#: src/notecontent.cpp:1392
+#: src/notecontent.cpp:1394
 #, kde-format
 msgid "Open animations with:"
 msgstr "打开动画 (多个) 方式："
 
-#: src/notecontent.cpp:1476
+#: src/notecontent.cpp:1478
 #, kde-format
 msgid "Type"
 msgstr "类型"
 
-#: src/notecontent.cpp:1517
+#: src/notecontent.cpp:1524
 #, kde-format
 msgid "Open this file"
 msgstr "打开此文件"
 
-#: src/notecontent.cpp:1536
+#: src/notecontent.cpp:1543
 #, kde-format
 msgid "Opening file..."
 msgstr "打开文件..."
 
-#: src/notecontent.cpp:1538
+#: src/notecontent.cpp:1545
 #, kde-format
 msgid "Opening files..."
 msgstr "打开文件 (多个)..."
 
-#: src/notecontent.cpp:1540
+#: src/notecontent.cpp:1547
 #, kde-format
 msgid "Opening file with..."
 msgstr "打开文件方式..."
 
-#: src/notecontent.cpp:1542
+#: src/notecontent.cpp:1549
 #, kde-format
 msgid "Opening files with..."
 msgstr "打开文件 (多个) 方式..."
 
-#: src/notecontent.cpp:1544
+#: src/notecontent.cpp:1551
 #, kde-format
 msgid "Open file with:"
 msgstr "打开文件方式："
 
-#: src/notecontent.cpp:1546
+#: src/notecontent.cpp:1553
 #, kde-format
 msgid "Open files with:"
 msgstr "打开文件 (多个) 方式："
 
-#: src/notecontent.cpp:1647
+#: src/notecontent.cpp:1654
 #, kde-format
 msgid "Open this sound"
 msgstr "打开此声音"
 
-#: src/notecontent.cpp:1673
+#: src/notecontent.cpp:1680
 #, kde-format
 msgid "Opening sound..."
 msgstr "打开声音..."
 
-#: src/notecontent.cpp:1675
+#: src/notecontent.cpp:1682
 #, kde-format
 msgid "Opening sounds..."
 msgstr "打开声音 (多个)..."
 
-#: src/notecontent.cpp:1677
+#: src/notecontent.cpp:1684
 #, kde-format
 msgid "Opening sound with..."
 msgstr "打开声音方式..."
 
-#: src/notecontent.cpp:1679
+#: src/notecontent.cpp:1686
 #, kde-format
 msgid "Opening sounds with..."
 msgstr "打开声音 (多个) 方式..."
 
-#: src/notecontent.cpp:1681
+#: src/notecontent.cpp:1688
 #, kde-format
 msgid "Open sound with:"
 msgstr "打开声音方式："
 
-#: src/notecontent.cpp:1683
+#: src/notecontent.cpp:1690
 #, kde-format
 msgid "Open sounds with:"
 msgstr "打开声音 (多个) 方式："
 
-#: src/notecontent.cpp:1746 src/notecontent.cpp:2019
+#: src/notecontent.cpp:1753 src/notecontent.cpp:2026
 #, kde-format
 msgid "Target"
 msgstr "目标"
 
-#: src/notecontent.cpp:1768 src/notecontent.cpp:2041
+#: src/notecontent.cpp:1775 src/notecontent.cpp:2048
 #, kde-format
 msgid "Open this link"
 msgstr "打开此链接"
 
-#: src/notecontent.cpp:1794
+#: src/notecontent.cpp:1801
 #, kde-format
 msgid "Link have no URL to open."
 msgstr "链接中没有可以打开的 URL。"
 
-#: src/notecontent.cpp:1798
+#: src/notecontent.cpp:1805
 #, kde-format
 msgid "Opening link target..."
 msgstr "打开链接目标..."
 
-#: src/notecontent.cpp:1800
+#: src/notecontent.cpp:1807
 #, kde-format
 msgid "Opening link targets..."
 msgstr "打开链接目标 (多个)..."
 
-#: src/notecontent.cpp:1802
+#: src/notecontent.cpp:1809
 #, kde-format
 msgid "Opening link target with..."
 msgstr "打开链接目标方式..."
 
-#: src/notecontent.cpp:1804
+#: src/notecontent.cpp:1811
 #, kde-format
 msgid "Opening link targets with..."
 msgstr "打开链接目标 (多个) 方式..."
 
-#: src/notecontent.cpp:1806
+#: src/notecontent.cpp:1813
 #, kde-format
 msgid "Open link target with:"
 msgstr "打开目标链接方式："
 
-#: src/notecontent.cpp:1808
+#: src/notecontent.cpp:1815
 #, kde-format
 msgid "Open link targets with:"
 msgstr "打开目标链接 (多个) 方式："
 
-#: src/notecontent.cpp:2054
+#: src/notecontent.cpp:2061
 #, kde-format
 msgid "Link to %1"
 msgstr ""
 
-#: src/notecontent.cpp:2067
+#: src/notecontent.cpp:2074
 #, kde-format
 msgid "Link has no basket to open."
 msgstr "链接中没有可以打开的记事贴。"
 
-#: src/notecontent.cpp:2071
+#: src/notecontent.cpp:2078
 #, kde-format
 msgid "Opening basket..."
 msgstr "打开笔记篮..."
 
-#: src/notecontent.cpp:2176
+#: src/notecontent.cpp:2183
 #, kde-format
 msgid "%1 <i>(run in terminal)</i>"
 msgstr "%1 <i>(在终端中运行)</i>"
 
-#: src/notecontent.cpp:2181
+#: src/notecontent.cpp:2186
+#, kde-format
+msgid "Comment"
+msgstr "备注"
+
+#: src/notecontent.cpp:2188
 #, kde-format
 msgid "Command"
 msgstr "命令"
 
-#: src/notecontent.cpp:2205
+#: src/notecontent.cpp:2212
 #, kde-format
 msgid "Launch this application"
 msgstr "启动此应用程序"
 
-#: src/notecontent.cpp:2226
+#: src/notecontent.cpp:2233
 #, kde-format
 msgid "The launcher have no command to run."
 msgstr "此程序启动器没有可以运行的命令。"
 
-#: src/notecontent.cpp:2230
+#: src/notecontent.cpp:2237
 #, kde-format
 msgid "Launching application..."
 msgstr "运行应用程序..."
 
-#: src/notecontent.cpp:2232
+#: src/notecontent.cpp:2239
 #, kde-format
 msgid "Launching applications..."
 msgstr "运行应用程序 (多个)..."
 
-#: src/notecontent.cpp:2352
+#: src/notecontent.cpp:2359
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
 msgstr "RGB"
 
-#: src/notecontent.cpp:2353
+#: src/notecontent.cpp:2360
 #, kde-format
 msgid "<i>Red</i>: %1, <i>Green</i>: %2, <i>Blue</i>: %3,"
 msgstr "<i>红</i>：%1，<i>绿</i>：%2，<i>蓝</i>：%3，"
 
-#: src/notecontent.cpp:2357
+#: src/notecontent.cpp:2364
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
 msgstr "HSV"
 
-#: src/notecontent.cpp:2358
+#: src/notecontent.cpp:2365
 #, kde-format
 msgid "<i>Hue</i>: %1, <i>Saturation</i>: %2, <i>Value</i>: %3,"
 msgstr "<i>色相</i>：%1，<i>饱和度</i>：%2，<i>值</i>：%3，"
 
-#: src/notecontent.cpp:2362
+#: src/notecontent.cpp:2369
 #, kde-format
 msgid "CSS Color Name"
 msgstr "CSS 颜色名称"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "Is Web Color"
 msgstr "属于网络标准颜色"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "Yes"
 msgstr "是"
 
-#: src/notecontent.cpp:2365
+#: src/notecontent.cpp:2372
 #, kde-format
 msgid "No"
 msgstr "否"
@@ -2705,7 +2635,7 @@ msgstr "撤销"
 msgid "Redo"
 msgstr "重做"
 
-#: src/notefactory.cpp:422
+#: src/notefactory.cpp:423
 #, kde-format
 msgid ""
 "<p>%1 doesn't support the data you've dropped.<br>It however created a "
@@ -2714,42 +2644,42 @@ msgid ""
 "developer.</p>"
 msgstr ""
 
-#: src/notefactory.cpp:428
+#: src/notefactory.cpp:429
 #, kde-format
 msgid "Unsupported MIME Type(s)"
 msgstr "不支持的 MIME 类型"
 
-#: src/notefactory.cpp:484
+#: src/notefactory.cpp:485
 #, kde-format
 msgid "&Move Here\tShift"
 msgstr "移动到此处 (&M) Shift"
 
-#: src/notefactory.cpp:485
+#: src/notefactory.cpp:486
 #, kde-format
 msgid "&Copy Here\tCtrl"
 msgstr "复制此处 (&C) Ctrl"
 
-#: src/notefactory.cpp:486
+#: src/notefactory.cpp:487
 #, kde-format
 msgid "&Link Here\tCtrl+Shift"
 msgstr "链接此处 (&L) Ctrl+Shift"
 
-#: src/notefactory.cpp:492
+#: src/notefactory.cpp:493
 #, kde-format
 msgid "C&ancel\tEscape"
 msgstr "取消 (&A) Esc"
 
-#: src/notefactory.cpp:987
+#: src/notefactory.cpp:988
 #, kde-format
 msgid "Import Icon as Image"
 msgstr "导入图标为图像"
 
-#: src/notefactory.cpp:988
+#: src/notefactory.cpp:989
 #, kde-format
 msgid "Choose the size of the icon to import as an image:"
 msgstr "选择要导入为图像的图标的大小："
 
-#: src/notefactory.cpp:1004
+#: src/notefactory.cpp:1005
 #, kde-format
 msgid "Load File Content into a Note"
 msgstr "加载文件内容到记事贴"
@@ -3492,6 +3422,11 @@ msgctxt "The initial of 'Idea'"
 msgid "I."
 msgstr ""
 
+#: src/tag.cpp:718
+#, kde-format
+msgid "Title"
+msgstr "标题"
+
 #: src/tag.cpp:719
 #, kde-format
 msgid "Code"
@@ -3778,7 +3713,7 @@ msgstr ""
 msgid "&Emblem:"
 msgstr "标志(&E):"
 
-#: src/tools.cpp:776
+#: src/tools.cpp:752
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
@@ -3818,3 +3753,30 @@ msgid ""
 msgstr ""
 "调整窗口到选择图片大小\n"
 "关闭退出后会自动保存改变."
+
+#~ msgid "Sample rate"
+#~ msgstr "采样率"
+
+#~ msgid "Track number"
+#~ msgstr "音轨编号"
+
+#~ msgid "Artist"
+#~ msgstr "艺人"
+
+#~ msgid "Album"
+#~ msgstr "专辑"
+
+#~ msgid "Word count"
+#~ msgstr "单词计数"
+
+#~ msgid "Line count"
+#~ msgstr "行数"
+
+#~ msgid "Copyright"
+#~ msgstr "版权"
+
+#~ msgid "Date"
+#~ msgstr "日期"
+
+#~ msgid "Frame rate"
+#~ msgstr "帧率"
