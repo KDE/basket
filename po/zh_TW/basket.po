@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:48+0000\n"
+"POT-Creation-Date: 2026-09-14 00:46+0000\n"
 "PO-Revision-Date: 2026-06-11 17:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -703,19 +703,19 @@ msgstr "有些新筆記不符合過濾器而已隱藏。"
 msgid "The new notes do not match the filter and are hidden."
 msgstr "新筆記不符合過濾器而已隱藏。"
 
-#: src/basketscene.cpp:1470
+#: src/basketscene.cpp:1472
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "群組"
 
-#: src/basketscene.cpp:1472
+#: src/basketscene.cpp:1474
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "插入"
 
-#: src/basketscene.cpp:2319
+#: src/basketscene.cpp:2327
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -724,7 +724,7 @@ msgstr ""
 "這個訊息沒有任何情況下應該出現。如果它有出現，那代表這個程式有問題！請將此錯"
 "誤回報給開發者。"
 
-#: src/basketscene.cpp:2758 src/basketscene.cpp:2811 src/basketscene.cpp:2820
+#: src/basketscene.cpp:2778 src/basketscene.cpp:2831 src/basketscene.cpp:2840
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -733,57 +733,57 @@ msgstr ""
 "在此插入筆記\n"
 "右鍵以見更多選項"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2797
 #, kde-format
 msgid "Resize those columns"
 msgstr "調整這些欄位的大小"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2797
 #, kde-format
 msgid "Resize this group"
 msgstr "調整這個群組的大小"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2797
 #, kde-format
 msgid "Resize this note"
 msgstr "調整這個筆記的大小"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2800
 #, kde-format
 msgid "Select or move this note"
 msgstr "選取或移動這個筆記"
 
-#: src/basketscene.cpp:2783
+#: src/basketscene.cpp:2803
 #, kde-format
 msgid "Select or move this group"
 msgstr "選取或移動這個群組"
 
-#: src/basketscene.cpp:2786
+#: src/basketscene.cpp:2806
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "編輯這個筆記的標籤"
 
-#: src/basketscene.cpp:2794
+#: src/basketscene.cpp:2814
 #, kde-format
 msgid "%1, %2"
 msgstr "%1、%2"
 
-#: src/basketscene.cpp:2796
+#: src/basketscene.cpp:2816
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>標籤</b>：%1"
 
-#: src/basketscene.cpp:2803
+#: src/basketscene.cpp:2823
 #, kde-format
 msgid "Expand this group"
 msgstr "展開這個群組"
 
-#: src/basketscene.cpp:2803
+#: src/basketscene.cpp:2823
 #, kde-format
 msgid "Collapse this group"
 msgstr "收起這個群組"
 
-#: src/basketscene.cpp:2814
+#: src/basketscene.cpp:2834
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -792,7 +792,7 @@ msgstr ""
 "將筆記與下方筆記群組化\n"
 "右鍵以見更多選項"
 
-#: src/basketscene.cpp:2817
+#: src/basketscene.cpp:2837
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -801,136 +801,136 @@ msgstr ""
 "將筆記與上方筆記群組化\n"
 "右鍵以見更多選項"
 
-#: src/basketscene.cpp:2835
+#: src/basketscene.cpp:2855
 #, kde-format
 msgid "Added"
 msgstr "加入"
 
-#: src/basketscene.cpp:2835
+#: src/basketscene.cpp:2855
 #, kde-format
 msgid "Last Modification"
 msgstr "上次變更"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2860
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>：%2"
 
-#: src/basketscene.cpp:2844
+#: src/basketscene.cpp:2864
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "點擊右側來群組化而非插入"
 
-#: src/basketscene.cpp:2846
+#: src/basketscene.cpp:2866
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "點擊右側來插入而非群組化"
 
-#: src/basketscene.cpp:3024
+#: src/basketscene.cpp:3044
 #, kde-format
 msgid "&Unlock"
 msgstr "解除鎖定(&U)"
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3049
 #, kde-format
 msgid "Password protected basket."
 msgstr "筆記本已受密碼保護。"
 
-#: src/basketscene.cpp:3031
+#: src/basketscene.cpp:3051
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "按下「解除鎖定」來存取它。"
 
-#: src/basketscene.cpp:3033
+#: src/basketscene.cpp:3053
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "這個版本的 %1<br/>不支援加密。"
 
-#: src/basketscene.cpp:3045
+#: src/basketscene.cpp:3065
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
 "the application settings."
 msgstr "要讓筆記本維持解鎖，請變更應用程式設定中<br>的自動鎖定時間。"
 
-#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1576
+#: src/basketscene.cpp:3092 src/basketstatusbar.cpp:88 src/bnpview.cpp:1576
 #, kde-format
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/basketscene.cpp:3238 src/basketscene.cpp:3280
+#: src/basketscene.cpp:3260 src/basketscene.cpp:3302
 #, kde-format
 msgid "&Remove"
 msgstr "移除(&R)"
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2413
+#: src/basketscene.cpp:3263 src/basketscene.cpp:3306 src/bnpview.cpp:2413
 #, kde-format
 msgid "&Customize..."
 msgstr "自訂(&C)…"
 
-#: src/basketscene.cpp:3247 src/basketscene.cpp:3290
+#: src/basketscene.cpp:3269 src/basketscene.cpp:3312
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "依此標籤過濾(&F)"
 
-#: src/basketscene.cpp:3293
+#: src/basketscene.cpp:3315
 #, kde-format
 msgid "Filter by this &State"
 msgstr "依此狀態過濾(&S)"
 
-#: src/basketscene.cpp:3374
+#: src/basketscene.cpp:3400
 #, kde-format
 msgid "Tags"
 msgstr "標籤"
 
-#: src/basketscene.cpp:3951
+#: src/basketscene.cpp:3995
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>您確定要刪除這 <b>%1</b> 個筆記嗎？</qt>"
 
-#: src/basketscene.cpp:3952
+#: src/basketscene.cpp:3996
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "刪除筆記"
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4095
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "已將筆記複製到剪貼簿。"
 
-#: src/basketscene.cpp:4054
+#: src/basketscene.cpp:4098
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "已將筆記剪下到剪貼簿。"
 
-#: src/basketscene.cpp:4057
+#: src/basketscene.cpp:4101
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "已將筆記複製到選擇區。"
 
-#: src/basketscene.cpp:4121 src/basketscene.cpp:4196
+#: src/basketscene.cpp:4165 src/basketscene.cpp:4240
 #, kde-format
 msgid "Unable to open this note."
 msgstr "無法開啟此筆記。"
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4123 src/basketui.rc:40
+#: src/basketscene.cpp:4167 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "編輯(&E)"
 
-#: src/basketscene.cpp:4159
+#: src/basketscene.cpp:4203
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "您沒有權限開啟此檔案。"
 
-#: src/basketscene.cpp:4217
+#: src/basketscene.cpp:4261
 #, kde-format
 msgid "Save to File"
 msgstr "儲存到檔案"

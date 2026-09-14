@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:48+0000\n"
+"POT-Creation-Date: 2026-09-14 00:46+0000\n"
 "PO-Revision-Date: 2026-06-06 11:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -719,19 +719,19 @@ msgstr "일부 새 메모가 필터와 일치하지 않으며 숨겨졌습니다
 msgid "The new notes do not match the filter and are hidden."
 msgstr "새 메모가 필터와 일치하지 않으며 숨겨졌습니다."
 
-#: src/basketscene.cpp:1470
+#: src/basketscene.cpp:1472
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Group"
 msgstr "그룹"
 
-#: src/basketscene.cpp:1472
+#: src/basketscene.cpp:1474
 #, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "삽입"
 
-#: src/basketscene.cpp:2319
+#: src/basketscene.cpp:2327
 #, kde-format
 msgid ""
 "This message should never appear. If it does, this program is buggy! Please "
@@ -740,7 +740,7 @@ msgstr ""
 "이 메시지가 표시되면 안 됩니다. 만약 이 메시지가 표시되었다면 프로그램에 버그"
 "가 있습니다! 버그를 보고해 주십시오."
 
-#: src/basketscene.cpp:2758 src/basketscene.cpp:2811 src/basketscene.cpp:2820
+#: src/basketscene.cpp:2778 src/basketscene.cpp:2831 src/basketscene.cpp:2840
 #, kde-format
 msgid ""
 "Insert note here\n"
@@ -749,57 +749,57 @@ msgstr ""
 "여기에 메모 삽입\n"
 "더 많은 옵션을 보려면 오른쪽 클릭"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2797
 #, kde-format
 msgid "Resize those columns"
 msgstr "이 열 크기 조정"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2797
 #, kde-format
 msgid "Resize this group"
 msgstr "이 그룹 크기 조정"
 
-#: src/basketscene.cpp:2777
+#: src/basketscene.cpp:2797
 #, kde-format
 msgid "Resize this note"
 msgstr "이 메모 크기 조정"
 
-#: src/basketscene.cpp:2780
+#: src/basketscene.cpp:2800
 #, kde-format
 msgid "Select or move this note"
 msgstr "이 메모 선택 또는 이동"
 
-#: src/basketscene.cpp:2783
+#: src/basketscene.cpp:2803
 #, kde-format
 msgid "Select or move this group"
 msgstr "이 그룹 선택 또는 이동"
 
-#: src/basketscene.cpp:2786
+#: src/basketscene.cpp:2806
 #, kde-format
 msgid "Assign or remove tags from this note"
 msgstr "이 메모에 태그 붙이기 또는 삭제"
 
-#: src/basketscene.cpp:2794
+#: src/basketscene.cpp:2814
 #, kde-format
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: src/basketscene.cpp:2796
+#: src/basketscene.cpp:2816
 #, kde-format
 msgid "<b>Assigned Tags</b>: %1"
 msgstr "<b>붙인 태그</b>: %1"
 
-#: src/basketscene.cpp:2803
+#: src/basketscene.cpp:2823
 #, kde-format
 msgid "Expand this group"
 msgstr "이 그룹 확장"
 
-#: src/basketscene.cpp:2803
+#: src/basketscene.cpp:2823
 #, kde-format
 msgid "Collapse this group"
 msgstr "이 그룹 축소"
 
-#: src/basketscene.cpp:2814
+#: src/basketscene.cpp:2834
 #, kde-format
 msgid ""
 "Group note with the one below\n"
@@ -808,7 +808,7 @@ msgstr ""
 "아래쪽에 있는 메모와 그룹\n"
 "더 많은 옵션을 보려면 오른쪽 클릭"
 
-#: src/basketscene.cpp:2817
+#: src/basketscene.cpp:2837
 #, kde-format
 msgid ""
 "Group note with the one above\n"
@@ -817,53 +817,53 @@ msgstr ""
 "위쪽에 있는 메모와 그룹\n"
 "더 많은 옵션을 보려면 오른쪽 클릭"
 
-#: src/basketscene.cpp:2835
+#: src/basketscene.cpp:2855
 #, kde-format
 msgid "Added"
 msgstr "추가"
 
-#: src/basketscene.cpp:2835
+#: src/basketscene.cpp:2855
 #, kde-format
 msgid "Last Modification"
 msgstr "마지막 수정"
 
-#: src/basketscene.cpp:2840
+#: src/basketscene.cpp:2860
 #, kde-format
 msgctxt "of the form 'key: value'"
 msgid "<b>%1</b>: %2"
 msgstr "<b>%1</b>: %2"
 
-#: src/basketscene.cpp:2844
+#: src/basketscene.cpp:2864
 #, kde-format
 msgid "Click on the right to group instead of insert"
 msgstr "삽입하지 않고 그룹화하려면 오른쪽에 클릭"
 
-#: src/basketscene.cpp:2846
+#: src/basketscene.cpp:2866
 #, kde-format
 msgid "Click on the left to insert instead of group"
 msgstr "그룹화하지 않고 삽입하려면 왼쪽에 클릭"
 
-#: src/basketscene.cpp:3024
+#: src/basketscene.cpp:3044
 #, kde-format
 msgid "&Unlock"
 msgstr "잠금 해제(&U)"
 
-#: src/basketscene.cpp:3029
+#: src/basketscene.cpp:3049
 #, kde-format
 msgid "Password protected basket."
 msgstr "암호로 보호된 바구니입니다."
 
-#: src/basketscene.cpp:3031
+#: src/basketscene.cpp:3051
 #, kde-format
 msgid "Press Unlock to access it."
 msgstr "접근하려면 잠금 해제를 누르십시오."
 
-#: src/basketscene.cpp:3033
+#: src/basketscene.cpp:3053
 #, kde-format
 msgid "Encryption is not supported by<br/>this version of %1."
 msgstr "이 버전 %1에서는<br/>암호화를 지원하지 않습니다."
 
-#: src/basketscene.cpp:3045
+#: src/basketscene.cpp:3065
 #, kde-format
 msgid ""
 "To make baskets stay unlocked, change the automatic<br>locking duration in "
@@ -872,83 +872,83 @@ msgstr ""
 "바구니를 잠금 해제된 상태로 두려면 앱 설정에서<br>자동 잠금 시간을 변경하십시"
 "오."
 
-#: src/basketscene.cpp:3072 src/basketstatusbar.cpp:88 src/bnpview.cpp:1576
+#: src/basketscene.cpp:3092 src/basketstatusbar.cpp:88 src/bnpview.cpp:1576
 #, kde-format
 msgid "Loading..."
 msgstr "불러오는 중..."
 
-#: src/basketscene.cpp:3238 src/basketscene.cpp:3280
+#: src/basketscene.cpp:3260 src/basketscene.cpp:3302
 #, kde-format
 msgid "&Remove"
 msgstr "삭제(&R)"
 
-#: src/basketscene.cpp:3241 src/basketscene.cpp:3284 src/bnpview.cpp:2413
+#: src/basketscene.cpp:3263 src/basketscene.cpp:3306 src/bnpview.cpp:2413
 #, kde-format
 msgid "&Customize..."
 msgstr "사용자 정의(&C)..."
 
-#: src/basketscene.cpp:3247 src/basketscene.cpp:3290
+#: src/basketscene.cpp:3269 src/basketscene.cpp:3312
 #, kde-format
 msgid "&Filter by this Tag"
 msgstr "이 태그로 필터(&F)"
 
-#: src/basketscene.cpp:3293
+#: src/basketscene.cpp:3315
 #, kde-format
 msgid "Filter by this &State"
 msgstr "이 상태로 필터(&S)"
 
-#: src/basketscene.cpp:3374
+#: src/basketscene.cpp:3400
 #, kde-format
 msgid "Tags"
 msgstr "태그"
 
-#: src/basketscene.cpp:3951
+#: src/basketscene.cpp:3995
 #, kde-format
 msgid "<qt>Do you really want to delete this note?</qt>"
 msgid_plural "<qt>Do you really want to delete these <b>%1</b> notes?</qt>"
 msgstr[0] "<qt>이 메모 <b>%1개</b>를 삭제하시겠습니까?</qt>"
 
-#: src/basketscene.cpp:3952
+#: src/basketscene.cpp:3996
 #, kde-format
 msgid "Delete Note"
 msgid_plural "Delete Notes"
 msgstr[0] "메모 삭제"
 
-#: src/basketscene.cpp:4051
+#: src/basketscene.cpp:4095
 #, kde-format
 msgid "Copied note to clipboard."
 msgid_plural "Copied notes to clipboard."
 msgstr[0] "클립보드에 메모를 복사했습니다."
 
-#: src/basketscene.cpp:4054
+#: src/basketscene.cpp:4098
 #, kde-format
 msgid "Cut note to clipboard."
 msgid_plural "Cut notes to clipboard."
 msgstr[0] "클립보드로 메모를 잘라냈습니다."
 
-#: src/basketscene.cpp:4057
+#: src/basketscene.cpp:4101
 #, kde-format
 msgid "Copied note to selection."
 msgid_plural "Copied notes to selection."
 msgstr[0] "선택 저장소로 메모를 복사했습니다."
 
-#: src/basketscene.cpp:4121 src/basketscene.cpp:4196
+#: src/basketscene.cpp:4165 src/basketscene.cpp:4240
 #, kde-format
 msgid "Unable to open this note."
 msgstr "이 메모를 열 수 없습니다."
 
 #. i18n: ectx: Menu (edit)
-#: src/basketscene.cpp:4123 src/basketui.rc:40
+#: src/basketscene.cpp:4167 src/basketui.rc:40
 #, kde-format
 msgid "&Edit"
 msgstr "편집(&E)"
 
-#: src/basketscene.cpp:4159
+#: src/basketscene.cpp:4203
 #, kde-format
 msgid "You are not authorized to open this file."
 msgstr "이 파일을 열 수 있는 권한이 없습니다."
 
-#: src/basketscene.cpp:4217
+#: src/basketscene.cpp:4261
 #, kde-format
 msgid "Save to File"
 msgstr "파일로 저장"
