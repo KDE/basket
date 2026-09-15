@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2020-03-10 15:07+0100\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -2829,8 +2829,7 @@ msgstr "Nebol vybratý žiadny súkromný kľúč."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Ochrana heslom"
@@ -3381,10 +3380,9 @@ msgid "Version Sync"
 msgstr "Version Sync"
 
 #: src/settings_versionsync.cpp:93
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Toto uvoľní %1 MB"
+msgstr "Toto uvoľní %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3915,7 +3913,7 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/variouswidgets.cpp:118
 #, kde-format
