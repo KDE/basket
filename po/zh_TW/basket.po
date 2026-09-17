@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-09-15 15:41+0900\n"
+"PO-Revision-Date: 2026-09-17 01:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -2662,22 +2662,22 @@ msgstr "下標"
 #: src/noteedit.cpp:1132
 #, kde-format
 msgid "Align Left"
-msgstr "向左對齊"
+msgstr "靠左對齊"
 
 #: src/noteedit.cpp:1138
 #, kde-format
 msgid "Centered"
-msgstr "置中"
+msgstr "置中對齊"
 
 #: src/noteedit.cpp:1144
 #, kde-format
 msgid "Align Right"
-msgstr "向右對齊"
+msgstr "靠右對齊"
 
 #: src/noteedit.cpp:1150
 #, kde-format
 msgid "Justified"
-msgstr "兩邊對齊"
+msgstr "兩端對齊"
 
 #: src/noteedit.cpp:1162
 #, kde-format
