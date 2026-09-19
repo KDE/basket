@@ -3891,11 +3891,3 @@ msgid ""
 msgstr ""
 "Endra storleiken på vindauget for å velja biletstorleik, og\n"
 "lukk vindauget eller trykk «Escape» for å bruka endringane."
-
-#, fuzzy
-#~ msgid "Duration"
-#~ msgstr "Animasjon"
-
-#, fuzzy
-#~ msgid "Line count"
-#~ msgstr "Éin kolonne"
