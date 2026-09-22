@@ -1,21 +1,21 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the basket package.
-# SPDX-FileCopyrightText: 2021, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2021, 2023-2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-06-06 11:49+0200\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-kr@kde.org>\n"
+"PO-Revision-Date: 2026-09-21 15:14+0200\n"
+"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
+"Language-Team: Korean\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2779,8 +2779,7 @@ msgstr "선택한 개인 키가 없습니다."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "암호 보호"
@@ -3318,10 +3317,9 @@ msgid "Version Sync"
 msgstr "버전 동기화"
 
 #: src/settings_versionsync.cpp:93
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "%1 MB 공간이 비워집니다"
+msgstr "%1 공간이 비워집니다"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3848,7 +3846,7 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1(%2)"
 
 #: src/variouswidgets.cpp:118
 #, kde-format
