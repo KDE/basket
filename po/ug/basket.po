@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-05-28 17:15-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -157,7 +157,7 @@ msgstr ""
 #: src/aboutdata.cpp:27
 #, kde-format
 msgid "Carl Schwan"
-msgstr "Carl Schwan"
+msgstr ""
 
 #: src/aboutdata.cpp:27 src/aboutdata.cpp:28
 #, kde-format
@@ -167,7 +167,7 @@ msgstr ""
 #: src/aboutdata.cpp:28
 #, kde-format
 msgid "Niccolò Venerandi"
-msgstr "Niccolò Venerandi"
+msgstr ""
 
 #: src/aboutdata.cpp:29
 #, kde-format
@@ -202,7 +202,7 @@ msgstr "ئەسلى يازغۇچى"
 #: src/aboutdata.cpp:32
 #, kde-format
 msgid "Petri Damstén"
-msgstr "Petri Damstén"
+msgstr ""
 
 #: src/aboutdata.cpp:32
 #, kde-format
@@ -212,7 +212,7 @@ msgstr ""
 #: src/aboutdata.cpp:33
 #, kde-format
 msgid "Alex Gontmakher"
-msgstr "Alex Gontmakher"
+msgstr ""
 
 #: src/aboutdata.cpp:34
 #, kde-format
@@ -224,7 +224,7 @@ msgstr ""
 #: src/aboutdata.cpp:36
 #, kde-format
 msgid "Marco Martin"
-msgstr "Marco Martin"
+msgstr ""
 
 #: src/aboutdata.cpp:36
 #, kde-format
@@ -524,7 +524,7 @@ msgstr ""
 #: src/basketlistview.cpp:584
 #, kde-format
 msgid "%1+"
-msgstr "%1+"
+msgstr ""
 
 #: src/basketlistview.cpp:587
 #, kde-format
@@ -2407,7 +2407,7 @@ msgstr ""
 #, kde-format
 msgctxt "RGB Colorspace: Red/Green/Blue"
 msgid "RGB"
-msgstr "RGB"
+msgstr ""
 
 #: src/notecontent.cpp:2360
 #, kde-format
@@ -2418,7 +2418,7 @@ msgstr ""
 #, kde-format
 msgctxt "HSV Colorspace: Hue/Saturation/Value"
 msgid "HSV"
-msgstr "HSV"
+msgstr ""
 
 #: src/notecontent.cpp:2365
 #, kde-format
@@ -3064,12 +3064,12 @@ msgstr ""
 #: src/settings.cpp:953
 #, kde-format
 msgid "Default Applications"
-msgstr ""
+msgstr "كۆڭۈلدىكى پىروگرامما"
 
 #: src/settings.cpp:962
 #, kde-format
 msgid "File Associations"
-msgstr ""
+msgstr "ھۆججەت باغلىنىش"
 
 #: src/settings.cpp:973
 #, kde-format
@@ -3259,7 +3259,7 @@ msgstr "ئەۋەتكۈچى %1"
 #: src/tag.cpp:79
 #, kde-format
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: src/tag.cpp:591
 #, kde-format
