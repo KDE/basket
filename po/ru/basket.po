@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-06-26 20:53+0200\n"
+"PO-Revision-Date: 2026-09-22 21:47+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -2829,29 +2829,28 @@ msgstr "Личный ключ не выбран."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
-msgstr "Защита поролем"
+msgstr "Защита паролем"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passworddialog.ui:29
 #, kde-format
 msgid "&No protection"
-msgstr "Нет защиты поролем"
+msgstr "&Нет защиты паролем"
 
 #. i18n: ectx: property (text), widget (QRadioButton, passwordRadioButton)
 #: src/passworddialog.ui:36
 #, kde-format
 msgid "Protect basket with a &password"
-msgstr "Защитить паролем"
+msgstr "Защитить корзину &паролем"
 
 #. i18n: ectx: property (text), widget (QRadioButton, publicPrivateRadioButton)
 #: src/passworddialog.ui:51
 #, kde-format
 msgid "Protect basket with private &key:"
-msgstr "Защитить личным ключём"
+msgstr "Защитить корзину личным &ключом:"
 
 #: src/settings.cpp:453
 #, kde-format
@@ -3041,7 +3040,7 @@ msgstr "."
 #: src/settings.cpp:610
 #, kde-format
 msgid "Password Protection"
-msgstr "Защита поролем"
+msgstr "Защита паролем"
 
 #: src/settings.cpp:619
 #, kde-format
@@ -3374,10 +3373,9 @@ msgid "Version Sync"
 msgstr "Синхронизация изменений"
 
 #: src/settings_versionsync.cpp:93
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Освободится %1 МБ"
+msgstr "Освободится %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3905,9 +3903,7 @@ msgid " – "
 msgstr " – "
 
 #: src/variouswidgets.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "Tag name (shortcut)"
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
