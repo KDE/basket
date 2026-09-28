@@ -1,7 +1,7 @@
 # Translation for basket.po to Euskara/Basque (eu).
 # Copyright (C) 2022-2026 This file is copyright:
 # This file is distributed under the same license as the basket package.
-# SPDX-FileCopyrightText: 2025-2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2025-2026 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2025, 2026.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-07-14 23:10+0200\n"
+"PO-Revision-Date: 2026-09-26 23:34+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -322,7 +322,7 @@ msgstr "Era&man beste karpeta batera..."
 #: src/backup.cpp:84
 #, kde-format
 msgid "&Use Another Existing Folder..."
-msgstr "Erabili existitzen den beste karpeta bat..."
+msgstr "&Erabili existitzen den beste karpeta bat…"
 
 #: src/backup.cpp:86
 #, kde-format
@@ -488,8 +488,8 @@ msgid ""
 "Choose \"Basket\" -> \"Backup & Restore...\" -> \"Use Another Existing "
 "Folder...\" and select that folder."
 msgstr ""
-"Hautatu \"Saskia\" -> \"Babeskopia egin eta lehengoratzea...\" -> \"Erabili "
-"existitzen den beste karpeta bat...\" eta hautatu karpeta hori."
+"Hautatu \"Saskia\" -> \"Babeskopia egin eta lehengoratzea…\" -> \"Erabili "
+"existitzen den beste karpeta bat…\" eta hautatu karpeta hori."
 
 #: src/backup.cpp:280
 #, kde-format
@@ -2838,11 +2838,10 @@ msgstr "Ez da gako pribaturik hautatu."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
-msgstr "Pasahitz babesa"
+msgstr "Pasahitz-babesa"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noPasswordRadioButton)
 #: src/passworddialog.ui:29
@@ -3396,10 +3395,9 @@ msgid "Version Sync"
 msgstr "Bertsioa sinkronizatzea"
 
 #: src/settings_versionsync.cpp:93
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Honek %1 MB hustuko ditu"
+msgstr "Honek %1 hustuko ditu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3930,7 +3928,7 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/variouswidgets.cpp:118
 #, kde-format
