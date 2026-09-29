@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>Руководство пользователя &basket;</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>7 ноября 2016 г.</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>Бережное хранение идей.</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>KDE</keyword>
+			<keyword
+>BasKet</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>Примечание: руководство ещё не написано</title>
+		<para
+>У &basket; до сих пор нет руководства, поэтому приветствуется помощь участников! Подсказки по формату DocBook можно найти в <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+>документации KDE</ulink
+>.</para>
+			<para
+>Тем временем можно поискать помощь в Интернете. В частности, просмотрите <ulink url="https://basket-notepads.github.io"
+>старый веб-сайт</ulink
+> или полистайте журналы о Linux, если есть к ним доступ, например: <itemizedlist>
+					<listitem
+><para
+><quote
+>Руководство: Basket: записывайте свои мысли.</quote
+> Linux Format 120 (Andy Channelle) </para
+></listitem>
+					<listitem
+><para
+><quote
+>Виртуальная корзина. Хранение, сортировка и систематизация с помощью Basket из KDE</quote
+> Linux Magazine 54 (Stefanie Teufel) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>Введение</title>
+				<para
+>&basket; — в основном универсальное средство для ведения заметок, но особенное:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>Использование BasKet</title>
+				<para
+></para>
+				<sect1>
+					<title
+>Синхронизация изменений</title>
+					<para
+>При включении синхронизация изменений помещает корзины и заметки под управление версиями. Сейчас это экспериментальная функция, реализованы лишь самые основные возможности, поэтому может потребоваться дополнительное программное обеспечение и некоторая ручная настройка. Ниже перечислены некоторые действия, которые можно выполнить с помощью внешних инструментов (но пока не через интерфейс BasKet):</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>Извлеките старые редакции и отмените изменения</para>
+						</listitem>
+						<listitem>
+							<para
+>Синхронизация корзин на нескольких компьютерах (объединение изменений)</para>
+						</listitem>
+						<listitem>
+							<para
+>Отправка резервных копий корзин в удалённый репозиторий</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>Чтобы включить её, выберите <menuchoice
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить альбом заметок BasKet</guimenuitem
+> </menuchoice
+> → <guibutton
+>Синхронизация изменений</guibutton
+> и <guibutton
+>Включить распределённое управление версиями</guibutton
+>. Будет инициализирован репозиторий git в <filename
+>~/.kde/share/apps/basket/baskets</filename
+>, после чего можно использовать стандартные средства git.</para>
+						<sect2>
+							<title
+>Очистка истории изменений</title>
+							<para
+>Очистка истории может быть полезна в следующих случаях:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>если корзина заблокирована и нужно удалить предыдущие незашифрованные версии (которые всё ещё хранятся в системе)</para>
+								</listitem>
+								<listitem>
+									<para
+>нужно освободить место на диске (это может быть актуально, если в Basket вставляется много изображений или других файлов)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>Учтите, что все действия по ручной настройке, выполненные в репозитории git, придётся выполнить заново.</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>Структура файла BasKet</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>Введение</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>Формат файла архива BasKet</title>
+						<para
+>Формат файла BasKet (.baskets) представляет собой структуру, объединяющую сжатый tar-архив и изображение предварительного просмотра. Последняя версия формата архива — 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>Структура файлов</title>
+							<para
+>Файл архива разделён на следующие структуры: заголовок файла, заголовок изображения предварительного просмотра, изображение предварительного просмотра (.png), заголовок архива и tar-архив, распакованный gzip (.tar.gz), содержащий дерево файлов корзин, как показано на следующей схеме</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>Заголовок архивного файла</title>
+							<para
+>Заголовок файла — небольшая структура, состоящая из строк текста, объявления файла и версии формата.</para>
+
+							<para
+>Первые 17 байт содержат строковый литерал <code
+>BasKetNP:archive</code
+>, за которым следует символ перевода строки (0x0A) в кодировке ISO-8859-1.</para>
+							<para
+>Вторая строка — это литеральная строка <code
+>version:0.6.1</code
+>, за которой следует символ перевода строки (0x0A) в кодировке ISO-8859-1.</para>
+							<para
+>Пример:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>Заголовок изображения предварительного просмотра</title>
+							<para
+>Сейчас файл архива корзины содержит файл предварительного просмотра, созданный на основе содержимого первой корзины.</para>
+							<para
+>Непосредственно после заголовка файла идёт строковый литерал <code
+>preview*:&lt;size&gt;</code
+> в кодировке ISO-8859-1, за которым также следует символ перевода строки. Параметр <code
+>&lt;size&gt;</code
+> — строка десятичных чисел. Он задаёт размер изображения предварительного просмотра в байтах. <code
+>&lt;size&gt;</code
+> имеет тип unsigned long.</para>
+							<para
+>Пример:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>Предварительный просмотр файла изображения</title>
+							<para
+>Изображение предварительного просмотра имеет тип .png. Его размер задаётся заголовком изображения предварительного просмотра. Файл изображения предварительного просмотра вставляется как поток файла и непосредственно следует за заголовком изображения предварительного просмотра.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>Заголовок архива содержимого BasKet</title>
+							<para
+>Как и для файла изображения предварительного просмотра, архив содержимого предваряется строкой, указывающей его размер. Эта строка непосредственно следует за потоком файла архива.</para>
+							<para
+>Эта строка должна иметь вид <code
+>archive*:&lt;size&gt;</code
+>, за которым следует символ перевода строки, в кодировке ISO-8869-1. Параметр <code
+>&lt;size&gt;</code
+> — целое число без знака типа unsigned long в строковом представлении.</para>
+							<para
+>Пример:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>Архив содержимого BasKet</title>
+							<para
+>Архив содержимого содержит дерево файлов BasKet, сжатое gzip в tar-архив (.tar.gz). Его размер указан в заголовке содержимого.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>Пример потока байтов</title>
+							<para
+>В следующей таблице показаны ключевые части содержимого файла архива корзины. Левый столбец указывает смещение в потоке файла. Средний столбец содержит поток байтов по текущему смещению в шестнадцатеричном формате. Правый столбец показывает печатаемые символы в потоке файла по текущему смещению.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>Вопросы, ответы и советы</title>
+
+					<qandaset id="faq">
+						<title
+>Часто задаваемые вопросы</title>
+						<qandaentry>
+							<question>
+								<para
+>Вопрос 1</para>
+							</question>
+							<answer>
+								<para
+>Ответ</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->
