@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-01-12 16:22+0200\n"
+"PO-Revision-Date: 2026-09-16 19:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -2809,8 +2809,7 @@ msgstr "Yksityistä avainta ei ole valittu."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
-#, fuzzy, kde-format
-#| msgid "Password Protection"
+#, kde-format
 msgctxt "@title:window"
 msgid "Password Protection"
 msgstr "Salasanasuojaus"
@@ -3256,19 +3255,17 @@ msgstr ""
 #: src/settings.cpp:944
 #, kde-format
 msgid "Launch KDE Menu Editor"
-msgstr ""
+msgstr "Käynnistä KDE:n valikkomuokkain"
 
 #: src/settings.cpp:953
-#, fuzzy, kde-format
-#| msgid "Launch this application"
+#, kde-format
 msgid "Default Applications"
-msgstr "Käynnistä tämä sovellus"
+msgstr "Oletussovellukset"
 
 #: src/settings.cpp:962
-#, fuzzy, kde-format
-#| msgid "Specific Basket Associations"
+#, kde-format
 msgid "File Associations"
-msgstr "Erityiset Basket-kytkökset"
+msgstr "Tiedostokytkökset"
 
 #: src/settings.cpp:973
 #, kde-format
@@ -3360,10 +3357,9 @@ msgid "Version Sync"
 msgstr "Versiosynkronointi"
 
 #: src/settings_versionsync.cpp:93
-#, fuzzy, kde-format
-#| msgid "This will free %1 MB"
+#, kde-format
 msgid "This will free %1"
-msgstr "Tämä vapauttaa %1 Mt"
+msgstr "Tämä vapauttaa %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBoxEnable)
 #: src/settings_versionsync.ui:17
@@ -3900,17 +3896,17 @@ msgstr " – "
 #, kde-format
 msgctxt "'<name> (<generic name>)' of application, e.g. 'KWrite (Text Editor)'"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/variouswidgets.cpp:118
 #, kde-format
 msgid "Choose an Application Launcher ..."
-msgstr ""
+msgstr "Valitse sovelluskäynnistin…"
 
 #: src/variouswidgets.cpp:119
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
-msgstr ""
+msgstr "Avaa Basket-muistiinpanot KDE Plasman sovelluskäynnistimillä"
 
 #: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
