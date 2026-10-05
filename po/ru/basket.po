@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-09-23 08:41+0200\n"
+"PO-Revision-Date: 2026-10-04 10:09+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -1707,7 +1707,7 @@ msgstr "&Удалить все"
 #: src/common.cpp:58
 #, kde-format
 msgid "Please enter the password for the following private key:"
-msgstr "Введите пароль для личного ключа:"
+msgstr "Введите пароль для следующего закрытого ключа:"
 
 #: src/common.cpp:60
 #, kde-format
@@ -1869,7 +1869,7 @@ msgstr "(По умолчанию)"
 #: src/kgpgme.cpp:47
 #, kde-format
 msgid "Private Key List"
-msgstr "Лист личных ключей"
+msgstr "Список закрытых ключей"
 
 #: src/kgpgme.cpp:65
 #, kde-format
@@ -1894,7 +1894,7 @@ msgstr "Лист ключей неожиданно оборвался."
 #: src/kgpgme.cpp:292
 #, kde-format
 msgid "That public key is not meant for encryption"
-msgstr "Этот публичный ключ не может быть использован для шифрации"
+msgstr "Этот открытый ключ не предназначен для шифрования"
 
 #: src/kgpgme.cpp:336
 #, kde-format
@@ -2825,7 +2825,7 @@ msgstr "Загрузка Файл Примечание"
 #: src/passworddialog.cpp:53
 #, kde-format
 msgid "No private key selected."
-msgstr "Личный ключ не выбран."
+msgstr "Закрытый ключ не выбран."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, PasswordDialog)
 #: src/passworddialog.ui:14
