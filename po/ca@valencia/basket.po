@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: basket\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-08-31 09:27+0200\n"
+"PO-Revision-Date: 2026-10-12 18:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -167,7 +167,8 @@ msgstr ""
 msgid ""
 "Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
 msgstr ""
-"Copyright © 2003–2007, Sébastien Laoût; Copyright © 2013–2019, Gleb Baryshev"
+"Drets d'autoria © 2003–2007, Sébastien Laoût; Drets d'autoria © 2013–2019, "
+"Gleb Baryshev"
 
 #: src/aboutdata.cpp:27
 #, kde-format
@@ -3957,8 +3958,8 @@ msgstr "Trieu un iniciador d'aplicacions…"
 #, kde-format
 msgid "Use KDE Plasma Application Launchers to open your Basket Notes"
 msgstr ""
-"Utilitzeu l'iniciadors d'aplicacions de Plasma de KDE per a obrir les notes "
-"de Basket"
+"Utilitzeu els iniciadors d'aplicacions de Plasma de KDE per a obrir les "
+"notes de Basket"
 
 #: src/variouswidgets.cpp:139 src/variouswidgets.cpp:140
 #: src/variouswidgets.cpp:141 src/variouswidgets.cpp:142
@@ -3979,49 +3980,3 @@ msgstr ""
 "Canvieu la mida de la finestra per a seleccionar\n"
 "la mida de la imatge i tanqueu-la o premeu «Escapada»\n"
 "per a acceptar els canvis."
-
-#~ msgid "Bit rate"
-#~ msgstr "Taxa de bits"
-
-#~ msgid "Channels"
-#~ msgstr "Canals"
-
-#~ msgid "Duration"
-#~ msgstr "Duració"
-
-#~ msgid "Genre"
-#~ msgstr "Gènere"
-
-#~ msgid "Sample rate"
-#~ msgstr "Freqüència de mostreig"
-
-#~ msgid "Track number"
-#~ msgstr "Número de la peça"
-
-#~ msgid "Artist"
-#~ msgstr "Artista"
-
-#~ msgid "Album"
-#~ msgstr "Àlbum"
-
-#~ msgid "Word count"
-#~ msgstr "Comptador de paraules"
-
-#~ msgid "Line count"
-#~ msgstr "Comptador de línies"
-
-#~ msgid "Copyright"
-#~ msgstr "Drets d'autoria"
-
-#~ msgid "Date"
-#~ msgstr "Data"
-
-#~ msgid "Frame rate"
-#~ msgstr "Velocitat dels fotogrames"
-
-#~ msgid ""
-#~ "Select a region using the mouse. To take the snapshot, press the Enter "
-#~ "key. Press Esc to quit."
-#~ msgstr ""
-#~ "Trieu una regió amb el ratolí. Per a prendre la captura de pantalla, "
-#~ "premeu la tecla «Retorn». Premeu «Esc» per a eixir."
