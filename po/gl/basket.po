@@ -739,8 +739,7 @@ msgid "Group"
 msgstr "Agrupar"
 
 #: src/basketscene.cpp:1474
-#, fuzzy, kde-format
-#| msgid "Insert"
+#, kde-format
 msgctxt "Verb (for the 'insert' menu)"
 msgid "Insert"
 msgstr "Inserir"
