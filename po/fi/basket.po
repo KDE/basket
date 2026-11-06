@@ -1078,7 +1078,6 @@ msgid ""
 "to open the main window."
 msgstr ""
 "Antaa liittää leikepöydän sisällön nykyiseen koriin pääikkunaa avaamatta."
-"Antaa liittää leikepöydän sisällön nykyiseen koriin pääikkunaa avaamatta."
 
 #: src/bnpview.cpp:224
 #, kde-format
@@ -1091,7 +1090,6 @@ msgid ""
 "Allows you to paste clipboard selection in the current basket without having "
 "to open the main window."
 msgstr ""
-"Antaa liittää leikepöydän valinnan nykyiseen koriin pääikkunaa avaamatta."
 "Antaa liittää leikepöydän valinnan nykyiseen koriin pääikkunaa avaamatta."
 
 #: src/bnpview.cpp:231
@@ -1108,9 +1106,7 @@ msgid ""
 msgstr ""
 "Antaa luoda uuden korin pääikkunaa avaamatta (toisin pikanäppäimin voit "
 "sitten lisätä muistiinpanon, liittää leikepöydän tai valinnan tähän uuteen "
-"koriin).Antaa luoda uuden korin pääikkunaa avaamatta (toisin pikanäppäimin "
-"voit sitten lisätä muistiinpanon, liittää leikepöydän tai valinnan tähän "
-"uuteen koriin)."
+"koriin)."
 
 #: src/bnpview.cpp:238
 #, kde-format
@@ -1194,8 +1190,7 @@ msgid ""
 "without having to open the main window."
 msgstr ""
 "Lisää värimuistiinpano ruudun kuvapisteestä poimitusta väristä nykyiseen "
-"koriin pääikkunaa avaamatta.Lisää värimuistiinpano ruudun kuvapisteestä "
-"poimitusta väristä nykyiseen koriin pääikkunaa avaamatta."
+"koriin pääikkunaa avaamatta."
 
 #: src/bnpview.cpp:282 src/settings.cpp:592
 #, kde-format
@@ -1220,7 +1215,6 @@ msgid ""
 "Add a plain text note to the current basket without having to open the main "
 "window."
 msgstr ""
-"Lisää muotoilematon tekstimuistiinpano nykyiseen koriin pääikkunaa avaamatta."
 "Lisää muotoilematon tekstimuistiinpano nykyiseen koriin pääikkunaa avaamatta."
 
 #: src/bnpview.cpp:301
@@ -1812,9 +1806,7 @@ msgid ""
 "Made with <a href=\"%1\">%2</a> %3, a tool to take notes and keep "
 "information at hand."
 msgstr ""
-"Luonut <a href=\"%1\">%2</a> %3, muistiinpano- ja "
-"tiedonjärjestelytyökaluLuonut <a href=\"%1\">%2</a> %3, muistiinpano- ja "
-"tiedonjärjestelytyökalu"
+"Luonut <a href=\"%1\">%2</a> %3, muistiinpano- ja tiedonjärjestelytyökalu"
 
 #: src/kcolorcombo2.cpp:111 src/kcolorcombo2.cpp:615 src/tagsedit.cpp:357
 #: src/variouswidgets.cpp:394
@@ -2914,8 +2906,7 @@ msgid ""
 "editor."
 msgstr ""
 "Tätä käytetään kopioitaessa ja liitettäessä tai vedettäessä ja pudotettaessa "
-"muistiinpanoja muokkaimeen.Tätä käytetään kopioitaessa ja liitettäessä tai "
-"vedettäessä ja pudotettaessa muistiinpanoja muokkaimeen."
+"muistiinpanoja muokkaimeen."
 
 #: src/settings.cpp:550
 #, kde-format
@@ -3666,8 +3657,6 @@ msgid ""
 msgstr ""
 "Kopioidessasi ja liittäessäsi tai vetäessäsi ja pudottaessasi muistiinpanoja "
 "tekstimuokkaimeen tämä teksti lisätään luokituksen tekstivastineeksi."
-"Kopioidessasi ja liittäessäsi tai vetäessäsi ja pudottaessasi muistiinpanoja "
-"tekstimuokkaimeen tämä teksti lisätään luokituksen tekstivastineeksi."
 
 #: src/tagsedit.cpp:381
 #, kde-format
@@ -3676,9 +3665,7 @@ msgid ""
 "on the first line or on every line of the note."
 msgstr ""
 "Kun muistiinpano on useampirivinen, voit valita vietkö luokituksen tai tilan "
-"muistiinpanon ensi rivillä vai joka rivillä.Kun muistiinpano on "
-"useampirivinen, voit valita vietkö luokituksen tai tilan muistiinpanon ensi "
-"rivillä vai joka rivillä."
+"muistiinpanon ensi rivillä vai joka rivillä."
 
 #: src/tagsedit.cpp:383
 #, kde-format
@@ -3686,8 +3673,6 @@ msgid ""
 "In the example above, the tag of the top note is only exported on the first "
 "line, while the tag of the bottom note is exported on every line of the note."
 msgstr ""
-"Yllä olevassa esimerkissä ylimmän muistiinpanon luokitus viedään vain "
-"ensirivillä, kun taas alimman muistiinpanon luokitus sen jokaisella rivillä."
 "Yllä olevassa esimerkissä ylimmän muistiinpanon luokitus viedään vain "
 "ensirivillä, kun taas alimman muistiinpanon luokitus sen jokaisella rivillä."
 
