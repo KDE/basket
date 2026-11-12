@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-10-04 10:09+0200\n"
-"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
+"PO-Revision-Date: 2026-11-11 20:47+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -3502,27 +3502,27 @@ msgstr "Выполнение"
 #: src/tag.cpp:592
 #, kde-format
 msgid "0 %"
-msgstr "0 %"
+msgstr "0 %"
 
 #: src/tag.cpp:592
 #, kde-format
 msgid "25 %"
-msgstr "25 %"
+msgstr "25 %"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "50 %"
-msgstr "50 %"
+msgstr "50 %"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "75 %"
-msgstr "75 %"
+msgstr "75 %"
 
 #: src/tag.cpp:593
 #, kde-format
 msgid "100 %"
-msgstr "100 %"
+msgstr "100 %"
 
 #: src/tag.cpp:646
 #, kde-format
