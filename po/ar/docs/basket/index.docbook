@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY basket "<application
+>BasKet</application
+>">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<book id='basket' lang="&language;">
+
+	<bookinfo>
+		<title
+>دليل سلة</title>
+		<authorgroup>
+			<author
+><personname
+> <firstname
+>Gleb</firstname
+> <surname
+>Baryshev</surname
+> </personname
+> <email
+>gleb.baryshev@gmail.com</email
+> </author>
+		</authorgroup>
+		<date
+>2016-11-07</date>
+		<releaseinfo
+>2.11</releaseinfo>
+
+		<abstract>
+			<para
+>يعتني بأفكارك</para>
+		</abstract>
+		<keywordset>
+			<keyword
+>كيدي</keyword>
+			<keyword
+>سلة</keyword>
+				<!--keyword
+>note pad</keyword-->
+		</keywordset>
+	</bookinfo>
+
+	<chapter id="notice">
+		<title
+>ملاحظة: دليل المستخدم لم يُكتب بعد</title>
+		<para
+>لا يزال سلة بدون دليل مستخدم، لذا نرحب بالمساهمين! اطّلع على <ulink url="https://l10n.kde.org/docs/doc-primer/index.html"
+>توثيق كيدي</ulink
+> للحصول على تلميحات حول تنسيق DocBook.</para>
+			<para
+>في هذه الأثناء، يمكنك البحث عن المساعدة على الإنترنت. على وجه الخصوص، تصفّح <ulink url="https://basket-notepads.github.io"
+>الموقع القديم</ulink
+> أو راجع مجلات لينكس إذا كان بإمكانك الوصول إليها، على سبيل المثال: <itemizedlist>
+					<listitem
+><para
+><quote
+>درس تعليمي: Basket: التقط أفكارك.</quote
+> لينكس فورمات 120 (آندي شانيل) </para
+></listitem>
+					<listitem
+><para
+><quote
+>سلة افتراضية. تخزين وفرز وترتيب الملفات باستخدام Basket من كيدي</quote
+> مجلة لينكس 54 (شتيفاني تويفل) </para
+></listitem>
+					</itemizedlist>
+				</para>
+			</chapter>
+
+			<chapter id="introduction">
+				<title
+>مقدمة</title>
+				<para
+>سلة هو بشكل أساسي مدوّن ملاحظات متعدد الأغراض، لكنه مميز:</para>
+			</chapter>
+
+			<chapter id="using-BasKet">
+				<title
+>استخدام سلة</title>
+				<para
+></para>
+				<sect1>
+					<title
+>مزامنة الإصدارات</title>
+					<para
+>عند تفعيلها، تضع مزامنة الإصدارات سلاتك وملاحظاتك تحت التحكم بالإصدارات. حاليًا هذه ميزة تجريبية ولا تُنفّذ سوى وظائف أساسية جدًا، لذا قد تتطلب برمجيات إضافية وإعدادًا يدويًا. هذه بعض الأشياء التي يمكن فعلها باستخدام أدوات خارجية (ولكن ليس واجهة Basket بعد):</para>
+					<itemizedlist>
+						<listitem>
+							<para
+>سحب المراجعات القديمة والتراجع عن التغييرات</para>
+						</listitem>
+						<listitem>
+							<para
+>مزامنة السلات على عدة حواسيب (دمج التغييرات)</para>
+						</listitem>
+						<listitem>
+							<para
+>دفع نسخة احتياطية من السلات إلى مستودع بعيد</para>
+						</listitem>
+					</itemizedlist>
+					<para
+>لتفعيلها، اختر <menuchoice
+> <guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اضبط BasKet Note Pads</guimenuitem
+> </menuchoice
+> ← <guibutton
+>مزامنة الإصدارات</guibutton
+> و<guibutton
+>فعّل التحكم الموزع بالإصدارات</guibutton
+>. سيبادر ذلك مستودع git في <filename
+>~/.kde/share/apps/basket/baskets</filename
+>، حيث يمكن استخدام أدوات git القياسية.</para>
+						<sect2>
+							<title
+>مسح تاريخ الإصدارات</title>
+							<para
+>يمكن أن يكون مسح التاريخ مفيدًا في هذه الحالات:</para>
+							<itemizedlist>
+								<listitem>
+									<para
+>أقفلت سلة وتريد إزالة أي إصدارات سابقة غير مشفرة (والتي لا تزال مخزنة في النظام)</para>
+								</listitem>
+								<listitem>
+									<para
+>تريد تحرير بعض مساحة القرص (يمكن أن يكون ذلك موضوعيًا إذا أدرجت الكثير من الصور أو الملفات الأخرى في Basket)</para>
+								</listitem>
+							</itemizedlist>
+							<para
+>لاحظ أنه سيتعين عليك إعادة أي إعداد يدوي قمت به على مستودع git.</para>
+						</sect2>
+					</sect1>
+				</chapter>
+
+				<chapter id="basket-file-structure">
+					<title
+>هيكل ملفات سلة</title>
+
+					<sect1 id="basket-file-structure-intro">
+						<title
+>مقدمة</title>
+						<para
+></para
+>	
+					</sect1>
+
+					<sect1 id="basket-archive-file-format">
+						<title
+>تنسيق ملف أرشيف سلة</title>
+						<para
+>تنسيق ملف سلة (.baskets) هو هيكل يلف أرشيفًا مضغوطًا وصورة معاينة. أحدث إصدار لتنسيق الأرشيف هو 0.6.1.</para>
+
+						<sect2 id="basket-archive-file-structure">
+							<title
+>هيكل الملف</title>
+							<para
+>ينقسم ملف الأرشيف إلى الهياكل: ترويسة الملف، ترويسة صورة المعاينة، صورة معاينة (.png)، ترويسة الأرشيف، وأرشيف tar مضغوط (.tar.gz) يحتوي على شجرة ملفات السلات كما هو موضح في المخطط التالي</para>
+							<mediaobject  id="basket-archive-file-structure-graph">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-structure.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+
+						<sect2 id="archive-file-header">
+							<title
+>ترويسة ملف الأرشيف</title>
+							<para
+>ترويسة الملف هي هيكل قصير، يتكون من أسطر من السلاسل النصية، ومُعرِّف الملف، وإصدار التنسيق</para>
+
+							<para
+>تحتوي أول 17 بايتًا على السلسلة النصية الحرفية <code
+>BasKetNP:archive</code
+> متبوعة برمز سطر جديد (0x0A) بترميز ISO-8859-1.</para>
+							<para
+>السلسلة النصية الثانية هي السلسلة الحرفية <code
+>version:0.6.1</code
+> متبوعة برمز سطر جديد (0x0A) بترميز ISO-8859-1.</para>
+							<para
+>مثال:</para>
+							<programlisting
+><![CDATA[
+BasKetNP:archive
+version:0.6.1
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview-header">
+							<title
+>ترويسة صورة المعاينة</title>
+							<para
+>حاليًا، يحتوي ملف أرشيف السلة على ملف معاينة مشتق من محتوى السلة الأولى.</para>
+							<para
+>بعد رأس الملف مباشرة، سلسلة حرفية <code
+>preview*:&lt;size&gt;</code
+> بترميز ISO-8859-1، متبوعة برمز تغذية سطر. المَعلم <code
+>&lt;size&gt;</code
+> هو سلسلة أرقام عشرية. يُعلن عن الحجم بالبايت لصورة المعاينة. <code
+>&lt;size&gt;</code
+> من النوع unsigned long.</para>
+							<para
+>مثال:</para>
+							<programlisting
+><![CDATA[
+preview*:12000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="archive-file-preview">
+							<title
+>ملف صورة المعاينة</title>
+							<para
+>صورة المعاينة من نوع .png. يُحدد حجمها برأس صورة المعاينة. يُدرج ملف صورة المعاينة كتيار ملف، ويتبع مباشرة رأس صورة المعاينة.</para>
+						</sect2>
+
+						<sect2 id="content-archive-file-header">
+							<title
+>رأس أرشيف محتوى سلة</title>
+							<para
+>تمامًا كما هو الحال مع ملف صورة المعاينة، يسبق أرشيف المحتوى سلسلة تُحدد حجمه. تتبع تلك السلسلة مباشرة تيار ملف الأرشيف.</para>
+							<para
+>يجب أن تكون تلك السلسلة <code
+>archive*:&lt;size&gt;</code
+> متبوعة برمز تغذية سطر، بترميز ISO-8869-1. المَعلم <code
+>&lt;size&gt;</code
+> هو عدد صحيح unsigned long بصيغة سلسلة.</para>
+							<para
+>مثال:</para>
+							<programlisting
+><![CDATA[
+archive*:1245000
+                                                                        ]]>
+                                                        </programlisting>
+						</sect2>
+
+						<sect2 id="content-archive-file">
+							<title
+>أرشيف محتوى سلة</title>
+							<para
+>يحتوي أرشيف المحتوى على شجرة ملفات سلة مضغوطة في أرشيف tar مضغوط بـ gzip (.tar.gz). يُحدد حجمه برأس المحتوى.</para>
+						</sect2>
+
+						<sect2 id="basket-archive-file-content-example">
+							<title
+>تيار البايت مثال</title>
+							<para
+>يُظهر الجدول التالي الأجزاء الرئيسية من محتوى ملف أرشيف السلة. يُحدد العمود الأيسر الإزاحة في تيار الملف. يُعطي العمود الأوسط تيار البايت عند الإزاحة الحالية بصيغة ست عشرية. يُظهر العمود الأيمن المحارف القابلة للطباعة داخل تيار الملف عند الإزاحة الحالية.</para>
+							<mediaobject  id="file-content-example">
+								<imageobject
+> 
+									<imagedata  format="PNG"  fileref="basket-archive-file-content-example.png"/> </imageobject>
+							</mediaobject>
+						</sect2>
+							
+					</sect1
+><!--archive file format-->
+
+				</chapter
+><!--basket file structure-->
+
+				<chapter id="questions-answers-and-tips">
+					<title
+>أسئلة، إجابات، ونصائح</title>
+
+					<qandaset id="faq">
+						<title
+>الأسئلة المتكررة</title>
+						<qandaentry>
+							<question>
+								<para
+>السؤال 1</para>
+							</question>
+							<answer>
+								<para
+>الإجابة</para>
+							</answer>
+						</qandaentry>
+					</qandaset>
+
+				</chapter>
+			</book>
+			<!--
+				Local Variables:
+				mode: sgml
+				sgml-omittag: nil
+				sgml-shorttag: t
+				sgml-general-insert-case: lower
+				End:
+			-->
