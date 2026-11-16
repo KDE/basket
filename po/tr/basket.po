@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-11-10 21:35+0300\n"
+"PO-Revision-Date: 2026-11-15 19:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2697,12 +2697,12 @@ msgstr "&Tahmin Et"
 #: src/noteedit.cpp:1074
 #, kde-format
 msgid "Font"
-msgstr "Yazıtipi"
+msgstr "Yazı Tipi"
 
 #: src/noteedit.cpp:1082
 #, kde-format
 msgid "Font Size"
-msgstr "Yazıtipi Puntosu"
+msgstr "Yazı Tipi Puntosu"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, bold)
 #: src/noteedit.cpp:1097 src/tagsedit.ui:202
@@ -3817,7 +3817,7 @@ msgstr "Bu ne yapar?"
 #: src/tagsedit.ui:170
 #, kde-format
 msgid "&Font:"
-msgstr "&Yazıtipi:"
+msgstr "&Yazı tipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, fontSizeLabel)
 #: src/tagsedit.ui:180
