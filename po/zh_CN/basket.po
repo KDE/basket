@@ -3753,30 +3753,3 @@ msgid ""
 msgstr ""
 "调整窗口到选择图片大小\n"
 "关闭退出后会自动保存改变."
-
-#~ msgid "Sample rate"
-#~ msgstr "采样率"
-
-#~ msgid "Track number"
-#~ msgstr "音轨编号"
-
-#~ msgid "Artist"
-#~ msgstr "艺人"
-
-#~ msgid "Album"
-#~ msgstr "专辑"
-
-#~ msgid "Word count"
-#~ msgstr "单词计数"
-
-#~ msgid "Line count"
-#~ msgstr "行数"
-
-#~ msgid "Copyright"
-#~ msgstr "版权"
-
-#~ msgid "Date"
-#~ msgstr "日期"
-
-#~ msgid "Frame rate"
-#~ msgstr "帧率"
