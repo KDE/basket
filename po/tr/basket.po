@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-14 00:46+0000\n"
-"PO-Revision-Date: 2026-11-16 19:00+0300\n"
+"PO-Revision-Date: 2026-11-23 17:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1831,7 +1831,7 @@ msgstr ""
 #: src/variouswidgets.cpp:394
 #, kde-format
 msgid "(Default)"
-msgstr "(Öntanımlı)"
+msgstr "(Varsayılan)"
 
 #: src/kcolorcombo2.cpp:123
 #, kde-format
@@ -1851,7 +1851,7 @@ msgstr "R:%1, G:%2, B:%3"
 #, kde-format
 msgctxt "color"
 msgid "(Default)"
-msgstr "(Öntanımlı)"
+msgstr "(Varsayılan)"
 
 #: src/kgpgme.cpp:47
 #, kde-format
@@ -3226,7 +3226,7 @@ msgstr ""
 "ayarlayabilirsiniz. Bu özellik KDE kullanmıyorsanız kullanışlıdır (Örneğin "
 "GNOME veya XFCE kullanıyorsanız).</p><ul><li> KDE Sistem Ayarları’nı açın "
 "(Eğer sisteminizde bağlantı olarak yoksa “systemsettings” komutunu "
-"çalıştırarak açabilirsiniz).</li><li> “Öntanımlı Uygulamalar” sayfasına "
+"çalıştırarak açabilirsiniz).</li><li> “Varsayılan Uygulamalar” sayfasına "
 "gidin.</li><li> “Web Tarayıcısı” bölümünden istediğiniz web tarayıcısını "
 "seçin. </li></ul><p>Burada <i>tümü</i> seçilirse “https://…” ile başlayan "
 "tüm adresler Web tarayıcınızla açılacaktır.</p><p>Daha ayrıntılı bir "
@@ -3252,7 +3252,7 @@ msgstr ""
 "<p>Burada hangi dosya türü için hangi uygulamanın kullanılacağını nasıl "
 "ayarlayacağınız anlatılıyor. Bu aynı zamanda eğer sistematik olarak Web "
 "tarayıcı ile açma seçeneği işaretli ise Web bağlantılarına da uygulanır. "
-"Öntanımlı ayarlar sizin için yeterli olacaktır. Fakat bu ipucu GNOME, XFCE "
+"Varsayılan ayarlar sizin için yeterli olacaktır. Fakat bu ipucu GNOME, XFCE "
 "gibi KDE dışında başka bir masaüstü ortamı kullanıyorsanız sizin için "
 "faydalı olacaktır. </p><p>Bu HTML dosyalarınızı nasıl Web Tarayıcınızla "
 "açacağınızı gösteren bir örnektir. Aşağıdaki aşamaları diğer dosya tipleri "
@@ -3272,7 +3272,7 @@ msgstr "KDE Menü Düzenleyicisi’ni Başlat"
 #: src/settings.cpp:953
 #, kde-format
 msgid "Default Applications"
-msgstr "Öntanımlı Uygulamalar"
+msgstr "Varsayılan Uygulamalar"
 
 #: src/settings.cpp:962
 #, kde-format
